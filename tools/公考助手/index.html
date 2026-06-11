@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鍏€冨姪鎵嬶綔鑷富妯℃嫙缁堢</title>
+    <title>公考助手｜自主模拟终端</title>
     <style>
         :root {
             --bg: #f8fafc;
@@ -21,14 +21,14 @@
             background-color: var(--bg);
             color: var(--ink);
             font-family: var(--font-sans);
-            padding: 160px 2vw 40px; /* 鐣欏嚭椤堕儴绌洪棿 */
+            padding: 160px 2vw 40px; /* 留出顶部空间 */
         }
 
         #progress-bar {
             position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); width: 0%; z-index: 1000; transition: width 1s linear;
         }
 
-        /* === 椤堕儴鎺у埗涓績 === */
+        /* === 顶部控制中心 === */
         header {
             position: fixed; top: 0; left: 0; right: 0;
             background: var(--bg);
@@ -43,7 +43,7 @@
 
         .timer-display { font-family: var(--font-mono); font-size: 2.5rem; font-weight: bold; letter-spacing: -2px; }
 
-        /* 鑷畾涔夋椂闂磋缃尯 */
+        /* 自定义时间设置区 */
         .config-panel {
             background: #f1f5f9;
             padding: 10px 2vw;
@@ -99,13 +99,13 @@
         .btn-cancel { background: transparent; }
         .btn-save:hover { opacity: 0.8; }
         .btn-cancel:hover { background: #f1f5f9; }
-        /* === 涓讳綋鍐呭 === */
+        /* === 主体内容 === */
         main { max-width: 1200px; margin: 0 auto; }
 
         .hero-title {
             font-size: clamp(1.8rem, 4vw, 3.5rem);
             font-weight: 900;
-            text-align: center; /* 灞呬腑鎺掑垪 */
+            text-align: center; /* 居中排列 */
             margin: 40px 0;
             letter-spacing: 2px;
         }
@@ -155,9 +155,9 @@
     <div class="header-main">
         <div class="timer-display" id="timer">00:00:00</div>
         <div class="controls">
-            <button onclick="startTimer()" id="btn-start" style="background:var(--accent); color:white; border:none; padding:8px 20px; font-weight:900;">寮€濮嬭鏃?/button>
-            <button onclick="pauseTimer()">鏆傚仠</button>
-            <button onclick="resetTimer()">閲嶇疆</button>
+            <button onclick="startTimer()" id="btn-start" style="background:var(--accent); color:white; border:none; padding:8px 20px; font-weight:900;">开始计时</button>
+            <button onclick="pauseTimer()">暂停</button>
+            <button onclick="resetTimer()">重置</button>
         </div>
     </div>
     <div class="config-panel">
@@ -169,13 +169,13 @@
 </header>
 
 <main>
-    <div class="hero-title" id="hero-title">鍏ㄧ湡妯℃嫙涓庢晥鑳芥牳绠?/div>
+    <div class="hero-title" id="hero-title">全真模拟与效能核算</div>
 
     <div class="grid-container" id="modules-container"></div></div>
 
     <div class="action-footer">
-        <button class="btn-huge" onclick="resetForm()">娓呯┖</button>
-        <button class="btn-huge calc" onclick="calcScore()">鐢熸垚鍒嗘暟鎶ュ憡</button>
+        <button class="btn-huge" onclick="resetForm()">清空</button>
+        <button class="btn-huge calc" onclick="calcScore()">生成分数报告</button>
     </div>
 
     <div id="result-panel">
@@ -200,24 +200,24 @@ function generateId() {
 
 function defaultConfig() {
     return {
-        title: '鍏ㄧ湡妯℃嫙涓庢晥鑳芥牳绠?,
+        title: '全真模拟与效能核算',
         modules: [
-            { id: generateId(), name: '鏀挎不鐞嗚', weight: 0.8, count: 20 },
-            { id: generateId(), name: '甯歌瘑鍒ゆ柇', weight: 0.8, count: 15 },
-            { id: generateId(), name: '瑷€璇悊瑙?, weight: 0.9, count: 30 },
-            { id: generateId(), name: '鏁伴噺鍏崇郴', weight: 0.9, count: 10 },
-            { id: generateId(), name: '鍒ゆ柇鎺ㄧ悊', weight: 0.8, count: 30 },
-            { id: generateId(), name: '璧勬枡鍒嗘瀽', weight: 0.8, count: 15 }
+            { id: generateId(), name: '政治理论', weight: 0.8, count: 20 },
+            { id: generateId(), name: '常识判断', weight: 0.8, count: 15 },
+            { id: generateId(), name: '言语理解', weight: 0.9, count: 30 },
+            { id: generateId(), name: '数量关系', weight: 0.9, count: 10 },
+            { id: generateId(), name: '判断推理', weight: 0.8, count: 30 },
+            { id: generateId(), name: '资料分析', weight: 0.8, count: 15 }
         ]
     };
 }
 
 function defaultReminders() {
     return [
-        { id: 'r' + Date.now(), time: 24, message: '璧勬枡妯″潡瑕佸畬鎴? },
-        { id: 'r' + (Date.now()+1), time: 50, message: '瑷€璇ā鍧楀凡瀹屾垚' },
-        { id: 'r' + (Date.now()+2), time: 85, message: '鍒ゆ柇妯″潡宸插畬鎴? },
-        { id: 'r' + (Date.now()+3), time: 105, message: '鏀挎不鐞嗚鍜屽父璇嗗凡瀹屾垚' }
+        { id: 'r' + Date.now(), time: 24, message: '资料模块要完成' },
+        { id: 'r' + (Date.now()+1), time: 50, message: '言语模块已完成' },
+        { id: 'r' + (Date.now()+2), time: 85, message: '判断模块已完成' },
+        { id: 'r' + (Date.now()+3), time: 105, message: '政治理论和常识已完成' }
     ];
 }
 
@@ -291,10 +291,10 @@ function renderReminders() {
         div.className = 'reminder-item';
         div.innerHTML =
             '<input type="number" class="reminder-time" value="' + r.time + '" min="0" max="999" data-id="' + r.id + '">' +
-            '<span class="reminder-sep">鍒?/span>' +
-            '<input type="text" class="reminder-msg" value="' + r.message.replace(/"/g,'&quot;') + '" placeholder="鎾姤鍐呭..." data-id="' + r.id + '">' +
-            '<button class="test-btn" onclick="testReminder(\' + r.id + \')">璇曞惉</button>' +
-            '<button class="del-btn" onclick="removeReminder(\' + r.id + \')" title="鍒犻櫎">鉁?/button>';
+            '<span class="reminder-sep">分</span>' +
+            '<input type="text" class="reminder-msg" value="' + r.message.replace(/"/g,'&quot;') + '" placeholder="播报内容..." data-id="' + r.id + '">' +
+            '<button class="test-btn" onclick="testReminder(\' + r.id + \')">试听</button>' +
+            '<button class="del-btn" onclick="removeReminder(\' + r.id + \')" title="删除">✕</button>';
         c.appendChild(div);
     });
     c.querySelectorAll('.reminder-time').forEach(function(inp) {
@@ -347,7 +347,7 @@ function renderTime() {
     });
 }
 
-function startTimer() { if(!active){ active=true; timer=setInterval(renderTime, 1000); say('寮€濮嬫ā鎷?); } }
+function startTimer() { if(!active){ active=true; timer=setInterval(renderTime, 1000); say('开始模拟'); } }
 function pauseTimer() { clearInterval(timer); active=false; }
 function resetTimer() { pauseTimer(); sec=0; document.getElementById('timer').innerText='00:00'; }
 
@@ -392,13 +392,13 @@ function renderEditorModules() {
             '<div class="editor-module-name"><input type="text" class="editor-name-input" value="' + m.name.replace(/"/g,'&quot;') + '" data-idx="' + i + '"></div>' +
             '<div class="editor-module-weight"><input type="number" class="editor-weight-input" value="' + m.weight + '" step="0.05" min="0" max="2" data-idx="' + i + '"></div>' +
             '<div class="editor-module-count"><input type="number" class="editor-count-input" value="' + m.count + '" min="1" data-idx="' + i + '"></div>' +
-            '<button class="editor-del-btn" onclick="removeEditorModule(' + i + ')" title="鍒犻櫎">鉁?/button>';
+            '<button class="editor-del-btn" onclick="removeEditorModule(' + i + ')" title="删除">✕</button>';
         list.appendChild(row);
     });
 }
 
 function addEditorModule() {
-    config.modules.push({ id: generateId(), name: '鏂扮鐩?, weight: 0.5, count: 10 });
+    config.modules.push({ id: generateId(), name: '新科目', weight: 0.5, count: 10 });
     renderEditorModules();
 }
 
@@ -409,7 +409,7 @@ function removeEditorModule(idx) {
 
 function saveEditor() {
     var titleInput = document.getElementById('editor-title');
-    if (titleInput) config.title = titleInput.value || '鍏ㄧ湡妯℃嫙';
+    if (titleInput) config.title = titleInput.value || '全真模拟';
     // Read values from editor
     var list = document.getElementById('editor-modules-list');
     if (list) {
@@ -419,7 +419,7 @@ function saveEditor() {
                 var nameInp = rows[i].querySelector('.editor-name-input');
                 var weightInp = rows[i].querySelector('.editor-weight-input');
                 var countInp = rows[i].querySelector('.editor-count-input');
-                if (nameInp) m.name = nameInp.value || '鏂扮鐩?;
+                if (nameInp) m.name = nameInp.value || '新科目';
                 if (weightInp) m.weight = parseFloat(weightInp.value) || 0.5;
                 if (countInp) m.count = parseInt(countInp.value) || 10;
             }
@@ -436,7 +436,7 @@ function setupTitleEdit() {
     var el = document.getElementById('hero-title');
     if (!el) return;
     el.style.cursor = 'text';
-    el.title = '鍙屽嚮缂栬緫鏍囬';
+    el.title = '双击编辑标题';
     el.addEventListener('dblclick', function() {
         var input = document.createElement('input');
         input.type = 'text';
@@ -454,44 +454,44 @@ function setupTitleEdit() {
     });
 }
 function finishEdit(input, el) {
-    var val = input.value.trim() || '鍏ㄧ湡妯℃嫙';
+    var val = input.value.trim() || '全真模拟';
     config.title = val;
     saveConfig();
     el.textContent = val;
     el.style.display = '';
     input.remove();
 }
-
-/* === Init ===
+/* === Init === */
 
 loadConfig();
 loadReminders();
 renderTitle();
 renderModules();
 renderReminders();
+setupTitleEdit();
 </script>
 
 
 <div class="editor-overlay" id="editor-overlay">
     <div class="editor-modal">
         <div class="editor-header">
-            <h3>缂栬緫鑰冭瘯閰嶇疆</h3>
-            <button class="editor-close" onclick="closeEditor()">鉁?/button>
+            <h3>编辑考试配置</h3>
+            <button class="editor-close" onclick="closeEditor()">✕</button>
         </div>
         <div class="editor-body">
             <div class="editor-field">
-                <label>鑰冭瘯鏍囬</label>
+                <label>考试标题</label>
                 <input type="text" id="editor-title" class="editor-title-input">
             </div>
             <div class="editor-modules">
-                <label>绉戠洰妯″潡</label>
+                <label>科目模块</label>
                 <div id="editor-modules-list"></div>
-                <button class="editor-add-btn" onclick="addEditorModule()">+ 娣诲姞绉戠洰</button>
+                <button class="editor-add-btn" onclick="addEditorModule()">+ 添加科目</button>
             </div>
         </div>
         <div class="editor-footer">
-            <button class="btn-save" onclick="saveEditor()">淇濆瓨</button>
-            <button class="btn-cancel" onclick="closeEditor()">鍙栨秷</button>
+            <button class="btn-save" onclick="saveEditor()">保存</button>
+            <button class="btn-cancel" onclick="closeEditor()">取消</button>
         </div>
     </div>
 </div>
@@ -499,3 +499,5 @@ renderReminders();
 <script src="../公考工具箱/assets/js/sync.js"></script>
 </body>
 </html>
+
+
