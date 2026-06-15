@@ -16,6 +16,10 @@
   var timerState = { mode: 'stopwatch', running: false, elapsed: 0, laps: [], startTime: 0, tickId: null };
   var cdState = { name: '', date: '', milestones: [] };
   var links = [];
+  var planData = { months: [] };
+  var planCurrentMonth = '';
+  var planHolidays = {};
+  var planEditContext = {};
 
   function init() {
     if (window.SyncStore) syncInfo = window.SyncStore.init();
@@ -29,6 +33,7 @@
     els.sidebarOverlay = document.getElementById('sidebar-overlay');
     els.themeToggle = document.getElementById('theme-toggle');
     els.syncBtn = document.getElementById('sidebar-sync-btn');
+    els.planView = document.getElementById('plan-view');
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
@@ -42,6 +47,8 @@
     document.querySelectorAll('.tool-card').forEach(function (card) {
       card.addEventListener('click', function () { var v = card.dataset.view; if (v) navigateTo(v); });
     });
+    initPlan();
+    ensureDefaultHolidays();
     loadAllData();
     setGreeting();
     navigateTo('dashboard');
@@ -79,13 +86,16 @@
     } catch(e) {}
     try { var cdd = JSON.parse(localStorage.getItem('gk-countdown')); if (cdd) { cdState.name = cdd.name || ''; cdState.date = cdd.date || ''; cdState.milestones = cdd.milestones || []; } } catch(e) {}
     try { var ld = JSON.parse(localStorage.getItem('gk-links')); if (ld && Array.isArray(ld)) links = ld; } catch(e) {}
+    try { var _pd = JSON.parse(localStorage.getItem('gk-plan')); if (_pd && _pd.months) planData = _pd; } catch(e) {}
+    try { var _ph = JSON.parse(localStorage.getItem('gk-plan-holidays')); if (_ph) planHolidays = _ph; } catch(e) {}
+    renderPlan();
     renderTimer(); renderCountdown(); renderLinks(); renderSyncStatus();
   }
 
   function navigateTo(view) {
     if (view === currentView) return;
     var tool = TOOLS[view];
-    if (!tool) return;
+    if (!tool && view !== 'plan') return;
     if (timerState.running) saveTimerState();
     els.navItems.forEach(function (el) { el.classList.remove('active'); });
     var activeNav = document.querySelector('.nav-item[data-view="' + view + '"]');
@@ -95,6 +105,12 @@
       els.toolContainer.classList.remove('active');
       els.pageTitle.textContent = '首页';
       if (timerState.running && !timerState.tickId) timerState.tickId = setInterval(tickTimer, 100);
+    } else if (view === 'plan') {
+      els.dashboard.style.display = 'none';
+      if (els.planView) els.planView.style.display = '';
+      els.toolContainer.classList.remove('active');
+      els.pageTitle.textContent = '学习计划';
+      renderPlan();
     } else {
       els.dashboard.style.display = 'none';
       els.toolContainer.classList.add('active');
@@ -490,12 +506,613 @@
   function toggleMobileMenu() { els.sidebar.classList.toggle('open'); els.sidebarOverlay.classList.toggle('open'); }
   function closeMobileMenu() { els.sidebar.classList.remove('open'); els.sidebarOverlay.classList.remove('open'); }
 
+  
+
+  // =========================================================
+  //  Plan Module （学习计划）
+  // =========================================================
+
+  var WEEKDAY_NAMES = ['一', '二', '三', '四', '五', '六', '日'];
+
+  function initPlan() {
+    planCurrentMonth = getCurrentMonthId();
+  }
+
+  function getCurrentMonthId() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+  }
+
+  function getId() {
+    return 't' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  }
+
+  function pad2(n) { return String(n).padStart(2, '0'); }
+
+  function getDayOfWeek(dateStr) {
+    var parts = dateStr.split('-');
+    var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    var dow = d.getDay();
+    return dow === 0 ? 6 : dow - 1;
+  }
+
+  function getTodayStr() {
+    var d = new Date();
+    return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+  }
+
+  function isToday(dateStr) { return dateStr === getTodayStr(); }
+
+  function getHolidayName(dateStr) {
+    var mmdd = dateStr.slice(5);
+    return planHolidays[mmdd] || null;
+  }
+
+  function getDayBadge(dateStr) {
+    var h = getHolidayName(dateStr);
+    if (h) return { text: h, type: 'holiday' };
+    var dow = getDayOfWeek(dateStr);
+    if (dow === 5) return { text: '休', type: 'sat' };
+    if (dow === 6) return { text: '休', type: 'sun' };
+    return null;
+  }
+
+  function isCurrentWeek(week) {
+    var today = getTodayStr();
+    for (var i = 0; i < week.days.length; i++) {
+      if (week.days[i].date === today) return true;
+    }
+    return false;
+  }
+
+  function getMonthData(ym) {
+    for (var i = 0; i < planData.months.length; i++) {
+      if (planData.months[i].id === ym) return planData.months[i];
+    }
+    return null;
+  }
+
+  function getMonthIndex(ym) {
+    for (var i = 0; i < planData.months.length; i++) {
+      if (planData.months[i].id === ym) return i;
+    }
+    return -1;
+  }
+
+  function createMonthTemplate(ym) {
+    var parts = ym.split('-');
+    var y = parseInt(parts[0]);
+    var m = parseInt(parts[1]);
+    var firstDay = new Date(y, m - 1, 1);
+    var firstDOW = firstDay.getDay();
+    var firstDOWMon = firstDOW === 0 ? 6 : firstDOW - 1;
+    var daysInMonth = new Date(y, m, 0).getDate();
+    var weeks = [];
+    var weekNum = 1;
+    var day = 1;
+    while (day <= daysInMonth) {
+      var offset = day === 1 ? firstDOWMon : 0;
+      var daysInWeek = Math.min(7 - offset, daysInMonth - day + 1);
+      var weekEnd = day + daysInWeek - 1;
+      var days = [];
+      for (var d = day; d <= weekEnd; d++) {
+        days.push({ date: ym + '-' + pad2(d), tasks: [] });
+      }
+      weeks.push({
+        id: 'w-' + ym + '-' + weekNum,
+        weekNum: weekNum,
+        label: '第' + weekNum + '周 (' + day + '/' + m + '-' + weekEnd + '/' + m + ')',
+        goals: '',
+        days: days,
+        expanded: false
+      });
+      weekNum++;
+      day = weekEnd + 1;
+    }
+    return { id: ym, title: m + '月学习计划', focus: '', weeks: weeks };
+  }
+
+  function savePlan() {
+    try {
+      localStorage.setItem('gk-plan', JSON.stringify(planData));
+      if (window.SyncStore) window.SyncStore.writeData('gk-plan', planData);
+    } catch (e) {}
+  }
+
+  function savePlanHolidays() {
+    try {
+      localStorage.setItem('gk-plan-holidays', JSON.stringify(planHolidays));
+      if (window.SyncStore) window.SyncStore.writeData('gk-plan-holidays', planHolidays);
+    } catch (e) {}
+  }
+
+  function calcMonthProgress(month) {
+    var total = 0, done = 0;
+    for (var i = 0; i < month.weeks.length; i++) {
+      for (var j = 0; j < month.weeks[i].days.length; j++) {
+        for (var k = 0; k < month.weeks[i].days[j].tasks.length; k++) {
+          total++;
+          if (month.weeks[i].days[j].tasks[k].done) done++;
+        }
+      }
+    }
+    return { total: total, done: done, pct: total > 0 ? Math.round(done / total * 100) : 0 };
+  }
+
+  function calcWeekProgress(week) {
+    var total = 0, done = 0;
+    for (var j = 0; j < week.days.length; j++) {
+      for (var k = 0; k < week.days[j].tasks.length; k++) {
+        total++;
+        if (week.days[j].tasks[k].done) done++;
+      }
+    }
+    return { total: total, done: done, pct: total > 0 ? Math.round(done / total * 100) : 0 };
+  }
+
+  function planNewMonth() {
+    var ym = planCurrentMonth;
+    var existing = getMonthData(ym);
+    if (existing) { showSyncToast('本月计划已存在'); return; }
+    var tmpl = createMonthTemplate(ym);
+    planData.months.push(tmpl);
+    savePlan();
+    renderPlan();
+    showSyncToast('已创建 ' + tmpl.title);
+  }
+
+  function planPrevMonth() {
+    var parts = planCurrentMonth.split('-');
+    var y = parseInt(parts[0]), m = parseInt(parts[1]);
+    m--;
+    if (m < 1) { m = 12; y--; }
+    planCurrentMonth = y + '-' + pad2(m);
+    renderPlan();
+  }
+
+  function planNextMonth() {
+    var parts = planCurrentMonth.split('-');
+    var y = parseInt(parts[0]), m = parseInt(parts[1]);
+    m++;
+    if (m > 12) { m = 1; y++; }
+    planCurrentMonth = y + '-' + pad2(m);
+    renderPlan();
+  }
+
+  function planToggleWeek(weekId) {
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    for (var i = 0; i < month.weeks.length; i++) {
+      if (month.weeks[i].id === weekId) {
+        month.weeks[i].expanded = !month.weeks[i].expanded;
+        savePlan();
+        renderPlan();
+        return;
+      }
+    }
+  }
+
+  // --- rendering ---
+  function renderPlan() {
+    var el = els.planView;
+    if (!el || el.style.display === 'none') return;
+    var month = getMonthData(planCurrentMonth);
+    var emptyEl = document.getElementById('plan-empty');
+    var navEl = document.querySelector('.plan-nav');
+    var cardEl = document.getElementById('plan-month-card');
+    var weeksEl = document.getElementById('plan-weeks');
+    var quickEl = document.getElementById('plan-quick-add');
+    if (!month) {
+      if (emptyEl) emptyEl.style.display = '';
+      if (navEl) navEl.style.display = 'none';
+      if (cardEl) cardEl.innerHTML = '';
+      if (weeksEl) weeksEl.innerHTML = '';
+      if (quickEl) quickEl.style.display = 'none';
+      return;
+    }
+    if (emptyEl) emptyEl.style.display = 'none';
+    if (navEl) navEl.style.display = '';
+    var titleEl = document.getElementById('plan-nav-title');
+    if (titleEl) {
+      var parts = planCurrentMonth.split('-');
+      titleEl.textContent = parts[0] + '年' + parseInt(parts[1]) + '月';
+    }
+    renderMonthCard(month);
+    renderWeeks(month);
+    renderQuickAdd(month);
+  }
+
+  function renderMonthCard(month) {
+    var el = document.getElementById('plan-month-card');
+    if (!el) return;
+    var prog = calcMonthProgress(month);
+    var title = month.title || month.id.slice(5) + '月学习计划';
+    var focus = month.focus || '暂无本月重点';
+    el.innerHTML = '<div class="plan-section-label">月度计划</div><div class="plan-month-card"><div class="plan-month-header"><div class="plan-month-title">' + esc(title) + '</div><div class="plan-month-actions"><button class="plan-icon-btn" onclick="planEditMonth()" title="编辑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button><button class="plan-icon-btn plan-icon-btn-danger" onclick="planDeleteMonth()" title="删除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></div></div><div class="plan-month-focus">' + esc(focus) + '</div>' + (prog.total > 0 ? '<div class="plan-month-progress"><div class="plan-month-progress-bar"><div class="plan-month-progress-fill" style="width:' + prog.pct + '%"></div></div><span class="plan-month-progress-text">已完成 ' + prog.done + '/' + prog.total + ' 项 (' + prog.pct + '%)</span></div>' : '<div class="plan-month-empty-hint">暂无任务，在下方周计划中添加</div>') + '</div>';
+  }
+
+  function renderWeeks(month) {
+    var el = document.getElementById('plan-weeks');
+    if (!el) return;
+    var html = '<div class="plan-section-label">每周目标</div>';
+    var hasCurrent = false;
+    for (var i = 0; i < month.weeks.length; i++) {
+      var w = month.weeks[i];
+      var isCur = isCurrentWeek(w);
+      if (isCur && !hasCurrent) { w.expanded = true; hasCurrent = true; }
+      else if (!isCur && !w.expanded) { /* keep collapsed */ }
+      var prog = calcWeekProgress(w);
+      html += '<div class="plan-week' + (isCur ? ' plan-week-current' : '') + '"><div class="plan-week-header" onclick="planToggleWeek(\x27 + w.id + \x27)"><span class="plan-week-toggle">' + (w.expanded ? '▾' : '▸') + '</span><span class="plan-week-label">' + esc(w.label) + '</span>' + (prog.total > 0 ? '<span class="plan-week-progress-badge">' + prog.done + '/' + prog.total + '</span>' : '') + '<span class="plan-week-actions" onclick="event.stopPropagation()"><button class="plan-icon-btn plan-icon-btn-sm" onclick="planEditWeek(\x27 + w.id + \x27)" title="编辑目标"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button><button class="plan-icon-btn plan-icon-btn-sm plan-icon-btn-danger" onclick="planDeleteWeek(\x27 + w.id + \x27)" title="删除周"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></span></div>' + (w.expanded ? '<div class="plan-week-body">' + (w.goals ? '<div class="plan-week-goals">' + esc(w.goals) + '</div>' : '') + '<div class="plan-week-days">' + renderDays(w) + '</div></div>' : '') + '</div>';
+    }
+    el.innerHTML = html;
+  }
+
+  function renderDays(week) {
+    var html = '';
+    for (var i = 0; i < week.days.length; i++) {
+      html += renderDay(week.days[i], week.id);
+    }
+    return html;
+  }
+
+  function renderDay(day, weekId) {
+    var badge = getDayBadge(day.date);
+    var today = isToday(day.date);
+    var dow = getDayOfWeek(day.date);
+    var isWknd = dow >= 5;
+    var dateParts = day.date.split('-');
+    var monthDay = parseInt(dateParts[2]);
+    var weekdayName = WEEKDAY_NAMES[dow];
+    var cls = 'plan-day';
+    if (today) cls += ' plan-day-today';
+    var badgeHtml = '';
+    if (badge) {
+      var bc = 'plan-day-badge';
+      if (badge.type === 'holiday') bc += ' plan-day-badge-holiday';
+      else if (badge.type === 'sat') bc += ' plan-day-badge-sat';
+      else if (badge.type === 'sun') bc += ' plan-day-badge-sun';
+      badgeHtml = '<span class="' + bc + '">' + esc(badge.text) + '</span>';
+    }
+    var h = '<div class="' + cls + '"><div class="plan-day-left">' + badgeHtml + '<span class="plan-day-date"><span class="plan-day-num">' + monthDay + '</span><span class="plan-day-weekday">' + weekdayName + '</span></span>' + (today ? '<span class="plan-day-today-tag">今天</span>' : '') + '</div><div class="plan-day-right"><div class="plan-day-tasks">';
+    if (day.tasks.length === 0) {
+      h += '<div class="plan-day-empty">暂无任务</div>';
+    } else {
+      for (var t = 0; t < day.tasks.length; t++) {
+        var task = day.tasks[t];
+        h += '<div class="plan-task"><label class="plan-task-check"><input type="checkbox" ' + (task.done ? 'checked' : '') + ' onchange="planToggleTask(\x27 + weekId + \x27,\x27 + day.date + \x27,\x27 + task.id + \x27)"><span class="plan-task-checkmark"></span></label><span class="plan-task-text' + (task.done ? ' plan-task-done' : '') + '">' + esc(task.text) + '</span><span class="plan-task-actions"><button class="plan-task-btn" onclick="planEditTask(\x27 + weekId + \x27,\x27 + day.date + \x27,\x27 + task.id + \x27)" title="编辑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button><button class="plan-task-btn plan-task-btn-danger" onclick="planDeleteTask(\x27 + weekId + \x27,\x27 + day.date + \x27,\x27 + task.id + \x27)" title="删除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></span></div>';
+      }
+    }
+    h += '</div><div class="plan-day-add"><input type="text" class="plan-day-input" placeholder="添加任务..." onkeydown="if(event.key===\x27Enter\x27)planAddTask(\x27 + weekId + \x27,\x27 + day.date + \x27,this)"><button class="plan-day-add-btn" onclick="planAddTask(\x27 + weekId + \x27,\x27 + day.date + \x27,this.previousElementSibling)" title="添加">+</button></div></div></div>';
+    return h;
+  }
+
+  function renderQuickAdd(month) {
+    var el = document.getElementById('plan-quick-add');
+    if (!el) return;
+    var today = getTodayStr();
+    if (today.slice(0, 7) !== month.id) { el.style.display = 'none'; return; }
+    el.style.display = '';
+    el.innerHTML = '<div class="plan-section-label plan-section-label-sm">今日快速添加</div><div class="plan-quick-add-row"><input type="text" id="plan-quick-input" placeholder="输入今天的任务..." onkeydown="if(event.key===\\x27Enter\\x27)planQuickAdd()"><button onclick="planQuickAdd()">添加</button></div>';
+  }
+
+  // --- CRUD ---
+  function planEditMonth() {
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    document.getElementById('plan-month-title-input').value = month.title || '';
+    document.getElementById('plan-month-focus-input').value = month.focus || '';
+    document.getElementById('plan-month-modal').classList.add('open');
+  }
+
+  function savePlanMonthModal() {
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    month.title = document.getElementById('plan-month-title-input').value.trim() || month.title;
+    month.focus = document.getElementById('plan-month-focus-input').value.trim();
+    savePlan();
+    closePlanMonthModal();
+    renderPlan();
+    showSyncToast('已保存月计划');
+  }
+
+  function closePlanMonthModal() { var o = document.getElementById('plan-month-modal'); if (o) o.classList.remove('open'); }
+
+  function planDeleteMonth() {
+    var idx = getMonthIndex(planCurrentMonth);
+    if (idx < 0) return;
+    showPlanConfirm('确定要删除当前月度计划吗？此操作不可撤销。', function () {
+      planData.months.splice(idx, 1);
+      savePlan();
+      renderPlan();
+      showSyncToast('已删除月计划');
+    });
+  }
+
+  function planEditWeek(weekId) {
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    for (var i = 0; i < month.weeks.length; i++) {
+      if (month.weeks[i].id === weekId) {
+        var w = month.weeks[i];
+        document.getElementById('plan-week-modal-label').textContent = w.label + '目标';
+        document.getElementById('plan-week-goals-input').value = w.goals || '';
+        planEditContext.weekId = weekId;
+        document.getElementById('plan-week-modal').classList.add('open');
+        return;
+      }
+    }
+  }
+
+  function savePlanWeekModal() {
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    var weekId = planEditContext.weekId;
+    for (var i = 0; i < month.weeks.length; i++) {
+      if (month.weeks[i].id === weekId) {
+        month.weeks[i].goals = document.getElementById('plan-week-goals-input').value.trim();
+        savePlan();
+        closePlanWeekModal();
+        renderPlan();
+        showSyncToast('已保存周目标');
+        return;
+      }
+    }
+  }
+
+  function closePlanWeekModal() { var o = document.getElementById('plan-week-modal'); if (o) o.classList.remove('open'); }
+
+  function planDeleteWeek(weekId) {
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    showPlanConfirm('确定要删除这一周的所有数据吗？', function () {
+      for (var i = 0; i < month.weeks.length; i++) {
+        if (month.weeks[i].id === weekId) {
+          month.weeks.splice(i, 1);
+          savePlan();
+          renderPlan();
+          showSyncToast('已删除周');
+          return;
+        }
+      }
+    });
+  }
+
+  function planAddTask(weekId, dateStr, inputEl) {
+    var text = inputEl.value.trim();
+    if (!text) return;
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    for (var i = 0; i < month.weeks.length; i++) {
+      if (month.weeks[i].id === weekId) {
+        for (var j = 0; j < month.weeks[i].days.length; j++) {
+          if (month.weeks[i].days[j].date === dateStr) {
+            month.weeks[i].days[j].tasks.push({ id: getId(), text: text, done: false });
+            savePlan();
+            renderPlan();
+            return;
+          }
+        }
+      }
+    }
+  }
+
+  function planToggleTask(weekId, dateStr, taskId) {
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    for (var i = 0; i < month.weeks.length; i++) {
+      if (month.weeks[i].id === weekId) {
+        for (var j = 0; j < month.weeks[i].days.length; j++) {
+          if (month.weeks[i].days[j].date === dateStr) {
+            for (var k = 0; k < month.weeks[i].days[j].tasks.length; k++) {
+              if (month.weeks[i].days[j].tasks[k].id === taskId) {
+                month.weeks[i].days[j].tasks[k].done = !month.weeks[i].days[j].tasks[k].done;
+                savePlan();
+                renderPlan();
+                return;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function planEditTask(weekId, dateStr, taskId) {
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    for (var i = 0; i < month.weeks.length; i++) {
+      if (month.weeks[i].id === weekId) {
+        for (var j = 0; j < month.weeks[i].days.length; j++) {
+          if (month.weeks[i].days[j].date === dateStr) {
+            for (var k = 0; k < month.weeks[i].days[j].tasks.length; k++) {
+              if (month.weeks[i].days[j].tasks[k].id === taskId) {
+                document.getElementById('plan-task-text-input').value = month.weeks[i].days[j].tasks[k].text;
+                planEditContext.task = { weekId: weekId, date: dateStr, taskId: taskId };
+                document.getElementById('plan-task-modal').classList.add('open');
+                return;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function savePlanTaskModal() {
+    var ctx = planEditContext.task;
+    if (!ctx) return;
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    for (var i = 0; i < month.weeks.length; i++) {
+      if (month.weeks[i].id === ctx.weekId) {
+        for (var j = 0; j < month.weeks[i].days.length; j++) {
+          if (month.weeks[i].days[j].date === ctx.date) {
+            for (var k = 0; k < month.weeks[i].days[j].tasks.length; k++) {
+              if (month.weeks[i].days[j].tasks[k].id === ctx.taskId) {
+                month.weeks[i].days[j].tasks[k].text = document.getElementById('plan-task-text-input').value.trim() || month.weeks[i].days[j].tasks[k].text;
+                savePlan();
+                closePlanTaskModal();
+                renderPlan();
+                showSyncToast('已保存任务');
+                return;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function closePlanTaskModal() { var o = document.getElementById('plan-task-modal'); if (o) o.classList.remove('open'); planEditContext.task = null; }
+
+  function planDeleteTask(weekId, dateStr, taskId) {
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    showPlanConfirm('确定删除这个任务吗？', function () {
+      for (var i = 0; i < month.weeks.length; i++) {
+        if (month.weeks[i].id === weekId) {
+          for (var j = 0; j < month.weeks[i].days.length; j++) {
+            if (month.weeks[i].days[j].date === dateStr) {
+              for (var k = 0; k < month.weeks[i].days[j].tasks.length; k++) {
+                if (month.weeks[i].days[j].tasks[k].id === taskId) {
+                  month.weeks[i].days[j].tasks.splice(k, 1);
+                  savePlan();
+                  renderPlan();
+                  showSyncToast('已删除任务');
+                  return;
+                }
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  function planQuickAdd() {
+    var input = document.getElementById('plan-quick-input');
+    if (!input || !input.value.trim()) return;
+    var today = getTodayStr();
+    var month = getMonthData(planCurrentMonth);
+    if (!month) return;
+    for (var i = 0; i < month.weeks.length; i++) {
+      for (var j = 0; j < month.weeks[i].days.length; j++) {
+        if (month.weeks[i].days[j].date === today) {
+          month.weeks[i].days[j].tasks.push({ id: getId(), text: input.value.trim(), done: false });
+          input.value = '';
+          savePlan();
+          renderPlan();
+          return;
+        }
+      }
+    }
+  }
+
+  // --- Confirm Dialog ---
+  function showPlanConfirm(msg, callback) {
+    document.getElementById('plan-confirm-text').textContent = msg;
+    document.getElementById('plan-confirm-btn').onclick = function () {
+      closePlanConfirmModal();
+      if (callback) callback();
+    };
+    document.getElementById('plan-confirm-modal').classList.add('open');
+  }
+
+  function closePlanConfirmModal() { var o = document.getElementById('plan-confirm-modal'); if (o) o.classList.remove('open'); }
+
+  // --- Holiday Settings ---
+  function openHolidaySettings() {
+    renderHolidayList();
+    document.getElementById('plan-holiday-modal').classList.add('open');
+  }
+
+  function closePlanHolidayModal() { var o = document.getElementById('plan-holiday-modal'); if (o) o.classList.remove('open'); }
+
+  function renderHolidayList() {
+    var list = document.getElementById('plan-holiday-list');
+    if (!list) return;
+    var keys = Object.keys(planHolidays);
+    if (keys.length === 0) {
+      list.innerHTML = '<div class="plan-holiday-empty">暂无节假日数据</div>';
+      return;
+    }
+    keys.sort();
+    var h = '';
+    for (var i = 0; i < keys.length; i++) {
+      var nm = planHolidays[keys[i]];
+      h += '<div class="plan-holiday-item"><span class="ph-date">' + keys[i] + '</span><span class="ph-name">' + esc(nm) + '</span><button class="ph-del" onclick="deletePlanHoliday(\x27 + keys[i] + \x27)" title="删除">✖</button></div>';
+    }
+    list.innerHTML = h;
+  }
+
+  function addPlanHoliday() {
+    var dInp = document.getElementById('plan-holiday-date-input');
+    var nInp = document.getElementById('plan-holiday-name-input');
+    if (!dInp || !dInp.value || !nInp || !nInp.value.trim()) { showSyncToast('请完整填写日期和名称'); return; }
+    var dateVal = dInp.value;
+    var mmdd = dateVal.slice(5);
+    var name = nInp.value.trim();
+    planHolidays[mmdd] = name;
+    dInp.value = '';
+    nInp.value = '';
+    renderHolidayList();
+    showSyncToast('已添加节假日');
+  }
+
+  function deletePlanHoliday(mmdd) {
+    delete planHolidays[mmdd];
+    renderHolidayList();
+    if (els.planView && els.planView.style.display !== 'none') renderPlan();
+  }
+
+  function savePlanHolidayModal() {
+    savePlanHolidays();
+    closePlanHolidayModal();
+    if (els.planView && els.planView.style.display !== 'none') renderPlan();
+    showSyncToast('已保存节假日设置');
+  }
+
+  // --- Default holidays ---
+  function ensureDefaultHolidays() {
+    var has = false;
+    for (var k in planHolidays) { if (planHolidays.hasOwnProperty(k)) { has = true; break; } }
+    if (!has) {
+      planHolidays['01-01'] = '元旦';
+      planHolidays['02-17'] = '除夕';
+      planHolidays['02-18'] = '春节';
+      planHolidays['02-19'] = '春节';
+      planHolidays['04-05'] = '清明';
+      planHolidays['05-01'] = '劳动节';
+      planHolidays['05-31'] = '端午';
+      planHolidays['10-01'] = '国庆';
+      planHolidays['10-02'] = '国庆';
+      planHolidays['10-03'] = '国庆';
+      planHolidays['10-04'] = '中秋';
+      savePlanHolidays();
+    }
+  }
+
+
   window.timerStartStop = timerStartStop; window.timerReset = timerReset; window.timerLap = timerLap;
   window.switchTimerMode = switchTimerMode; window.openLinkManager = openLinkManager;
   window.closeLinkManager = closeLinkManager; window.addLink = addLink;
   window.openSyncConfig = openSyncConfig; window.closeSyncConfig = closeSyncConfig;
   window.applySyncKey = applySyncKey; window.copySyncKey = copySyncKey;
   window.saveCountdownConfigModal = saveCountdownConfigModal; window.closeCountdownConfigModal = closeCountdownConfigModal;
+  window.planPrevMonth = planPrevMonth; window.planNextMonth = planNextMonth;
+  window.planNewMonth = planNewMonth; window.planEditMonth = planEditMonth;
+  window.savePlanMonthModal = savePlanMonthModal; window.closePlanMonthModal = closePlanMonthModal;
+  window.planDeleteMonth = planDeleteMonth; window.planToggleWeek = planToggleWeek;
+  window.planEditWeek = planEditWeek; window.savePlanWeekModal = savePlanWeekModal;
+  window.closePlanWeekModal = closePlanWeekModal; window.planDeleteWeek = planDeleteWeek;
+  window.planAddTask = planAddTask; window.planToggleTask = planToggleTask;
+  window.planEditTask = planEditTask; window.savePlanTaskModal = savePlanTaskModal;
+  window.closePlanTaskModal = closePlanTaskModal; window.planDeleteTask = planDeleteTask;
+  window.planQuickAdd = planQuickAdd; window.openHolidaySettings = openHolidaySettings;
+  window.closePlanHolidayModal = closePlanHolidayModal;
+  window.savePlanHolidayModal = savePlanHolidayModal; window.addPlanHoliday = addPlanHoliday;
+  window.deletePlanHoliday = deletePlanHoliday; window.closePlanConfirmModal = closePlanConfirmModal;
+  window.showPlanConfirm = showPlanConfirm;
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
