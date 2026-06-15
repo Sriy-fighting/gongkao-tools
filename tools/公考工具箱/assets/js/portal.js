@@ -141,7 +141,9 @@
     } else {
       els.dashboard.style.display = 'none';
       if (els.planView) els.planView.style.display = 'none';
-      els.toolContainer.classList.add('active');tContent = tool.name;
+      els.toolContainer.classList.add('active');
+      els.pageTitle.textContent = tool.name;
+      els.toolFrame.src = tool.path;
     }
     currentView = view;
   }
