@@ -140,9 +140,8 @@
       renderPlan();
     } else {
       els.dashboard.style.display = 'none';
-      els.toolContainer.classList.add('active');
-      els.toolFrame.src = tool.path;
-      els.pageTitle.textContent = tool.name;
+      if (els.planView) els.planView.style.display = 'none';
+      els.toolContainer.classList.add('active');tContent = tool.name;
     }
     currentView = view;
   }
