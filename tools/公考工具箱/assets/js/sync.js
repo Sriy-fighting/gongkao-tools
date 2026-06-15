@@ -27,8 +27,8 @@ window.SyncStore = (function () {
   "use strict";
 
   // ============== 修改这里 ↓ ==============
-  var SUPABASE_URL = "https://srevbdznsrvpwivvdfla.supabase.co";
-  var SUPABASE_ANON_KEY = "sb_publishable_yDYTPr8uN7rw7oigBWaIgw_V2Fp9fzd";
+  var SUPABASE_URL = "";
+  var SUPABASE_ANON_KEY = "";
   // ============== 修改这里 ↑ ==============
 
   var TABLE = "user_data";

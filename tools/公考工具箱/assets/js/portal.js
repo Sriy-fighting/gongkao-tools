@@ -1318,6 +1318,7 @@
   window.deletePlanHoliday = deletePlanHoliday; window.closePlanConfirmModal = closePlanConfirmModal;
   window.exportLocalData = exportLocalData;
   window.importLocalData = importLocalData;
+  window.handleImportFile = handleImportFile;
   window.deletePlanHoliday = deletePlanHoliday; window.closePlanConfirmModal = closePlanConfirmModal;
   window.showPlanConfirm = showPlanConfirm;
 

@@ -191,55 +191,33 @@
 <div class="sync-overlay" id="sync-overlay">
   <div class="sync-modal" onclick="event.stopPropagation()">
     <div class="sync-header">
-      <h3>数据同步设置</h3>
-      <button class="sync-close" onclick="closeSyncConfig()">✕</button>
+      <h3>数据管理</h3>
+      <button class="sync-close" onclick="closeSyncConfig()">&times;</button>
     </div>
     <div class="sync-body">
       <div class="sync-status">
-        <span class="sync-status-dot pending" id="sync-status-dot"></span>
-        <span id="sync-status-text">检测中...</span>
+        <span class="sync-status-dot online" id="sync-status-dot"></span>
+        <span id="sync-status-text">本地存储 - 通过文件导入/导出跨设备同步</span>
       </div>
-      <div class="sync-section-title">同步密钥</div>
-      <div class="sync-key-display">
-        <span class="sync-key-code" id="sync-key-code">------</span>
-        <button class="sync-key-copy-btn" onclick="copySyncKey()">复制</button>
-      </div>
-      <div class="sync-key-edit-area">
-        <input type="text" id="sync-key-input" placeholder="输入密钥同步到另一台设备" maxlength="20">
-        <button onclick="applySyncKey()">应用</button>
-      </div>
-      <div class="sync-section-title" style="margin-top:16px;">配置说明</div>
+      <div class="sync-section-title">导出数据</div>
       <div class="sync-hint">
-        <strong>使用步骤：</strong><br>
-        1. 注册 supabase.com（用GitHub登录）<br>
-        2. 创建项目 → SQL Editor → 执行建表SQL<br>
-        3. 复制 Project URL 和 anon key 填入 sync.js<br>
-        4. 同一密钥的设备数据自动同步<br>
+        将所有数据导出为 .json 文件，方便备份或转移到其他电脑。<br>
         <br>
-        <span style="font-size:11px;">建表SQL见 sync.js 顶部注释</span>
-      
-    </div>
- 
-      <div class="sync-section-title" style="margin-top:16px;">本地导入/导出</div>
-      <div style="display:flex;gap:8px;margin-bottom:16px;">
-        <button class="sync-key-copy-btn" onclick="exportLocalData()" style="flex:1;text-align:center;">导出数据</button>
-        <button class="sync-key-copy-btn" onclick="importLocalData()" style="flex:1;text-align:center;">导入数据</button>
+        <button class="sync-key-copy-btn" onclick="exportLocalData()" style="padding:8px 24px;">导出数据</button>
+      </div>
+      <div class="sync-section-title" style="margin-top:16px;">导入数据</div>
+      <div class="sync-hint">
+        从之前导出的 .json 文件恢复数据。<br>
+        <br>
+        <button class="sync-key-copy-btn" onclick="importLocalData()" style="padding:8px 24px;">导入数据</button>
       </div>
       <input type="file" id="gk-import-input" accept=".json" style="display:none" onchange="handleImportFile(event)">
-      <div style="font-size:12px;color:var(--text-muted);line-height:1.6;padding:8px 12px;background:var(--bg);border-radius:8px;">
-        <strong>使用步骤：</strong><br>
-        1. 在电脑A点「导出数据」→ 浏览器下载 .json 文件<br>
-        2. 复制文件到另一台电脑<br>
-        3. 点「导入数据」→ 选择该文件<br>
-        4. 页面自动刷新，数据即生效
-      </div>
-       <div class="sync-footer">
+    </div>
+    <div class="sync-footer">
       <button onclick="closeSyncConfig()">关闭</button>
     </div>
   </div>
-</div>
-
-<!-- Countdown Config Modal -->
+</div><!-- Countdown Config Modal -->
 <div class="countdown-config-overlay" id="cd-config-overlay">
   <div class="countdown-config-modal" onclick="event.stopPropagation()">
     <div class="countdown-config-header">
