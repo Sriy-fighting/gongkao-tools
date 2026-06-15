@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Master V11.0 - 含复习功能</title>
+    <style>
+        :root {
+            --accent: #6366f1; --success: #10b981; --danger: #ef4444; --bg: #0f172a; --card: #1e293b;
+        }
+        body {
+            margin: 0; font-family: 'Inter', system-ui, sans-serif;
+            background: #0f172a; color: #fff; display: flex; align-items: center; justify-content: center;
+            min-height: 100vh; overflow: hidden;
+        }
+        .container { width: 100%; max-width: 420px; padding: 20px; box-sizing: border-box; }
+        .panel {
+            background: #1e293b; border: 1px solid #222; border-radius: 24px; padding: 25px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5); text-align: center; position: relative;
+        }
+        h1 { font-size: 22px; font-weight: 900; letter-spacing: 2px; margin-bottom: 25px; color: #6366f1; }
+        
+        /* 模式选择 */
+        .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .mode-btn {
+            padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 10px;
+            color: #666; cursor: pointer; font-size: 14px; transition: 0.2s; user-select: none;
+        }
+        .mode-btn.active { border-color: #6366f1; color: #fff; background: rgba(0, 242, 254, 0.1); }
+
+        /* 数字多选矩阵 */
+        .select-grid { 
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; 
+            background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; margin-bottom: 20px;
+        }
+        .num-chip {
+            padding: 8px; background: #222; border: 1px solid #333; border-radius: 6px;
+            font-size: 13px; color: #888; cursor: pointer; transition: 0.2s; user-select: none;
+        }
+        .num-chip.active { background: #6366f1; color: #000; font-weight: bold; border-color: #6366f1; }
+
+        .setting-item { text-align: left; margin-bottom: 15px; }
+        .label { font-size: 11px; color: #555; text-transform: uppercase; margin-bottom: 8px; display: block; }
+
+        /* 练习界面 */
+        .timer-track { width: 100%; height: 4px; background: #222; margin-bottom: 30px; border-radius: 2px; overflow: hidden; }
+        #timer-bar { width: 100%; height: 100%; background: #6366f1; transition: width 0.05s linear; }
+        #q-text { font-size: 64px; font-weight: 900; margin-bottom: 30px; height: 80px; display: flex; align-items: center; justify-content: center; }
+        input {
+            width: 100%; background: transparent; border: none; border-bottom: 2px solid #333;
+            color: #fff; font-size: 40px; text-align: center; outline: none; padding: 10px 0; box-sizing: border-box;
+        }
+        input.correct { color: #10b981; border-color: #10b981; }
+        input.wrong { color: #ef4444; border-color: #ef4444; }
+
+        .btn-start {
+            margin-top: 20px; width: 100%; padding: 18px; background: #6366f1;
+            border: none; border-radius: 12px; font-weight: 800; cursor: pointer; color: #000;
+            transition: transform 0.1s;
+        }
+        .btn-start:active { transform: scale(0.98); }
+        
+        .btn-secondary {
+            background: #222; color: #fff; border: 1px solid #444;
+        }
+
+        #feedback { height: 24px; margin-top: 20px; font-size: 16px; font-weight: bold; }
+        .shake { animation: shake 0.4s; }
+        @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-10px)} 60%{transform:translateX(10px)} }
+
+        /* --- 新增：复习模态框样式 --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 100;
+            display: none; align-items: center; justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        .review-card {
+            background: #1a1a1a; border: 1px solid #333; border-radius: 16px;
+            width: 90%; max-width: 500px; padding: 20px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+        .review-img-container {
+            width: 100%; height: 60vh; max-height: 500px;
+            background: #000; border-radius: 8px; overflow: hidden;
+            margin-bottom: 20px; display: flex; align-items: center; justify-content: center;
+            border: 1px solid #333;
+        }
+        .review-img {
+            max-width: 100%; max-height: 100%; object-fit: contain;
+        }
+        .review-controls {
+            display: flex; gap: 10px; justify-content: center; margin-top: 15px;
+        }
+        .review-btn {
+            padding: 10px 20px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer;
+            background: #333; color: #fff; transition: 0.2s;
+        }
+        .review-btn:hover { background: #444; }
+        .review-btn.primary { background: #6366f1; color: #000; }
+        .review-title { font-size: 18px; color: #6366f1; margin-bottom: 10px; font-weight: bold; }
+        .img-counter { color: #666; font-size: 12px; margin-bottom: 5px; }
+
+    </style>
+</head>
+<body>
+
+    <!-- 设置界面 -->
+    <div class="container" id="setup-view">
+        <div class="panel">
+            <h1>SPEED CORE V11</h1>
+            
+            <div class="setting-item">
+                <span class="label">练习模式</span>
+                <div class="mode-grid">
+                    <div class="mode-btn active" onclick="selMode(this, 'std')">标准乘法</div>
+                    <div class="mode-btn" onclick="selMode(this, 'pct')">百化分</div>
+                    <div class="mode-btn" onclick="selMode(this, 'rev')" style="grid-column: span 2;">逆向因数 (拆解合数)</div>
+                </div>
+            </div>
+
+            <div class="setting-item" id="num-selector">
+                <span class="label">选择乘数 (可多选)</span>
+                <div class="select-grid" id="num-grid"></div>
+            </div>
+
+            <div class="setting-item">
+                <span class="label">单题限时 (秒)</span>
+                <input type="number" id="limit-input" value="2.0" step="0.1" style="font-size: 20px; width: 80px; background:#222; color:#fff; border:1px solid #444; border-radius:6px; padding:5px;">
+            </div>
+
+            <button class="btn-start" onclick="openReview()">📚 先复习，再训练</button>
+            <div style="margin-top:10px; font-size:12px; color:#555;">提示：复习模式下可查看口诀表和百化分表</div>
+        </div>
+    </div>
+
+    <!-- 练习界面 -->
+    <div class="container" id="play-view" style="display: none;">
+        <div class="timer-track"><div id="timer-bar"></div></div>
+        <div id="q-text">--</div>
+        <input type="text" id="main-input" placeholder="?" autocomplete="off">
+        <div id="feedback"></div>
+        <div style="margin-top: 30px; font-size: 12px; color: #444;">剩余：<span id="count-num">0</span></div>
+        <button class="btn-start btn-secondary" onclick="location.reload()" style="margin-top:20px; padding:10px;">退出训练</button>
+    </div>
+
+    <!-- 新增：复习模态框 -->
+    <div class="modal-overlay" id="review-modal">
+        <div class="review-card">
+            <div class="review-title" id="review-title">复习材料</div>
+            <div class="img-counter" id="img-counter">1 / 2</div>
+            <div class="review-img-container">
+                <!-- 默认显示占位符，JS 动态加载 -->
+                <img src="" alt="复习图表" class="review-img" id="current-review-img" style="display:none;">
+                <div id="img-placeholder" style="color:#666;">加载中...</div>
+            </div>
+            <div class="review-controls">
+                <button class="review-btn" onclick="prevImage()">⬅️ 上一张</button>
+                <button class="review-btn primary" onclick="startGameFromReview()">✅ 已记住，开始</button>
+                <button class="review-btn" onclick="nextImage()">下一张 ➡️</button>
+            </div>
+            <button class="review-btn" style="margin-top:10px; background:transparent; color:#666; font-size:12px;" onclick="closeReview()">取消</button>
+        </div>
+    </div>
+
+    <script>
+        let mode = 'std', deck = [], isLocked = false, timer = null, limit = 2000;
+        let selectedNums = [12, 13, 14, 15, 16, 17, 18, 19];
+        
+        // 复习图片配置 (相对路径)
+        // 请将图片放在与 html 同级的 images 文件夹下
+        const reviewImages = {
+            'std': [
+                { src: 'images/multiplication.png', title: '乘法口诀速查' },
+                { src: 'images/percent.png', title: '补充参考图' } // 标准模式下也可以看百化分，或者你可以换别的图
+            ],
+            'pct': [
+                { src: 'images/percent.png', title: '百化分对照表' },
+                { src: 'images/multiplication.png', title: '乘法基础回顾' }
+            ],
+            'rev': [
+                { src: 'images/multiplication.png', title: '因数分解基础' },
+                { src: 'images/percent.png', title: '数字敏感度' }
+            ]
+        };
+        
+        let currentReviewIndex = 0;
+        let currentModeImages = [];
+
+        // 初始化数字选择器
+        const nGrid = document.getElementById('num-grid');
+        nGrid.innerHTML = ''; // 清空
+        for(let i=11; i<=19; i++) {
+            const div = document.createElement('div');
+            const isActive = selectedNums.includes(i);
+            div.className = `num-chip ${isActive ? 'active' : ''}`;
+            div.innerText = i;
+            div.onclick = () => {
+                div.classList.toggle('active');
+                selectedNums = Array.from(document.querySelectorAll('.num-chip.active')).map(el => parseInt(el.innerText));
+            };
+            nGrid.appendChild(div);
+        }
+
+        function selMode(btn, m) {
+            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            mode = m;
+            document.getElementById('num-selector').style.display = m === 'std' ? 'block' : 'none';
+        }
+
+        const pctData = [{q:"1/3",a:"33.3"},{q:"1/4",a:"25"},{q:"1/6",a:"16.7"},{q:"1/7",a:"14.3"},{q:"1/8",a:"12.5"},{q:"1/9",a:"11.1"},{q:"1/11",a:"9.1"},{q:"1/12",a:"8.3"},{q:"1/13",a:"7.7"},{q:"1/14",a:"7.1"},{q:"1/15",a:"6.7"},{q:"1/16",a:"6.25"},{q:"1/17",a:"5.9"},{q:"1/18",a:"5.6"},{q:"1/19",a:"5.3"}];
+        const revData = [{q:"36",a:["12*3","18*2"]},{q:"48",a:["12*4","16*3"]},{q:"60",a:["12*5","15*4"]},{q:"72",a:["12*6","18*4"]},{q:"84",a:["12*7","14*6"]},{q:"90",a:["15*6","18*5"]},{q:"96",a:["12*8","16*6"]},{q:"108",a:["12*9","18*6"]},{q:"126",a:["14*9","18*7"]},{q:"144",a:["16*9","18*8"]}];
+
+        // --- 复习功能逻辑 ---
+        function openReview() {
+            if(mode === 'std' && selectedNums.length === 0) {
+                alert("请先至少选择一个乘数数字！");
+                return;
+            }
+            
+            currentModeImages = reviewImages[mode] || reviewImages['std'];
+            currentReviewIndex = 0;
+            
+            const modal = document.getElementById('review-modal');
+            const titleEl = document.getElementById('review-title');
+            const counterEl = document.getElementById('img-counter');
+            const imgEl = document.getElementById('current-review-img');
+            const placeholder = document.getElementById('img-placeholder');
+
+            modal.style.display = 'flex';
+            updateReviewImage();
+        }
+
+        function updateReviewImage() {
+            const imgData = currentModeImages[currentReviewIndex];
+            const titleEl = document.getElementById('review-title');
+            const counterEl = document.getElementById('img-counter');
+            const imgEl = document.getElementById('current-review-img');
+            const placeholder = document.getElementById('img-placeholder');
+
+            titleEl.innerText = imgData.title;
+            counterEl.innerText = `${currentReviewIndex + 1} / ${currentModeImages.length}`;
+            
+            // 处理图片加载
+            imgEl.style.display = 'none';
+            placeholder.style.display = 'block';
+            placeholder.innerText = "加载图片中...";
+            
+            imgEl.src = imgData.src;
+            imgEl.onload = () => {
+                imgEl.style.display = 'block';
+                placeholder.style.display = 'none';
+            };
+            imgEl.onerror = () => {
+                placeholder.style.display = 'block';
+                placeholder.innerHTML = `❌ 图片未找到<br><span style="font-size:12px;color:#888">请检查路径：<br>${imgData.src}</span>`;
+            };
+        }
+
+        function nextImage() {
+            if(currentReviewIndex < currentModeImages.length - 1) {
+                currentReviewIndex++;
+                updateReviewImage();
+            }
+        }
+
+        function prevImage() {
+            if(currentReviewIndex > 0) {
+                currentReviewIndex--;
+                updateReviewImage();
+            }
+        }
+
+        function closeReview() {
+            document.getElementById('review-modal').style.display = 'none';
+        }
+
+        function startGameFromReview() {
+            closeReview();
+            startGame();
+        }
+
+        // --- 游戏核心逻辑 ---
+        function startGame() {
+            limit = parseFloat(document.getElementById('limit-input').value) * 1000;
+            deck = [];
+            if(mode === 'std') {
+                if(selectedNums.length === 0) return alert("请至少选择一个数字！");
+                selectedNums.forEach(n => { for(let j=2; j<=9; j++) deck.push({q:`${n} × ${j}`, a: String(n*j)}); });
+            } else if(mode === 'pct') {
+                deck = [...pctData];
+            } else {
+                deck = [...revData];
+            }
+            deck.sort(() => Math.random() - 0.5);
+            
+            document.getElementById('setup-view').style.display = 'none';
+            document.getElementById('play-view').style.display = 'block';
+            
+            const input = document.getElementById('main-input');
+            input.onkeydown = e => { if(e.key === 'Enter') handleCheck(); };
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            if(deck.length === 0) {
+                document.getElementById('play-view').innerHTML = `
+                    <div class="panel">
+                        <h1 style="color:#10b981">MISSION COMPLETE</h1>
+                        <p style="color:#888; margin-bottom:20px;">太棒了！所有题目已完成。</p>
+                        <button class='btn-start' onclick='location.reload()'>再来一组</button>
+                    </div>`;
+                return;
+            }
+            isLocked = false;
+            const cur = deck[0];
+            document.getElementById('q-text').innerText = cur.q;
+            document.getElementById('count-num').innerText = deck.length;
+            document.getElementById('feedback').innerText = "";
+            document.getElementById('feedback').style.color = "#fff";
+            
+            const input = document.getElementById('main-input');
+            input.value = ""; input.className = ""; input.focus();
+            
+            // 移动端防遮挡
+            setTimeout(() => input.scrollIntoView({ behavior: "smooth", block: "center" }), 100);
+            
+            startTimer();
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            const bar = document.getElementById('timer-bar');
+            bar.style.width = "100%";
+            bar.classList.remove('danger');
+            
+            let start = Date.now();
+            timer = setInterval(() => {
+                let remain = limit - (Date.now() - start);
+                let p = (remain / limit) * 100;
+                
+                if(p < 20) bar.classList.add('danger');
+                
+                bar.style.width = Math.max(0, p) + "%";
+                
+                if(remain <= 0) {
+                    clearInterval(timer);
+                    if(!isLocked) markWrong("TIME OUT");
+                }
+            }, 20);
+        }
+
+        function handleCheck() {
+            if(isLocked) return;
+            isLocked = true;
+            clearInterval(timer);
+
+            const input = document.getElementById('main-input');
+            // 优化：去除空格，统一乘号
+            const userVal = input.value.trim().toLowerCase().replace(/\s/g, '').replace(/×/g, '*');
+            const cur = deck[0];
+            let isCorrect = false;
+
+            if(mode === 'rev') {
+                isCorrect = cur.a.some(ans => {
+                    let revAns = ans.split('*').reverse().join('*');
+                    return userVal === ans || userVal === revAns;
+                });
+            } else if (mode === 'pct') {
+                // 百化分允许一定的浮点误差或前缀匹配 (可选优化)
+                // 这里保持严格匹配，但去除了用户可能的多余输入
+                isCorrect = (userVal === cur.a);
+            } else {
+                isCorrect = (userVal === cur.a);
+            }
+
+            if(isCorrect) {
+                input.classList.add('correct');
+                document.getElementById('feedback').innerText = "✓ 正确";
+                document.getElementById('feedback').style.color = "#10b981";
+                deck.shift();
+                setTimeout(nextQuestion, 400);
+            } else {
+                markWrong(Array.isArray(cur.a) ? cur.a[0] : cur.a);
+            }
+        }
+
+        function markWrong(ans) {
+            isLocked = true;
+            const input = document.getElementById('main-input');
+            const view = document.getElementById('play-view');
+            input.classList.add('wrong');
+            view.classList.add('shake');
+            document.getElementById('feedback').innerText = "✕ 错误！答案是：" + ans;
+            document.getElementById('feedback').style.color = "#ef4444";
+            
+            deck.push(deck.shift()); // 错题移到最后
+            
+            setTimeout(() => {
+                view.classList.remove('shake');
+                nextQuestion();
+            }, 1200);
+        }
+    </script>
+<script src="../公考工具箱/assets/js/sync.js"></script>
+</body>
+</html>

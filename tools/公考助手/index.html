@@ -1,0 +1,521 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公考助手｜自主模拟终端</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --ink: #0f172a;
+            --accent: #4f46e5;
+            --border: 1px solid #e2e8f0;
+            --border-thick: 2px solid #0f172a;
+            --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+            --font-mono: "SF Mono", Consolas, monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--ink);
+            font-family: var(--font-sans);
+            padding: 160px 2vw 40px; /* 留出顶部空间 */
+        }
+
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); width: 0%; z-index: 1000; transition: width 1s linear;
+        }
+
+        /* === 顶部控制中心 === */
+        header {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: var(--bg);
+            border-bottom: var(--border-thick);
+            z-index: 100;
+        }
+
+        .header-main {
+            display: flex; justify-content: space-between; align-items: center;
+            height: 70px; padding: 0 2vw; border-bottom: var(--border);
+        }
+
+        .timer-display { font-family: var(--font-mono); font-size: 2.5rem; font-weight: bold; letter-spacing: -2px; }
+
+        /* 自定义时间设置区 */
+        .config-panel {
+            background: #f1f5f9;
+            padding: 10px 2vw;
+            display: flex; gap: 20px; align-items: center;
+            font-size: 0.85rem; overflow-x: auto;
+        }
+        .config-item { display: flex; align-items: center; gap: 5px; }
+        .config-item input {
+            width: 45px; background: transparent; border: none; border-bottom: 1px solid var(--ink);
+            text-align: center; font-family: var(--font-mono); font-weight: bold; font-size: 0.9rem;
+        }
+        .test-btn {
+            border: 1px dashed var(--ink); padding: 2px 8px; font-size: 0.75rem; cursor: pointer;
+            background: transparent; margin-left: 5px;
+        }
+        .test-btn:hover { background: var(--ink); color: var(--bg); }
+        .reminder-item { display: flex; align-items: center; gap: 6px; white-space: nowrap; flex-shrink: 0; }
+        .reminder-time { width: 48px; background: transparent; border: none; border-bottom: 1px solid var(--ink); text-align: center; font-family: var(--font-mono); font-weight: bold; font-size: 0.9rem; }
+        .reminder-sep { font-size: 0.7rem; opacity: 0.5; margin-right: 2px; }
+        .reminder-msg { width: 130px; background: transparent; border: none; border-bottom: 1px dashed var(--ink); font-size: 0.8rem; padding: 2px 4px; color: var(--ink); font-family: var(--font-sans); outline: none; }
+        .reminder-msg:focus { border-bottom-color: var(--accent); }
+        .del-btn { border: none; background: transparent; cursor: pointer; font-size: 0.85rem; color: #999; padding: 2px 4px; transition: color .15s; }
+        .del-btn:hover { color: var(--accent); }
+        .add-reminder-btn { border: 1px dashed var(--ink); padding: 4px 10px; font-size: 0.75rem; cursor: pointer; background: transparent; white-space: nowrap; flex-shrink: 0; }
+        .add-reminder-btn:hover { background: var(--ink); color: var(--bg); }
+
+
+        .edit-btn { border: 1px dashed var(--ink); padding: 4px 10px; font-size: 0.75rem; cursor: pointer; background: transparent; white-space: nowrap; flex-shrink: 0; margin-left: auto; }
+        .edit-btn:hover { background: var(--ink); color: var(--bg); }
+        .editor-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; display: none; align-items: center; justify-content: center; }
+        .editor-overlay.open { display: flex; }
+        .editor-modal { background: #ffffff; border: 3px solid #111; max-width: 600px; width: 90%; max-height: 80vh; display: flex; flex-direction: column; }
+        .editor-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #111; }
+        .editor-header h3 { font-size: 1.1rem; font-weight: 800; }
+        .editor-close { border: none; background: none; font-size: 1.2rem; cursor: pointer; padding: 4px; color: #111; }
+        .editor-body { padding: 20px; overflow-y: auto; flex: 1; }
+        .editor-field { margin-bottom: 16px; }
+        .editor-field label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; opacity: 0.5; }
+        .editor-title-input { width: 100%; background: transparent; border: none; border-bottom: 1px solid #111; font-size: 1.2rem; font-weight: 700; padding: 4px 0; font-family: inherit; outline: none; }
+        .editor-modules > label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; opacity: 0.5; }
+        .editor-module-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; padding: 8px; border: 1px solid #ccc; background: #f1f5f9; }
+        .editor-module-row input { background: transparent; border: none; border-bottom: 1px solid #111; font-family: inherit; font-size: 0.85rem; padding: 3px 4px; outline: none; width: 100%; }
+        .editor-module-name { flex: 1; min-width: 0; }
+        .editor-module-weight { width: 55px; text-align: center; }
+        .editor-module-count { width: 55px; text-align: center; }
+        .editor-del-btn { border: none; background: none; cursor: pointer; font-size: 1rem; color: #999; padding: 4px; }
+        .editor-del-btn:hover { color: var(--accent); }
+        .editor-add-btn { width: 100%; padding: 8px; border: 1px dashed #111; background: transparent; cursor: pointer; font-size: 0.8rem; margin-top: 4px; }
+        .editor-add-btn:hover { background: #111; color: #ffffff; }
+        .editor-footer { display: flex; gap: 8px; padding: 16px 20px; border-top: 1px solid #111; }
+        .editor-footer button { flex: 1; padding: 10px; font-weight: 800; cursor: pointer; border: 1px solid #111; font-size: 0.9rem; }
+        .btn-save { background: #111; color: #ffffff; }
+        .btn-cancel { background: transparent; }
+        .btn-save:hover { opacity: 0.8; }
+        .btn-cancel:hover { background: #f1f5f9; }
+        /* === 主体内容 === */
+        main { max-width: 1200px; margin: 0 auto; }
+
+        .hero-title {
+            font-size: clamp(1.8rem, 4vw, 3.5rem);
+            font-weight: 900;
+            text-align: center; /* 居中排列 */
+            margin: 40px 0;
+            letter-spacing: 2px;
+        }
+
+        .grid-container {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            border-top: var(--border); border-left: var(--border);
+        }
+        @media (max-width: 768px) { .grid-container { grid-template-columns: 1fr; } }
+
+        .module {
+            border-right: var(--border); border-bottom: var(--border);
+            padding: 30px; display: flex; flex-direction: column; justify-content: space-between;
+            min-height: 180px;
+        }
+
+        .mod-header { display: flex; justify-content: space-between; }
+        .mod-title { font-size: 1.5rem; font-weight: 800; }
+        .mod-weight { font-family: var(--font-mono); font-size: 0.85rem; padding: 2px 8px; border: var(--border); border-radius: 50px; }
+        .weight-high { border-color: var(--accent); color: var(--accent); }
+
+        .input-area { display: flex; align-items: baseline; justify-content: flex-end; }
+        input[type="number"] {
+            font-family: var(--font-mono); font-size: 3.5rem; font-weight: 700;
+            background: transparent; border: none; width: 100px; text-align: right; outline: none;
+        }
+        input[type="number"]:focus { color: var(--accent); }
+        .limit { font-family: var(--font-mono); font-size: 1.5rem; opacity: 0.3; }
+
+        .action-footer { margin-top: 40px; display: flex; gap: 20px; }
+        .btn-huge { flex: 1; padding: 20px; font-size: 1.2rem; font-weight: 900; border: var(--border-thick); cursor: pointer; }
+        .calc { background: var(--ink); color: var(--bg); }
+
+        #result-panel {
+            display: none; margin-top: 40px; padding: 40px 0; border-top: var(--border-thick);
+            text-align: right; animation: fadeIn 0.5s;
+        }
+        .score-huge { font-size: 8rem; font-weight: 900; color: var(--accent); line-height: 1; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<header>
+    <div class="header-main">
+        <div class="timer-display" id="timer">00:00:00</div>
+        <div class="controls">
+            <button onclick="startTimer()" id="btn-start" style="background:var(--accent); color:white; border:none; padding:8px 20px; font-weight:900;">开始计时</button>
+            <button onclick="pauseTimer()">暂停</button>
+            <button onclick="resetTimer()">重置</button>
+        </div>
+    </div>
+    <div class="config-panel">
+        <span style="font-weight:bold; flex-shrink:0;">&#33258;&#23450;&#20041;&#25773;&#25253;&#65306;</span>
+        <div id="reminders-container" style="display:flex; gap:12px; align-items:center; flex-wrap:nowrap;"></div>
+        <button class="add-reminder-btn" onclick="addReminder()">+ &#28155;&#21152;</button>
+        <button class="edit-btn" onclick="openEditor()">&#9998; &#32534;&#36753;&#31185;&#30446;</button>
+    </div>
+</header>
+
+<main>
+    <div class="hero-title" id="hero-title">全真模拟与效能核算</div>
+
+    <div class="grid-container" id="modules-container"></div>
+
+    <div class="action-footer">
+        <button class="btn-huge" onclick="resetForm()">清空</button>
+        <button class="btn-huge calc" onclick="calcScore()">生成分数报告</button>
+    </div>
+
+    <div id="result-panel">
+        <div style="font-weight:bold; opacity:0.5;">FINAL SCORE</div>
+        <div class="score-huge" id="final-score">0.0</div>
+        <div id="stat-info" style="font-weight:bold; margin-top:10px;"></div>
+    </div>
+</main>
+
+<script>
+let timer, sec = 0, active = false;
+const synth = window.speechSynthesis;
+const CONFIG_KEY = 'exam-config';
+const REMINDER_KEY = 'exam-reminders';
+let config = { title: '', modules: [] };
+let reminders = [];
+var moduleCounter = 0;
+
+function generateId() {
+    return 'm' + (moduleCounter++);
+}
+
+function defaultConfig() {
+    return {
+        title: '全真模拟与效能核算',
+        modules: [
+            { id: generateId(), name: '政治理论', weight: 0.8, count: 20 },
+            { id: generateId(), name: '常识判断', weight: 0.8, count: 15 },
+            { id: generateId(), name: '言语理解', weight: 0.9, count: 30 },
+            { id: generateId(), name: '数量关系', weight: 0.9, count: 10 },
+            { id: generateId(), name: '判断推理', weight: 0.8, count: 30 },
+            { id: generateId(), name: '资料分析', weight: 0.8, count: 15 }
+        ]
+    };
+}
+
+function defaultReminders() {
+    return [
+        { id: 'r' + Date.now(), time: 24, message: '资料模块要完成' },
+        { id: 'r' + (Date.now()+1), time: 50, message: '言语模块已完成' },
+        { id: 'r' + (Date.now()+2), time: 85, message: '判断模块已完成' },
+        { id: 'r' + (Date.now()+3), time: 105, message: '政治理论和常识已完成' }
+    ];
+}
+
+function loadConfig() {
+    try {
+        var data = JSON.parse(localStorage.getItem(CONFIG_KEY));
+        if (data && data.title && data.modules && data.modules.length > 0) {
+            config = data;
+            // Recalculate moduleCounter from existing IDs
+            config.modules.forEach(function(m) {
+                var n = parseInt(m.id.replace('m', ''));
+                if (n >= moduleCounter) moduleCounter = n + 1;
+            });
+        } else {
+            config = defaultConfig();
+            saveConfig();
+        }
+    } catch (e) {
+        config = defaultConfig();
+        saveConfig();
+    }
+}
+
+function saveConfig() {
+    localStorage.setItem(CONFIG_KEY, JSON.stringify(config));
+    if (window.SyncStore) window.SyncStore.writeData(CONFIG_KEY, config);
+}
+
+function loadReminders() {
+    try {
+        var data = JSON.parse(localStorage.getItem(REMINDER_KEY));
+        if (data && data.length > 0) { reminders = data; }
+        else { reminders = defaultReminders(); saveReminders(); }
+    } catch (e) { reminders = defaultReminders(); saveReminders(); }
+}
+
+function saveReminders() {
+    localStorage.setItem(REMINDER_KEY, JSON.stringify(reminders));
+    if (window.SyncStore) window.SyncStore.writeData(REMINDER_KEY, reminders);
+}
+
+/* === Renderers === */
+
+function renderTitle() {
+    var el = document.getElementById('hero-title');
+    if (el) el.textContent = config.title;
+}
+
+function renderModules() {
+    var c = document.getElementById('modules-container');
+    if (!c) return;
+    c.innerHTML = '';
+    config.modules.forEach(function(m) {
+        var div = document.createElement('div');
+        div.className = 'module';
+        var isHigh = m.weight >= 0.9;
+        div.innerHTML =
+            '<div class="mod-header"><div class="mod-title">' + m.name + '</div><div class="mod-weight' + (isHigh ? ' weight-high' : '') + '">' + m.weight + '</div></div>' +
+            '<div class="input-area"><input type="number" id="' + m.id + '" placeholder="0"><span class="limit">/' + m.count + '</span></div>';
+        c.appendChild(div);
+    });
+    // Restore previously entered values from result-panel if visible
+}
+
+function renderReminders() {
+    var c = document.getElementById('reminders-container');
+    if (!c) return;
+    c.innerHTML = '';
+    reminders.forEach(function(r) {
+        var div = document.createElement('div');
+        div.className = 'reminder-item';
+        div.innerHTML =
+            '<input type="number" class="reminder-time" value="' + r.time + '" min="0" max="999" data-id="' + r.id + '">' +
+            '<span class="reminder-sep">分</span>' +
+            '<input type="text" class="reminder-msg" value="' + r.message.replace(/"/g,'&quot;') + '" placeholder="播报内容..." data-id="' + r.id + '">' +
+            '<button class="test-btn" data-id="' + r.id + '">试听</button>' +
+            '<button class="del-btn" data-id="' + r.id + '" title="删除">✕</button>';
+        c.appendChild(div);
+    });
+    c.querySelectorAll('.reminder-time').forEach(function(inp) {
+        inp.addEventListener('change', function() {
+            var r = reminders.find(function(x) { return x.id === this.dataset.id; }.bind(this));
+            if (r) { r.time = parseInt(this.value) || 0; saveReminders(); }
+        });
+    });
+    c.querySelectorAll('.reminder-msg').forEach(function(inp) {
+        inp.addEventListener('change', function() {
+            var r = reminders.find(function(x) { return x.id === this.dataset.id; }.bind(this));
+            if (r) { r.message = this.value; saveReminders(); }
+        });
+    });
+}
+
+function addReminder() {
+    reminders.push({ id: 'r' + Date.now() + Math.random().toString(36).slice(2,6), time: 0, message: '' });
+    saveReminders();
+    renderReminders();
+}
+
+function removeReminder(id) {
+    reminders = reminders.filter(function(r) { return r.id !== id; });
+    saveReminders();
+    renderReminders();
+}
+
+function testReminder(id) {
+    var r = reminders.find(function(x) { return x.id === id; });
+    if (r && r.message) say(r.message);
+}
+
+function say(txt) {
+    if (!txt) return;
+    synth.cancel();
+    var u = new SpeechSynthesisUtterance(txt);
+    u.lang = 'zh-CN';
+    synth.speak(u);
+}
+
+function renderTime() {
+    sec++;
+    var m = Math.floor(sec / 60), s = sec % 60;
+    document.getElementById('timer').innerText =
+        (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
+    document.getElementById('progress-bar').style.width = (sec / 7200 * 100) + '%';
+    reminders.forEach(function(r) {
+        if (r.time > 0 && sec === r.time * 60) say(r.message);
+    });
+}
+
+function startTimer() { if(!active){ active=true; timer=setInterval(renderTime, 1000); say('开始模拟'); document.getElementById('btn-start').style.background='#10b981'; document.getElementById('btn-start').textContent='计时中'; } }
+function pauseTimer() { clearInterval(timer); active=false; document.getElementById('btn-start').style.background='var(--accent)'; document.getElementById('btn-start').textContent='继续'; }
+function resetTimer() { pauseTimer(); sec=0; document.getElementById('timer').innerText='00:00:00'; document.getElementById('btn-start').style.background='var(--accent)'; document.getElementById('btn-start').textContent='开始计时'; }
+
+function calcScore() {
+    var total = 0;
+    config.modules.forEach(function(m) {
+        var val = Number(document.getElementById(m.id).value) || 0;
+        total += val * m.weight;
+    });
+    document.getElementById('result-panel').style.display = 'block';
+    document.getElementById('final-score').innerText = total.toFixed(1);
+    window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'});
+}
+
+function resetForm() { document.querySelectorAll('input').forEach(function(i){ i.value=''; }); }
+
+/* === Editor === */
+
+function openEditor() {
+    var overlay = document.getElementById('editor-overlay');
+    var titleInput = document.getElementById('editor-title');
+    var list = document.getElementById('editor-modules-list');
+    if (!overlay || !titleInput || !list) return;
+    titleInput.value = config.title;
+    renderEditorModules();
+    overlay.classList.add('open');
+}
+
+function closeEditor() {
+    var overlay = document.getElementById('editor-overlay');
+    if (overlay) overlay.classList.remove('open');
+}
+
+function renderEditorModules() {
+    var list = document.getElementById('editor-modules-list');
+    if (!list) return;
+    list.innerHTML = '';
+    config.modules.forEach(function(m, i) {
+        var row = document.createElement('div');
+        row.className = 'editor-module-row';
+        row.innerHTML =
+            '<div class="editor-module-name"><input type="text" class="editor-name-input" value="' + m.name.replace(/"/g,'&quot;') + '" data-idx="' + i + '"></div>' +
+            '<div class="editor-module-weight"><input type="number" class="editor-weight-input" value="' + m.weight + '" step="0.05" min="0" max="2" data-idx="' + i + '"></div>' +
+            '<div class="editor-module-count"><input type="number" class="editor-count-input" value="' + m.count + '" min="1" data-idx="' + i + '"></div>' +
+            '<button class="editor-del-btn" onclick="removeEditorModule(' + i + ')" title="删除">✕</button>';
+        list.appendChild(row);
+    });
+}
+
+function addEditorModule() {
+    config.modules.push({ id: generateId(), name: '新科目', weight: 0.5, count: 10 });
+    renderEditorModules();
+}
+
+function removeEditorModule(idx) {
+    config.modules.splice(idx, 1);
+    renderEditorModules();
+}
+
+function saveEditor() {
+    var titleInput = document.getElementById('editor-title');
+    if (titleInput) config.title = titleInput.value || '全真模拟';
+    // Read values from editor
+    var list = document.getElementById('editor-modules-list');
+    if (list) {
+        var rows = list.querySelectorAll('.editor-module-row');
+        config.modules.forEach(function(m, i) {
+            if (rows[i]) {
+                var nameInp = rows[i].querySelector('.editor-name-input');
+                var weightInp = rows[i].querySelector('.editor-weight-input');
+                var countInp = rows[i].querySelector('.editor-count-input');
+                if (nameInp) m.name = nameInp.value || '新科目';
+                if (weightInp) m.weight = parseFloat(weightInp.value) || 0.5;
+                if (countInp) m.count = parseInt(countInp.value) || 10;
+            }
+        });
+    }
+    saveConfig();
+    renderTitle();
+    renderModules();
+    closeEditor();
+}
+
+
+
+
+/* === Event delegation === */
+document.addEventListener('click', function(e) {
+    var target = e.target;
+    if (target.classList.contains('del-btn')) {
+        var id = target.getAttribute('data-id');
+        if (id) { reminders = reminders.filter(function(r) { return r.id !== id; }); saveReminders(); renderReminders(); }
+        e.preventDefault();
+    }
+    if (target.classList.contains('test-btn')) {
+        var id = target.getAttribute('data-id');
+        if (id) { var r = reminders.find(function(x) { return x.id === id; }); if (r && r.message) say(r.message); }
+        e.preventDefault();
+    }
+});
+
+/* === Double-click Title Edit === */
+function setupTitleEdit() {
+    var el = document.getElementById('hero-title');
+    if (!el) return;
+    el.style.cursor = 'text';
+    el.title = '双击编辑标题';
+    el.addEventListener('dblclick', function() {
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.value = config.title;
+        input.style.cssText = 'font-size:clamp(1.8rem,4vw,3.5rem);font-weight:900;text-align:center;background:transparent;border:none;border-bottom:2px solid #4f46e5;outline:none;font-family:inherit;width:80%;display:block;margin:0 auto;color:inherit;';
+        el.style.display = 'none';
+        el.parentNode.insertBefore(input, el);
+        input.focus();
+        input.select();
+        input.addEventListener('blur', function() { finishEdit(input, el); });
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') { input.blur(); }
+            if (e.key === 'Escape') { el.style.display = ''; input.remove(); }
+        });
+    });
+}
+function finishEdit(input, el) {
+    var val = input.value.trim() || '全真模拟';
+    config.title = val;
+    saveConfig();
+    el.textContent = val;
+    el.style.display = '';
+    input.remove();
+}
+
+/* === Init === */
+
+loadConfig();
+loadReminders();
+renderTitle();
+renderModules();
+renderReminders();
+</script>
+
+
+<div class="editor-overlay" id="editor-overlay">
+    <div class="editor-modal">
+        <div class="editor-header">
+            <h3>编辑考试配置</h3>
+            <button class="editor-close" onclick="closeEditor()">✕</button>
+        </div>
+        <div class="editor-body">
+            <div class="editor-field">
+                <label>考试标题</label>
+                <input type="text" id="editor-title" class="editor-title-input">
+            </div>
+            <div class="editor-modules">
+                <label>科目模块</label>
+                <div id="editor-modules-list"></div>
+                <button class="editor-add-btn" onclick="addEditorModule()">+ 添加科目</button>
+            </div>
+        </div>
+        <div class="editor-footer">
+            <button class="btn-save" onclick="saveEditor()">保存</button>
+            <button class="btn-cancel" onclick="closeEditor()">取消</button>
+        </div>
+    </div>
+</div>
+
+<script src="../公考工具箱/assets/js/sync.js"></script>
+</body>
+</html>
+
+

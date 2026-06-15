@@ -1,0 +1,15 @@
+﻿# OS files
+Thumbs.db
+.DS_Store
+
+# Editor temp files
+*.bak
+*.bak2
+DELME
+
+# Temp files
+temp_*.html
+# Project specific
+*.bat
+!deploy.bat
+启动公考工具箱.bat

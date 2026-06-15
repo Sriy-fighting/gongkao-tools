@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遗忘曲线 · 复习计划</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <svg class="site-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <h1>遗忘曲线 <span class="header-sep">·</span> 复习计划</h1>
+    </div>
+    <span class="header-date" id="headerDate"></span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Stats Bar -->
+  <div class="section stats-bar" id="statsBar">
+    <div class="stat-item">
+      <span class="stat-value" id="statTotal">0</span>
+      <span class="stat-label">学习项目</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-value" id="statToday">0</span>
+      <span class="stat-label">今日复习</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-value" id="statRate">0%</span>
+      <span class="stat-label">完成率</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-value" id="statStreak">0</span>
+      <span class="stat-label">连续天数</span>
+    </div>
+  </div>
+
+  <!-- Today's Review -->
+  <section class="section" id="reviewSection">
+    <div class="section-title">
+      <h2>今日复习</h2>
+      <span class="section-badge" id="reviewBadge"></span>
+      <button class="btn-export" id="exportBtn" title="导出数据">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </button>
+      <button class="btn-export" id="importBtn" title="导入数据">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      </button>
+      <input type="file" id="importFile" accept=".json" style="display:none">
+    </div>
+    <div id="reviewList"></div>
+    <div id="reviewEmpty" class="empty-state">
+      <div class="empty-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <p class="empty-text">今天没有待复习的内容</p>
+      <p class="empty-hint">学点新东西，系统会自动安排复习计划</p>
+    </div>
+  </section>
+
+  <!-- Weekly Preview -->
+  <section class="section" id="weeklySection">
+    <div class="section-title">
+      <h2>本周预览</h2>
+    </div>
+    <div class="weekly-grid" id="weeklyGrid"></div>
+  </section>
+
+  <!-- Add New Learning -->
+  <section class="section" id="addSection">
+    <div class="section-title">
+      <h2>记录今日学习</h2>
+    </div>
+    <form id="addForm">
+      <textarea id="contentInput" placeholder="今天学了什么？要背诵什么？&#10;把你需要记住的内容写在这里……" rows="3" required></textarea>
+      <div class="form-row">
+        <input type="text" id="tagInput" class="tag-input" placeholder="分类标签（可选）">
+        <button type="submit" class="btn-primary" id="submitBtn">保存</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Learning History -->
+  <section class="section" id="historySection">
+    <div class="section-title">
+      <h2>学习记录</h2>
+      <span class="section-badge section-badge-muted" id="historyBadge"></span>
+    </div>
+    <div class="search-bar">
+      <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" class="search-input" placeholder="搜索学习记录...">
+    </div>
+    <div id="historyList"></div>
+    <div id="historyEmpty" class="empty-state">
+      <div class="empty-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <p class="empty-text">还没有学习记录</p>
+      <p class="empty-hint">在上面记录你的第一个学习项目吧</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- Undo Toast -->
+<div class="toast" id="undoToast">
+  <span class="toast-msg" id="toastMsg"></span>
+  <button class="toast-btn" id="undoBtn">撤销</button>
+</div>
+
+<script src="app.js"></script>
+<script src="../公考工具箱/assets/js/sync.js"></script>
+</body>
+</html>
