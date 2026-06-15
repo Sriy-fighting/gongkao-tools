@@ -193,6 +193,22 @@ window.SyncStore = (function () {
     });
   }
 
+
+  function deleteData(key) {
+    if (!isConfigured() || !syncKey) return;
+    try { localStorage.removeItem(key); } catch (e) {}
+    var url = SUPABASE_URL + "/rest/v1/" + TABLE +
+      "?sync_key=eq." + encodeURIComponent(syncKey) +
+      "&data_key=eq." + encodeURIComponent(key);
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": "Bearer " + SUPABASE_ANON_KEY
+      }
+    }).catch(function () {});
+  }
+
   return {
     init: init,
     getSyncKey: getSyncKey,

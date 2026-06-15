@@ -20,6 +20,7 @@
   var planCurrentMonth = '';
   var planHolidays = {};
   var planEditContext = {};
+  var planSyncInterval = null;
 
   function init() {
     if (window.SyncStore) syncInfo = window.SyncStore.init();
@@ -49,6 +50,7 @@
     });
     initPlan();
     ensureDefaultHolidays();
+    startPeriodicSync();
     loadAllData();
     setGreeting();
     navigateTo('dashboard');
@@ -86,7 +88,32 @@
     } catch(e) {}
     try { var cdd = JSON.parse(localStorage.getItem('gk-countdown')); if (cdd) { cdState.name = cdd.name || ''; cdState.date = cdd.date || ''; cdState.milestones = cdd.milestones || []; } } catch(e) {}
     try { var ld = JSON.parse(localStorage.getItem('gk-links')); if (ld && Array.isArray(ld)) links = ld; } catch(e) {}
-    try { var _pd = JSON.parse(localStorage.getItem('gk-plan')); if (_pd && _pd.months) planData = _pd; } catch(e) {}
+    try {
+      var _oldPlan = JSON.parse(localStorage.getItem('gk-plan'));
+      if (_oldPlan && _oldPlan.months) {
+        for (var _mi = 0; _mi < _oldPlan.months.length; _mi++) {
+          var _m = _oldPlan.months[_mi];
+          localStorage.setItem('gk-plan-' + _m.id, JSON.stringify(_m));
+        }
+        localStorage.removeItem('gk-plan');
+      }
+      var _months = [];
+      var _index = JSON.parse(localStorage.getItem('gk-plan-index') || '[]');
+      if (_index.length === 0) {
+        for (var _key in localStorage) {
+          if (_key.indexOf('gk-plan-') === 0) {
+            var _suffix = _key.slice(8);
+            if (/^\d{4}-\d{2}$/.test(_suffix)) _index.push(_suffix);
+          }
+        }
+        _index.sort();
+      }
+      for (var _ii = 0; _ii < _index.length; _ii++) {
+        var _d = JSON.parse(localStorage.getItem('gk-plan-' + _index[_ii]));
+        if (_d) _months.push(_d);
+      }
+      planData.months = _months;
+    } catch(e) {}
     try { var _ph = JSON.parse(localStorage.getItem('gk-plan-holidays')); if (_ph) planHolidays = _ph; } catch(e) {}
     renderPlan();
     renderTimer(); renderCountdown(); renderLinks(); renderSyncStatus();
@@ -614,8 +641,16 @@
 
   function savePlan() {
     try {
-      localStorage.setItem('gk-plan', JSON.stringify(planData));
-      if (window.SyncStore) window.SyncStore.writeData('gk-plan', planData);
+      var monthIds = [];
+      for (var _si = 0; _si < planData.months.length; _si++) {
+        var _sm = planData.months[_si];
+        var _sk = 'gk-plan-' + _sm.id;
+        localStorage.setItem(_sk, JSON.stringify(_sm));
+        monthIds.push(_sm.id);
+        if (window.SyncStore) window.SyncStore.writeData(_sk, _sm);
+      }
+      localStorage.setItem('gk-plan-index', JSON.stringify(monthIds));
+      if (window.SyncStore) window.SyncStore.writeData('gk-plan-index', monthIds);
     } catch (e) {}
   }
 
@@ -821,7 +856,10 @@
     var idx = getMonthIndex(planCurrentMonth);
     if (idx < 0) return;
     showPlanConfirm('确定要删除当前月度计划吗？此操作不可撤销。', function () {
+      var _mid = planData.months[idx].id;
       planData.months.splice(idx, 1);
+      try { localStorage.removeItem('gk-plan-' + _mid); } catch (e) {}
+      if (window.SyncStore) window.SyncStore.deleteData('gk-plan-' + _mid);
       savePlan();
       renderPlan();
       showSyncToast('已删除月计划');
@@ -1093,6 +1131,69 @@
   }
 
 
+  
+
+  // =========================================================
+  //  Periodic Sync （定时同步）
+  // =========================================================
+  function startPeriodicSync() {
+    stopPeriodicSync();
+    planSyncInterval = setInterval(function () {
+      if (!window.SyncStore || !syncInfo.hasConfig) return;
+      window.SyncStore.fetchAllKeys(function (rows) {
+        if (!rows || rows.length === 0) return;
+        var changed = false;
+        for (var _ri = 0; _ri < rows.length; _ri++) {
+          var _row = rows[_ri];
+          if (_row.data_value == null || !_row.data_key) continue;
+          var _oldVal = localStorage.getItem(_row.data_key);
+          var _newVal = JSON.stringify(_row.data_value);
+          if (_oldVal !== _newVal) {
+            try { localStorage.setItem(_row.data_key, _newVal); } catch(e) {}
+            changed = true;
+          }
+        }
+        if (!changed) return;
+        // Reload plan data from localStorage
+        try {
+          var _months = [];
+          var _index = JSON.parse(localStorage.getItem('gk-plan-index') || '[]');
+          if (_index.length === 0) {
+            for (var _k in localStorage) {
+              if (_k.indexOf('gk-plan-') === 0 && /^\d{4}-\d{2}$/.test(_k.slice(8))) {
+                _index.push(_k.slice(8));
+              }
+            }
+            _index.sort();
+          }
+          for (var _i2 = 0; _i2 < _index.length; _i2++) {
+            var _d2 = JSON.parse(localStorage.getItem('gk-plan-' + _index[_i2]));
+            if (_d2) _months.push(_d2);
+          }
+          planData.months = _months;
+        } catch(e) {}
+        try { var _h2 = JSON.parse(localStorage.getItem('gk-plan-holidays')); if (_h2) planHolidays = _h2; } catch(e) {}
+        if (els.planView && els.planView.style.display !== 'none') renderPlan();
+        updateSyncTime();
+      });
+    }, 30000);
+  }
+
+  function stopPeriodicSync() {
+    if (planSyncInterval) {
+      clearInterval(planSyncInterval);
+      planSyncInterval = null;
+    }
+  }
+
+  function updateSyncTime() {
+    var _el = document.getElementById('sidebar-sync-status');
+    if (!_el) return;
+    _el.className = 'sidebar-sync-status online';
+    _el.title = '同步已连接 - ' + new Date().toLocaleTimeString();
+  }
+
+
   window.timerStartStop = timerStartStop; window.timerReset = timerReset; window.timerLap = timerLap;
   window.switchTimerMode = switchTimerMode; window.openLinkManager = openLinkManager;
   window.closeLinkManager = closeLinkManager; window.addLink = addLink;
@@ -1111,6 +1212,7 @@
   window.planQuickAdd = planQuickAdd; window.openHolidaySettings = openHolidaySettings;
   window.closePlanHolidayModal = closePlanHolidayModal;
   window.savePlanHolidayModal = savePlanHolidayModal; window.addPlanHoliday = addPlanHoliday;
+  window.deletePlanHoliday = deletePlanHoliday; window.closePlanConfirmModal = closePlanConfirmModal;
   window.deletePlanHoliday = deletePlanHoliday; window.closePlanConfirmModal = closePlanConfirmModal;
   window.showPlanConfirm = showPlanConfirm;
 
