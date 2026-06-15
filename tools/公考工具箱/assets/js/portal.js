@@ -507,14 +507,64 @@
     if (!inputEl || !inputEl.value.trim()) return;
     var newKey = inputEl.value.trim().toUpperCase();
     if (window.SyncStore) {
-      window.SyncStore.setSyncKey(newKey); syncInfo.syncKey = newKey;
+      // Step 1: Go through all localStorage and push data to the NEW key
+      // This ensures data created with the old key is accessible at the new key
+      try {
+        var _planMonths = [];
+        var _planIdx = JSON.parse(localStorage.getItem('gk-plan-index') || '[]');
+        if (_planIdx.length === 0) {
+          for (var _k in localStorage) {
+            if (_k.indexOf('gk-plan-') === 0 && /^\d{4}-\d{2}$/.test(_k.slice(8))) {
+              _planIdx.push(_k.slice(8));
+            }
+          }
+          _planIdx.sort();
+        }
+        // Upload each month to the new key
+        for (var _pi = 0; _pi < _planIdx.length; _pi++) {
+          var _d = localStorage.getItem('gk-plan-' + _planIdx[_pi]);
+          if (_d) {
+            window.SyncStore.writeData('gk-plan-' + _planIdx[_pi], JSON.parse(_d));
+          }
+        }
+        // Upload index
+        if (_planIdx.length > 0) {
+          window.SyncStore.writeData('gk-plan-index', _planIdx);
+        }
+        // Upload holidays
+        var _hol = localStorage.getItem('gk-plan-holidays');
+        if (_hol) window.SyncStore.writeData('gk-plan-holidays', JSON.parse(_hol));
+        // Upload all other gk- data (timer, countdown, links, theme)
+        var _gkKeys = ['gk-timer', 'gk-countdown', 'gk-links', 'gk-theme'];
+        for (var _gi = 0; _gi < _gkKeys.length; _gi++) {
+          var _val = localStorage.getItem(_gkKeys[_gi]);
+          if (_val) window.SyncStore.writeData(_gkKeys[_gi], JSON.parse(_val));
+        }
+      } catch(e) {}
+      
+      // Step 2: Set the new key
+      window.SyncStore.setSyncKey(newKey);
+      syncInfo.syncKey = newKey;
+      
+      // Step 3: Wait a moment for the debounced writes, then fetch from cloud
       if (syncInfo.hasConfig) {
-        window.SyncStore.fetchAllKeys(function(rows) {
-          if (rows && rows.length > 0) rows.forEach(function(row) { if (row.data_value != null) { try { localStorage.setItem(row.data_key, JSON.stringify(row.data_value)); } catch(e) {} } });
-          loadFromLocal(); showSyncToast('同步密钥已更新，数据已加载');
-        });
-      } else { loadFromLocal(); showSyncToast('同步密钥已更新'); }
-      var keyEl = document.getElementById('sync-key-code'); if (keyEl) keyEl.textContent = newKey;
+        setTimeout(function() {
+          window.SyncStore.fetchAllKeys(function(rows) {
+            if (rows && rows.length > 0) rows.forEach(function(row) {
+              if (row.data_value != null) {
+                try { localStorage.setItem(row.data_key, JSON.stringify(row.data_value)); } catch(e) {}
+              }
+            });
+            loadFromLocal();
+            showSyncToast('同步密钥已更新，数据已迁移');
+          });
+        }, 800);
+      } else {
+        loadFromLocal();
+        showSyncToast('同步密钥已更新');
+      }
+      var keyEl = document.getElementById('sync-key-code');
+      if (keyEl) keyEl.textContent = newKey;
     }
   }
 
