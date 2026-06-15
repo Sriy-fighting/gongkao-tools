@@ -1243,6 +1243,60 @@
   }
 
 
+  
+
+  // --- Local Export/Import ---
+  function exportLocalData() {
+    var data = {};
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (k && k.indexOf("gk-") === 0) {
+        try { data[k] = JSON.parse(localStorage.getItem(k)); }
+        catch(e) { data[k] = localStorage.getItem(k); }
+      }
+    }
+    var blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    var d = new Date();
+    var ds = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+    a.download = "gk-data-" + ds + ".json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showSyncToast("数据已导出");
+  }
+
+  function importLocalData() {
+    var inp = document.getElementById("gk-import-input");
+    if (inp) inp.click();
+  }
+
+  function handleImportFile(ev) {
+    var file = ev.target.files && ev.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        var data = JSON.parse(e.target.result);
+        var count = 0;
+        for (var k in data) {
+          if (data.hasOwnProperty(k) && k.indexOf("gk-") === 0) {
+            try { localStorage.setItem(k, JSON.stringify(data[k])); count++; } catch(ex) {}
+          }
+        }
+        showSyncToast("已导入 " + count + " 项数据");
+        setTimeout(function() { location.reload(); }, 1500);
+      } catch(ex) {
+        showSyncToast("导入失败：文件格式错误");
+      }
+    };
+    reader.readAsText(file);
+    ev.target.value = "";
+  }
+
   window.timerStartStop = timerStartStop; window.timerReset = timerReset; window.timerLap = timerLap;
   window.switchTimerMode = switchTimerMode; window.openLinkManager = openLinkManager;
   window.closeLinkManager = closeLinkManager; window.addLink = addLink;
@@ -1262,6 +1316,8 @@
   window.closePlanHolidayModal = closePlanHolidayModal;
   window.savePlanHolidayModal = savePlanHolidayModal; window.addPlanHoliday = addPlanHoliday;
   window.deletePlanHoliday = deletePlanHoliday; window.closePlanConfirmModal = closePlanConfirmModal;
+  window.exportLocalData = exportLocalData;
+  window.importLocalData = importLocalData;
   window.deletePlanHoliday = deletePlanHoliday; window.closePlanConfirmModal = closePlanConfirmModal;
   window.showPlanConfirm = showPlanConfirm;
 
