@@ -73,25 +73,33 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); z-index: 100;
             display: none; align-items: center; justify-content: center;
+            padding: 18px; box-sizing: border-box;
             backdrop-filter: blur(5px);
         }
         .review-card {
             background: #1a1a1a; border: 1px solid #333; border-radius: 16px;
-            width: 90%; max-width: 500px; padding: 20px; text-align: center;
+            width: min(1200px, 100%); height: min(92vh, 860px); padding: 16px; text-align: center;
+            display: flex; flex-direction: column; box-sizing: border-box;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
         .review-img-container {
-            width: 100%; height: 60vh; max-height: 500px;
+            width: 100%; min-height: 0; flex: 1;
             background: #000; border-radius: 8px; overflow: hidden;
             margin-bottom: 20px; display: flex; align-items: center; justify-content: center;
-            border: 1px solid #333;
+            border: 1px solid #333; position: relative; touch-action: none; cursor: grab;
+        }
+        .review-img-container.dragging {
+            cursor: grabbing;
         }
         .review-img {
             max-width: 100%; max-height: 100%; object-fit: contain;
+            transform-origin: center center; transition: transform 0.08s ease-out; user-select: none;
+            -webkit-user-drag: none; will-change: transform;
         }
         .review-controls {
-            display: flex; gap: 10px; justify-content: center; margin-top: 15px;
+            display: flex; gap: 10px; justify-content: center; margin-top: 12px; flex-wrap: wrap;
         }
+        .zoom-controls { margin-top: 0; margin-bottom: 4px; }
         .review-btn {
             padding: 10px 20px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer;
             background: #333; color: #fff; transition: 0.2s;
@@ -100,6 +108,16 @@
         .review-btn.primary { background: #6366f1; color: #000; }
         .review-title { font-size: 18px; color: #6366f1; margin-bottom: 10px; font-weight: bold; }
         .img-counter { color: #666; font-size: 12px; margin-bottom: 5px; }
+        .zoom-label { color: #888; font-size: 12px; min-width: 52px; display: inline-flex; align-items: center; justify-content: center; }
+        .review-hint { color: #555; font-size: 12px; margin-top: 6px; }
+        @media (max-width: 640px) {
+            .modal-overlay { padding: 8px; }
+            .review-card { height: 96vh; padding: 10px; border-radius: 12px; }
+            .review-controls { gap: 6px; }
+            .review-btn { padding: 9px 12px; font-size: 12px; }
+            .review-title { font-size: 15px; margin-bottom: 6px; }
+            .review-img-container { margin-bottom: 10px; }
+        }
 
     </style>
 </head>
@@ -154,11 +172,18 @@
                 <img src="" alt="复习图表" class="review-img" id="current-review-img" style="display:none;">
                 <div id="img-placeholder" style="color:#666;">加载中...</div>
             </div>
+            <div class="review-controls zoom-controls">
+                <button class="review-btn" onclick="zoomReviewImage(-0.2)">缩小</button>
+                <span class="zoom-label" id="zoom-label">100%</span>
+                <button class="review-btn" onclick="zoomReviewImage(0.2)">放大</button>
+                <button class="review-btn" onclick="resetReviewZoom()">重置</button>
+            </div>
             <div class="review-controls">
                 <button class="review-btn" onclick="prevImage()">⬅️ 上一张</button>
                 <button class="review-btn primary" onclick="startGameFromReview()">✅ 已记住，开始</button>
                 <button class="review-btn" onclick="nextImage()">下一张 ➡️</button>
             </div>
+            <div class="review-hint">滚轮缩放，按住图片拖动查看细节</div>
             <button class="review-btn" style="margin-top:10px; background:transparent; color:#666; font-size:12px;" onclick="closeReview()">取消</button>
         </div>
     </div>
@@ -186,6 +211,18 @@
         
         let currentReviewIndex = 0;
         let currentModeImages = [];
+        const reviewZoom = {
+            scale: 1,
+            min: 0.5,
+            max: 4,
+            x: 0,
+            y: 0,
+            dragging: false,
+            startX: 0,
+            startY: 0,
+            originX: 0,
+            originY: 0
+        };
 
         // 初始化数字选择器
         const nGrid = document.getElementById('num-grid');
@@ -232,6 +269,43 @@
             updateReviewImage();
         }
 
+        function clampZoom(value) {
+            return Math.min(reviewZoom.max, Math.max(reviewZoom.min, value));
+        }
+
+        function applyReviewTransform() {
+            const imgEl = document.getElementById('current-review-img');
+            const label = document.getElementById('zoom-label');
+            if (imgEl) {
+                imgEl.style.transform = `translate(${reviewZoom.x}px, ${reviewZoom.y}px) scale(${reviewZoom.scale})`;
+            }
+            if (label) label.innerText = `${Math.round(reviewZoom.scale * 100)}%`;
+        }
+
+        function resetReviewZoom() {
+            reviewZoom.scale = 1;
+            reviewZoom.x = 0;
+            reviewZoom.y = 0;
+            reviewZoom.dragging = false;
+            applyReviewTransform();
+            const container = document.querySelector('.review-img-container');
+            if (container) container.classList.remove('dragging');
+        }
+
+        function zoomReviewImage(delta) {
+            const nextScale = clampZoom(reviewZoom.scale + delta);
+            if (nextScale === reviewZoom.scale) return;
+            if (nextScale === 1) {
+                reviewZoom.x = 0;
+                reviewZoom.y = 0;
+            } else if (reviewZoom.scale === 1 && nextScale > 1) {
+                reviewZoom.x = 0;
+                reviewZoom.y = 0;
+            }
+            reviewZoom.scale = nextScale;
+            applyReviewTransform();
+        }
+
         function updateReviewImage() {
             const imgData = currentModeImages[currentReviewIndex];
             const titleEl = document.getElementById('review-title');
@@ -241,6 +315,7 @@
 
             titleEl.innerText = imgData.title;
             counterEl.innerText = `${currentReviewIndex + 1} / ${currentModeImages.length}`;
+            resetReviewZoom();
             
             // 处理图片加载
             imgEl.style.display = 'none';
@@ -274,12 +349,59 @@
 
         function closeReview() {
             document.getElementById('review-modal').style.display = 'none';
+            resetReviewZoom();
         }
 
         function startGameFromReview() {
             closeReview();
             startGame();
         }
+
+        function initReviewGestures() {
+            const container = document.querySelector('.review-img-container');
+            if (!container) return;
+            container.addEventListener('wheel', e => {
+                e.preventDefault();
+                zoomReviewImage(e.deltaY < 0 ? 0.2 : -0.2);
+            }, { passive: false });
+
+            container.addEventListener('pointerdown', e => {
+                if (reviewZoom.scale <= 1) return;
+                reviewZoom.dragging = true;
+                reviewZoom.startX = e.clientX;
+                reviewZoom.startY = e.clientY;
+                reviewZoom.originX = reviewZoom.x;
+                reviewZoom.originY = reviewZoom.y;
+                container.classList.add('dragging');
+                container.setPointerCapture(e.pointerId);
+            });
+
+            container.addEventListener('pointermove', e => {
+                if (!reviewZoom.dragging) return;
+                reviewZoom.x = reviewZoom.originX + (e.clientX - reviewZoom.startX);
+                reviewZoom.y = reviewZoom.originY + (e.clientY - reviewZoom.startY);
+                applyReviewTransform();
+            });
+
+            function stopDrag(e) {
+                if (!reviewZoom.dragging) return;
+                reviewZoom.dragging = false;
+                container.classList.remove('dragging');
+                if (e && e.pointerId != null && container.hasPointerCapture(e.pointerId)) {
+                    container.releasePointerCapture(e.pointerId);
+                }
+            }
+
+            container.addEventListener('pointerup', stopDrag);
+            container.addEventListener('pointercancel', stopDrag);
+            container.addEventListener('pointerleave', stopDrag);
+            container.addEventListener('dblclick', () => {
+                if (reviewZoom.scale === 1) zoomReviewImage(1);
+                else resetReviewZoom();
+            });
+        }
+
+        initReviewGestures();
 
         // --- 游戏核心逻辑 ---
         function startGame() {

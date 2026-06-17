@@ -49,7 +49,6 @@
       card.addEventListener('click', function () { var v = card.dataset.view; if (v) navigateTo(v); });
     });
     initPlan();
-    ensureDefaultHolidays();
     startPeriodicSync();
     loadAllData();
     setGreeting();
@@ -115,6 +114,7 @@
       planData.months = _months;
     } catch(e) {}
     try { var _ph = JSON.parse(localStorage.getItem('gk-plan-holidays')); if (_ph) planHolidays = _ph; } catch(e) {}
+    ensureDefaultHolidays();
     renderPlan();
     renderTimer(); renderCountdown(); renderLinks(); renderSyncStatus();
   }
@@ -129,6 +129,7 @@
     if (activeNav) activeNav.classList.add('active');
     if (view === 'dashboard') {
       els.dashboard.style.display = '';
+      if (els.planView) els.planView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       els.pageTitle.textContent = '首页';
       if (timerState.running && !timerState.tickId) timerState.tickId = setInterval(tickTimer, 100);
@@ -1253,6 +1254,7 @@
     for (var i = 0; i < localStorage.length; i++) {
       var k = localStorage.key(i);
       if (k && k.indexOf("gk-") === 0) {
+        if (k === "gk-sync-key") continue;
         try { data[k] = JSON.parse(localStorage.getItem(k)); }
         catch(e) { data[k] = localStorage.getItem(k); }
       }
@@ -1286,7 +1288,9 @@
         var count = 0;
         for (var k in data) {
           if (data.hasOwnProperty(k) && k.indexOf("gk-") === 0) {
-            try { localStorage.setItem(k, JSON.stringify(data[k])); count++; } catch(ex) {}
+            if (k === "gk-sync-key") continue;
+            var val = typeof data[k] === 'string' ? data[k] : JSON.stringify(data[k]);
+            try { localStorage.setItem(k, val); count++; } catch(ex) {}
           }
         }
         showSyncToast("已导入 " + count + " 项数据");
@@ -1321,7 +1325,6 @@
   window.exportLocalData = exportLocalData;
   window.importLocalData = importLocalData;
   window.handleImportFile = handleImportFile;
-  window.deletePlanHoliday = deletePlanHoliday; window.closePlanConfirmModal = closePlanConfirmModal;
   window.showPlanConfirm = showPlanConfirm;
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

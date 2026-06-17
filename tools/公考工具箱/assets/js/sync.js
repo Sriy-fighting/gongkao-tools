@@ -38,6 +38,16 @@ window.SyncStore = (function () {
   var pendingWrites = {};
   var writeTimers = {};
 
+  function serializeValue(value) {
+    return typeof value === "string" ? value : JSON.stringify(value);
+  }
+
+  function deserializeValue(raw) {
+    if (raw == null) return null;
+    try { return JSON.parse(raw); }
+    catch (e) { return raw; }
+  }
+
   function generateSyncKey() {
     var chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
     var key = "";
@@ -74,7 +84,7 @@ window.SyncStore = (function () {
     var localData = null;
     try {
       var raw = localStorage.getItem(key);
-      if (raw) localData = JSON.parse(raw);
+      if (raw != null) localData = deserializeValue(raw);
     } catch (e) {}
 
     if (isConfigured() && syncKey) {
@@ -130,7 +140,7 @@ window.SyncStore = (function () {
   }
 
   function writeData(key, value) {
-    try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+    try { localStorage.setItem(key, serializeValue(value)); } catch (e) {}
 
     if (isConfigured() && syncKey) {
       pendingWrites[key] = value;
@@ -216,6 +226,7 @@ window.SyncStore = (function () {
     isConfigured: isConfigured,
     readData: readData,
     writeData: writeData,
-    fetchAllKeys: fetchAllKeys
+    fetchAllKeys: fetchAllKeys,
+    deleteData: deleteData
   };
 })();
