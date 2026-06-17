@@ -102,6 +102,7 @@ header{
   display:flex;
   align-items:center;
   gap:10px;
+  flex-wrap:wrap;
   margin-bottom:16px;
 }
 .section-title h2{
@@ -122,6 +123,40 @@ header{
 .section-badge-muted{
   background:var(--border-light);
   color:var(--text-muted);
+}
+
+.weekly-nav{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  margin-left:auto;
+}
+.week-nav-btn{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text-secondary);
+  border-radius:6px;
+  height:28px;
+  min-width:28px;
+  padding:0 10px;
+  font:inherit;
+  font-size:.78rem;
+  cursor:pointer;
+  transition:all .15s;
+}
+.week-nav-btn:hover{
+  border-color:var(--primary);
+  color:var(--primary);
+  background:var(--primary-light);
+}
+.week-nav-btn:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+}
+.week-nav-current.is-active{
+  border-color:var(--primary);
+  color:var(--primary);
+  background:var(--primary-light);
 }
 
 /* =========================================================
@@ -733,5 +768,7 @@ header{
   .stat-value{font-size:1.1rem}
   .weekly-grid{gap:4px}
   .weekly-day{padding:8px 2px}
+  .weekly-nav{width:100%;margin-left:0}
+  .week-nav-btn{flex:1}
   .toast{width:calc(100% - 32px);white-space:normal}
 }

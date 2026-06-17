@@ -4,6 +4,7 @@
 const STORAGE_KEY = 'ebbinghaus_entries';
 const INTERVALS = [1, 2, 4, 7, 15, 30];
 let _undoData = null;
+let _weeklyOffset = 0;
 
 /* =========================================================
    Data Persistence (LocalStorage)
@@ -67,6 +68,13 @@ function formatChineseDate(d) {
 }
 const DAY_NAMES = ['日', '一', '二', '三', '四', '五', '六'];
 function getDayName(d) { return '星期' + DAY_NAMES[d.getDay()]; }
+function getWeekStart(offset) {
+  const d = getToday();
+  const day = d.getDay();
+  const diff = day === 0 ? -6 : 1 - day;
+  d.setDate(d.getDate() + diff + (offset * 7));
+  return d;
+}
 
 /* =========================================================
    Core Logic
@@ -167,17 +175,16 @@ function calculateStats(entries) {
 /* =========================================================
    Weekly Preview
    ========================================================= */
-function getWeeklyDue(entries) {
-  const today = getToday();
+function getWeeklyDue(entries, weekStart) {
   const weekDays = [];
   for (let i = 0; i < 7; i++) {
-    const day = new Date(today);
+    const day = new Date(weekStart);
     day.setDate(day.getDate() + i);
     let count = 0;
     for (const entry of entries) {
-      if (i === 0 && getDueIntervals(entry, day).length > 0) {
+      if (formatISODate(day) === formatISODate(getToday()) && getDueIntervals(entry, day).length > 0) {
         count++;
-      } else if (i > 0) {
+      } else {
         const start = parseDate(entry.createdAt);
         for (const interval of INTERVALS) {
           if (entry.completedIntervals.includes(interval)) continue;
@@ -397,9 +404,20 @@ function renderReviewSection(entries) {
    Render: Weekly Preview
    ========================================================= */
 function renderWeeklyPreview(entries) {
-  const weekDays = getWeeklyDue(entries);
+  const weekStart = getWeekStart(_weeklyOffset);
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekEnd.getDate() + 6);
+  const weekDays = getWeeklyDue(entries, weekStart);
   const today = getToday();
   const grid = document.getElementById('weeklyGrid');
+  const range = document.getElementById('weeklyRange');
+  const prevBtn = document.getElementById('prevWeekBtn');
+  const nextBtn = document.getElementById('nextWeekBtn');
+  const currentBtn = document.getElementById('currentWeekBtn');
+  if (range) range.textContent = formatDateShort(formatISODate(weekStart)) + ' - ' + formatDateShort(formatISODate(weekEnd));
+  if (prevBtn) prevBtn.disabled = false;
+  if (nextBtn) nextBtn.disabled = _weeklyOffset >= 0;
+  if (currentBtn) currentBtn.classList.toggle('is-active', _weeklyOffset === 0);
   let html = '';
   for (const day of weekDays) {
     const isToday = formatISODate(day.date) === formatISODate(today);
@@ -584,6 +602,23 @@ function setupUndo() {
   document.getElementById('undoBtn').addEventListener('click', performUndo);
 }
 
+function setupWeeklyNavigation() {
+  document.getElementById('prevWeekBtn').addEventListener('click', function () {
+    _weeklyOffset -= 1;
+    renderAll();
+  });
+  document.getElementById('nextWeekBtn').addEventListener('click', function () {
+    if (_weeklyOffset < 0) {
+      _weeklyOffset += 1;
+      renderAll();
+    }
+  });
+  document.getElementById('currentWeekBtn').addEventListener('click', function () {
+    _weeklyOffset = 0;
+    renderAll();
+  });
+}
+
 /* =========================================================
    Init
    ========================================================= */
@@ -596,4 +631,5 @@ document.addEventListener('DOMContentLoaded', function () {
   setupExportImport();
   setupSearch();
   setupUndo();
+  setupWeeklyNavigation();
 });
