@@ -174,7 +174,13 @@ window.SyncStore = (function () {
   function signUp(email, password) {
     return ensureClient().then(function (sb) {
       if (!sb) throw new Error("账号同步尚未配置 Supabase");
-      return sb.auth.signUp({ email: email, password: password });
+      return sb.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+          emailRedirectTo: window.location.origin + window.location.pathname
+        }
+      });
     }).then(function (res) {
       if (res.error) throw res.error;
       session = res.data.session || session;
