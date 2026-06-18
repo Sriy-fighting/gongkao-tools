@@ -11,7 +11,7 @@
 
   var currentView = 'dashboard';
   var els = {};
-  var syncInfo = { hasConfig: false, syncKey: '' };
+  var syncInfo = { hasConfig: false, syncKey: '', isLoggedIn: false, email: '' };
 
   var timerState = { mode: 'stopwatch', running: false, elapsed: 0, laps: [], startTime: 0, tickId: null };
   var cdState = { name: '', date: '', milestones: [] };
@@ -34,6 +34,7 @@
     els.sidebarOverlay = document.getElementById('sidebar-overlay');
     els.themeToggle = document.getElementById('theme-toggle');
     els.syncBtn = document.getElementById('sidebar-sync-btn');
+    els.accountBtn = document.getElementById('sidebar-account-btn');
     els.planView = document.getElementById('plan-view');
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
@@ -45,6 +46,16 @@
     els.sidebarOverlay.addEventListener('click', closeMobileMenu);
     els.themeToggle.addEventListener('click', toggleTheme);
     if (els.syncBtn) els.syncBtn.addEventListener('click', openSyncConfig);
+    if (els.accountBtn) els.accountBtn.addEventListener('click', openAccountModal);
+    if (window.SyncStore && window.SyncStore.onAuthChange) {
+      window.SyncStore.onAuthChange(function (info) {
+        syncInfo.hasConfig = !!info.hasConfig;
+        syncInfo.isLoggedIn = !!info.isLoggedIn;
+        syncInfo.email = info.email || '';
+        renderSyncStatus();
+        renderAccountStatus();
+      });
+    }
     document.querySelectorAll('.tool-card').forEach(function (card) {
       card.addEventListener('click', function () { var v = card.dataset.view; if (v) navigateTo(v); });
     });
@@ -63,7 +74,7 @@
       window.SyncStore.fetchAllKeys(function (rows) {
         if (rows && rows.length > 0) {
           rows.forEach(function (row) {
-            if (row.data_value != null) { try { localStorage.setItem(row.data_key, JSON.stringify(row.data_value)); } catch(e) {} }
+            if (row.data_value != null) { try { localStorage.setItem(row.data_key, typeof row.data_value === 'string' ? row.data_value : JSON.stringify(row.data_value)); } catch(e) {} }
           });
         }
         loadFromLocal();
@@ -116,7 +127,7 @@
     try { var _ph = JSON.parse(localStorage.getItem('gk-plan-holidays')); if (_ph) planHolidays = _ph; } catch(e) {}
     ensureDefaultHolidays();
     renderPlan();
-    renderTimer(); renderCountdown(); renderLinks(); renderSyncStatus();
+    renderTimer(); renderCountdown(); renderLinks(); renderSyncStatus(); renderAccountStatus();
   }
 
   function navigateTo(view) {
@@ -488,92 +499,110 @@
   function renderSyncStatus() {
     var el = document.getElementById('sidebar-sync-status');
     if (!el) return;
-    el.className = 'sidebar-sync-status ' + (syncInfo.hasConfig ? 'online' : 'offline');
-    el.title = syncInfo.hasConfig ? '同步已配置' : '同步未配置';
+    el.className = 'sidebar-sync-status ' + (syncInfo.isLoggedIn ? 'online' : (syncInfo.hasConfig ? 'pending' : 'offline'));
+    el.title = syncInfo.isLoggedIn ? '???????' : (syncInfo.hasConfig ? '???????' : '???????');
   }
 
   function openSyncConfig() {
     var overlay = document.getElementById('sync-overlay'); if (!overlay) return;
     var dot = document.getElementById('sync-status-dot'), txt = document.getElementById('sync-status-text');
-    if (syncInfo.hasConfig) { if (dot) dot.className = 'sync-status-dot online'; if (txt) txt.textContent = '已连接云端同步'; }
-    else { if (dot) dot.className = 'sync-status-dot pending'; if (txt) txt.textContent = '未配置 - 仅本地使用'; }
-    var keyEl = document.getElementById('sync-key-code'); if (keyEl) keyEl.textContent = syncInfo.syncKey || '------';
-    var inputEl = document.getElementById('sync-key-input'); if (inputEl) inputEl.value = syncInfo.syncKey || '';
+    if (syncInfo.isLoggedIn) { if (dot) dot.className = 'sync-status-dot online'; if (txt) txt.textContent = '????????' + syncInfo.email; }
+    else if (syncInfo.hasConfig) { if (dot) dot.className = 'sync-status-dot pending'; if (txt) txt.textContent = '??????????????????'; }
+    else { if (dot) dot.className = 'sync-status-dot pending'; if (txt) txt.textContent = '???? - ???????/???????'; }
     overlay.classList.add('open');
   }
 
   function closeSyncConfig() { var o = document.getElementById('sync-overlay'); if (o) o.classList.remove('open'); }
 
-  function applySyncKey() {
-    var inputEl = document.getElementById('sync-key-input');
-    if (!inputEl || !inputEl.value.trim()) return;
-    var newKey = inputEl.value.trim().toUpperCase();
-    if (window.SyncStore) {
-      // Step 1: Go through all localStorage and push data to the NEW key
-      // This ensures data created with the old key is accessible at the new key
-      try {
-        var _planMonths = [];
-        var _planIdx = JSON.parse(localStorage.getItem('gk-plan-index') || '[]');
-        if (_planIdx.length === 0) {
-          for (var _k in localStorage) {
-            if (_k.indexOf('gk-plan-') === 0 && /^\d{4}-\d{2}$/.test(_k.slice(8))) {
-              _planIdx.push(_k.slice(8));
-            }
-          }
-          _planIdx.sort();
-        }
-        // Upload each month to the new key
-        for (var _pi = 0; _pi < _planIdx.length; _pi++) {
-          var _d = localStorage.getItem('gk-plan-' + _planIdx[_pi]);
-          if (_d) {
-            window.SyncStore.writeData('gk-plan-' + _planIdx[_pi], JSON.parse(_d));
-          }
-        }
-        // Upload index
-        if (_planIdx.length > 0) {
-          window.SyncStore.writeData('gk-plan-index', _planIdx);
-        }
-        // Upload holidays
-        var _hol = localStorage.getItem('gk-plan-holidays');
-        if (_hol) window.SyncStore.writeData('gk-plan-holidays', JSON.parse(_hol));
-        // Upload all other gk- data (timer, countdown, links, theme)
-        var _gkKeys = ['gk-timer', 'gk-countdown', 'gk-links', 'gk-theme'];
-        for (var _gi = 0; _gi < _gkKeys.length; _gi++) {
-          var _val = localStorage.getItem(_gkKeys[_gi]);
-          if (_val) window.SyncStore.writeData(_gkKeys[_gi], JSON.parse(_val));
-        }
-      } catch(e) {}
-      
-      // Step 2: Set the new key
-      window.SyncStore.setSyncKey(newKey);
-      syncInfo.syncKey = newKey;
-      
-      // Step 3: Wait a moment for the debounced writes, then fetch from cloud
-      if (syncInfo.hasConfig) {
-        setTimeout(function() {
-          window.SyncStore.fetchAllKeys(function(rows) {
-            if (rows && rows.length > 0) rows.forEach(function(row) {
-              if (row.data_value != null) {
-                try { localStorage.setItem(row.data_key, JSON.stringify(row.data_value)); } catch(e) {}
-              }
-            });
-            loadFromLocal();
-            showSyncToast('同步密钥已更新，数据已迁移');
-          });
-        }, 800);
-      } else {
-        loadFromLocal();
-        showSyncToast('同步密钥已更新');
-      }
-      var keyEl = document.getElementById('sync-key-code');
-      if (keyEl) keyEl.textContent = newKey;
+  function applySyncKey() {}
+  function copySyncKey() {}
+
+  function renderAccountStatus() {
+    var info = window.SyncStore && window.SyncStore.getAuthInfo ? window.SyncStore.getAuthInfo() : syncInfo;
+    syncInfo.hasConfig = !!info.hasConfig;
+    syncInfo.isLoggedIn = !!info.isLoggedIn;
+    syncInfo.email = info.email || '';
+    var status = document.getElementById('sidebar-account-status');
+    var label = document.getElementById('sidebar-account-label');
+    if (status) {
+      status.className = 'sidebar-sync-status ' + (syncInfo.isLoggedIn ? 'online' : (syncInfo.hasConfig ? 'pending' : 'offline'));
+      status.title = syncInfo.isLoggedIn ? ('????' + syncInfo.email) : (syncInfo.hasConfig ? '???' : '???????');
     }
+    if (label) label.textContent = syncInfo.isLoggedIn ? '???' : '??';
+    renderAccountModal();
   }
 
-  function copySyncKey() {
-    var key = syncInfo.syncKey || '';
-    if (!key) return;
-    navigator.clipboard.writeText(key).then(function() { showSyncToast('已复制同步密钥：' + key); }).catch(function() { showSyncToast('无法复制，请手动拷贝'); });
+  function setAccountMessage(msg) {
+    var el = document.getElementById('account-message');
+    if (el) el.textContent = msg || '';
+  }
+
+  function renderAccountModal() {
+    var warning = document.getElementById('account-config-warning');
+    var authForm = document.getElementById('account-auth-form');
+    var userPanel = document.getElementById('account-user-panel');
+    var dot = document.getElementById('account-status-dot');
+    var text = document.getElementById('account-status-text');
+    var emailEl = document.getElementById('account-email-display');
+    if (warning) warning.style.display = syncInfo.hasConfig ? 'none' : '';
+    if (authForm) authForm.style.display = (!syncInfo.isLoggedIn && syncInfo.hasConfig) ? '' : 'none';
+    if (userPanel) userPanel.style.display = syncInfo.isLoggedIn ? '' : 'none';
+    if (emailEl) emailEl.textContent = syncInfo.email || '';
+    if (dot) dot.className = 'sync-status-dot ' + (syncInfo.isLoggedIn ? 'online' : (syncInfo.hasConfig ? 'pending' : 'offline'));
+    if (text) text.textContent = syncInfo.isLoggedIn ? ('????' + syncInfo.email) : (syncInfo.hasConfig ? '??? - ???????????' : '??? - ????????');
+  }
+
+  function openAccountModal() {
+    renderAccountStatus();
+    setAccountMessage('');
+    var overlay = document.getElementById('account-overlay');
+    if (overlay) overlay.classList.add('open');
+  }
+
+  function closeAccountModal() {
+    var overlay = document.getElementById('account-overlay');
+    if (overlay) overlay.classList.remove('open');
+  }
+
+  function getAccountCredentials() {
+    var email = document.getElementById('account-email');
+    var password = document.getElementById('account-password');
+    return { email: email ? email.value.trim() : '', password: password ? password.value : '' };
+  }
+
+  function accountSignIn() {
+    var c = getAccountCredentials();
+    if (!c.email || !c.password) { setAccountMessage('????????'); return; }
+    setAccountMessage('???????????...');
+    window.SyncStore.signIn(c.email, c.password).then(function () {
+      setAccountMessage('????????????');
+      loadAllData();
+    }).catch(function (err) { setAccountMessage(err && err.message ? err.message : '????'); });
+  }
+
+  function accountSignUp() {
+    var c = getAccountCredentials();
+    if (!c.email || !c.password) { setAccountMessage('????????'); return; }
+    setAccountMessage('????...');
+    window.SyncStore.signUp(c.email, c.password).then(function () {
+      var info = window.SyncStore.getAuthInfo();
+      if (info.isLoggedIn) { setAccountMessage('????????????'); loadAllData(); }
+      else { setAccountMessage('???????????????'); }
+    }).catch(function (err) { setAccountMessage(err && err.message ? err.message : '????'); });
+  }
+
+  function accountSignOut() {
+    setAccountMessage('????...');
+    window.SyncStore.signOut().then(function () { setAccountMessage('??????????????'); });
+  }
+
+  function accountManualSync() {
+    if (!window.SyncStore || !window.SyncStore.mergeLocalWithCloud) return;
+    setAccountMessage('????...');
+    window.SyncStore.mergeLocalWithCloud(function (result) {
+      setAccountMessage('??????? ' + result.uploaded + ' ?????? ' + result.downloaded + ' ?');
+      loadAllData();
+    });
   }
 
   function showSyncToast(msg) {
@@ -1199,7 +1228,7 @@
           var _row = rows[_ri];
           if (_row.data_value == null || !_row.data_key) continue;
           var _oldVal = localStorage.getItem(_row.data_key);
-          var _newVal = JSON.stringify(_row.data_value);
+          var _newVal = typeof _row.data_value === 'string' ? _row.data_value : JSON.stringify(_row.data_value);
           if (_oldVal !== _newVal) {
             try { localStorage.setItem(_row.data_key, _newVal); } catch(e) {}
             changed = true;
@@ -1308,6 +1337,9 @@
   window.closeLinkManager = closeLinkManager; window.addLink = addLink;
   window.openSyncConfig = openSyncConfig; window.closeSyncConfig = closeSyncConfig;
   window.applySyncKey = applySyncKey; window.copySyncKey = copySyncKey;
+  window.openAccountModal = openAccountModal; window.closeAccountModal = closeAccountModal;
+  window.accountSignIn = accountSignIn; window.accountSignUp = accountSignUp;
+  window.accountSignOut = accountSignOut; window.accountManualSync = accountManualSync;
   window.saveCountdownConfigModal = saveCountdownConfigModal; window.closeCountdownConfigModal = closeCountdownConfigModal;
   window.planPrevMonth = planPrevMonth; window.planNextMonth = planNextMonth;
   window.planNewMonth = planNewMonth; window.planEditMonth = planEditMonth;
