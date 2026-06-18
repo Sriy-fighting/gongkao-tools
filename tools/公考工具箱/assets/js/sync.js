@@ -40,6 +40,7 @@ window.SyncStore = (function () {
 
   var SUPABASE_URL = "https://srevbdznsrvpwivvdfla.supabase.co";
   var SUPABASE_ANON_KEY = "sb_publishable_yDYTPr8uN7rw7oigBWaIgw_V2Fp9fzd";
+  var AUTH_REDIRECT_URL = "https://sriy-fighting.github.io/gongkao-tools/";
 
   var TABLE = "user_data";
   var LEGACY_SYNC_KEY = "gk-sync-key";
@@ -178,7 +179,7 @@ window.SyncStore = (function () {
         email: email,
         password: password,
         options: {
-          emailRedirectTo: window.location.origin + window.location.pathname
+          emailRedirectTo: AUTH_REDIRECT_URL
         }
       });
     }).then(function (res) {
