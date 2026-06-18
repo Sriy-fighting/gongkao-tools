@@ -40,8 +40,8 @@
       </button>
       <button class="sidebar-sync-btn" id="sidebar-account-btn">
         <span class="sync-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></span>
-        <span id="sidebar-account-label">??</span>
-        <span class="sidebar-sync-status offline" id="sidebar-account-status" title="???"></span>
+        <span id="sidebar-account-label">账号</span>
+        <span class="sidebar-sync-status offline" id="sidebar-account-status" title="未登录"></span>
       </button>
     </nav>
     <div class="sidebar-footer">
@@ -226,45 +226,45 @@
 <div class="sync-overlay" id="account-overlay">
   <div class="sync-modal account-modal" onclick="event.stopPropagation()">
     <div class="sync-header">
-      <h3>?????</h3>
+      <h3>账号与同步</h3>
       <button class="sync-close" onclick="closeAccountModal()">&times;</button>
     </div>
     <div class="sync-body">
       <div class="sync-status">
         <span class="sync-status-dot pending" id="account-status-dot"></span>
-        <span id="account-status-text">??? - ????????</span>
+        <span id="account-status-text">未登录 - 本地数据仍会保存</span>
       </div>
       <div id="account-config-warning" class="sync-hint account-warning">
-        ???????? Supabase???? <strong>assets/js/sync.js</strong> ??? SUPABASE_URL ? SUPABASE_ANON_KEY?
+        账号同步尚未配置 Supabase。请在 <strong>assets/js/sync.js</strong> 中填写 SUPABASE_URL 和 SUPABASE_ANON_KEY。
       </div>
       <div id="account-auth-form">
-        <div class="sync-section-title">???? / ??</div>
+        <div class="sync-section-title">登录 / 注册</div>
         <div class="account-form-row">
-          <input type="email" id="account-email" placeholder="??">
-          <input type="password" id="account-password" placeholder="????? 6 ??">
+          <input type="email" id="account-email" placeholder="邮箱">
+          <input type="password" id="account-password" placeholder="密码至少 6 位">
         </div>
         <div class="account-actions">
-          <button class="account-primary-btn" onclick="accountSignIn()">??</button>
-          <button class="account-secondary-btn" onclick="accountSignUp()">??</button>
+          <button class="account-primary-btn" onclick="accountSignIn()">登录</button>
+          <button class="account-secondary-btn" onclick="accountSignUp()">注册</button>
         </div>
       </div>
       <div id="account-user-panel" style="display:none;">
-        <div class="sync-section-title">????</div>
+        <div class="sync-section-title">当前账号</div>
         <div class="account-user-card"><span id="account-email-display"></span></div>
         <div class="account-actions">
-          <button class="account-primary-btn" onclick="accountManualSync()">????</button>
-          <button class="account-secondary-btn" onclick="accountSignOut()">????</button>
+          <button class="account-primary-btn" onclick="accountManualSync()">手动同步</button>
+          <button class="account-secondary-btn" onclick="accountSignOut()">退出登录</button>
         </div>
       </div>
-      <div class="sync-section-title" style="margin-top:16px;">????</div>
+      <div class="sync-section-title" style="margin-top:16px;">本地备份</div>
       <div class="sync-hint">
-        ????????????? .json ??????????????<br><br>
-        <button class="sync-key-copy-btn" onclick="exportLocalData()" style="padding:8px 18px;">????</button>
-        <button class="sync-key-copy-btn" onclick="importLocalData()" style="padding:8px 18px;margin-left:8px;">????</button>
+        账号同步之外，也可以导出 .json 文件，方便备份或迁移到其他电脑。<br><br>
+        <button class="sync-key-copy-btn" onclick="exportLocalData()" style="padding:8px 18px;">导出数据</button>
+        <button class="sync-key-copy-btn" onclick="importLocalData()" style="padding:8px 18px;margin-left:8px;">导入数据</button>
       </div>
       <div class="account-message" id="account-message"></div>
     </div>
-    <div class="sync-footer"><button onclick="closeAccountModal()">??</button></div>
+    <div class="sync-footer"><button onclick="closeAccountModal()">关闭</button></div>
   </div>
 </div>
 

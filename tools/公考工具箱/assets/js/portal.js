@@ -500,15 +500,15 @@
     var el = document.getElementById('sidebar-sync-status');
     if (!el) return;
     el.className = 'sidebar-sync-status ' + (syncInfo.isLoggedIn ? 'online' : (syncInfo.hasConfig ? 'pending' : 'offline'));
-    el.title = syncInfo.isLoggedIn ? '???????' : (syncInfo.hasConfig ? '???????' : '???????');
+    el.title = syncInfo.isLoggedIn ? '账号同步已连接' : (syncInfo.hasConfig ? '账号同步待登录' : '账号同步未配置');
   }
 
   function openSyncConfig() {
     var overlay = document.getElementById('sync-overlay'); if (!overlay) return;
     var dot = document.getElementById('sync-status-dot'), txt = document.getElementById('sync-status-text');
-    if (syncInfo.isLoggedIn) { if (dot) dot.className = 'sync-status-dot online'; if (txt) txt.textContent = '????????' + syncInfo.email; }
-    else if (syncInfo.hasConfig) { if (dot) dot.className = 'sync-status-dot pending'; if (txt) txt.textContent = '??????????????????'; }
-    else { if (dot) dot.className = 'sync-status-dot pending'; if (txt) txt.textContent = '???? - ???????/???????'; }
+    if (syncInfo.isLoggedIn) { if (dot) dot.className = 'sync-status-dot online'; if (txt) txt.textContent = '已登录：' + syncInfo.email; }
+    else if (syncInfo.hasConfig) { if (dot) dot.className = 'sync-status-dot pending'; if (txt) txt.textContent = '账号同步已配置，请在“账号”中登录'; }
+    else { if (dot) dot.className = 'sync-status-dot pending'; if (txt) txt.textContent = '未配置 - 请填写 Supabase 项目地址和公开密钥'; }
     overlay.classList.add('open');
   }
 
@@ -526,9 +526,9 @@
     var label = document.getElementById('sidebar-account-label');
     if (status) {
       status.className = 'sidebar-sync-status ' + (syncInfo.isLoggedIn ? 'online' : (syncInfo.hasConfig ? 'pending' : 'offline'));
-      status.title = syncInfo.isLoggedIn ? ('????' + syncInfo.email) : (syncInfo.hasConfig ? '???' : '???????');
+      status.title = syncInfo.isLoggedIn ? ('已登录：' + syncInfo.email) : (syncInfo.hasConfig ? '未登录' : '账号同步未配置');
     }
-    if (label) label.textContent = syncInfo.isLoggedIn ? '???' : '??';
+    if (label) label.textContent = syncInfo.isLoggedIn ? '已登录' : '账号';
     renderAccountModal();
   }
 
@@ -549,7 +549,7 @@
     if (userPanel) userPanel.style.display = syncInfo.isLoggedIn ? '' : 'none';
     if (emailEl) emailEl.textContent = syncInfo.email || '';
     if (dot) dot.className = 'sync-status-dot ' + (syncInfo.isLoggedIn ? 'online' : (syncInfo.hasConfig ? 'pending' : 'offline'));
-    if (text) text.textContent = syncInfo.isLoggedIn ? ('????' + syncInfo.email) : (syncInfo.hasConfig ? '??? - ???????????' : '??? - ????????');
+    if (text) text.textContent = syncInfo.isLoggedIn ? ('已登录：' + syncInfo.email) : (syncInfo.hasConfig ? '未登录 - 本地数据仍会保存' : '未配置 - 请先填写同步配置');
   }
 
   function openAccountModal() {
@@ -572,35 +572,35 @@
 
   function accountSignIn() {
     var c = getAccountCredentials();
-    if (!c.email || !c.password) { setAccountMessage('????????'); return; }
-    setAccountMessage('???????????...');
+    if (!c.email || !c.password) { setAccountMessage('请输入邮箱和密码'); return; }
+    setAccountMessage('正在登录并同步...');
     window.SyncStore.signIn(c.email, c.password).then(function () {
-      setAccountMessage('????????????');
+      setAccountMessage('登录成功，已同步本地数据');
       loadAllData();
-    }).catch(function (err) { setAccountMessage(err && err.message ? err.message : '????'); });
+    }).catch(function (err) { setAccountMessage(err && err.message ? err.message : '登录失败'); });
   }
 
   function accountSignUp() {
     var c = getAccountCredentials();
-    if (!c.email || !c.password) { setAccountMessage('????????'); return; }
-    setAccountMessage('????...');
+    if (!c.email || !c.password) { setAccountMessage('请输入邮箱和密码'); return; }
+    setAccountMessage('正在注册...');
     window.SyncStore.signUp(c.email, c.password).then(function () {
       var info = window.SyncStore.getAuthInfo();
-      if (info.isLoggedIn) { setAccountMessage('????????????'); loadAllData(); }
-      else { setAccountMessage('???????????????'); }
-    }).catch(function (err) { setAccountMessage(err && err.message ? err.message : '????'); });
+      if (info.isLoggedIn) { setAccountMessage('注册成功，已同步本地数据'); loadAllData(); }
+      else { setAccountMessage('注册成功，请先到邮箱确认后再登录'); }
+    }).catch(function (err) { setAccountMessage(err && err.message ? err.message : '注册失败'); });
   }
 
   function accountSignOut() {
-    setAccountMessage('????...');
-    window.SyncStore.signOut().then(function () { setAccountMessage('??????????????'); });
+    setAccountMessage('正在退出...');
+    window.SyncStore.signOut().then(function () { setAccountMessage('已退出登录，本地数据仍保留'); });
   }
 
   function accountManualSync() {
     if (!window.SyncStore || !window.SyncStore.mergeLocalWithCloud) return;
-    setAccountMessage('????...');
+    setAccountMessage('正在同步...');
     window.SyncStore.mergeLocalWithCloud(function (result) {
-      setAccountMessage('??????? ' + result.uploaded + ' ?????? ' + result.downloaded + ' ?');
+      setAccountMessage('同步完成：上传 ' + result.uploaded + ' 项，检查云端 ' + result.downloaded + ' 项');
       loadAllData();
     });
   }
