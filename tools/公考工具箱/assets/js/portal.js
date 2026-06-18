@@ -3,7 +3,7 @@
 
   var TOOLS = {
     dashboard: { name: '首页', path: null },
-    exam:      { name: '公考助手',   path: '../公考助手/index.html' },
+    exam:      { name: '套卷分数计算',   path: '../公考助手/index.html' },
     essay:     { name: '申论方格纸', path: '../申论方格纸/index.html' },
     speed:     { name: '资料速算',   path: '../资料训练/index.html' },
     curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html' }
