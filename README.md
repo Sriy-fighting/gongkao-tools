@@ -54,3 +54,51 @@ python -m http.server 8080
 ## 技术栈
 
 纯前端 · HTML + CSS + JavaScript · 无依赖 · 零配置 · 即开即用
+
+## 账号登录与云端同步
+
+站点已预留 Supabase Auth + Postgres 个人数据同步能力。默认未配置时，所有工具仍使用浏览器本地存储。
+
+启用步骤：
+
+1. 在 Supabase 创建项目，并启用 Email/Password 登录。
+2. 在 Supabase SQL Editor 执行：
+
+```sql
+create table if not exists public.user_data (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  data_key text not null,
+  data_value jsonb not null default '{}'::jsonb,
+  updated_at timestamptz not null default now(),
+  unique (user_id, data_key)
+);
+
+alter table public.user_data enable row level security;
+
+create policy "Users can read own data"
+on public.user_data for select
+using (auth.uid() = user_id);
+
+create policy "Users can insert own data"
+on public.user_data for insert
+with check (auth.uid() = user_id);
+
+create policy "Users can update own data"
+on public.user_data for update
+using (auth.uid() = user_id)
+with check (auth.uid() = user_id);
+
+create policy "Users can delete own data"
+on public.user_data for delete
+using (auth.uid() = user_id);
+```
+
+3. 打开 `tools/公考工具箱/assets/js/sync.js`，填写：
+
+```js
+var SUPABASE_URL = "你的 Project URL";
+var SUPABASE_ANON_KEY = "你的 anon public key";
+```
+
+不要填写或提交 service role key。首次登录后，本地数据会优先合并上传到当前账号。
