@@ -120,9 +120,10 @@
       }
       for (var _ii = 0; _ii < _index.length; _ii++) {
         var _d = JSON.parse(localStorage.getItem('gk-plan-' + _index[_ii]));
-        if (_d) _months.push(_d);
+        if (_d) _months.push(normalizePlanMonth(_d));
       }
       planData.months = _months;
+      normalizePlanData();
     } catch(e) {}
     try { var _ph = JSON.parse(localStorage.getItem('gk-plan-holidays')); if (_ph) planHolidays = _ph; } catch(e) {}
     ensureDefaultHolidays();
@@ -495,6 +496,7 @@
   }
 
   function esc(s) { var d = document.createElement('div'); d.appendChild(document.createTextNode(s||'')); return d.innerHTML; }
+  function jsArg(s) { return esc(JSON.stringify(String(s == null ? '' : s))); }
 
   function renderSyncStatus() {
     var el = document.getElementById('sidebar-sync-status');
@@ -687,6 +689,69 @@
     return -1;
   }
 
+  function normalizePlanMonth(month) {
+    if (!month) return month;
+    if (!Array.isArray(month.todos)) month.todos = [];
+    if (!Array.isArray(month.weeks)) month.weeks = [];
+    for (var i = 0; i < month.weeks.length; i++) {
+      var week = month.weeks[i];
+      if (!Array.isArray(week.days)) week.days = [];
+      for (var j = 0; j < week.days.length; j++) {
+        if (!Array.isArray(week.days[j].tasks)) week.days[j].tasks = [];
+      }
+    }
+    return month;
+  }
+
+  function normalizePlanData() {
+    for (var i = 0; i < planData.months.length; i++) normalizePlanMonth(planData.months[i]);
+  }
+
+  function findWeekContext(weekId) {
+    for (var i = 0; i < planData.months.length; i++) {
+      var month = normalizePlanMonth(planData.months[i]);
+      for (var j = 0; j < month.weeks.length; j++) {
+        if (month.weeks[j].id === weekId) return { month: month, monthIndex: i, week: month.weeks[j], weekIndex: j };
+      }
+    }
+    return null;
+  }
+
+  function findDayContext(weekId, dateStr) {
+    var ctx = findWeekContext(weekId);
+    if (!ctx) return null;
+    for (var i = 0; i < ctx.week.days.length; i++) {
+      if (ctx.week.days[i].date === dateStr) {
+        ctx.day = ctx.week.days[i];
+        ctx.dayIndex = i;
+        return ctx;
+      }
+    }
+    return null;
+  }
+
+  function findTaskContext(weekId, dateStr, taskId) {
+    var ctx = findDayContext(weekId, dateStr);
+    if (!ctx) return null;
+    for (var i = 0; i < ctx.day.tasks.length; i++) {
+      if (ctx.day.tasks[i].id === taskId) {
+        ctx.task = ctx.day.tasks[i];
+        ctx.taskIndex = i;
+        return ctx;
+      }
+    }
+    return null;
+  }
+
+  function findMonthTodoContext(todoId) {
+    var month = normalizePlanMonth(getMonthData(planCurrentMonth));
+    if (!month) return null;
+    for (var i = 0; i < month.todos.length; i++) {
+      if (month.todos[i].id === todoId) return { month: month, todo: month.todos[i], todoIndex: i };
+    }
+    return null;
+  }
+
   function createMonthTemplate(ym) {
     var parts = ym.split('-');
     var y = parseInt(parts[0]);
@@ -717,7 +782,7 @@
       weekNum++;
       day = weekEnd + 1;
     }
-    return { id: ym, title: m + '月学习计划', focus: '', weeks: weeks };
+    return { id: ym, title: m + '月学习计划', focus: '', todos: [], weeks: weeks };
   }
 
   function savePlan() {
@@ -744,6 +809,11 @@
 
   function calcMonthProgress(month) {
     var total = 0, done = 0;
+    month = normalizePlanMonth(month);
+    for (var mt = 0; mt < month.todos.length; mt++) {
+      total++;
+      if (month.todos[mt].done) done++;
+    }
     for (var i = 0; i < month.weeks.length; i++) {
       for (var j = 0; j < month.weeks[i].days.length; j++) {
         for (var k = 0; k < month.weeks[i].days[j].tasks.length; k++) {
@@ -757,6 +827,7 @@
 
   function calcWeekProgress(week) {
     var total = 0, done = 0;
+    if (!week || !Array.isArray(week.days)) return { total: total, done: done, pct: 0 };
     for (var j = 0; j < week.days.length; j++) {
       for (var k = 0; k < week.days[j].tasks.length; k++) {
         total++;
@@ -796,16 +867,11 @@
   }
 
   function planToggleWeek(weekId) {
-    var month = getMonthData(planCurrentMonth);
-    if (!month) return;
-    for (var i = 0; i < month.weeks.length; i++) {
-      if (month.weeks[i].id === weekId) {
-        month.weeks[i].expanded = !month.weeks[i].expanded;
-        savePlan();
-        renderPlan();
-        return;
-      }
-    }
+    var ctx = findWeekContext(weekId);
+    if (!ctx) return;
+    ctx.week.expanded = !ctx.week.expanded;
+    savePlan();
+    renderPlan();
   }
 
   // --- rendering ---
@@ -841,10 +907,20 @@
   function renderMonthCard(month) {
     var el = document.getElementById('plan-month-card');
     if (!el) return;
+    month = normalizePlanMonth(month);
     var prog = calcMonthProgress(month);
     var title = month.title || month.id.slice(5) + '月学习计划';
     var focus = month.focus || '暂无本月重点';
-    el.innerHTML = '<div class="plan-section-label">月度计划</div><div class="plan-month-card"><div class="plan-month-header"><div class="plan-month-title">' + esc(title) + '</div><div class="plan-month-actions"><button class="plan-icon-btn" onclick="planEditMonth()" title="编辑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button><button class="plan-icon-btn plan-icon-btn-danger" onclick="planDeleteMonth()" title="删除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></div></div><div class="plan-month-focus">' + esc(focus) + '</div>' + (prog.total > 0 ? '<div class="plan-month-progress"><div class="plan-month-progress-bar"><div class="plan-month-progress-fill" style="width:' + prog.pct + '%"></div></div><span class="plan-month-progress-text">已完成 ' + prog.done + '/' + prog.total + ' 项 (' + prog.pct + '%)</span></div>' : '<div class="plan-month-empty-hint">暂无任务，在下方周计划中添加</div>') + '</div>';
+    var todoHtml = '';
+    if (month.todos.length === 0) {
+      todoHtml = '<div class="plan-month-todo-empty">暂无月度待办</div>';
+    } else {
+      for (var i = 0; i < month.todos.length; i++) {
+        var todo = month.todos[i];
+        todoHtml += '<div class="plan-task plan-month-todo-item"><label class="plan-task-check"><input type="checkbox" ' + (todo.done ? 'checked' : '') + ' onchange="planToggleMonthTodo(' + jsArg(todo.id) + ')"><span class="plan-task-checkmark"></span></label><span class="plan-task-text' + (todo.done ? ' plan-task-done' : '') + '">' + esc(todo.text) + '</span><span class="plan-task-actions"><button class="plan-task-btn plan-task-btn-danger" onclick="planDeleteMonthTodo(' + jsArg(todo.id) + ')" title="删除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></span></div>';
+      }
+    }
+    el.innerHTML = '<div class="plan-section-label">月度计划</div><div class="plan-month-card"><div class="plan-month-header"><div class="plan-month-title">' + esc(title) + '</div><div class="plan-month-actions"><button class="plan-icon-btn" onclick="planEditMonth()" title="编辑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button><button class="plan-icon-btn plan-icon-btn-danger" onclick="planDeleteMonth()" title="删除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></div></div><div class="plan-month-focus">' + esc(focus) + '</div><div class="plan-month-todos"><div class="plan-month-todo-title">月度待办</div><div class="plan-month-todo-list">' + todoHtml + '</div><div class="plan-day-add plan-month-todo-add"><input type="text" class="plan-day-input" placeholder="添加月度待办..." onkeydown="if(event.key===\x27Enter\x27)planAddMonthTodo(this)"><button class="plan-day-add-btn" onclick="planAddMonthTodo(this.previousElementSibling)" title="添加">+</button></div></div>' + (prog.total > 0 ? '<div class="plan-month-progress"><div class="plan-month-progress-bar"><div class="plan-month-progress-fill" style="width:' + prog.pct + '%"></div></div><span class="plan-month-progress-text">已完成 ' + prog.done + '/' + prog.total + ' 项 (' + prog.pct + '%)</span></div>' : '<div class="plan-month-empty-hint">暂无任务，在月度待办或下方周计划中添加</div>') + '</div>';
   }
 
   function renderWeeks(month) {
@@ -858,7 +934,7 @@
       if (isCur && !hasCurrent) { w.expanded = true; hasCurrent = true; }
       else if (!isCur && !w.expanded) { /* keep collapsed */ }
       var prog = calcWeekProgress(w);
-      html += '<div class="plan-week' + (isCur ? ' plan-week-current' : '') + '"><div class="plan-week-header" onclick="planToggleWeek(\x27 + w.id + \x27)"><span class="plan-week-toggle">' + (w.expanded ? '▾' : '▸') + '</span><span class="plan-week-label">' + esc(w.label) + '</span>' + (prog.total > 0 ? '<span class="plan-week-progress-badge">' + prog.done + '/' + prog.total + '</span>' : '') + '<span class="plan-week-actions" onclick="event.stopPropagation()"><button class="plan-icon-btn plan-icon-btn-sm" onclick="planEditWeek(\x27 + w.id + \x27)" title="编辑目标"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button><button class="plan-icon-btn plan-icon-btn-sm plan-icon-btn-danger" onclick="planDeleteWeek(\x27 + w.id + \x27)" title="删除周"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></span></div>' + (w.expanded ? '<div class="plan-week-body">' + (w.goals ? '<div class="plan-week-goals">' + esc(w.goals) + '</div>' : '') + '<div class="plan-week-days">' + renderDays(w) + '</div></div>' : '') + '</div>';
+      html += '<div class="plan-week' + (isCur ? ' plan-week-current' : '') + '"><div class="plan-week-header" onclick="planToggleWeek(' + jsArg(w.id) + ')"><span class="plan-week-toggle">' + (w.expanded ? '▾' : '▸') + '</span><span class="plan-week-label">' + esc(w.label) + '</span>' + (prog.total > 0 ? '<span class="plan-week-progress-badge">' + prog.done + '/' + prog.total + '</span>' : '') + '<span class="plan-week-actions" onclick="event.stopPropagation()"><button class="plan-icon-btn plan-icon-btn-sm" onclick="planEditWeek(' + jsArg(w.id) + ')" title="编辑目标"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button><button class="plan-icon-btn plan-icon-btn-sm plan-icon-btn-danger" onclick="planDeleteWeek(' + jsArg(w.id) + ')" title="删除周"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></span></div>' + (w.expanded ? '<div class="plan-week-body">' + (w.goals ? '<div class="plan-week-goals">' + esc(w.goals) + '</div>' : '') + '<div class="plan-week-days">' + renderDays(w) + '</div></div>' : '') + '</div>';
     }
     el.innerHTML = html;
   }
@@ -895,10 +971,10 @@
     } else {
       for (var t = 0; t < day.tasks.length; t++) {
         var task = day.tasks[t];
-        h += '<div class="plan-task"><label class="plan-task-check"><input type="checkbox" ' + (task.done ? 'checked' : '') + ' onchange="planToggleTask(\x27 + weekId + \x27,\x27 + day.date + \x27,\x27 + task.id + \x27)"><span class="plan-task-checkmark"></span></label><span class="plan-task-text' + (task.done ? ' plan-task-done' : '') + '">' + esc(task.text) + '</span><span class="plan-task-actions"><button class="plan-task-btn" onclick="planEditTask(\x27 + weekId + \x27,\x27 + day.date + \x27,\x27 + task.id + \x27)" title="编辑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button><button class="plan-task-btn plan-task-btn-danger" onclick="planDeleteTask(\x27 + weekId + \x27,\x27 + day.date + \x27,\x27 + task.id + \x27)" title="删除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></span></div>';
+        h += '<div class="plan-task"><label class="plan-task-check"><input type="checkbox" ' + (task.done ? 'checked' : '') + ' onchange="planToggleTask(' + jsArg(weekId) + ',' + jsArg(day.date) + ',' + jsArg(task.id) + ')"><span class="plan-task-checkmark"></span></label><span class="plan-task-text' + (task.done ? ' plan-task-done' : '') + '">' + esc(task.text) + '</span><span class="plan-task-actions"><button class="plan-task-btn" onclick="planEditTask(' + jsArg(weekId) + ',' + jsArg(day.date) + ',' + jsArg(task.id) + ')" title="编辑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button><button class="plan-task-btn plan-task-btn-danger" onclick="planDeleteTask(' + jsArg(weekId) + ',' + jsArg(day.date) + ',' + jsArg(task.id) + ')" title="删除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></span></div>';
       }
     }
-    h += '</div><div class="plan-day-add"><input type="text" class="plan-day-input" placeholder="添加任务..." onkeydown="if(event.key===\x27Enter\x27)planAddTask(\x27 + weekId + \x27,\x27 + day.date + \x27,this)"><button class="plan-day-add-btn" onclick="planAddTask(\x27 + weekId + \x27,\x27 + day.date + \x27,this.previousElementSibling)" title="添加">+</button></div></div></div>';
+    h += '</div><div class="plan-day-add"><input type="text" class="plan-day-input" placeholder="添加任务..." onkeydown="if(event.key===\x27Enter\x27)planAddTask(' + jsArg(weekId) + ',' + jsArg(day.date) + ',this)"><button class="plan-day-add-btn" onclick="planAddTask(' + jsArg(weekId) + ',' + jsArg(day.date) + ',this.previousElementSibling)" title="添加">+</button></div></div></div>';
     return h;
   }
 
@@ -948,163 +1024,117 @@
   }
 
   function planEditWeek(weekId) {
-    var month = getMonthData(planCurrentMonth);
-    if (!month) return;
-    for (var i = 0; i < month.weeks.length; i++) {
-      if (month.weeks[i].id === weekId) {
-        var w = month.weeks[i];
-        document.getElementById('plan-week-modal-label').textContent = w.label + '目标';
-        document.getElementById('plan-week-goals-input').value = w.goals || '';
-        planEditContext.weekId = weekId;
-        document.getElementById('plan-week-modal').classList.add('open');
-        return;
-      }
-    }
+    var ctx = findWeekContext(weekId);
+    if (!ctx) return;
+    document.getElementById('plan-week-modal-label').textContent = ctx.week.label + '目标';
+    document.getElementById('plan-week-goals-input').value = ctx.week.goals || '';
+    planEditContext.weekId = weekId;
+    document.getElementById('plan-week-modal').classList.add('open');
   }
 
   function savePlanWeekModal() {
-    var month = getMonthData(planCurrentMonth);
-    if (!month) return;
     var weekId = planEditContext.weekId;
-    for (var i = 0; i < month.weeks.length; i++) {
-      if (month.weeks[i].id === weekId) {
-        month.weeks[i].goals = document.getElementById('plan-week-goals-input').value.trim();
-        savePlan();
-        closePlanWeekModal();
-        renderPlan();
-        showSyncToast('已保存周目标');
-        return;
-      }
-    }
+    var ctx = findWeekContext(weekId);
+    if (!ctx) return;
+    ctx.week.goals = document.getElementById('plan-week-goals-input').value.trim();
+    savePlan();
+    closePlanWeekModal();
+    renderPlan();
+    showSyncToast('已保存周目标');
   }
 
   function closePlanWeekModal() { var o = document.getElementById('plan-week-modal'); if (o) o.classList.remove('open'); }
 
   function planDeleteWeek(weekId) {
-    var month = getMonthData(planCurrentMonth);
-    if (!month) return;
+    var ctx = findWeekContext(weekId);
+    if (!ctx) return;
     showPlanConfirm('确定要删除这一周的所有数据吗？', function () {
-      for (var i = 0; i < month.weeks.length; i++) {
-        if (month.weeks[i].id === weekId) {
-          month.weeks.splice(i, 1);
-          savePlan();
-          renderPlan();
-          showSyncToast('已删除周');
-          return;
-        }
-      }
+      ctx.month.weeks.splice(ctx.weekIndex, 1);
+      savePlan();
+      renderPlan();
+      showSyncToast('已删除周');
     });
   }
 
-  function planAddTask(weekId, dateStr, inputEl) {
+  function planAddMonthTodo(inputEl) {
+    if (!inputEl) return;
     var text = inputEl.value.trim();
     if (!text) return;
-    var month = getMonthData(planCurrentMonth);
+    var month = normalizePlanMonth(getMonthData(planCurrentMonth));
     if (!month) return;
-    for (var i = 0; i < month.weeks.length; i++) {
-      if (month.weeks[i].id === weekId) {
-        for (var j = 0; j < month.weeks[i].days.length; j++) {
-          if (month.weeks[i].days[j].date === dateStr) {
-            month.weeks[i].days[j].tasks.push({ id: getId(), text: text, done: false });
-            savePlan();
-            renderPlan();
-            return;
-          }
-        }
-      }
-    }
+    month.todos.push({ id: getId(), text: text, done: false });
+    inputEl.value = '';
+    savePlan();
+    renderPlan();
+  }
+
+  function planToggleMonthTodo(todoId) {
+    var ctx = findMonthTodoContext(todoId);
+    if (!ctx) return;
+    ctx.todo.done = !ctx.todo.done;
+    savePlan();
+    renderPlan();
+  }
+
+  function planDeleteMonthTodo(todoId) {
+    var ctx = findMonthTodoContext(todoId);
+    if (!ctx) return;
+    ctx.month.todos.splice(ctx.todoIndex, 1);
+    savePlan();
+    renderPlan();
+    showSyncToast('已删除月度待办');
+  }
+
+  function planAddTask(weekId, dateStr, inputEl) {
+    if (!inputEl) return;
+    var text = inputEl.value.trim();
+    if (!text) return;
+    var ctx = findDayContext(weekId, dateStr);
+    if (!ctx) return;
+    ctx.day.tasks.push({ id: getId(), text: text, done: false });
+    inputEl.value = '';
+    savePlan();
+    renderPlan();
   }
 
   function planToggleTask(weekId, dateStr, taskId) {
-    var month = getMonthData(planCurrentMonth);
-    if (!month) return;
-    for (var i = 0; i < month.weeks.length; i++) {
-      if (month.weeks[i].id === weekId) {
-        for (var j = 0; j < month.weeks[i].days.length; j++) {
-          if (month.weeks[i].days[j].date === dateStr) {
-            for (var k = 0; k < month.weeks[i].days[j].tasks.length; k++) {
-              if (month.weeks[i].days[j].tasks[k].id === taskId) {
-                month.weeks[i].days[j].tasks[k].done = !month.weeks[i].days[j].tasks[k].done;
-                savePlan();
-                renderPlan();
-                return;
-              }
-            }
-          }
-        }
-      }
-    }
+    var ctx = findTaskContext(weekId, dateStr, taskId);
+    if (!ctx) return;
+    ctx.task.done = !ctx.task.done;
+    savePlan();
+    renderPlan();
   }
 
   function planEditTask(weekId, dateStr, taskId) {
-    var month = getMonthData(planCurrentMonth);
-    if (!month) return;
-    for (var i = 0; i < month.weeks.length; i++) {
-      if (month.weeks[i].id === weekId) {
-        for (var j = 0; j < month.weeks[i].days.length; j++) {
-          if (month.weeks[i].days[j].date === dateStr) {
-            for (var k = 0; k < month.weeks[i].days[j].tasks.length; k++) {
-              if (month.weeks[i].days[j].tasks[k].id === taskId) {
-                document.getElementById('plan-task-text-input').value = month.weeks[i].days[j].tasks[k].text;
-                planEditContext.task = { weekId: weekId, date: dateStr, taskId: taskId };
-                document.getElementById('plan-task-modal').classList.add('open');
-                return;
-              }
-            }
-          }
-        }
-      }
-    }
+    var ctx = findTaskContext(weekId, dateStr, taskId);
+    if (!ctx) return;
+    document.getElementById('plan-task-text-input').value = ctx.task.text;
+    planEditContext.task = { weekId: weekId, date: dateStr, taskId: taskId };
+    document.getElementById('plan-task-modal').classList.add('open');
   }
 
   function savePlanTaskModal() {
     var ctx = planEditContext.task;
     if (!ctx) return;
-    var month = getMonthData(planCurrentMonth);
-    if (!month) return;
-    for (var i = 0; i < month.weeks.length; i++) {
-      if (month.weeks[i].id === ctx.weekId) {
-        for (var j = 0; j < month.weeks[i].days.length; j++) {
-          if (month.weeks[i].days[j].date === ctx.date) {
-            for (var k = 0; k < month.weeks[i].days[j].tasks.length; k++) {
-              if (month.weeks[i].days[j].tasks[k].id === ctx.taskId) {
-                month.weeks[i].days[j].tasks[k].text = document.getElementById('plan-task-text-input').value.trim() || month.weeks[i].days[j].tasks[k].text;
-                savePlan();
-                closePlanTaskModal();
-                renderPlan();
-                showSyncToast('已保存任务');
-                return;
-              }
-            }
-          }
-        }
-      }
-    }
+    var taskCtx = findTaskContext(ctx.weekId, ctx.date, ctx.taskId);
+    if (!taskCtx) return;
+    taskCtx.task.text = document.getElementById('plan-task-text-input').value.trim() || taskCtx.task.text;
+    savePlan();
+    closePlanTaskModal();
+    renderPlan();
+    showSyncToast('已保存任务');
   }
 
   function closePlanTaskModal() { var o = document.getElementById('plan-task-modal'); if (o) o.classList.remove('open'); planEditContext.task = null; }
 
   function planDeleteTask(weekId, dateStr, taskId) {
-    var month = getMonthData(planCurrentMonth);
-    if (!month) return;
+    var ctx = findTaskContext(weekId, dateStr, taskId);
+    if (!ctx) return;
     showPlanConfirm('确定删除这个任务吗？', function () {
-      for (var i = 0; i < month.weeks.length; i++) {
-        if (month.weeks[i].id === weekId) {
-          for (var j = 0; j < month.weeks[i].days.length; j++) {
-            if (month.weeks[i].days[j].date === dateStr) {
-              for (var k = 0; k < month.weeks[i].days[j].tasks.length; k++) {
-                if (month.weeks[i].days[j].tasks[k].id === taskId) {
-                  month.weeks[i].days[j].tasks.splice(k, 1);
-                  savePlan();
-                  renderPlan();
-                  showSyncToast('已删除任务');
-                  return;
-                }
-              }
-            }
-          }
-        }
-      }
+      ctx.day.tasks.splice(ctx.taskIndex, 1);
+      savePlan();
+      renderPlan();
+      showSyncToast('已删除任务');
     });
   }
 
@@ -1159,7 +1189,7 @@
     var h = '';
     for (var i = 0; i < keys.length; i++) {
       var nm = planHolidays[keys[i]];
-      h += '<div class="plan-holiday-item"><span class="ph-date">' + keys[i] + '</span><span class="ph-name">' + esc(nm) + '</span><button class="ph-del" onclick="deletePlanHoliday(\x27 + keys[i] + \x27)" title="删除">✖</button></div>';
+      h += '<div class="plan-holiday-item"><span class="ph-date">' + keys[i] + '</span><span class="ph-name">' + esc(nm) + '</span><button class="ph-del" onclick="deletePlanHoliday(' + jsArg(keys[i]) + ')" title="删除">✖</button></div>';
     }
     list.innerHTML = h;
   }
@@ -1249,9 +1279,10 @@
           }
           for (var _i2 = 0; _i2 < _index.length; _i2++) {
             var _d2 = JSON.parse(localStorage.getItem('gk-plan-' + _index[_i2]));
-            if (_d2) _months.push(_d2);
+            if (_d2) _months.push(normalizePlanMonth(_d2));
           }
           planData.months = _months;
+          normalizePlanData();
         } catch(e) {}
         try { var _h2 = JSON.parse(localStorage.getItem('gk-plan-holidays')); if (_h2) planHolidays = _h2; } catch(e) {}
         if (els.planView && els.planView.style.display !== 'none') renderPlan();
@@ -1347,6 +1378,8 @@
   window.planDeleteMonth = planDeleteMonth; window.planToggleWeek = planToggleWeek;
   window.planEditWeek = planEditWeek; window.savePlanWeekModal = savePlanWeekModal;
   window.closePlanWeekModal = closePlanWeekModal; window.planDeleteWeek = planDeleteWeek;
+  window.planAddMonthTodo = planAddMonthTodo; window.planToggleMonthTodo = planToggleMonthTodo;
+  window.planDeleteMonthTodo = planDeleteMonthTodo;
   window.planAddTask = planAddTask; window.planToggleTask = planToggleTask;
   window.planEditTask = planEditTask; window.savePlanTaskModal = savePlanTaskModal;
   window.closePlanTaskModal = closePlanTaskModal; window.planDeleteTask = planDeleteTask;

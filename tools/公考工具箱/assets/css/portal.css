@@ -1370,6 +1370,33 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   font-size: 14px;
   line-height: 1.6;
 }
+.plan-month-todos {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.plan-month-todo-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.plan-month-todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.plan-month-todo-item {
+  padding: 4px 0;
+}
+.plan-month-todo-empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 2px 0 4px;
+}
+.plan-month-todo-add {
+  padding-top: 4px;
+}
 .plan-month-progress {
   margin-top: 16px;
   display: flex;
