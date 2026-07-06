@@ -2092,6 +2092,62 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
 .plan-week-plan-check {
   margin-bottom: 6px;
 }
+.plan-item-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.plan-item-editor-title {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+.plan-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.plan-item-row {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+}
+.plan-item-check {
+  width: 20px;
+}
+.plan-item-text-input {
+  width: 100%;
+  min-width: 0;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-family: var(--font);
+  outline: none;
+  padding: 0 10px;
+}
+.plan-item-text-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+.plan-item-row.is-done .plan-item-text-input {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+.plan-item-add {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+.plan-item-empty {
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 6px 0;
+}
 .plan-edit-field textarea,
 .plan-week-goal-input {
   width: 100%;
