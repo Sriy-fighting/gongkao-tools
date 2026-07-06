@@ -18,7 +18,7 @@
   var links = [];
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
   var PLAN_SUBJECTS = ['行测', '申论', '资料分析', '常识', '判断推理', '言语理解', '数量关系', '复盘', '其他'];
-  var planData = { version: 2, tasks: [] };
+  var planData = { version: 3, tasks: [], monthPlans: {} };
   var planCurrentMonth = '';
   var planEditContext = {};
   var planSyncInterval = null;
@@ -1224,7 +1224,7 @@
   
 
   // =========================================================
-  //  Plan Module v2 （今日待办优先）
+  //  Plan Module v3 （月计划 + 周计划 + 今日待办）
   // =========================================================
 
   function initPlan() {
@@ -1233,13 +1233,34 @@
   }
 
   function normalizePlanData(data) {
-    var normalized = { version: 2, tasks: [] };
+    var normalized = { version: 3, tasks: [], monthPlans: {} };
     var tasks = data && Array.isArray(data.tasks) ? data.tasks : [];
     for (var i = 0; i < tasks.length; i++) {
       var task = normalizePlanTask(tasks[i]);
       if (task) normalized.tasks.push(task);
     }
+    var sourceMonthPlans = data && data.monthPlans ? data.monthPlans : {};
+    for (var ym in sourceMonthPlans) {
+      if (sourceMonthPlans.hasOwnProperty(ym) && /^\d{4}-\d{2}$/.test(ym)) {
+        normalized.monthPlans[ym] = normalizeMonthPlan(sourceMonthPlans[ym]);
+      }
+    }
     normalized.tasks.sort(sortPlanTasks);
+    return normalized;
+  }
+
+  function normalizeMonthPlan(plan) {
+    var normalized = {
+      goal: String(plan && plan.goal ? plan.goal : ''),
+      focus: String(plan && plan.focus ? plan.focus : ''),
+      weeks: {}
+    };
+    var weeks = plan && plan.weeks ? plan.weeks : {};
+    for (var key in weeks) {
+      if (weeks.hasOwnProperty(key)) {
+        normalized.weeks[key] = { goal: String(weeks[key] && weeks[key].goal ? weeks[key].goal : '') };
+      }
+    }
     return normalized;
   }
 
@@ -1306,6 +1327,7 @@
 
   function planAddTaskFromQuick() {
     var titleEl = document.getElementById('plan-quick-title');
+    var dateEl = document.getElementById('plan-quick-date');
     var subjectEl = document.getElementById('plan-quick-subject');
     var minutesEl = document.getElementById('plan-quick-minutes');
     if (!titleEl) return;
@@ -1315,15 +1337,39 @@
     if (!isFinite(mins) || mins < 0) mins = 0;
     planData.tasks.push(normalizePlanTask({
       title: title,
-      date: getTodayStr(),
+      date: dateEl && isISODate(dateEl.value) ? dateEl.value : getTodayStr(),
       subject: subjectEl && subjectEl.value ? subjectEl.value : '行测',
       estimateMin: mins,
       done: false
     }));
     titleEl.value = '';
+    if (dateEl) dateEl.value = getTodayStr();
     if (minutesEl) minutesEl.value = '60';
     savePlan();
     renderPlan();
+  }
+
+  function savePlanMonthPanel() {
+    var month = ensureMonthPlan(planCurrentMonth);
+    var goalEl = document.getElementById('plan-month-goal');
+    var focusEl = document.getElementById('plan-month-focus');
+    month.goal = goalEl ? goalEl.value.trim() : '';
+    month.focus = focusEl ? focusEl.value.trim() : '';
+    savePlan();
+    renderPlan();
+    showSyncToast('已保存月度计划');
+  }
+
+  function savePlanWeekGoal(weekKey) {
+    var week = findMonthWeek(weekKey);
+    if (!week) return;
+    var month = ensureMonthPlan(planCurrentMonth);
+    var textarea = document.getElementById('plan-week-goal-' + weekKey);
+    if (!month.weeks[weekKey]) month.weeks[weekKey] = { goal: '' };
+    month.weeks[weekKey].goal = textarea ? textarea.value.trim() : '';
+    savePlan();
+    renderPlan();
+    showSyncToast('已保存周计划');
   }
 
   function planToggleTask(taskId) {
@@ -1388,6 +1434,71 @@
     return null;
   }
 
+  function ensureMonthPlan(ym) {
+    if (!planData.monthPlans) planData.monthPlans = {};
+    if (!planData.monthPlans[ym]) planData.monthPlans[ym] = { goal: '', focus: '', weeks: {} };
+    if (!planData.monthPlans[ym].weeks) planData.monthPlans[ym].weeks = {};
+    return planData.monthPlans[ym];
+  }
+
+  function getMonthWeeks(ym) {
+    var parts = ym.split('-');
+    var y = parseInt(parts[0], 10);
+    var m = parseInt(parts[1], 10);
+    var daysInMonth = new Date(y, m, 0).getDate();
+    var weeks = [];
+    var day = 1;
+    var weekNum = 1;
+    while (day <= daysInMonth) {
+      var start = new Date(y, m - 1, day);
+      var dow = start.getDay();
+      var mondayOffset = dow === 0 ? 6 : dow - 1;
+      var daysInWeek = Math.min(7 - mondayOffset, daysInMonth - day + 1);
+      var endDay = day + daysInWeek - 1;
+      weeks.push({
+        key: ym + '-w' + weekNum,
+        num: weekNum,
+        start: ym + '-' + pad2(day),
+        end: ym + '-' + pad2(endDay),
+        label: '第' + weekNum + '周'
+      });
+      weekNum++;
+      day = endDay + 1;
+    }
+    return weeks;
+  }
+
+  function findMonthWeek(weekKey) {
+    var weeks = getMonthWeeks(planCurrentMonth);
+    for (var i = 0; i < weeks.length; i++) {
+      if (weeks[i].key === weekKey) return weeks[i];
+    }
+    return null;
+  }
+
+  function getWeekTasks(week, includeDone) {
+    var list = [];
+    for (var i = 0; i < planData.tasks.length; i++) {
+      var task = planData.tasks[i];
+      if (task.date >= week.start && task.date <= week.end && (includeDone || !task.done)) list.push(task);
+    }
+    list.sort(sortPlanTasks);
+    return list;
+  }
+
+  function getWeekTaskStats(week) {
+    var total = 0, done = 0, minutes = 0;
+    for (var i = 0; i < planData.tasks.length; i++) {
+      var task = planData.tasks[i];
+      if (task.date >= week.start && task.date <= week.end) {
+        total++;
+        if (task.done) done++;
+        minutes += task.estimateMin || 0;
+      }
+    }
+    return { total: total, done: done, minutes: minutes };
+  }
+
   function renderPlan() {
     var view = els.planView;
     if (!view || view.style.display === 'none') return;
@@ -1397,6 +1508,7 @@
     root.innerHTML = [
       '<div class="plan-shell">',
         renderPlanHero(),
+        renderPlanPlanning(),
         renderPlanQuickAdd(),
         renderPlanToolbar(),
         '<div class="plan-list-panel">',
@@ -1436,6 +1548,70 @@
     ].join('');
   }
 
+  function renderPlanPlanning() {
+    var month = ensureMonthPlan(planCurrentMonth);
+    var weeks = getMonthWeeks(planCurrentMonth);
+    var parts = planCurrentMonth.split('-');
+    var monthTitle = parts[0] + '年' + parseInt(parts[1], 10) + '月';
+    return [
+      '<section class="plan-planning-panel">',
+        '<div class="plan-planning-header">',
+          '<div>',
+            '<div class="plan-section-eyebrow">规划层</div>',
+            '<div class="plan-planning-title">' + esc(monthTitle) + '学习计划</div>',
+          '</div>',
+          '<button class="plan-primary-btn" onclick="savePlanMonthPanel()">保存月计划</button>',
+        '</div>',
+        '<div class="plan-month-edit-grid">',
+          '<label class="plan-edit-field"><span>月度目标</span><textarea id="plan-month-goal" rows="3" placeholder="这个月要达成什么结果？">' + esc(month.goal) + '</textarea></label>',
+          '<label class="plan-edit-field"><span>本月重点</span><textarea id="plan-month-focus" rows="3" placeholder="本月重点科目、薄弱项或复盘提醒...">' + esc(month.focus) + '</textarea></label>',
+        '</div>',
+        '<div class="plan-week-board">',
+          renderWeekPlanCards(weeks, month),
+        '</div>',
+      '</section>'
+    ].join('');
+  }
+
+  function renderWeekPlanCards(weeks, month) {
+    var html = '';
+    for (var i = 0; i < weeks.length; i++) {
+      var week = weeks[i];
+      var saved = month.weeks && month.weeks[week.key] ? month.weeks[week.key] : { goal: '' };
+      var stats = getWeekTaskStats(week);
+      var tasks = getWeekTasks(week, true);
+      html += [
+        '<article class="plan-week-card">',
+          '<div class="plan-week-card-head">',
+            '<div>',
+              '<div class="plan-week-card-title">' + esc(week.label) + '</div>',
+              '<div class="plan-week-card-range">' + esc(formatDateShort(week.start)) + ' - ' + esc(formatDateShort(week.end)) + '</div>',
+            '</div>',
+            '<div class="plan-week-card-stat">' + stats.done + '/' + stats.total + ' · ' + esc(formatMinutes(stats.minutes)) + '</div>',
+          '</div>',
+          '<textarea class="plan-week-goal-input" id="plan-week-goal-' + esc(week.key) + '" rows="2" placeholder="本周目标，例如：资料分析正确率稳定到 80%">' + esc(saved.goal) + '</textarea>',
+          '<div class="plan-week-card-actions">',
+            '<button class="plan-ghost-btn" onclick="savePlanWeekGoal(' + jsSingleArg(week.key) + ')">保存周计划</button>',
+          '</div>',
+          renderWeekTaskChips(tasks),
+        '</article>'
+      ].join('');
+    }
+    return html;
+  }
+
+  function renderWeekTaskChips(tasks) {
+    if (tasks.length === 0) return '<div class="plan-week-empty">本周还没有任务，可在下方快速添加并选择日期。</div>';
+    var html = '<div class="plan-week-task-chips">';
+    var max = Math.min(tasks.length, 4);
+    for (var i = 0; i < max; i++) {
+      html += '<button class="plan-week-task-chip' + (tasks[i].done ? ' is-done' : '') + '" onclick="planEditTask(' + jsSingleArg(tasks[i].id) + ')" title="编辑任务">' + esc(formatDateShort(tasks[i].date)) + ' · ' + esc(tasks[i].title) + '</button>';
+    }
+    if (tasks.length > max) html += '<span class="plan-week-more">+' + (tasks.length - max) + ' 项</span>';
+    html += '</div>';
+    return html;
+  }
+
   function renderPlanStat(value, label) {
     return '<div class="plan-stat"><div class="plan-stat-value">' + esc(String(value)) + '</div><div class="plan-stat-label">' + esc(label) + '</div></div>';
   }
@@ -1462,10 +1638,11 @@
     return [
       '<section class="plan-quick-panel">',
         '<div class="plan-quick-form">',
-          '<input class="plan-input" id="plan-quick-title" type="text" placeholder="添加今天要完成的任务..." onkeydown="if(event.key===&quot;Enter&quot;)planAddTaskFromQuick()">',
+          '<input class="plan-input" id="plan-quick-title" type="text" placeholder="添加学习任务..." onkeydown="if(event.key===&quot;Enter&quot;)planAddTaskFromQuick()">',
+          '<input class="plan-input" id="plan-quick-date" type="date" value="' + esc(getTodayStr()) + '" aria-label="任务日期">',
           '<select class="plan-select" id="plan-quick-subject">' + renderSubjectOptions('行测') + '</select>',
           '<input class="plan-input" id="plan-quick-minutes" type="number" min="0" step="5" value="60" aria-label="预计分钟数">',
-          '<button class="plan-primary-btn" onclick="planAddTaskFromQuick()">添加到今天</button>',
+          '<button class="plan-primary-btn" onclick="planAddTaskFromQuick()">添加任务</button>',
         '</div>',
       '</section>'
     ].join('');
@@ -1482,7 +1659,7 @@
           '<button class="plan-nav-btn plan-nav-btn-v2" onclick="planNextMonth()" title="下个月"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="18" x2="15" y2="12"/><line x1="15" y1="12" x2="9" y2="6"/></svg></button>',
           '<button class="plan-ghost-btn" onclick="planJumpToday()">回到本月</button>',
         '</div>',
-        '<div class="plan-filter-note">未来任务按所选月份显示；逾期和今天始终置顶。</div>',
+        '<div class="plan-filter-note">上方月/周计划随月份切换；逾期和今天始终置顶。</div>',
       '</div>'
     ].join('');
   }
@@ -1762,6 +1939,7 @@
   window.saveCountdownConfigModal = saveCountdownConfigModal; window.closeCountdownConfigModal = closeCountdownConfigModal;
   window.planPrevMonth = planPrevMonth; window.planNextMonth = planNextMonth;
   window.planJumpToday = planJumpToday; window.planAddTaskFromQuick = planAddTaskFromQuick;
+  window.savePlanMonthPanel = savePlanMonthPanel; window.savePlanWeekGoal = savePlanWeekGoal;
   window.planToggleTask = planToggleTask;
   window.planEditTask = planEditTask; window.savePlanTaskModal = savePlanTaskModal;
   window.closePlanTaskModal = closePlanTaskModal; window.planDeleteTask = planDeleteTask;

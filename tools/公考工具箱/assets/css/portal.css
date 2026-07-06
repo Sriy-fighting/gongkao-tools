@@ -2009,12 +2009,145 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   font-size: 13px;
   text-align: center;
 }
+.plan-planning-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+}
+.plan-planning-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.plan-section-eyebrow {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.plan-planning-title {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 800;
+}
+.plan-month-edit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.plan-edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.plan-edit-field span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+.plan-edit-field textarea,
+.plan-week-goal-input {
+  width: 100%;
+  resize: vertical;
+  min-height: 72px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: var(--font);
+  outline: none;
+  padding: 10px;
+}
+.plan-edit-field textarea:focus,
+.plan-week-goal-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+.plan-week-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.plan-week-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  padding: 12px;
+  min-width: 0;
+}
+.plan-week-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.plan-week-card-title {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 800;
+}
+.plan-week-card-range,
+.plan-week-card-stat {
+  color: var(--text-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.plan-week-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+.plan-week-task-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.plan-week-task-chip {
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 12px;
+  font-family: var(--font);
+  padding: 4px 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.plan-week-task-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.plan-week-task-chip.is-done {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+.plan-week-more,
+.plan-week-empty {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+.plan-week-empty {
+  margin-top: 10px;
+}
 .plan-quick-panel {
   padding: 14px;
 }
 .plan-quick-form {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) 150px 118px auto;
+  grid-template-columns: minmax(220px, 1fr) 142px 150px 118px auto;
   gap: 8px;
   align-items: center;
 }
@@ -2239,8 +2372,11 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   .plan-hero {
     grid-template-columns: 1fr;
   }
+  .plan-week-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .plan-quick-form {
-    grid-template-columns: 1fr 140px 110px;
+    grid-template-columns: 1fr 142px 150px 118px;
   }
   .plan-quick-form .plan-primary-btn {
     grid-column: 1 / -1;
@@ -2251,9 +2387,18 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   .plan-shell { gap: 14px; }
   .plan-today-panel,
   .plan-week-panel,
-  .plan-quick-panel { padding: 14px; }
+  .plan-quick-panel,
+  .plan-planning-panel { padding: 14px; }
   .plan-today-title { font-size: 21px; }
   .plan-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .plan-planning-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .plan-month-edit-grid,
+  .plan-week-board {
+    grid-template-columns: 1fr;
+  }
   .plan-quick-form { grid-template-columns: 1fr; }
   .plan-toolbar {
     align-items: flex-start;
