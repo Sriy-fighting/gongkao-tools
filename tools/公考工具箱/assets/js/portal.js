@@ -1252,13 +1252,18 @@
   function normalizeMonthPlan(plan) {
     var normalized = {
       goal: String(plan && plan.goal ? plan.goal : ''),
+      goalDone: !!(plan && plan.goalDone),
       focus: String(plan && plan.focus ? plan.focus : ''),
+      focusDone: !!(plan && plan.focusDone),
       weeks: {}
     };
     var weeks = plan && plan.weeks ? plan.weeks : {};
     for (var key in weeks) {
       if (weeks.hasOwnProperty(key)) {
-        normalized.weeks[key] = { goal: String(weeks[key] && weeks[key].goal ? weeks[key].goal : '') };
+        normalized.weeks[key] = {
+          goal: String(weeks[key] && weeks[key].goal ? weeks[key].goal : ''),
+          done: !!(weeks[key] && weeks[key].done)
+        };
       }
     }
     return normalized;
@@ -1353,11 +1358,19 @@
     var month = ensureMonthPlan(planCurrentMonth);
     var goalEl = document.getElementById('plan-month-goal');
     var focusEl = document.getElementById('plan-month-focus');
+    var goalDoneEl = document.getElementById('plan-month-goal-done');
+    var focusDoneEl = document.getElementById('plan-month-focus-done');
     month.goal = goalEl ? goalEl.value.trim() : '';
     month.focus = focusEl ? focusEl.value.trim() : '';
+    month.goalDone = goalDoneEl ? !!goalDoneEl.checked : !!month.goalDone;
+    month.focusDone = focusDoneEl ? !!focusDoneEl.checked : !!month.focusDone;
     savePlan();
     renderPlan();
     showSyncToast('已保存月度计划');
+  }
+
+  function planToggleMonthPlanDone(field) {
+    savePlanMonthPanel();
   }
 
   function savePlanWeekGoal(weekKey) {
@@ -1365,11 +1378,19 @@
     if (!week) return;
     var month = ensureMonthPlan(planCurrentMonth);
     var textarea = document.getElementById('plan-week-goal-' + weekKey);
-    if (!month.weeks[weekKey]) month.weeks[weekKey] = { goal: '' };
+    var doneEl = document.getElementById('plan-week-done-' + weekKey);
+    if (!month.weeks[weekKey]) month.weeks[weekKey] = { goal: '', done: false };
     month.weeks[weekKey].goal = textarea ? textarea.value.trim() : '';
+    month.weeks[weekKey].done = doneEl ? !!doneEl.checked : !!month.weeks[weekKey].done;
     savePlan();
     renderPlan();
     showSyncToast('已保存周计划');
+  }
+
+  function planToggleWeekPlanDone(weekKey) {
+    var week = findMonthWeek(weekKey);
+    if (!week) return;
+    savePlanWeekGoal(weekKey);
   }
 
   function planToggleTask(taskId) {
@@ -1436,7 +1457,9 @@
 
   function ensureMonthPlan(ym) {
     if (!planData.monthPlans) planData.monthPlans = {};
-    if (!planData.monthPlans[ym]) planData.monthPlans[ym] = { goal: '', focus: '', weeks: {} };
+    if (!planData.monthPlans[ym]) planData.monthPlans[ym] = { goal: '', goalDone: false, focus: '', focusDone: false, weeks: {} };
+    if (typeof planData.monthPlans[ym].goalDone !== 'boolean') planData.monthPlans[ym].goalDone = false;
+    if (typeof planData.monthPlans[ym].focusDone !== 'boolean') planData.monthPlans[ym].focusDone = false;
     if (!planData.monthPlans[ym].weeks) planData.monthPlans[ym].weeks = {};
     return planData.monthPlans[ym];
   }
@@ -1563,8 +1586,8 @@
           '<button class="plan-primary-btn" onclick="savePlanMonthPanel()">保存月计划</button>',
         '</div>',
         '<div class="plan-month-edit-grid">',
-          '<label class="plan-edit-field"><span>月度目标</span><textarea id="plan-month-goal" rows="3" placeholder="这个月要达成什么结果？">' + esc(month.goal) + '</textarea></label>',
-          '<label class="plan-edit-field"><span>本月重点</span><textarea id="plan-month-focus" rows="3" placeholder="本月重点科目、薄弱项或复盘提醒...">' + esc(month.focus) + '</textarea></label>',
+          '<div class="plan-edit-field"><label class="plan-plan-check"><input id="plan-month-goal-done" type="checkbox" ' + (month.goalDone ? 'checked' : '') + ' onchange="planToggleMonthPlanDone(' + jsSingleArg('goal') + ')"><span class="plan-plan-checkmark"></span><span>月度目标</span></label><textarea id="plan-month-goal" class="' + (month.goalDone ? 'plan-goal-done' : '') + '" rows="3" placeholder="这个月要达成什么结果？">' + esc(month.goal) + '</textarea></div>',
+          '<div class="plan-edit-field"><label class="plan-plan-check"><input id="plan-month-focus-done" type="checkbox" ' + (month.focusDone ? 'checked' : '') + ' onchange="planToggleMonthPlanDone(' + jsSingleArg('focus') + ')"><span class="plan-plan-checkmark"></span><span>本月重点</span></label><textarea id="plan-month-focus" class="' + (month.focusDone ? 'plan-goal-done' : '') + '" rows="3" placeholder="本月重点科目、薄弱项或复盘提醒...">' + esc(month.focus) + '</textarea></div>',
         '</div>',
         '<div class="plan-week-board">',
           renderWeekPlanCards(weeks, month),
@@ -1577,7 +1600,7 @@
     var html = '';
     for (var i = 0; i < weeks.length; i++) {
       var week = weeks[i];
-      var saved = month.weeks && month.weeks[week.key] ? month.weeks[week.key] : { goal: '' };
+      var saved = month.weeks && month.weeks[week.key] ? month.weeks[week.key] : { goal: '', done: false };
       var stats = getWeekTaskStats(week);
       var tasks = getWeekTasks(week, true);
       html += [
@@ -1589,7 +1612,8 @@
             '</div>',
             '<div class="plan-week-card-stat">' + stats.done + '/' + stats.total + ' · ' + esc(formatMinutes(stats.minutes)) + '</div>',
           '</div>',
-          '<textarea class="plan-week-goal-input" id="plan-week-goal-' + esc(week.key) + '" rows="2" placeholder="本周目标，例如：资料分析正确率稳定到 80%">' + esc(saved.goal) + '</textarea>',
+          '<label class="plan-plan-check plan-week-plan-check"><input id="plan-week-done-' + esc(week.key) + '" type="checkbox" ' + (saved.done ? 'checked' : '') + ' onchange="planToggleWeekPlanDone(' + jsSingleArg(week.key) + ')"><span class="plan-plan-checkmark"></span><span>周计划完成</span></label>',
+          '<textarea class="plan-week-goal-input' + (saved.done ? ' plan-goal-done' : '') + '" id="plan-week-goal-' + esc(week.key) + '" rows="2" placeholder="本周目标，例如：资料分析正确率稳定到 80%">' + esc(saved.goal) + '</textarea>',
           '<div class="plan-week-card-actions">',
             '<button class="plan-ghost-btn" onclick="savePlanWeekGoal(' + jsSingleArg(week.key) + ')">保存周计划</button>',
           '</div>',
@@ -1940,6 +1964,7 @@
   window.planPrevMonth = planPrevMonth; window.planNextMonth = planNextMonth;
   window.planJumpToday = planJumpToday; window.planAddTaskFromQuick = planAddTaskFromQuick;
   window.savePlanMonthPanel = savePlanMonthPanel; window.savePlanWeekGoal = savePlanWeekGoal;
+  window.planToggleMonthPlanDone = planToggleMonthPlanDone; window.planToggleWeekPlanDone = planToggleWeekPlanDone;
   window.planToggleTask = planToggleTask;
   window.planEditTask = planEditTask; window.savePlanTaskModal = savePlanTaskModal;
   window.closePlanTaskModal = closePlanTaskModal; window.planDeleteTask = planDeleteTask;
