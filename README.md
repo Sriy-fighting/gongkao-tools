@@ -34,12 +34,12 @@
 直接运行 `deploy.bat`，或手动执行：
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/gongkao-tools.git
-git branch -M master
-git push -u origin master
+git remote add origin https://github.com/Sriy-fighting/gongkao-tools.git
+git branch -M main
+git push -u origin main
 ```
 
-部署完成后访问 `https://YOUR_USERNAME.github.io/gongkao-tools/`
+部署完成后访问 `https://Sriy-fighting.github.io/gongkao-tools/`
 
 ## 本地开发
 

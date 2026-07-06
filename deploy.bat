@@ -6,14 +6,15 @@ echo.
 echo  正在部署到 GitHub Pages...
 echo.
 
-git remote add origin https://github.com/s17350196982-max/gongkao-tools.git 2>nul
-git branch -M master
-git push -u origin master
+git remote add origin https://github.com/Sriy-fighting/gongkao-tools.git 2>nul
+git remote set-url origin https://github.com/Sriy-fighting/gongkao-tools.git
+git branch -M main
+git push -u origin main
 
 echo.
 echo  部署完成！
 echo.
 echo  打开浏览器访问：
-echo  https://s17350196982-max.github.io/gongkao-tools/
+echo  https://Sriy-fighting.github.io/gongkao-tools/
 echo.
 pause
