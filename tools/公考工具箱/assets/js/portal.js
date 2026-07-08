@@ -432,17 +432,36 @@
   function closeCountdownConfigModal() { var o = document.getElementById('cd-config-overlay'); if (o) o.classList.remove('open'); }
   window.openCountdownConfig = openCountdownConfig;
 
-  function renderLinks() {
-    var c = document.getElementById('footer-links'), e = document.getElementById('footer-links-empty');
+  function buildLinkAnchor(link, className) {
+    var label = link.name || link.url || '';
+    var a = document.createElement('a');
+    a.className = className;
+    a.href = link.url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.title = label;
+    a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span>' + esc(label) + '</span>';
+    return a;
+  }
+
+  function renderLinkArea(containerId, emptyId, className, hideContainerWhenEmpty) {
+    var c = document.getElementById(containerId), e = document.getElementById(emptyId);
+    var bar = containerId === 'global-links' ? document.getElementById('global-link-bar') : null;
     if (!c) return;
-    if (links.length === 0) { c.innerHTML = ''; if (e) e.style.display = ''; return; }
-    if (e) e.style.display = 'none';
     c.innerHTML = '';
-    links.forEach(function(l) {
-      var a = document.createElement('a'); a.className = 'dashboard-footer-link'; a.href = l.url; a.target = '_blank'; a.rel = 'noopener';
-      a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>' + (l.name || l.url);
-      c.appendChild(a);
-    });
+    if (links.length === 0) {
+      if (e) e.style.display = hideContainerWhenEmpty ? 'none' : '';
+      if (bar) bar.classList.add('is-empty');
+      return;
+    }
+    if (e) e.style.display = 'none';
+    if (bar) bar.classList.remove('is-empty');
+    links.forEach(function(l) { c.appendChild(buildLinkAnchor(l, className)); });
+  }
+
+  function renderLinks() {
+    renderLinkArea('footer-links', 'footer-links-empty', 'dashboard-footer-link', false);
+    renderLinkArea('global-links', 'global-links-empty', 'global-link-chip', true);
   }
 
   function saveLinks() { try { localStorage.setItem('gk-links', JSON.stringify(links)); if (window.SyncStore) window.SyncStore.writeData('gk-links', links); } catch(e) {} renderLinks(); }
