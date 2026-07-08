@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>公考工具箱</title>
-<link rel="stylesheet" href="assets/css/portal.css?v=20260708-global-links">
+<title>Sriy的考公助手</title>
+<link rel="stylesheet" href="assets/css/portal.css?v=20260708-ui-reorder">
 </head>
 <body>
 <div class="app-layout">
   <aside class="sidebar" role="navigation">
     <div class="sidebar-brand">
-      <div class="sidebar-brand-icon">公</div>
-      <span class="sidebar-brand-text">公考工具箱</span>
+      <div class="sidebar-brand-icon">S</div>
+      <span class="sidebar-brand-text">Sriy的考公助手</span>
     </div>
     <nav class="sidebar-nav">
       <button class="nav-item active" data-view="dashboard">
@@ -61,11 +61,16 @@
         <span class="page-title" id="page-title">首页</span>
       </div>
       <div class="header-actions">
-        <div class="global-link-bar" id="global-link-bar">
-          <span class="global-links-empty" id="global-links-empty">暂无链接</span>
-          <div class="global-links" id="global-links"></div>
+        <button class="global-link-trigger" type="button" title="显示快捷链接" aria-label="显示快捷链接">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.07 0l2.12-2.12a5 5 0 0 0-7.07-7.07L11 4.93"/><path d="M14 11a5 5 0 0 0-7.07 0L4.81 13.12a5 5 0 0 0 7.07 7.07L13 19.07"/></svg>
+        </button>
+        <div class="global-link-panel">
+          <div class="global-link-bar" id="global-link-bar">
+            <span class="global-links-empty" id="global-links-empty">暂无链接</span>
+            <div class="global-links" id="global-links"></div>
+          </div>
+          <button class="global-link-manage-btn" onclick="openLinkManager()">管理链接</button>
         </div>
-        <button class="global-link-manage-btn" onclick="openLinkManager()">管理链接</button>
       </div>
     </header>
     <div class="content-area">
@@ -349,6 +354,6 @@
 <div class="sync-toast" id="sync-toast"></div>
 
 <script src="assets/js/sync.js"></script>
-<script src="assets/js/portal.js?v=20260708-global-links"></script>
+<script src="assets/js/portal.js?v=20260708-ui-reorder"></script>
 </body>
 </html>

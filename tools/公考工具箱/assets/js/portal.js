@@ -16,6 +16,8 @@
   var timerState = { mode: 'stopwatch', running: false, elapsed: 0, laps: [], startTime: 0, tickId: null };
   var cdState = { name: '', date: '', milestones: [] };
   var links = [];
+  var TOOL_ORDER_STORAGE_KEY = 'gk-tool-order';
+  var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'plan'];
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
   var PLAN_AUTO_SCROLL_KEY = 'gk-plan-auto-scroll-today';
   var PLAN_SUBJECTS = ['行测', '申论', '资料分析', '常识', '判断推理', '言语理解', '数量关系', '复盘', '其他'];
@@ -36,7 +38,6 @@
   function init() {
     if (window.SyncStore) syncInfo = window.SyncStore.init();
     els.sidebar = document.querySelector('.sidebar');
-    els.navItems = document.querySelectorAll('.nav-item');
     els.dashboard = document.getElementById('dashboard-view');
     els.toolContainer = document.getElementById('tool-container');
     els.toolFrame = document.getElementById('tool-frame');
@@ -50,6 +51,9 @@
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
+    applySavedToolOrder();
+    els.navItems = document.querySelectorAll('.nav-item');
+    enhanceNavItems();
     els.navItems.forEach(function (item) {
       item.addEventListener('click', function () { navigateTo(item.dataset.view); closeMobileMenu(); });
     });
@@ -117,7 +121,143 @@
       planData = normalizePlanData({ version: 2, tasks: [] });
     }
     renderPlan();
+    applySavedToolOrder();
+    els.navItems = document.querySelectorAll('.nav-item');
+    refreshNavMoveControls();
     renderTimer(); renderCountdown(); renderLinks(); renderSyncStatus(); renderAccountStatus();
+  }
+
+  function getSavedToolOrder() {
+    var order = DEFAULT_TOOL_ORDER.slice();
+    try {
+      var saved = JSON.parse(localStorage.getItem(TOOL_ORDER_STORAGE_KEY));
+      if (saved && Array.isArray(saved)) {
+        order = saved.filter(function (view) { return DEFAULT_TOOL_ORDER.indexOf(view) !== -1; });
+      }
+    } catch(e) {}
+    DEFAULT_TOOL_ORDER.forEach(function (view) {
+      if (order.indexOf(view) === -1) order.push(view);
+    });
+    return order;
+  }
+
+  function getCurrentToolOrder() {
+    return Array.prototype.slice.call(document.querySelectorAll('.sidebar-nav .nav-item'))
+      .map(function (item) { return item.dataset.view; })
+      .filter(function (view) { return DEFAULT_TOOL_ORDER.indexOf(view) !== -1; });
+  }
+
+  function applyToolOrder(order) {
+    var nav = document.querySelector('.sidebar-nav');
+    if (!nav) return;
+    order.forEach(function (view) {
+      var item = nav.querySelector('.nav-item[data-view="' + view + '"]');
+      if (item) nav.appendChild(item);
+    });
+    applyToolOrderToCards(order);
+  }
+
+  function applyToolOrderToCards(order) {
+    var cards = document.querySelector('.tool-cards');
+    if (!cards) return;
+    order.forEach(function (view) {
+      var card = cards.querySelector('.tool-card[data-view="' + view + '"]');
+      if (card) cards.appendChild(card);
+    });
+  }
+
+  function applySavedToolOrder() {
+    applyToolOrder(getSavedToolOrder());
+  }
+
+  function saveToolOrder(order) {
+    try {
+      localStorage.setItem(TOOL_ORDER_STORAGE_KEY, JSON.stringify(order));
+      if (window.SyncStore) window.SyncStore.writeData(TOOL_ORDER_STORAGE_KEY, order);
+    } catch(e) {}
+  }
+
+  function moveTool(view, action) {
+    if (DEFAULT_TOOL_ORDER.indexOf(view) === -1) return;
+    var order = getCurrentToolOrder();
+    var idx = order.indexOf(view);
+    if (idx === -1) return;
+    if (action === 'top') {
+      order.splice(idx, 1);
+      order.unshift(view);
+    } else if (action === 'up' && idx > 0) {
+      var prev = order[idx - 1];
+      order[idx - 1] = view;
+      order[idx] = prev;
+    } else if (action === 'down' && idx < order.length - 1) {
+      var next = order[idx + 1];
+      order[idx + 1] = view;
+      order[idx] = next;
+    } else {
+      return;
+    }
+    applyToolOrder(order);
+    saveToolOrder(order);
+    els.navItems = document.querySelectorAll('.nav-item');
+    refreshNavMoveControls();
+  }
+
+  function navMoveIcon(action) {
+    if (action === 'top') return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>';
+    if (action === 'up') return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>';
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>';
+  }
+
+  function createNavMoveControl(view, action, title) {
+    var control = document.createElement('span');
+    control.className = 'nav-move-btn nav-move-' + action;
+    control.setAttribute('role', 'button');
+    control.setAttribute('tabindex', '0');
+    control.setAttribute('title', title);
+    control.setAttribute('aria-label', title);
+    control.innerHTML = navMoveIcon(action);
+    function run(ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      if (!control.classList.contains('is-disabled')) moveTool(view, action);
+    }
+    control.addEventListener('click', run);
+    control.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') run(ev);
+    });
+    return control;
+  }
+
+  function enhanceNavItems() {
+    document.querySelectorAll('.sidebar-nav .nav-item').forEach(function (item) {
+      var view = item.dataset.view;
+      if (view === 'dashboard' || DEFAULT_TOOL_ORDER.indexOf(view) === -1 || item.querySelector('.nav-move-actions')) return;
+      var actions = document.createElement('span');
+      actions.className = 'nav-move-actions';
+      actions.appendChild(createNavMoveControl(view, 'top', '置顶'));
+      actions.appendChild(createNavMoveControl(view, 'up', '上移'));
+      actions.appendChild(createNavMoveControl(view, 'down', '下移'));
+      item.appendChild(actions);
+    });
+    refreshNavMoveControls();
+  }
+
+  function refreshNavMoveControls() {
+    var order = getCurrentToolOrder();
+    document.querySelectorAll('.sidebar-nav .nav-item').forEach(function (item) {
+      var view = item.dataset.view;
+      var idx = order.indexOf(view);
+      if (idx === -1) return;
+      setNavMoveDisabled(item.querySelector('.nav-move-top'), idx === 0);
+      setNavMoveDisabled(item.querySelector('.nav-move-up'), idx === 0);
+      setNavMoveDisabled(item.querySelector('.nav-move-down'), idx === order.length - 1);
+    });
+  }
+
+  function setNavMoveDisabled(el, disabled) {
+    if (!el) return;
+    el.classList.toggle('is-disabled', disabled);
+    el.setAttribute('aria-disabled', disabled ? 'true' : 'false');
   }
 
   function navigateTo(view) {
