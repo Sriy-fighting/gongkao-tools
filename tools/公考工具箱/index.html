@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>公考工具箱</title>
-<link rel="stylesheet" href="assets/css/portal.css?v=20260704-study-plan">
+<link rel="stylesheet" href="assets/css/portal.css?v=20260707-study-plan-dayparts">
 </head>
 <body>
 <div class="app-layout">
@@ -293,6 +293,18 @@
           <input type="date" id="plan-task-date-input">
         </div>
         <div class="plan-modal-field">
+          <label>时段</label>
+          <select id="plan-task-period-input"></select>
+        </div>
+        <div class="plan-modal-field">
+          <label>开始时间</label>
+          <input type="time" id="plan-task-start-input">
+        </div>
+        <div class="plan-modal-field">
+          <label>结束时间</label>
+          <input type="time" id="plan-task-end-input">
+        </div>
+        <div class="plan-modal-field">
           <label>科目</label>
           <select id="plan-task-subject-input"></select>
         </div>
@@ -329,6 +341,6 @@
 <div class="sync-toast" id="sync-toast"></div>
 
 <script src="assets/js/sync.js"></script>
-<script src="assets/js/portal.js?v=20260707-study-plan-v5"></script>
+<script src="assets/js/portal.js?v=20260707-study-plan-dayparts"></script>
 </body>
 </html>

@@ -17,9 +17,19 @@
   var cdState = { name: '', date: '', milestones: [] };
   var links = [];
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
+  var PLAN_AUTO_SCROLL_KEY = 'gk-plan-auto-scroll-today';
   var PLAN_SUBJECTS = ['行测', '申论', '资料分析', '常识', '判断推理', '言语理解', '数量关系', '复盘', '其他'];
+  var PLAN_DAY_PARTS = [
+    { id: 'morning', label: '上午', range: '06:00-11:59', defaultStart: '08:00' },
+    { id: 'noon', label: '中午', range: '12:00-13:59', defaultStart: '12:00' },
+    { id: 'afternoon', label: '下午', range: '14:00-17:59', defaultStart: '14:00' },
+    { id: 'evening', label: '晚上', range: '18:00-23:59', defaultStart: '19:00' }
+  ];
   var planData = { version: 3, tasks: [], monthPlans: {} };
   var planCurrentMonth = '';
+  var planSelectedDate = '';
+  var planAutoScrollToday = false;
+  var planPendingScrollToDay = false;
   var planEditContext = {};
   var planSyncInterval = null;
 
@@ -129,6 +139,7 @@
       if (els.planView) els.planView.style.display = '';
       els.toolContainer.classList.remove('active');
       els.pageTitle.textContent = '学习计划';
+      planPendingScrollToDay = planAutoScrollToday;
       renderPlan();
     } else {
       els.dashboard.style.display = 'none';
@@ -1228,7 +1239,9 @@
   // =========================================================
 
   function initPlan() {
-    planCurrentMonth = getCurrentMonthId();
+    planSelectedDate = getTodayStr();
+    planCurrentMonth = planSelectedDate.slice(0, 7);
+    planAutoScrollToday = localStorage.getItem(PLAN_AUTO_SCROLL_KEY) === '1';
     planEditContext = {};
   }
 
@@ -1295,11 +1308,18 @@
     var subject = PLAN_SUBJECTS.indexOf(task.subject) >= 0 ? task.subject : '其他';
     var mins = parseInt(task.estimateMin, 10);
     if (!isFinite(mins) || mins < 0) mins = 0;
+    var startTime = normalizePlanTime(task.startTime || task.start || '');
+    var endTime = normalizePlanTime(task.endTime || task.end || '');
+    if (startTime && endTime && timeToMinutes(endTime) <= timeToMinutes(startTime)) endTime = '';
+    var period = inferDayPartFromTime(startTime) || getValidDayPartId(task.period) || inferDayPartFromTitle(title) || 'morning';
     return {
       id: task.id || getId(),
       title: title,
       date: date,
       subject: subject,
+      period: period,
+      startTime: startTime,
+      endTime: endTime,
       estimateMin: mins,
       done: !!task.done,
       createdAt: task.createdAt || new Date().toISOString(),
@@ -1311,8 +1331,132 @@
     return typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value);
   }
 
+  function normalizePlanTime(value) {
+    if (typeof value !== 'string') return '';
+    var match = value.trim().match(/^(\d{1,2}):(\d{2})$/);
+    if (!match) return '';
+    var h = parseInt(match[1], 10);
+    var m = parseInt(match[2], 10);
+    if (h < 0 || h > 23 || m < 0 || m > 59) return '';
+    return pad2(h) + ':' + pad2(m);
+  }
+
+  function timeToMinutes(value) {
+    var time = normalizePlanTime(value);
+    if (!time) return -1;
+    return parseInt(time.slice(0, 2), 10) * 60 + parseInt(time.slice(3), 10);
+  }
+
+  function getValidDayPartId(value) {
+    for (var i = 0; i < PLAN_DAY_PARTS.length; i++) {
+      if (PLAN_DAY_PARTS[i].id === value) return value;
+    }
+    return '';
+  }
+
+  function getDayPartById(id) {
+    for (var i = 0; i < PLAN_DAY_PARTS.length; i++) {
+      if (PLAN_DAY_PARTS[i].id === id) return PLAN_DAY_PARTS[i];
+    }
+    return PLAN_DAY_PARTS[0];
+  }
+
+  function getDayPartIndex(id) {
+    for (var i = 0; i < PLAN_DAY_PARTS.length; i++) {
+      if (PLAN_DAY_PARTS[i].id === id) return i;
+    }
+    return 0;
+  }
+
+  function inferDayPartFromTime(time) {
+    var minutes = timeToMinutes(time);
+    if (minutes < 0) return '';
+    if (minutes < 12 * 60) return 'morning';
+    if (minutes < 14 * 60) return 'noon';
+    if (minutes < 18 * 60) return 'afternoon';
+    return 'evening';
+  }
+
+  function inferDayPartFromTitle(title) {
+    title = String(title || '');
+    if (title.indexOf('中午') >= 0) return 'noon';
+    if (title.indexOf('下午') >= 0) return 'afternoon';
+    if (title.indexOf('晚上') >= 0 || title.indexOf('晚：') >= 0) return 'evening';
+    if (title.indexOf('上午') >= 0 || title.indexOf('早上') >= 0) return 'morning';
+    return '';
+  }
+
+  function getPlanTaskSortValue(task) {
+    var minutes = timeToMinutes(task && task.startTime);
+    var partId = minutes >= 0 ? inferDayPartFromTime(task.startTime) : getPlanTaskPeriodId(task);
+    var partIndex = getDayPartIndex(partId);
+    if (minutes < 0) minutes = 9999;
+    return partIndex * 10000 + minutes;
+  }
+
+  function getPlanTaskPeriodId(task) {
+    return inferDayPartFromTime(task && task.startTime) || getValidDayPartId(task && task.period) || inferDayPartFromTitle(task && task.title) || 'morning';
+  }
+
+  function getPlanTaskPeriodLabel(task) {
+    return getDayPartById(getPlanTaskPeriodId(task)).label;
+  }
+
+  function formatTaskTimeSlot(task) {
+    var start = normalizePlanTime(task && task.startTime);
+    var end = normalizePlanTime(task && task.endTime);
+    if (start && end) return start + '-' + end;
+    if (start) return start + '开始';
+    return '';
+  }
+
+  function isValidPlanTimeRange(start, end) {
+    if (!start || !end) return true;
+    return timeToMinutes(end) > timeToMinutes(start);
+  }
+
+  function getPlanSelectedDate() {
+    if (!isISODate(planSelectedDate)) planSelectedDate = getTodayStr();
+    return planSelectedDate;
+  }
+
+  function setPlanSelectedDate(dateStr, shouldScroll) {
+    if (!isISODate(dateStr)) return;
+    planSelectedDate = dateStr;
+    planCurrentMonth = dateStr.slice(0, 7);
+    if (shouldScroll) planPendingScrollToDay = true;
+    renderPlan();
+  }
+
+  function addMonthsToISODate(dateStr, delta) {
+    var date = parseLocalDate(isISODate(dateStr) ? dateStr : getTodayStr());
+    var targetMonth = date.getMonth() + delta;
+    var targetYear = date.getFullYear() + Math.floor(targetMonth / 12);
+    targetMonth = ((targetMonth % 12) + 12) % 12;
+    var day = Math.min(date.getDate(), new Date(targetYear, targetMonth + 1, 0).getDate());
+    return formatISODate(new Date(targetYear, targetMonth, day));
+  }
+
+  function planChangeSelectedDate(value) {
+    setPlanSelectedDate(value, true);
+  }
+
+  function planToggleAutoScroll(checked) {
+    planAutoScrollToday = !!checked;
+    try { localStorage.setItem(PLAN_AUTO_SCROLL_KEY, planAutoScrollToday ? '1' : '0'); } catch(e) {}
+    if (planAutoScrollToday) planScrollToDay();
+  }
+
+  function planScrollToDay() {
+    var el = document.getElementById('plan-day-section');
+    if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   function sortPlanTasks(a, b) {
     if (a.date !== b.date) return a.date < b.date ? -1 : 1;
+    var timeA = getPlanTaskSortValue(a);
+    var timeB = getPlanTaskSortValue(b);
+    if (timeA !== timeB) return timeA - timeB;
     if (a.done !== b.done) return a.done ? 1 : -1;
     return (a.createdAt || '').localeCompare(b.createdAt || '');
   }
@@ -1326,31 +1470,23 @@
   }
 
   function planPrevMonth() {
-    var parts = planCurrentMonth.split('-');
-    var y = parseInt(parts[0], 10);
-    var m = parseInt(parts[1], 10) - 1;
-    if (m < 1) { m = 12; y--; }
-    planCurrentMonth = y + '-' + pad2(m);
-    renderPlan();
+    setPlanSelectedDate(addMonthsToISODate(getPlanSelectedDate(), -1), false);
   }
 
   function planNextMonth() {
-    var parts = planCurrentMonth.split('-');
-    var y = parseInt(parts[0], 10);
-    var m = parseInt(parts[1], 10) + 1;
-    if (m > 12) { m = 1; y++; }
-    planCurrentMonth = y + '-' + pad2(m);
-    renderPlan();
+    setPlanSelectedDate(addMonthsToISODate(getPlanSelectedDate(), 1), false);
   }
 
   function planJumpToday() {
-    planCurrentMonth = getCurrentMonthId();
-    renderPlan();
+    setPlanSelectedDate(getTodayStr(), true);
   }
 
   function planAddTaskFromQuick() {
     var titleEl = document.getElementById('plan-quick-title');
     var dateEl = document.getElementById('plan-quick-date');
+    var periodEl = document.getElementById('plan-quick-period');
+    var startEl = document.getElementById('plan-quick-start');
+    var endEl = document.getElementById('plan-quick-end');
     var subjectEl = document.getElementById('plan-quick-subject');
     var minutesEl = document.getElementById('plan-quick-minutes');
     if (!titleEl) return;
@@ -1358,15 +1494,23 @@
     if (!title) { showSyncToast('先写下要完成的任务'); titleEl.focus(); return; }
     var mins = parseInt(minutesEl && minutesEl.value, 10);
     if (!isFinite(mins) || mins < 0) mins = 0;
+    var startTime = normalizePlanTime(startEl && startEl.value ? startEl.value : '');
+    var endTime = normalizePlanTime(endEl && endEl.value ? endEl.value : '');
+    if (!isValidPlanTimeRange(startTime, endTime)) { showSyncToast('结束时间要晚于开始时间'); return; }
     planData.tasks.push(normalizePlanTask({
       title: title,
-      date: dateEl && isISODate(dateEl.value) ? dateEl.value : getTodayStr(),
+      date: dateEl && isISODate(dateEl.value) ? dateEl.value : getPlanSelectedDate(),
       subject: subjectEl && subjectEl.value ? subjectEl.value : '行测',
+      period: periodEl && periodEl.value ? periodEl.value : '',
+      startTime: startTime,
+      endTime: endTime,
       estimateMin: mins,
       done: false
     }));
     titleEl.value = '';
-    if (dateEl) dateEl.value = getTodayStr();
+    if (dateEl) dateEl.value = getPlanSelectedDate();
+    if (startEl) startEl.value = '';
+    if (endEl) endEl.value = '';
     if (minutesEl) minutesEl.value = '60';
     savePlan();
     renderPlan();
@@ -1450,8 +1594,11 @@
     if (!task) return;
     planEditContext.taskId = taskId;
     fillSubjectSelect(document.getElementById('plan-task-subject-input'), task.subject);
+    fillDayPartSelect(document.getElementById('plan-task-period-input'), getPlanTaskPeriodId(task));
     document.getElementById('plan-task-title-input').value = task.title;
     document.getElementById('plan-task-date-input').value = task.date;
+    document.getElementById('plan-task-start-input').value = task.startTime || '';
+    document.getElementById('plan-task-end-input').value = task.endTime || '';
     document.getElementById('plan-task-minutes-input').value = String(task.estimateMin || 0);
     document.getElementById('plan-task-modal').classList.add('open');
   }
@@ -1462,12 +1609,21 @@
     var title = document.getElementById('plan-task-title-input').value.trim();
     var date = document.getElementById('plan-task-date-input').value;
     var subject = document.getElementById('plan-task-subject-input').value;
+    var period = document.getElementById('plan-task-period-input').value;
+    var startTime = normalizePlanTime(document.getElementById('plan-task-start-input').value);
+    var endTime = normalizePlanTime(document.getElementById('plan-task-end-input').value);
     var mins = parseInt(document.getElementById('plan-task-minutes-input').value, 10);
     if (!title) { showSyncToast('任务内容不能为空'); return; }
+    if (!isValidPlanTimeRange(startTime, endTime)) { showSyncToast('结束时间要晚于开始时间'); return; }
     task.title = title;
-    task.date = isISODate(date) ? date : getTodayStr();
+    task.date = isISODate(date) ? date : getPlanSelectedDate();
     task.subject = PLAN_SUBJECTS.indexOf(subject) >= 0 ? subject : '其他';
+    task.period = inferDayPartFromTime(startTime) || getValidDayPartId(period) || inferDayPartFromTitle(title) || 'morning';
+    task.startTime = startTime;
+    task.endTime = endTime;
     task.estimateMin = isFinite(mins) && mins > 0 ? mins : 0;
+    planSelectedDate = task.date;
+    planCurrentMonth = task.date.slice(0, 7);
     savePlan();
     closePlanTaskModal();
     renderPlan();
@@ -1628,26 +1784,41 @@
         renderPlanToolbar(),
         '<div class="plan-list-panel">',
           renderPlanSection('overdue'),
-          renderPlanSection('today'),
+          renderPlanSection('day'),
           renderPlanSection('future'),
         '</div>',
       '</div>'
     ].join('');
+    if (planPendingScrollToDay) {
+      planPendingScrollToDay = false;
+      setTimeout(planScrollToDay, 0);
+    }
   }
 
   function renderPlanHero() {
     var stats = getPlanStats();
+    var selectedDate = getPlanSelectedDate();
+    var selectedIsToday = selectedDate === getTodayStr();
     return [
       '<div class="plan-hero">',
         '<section class="plan-today-panel">',
-          '<div>',
-            '<div class="plan-kicker">' + esc(formatFullDate(getTodayStr())) + '</div>',
-            '<div class="plan-today-title">今天先完成看得见的任务</div>',
-            '<div class="plan-today-subtitle">勾掉任务就是进度。月计划先退后，今天可执行优先。</div>',
+          '<div class="plan-hero-head">',
+            '<div>',
+              '<div class="plan-kicker">' + esc(formatFullDate(selectedDate)) + '</div>',
+              '<div class="plan-today-title">' + (selectedIsToday ? '今天先完成看得见的任务' : '查看这一天的任务和完成情况') + '</div>',
+              '<div class="plan-today-subtitle">勾掉任务就是进度。月计划先退后，当天可执行优先。</div>',
+            '</div>',
+            '<div class="plan-hero-actions">',
+              '<button class="plan-ghost-btn" onclick="planScrollToDay()">定位' + (selectedIsToday ? '今日' : '当天') + '计划</button>',
+              '<label class="plan-auto-scroll" title="进入学习计划时自动定位到今日计划">',
+                '<input type="checkbox" ' + (planAutoScrollToday ? 'checked' : '') + ' onchange="planToggleAutoScroll(this.checked)">',
+                '<span>自动定位</span>',
+              '</label>',
+            '</div>',
           '</div>',
           '<div class="plan-stats-grid">',
-            renderPlanStat(stats.todayDone + '/' + stats.todayTotal, '今日完成'),
-            renderPlanStat(formatMinutes(stats.todayMinutes), '今日预计'),
+            renderPlanStat(stats.dayDone + '/' + stats.dayTotal, selectedIsToday ? '今日完成' : '当日完成'),
+            renderPlanStat(formatMinutes(stats.dayMinutes), selectedIsToday ? '今日预计' : '当日预计'),
             renderPlanStat(stats.weekDone + '/' + stats.weekTotal, '本周完成'),
             renderPlanStat(formatMinutes(stats.weekMinutes), '本周预计'),
           '</div>',
@@ -1783,11 +1954,15 @@
   }
 
   function renderPlanQuickAdd() {
+    var selectedDate = getPlanSelectedDate();
     return [
       '<section class="plan-quick-panel">',
         '<div class="plan-quick-form">',
           '<input class="plan-input" id="plan-quick-title" type="text" placeholder="添加学习任务..." onkeydown="if(event.key===&quot;Enter&quot;)planAddTaskFromQuick()">',
-          '<input class="plan-input" id="plan-quick-date" type="date" value="' + esc(getTodayStr()) + '" aria-label="任务日期">',
+          '<input class="plan-input" id="plan-quick-date" type="date" value="' + esc(selectedDate) + '" onchange="planChangeSelectedDate(this.value)" aria-label="任务日期">',
+          '<select class="plan-select" id="plan-quick-period" aria-label="时段">' + renderDayPartOptions('morning') + '</select>',
+          '<input class="plan-input" id="plan-quick-start" type="time" aria-label="开始时间">',
+          '<input class="plan-input" id="plan-quick-end" type="time" aria-label="结束时间">',
           '<select class="plan-select" id="plan-quick-subject">' + renderSubjectOptions('行测') + '</select>',
           '<input class="plan-input" id="plan-quick-minutes" type="number" min="0" step="5" value="60" aria-label="预计分钟数">',
           '<button class="plan-primary-btn" onclick="planAddTaskFromQuick()">添加任务</button>',
@@ -1799,29 +1974,36 @@
   function renderPlanToolbar() {
     var parts = planCurrentMonth.split('-');
     var label = parts[0] + '年' + parseInt(parts[1], 10) + '月';
+    var selectedDate = getPlanSelectedDate();
     return [
       '<div class="plan-toolbar">',
         '<div class="plan-month-filter">',
           '<button class="plan-nav-btn plan-nav-btn-v2" onclick="planPrevMonth()" title="上个月"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="15" y1="18" x2="9" y2="12"/><line x1="9" y1="12" x2="15" y2="6"/></svg></button>',
           '<span class="plan-nav-title-v2">' + esc(label) + '</span>',
           '<button class="plan-nav-btn plan-nav-btn-v2" onclick="planNextMonth()" title="下个月"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="18" x2="15" y2="12"/><line x1="15" y1="12" x2="9" y2="6"/></svg></button>',
-          '<button class="plan-ghost-btn" onclick="planJumpToday()">回到本月</button>',
+          '<input class="plan-input plan-date-jump" type="date" value="' + esc(selectedDate) + '" onchange="planChangeSelectedDate(this.value)" aria-label="查看日期">',
+          '<button class="plan-ghost-btn" onclick="planJumpToday()">回到今天</button>',
         '</div>',
-        '<div class="plan-filter-note">上方月/周计划随月份切换；逾期和今天始终置顶。</div>',
+        '<div class="plan-filter-note">上方月/周计划随查看日期切换；逾期和当前查看日置顶。</div>',
       '</div>'
     ].join('');
   }
 
   function renderPlanSection(type) {
     var list = getTasksForSection(type);
+    var selectedDate = getPlanSelectedDate();
+    var selectedIsToday = selectedDate === getTodayStr();
     var meta = {
       overdue: { title: '逾期未完成', empty: '没有逾期任务，节奏稳住了。' },
-      today: { title: '今天', empty: '今天还没有任务，先在上方添加一条。' },
+      day: { title: selectedIsToday ? '今天' : formatDateShort(selectedDate), empty: selectedIsToday ? '今天还没有任务，先在上方添加一条。' : '这一天还没有任务，先在上方添加一条。' },
       future: { title: '未来任务', empty: '这个月暂时没有未来任务。' }
     }[type];
-    var html = '<section class="plan-section"><div class="plan-section-head"><div class="plan-section-title"><span class="plan-section-dot ' + type + '"></span>' + esc(meta.title) + '</div><div class="plan-section-count">' + list.length + ' 项</div></div>';
+    var sectionId = type === 'day' ? ' id="plan-day-section"' : '';
+    var html = '<section class="plan-section"' + sectionId + '><div class="plan-section-head"><div class="plan-section-title"><span class="plan-section-dot ' + type + '"></span>' + esc(meta.title) + '</div><div class="plan-section-count">' + list.length + ' 项</div></div>';
     if (list.length === 0) {
       html += '<div class="plan-empty-state">' + esc(meta.empty) + '</div>';
+    } else if (type === 'day') {
+      html += renderPlanDayPartBoard(list);
     } else {
       html += '<div class="plan-task-list">';
       for (var i = 0; i < list.length; i++) html += renderPlanTaskRow(list[i]);
@@ -1831,7 +2013,31 @@
     return html;
   }
 
+  function renderPlanDayPartBoard(tasks) {
+    var html = '<div class="plan-day-board">';
+    for (var i = 0; i < PLAN_DAY_PARTS.length; i++) {
+      var part = PLAN_DAY_PARTS[i];
+      var partTasks = [];
+      for (var j = 0; j < tasks.length; j++) {
+        if (getPlanTaskPeriodId(tasks[j]) === part.id) partTasks.push(tasks[j]);
+      }
+      partTasks.sort(sortPlanTasks);
+      html += '<article class="plan-day-part"><div class="plan-day-part-head"><div><div class="plan-day-part-title">' + esc(part.label) + '</div><div class="plan-day-part-range">' + esc(part.range) + '</div></div><span>' + partTasks.length + ' 项</span></div>';
+      if (partTasks.length === 0) {
+        html += '<div class="plan-day-part-empty">暂无安排</div>';
+      } else {
+        html += '<div class="plan-task-list">';
+        for (var k = 0; k < partTasks.length; k++) html += renderPlanTaskRow(partTasks[k]);
+        html += '</div>';
+      }
+      html += '</article>';
+    }
+    html += '</div>';
+    return html;
+  }
+
   function renderPlanTaskRow(task) {
+    var timeSlot = formatTaskTimeSlot(task);
     return [
       '<div class="plan-task-row' + (task.done ? ' is-done' : '') + '">',
         '<label class="plan-task-checkbox">',
@@ -1842,6 +2048,8 @@
           '<div class="plan-task-title">' + esc(task.title) + '</div>',
           '<div class="plan-task-meta">',
             '<span class="plan-pill subject">' + esc(task.subject) + '</span>',
+            '<span class="plan-pill time">' + esc(getPlanTaskPeriodLabel(task)) + '</span>',
+            timeSlot ? '<span class="plan-pill">' + esc(timeSlot) + '</span>' : '',
             '<span class="plan-pill">' + esc(formatDateShort(task.date)) + '</span>',
             '<span class="plan-pill">' + esc(formatMinutes(task.estimateMin)) + '</span>',
             task.done && task.completedAt ? '<span class="plan-pill">完成于 ' + esc(formatCompletedAt(task.completedAt)) + '</span>' : '',
@@ -1856,26 +2064,26 @@
   }
 
   function getTasksForSection(type) {
-    var today = getTodayStr();
+    var selectedDate = getPlanSelectedDate();
     var list = [];
     for (var i = 0; i < planData.tasks.length; i++) {
       var task = planData.tasks[i];
-      if (type === 'overdue' && !task.done && task.date < today) list.push(task);
-      else if (type === 'today' && task.date === today) list.push(task);
-      else if (type === 'future' && task.date > today && task.date.slice(0, 7) === planCurrentMonth) list.push(task);
+      if (type === 'overdue' && !task.done && task.date < selectedDate) list.push(task);
+      else if (type === 'day' && task.date === selectedDate) list.push(task);
+      else if (type === 'future' && task.date > selectedDate && task.date.slice(0, 7) === planCurrentMonth) list.push(task);
     }
     list.sort(sortPlanTasks);
     return list;
   }
 
   function getPlanStats() {
-    var today = getTodayStr();
-    var weekStart = formatISODate(getWeekStartDate(new Date()));
+    var selectedDate = getPlanSelectedDate();
+    var weekStart = formatISODate(getWeekStartDate(parseLocalDate(selectedDate)));
     var weekEnd = formatISODate(addDays(parseLocalDate(weekStart), 6));
     var stats = {
-      todayTotal: 0,
-      todayDone: 0,
-      todayMinutes: 0,
+      dayTotal: 0,
+      dayDone: 0,
+      dayMinutes: 0,
       weekTotal: 0,
       weekDone: 0,
       weekMinutes: 0,
@@ -1886,10 +2094,10 @@
     for (var s = 0; s < PLAN_SUBJECTS.length; s++) stats.subjectMinutes[PLAN_SUBJECTS[s]] = 0;
     for (var i = 0; i < planData.tasks.length; i++) {
       var task = planData.tasks[i];
-      if (task.date === today) {
-        stats.todayTotal++;
-        if (task.done) stats.todayDone++;
-        stats.todayMinutes += task.estimateMin || 0;
+      if (task.date === selectedDate) {
+        stats.dayTotal++;
+        if (task.done) stats.dayDone++;
+        stats.dayMinutes += task.estimateMin || 0;
       }
       if (task.date >= weekStart && task.date <= weekEnd) {
         stats.weekTotal++;
@@ -1906,11 +2114,26 @@
     select.innerHTML = renderSubjectOptions(selected);
   }
 
+  function fillDayPartSelect(select, selected) {
+    if (!select) return;
+    select.innerHTML = renderDayPartOptions(selected);
+  }
+
   function renderSubjectOptions(selected) {
     var html = '';
     for (var i = 0; i < PLAN_SUBJECTS.length; i++) {
       var subject = PLAN_SUBJECTS[i];
       html += '<option value="' + esc(subject) + '"' + (subject === selected ? ' selected' : '') + '>' + esc(subject) + '</option>';
+    }
+    return html;
+  }
+
+  function renderDayPartOptions(selected) {
+    var selectedId = getValidDayPartId(selected) || 'morning';
+    var html = '';
+    for (var i = 0; i < PLAN_DAY_PARTS.length; i++) {
+      var part = PLAN_DAY_PARTS[i];
+      html += '<option value="' + esc(part.id) + '"' + (part.id === selectedId ? ' selected' : '') + '>' + esc(part.label) + '</option>';
     }
     return html;
   }
@@ -2086,7 +2309,9 @@
   window.accountSignOut = accountSignOut; window.accountManualSync = accountManualSync;
   window.saveCountdownConfigModal = saveCountdownConfigModal; window.closeCountdownConfigModal = closeCountdownConfigModal;
   window.planPrevMonth = planPrevMonth; window.planNextMonth = planNextMonth;
-  window.planJumpToday = planJumpToday; window.planAddTaskFromQuick = planAddTaskFromQuick;
+  window.planJumpToday = planJumpToday; window.planChangeSelectedDate = planChangeSelectedDate;
+  window.planScrollToDay = planScrollToDay; window.planToggleAutoScroll = planToggleAutoScroll;
+  window.planAddTaskFromQuick = planAddTaskFromQuick;
   window.savePlanMonthPanel = savePlanMonthPanel; window.savePlanWeekGoal = savePlanWeekGoal;
   window.planAddPlanItem = planAddPlanItem; window.planTogglePlanItem = planTogglePlanItem;
   window.planUpdatePlanItem = planUpdatePlanItem; window.planDeletePlanItem = planDeletePlanItem;

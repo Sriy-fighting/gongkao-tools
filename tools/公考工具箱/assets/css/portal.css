@@ -1910,6 +1910,39 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   flex-direction: column;
   gap: 16px;
 }
+.plan-hero-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+}
+.plan-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.plan-auto-scroll {
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.plan-auto-scroll input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--primary);
+}
 .plan-kicker {
   font-size: 12px;
   font-weight: 600;
@@ -2249,7 +2282,7 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
 }
 .plan-quick-form {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) 142px 150px 118px auto;
+  grid-template-columns: minmax(220px, 1fr) 142px 96px 104px 104px 140px 112px auto;
   gap: 8px;
   align-items: center;
 }
@@ -2321,6 +2354,10 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   font-size: 16px;
   font-weight: 700;
 }
+.plan-date-jump {
+  width: 142px;
+  flex: 0 0 142px;
+}
 .plan-filter-note {
   color: var(--text-muted);
   font-size: 13px;
@@ -2359,7 +2396,8 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   background: var(--primary);
 }
 .plan-section-dot.overdue { background: var(--danger); }
-.plan-section-dot.today { background: var(--success); }
+.plan-section-dot.today,
+.plan-section-dot.day { background: var(--success); }
 .plan-section-dot.future { background: var(--warning); }
 .plan-task-list {
   display: flex;
@@ -2439,6 +2477,64 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   color: var(--primary);
   background: var(--primary-light);
 }
+.plan-pill.time {
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.12);
+}
+.plan-day-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+.plan-day-part {
+  min-width: 0;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+}
+.plan-day-part:first-child { border-left: none; }
+.plan-day-part-head {
+  min-height: 58px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.plan-day-part-head > span {
+  color: var(--text-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.plan-day-part-title {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 800;
+}
+.plan-day-part-range {
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+.plan-day-part-empty {
+  padding: 18px 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+}
+.plan-day-part .plan-task-row {
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: flex-start;
+  padding: 12px;
+}
+.plan-day-part .plan-task-actions-v2 {
+  grid-column: 2;
+  justify-content: flex-start;
+}
 .plan-task-actions-v2 {
   display: flex;
   gap: 4px;
@@ -2474,15 +2570,26 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   .plan-hero {
     grid-template-columns: 1fr;
   }
+  .plan-hero-head {
+    flex-direction: column;
+  }
+  .plan-hero-actions {
+    justify-content: flex-start;
+  }
   .plan-week-board {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .plan-quick-form {
-    grid-template-columns: 1fr 142px 150px 118px;
+    grid-template-columns: 1fr 142px 96px 104px;
   }
   .plan-quick-form .plan-primary-btn {
     grid-column: 1 / -1;
   }
+  .plan-day-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .plan-day-part:nth-child(odd) { border-left: none; }
+  .plan-day-part:nth-child(n+3) { border-top: 1px solid var(--border); }
 }
 
 @media (max-width: 768px) {
@@ -2502,11 +2609,26 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
     grid-template-columns: 1fr;
   }
   .plan-quick-form { grid-template-columns: 1fr; }
+  .plan-day-board { grid-template-columns: 1fr; }
+  .plan-day-part,
+  .plan-day-part:nth-child(n+3) {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+  .plan-day-part:first-child { border-top: none; }
   .plan-toolbar {
     align-items: flex-start;
     flex-direction: column;
   }
-  .plan-month-filter { width: 100%; justify-content: space-between; }
+  .plan-month-filter {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .plan-date-jump {
+    width: 100%;
+    flex: 1 1 100%;
+  }
   .plan-task-row {
     grid-template-columns: 26px minmax(0, 1fr);
     align-items: flex-start;
