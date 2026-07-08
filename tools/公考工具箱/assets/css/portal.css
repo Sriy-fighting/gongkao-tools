@@ -2922,3 +2922,755 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   }
   .plan-modal-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   UI Refresh v3 · Exam Prep Control Console
+   Visual-only overrides: existing selectors, storage keys, and JS hooks stay intact.
+   ========================================================= */
+:root {
+  --sidebar-bg: #101828;
+  --sidebar-hover: #1d2939;
+  --sidebar-active: #eff6ff;
+  --sidebar-text: #98a2b3;
+  --sidebar-active-text: #175cd3;
+  --sidebar-width: 252px;
+
+  --header-bg: rgba(247, 249, 252, 0.9);
+  --header-border: #d8dee8;
+
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-hover: #f8fafc;
+  --text-primary: #111827;
+  --text-secondary: #475467;
+  --text-muted: #667085;
+  --border: #d8dee8;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #e8f0ff;
+  --accent: #0f766e;
+  --accent-light: #e6f6f3;
+
+  --success: #079455;
+  --warning: #b54708;
+  --danger: #d92d20;
+
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow: 0 1px 3px rgba(16, 24, 40, 0.08), 0 1px 2px rgba(16, 24, 40, 0.04);
+  --shadow-md: 0 8px 22px rgba(16, 24, 40, 0.10);
+  --shadow-lg: 0 16px 36px rgba(16, 24, 40, 0.14);
+  --shadow-xl: 0 24px 60px rgba(16, 24, 40, 0.18);
+
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "SF Mono", "Cascadia Code", "JetBrains Mono", Consolas, monospace;
+  --header-h: 60px;
+  --transition: 180ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+[data-theme="dark"] {
+  --sidebar-bg: #080d18;
+  --sidebar-hover: #111827;
+  --sidebar-active: #172554;
+  --sidebar-text: #98a2b3;
+  --sidebar-active-text: #dbeafe;
+
+  --header-bg: rgba(11, 18, 32, 0.9);
+  --header-border: #253044;
+
+  --bg: #0b1220;
+  --surface: #111827;
+  --surface-hover: #182235;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #98a2b3;
+  --border: #293548;
+
+  --primary: #60a5fa;
+  --primary-hover: #93c5fd;
+  --primary-light: rgba(96, 165, 250, 0.16);
+  --accent: #5eead4;
+  --accent-light: rgba(94, 234, 212, 0.13);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background:
+    linear-gradient(135deg, rgba(37, 99, 235, 0.06), transparent 34%),
+    linear-gradient(0deg, rgba(15, 118, 110, 0.05), transparent 42%),
+    var(--bg);
+  color: var(--text-primary);
+  letter-spacing: 0;
+}
+
+[data-theme="dark"] body {
+  background:
+    linear-gradient(135deg, rgba(96, 165, 250, 0.10), transparent 35%),
+    linear-gradient(0deg, rgba(94, 234, 212, 0.06), transparent 44%),
+    var(--bg);
+}
+
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 500;
+  transform: translateY(-140%);
+  background: var(--surface);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform var(--transition);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+[role="button"],
+.tool-card,
+.global-link-chip,
+.dashboard-footer-link {
+  touch-action: manipulation;
+}
+
+button:focus-visible,
+[role="button"]:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.tool-card:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.28);
+  outline-offset: 2px;
+}
+
+.app-layout {
+  height: 100dvh;
+}
+
+.sidebar {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+.sidebar-brand {
+  min-height: 76px;
+  padding: 18px 18px;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-brand-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #175cd3;
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.16);
+}
+
+.sidebar-brand-text {
+  color: #f9fafb;
+  font-size: 16px;
+}
+
+.sidebar-nav {
+  gap: 4px;
+  padding: 12px;
+}
+
+.nav-item,
+.sidebar-footer-btn,
+.theme-toggle {
+  min-height: 44px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-item svg {
+  width: 19px;
+  height: 19px;
+  opacity: 0.86;
+}
+
+.nav-item:hover,
+.sidebar-footer-btn:hover,
+.theme-toggle:hover {
+  background: var(--sidebar-hover);
+  color: #f2f4f7;
+}
+
+.nav-item.active {
+  background: var(--sidebar-active);
+  color: var(--sidebar-active-text);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+}
+
+.nav-move-actions {
+  gap: 3px;
+}
+
+.nav-move-btn {
+  width: 28px;
+  height: 28px;
+}
+
+.sidebar-footer {
+  padding: 12px;
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.header {
+  border-bottom-color: var(--header-border);
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.02);
+}
+
+.page-title {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.mobile-menu-btn,
+.global-link-trigger {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 8px;
+}
+
+.global-link-panel {
+  transition: max-width 220ms cubic-bezier(0.2, 0, 0, 1), opacity var(--transition);
+}
+
+.global-link-chip,
+.global-link-manage-btn,
+.dashboard-footer-link,
+.dashboard-footer-manage-btn,
+.countdown-edit-btn {
+  min-height: 36px;
+  border-radius: 8px;
+}
+
+.content-area {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), transparent 190px),
+    transparent;
+}
+
+[data-theme="dark"] .content-area {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 190px),
+    transparent;
+}
+
+.dashboard-view,
+.plan-view {
+  padding: 28px;
+}
+
+.dashboard-view {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  grid-template-areas:
+    "greeting greeting"
+    "timer countdown"
+    "tools tools"
+    "links links";
+  align-content: start;
+  gap: 18px;
+}
+
+.dashboard-greeting {
+  grid-area: greeting;
+  margin: 0;
+  padding: 0 2px 4px;
+}
+
+.dashboard-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 10px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.dashboard-greeting h2 {
+  margin: 0 0 5px;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.15;
+  font-weight: 850;
+  color: var(--text-primary);
+}
+
+.dashboard-greeting .greeting-date {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.timer-section,
+.countdown-section,
+.dashboard-footer,
+.plan-today-panel,
+.plan-week-panel,
+.plan-quick-panel,
+.plan-list-panel,
+.plan-planning-panel,
+.link-manager-modal,
+.sync-modal,
+.countdown-config-modal,
+.plan-modal {
+  border-color: var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.timer-section {
+  grid-area: timer;
+  margin: 0;
+  padding: 22px;
+}
+
+.countdown-section {
+  grid-area: countdown;
+  margin: 0;
+  padding: 22px;
+}
+
+.timer-mode-tabs {
+  width: 100%;
+  min-height: 44px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface-hover);
+}
+
+.timer-mode-tab {
+  flex: 1;
+  min-height: 44px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.timer-mode-tab.active {
+  color: var(--primary);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.timer-main-display {
+  padding: 24px 0 18px;
+  font-size: clamp(42px, 6vw, 70px);
+  letter-spacing: 0;
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-btn-circle {
+  width: 52px;
+  height: 52px;
+  border-width: 1px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.timer-btn-circle.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.timer-btn-circle.primary:hover {
+  background: #0b5f59;
+  border-color: #0b5f59;
+}
+
+[data-theme="dark"] .timer-btn-circle.primary:hover {
+  background: #2dd4bf;
+  border-color: #2dd4bf;
+  color: #062a26;
+}
+
+.timer-laps {
+  max-height: 190px;
+  padding: 6px 10px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-hover);
+}
+
+.timer-lap-row {
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.countdown-title {
+  font-size: 16px;
+  font-weight: 850;
+}
+
+.countdown-big-number {
+  color: var(--primary);
+  font-size: clamp(46px, 6vw, 76px);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-progress {
+  height: 9px;
+  background: var(--surface-hover);
+}
+
+.countdown-progress-fill {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.countdown-milestone {
+  border: 1px solid var(--border);
+  background: var(--surface-hover);
+}
+
+.countdown-empty button {
+  min-height: 44px;
+}
+
+.tool-cards {
+  grid-area: tools;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.tool-card {
+  min-height: 176px;
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.tool-card:hover {
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.tool-card-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.tool-card-title {
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.tool-card-desc {
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.tool-card-hint {
+  margin-top: auto;
+  padding-top: 14px;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.dashboard-footer {
+  grid-area: links;
+  margin: 0;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.dashboard-footer-empty,
+.timer-empty-laps,
+.countdown-empty,
+.plan-empty-state,
+.plan-empty-bars {
+  color: var(--text-muted);
+}
+
+.sync-overlay,
+.link-manager-overlay,
+.countdown-config-overlay,
+.plan-modal-overlay {
+  background: rgba(15, 23, 42, 0.52);
+  z-index: 300;
+}
+
+.sync-header,
+.link-manager-header,
+.countdown-config-header,
+.plan-modal-header {
+  min-height: 58px;
+}
+
+.sync-close,
+.link-manager-close,
+.countdown-config-close,
+.plan-modal-close {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 8px;
+}
+
+.link-manager-add-row input,
+.account-form-row input,
+.sync-config-row input,
+.countdown-config-field input,
+.plan-input,
+.plan-select,
+.plan-edit-field textarea,
+.plan-week-goal-input,
+.plan-modal-field input,
+.plan-modal-field select {
+  min-height: 44px;
+  border-color: var(--border);
+  border-radius: 8px;
+  background: var(--surface-hover);
+}
+
+.link-manager-add-row button,
+.account-primary-btn,
+.account-secondary-btn,
+.sync-key-copy-btn,
+.countdown-config-footer button,
+.plan-primary-btn,
+.plan-ghost-btn,
+.plan-modal-btn-primary,
+.plan-modal-btn-secondary,
+.plan-modal-btn-danger {
+  min-height: 44px;
+  border-radius: 8px;
+  font-weight: 750;
+}
+
+.account-primary-btn,
+.link-manager-add-row button,
+.plan-primary-btn {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.account-primary-btn:hover,
+.link-manager-add-row button:hover,
+.plan-primary-btn:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.sync-hint,
+.sync-status,
+.account-user-card,
+.link-manager-item,
+.countdown-config-milestone {
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+}
+
+.plan-shell {
+  max-width: 1240px;
+}
+
+.plan-hero {
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.8fr);
+}
+
+.plan-today-title {
+  font-size: clamp(24px, 3vw, 34px);
+  letter-spacing: 0;
+}
+
+.plan-kicker,
+.plan-section-eyebrow,
+.sync-section-title,
+.countdown-milestones-title {
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 800;
+}
+
+.plan-stat {
+  border-color: var(--border);
+  background: var(--surface-hover);
+}
+
+.plan-stat-value {
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.plan-subject-fill {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.plan-pill.subject {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.plan-pill.time {
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
+.plan-task-row,
+.plan-day-part,
+.plan-section,
+.plan-section-head,
+.plan-day-part-head {
+  border-color: var(--border);
+}
+
+.plan-task-btn,
+.plan-icon-btn,
+.plan-nav-btn {
+  min-width: 36px;
+  min-height: 36px;
+}
+
+.tool-frame {
+  background: var(--surface);
+}
+
+@media (max-width: 1180px) {
+  .dashboard-view {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "greeting"
+      "timer"
+      "countdown"
+      "tools"
+      "links";
+  }
+
+  .tool-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1320px) {
+  .plan-quick-form {
+    grid-template-columns: minmax(220px, 1fr) 142px 96px 104px;
+  }
+
+  .plan-quick-form .plan-primary-btn {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: min(286px, 86vw);
+    --header-h: 58px;
+  }
+
+  .dashboard-view,
+  .plan-view {
+    padding: 18px 14px 24px;
+  }
+
+  .dashboard-view {
+    gap: 14px;
+  }
+
+  .tool-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-card {
+    min-height: 150px;
+  }
+
+  .timer-section,
+  .countdown-section {
+    padding: 16px;
+  }
+
+  .timer-countdown-setup {
+    justify-content: flex-start;
+  }
+
+  .timer-countdown-setup input {
+    min-height: 44px;
+  }
+
+  .global-link-panel {
+    position: absolute;
+    top: calc(var(--header-h) - 4px);
+    right: 10px;
+    max-width: min(360px, calc(100vw - 20px));
+    width: min(360px, calc(100vw - 20px));
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+  }
+
+  .header-actions:hover .global-link-panel,
+  .header-actions:focus-within .global-link-panel {
+    max-width: min(360px, calc(100vw - 20px));
+    transform: translateY(0);
+  }
+
+  .global-link-bar {
+    max-width: 100%;
+  }
+
+  .link-manager-add-row,
+  .countdown-config-milestone,
+  .countdown-config-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .countdown-config-milestone input {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
