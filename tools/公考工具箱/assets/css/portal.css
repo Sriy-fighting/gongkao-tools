@@ -3607,6 +3607,59 @@ textarea:focus-visible,
     gap: 14px;
   }
 
+  .plan-shell {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .plan-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .plan-today-panel,
+  .plan-week-panel {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .plan-hero-head {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .plan-hero-actions {
+    justify-content: flex-start;
+  }
+
+  .plan-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plan-quick-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .plan-quick-form .plan-primary-btn {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .plan-quick-panel,
+  .plan-quick-form,
+  .plan-input,
+  .plan-select {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .plan-stat-value,
+  .plan-stat-label {
+    min-width: 0;
+    white-space: normal;
+  }
+
   .tool-cards {
     grid-template-columns: 1fr;
   }
