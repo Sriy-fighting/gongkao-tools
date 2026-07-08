@@ -1779,14 +1779,8 @@
     root.innerHTML = [
       '<div class="plan-shell">',
         renderPlanHero(),
+        renderPlanDailyWorkspace(),
         renderPlanPlanning(),
-        renderPlanQuickAdd(),
-        renderPlanToolbar(),
-        '<div class="plan-list-panel">',
-          renderPlanSection('overdue'),
-          renderPlanSection('day'),
-          renderPlanSection('future'),
-        '</div>',
       '</div>'
     ].join('');
     if (planPendingScrollToDay) {
@@ -1831,6 +1825,26 @@
           renderSubjectBars(stats.subjectMinutes),
         '</section>',
       '</div>'
+    ].join('');
+  }
+
+  function renderPlanDailyWorkspace() {
+    var overdueCount = getTasksForSection('overdue').length;
+    return [
+      '<section class="plan-daily-panel">',
+        '<div class="plan-daily-header">',
+          '<div>',
+            '<div class="plan-section-eyebrow">执行层</div>',
+            '<div class="plan-daily-title">每日计划</div>',
+          '</div>',
+        '</div>',
+        renderPlanToolbar(),
+        renderPlanQuickAdd(),
+        '<div class="plan-list-panel plan-day-list-panel">',
+          overdueCount > 0 ? renderPlanSection('overdue') : '',
+          renderPlanSection('day'),
+        '</div>',
+      '</section>'
     ].join('');
   }
 
@@ -1957,6 +1971,9 @@
     var selectedDate = getPlanSelectedDate();
     return [
       '<section class="plan-quick-panel">',
+        '<div class="plan-quick-head">',
+          '<div class="plan-quick-title">快速添加</div>',
+        '</div>',
         '<div class="plan-quick-form">',
           '<input class="plan-input" id="plan-quick-title" type="text" placeholder="添加学习任务..." onkeydown="if(event.key===&quot;Enter&quot;)planAddTaskFromQuick()">',
           '<input class="plan-input" id="plan-quick-date" type="date" value="' + esc(selectedDate) + '" onchange="planChangeSelectedDate(this.value)" aria-label="任务日期">',
@@ -1984,7 +2001,7 @@
           '<input class="plan-input plan-date-jump" type="date" value="' + esc(selectedDate) + '" onchange="planChangeSelectedDate(this.value)" aria-label="查看日期">',
           '<button class="plan-ghost-btn" onclick="planJumpToday()">回到今天</button>',
         '</div>',
-        '<div class="plan-filter-note">上方月/周计划随查看日期切换；逾期和当前查看日置顶。</div>',
+        '<div class="plan-filter-note">当前查看日</div>',
       '</div>'
     ].join('');
   }
@@ -1995,8 +2012,7 @@
     var selectedIsToday = selectedDate === getTodayStr();
     var meta = {
       overdue: { title: '逾期未完成', empty: '没有逾期任务，节奏稳住了。' },
-      day: { title: selectedIsToday ? '今天' : formatDateShort(selectedDate), empty: selectedIsToday ? '今天还没有任务，先在上方添加一条。' : '这一天还没有任务，先在上方添加一条。' },
-      future: { title: '未来任务', empty: '这个月暂时没有未来任务。' }
+      day: { title: selectedIsToday ? '今天' : formatDateShort(selectedDate), empty: selectedIsToday ? '今天还没有任务，先在上方添加一条。' : '这一天还没有任务，先在上方添加一条。' }
     }[type];
     var sectionId = type === 'day' ? ' id="plan-day-section"' : '';
     var html = '<section class="plan-section"' + sectionId + '><div class="plan-section-head"><div class="plan-section-title"><span class="plan-section-dot ' + type + '"></span>' + esc(meta.title) + '</div><div class="plan-section-count">' + list.length + ' 项</div></div>';
@@ -2070,7 +2086,6 @@
       var task = planData.tasks[i];
       if (type === 'overdue' && !task.done && task.date < selectedDate) list.push(task);
       else if (type === 'day' && task.date === selectedDate) list.push(task);
-      else if (type === 'future' && task.date > selectedDate && task.date.slice(0, 7) === planCurrentMonth) list.push(task);
     }
     list.sort(sortPlanTasks);
     return list;

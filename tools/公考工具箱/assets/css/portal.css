@@ -1889,6 +1889,22 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   max-width: 1180px;
   margin: 0 auto;
 }
+.plan-daily-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.plan-daily-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+.plan-daily-title {
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: 800;
+}
 .plan-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.9fr);
@@ -2278,7 +2294,19 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   margin-top: 10px;
 }
 .plan-quick-panel {
-  padding: 14px;
+  padding: 16px;
+}
+.plan-quick-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.plan-quick-title {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 800;
 }
 .plan-quick-form {
   display: grid;
@@ -2398,7 +2426,6 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
 .plan-section-dot.overdue { background: var(--danger); }
 .plan-section-dot.today,
 .plan-section-dot.day { background: var(--success); }
-.plan-section-dot.future { background: var(--warning); }
 .plan-task-list {
   display: flex;
   flex-direction: column;
@@ -2601,6 +2628,10 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
   .plan-today-title { font-size: 21px; }
   .plan-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .plan-planning-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .plan-daily-header {
     align-items: flex-start;
     flex-direction: column;
   }
