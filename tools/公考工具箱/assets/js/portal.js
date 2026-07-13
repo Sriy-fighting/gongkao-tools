@@ -33,6 +33,12 @@
   var planSyncInterval = null;
 
   function init() {
+    document.title = '长安题途 · 公考备考助手';
+    var brandText = document.querySelector('.sidebar-brand-text');
+    var brandIcon = document.querySelector('.sidebar-brand-icon');
+    if (brandText) brandText.textContent = '长安题途';
+    if (brandIcon) brandIcon.textContent = '长';
+    initPlanModalAccessibility();
     if (window.SyncStore) syncInfo = window.SyncStore.init();
     els.sidebar = document.querySelector('.sidebar');
     els.dashboard = document.getElementById('dashboard-view');
@@ -255,6 +261,45 @@
     if (!el) return;
     el.classList.toggle('is-disabled', disabled);
     el.setAttribute('aria-disabled', disabled ? 'true' : 'false');
+  }
+
+  function initPlanModalAccessibility() {
+    var lastFocused = null;
+    var selector = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    document.querySelectorAll('.plan-modal-overlay').forEach(function (overlay) {
+      if (!overlay.getAttribute('role')) overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      if (!overlay.getAttribute('aria-label') && !overlay.getAttribute('aria-labelledby')) overlay.setAttribute('aria-label', '学习计划对话框');
+    });
+    document.addEventListener('keydown', function (event) {
+      var active = document.querySelector('.plan-modal-overlay.open');
+      if (!active) return;
+      if (event.key === 'Escape') {
+        var close = active.querySelector('.plan-modal-close');
+        if (close) close.click();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      var focusable = Array.prototype.slice.call(active.querySelectorAll(selector));
+      if (!focusable.length) return;
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    });
+    var observer = new MutationObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var overlay = entry.target;
+        if (overlay.classList.contains('open')) {
+          lastFocused = document.activeElement;
+          var target = overlay.querySelector('[autofocus], input, select, textarea, button');
+          if (target) setTimeout(function () { target.focus(); }, 0);
+        } else if (lastFocused && typeof lastFocused.focus === 'function') {
+          lastFocused.focus();
+          lastFocused = null;
+        }
+      });
+    });
+    document.querySelectorAll('.plan-modal-overlay').forEach(function (overlay) { observer.observe(overlay, { attributes: true, attributeFilter: ['class'] }); });
   }
 
   function navigateTo(view) {
@@ -1943,6 +1988,16 @@
     return null;
   }
 
+  function planMoveTaskToSelectedDate(taskId) {
+    var task = findPlanTask(taskId);
+    if (!task) return;
+    task.date = getPlanSelectedDate();
+    task.period = task.period || inferDayPartFromTime(task.startTime) || 'morning';
+    savePlan();
+    renderPlan();
+    showSyncToast('任务已纳入当前日期');
+  }
+
   function ensureMonthPlan(ym) {
     if (!planData.monthPlans) planData.monthPlans = {};
     if (!planData.monthPlans[ym]) planData.monthPlans[ym] = { goal: '', goalItems: [], focus: '', focusItems: [], weeks: {} };
@@ -2075,6 +2130,34 @@
   }
 
   function renderPlanHero() {
+    var commandStats = getPlanStats();
+    var commandDate = getPlanSelectedDate();
+    var commandStage = getPlanJourneyStage();
+    return [
+      '<section class="plan-command-deck">',
+        '<div class="plan-command-content">',
+          '<p class="plan-kicker">长安题途 / 计划指挥舱</p>',
+          '<h1>' + (commandDate === getTodayStr() ? '今天，先走好眼前这一程' : '安排好这一天的每一步') + '</h1>',
+          '<p class="plan-command-copy">' + esc(formatFullDate(commandDate)) + ' · 把目标拆成下一次专注，进度自然会向前。</p>',
+          '<div class="plan-command-actions">',
+            '<button class="plan-command-primary" onclick="document.querySelector(\'.nav-item[data-view=dashboard]\').click()">开始一段专注</button>',
+            '<button class="plan-command-secondary" onclick="Journey.openAiPlanner()">AI 制定 30 天计划</button>',
+          '</div>',
+          '<div class="plan-command-stats">',
+            renderPlanStat(commandStats.dayDone + '/' + commandStats.dayTotal, commandDate === getTodayStr() ? '今日完成' : '当日完成'),
+            renderPlanStat(formatMinutes(commandStats.dayMinutes), commandDate === getTodayStr() ? '今日投入' : '当日投入'),
+            renderPlanStat(commandStats.weekDone + '/' + commandStats.weekTotal, '本周进度'),
+            renderPlanStat(formatMinutes(commandStats.weekMinutes), '本周计划'),
+          '</div>',
+        '</div>',
+        '<aside class="plan-command-stage">',
+          '<img src="assets/images/changan/' + esc(commandStage.image) + '" alt="' + esc(commandStage.name) + '场景" loading="eager">',
+          '<div class="plan-command-stage-overlay"><span>当前行至</span><strong>' + esc(commandStage.name) + '</strong><p>' + esc(commandStage.story) + '</p></div>',
+        '</aside>',
+      '</section>'
+    ].join('');
+
+    // Legacy layout retained below for source-history compatibility.
     var stats = getPlanStats();
     var selectedDate = getPlanSelectedDate();
     var selectedIsToday = selectedDate === getTodayStr();
@@ -2110,6 +2193,30 @@
   }
 
   function renderPlanDailyWorkspace() {
+    var dailyOverdueCount = getTasksForSection('overdue').length;
+    var dailyStats = getPlanStats();
+    return [
+      '<section class="plan-execution-grid">',
+        '<div class="plan-daily-panel">',
+          '<div class="plan-daily-header">',
+            '<div><p class="plan-section-overline">今日执行</p><div class="plan-daily-title">把时间留给真正重要的事</div></div>',
+            '<button class="plan-ghost-btn" onclick="planScrollToDay()">查看任务</button>',
+          '</div>',
+          renderPlanToolbar(),
+          renderPlanQuickAdd(),
+          '<div class="plan-list-panel plan-day-list-panel">',
+            dailyOverdueCount > 0 ? renderPlanSection('overdue') : '',
+            renderPlanSection('day'),
+          '</div>',
+        '</div>',
+        '<aside class="plan-rhythm-panel">',
+          '<div class="plan-rhythm-head"><div><p class="plan-section-overline">本周节奏</p><h2>负荷一目了然</h2></div><span>' + esc(formatDateShort(dailyStats.weekStart)) + ' - ' + esc(formatDateShort(dailyStats.weekEnd)) + '</span></div>',
+          renderPlanWeekRhythm(),
+          '<div class="plan-subject-summary"><div class="plan-subject-summary-title">科目投入</div>' + renderSubjectBars(dailyStats.subjectMinutes) + '</div>',
+        '</aside>',
+      '</section>'
+    ].join('');
+
     var overdueCount = getTasksForSection('overdue').length;
     return [
       '<section class="plan-daily-panel">',
@@ -2129,6 +2236,25 @@
   }
 
   function renderPlanPlanning() {
+    var commandMonth = ensureMonthPlan(planCurrentMonth);
+    var commandWeeks = getMonthWeeks(planCurrentMonth);
+    var commandParts = planCurrentMonth.split('-');
+    var commandTitle = commandParts[0] + '年 ' + parseInt(commandParts[1], 10) + '月';
+    return [
+      '<section class="plan-planning-panel">',
+        '<div class="plan-planning-header">',
+          '<div><p class="plan-section-overline">战略层</p><div class="plan-planning-title">把 ' + esc(commandTitle) + ' 拆成每周的小目标</div></div>',
+          '<button class="plan-primary-btn" onclick="savePlanMonthPanel()">保存月计划</button>',
+        '</div>',
+        '<div class="plan-month-edit-grid">',
+          renderPlanItemEditor('goal', '', '这个月想做到什么？', '添加一个可完成的目标...'),
+          renderPlanItemEditor('focus', '', '需要优先投入的地方', '添加一个重点...'),
+        '</div>',
+        '<div class="plan-week-board">', renderWeekPlanCards(commandWeeks, commandMonth), '</div>',
+        renderPlanJourneyRail(),
+      '</section>'
+    ].join('');
+
     var month = ensureMonthPlan(planCurrentMonth);
     var weeks = getMonthWeeks(planCurrentMonth);
     var parts = planCurrentMonth.split('-');
@@ -2333,6 +2459,30 @@
   }
 
   function renderPlanTaskRow(task) {
+    var commandTimeSlot = formatTaskTimeSlot(task);
+    var commandIsOverdue = task.date < getPlanSelectedDate() && !task.done;
+    return [
+      '<div class="plan-task-row' + (task.done ? ' is-done' : '') + '">',
+        '<label class="plan-task-checkbox"><input type="checkbox" ' + (task.done ? 'checked' : '') + ' onchange="planToggleTask(' + jsSingleArg(task.id) + ')"><span class="plan-task-box"></span></label>',
+        '<div class="plan-task-main">',
+          '<div class="plan-task-title">' + esc(task.title) + '</div>',
+          '<div class="plan-task-meta">',
+            '<span class="plan-pill subject">' + esc(task.subject) + '</span>',
+            '<span class="plan-pill time">' + esc(getPlanTaskPeriodLabel(task)) + '</span>',
+            commandTimeSlot ? '<span class="plan-pill">' + esc(commandTimeSlot) + '</span>' : '',
+            '<span class="plan-pill">' + esc(formatMinutes(task.estimateMin)) + '</span>',
+            task.focusMinutes ? '<span class="plan-pill focus">已专注 ' + esc(formatMinutes(task.focusMinutes)) + '</span>' : '',
+            task.done && task.completedAt ? '<span class="plan-pill">完成于 ' + esc(formatCompletedAt(task.completedAt)) + '</span>' : '',
+          '</div>',
+        '</div>',
+        '<div class="plan-task-actions-v2">',
+          commandIsOverdue ? '<button class="plan-task-reschedule" onclick="planMoveTaskToSelectedDate(' + jsSingleArg(task.id) + ')">纳入今日</button>' : '',
+          '<button class="plan-task-btn" onclick="planEditTask(' + jsSingleArg(task.id) + ')" title="编辑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button>',
+          '<button class="plan-task-btn plan-task-btn-danger" onclick="planDeleteTask(' + jsSingleArg(task.id) + ')" title="删除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/></svg></button>',
+        '</div>',
+      '</div>'
+    ].join('');
+
     var timeSlot = formatTaskTimeSlot(task);
     return [
       '<div class="plan-task-row' + (task.done ? ' is-done' : '') + '">',
@@ -2407,6 +2557,59 @@
   function fillSubjectSelect(select, selected) {
     if (!select) return;
     select.innerHTML = renderSubjectOptions(selected);
+  }
+
+  function getPlanJourneyStage() {
+    var minutes = 0;
+    try {
+      var journeyState = JSON.parse(localStorage.getItem('gk-focus-journey') || 'null');
+      minutes = Math.max(0, parseInt(journeyState && journeyState.totalMinutes, 10) || 0);
+    } catch (e) {}
+    if (!minutes) for (var i = 0; i < planData.tasks.length; i++) minutes += Math.max(0, parseInt(planData.tasks[i].focusMinutes, 10) || 0);
+    var stages = [
+      { minutes: 0, name: '晨读驿', story: '先把书页翻开，路就从此刻开始。', image: 'stage-chen-du-yi.webp' },
+      { minutes: 300, name: '申论渡', story: '把思考写成自己的表达。', image: 'stage-shen-lun-du.webp' },
+      { minutes: 900, name: '数理关', story: '在复杂里看清方法与秩序。', image: 'stage-shu-li-guan.webp' },
+      { minutes: 1800, name: '行测坊', story: '让判断更快，让方法更稳。', image: 'stage-xing-ce-fang.webp' },
+      { minutes: 3000, name: '金榜台', story: '每一次完成，都让目标更近。', image: 'stage-jin-bang-tai.webp' }
+    ];
+    var current = stages[0];
+    for (var j = 0; j < stages.length; j++) if (minutes >= stages[j].minutes) current = stages[j];
+    return current;
+  }
+
+  function renderPlanWeekRhythm() {
+    var stats = getPlanStats();
+    var html = '<div class="plan-week-rhythm">';
+    for (var i = 0; i < 7; i++) {
+      var date = formatISODate(addDays(parseLocalDate(stats.weekStart), i));
+      var total = 0, done = 0, minutes = 0;
+      for (var j = 0; j < planData.tasks.length; j++) {
+        var task = planData.tasks[j];
+        if (task.date !== date) continue;
+        total++; minutes += task.estimateMin || 0;
+        if (task.done) done++;
+      }
+      var label = ['日', '一', '二', '三', '四', '五', '六'][parseLocalDate(date).getDay()];
+      var selected = date === getPlanSelectedDate();
+      var pct = total ? Math.round(done / total * 100) : 0;
+      html += '<button class="plan-rhythm-day' + (selected ? ' is-selected' : '') + '" onclick="planChangeSelectedDate(' + jsSingleArg(date) + ')" aria-label="查看 ' + esc(formatFullDate(date)) + '"><span>' + label + '</span><strong>' + esc(String(parseLocalDate(date).getDate())) + '</strong><i style="--plan-load:' + Math.min(100, Math.round(minutes / 240 * 100)) + '%;--plan-done:' + pct + '%"></i><em>' + (total ? done + '/' + total : '空') + '</em></button>';
+    }
+    return html + '</div>';
+  }
+
+  function renderPlanJourneyRail() {
+    var current = getPlanJourneyStage();
+    var stages = [
+      { name: '晨读驿', image: 'stage-chen-du-yi.webp' }, { name: '申论渡', image: 'stage-shen-lun-du.webp' },
+      { name: '数理关', image: 'stage-shu-li-guan.webp' }, { name: '行测坊', image: 'stage-xing-ce-fang.webp' }, { name: '金榜台', image: 'stage-jin-bang-tai.webp' }
+    ];
+    var html = '<section class="plan-journey-rail"><div class="plan-journey-rail-head"><div><p class="plan-section-overline">长安题途</p><h2>每一段专注，都在推进你的路</h2></div><button class="plan-ghost-btn" onclick="document.querySelector(\'.nav-item[data-view=dashboard]\').click()">回到今日行程</button></div><div class="plan-stage-rail">';
+    for (var i = 0; i < stages.length; i++) {
+      var item = stages[i];
+      html += '<div class="plan-stage-card' + (item.name === current.name ? ' is-current' : '') + '"><img src="assets/images/changan/' + item.image + '" alt="' + item.name + '" loading="lazy"><span>' + item.name + '</span></div>';
+    }
+    return html + '</div></section>';
   }
 
   function fillDayPartSelect(select, selected) {
@@ -2657,6 +2860,7 @@
   window.planAddPlanItem = planAddPlanItem; window.planTogglePlanItem = planTogglePlanItem;
   window.planUpdatePlanItem = planUpdatePlanItem; window.planDeletePlanItem = planDeletePlanItem;
   window.planToggleTask = planToggleTask;
+  window.planMoveTaskToSelectedDate = planMoveTaskToSelectedDate;
   window.planEditTask = planEditTask; window.savePlanTaskModal = savePlanTaskModal;
   window.closePlanTaskModal = closePlanTaskModal; window.planDeleteTask = planDeleteTask;
   window.closePlanConfirmModal = closePlanConfirmModal;
