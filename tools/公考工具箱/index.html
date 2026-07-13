@@ -83,34 +83,19 @@
           <span class="greeting-date" id="greeting-date"></span>
         </div>
 
-        <!-- Timer Section -->
-        <div class="timer-section" id="timer-section">
-          <div class="timer-mode-tabs">
-            <button class="timer-mode-tab active" data-mode="stopwatch" onclick="switchTimerMode('stopwatch')">秒表</button>
-            <button class="timer-mode-tab" data-mode="countdown" onclick="switchTimerMode('countdown')">倒计时</button>
+        <!-- Today Journey: focus timer and map are one flow -->
+        <section class="journey-section" aria-labelledby="journey-title">
+          <div class="journey-head"><div><p class="journey-kicker">长安题途</p><h3 id="journey-title">今日行程</h3></div><span id="journey-stage" class="journey-stage" aria-live="polite">晨读驿</span></div>
+          <div class="journey-map" aria-label="长安题途进度地图"><div class="journey-route"></div><div class="journey-stops" id="journey-stops"></div></div>
+          <div class="journey-summary"><span id="journey-total">已行 0 分钟</span><span id="journey-streak">连续 0 天</span><span id="journey-stamps">0 枚行程印记</span></div>
+          <div class="journey-focus-grid">
+            <label class="journey-field">关联今日任务<select id="journey-task" aria-label="关联今日任务"></select></label>
+            <div class="journey-duration" role="group" aria-label="专注时长"><button type="button" data-minutes="25">25 分</button><button type="button" data-minutes="45">45 分</button><button type="button" data-minutes="60">60 分</button><label>自定义<input id="journey-custom-minutes" type="number" min="5" max="180" value="25" inputmode="numeric">分</label></div>
           </div>
-          <div class="timer-main-display" id="timer-display">00:00:00.00</div>
-          <div class="timer-controls">
-            <button class="timer-btn-circle primary" id="timer-start-btn" onclick="timerStartStop()" title="开始/暂停" aria-label="开始或暂停计时">
-              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-            </button>
-            <button class="timer-btn-circle" id="timer-lap-btn" onclick="timerLap()" title="记次" aria-label="记录分段时间">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </button>
-            <button class="timer-btn-circle" onclick="timerReset()" title="重置" aria-label="重置计时器">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-            </button>
-          </div>
-          <div class="timer-countdown-setup" id="countdown-setup" style="display:none;">
-            <input type="number" id="countdown-h" value="2" min="0" max="99"><label>小时</label>
-            <input type="number" id="countdown-m" value="0" min="0" max="59"><label>分钟</label>
-            <input type="number" id="countdown-s" value="0" min="0" max="59"><label>秒</label>
-          </div>
-          <div id="sw-lap-area">
-            <div class="timer-laps-title" id="timer-laps-title">分段记录</div>
-            <div class="timer-laps" id="timer-laps"><div class="timer-empty-laps">点击“记次”记录分段时间</div></div>
-          </div>
-        </div>
+          <div class="journey-clock" id="journey-clock" role="timer" aria-live="off">25:00</div>
+          <div class="journey-controls"><button type="button" class="journey-primary" id="journey-start">开始专注</button><button type="button" class="journey-secondary" id="journey-finish" disabled>结束并记录</button></div>
+          <p class="journey-hint" id="journey-hint">选择今日任务，启程前往下一站。</p>
+        </section>
 
         <!-- Countdown Section -->
         <div class="countdown-section" id="countdown-section"></div>
@@ -356,7 +341,43 @@
 
 <div class="sync-toast" id="sync-toast"></div>
 
+<!-- AI plan modal -->
+<div class="plan-modal-overlay" id="ai-plan-modal" role="dialog" aria-modal="true" aria-labelledby="ai-plan-title">
+  <div class="plan-modal ai-plan-modal" onclick="event.stopPropagation()">
+    <div class="plan-modal-header"><h3 id="ai-plan-title">AI 制定 30 天计划</h3><button class="plan-modal-close" onclick="Journey.closeAiPlanner()" aria-label="关闭">&times;</button></div>
+    <div class="plan-modal-body ai-plan-form">
+      <p class="ai-plan-note">生成的是可编辑草案；确认应用前不会修改现有计划。</p>
+      <div class="plan-modal-field"><label>考试或目标</label><input id="ai-plan-exam" maxlength="80" placeholder="如：2027 国考"></div>
+      <div class="plan-modal-field"><label>考试日期（可选）</label><input id="ai-plan-exam-date" type="date"></div>
+      <div class="plan-modal-field"><label>科目与优先级</label><textarea id="ai-plan-subjects" maxlength="500" rows="3" placeholder="如：行测（高）、申论（高）、资料分析（中）"></textarea></div>
+      <div class="ai-plan-row"><div class="plan-modal-field"><label>工作日可用分钟</label><input id="ai-plan-weekday" type="number" min="15" max="720" value="120"></div><div class="plan-modal-field"><label>周末可用分钟</label><input id="ai-plan-weekend" type="number" min="15" max="720" value="240"></div></div>
+      <div class="plan-modal-field"><label>休息日（可选）</label><input id="ai-plan-rest-days" maxlength="80" placeholder="如：周三、周日"></div>
+      <div class="plan-modal-field"><label>补充说明（可选）</label><textarea id="ai-plan-notes" maxlength="500" rows="2" placeholder="例如薄弱项、学习偏好或不可安排的日期"></textarea></div>
+      <p class="ai-plan-error" id="ai-plan-error" role="alert"></p>
+    </div>
+    <div class="plan-modal-footer"><button class="plan-modal-btn-secondary" onclick="Journey.closeAiPlanner()">取消</button><button class="plan-modal-btn-primary" id="ai-plan-generate" onclick="Journey.generateAiPlan()">生成草案</button></div>
+  </div>
+</div>
+
+<!-- AI draft preview -->
+<div class="plan-modal-overlay" id="ai-draft-modal" role="dialog" aria-modal="true" aria-labelledby="ai-draft-title">
+  <div class="plan-modal ai-draft-modal" onclick="event.stopPropagation()">
+    <div class="plan-modal-header"><h3 id="ai-draft-title">计划草案</h3><button class="plan-modal-close" onclick="Journey.closeDraft()" aria-label="关闭">&times;</button></div>
+    <div class="plan-modal-body"><p class="ai-plan-note">可直接修改任务内容，删除不需要的任务。</p><div id="ai-draft-content"></div></div>
+    <div class="plan-modal-footer"><button class="plan-modal-btn-secondary" onclick="Journey.closeDraft()">保留草案</button><button class="plan-modal-btn-primary" onclick="Journey.applyDraft()">应用到计划</button></div>
+  </div>
+</div>
+
+<!-- Focus completion -->
+<div class="plan-modal-overlay" id="journey-complete-modal" role="dialog" aria-modal="true" aria-labelledby="journey-complete-title">
+  <div class="plan-modal" onclick="event.stopPropagation()"><div class="plan-modal-header"><h3 id="journey-complete-title">记录这段行程</h3><button class="plan-modal-close" onclick="Journey.closeCompletion()" aria-label="关闭">&times;</button></div>
+    <div class="plan-modal-body"><p id="journey-complete-summary"></p><div class="plan-modal-field"><label>复盘（可选）</label><textarea id="journey-reflection" maxlength="300" rows="3" placeholder="这段专注有什么收获？"></textarea></div><label class="journey-done-check"><input id="journey-mark-done" type="checkbox"> 同时标记关联任务完成</label></div>
+    <div class="plan-modal-footer"><button class="plan-modal-btn-secondary" onclick="Journey.closeCompletion()">取消</button><button class="plan-modal-btn-primary" onclick="Journey.confirmCompletion()">保存行程</button></div>
+  </div>
+</div>
+
 <script src="assets/js/sync.js"></script>
-<script src="assets/js/portal.js?v=20260708-ui-refresh"></script>
+<script src="assets/js/portal.js?v=20260713-ai-journey"></script>
+<script src="assets/js/journey.js"></script>
 </body>
 </html>

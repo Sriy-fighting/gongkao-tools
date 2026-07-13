@@ -1,6 +1,11 @@
 ﻿# OS files
 Thumbs.db
 .DS_Store
+.env
+.env.*
+!.env.example
+supabase/.env
+supabase/.temp/
 
 # Editor temp files
 *.bak
