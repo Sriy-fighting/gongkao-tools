@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sriy的考公助手</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23175cd3'/%3E%3Cpath d='M21 44V20h12c6 0 10 3 10 8 0 4-2 6-5 7l7 9H34l-6-8h-1v8H21zm6-13h5c3 0 5-1 5-4s-2-4-5-4h-5v8z' fill='white'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/portal.css?v=20260708-ui-refresh">
+<link rel="stylesheet" href="assets/css/portal.css?v=20260714-portal-refresh">
 </head>
 <body>
 <a class="skip-link" href="#dashboard-view">跳到主要内容</a>
@@ -85,16 +85,23 @@
 
         <!-- Today Journey: focus timer and map are one flow -->
         <section class="journey-section" aria-labelledby="journey-title">
-          <div class="journey-head"><div><p class="journey-kicker">长安题途</p><h3 id="journey-title">今日行程</h3></div><span id="journey-stage" class="journey-stage" aria-live="polite">晨读驿</span></div>
-          <div class="journey-map" aria-label="长安题途进度地图"><div class="journey-route"></div><div class="journey-stops" id="journey-stops"></div></div>
-          <div class="journey-summary"><span id="journey-total">已行 0 分钟</span><span id="journey-streak">连续 0 天</span><span id="journey-stamps">0 枚行程印记</span></div>
-          <div class="journey-focus-grid">
-            <label class="journey-field">关联今日任务<select id="journey-task" aria-label="关联今日任务"></select></label>
-            <div class="journey-duration" role="group" aria-label="专注时长"><button type="button" data-minutes="25">25 分</button><button type="button" data-minutes="45">45 分</button><button type="button" data-minutes="60">60 分</button><label>自定义<input id="journey-custom-minutes" type="number" min="5" max="180" value="25" inputmode="numeric">分</label></div>
+          <div class="journey-content">
+            <div class="journey-layout">
+              <div class="journey-narrative">
+                <div class="journey-head"><div><p class="journey-kicker">长安题途 · 巡策使</p><h3 id="journey-title">今日行程</h3></div><span id="journey-stage" class="journey-stage" aria-live="polite">晨读驿</span></div>
+                <p class="journey-hint" id="journey-hint">选择今日任务，启程前往下一站。</p>
+                <div class="journey-map" role="img" aria-label="长安题途进度地图"><div class="journey-route"></div><div class="journey-stops" id="journey-stops"></div></div>
+                <div class="journey-summary" aria-label="行程累计数据"><span id="journey-total">已行 0 分钟</span><span id="journey-streak">连续 0 天</span><span id="journey-stamps">0 枚行程印记</span></div>
+              </div>
+              <div class="journey-focus-panel">
+                <p class="journey-panel-label">下一段专注</p>
+                <label class="journey-field" for="journey-task">关联今天要做的事<select id="journey-task" aria-label="关联今天要做的事"></select></label>
+                <div class="journey-duration" role="group" aria-label="专注时长"><button type="button" data-minutes="25">25 分</button><button type="button" data-minutes="45">45 分</button><button type="button" data-minutes="60">60 分</button><label>自定义<input id="journey-custom-minutes" type="number" min="5" max="180" value="25" inputmode="numeric">分</label></div>
+                <div class="journey-clock" id="journey-clock" role="timer" aria-live="off">25:00</div>
+                <div class="journey-controls"><button type="button" class="journey-primary" id="journey-start">开始专注</button><button type="button" class="journey-secondary" id="journey-finish" disabled>结束并记录</button></div>
+              </div>
+            </div>
           </div>
-          <div class="journey-clock" id="journey-clock" role="timer" aria-live="off">25:00</div>
-          <div class="journey-controls"><button type="button" class="journey-primary" id="journey-start">开始专注</button><button type="button" class="journey-secondary" id="journey-finish" disabled>结束并记录</button></div>
-          <p class="journey-hint" id="journey-hint">选择今日任务，启程前往下一站。</p>
         </section>
 
         <!-- Countdown Section -->
@@ -342,29 +349,26 @@
 <div class="sync-toast" id="sync-toast"></div>
 
 <!-- AI plan modal -->
-<div class="plan-modal-overlay" id="ai-plan-modal" role="dialog" aria-modal="true" aria-labelledby="ai-plan-title">
+<div class="plan-modal-overlay" id="ai-plan-modal" role="dialog" aria-modal="true" aria-labelledby="ai-plan-title" aria-describedby="ai-plan-description">
   <div class="plan-modal ai-plan-modal" onclick="event.stopPropagation()">
-    <div class="plan-modal-header"><h3 id="ai-plan-title">AI 制定 30 天计划</h3><button class="plan-modal-close" onclick="Journey.closeAiPlanner()" aria-label="关闭">&times;</button></div>
+    <div class="plan-modal-header"><div><p class="ai-plan-overline">AI 学习计划</p><h3 id="ai-plan-title">先说目标，再给你可执行的 30 天</h3></div><button class="plan-modal-close" onclick="Journey.closeAiPlanner()" aria-label="关闭">&times;</button></div>
     <div class="plan-modal-body ai-plan-form">
-      <p class="ai-plan-note">生成的是可编辑草案；确认应用前不会修改现有计划。</p>
-      <div class="plan-modal-field"><label>考试或目标</label><input id="ai-plan-exam" maxlength="80" placeholder="如：2027 国考"></div>
-      <div class="plan-modal-field"><label>考试日期（可选）</label><input id="ai-plan-exam-date" type="date"></div>
-      <div class="plan-modal-field"><label>科目与优先级</label><textarea id="ai-plan-subjects" maxlength="500" rows="3" placeholder="如：行测（高）、申论（高）、资料分析（中）"></textarea></div>
-      <div class="ai-plan-row"><div class="plan-modal-field"><label>工作日可用分钟</label><input id="ai-plan-weekday" type="number" min="15" max="720" value="120"></div><div class="plan-modal-field"><label>周末可用分钟</label><input id="ai-plan-weekend" type="number" min="15" max="720" value="240"></div></div>
-      <div class="plan-modal-field"><label>休息日（可选）</label><input id="ai-plan-rest-days" maxlength="80" placeholder="如：周三、周日"></div>
-      <div class="plan-modal-field"><label>补充说明（可选）</label><textarea id="ai-plan-notes" maxlength="500" rows="2" placeholder="例如薄弱项、学习偏好或不可安排的日期"></textarea></div>
+      <p class="ai-plan-note" id="ai-plan-description">AI 会先生成草案。你可以逐项修改、删除，确认后才会写入学习计划。</p>
+      <section class="ai-plan-section"><div class="ai-plan-section-head"><span>01</span><div><h4>这 30 天要抵达哪里？</h4><p>目标越具体，安排越贴近你的节奏。</p></div></div><div class="ai-plan-grid"><div class="plan-modal-field ai-plan-span-2"><label for="ai-plan-exam">考试或目标</label><input id="ai-plan-exam" maxlength="80" placeholder="例如：2027 国考，行测稳定到 75 分"></div><div class="plan-modal-field"><label for="ai-plan-exam-date">考试日期 <em>可选</em></label><input id="ai-plan-exam-date" type="date"></div><div class="plan-modal-field"><label for="ai-plan-rest-days">固定休息日 <em>可选</em></label><input id="ai-plan-rest-days" maxlength="80" placeholder="例如：周三、周日"></div></div></section>
+      <section class="ai-plan-section"><div class="ai-plan-section-head"><span>02</span><div><h4>把精力放在哪里？</h4><p>写下科目和轻重缓急，AI 才能安排取舍。</p></div></div><div class="plan-modal-field"><label for="ai-plan-subjects">科目与优先级</label><textarea id="ai-plan-subjects" maxlength="500" rows="3" placeholder="例如：行测（高，资料分析薄弱）、申论（高，素材积累）、数量关系（中）"></textarea></div></section>
+      <section class="ai-plan-section"><div class="ai-plan-section-head"><span>03</span><div><h4>你每天能给自己多少时间？</h4><p>宁可保守，也不要让计划变成负担。</p></div></div><div class="ai-plan-grid"><div class="plan-modal-field"><label for="ai-plan-weekday">工作日可用分钟</label><input id="ai-plan-weekday" type="number" min="15" max="720" value="120"></div><div class="plan-modal-field"><label for="ai-plan-weekend">周末可用分钟</label><input id="ai-plan-weekend" type="number" min="15" max="720" value="240"></div></div><div class="plan-modal-field"><label for="ai-plan-notes">其他限制或偏好 <em>可选</em></label><textarea id="ai-plan-notes" maxlength="500" rows="2" placeholder="例如：晚上不排难题、每周留半天复盘、某几天不能学习"></textarea></div></section>
       <p class="ai-plan-error" id="ai-plan-error" role="alert"></p>
     </div>
-    <div class="plan-modal-footer"><button class="plan-modal-btn-secondary" onclick="Journey.closeAiPlanner()">取消</button><button class="plan-modal-btn-primary" id="ai-plan-generate" onclick="Journey.generateAiPlan()">生成草案</button></div>
+    <div class="plan-modal-footer"><span class="ai-plan-footer-note">生成后仍可逐项编辑</span><div><button class="plan-modal-btn-secondary" onclick="Journey.closeAiPlanner()">取消</button><button class="plan-modal-btn-primary" id="ai-plan-generate" onclick="Journey.generateAiPlan()">生成可编辑草案</button></div></div>
   </div>
 </div>
 
 <!-- AI draft preview -->
 <div class="plan-modal-overlay" id="ai-draft-modal" role="dialog" aria-modal="true" aria-labelledby="ai-draft-title">
   <div class="plan-modal ai-draft-modal" onclick="event.stopPropagation()">
-    <div class="plan-modal-header"><h3 id="ai-draft-title">计划草案</h3><button class="plan-modal-close" onclick="Journey.closeDraft()" aria-label="关闭">&times;</button></div>
-    <div class="plan-modal-body"><p class="ai-plan-note">可直接修改任务内容，删除不需要的任务。</p><div id="ai-draft-content"></div></div>
-    <div class="plan-modal-footer"><button class="plan-modal-btn-secondary" onclick="Journey.closeDraft()">保留草案</button><button class="plan-modal-btn-primary" onclick="Journey.applyDraft()">应用到计划</button></div>
+    <div class="plan-modal-header"><div><p class="ai-plan-overline">AI 计划草案</p><h3 id="ai-draft-title">检查每一天，再决定是否应用</h3></div><button class="plan-modal-close" onclick="Journey.closeDraft()" aria-label="关闭">&times;</button></div>
+    <div class="plan-modal-body"><p class="ai-plan-note">任务、科目和时长均可修改；不需要的项目可以删除，也可以继续手动添加。</p><div id="ai-draft-content"></div></div>
+    <div class="plan-modal-footer"><span class="ai-plan-footer-note">应用后会与现有任务并存</span><div><button class="plan-modal-btn-secondary" onclick="Journey.closeDraft()">保留草案</button><button class="plan-modal-btn-primary" onclick="Journey.applyDraft()">确认应用到计划</button></div></div>
   </div>
 </div>
 
@@ -377,7 +381,7 @@
 </div>
 
 <script src="assets/js/sync.js"></script>
-<script src="assets/js/portal.js?v=20260713-ai-journey"></script>
-<script src="assets/js/journey.js"></script>
+<script src="assets/js/portal.js?v=20260714-plan-language"></script>
+<script src="assets/js/journey.js?v=20260714-draft-editor"></script>
 </body>
 </html>

@@ -19,7 +19,6 @@
   var TOOL_ORDER_STORAGE_KEY = 'gk-tool-order';
   var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'plan'];
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
-  var PLAN_AUTO_SCROLL_KEY = 'gk-plan-auto-scroll-today';
   var PLAN_SUBJECTS = ['行测', '申论', '资料分析', '常识', '判断推理', '言语理解', '数量关系', '复盘', '其他'];
   var PLAN_DAY_PARTS = [
     { id: 'morning', label: '上午', range: '06:00-11:59', defaultStart: '08:00' },
@@ -30,8 +29,6 @@
   var planData = { version: 3, tasks: [], monthPlans: {} };
   var planCurrentMonth = '';
   var planSelectedDate = '';
-  var planAutoScrollToday = false;
-  var planPendingScrollToDay = false;
   var planEditContext = {};
   var planSyncInterval = null;
 
@@ -279,7 +276,6 @@
       if (els.planView) els.planView.style.display = '';
       els.toolContainer.classList.remove('active');
       els.pageTitle.textContent = '学习计划';
-      planPendingScrollToDay = planAutoScrollToday;
       renderPlan();
     } else {
       els.dashboard.style.display = 'none';
@@ -1542,7 +1538,6 @@
   function initPlan() {
     planSelectedDate = getTodayStr();
     planCurrentMonth = planSelectedDate.slice(0, 7);
-    planAutoScrollToday = localStorage.getItem(PLAN_AUTO_SCROLL_KEY) === '1';
     planEditContext = {};
   }
 
@@ -1721,11 +1716,10 @@
     return planSelectedDate;
   }
 
-  function setPlanSelectedDate(dateStr, shouldScroll) {
+  function setPlanSelectedDate(dateStr) {
     if (!isISODate(dateStr)) return;
     planSelectedDate = dateStr;
     planCurrentMonth = dateStr.slice(0, 7);
-    if (shouldScroll) planPendingScrollToDay = true;
     renderPlan();
   }
 
@@ -1739,13 +1733,7 @@
   }
 
   function planChangeSelectedDate(value) {
-    setPlanSelectedDate(value, true);
-  }
-
-  function planToggleAutoScroll(checked) {
-    planAutoScrollToday = !!checked;
-    try { localStorage.setItem(PLAN_AUTO_SCROLL_KEY, planAutoScrollToday ? '1' : '0'); } catch(e) {}
-    if (planAutoScrollToday) planScrollToDay();
+    setPlanSelectedDate(value);
   }
 
   function planScrollToDay() {
@@ -1771,15 +1759,15 @@
   }
 
   function planPrevMonth() {
-    setPlanSelectedDate(addMonthsToISODate(getPlanSelectedDate(), -1), false);
+    setPlanSelectedDate(addMonthsToISODate(getPlanSelectedDate(), -1));
   }
 
   function planNextMonth() {
-    setPlanSelectedDate(addMonthsToISODate(getPlanSelectedDate(), 1), false);
+    setPlanSelectedDate(addMonthsToISODate(getPlanSelectedDate(), 1));
   }
 
   function planJumpToday() {
-    setPlanSelectedDate(getTodayStr(), true);
+    setPlanSelectedDate(getTodayStr());
   }
 
   function planAddTaskFromQuick() {
@@ -2084,10 +2072,6 @@
         renderPlanPlanning(),
       '</div>'
     ].join('');
-    if (planPendingScrollToDay) {
-      planPendingScrollToDay = false;
-      setTimeout(planScrollToDay, 0);
-    }
   }
 
   function renderPlanHero() {
@@ -2105,10 +2089,6 @@
             '</div>',
             '<div class="plan-hero-actions">',
               '<button class="plan-ghost-btn" onclick="planScrollToDay()">定位' + (selectedIsToday ? '今日' : '当天') + '计划</button>',
-              '<label class="plan-auto-scroll" title="进入学习计划时自动定位到今日计划">',
-                '<input type="checkbox" ' + (planAutoScrollToday ? 'checked' : '') + ' onchange="planToggleAutoScroll(this.checked)">',
-                '<span>自动定位</span>',
-              '</label>',
             '</div>',
           '</div>',
           '<div class="plan-stats-grid">',
@@ -2135,8 +2115,7 @@
       '<section class="plan-daily-panel">',
         '<div class="plan-daily-header">',
           '<div>',
-            '<div class="plan-section-eyebrow">执行层</div>',
-            '<div class="plan-daily-title">每日计划</div>',
+            '<div class="plan-daily-title">今天要做什么</div>',
           '</div>',
         '</div>',
         renderPlanToolbar(),
@@ -2158,14 +2137,13 @@
       '<section class="plan-planning-panel">',
         '<div class="plan-planning-header">',
           '<div>',
-            '<div class="plan-section-eyebrow">本月安排</div>',
-            '<div class="plan-planning-title">' + esc(monthTitle) + '学习计划</div>',
+            '<div class="plan-planning-title">把' + esc(monthTitle) + '拆成每周的小目标</div>',
           '</div>',
           '<button class="plan-primary-btn" onclick="savePlanMonthPanel()">保存月计划</button>',
         '</div>',
         '<div class="plan-month-edit-grid">',
-          renderPlanItemEditor('goal', '', '月度目标', '添加月度目标小点...'),
-          renderPlanItemEditor('focus', '', '本月重点', '添加本月重点小点...'),
+          renderPlanItemEditor('goal', '', '这个月想做到什么', '添加一个可完成的目标...'),
+          renderPlanItemEditor('focus', '', '需要优先投入的地方', '添加一个重点...'),
         '</div>',
         '<div class="plan-week-board">',
           renderWeekPlanCards(weeks, month),
@@ -2190,7 +2168,7 @@
             '</div>',
             '<div class="plan-week-card-stat">' + stats.done + '/' + stats.total + ' · ' + esc(formatMinutes(stats.minutes)) + '</div>',
           '</div>',
-          renderPlanItemEditor('week', week.key, '周计划小点', '添加本周计划小点...'),
+          renderPlanItemEditor('week', week.key, '这周要完成的事', '添加一个本周任务...'),
           '<div class="plan-week-card-actions">',
             '<button class="plan-ghost-btn" onclick="savePlanWeekGoal(' + jsSingleArg(week.key) + ')">保存周计划</button>',
           '</div>',
@@ -2303,7 +2281,7 @@
           '<button class="plan-ghost-btn" onclick="planJumpToday()">回到今天</button>',
           '<button class="plan-primary-btn" onclick="Journey.openAiPlanner()">AI 制定 30 天计划</button>',
         '</div>',
-        '<div class="plan-filter-note">当前查看日</div>',
+        '<div class="plan-filter-note">调整日期后，任务会自动归位</div>',
       '</div>'
     ].join('');
   }
@@ -2673,7 +2651,7 @@
   window.saveCountdownConfigModal = saveCountdownConfigModal; window.closeCountdownConfigModal = closeCountdownConfigModal;
   window.planPrevMonth = planPrevMonth; window.planNextMonth = planNextMonth;
   window.planJumpToday = planJumpToday; window.planChangeSelectedDate = planChangeSelectedDate;
-  window.planScrollToDay = planScrollToDay; window.planToggleAutoScroll = planToggleAutoScroll;
+  window.planScrollToDay = planScrollToDay;
   window.planAddTaskFromQuick = planAddTaskFromQuick;
   window.savePlanMonthPanel = savePlanMonthPanel; window.savePlanWeekGoal = savePlanWeekGoal;
   window.planAddPlanItem = planAddPlanItem; window.planTogglePlanItem = planTogglePlanItem;
