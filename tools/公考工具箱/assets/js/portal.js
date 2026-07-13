@@ -677,9 +677,22 @@
       if (!Array.isArray(week.days)) week.days = [];
       for (var j = 0; j < week.days.length; j++) {
         if (!Array.isArray(week.days[j].tasks)) week.days[j].tasks = [];
+        for (var k = 0; k < week.days[j].tasks.length; k++) normalizeTask(week.days[j].tasks[k]);
       }
     }
     return month;
+  }
+
+  function normalizeTask(task) {
+    if (!task) return task;
+    if (!task.id) task.id = getId();
+    if (typeof task.text !== 'string') task.text = String(task.text || '未命名任务');
+    task.done = !!task.done;
+    task.source = task.source === 'ai' ? 'ai' : 'manual';
+    task.subject = typeof task.subject === 'string' ? task.subject.slice(0, 40) : '';
+    task.estimateMinutes = Math.max(0, Math.min(720, parseInt(task.estimateMinutes, 10) || 0));
+    task.focusMinutes = Math.max(0, parseInt(task.focusMinutes, 10) || 0);
+    return task;
   }
 
   function normalizePlanData() {
@@ -861,12 +874,19 @@
     var emptyEl = document.getElementById('plan-empty');
     var navEl = document.querySelector('.plan-nav');
     var cardEl = document.getElementById('plan-month-card');
+    var todayEl = document.getElementById('plan-today-card');
     var weeksEl = document.getElementById('plan-weeks');
     var quickEl = document.getElementById('plan-quick-add');
     if (!month) {
       if (emptyEl) emptyEl.style.display = '';
-      if (navEl) navEl.style.display = 'none';
+      if (navEl) navEl.style.display = '';
+      var emptyTitleEl = document.getElementById('plan-nav-title');
+      if (emptyTitleEl) {
+        var emptyParts = planCurrentMonth.split('-');
+        emptyTitleEl.textContent = emptyParts[0] + '年' + parseInt(emptyParts[1]) + '月';
+      }
       if (cardEl) cardEl.innerHTML = '';
+      if (todayEl) todayEl.innerHTML = '';
       if (weeksEl) weeksEl.innerHTML = '';
       if (quickEl) quickEl.style.display = 'none';
       return;
@@ -878,6 +898,7 @@
       var parts = planCurrentMonth.split('-');
       titleEl.textContent = parts[0] + '年' + parseInt(parts[1]) + '月';
     }
+    renderTodayPlan(month);
     renderMonthCard(month);
     renderWeeks(month);
     renderQuickAdd(month);
@@ -1070,7 +1091,7 @@
     if (!text) return;
     var ctx = findDayContext(weekId, dateStr);
     if (!ctx) return;
-    ctx.day.tasks.push({ id: getId(), text: text, done: false });
+    ctx.day.tasks.push({ id: getId(), text: text, done: false, source: 'manual', subject: '', estimateMinutes: 0, focusMinutes: 0 });
     inputEl.value = '';
     savePlan();
     renderPlan();
@@ -1126,7 +1147,7 @@
     for (var i = 0; i < month.weeks.length; i++) {
       for (var j = 0; j < month.weeks[i].days.length; j++) {
         if (month.weeks[i].days[j].date === today) {
-          month.weeks[i].days[j].tasks.push({ id: getId(), text: input.value.trim(), done: false });
+          month.weeks[i].days[j].tasks.push({ id: getId(), text: input.value.trim(), done: false, source: 'manual', subject: '', estimateMinutes: 0, focusMinutes: 0 });
           input.value = '';
           savePlan();
           renderPlan();
@@ -1134,6 +1155,127 @@
         }
       }
     }
+  }
+
+  function renderTodayPlan(month) {
+    var el = document.getElementById('plan-today-card');
+    if (!el) return;
+    var date = getTodayStr();
+    var dayCtx = null, week = null;
+    for (var wi = 0; wi < month.weeks.length && !dayCtx; wi++) {
+      for (var di = 0; di < month.weeks[wi].days.length; di++) {
+        if (month.weeks[wi].days[di].date === date) { dayCtx = month.weeks[wi].days[di]; week = month.weeks[wi]; break; }
+      }
+    }
+    var weekProgress = week ? calcWeekProgress(week) : { done: 0, total: 0 };
+    var tasks = dayCtx ? dayCtx.tasks : [];
+    var list = '';
+    for (var i = 0; i < tasks.length; i++) {
+      var task = normalizeTask(tasks[i]);
+      list += '<div class="plan-today-task' + (task.done ? ' done' : '') + '"><span>' + esc(task.text) + '</span><small>' + (task.focusMinutes ? '已专注 ' + task.focusMinutes + ' 分' : (task.estimateMinutes ? '预计 ' + task.estimateMinutes + ' 分' : '待开始')) + '</small></div>';
+    }
+    if (!list) list = '<p class="plan-today-empty">今天还没有任务。可直接添加，或让 AI 先生成一份草案。</p>';
+    el.innerHTML = '<section class="plan-today-card"><div><div class="plan-section-label">今天要做什么</div><p class="plan-today-week">本周进度 ' + weekProgress.done + '/' + weekProgress.total + '</p></div><div class="plan-today-list">' + list + '</div></section>';
+  }
+
+  // --- Public bridge for the unified Journey module ---
+  function getTodayTasksForJourney() {
+    var date = getTodayStr();
+    var result = [];
+    for (var mi = 0; mi < planData.months.length; mi++) {
+      var month = normalizePlanMonth(planData.months[mi]);
+      for (var wi = 0; wi < month.weeks.length; wi++) {
+        var week = month.weeks[wi];
+        for (var di = 0; di < week.days.length; di++) {
+          var day = week.days[di];
+          if (day.date !== date) continue;
+          for (var ti = 0; ti < day.tasks.length; ti++) {
+            var task = normalizeTask(day.tasks[ti]);
+            result.push({ ref: { monthId: month.id, weekId: week.id, date: date, taskId: task.id }, text: task.text, done: task.done, subject: task.subject, focusMinutes: task.focusMinutes });
+          }
+        }
+      }
+    }
+    return result;
+  }
+
+  function findTaskByJourneyRef(ref) {
+    if (!ref || !ref.monthId || !ref.weekId || !ref.date || !ref.taskId) return null;
+    var month = getMonthData(ref.monthId);
+    if (!month) return null;
+    month = normalizePlanMonth(month);
+    for (var wi = 0; wi < month.weeks.length; wi++) {
+      var week = month.weeks[wi];
+      if (week.id !== ref.weekId) continue;
+      for (var di = 0; di < week.days.length; di++) {
+        var day = week.days[di];
+        if (day.date !== ref.date) continue;
+        for (var ti = 0; ti < day.tasks.length; ti++) {
+          if (day.tasks[ti].id === ref.taskId) return { month: month, week: week, day: day, task: normalizeTask(day.tasks[ti]) };
+        }
+      }
+    }
+    return null;
+  }
+
+  function addJourneyFocus(ref, minutes, markDone) {
+    var ctx = findTaskByJourneyRef(ref);
+    if (!ctx) return false;
+    ctx.task.focusMinutes = Math.max(0, ctx.task.focusMinutes || 0) + Math.max(0, Math.floor(minutes || 0));
+    if (markDone) ctx.task.done = true;
+    savePlan();
+    if (els.planView && els.planView.style.display !== 'none') renderPlan();
+    return true;
+  }
+
+  function ensurePlanMonth(ym) {
+    var month = getMonthData(ym);
+    if (month) return normalizePlanMonth(month);
+    month = createMonthTemplate(ym);
+    planData.months.push(month);
+    return month;
+  }
+
+  function findDayByDate(month, dateStr) {
+    for (var wi = 0; wi < month.weeks.length; wi++) {
+      var week = month.weeks[wi];
+      for (var di = 0; di < week.days.length; di++) {
+        if (week.days[di].date === dateStr) return { week: week, day: week.days[di] };
+      }
+    }
+    return null;
+  }
+
+  function applyAiPlanDraft(draft) {
+    if (!draft || !Array.isArray(draft.days)) throw new Error('计划草案格式无效');
+    var count = 0;
+    var touched = {};
+    for (var i = 0; i < draft.days.length; i++) {
+      var item = draft.days[i] || {};
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(item.date || '')) continue;
+      var month = ensurePlanMonth(item.date.slice(0, 7));
+      var found = findDayByDate(month, item.date);
+      if (!found) continue;
+      if (item.weekGoal && !found.week.goals) found.week.goals = String(item.weekGoal).slice(0, 240);
+      var tasks = Array.isArray(item.tasks) ? item.tasks : [];
+      for (var t = 0; t < tasks.length && t < 8; t++) {
+        var raw = tasks[t] || {};
+        var text = String(raw.text || '').trim().slice(0, 160);
+        if (!text) continue;
+        found.day.tasks.push(normalizeTask({ id: getId(), text: text, done: false, source: 'ai', subject: String(raw.subject || '').slice(0, 40), estimateMinutes: raw.estimateMinutes, focusMinutes: 0 }));
+        count++;
+      }
+      touched[month.id] = month;
+    }
+    var ids = Object.keys(touched);
+    for (var j = 0; j < ids.length; j++) {
+      var m = touched[ids[j]];
+      if (draft.monthTitle && m.id === getTodayStr().slice(0, 7)) m.title = String(draft.monthTitle).slice(0, 80);
+      if (draft.monthFocus && m.id === getTodayStr().slice(0, 7)) m.focus = String(draft.monthFocus).slice(0, 300);
+    }
+    savePlan();
+    renderPlan();
+    return count;
   }
 
   // --- Confirm Dialog ---
@@ -1672,7 +1814,7 @@
       '<section class="plan-planning-panel">',
         '<div class="plan-planning-header">',
           '<div>',
-            '<div class="plan-section-eyebrow">规划层</div>',
+            '<div class="plan-section-eyebrow">本月安排</div>',
             '<div class="plan-planning-title">' + esc(monthTitle) + '学习计划</div>',
           '</div>',
           '<button class="plan-primary-btn" onclick="savePlanMonthPanel()">保存月计划</button>',
@@ -1806,6 +1948,7 @@
           '<span class="plan-nav-title-v2">' + esc(label) + '</span>',
           '<button class="plan-nav-btn plan-nav-btn-v2" onclick="planNextMonth()" title="下个月"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="18" x2="15" y2="12"/><line x1="15" y1="12" x2="9" y2="6"/></svg></button>',
           '<button class="plan-ghost-btn" onclick="planJumpToday()">回到本月</button>',
+          '<button class="plan-primary-btn" onclick="Journey.openAiPlanner()">AI 制定 30 天计划</button>',
         '</div>',
         '<div class="plan-filter-note">上方月/周计划随月份切换；逾期和今天始终置顶。</div>',
       '</div>'
@@ -2076,6 +2219,52 @@
     ev.target.value = "";
   }
 
+  // Bridge for the Journey module. The current study-plan storage is task-based
+  // (`gk-study-plan-v2`), so keep focus records attached to those task IDs.
+  function getTodayTasksForJourneyV2() {
+    var date = getTodayStr();
+    var result = [];
+    for (var i = 0; i < planData.tasks.length; i++) {
+      var task = planData.tasks[i];
+      if (task.date !== date) continue;
+      result.push({ ref: { taskId: task.id }, text: task.title, done: !!task.done, subject: task.subject || '', focusMinutes: Math.max(0, parseInt(task.focusMinutes, 10) || 0) });
+    }
+    return result;
+  }
+
+  function addJourneyFocusV2(ref, minutes, markDone) {
+    if (!ref || !ref.taskId) return false;
+    var task = findPlanTask(ref.taskId);
+    if (!task) return false;
+    task.focusMinutes = Math.max(0, parseInt(task.focusMinutes, 10) || 0) + Math.max(0, Math.floor(minutes || 0));
+    if (markDone) { task.done = true; task.completedAt = new Date().toISOString(); }
+    savePlan();
+    renderPlan();
+    return true;
+  }
+
+  function applyAiPlanDraftV2(draft) {
+    if (!draft || !Array.isArray(draft.days)) throw new Error('计划草案格式无效');
+    var count = 0;
+    for (var i = 0; i < draft.days.length; i++) {
+      var day = draft.days[i] || {};
+      if (!isISODate(day.date) || !Array.isArray(day.tasks)) continue;
+      for (var j = 0; j < day.tasks.length && j < 8; j++) {
+        var raw = day.tasks[j] || {};
+        var title = String(raw.text || '').trim().slice(0, 160);
+        if (!title) continue;
+        var subject = PLAN_SUBJECTS.indexOf(raw.subject) >= 0 ? raw.subject : '其他';
+        planData.tasks.push(normalizePlanTask({ id: getId(), title: title, date: day.date, subject: subject, estimateMin: Math.max(0, Math.min(720, parseInt(raw.estimateMinutes, 10) || 0)), focusMinutes: 0, source: 'ai', done: false }));
+        count++;
+      }
+    }
+    var month = ensureMonthPlan(getTodayStr().slice(0, 7));
+    if (draft.monthFocus) month.focusItems = [{ id: getId(), text: String(draft.monthFocus).slice(0, 300), done: false }];
+    savePlan();
+    renderPlan();
+    return count;
+  }
+
   window.timerStartStop = timerStartStop; window.timerReset = timerReset; window.timerLap = timerLap;
   window.switchTimerMode = switchTimerMode; window.openLinkManager = openLinkManager;
   window.closeLinkManager = closeLinkManager; window.addLink = addLink;
@@ -2098,6 +2287,12 @@
   window.importLocalData = importLocalData;
   window.handleImportFile = handleImportFile;
   window.showPlanConfirm = showPlanConfirm;
+  window.PortalPlan = {
+    getTodayTasks: getTodayTasksForJourneyV2,
+    addFocus: addJourneyFocusV2,
+    applyAiDraft: applyAiPlanDraftV2,
+    refresh: renderPlan
+  };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
