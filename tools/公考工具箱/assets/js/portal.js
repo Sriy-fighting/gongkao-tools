@@ -38,6 +38,15 @@
     var brandIcon = document.querySelector('.sidebar-brand-icon');
     if (brandText) brandText.textContent = '长安题途';
     if (brandIcon) brandIcon.textContent = '长';
+    ['ai-plan-modal', 'ai-draft-modal'].forEach(function (id) { var modal = document.getElementById(id); if (modal) modal.remove(); });
+    var displayNames = { dashboard: '行旅台', plan: '本周行程', essay: '申论写作', speed: '数理驿道', curve: '复习灯台', exam: '模考记分' };
+    Object.keys(displayNames).forEach(function (view) {
+      if (TOOLS[view]) TOOLS[view].name = displayNames[view];
+      var nav = document.querySelector('.nav-item[data-view="' + view + '"]');
+      if (nav) Array.prototype.slice.call(nav.childNodes).forEach(function (node) { if (node.nodeType === 3 && node.nodeValue.trim()) node.nodeValue = displayNames[view]; });
+      var card = document.querySelector('.tool-card[data-view="' + view + '"] .tool-card-title');
+      if (card) card.textContent = displayNames[view];
+    });
     initPlanModalAccessibility();
     if (window.SyncStore) syncInfo = window.SyncStore.init();
     els.sidebar = document.querySelector('.sidebar');
@@ -2127,6 +2136,7 @@
         renderPlanPlanning(),
       '</div>'
     ].join('');
+    root.querySelectorAll('.plan-command-secondary, .plan-toolbar .plan-primary-btn').forEach(function (button) { button.remove(); });
   }
 
   function renderPlanHero() {
@@ -2141,7 +2151,6 @@
           '<p class="plan-command-copy">' + esc(formatFullDate(commandDate)) + ' · 把目标拆成下一次专注，进度自然会向前。</p>',
           '<div class="plan-command-actions">',
             '<button class="plan-command-primary" onclick="document.querySelector(\'.nav-item[data-view=dashboard]\').click()">开始一段专注</button>',
-            '<button class="plan-command-secondary" onclick="Journey.openAiPlanner()">AI 制定 30 天计划</button>',
           '</div>',
           '<div class="plan-command-stats">',
             renderPlanStat(commandStats.dayDone + '/' + commandStats.dayTotal, commandDate === getTodayStr() ? '今日完成' : '当日完成'),
@@ -2156,6 +2165,7 @@
         '</aside>',
       '</section>'
     ].join('');
+    root.querySelectorAll('.plan-command-secondary, .plan-toolbar .plan-primary-btn').forEach(function (button) { button.remove(); });
 
     // Legacy layout retained below for source-history compatibility.
     var stats = getPlanStats();
@@ -2236,6 +2246,8 @@
   }
 
   function renderPlanPlanning() {
+    return renderWeekItinerary();
+
     var commandMonth = ensureMonthPlan(planCurrentMonth);
     var commandWeeks = getMonthWeeks(planCurrentMonth);
     var commandParts = planCurrentMonth.split('-');
@@ -2276,6 +2288,33 @@
         '</div>',
       '</section>'
     ].join('');
+  }
+
+  function renderWeekItinerary() {
+    var weeks = getMonthWeeks(planCurrentMonth);
+    var selectedDate = getPlanSelectedDate();
+    var active = weeks[0];
+    for (var i = 0; i < weeks.length; i++) if (selectedDate >= weeks[i].start && selectedDate <= weeks[i].end) active = weeks[i];
+    var stats = getWeekTaskStats(active);
+    var month = ensureMonthPlan(planCurrentMonth);
+    var weekPlan = ensureWeekPlan(month, active.key);
+    var html = '<section class="plan-itinerary"><div class="plan-itinerary-head"><div><p class="plan-section-overline">本周行程</p><h2>' + esc(active.label) + ' · ' + esc(formatDateShort(active.start)) + ' - ' + esc(formatDateShort(active.end)) + '</h2></div><div class="plan-itinerary-stat">' + stats.done + '/' + stats.total + ' 项完成 · ' + esc(formatMinutes(stats.minutes)) + '</div></div><div class="plan-week-switcher">';
+    for (var j = 0; j < weeks.length; j++) html += '<button class="plan-week-switch' + (weeks[j].key === active.key ? ' is-active' : '') + '" onclick="planSelectWeek(' + jsSingleArg(weeks[j].key) + ')">' + esc(weeks[j].label) + '</button>';
+    html += '</div><div class="plan-itinerary-days">';
+    for (var d = 0; d < 7; d++) {
+      var date = formatISODate(addDays(parseLocalDate(active.start), d));
+      var tasks = planData.tasks.filter(function (task) { return task.date === date; });
+      var done = tasks.filter(function (task) { return task.done; }).length;
+      var label = ['日','一','二','三','四','五','六'][parseLocalDate(date).getDay()];
+      html += '<button class="plan-itinerary-day' + (date === selectedDate ? ' is-selected' : '') + '" onclick="planChangeSelectedDate(' + jsSingleArg(date) + ')"><span>周' + label + '</span><strong>' + parseLocalDate(date).getDate() + '</strong><em>' + (tasks.length ? done + '/' + tasks.length : '空') + '</em></button>';
+    }
+    html += '</div><details class="plan-week-pack"><summary>本周行囊 <span>' + (weekPlan.items ? weekPlan.items.length : 0) + ' 项</span></summary>' + renderPlanItemEditor('week', active.key, '本周要完成的事', '添加一项本周任务...') + '<div class="plan-week-card-actions"><button class="plan-primary-btn" onclick="savePlanWeekGoal(' + jsSingleArg(active.key) + ')">保存本周行囊</button></div></details></section>';
+    return html;
+  }
+
+  function planSelectWeek(weekKey) {
+    var week = findMonthWeek(weekKey);
+    if (week) setPlanSelectedDate(week.start);
   }
 
   function renderWeekPlanCards(weeks, month) {
@@ -2405,7 +2444,6 @@
           '<button class="plan-nav-btn plan-nav-btn-v2" onclick="planNextMonth()" title="下个月"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="18" x2="15" y2="12"/><line x1="15" y1="12" x2="9" y2="6"/></svg></button>',
           '<input class="plan-input plan-date-jump" type="date" value="' + esc(selectedDate) + '" onchange="planChangeSelectedDate(this.value)" aria-label="查看日期">',
           '<button class="plan-ghost-btn" onclick="planJumpToday()">回到今天</button>',
-          '<button class="plan-primary-btn" onclick="Journey.openAiPlanner()">AI 制定 30 天计划</button>',
         '</div>',
         '<div class="plan-filter-note">调整日期后，任务会自动归位</div>',
       '</div>'
@@ -2821,28 +2859,6 @@
     return true;
   }
 
-  function applyAiPlanDraftV2(draft) {
-    if (!draft || !Array.isArray(draft.days)) throw new Error('计划草案格式无效');
-    var count = 0;
-    for (var i = 0; i < draft.days.length; i++) {
-      var day = draft.days[i] || {};
-      if (!isISODate(day.date) || !Array.isArray(day.tasks)) continue;
-      for (var j = 0; j < day.tasks.length && j < 8; j++) {
-        var raw = day.tasks[j] || {};
-        var title = String(raw.text || '').trim().slice(0, 160);
-        if (!title) continue;
-        var subject = PLAN_SUBJECTS.indexOf(raw.subject) >= 0 ? raw.subject : '其他';
-        planData.tasks.push(normalizePlanTask({ id: getId(), title: title, date: day.date, subject: subject, estimateMin: Math.max(0, Math.min(720, parseInt(raw.estimateMinutes, 10) || 0)), focusMinutes: 0, source: 'ai', done: false }));
-        count++;
-      }
-    }
-    var month = ensureMonthPlan(getTodayStr().slice(0, 7));
-    if (draft.monthFocus) month.focusItems = [{ id: getId(), text: String(draft.monthFocus).slice(0, 300), done: false }];
-    savePlan();
-    renderPlan();
-    return count;
-  }
-
   window.timerStartStop = timerStartStop; window.timerReset = timerReset; window.timerLap = timerLap;
   window.switchTimerMode = switchTimerMode; window.openLinkManager = openLinkManager;
   window.closeLinkManager = closeLinkManager; window.addLink = addLink;
@@ -2853,6 +2869,7 @@
   window.accountSignOut = accountSignOut; window.accountManualSync = accountManualSync;
   window.saveCountdownConfigModal = saveCountdownConfigModal; window.closeCountdownConfigModal = closeCountdownConfigModal;
   window.planPrevMonth = planPrevMonth; window.planNextMonth = planNextMonth;
+  window.planSelectWeek = planSelectWeek;
   window.planJumpToday = planJumpToday; window.planChangeSelectedDate = planChangeSelectedDate;
   window.planScrollToDay = planScrollToDay;
   window.planAddTaskFromQuick = planAddTaskFromQuick;
@@ -2871,7 +2888,6 @@
   window.PortalPlan = {
     getTodayTasks: getTodayTasksForJourneyV2,
     addFocus: addJourneyFocusV2,
-    applyAiDraft: applyAiPlanDraftV2,
     refresh: renderPlan
   };
 

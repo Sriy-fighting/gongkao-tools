@@ -3,7 +3,6 @@
   'use strict';
 
   var KEY = 'gk-focus-journey';
-  var PROFILE_KEY = 'gk-ai-plan-profile';
   var STAGES = [
     { name: '晨读驿', minutes: 0, story: '卷轴初启，先把今天走稳。' },
     { name: '申论渡', minutes: 300, story: '渡口的题纲已点亮。' },
@@ -11,10 +10,8 @@
     { name: '行测坊', minutes: 1800, story: '坊间的节奏愈发笃定。' },
     { name: '金榜台', minutes: 3000, story: '登台之前，每一步都算数。' }
   ];
-  var DRAFT_SUBJECTS = ['行测', '申论', '资料分析', '常识', '判断推理', '言语理解', '数量关系', '复盘', '其他'];
   var state = freshState();
   var taskOptions = [];
-  var draft = null;
   var tickId = null;
 
   function freshState() {
@@ -203,103 +200,6 @@
     closeCompletion(); renderTasks(); render();
   }
 
-  function getProfile() { try { return JSON.parse(localStorage.getItem(PROFILE_KEY)) || {}; } catch (e) { return {}; } }
-  function saveProfile(profile) { try { localStorage.setItem(PROFILE_KEY, JSON.stringify(profile)); if (window.SyncStore) window.SyncStore.writeData(PROFILE_KEY, profile); } catch (e) {} }
-  function setError(message) { var el = document.getElementById('ai-plan-error'); if (el) el.textContent = message || ''; }
-  function value(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
-
-  function openAiPlanner() {
-    var auth = window.SyncStore && window.SyncStore.getAuthInfo ? window.SyncStore.getAuthInfo() : null;
-    if (!auth || !auth.isLoggedIn) { if (window.openAccountModal) window.openAccountModal(); return; }
-    var profile = getProfile();
-    ['exam', 'examDate', 'subjects', 'weekdayMinutes', 'weekendMinutes', 'restDays', 'notes'].forEach(function (key) {
-      var el = document.getElementById('ai-plan-' + key.replace(/[A-Z]/g, function (m) { return '-' + m.toLowerCase(); })); if (el && profile[key] != null) el.value = profile[key];
-    });
-    setError(''); document.getElementById('ai-plan-modal').classList.add('open');
-  }
-  function closeAiPlanner() { var el = document.getElementById('ai-plan-modal'); if (el) el.classList.remove('open'); }
-
-  function planPayload() {
-    var profile = {
-      exam: value('ai-plan-exam').slice(0, 80), examDate: value('ai-plan-exam-date'), subjects: value('ai-plan-subjects').slice(0, 500),
-      weekdayMinutes: clamp(parseInt(value('ai-plan-weekday'), 10) || 120, 15, 720), weekendMinutes: clamp(parseInt(value('ai-plan-weekend'), 10) || 240, 15, 720),
-      restDays: value('ai-plan-rest-days').slice(0, 80), notes: value('ai-plan-notes').slice(0, 500)
-    };
-    if (!profile.exam || !profile.subjects) throw new Error('请填写考试目标和科目优先级');
-    saveProfile(profile);
-    return profile;
-  }
-
-  function validateDraft(plan) {
-    if (!plan || typeof plan !== 'object' || !Array.isArray(plan.days) || plan.days.length === 0 || plan.days.length > 31) throw new Error('AI 返回的计划格式无效，请重试');
-    plan.days = plan.days.filter(function (day) { return day && /^\d{4}-\d{2}-\d{2}$/.test(day.date || '') && Array.isArray(day.tasks); }).slice(0, 30).map(function (day) {
-      return { date: day.date, weekGoal: String(day.weekGoal || '').slice(0, 240), tasks: day.tasks.slice(0, 8).map(function (task) { return { text: String(task && task.text || '').slice(0, 160), subject: String(task && task.subject || '').slice(0, 40), estimateMinutes: clamp(parseInt(task && task.estimateMinutes, 10) || 0, 0, 720) }; }).filter(function (task) { return task.text.trim(); }) };
-    });
-    if (!plan.days.length) throw new Error('AI 未生成可用的每日任务');
-    plan.monthTitle = String(plan.monthTitle || '').slice(0, 80); plan.monthFocus = String(plan.monthFocus || '').slice(0, 300);
-    return plan;
-  }
-
-  function generateAiPlan() {
-    var payload;
-    try { payload = planPayload(); } catch (error) { setError(error.message); return; }
-    var button = document.getElementById('ai-plan-generate'); button.disabled = true; button.textContent = '正在生成…'; setError('');
-    window.SyncStore.invokeFunction('ai-study-plan', payload).then(function (data) {
-      draft = validateDraft(data && data.plan); closeAiPlanner(); renderDraft(); document.getElementById('ai-draft-modal').classList.add('open');
-    }).catch(function (error) { setError(error && error.message ? error.message : '生成失败，请检查网络后重试'); }).finally(function () { button.disabled = false; button.textContent = '生成草案'; });
-  }
-
-  function renderDraft() {
-    var root = document.getElementById('ai-draft-content'); if (!root || !draft) return;
-    root.textContent = '';
-    var overview = document.createElement('section'); overview.className = 'ai-draft-overview';
-    var titleBlock = document.createElement('div');
-    var titleLabel = document.createElement('p'); titleLabel.className = 'ai-draft-overview-label'; titleLabel.textContent = '计划名称';
-    var title = document.createElement('input'); title.className = 'ai-draft-title'; title.value = draft.monthTitle || '30 天学习计划'; title.maxLength = 80; title.setAttribute('aria-label', '计划名称'); title.addEventListener('input', function () { draft.monthTitle = title.value; });
-    titleBlock.appendChild(titleLabel); titleBlock.appendChild(title);
-    var focusBlock = document.createElement('div');
-    var focusLabel = document.createElement('p'); focusLabel.className = 'ai-draft-overview-label'; focusLabel.textContent = '这段时间最重要的事';
-    var focus = document.createElement('textarea'); focus.className = 'ai-draft-focus'; focus.value = draft.monthFocus || ''; focus.maxLength = 300; focus.rows = 2; focus.placeholder = '写下一句最想守住的方向'; focus.setAttribute('aria-label', '这段时间最重要的事'); focus.addEventListener('input', function () { draft.monthFocus = focus.value; });
-    focusBlock.appendChild(focusLabel); focusBlock.appendChild(focus); overview.appendChild(titleBlock); overview.appendChild(focusBlock); root.appendChild(overview);
-
-    var weeks = document.createElement('div'); weeks.className = 'ai-draft-weeks';
-    for (var weekIndex = 0; weekIndex * 7 < draft.days.length; weekIndex++) {
-      var first = weekIndex * 7;
-      var days = draft.days.slice(first, first + 7);
-      var week = document.createElement('section'); week.className = 'ai-draft-week';
-      var weekTitle = document.createElement('h4'); weekTitle.className = 'ai-draft-week-title'; weekTitle.textContent = '第 ' + (weekIndex + 1) + ' 周';
-      var range = document.createElement('span'); range.textContent = days[0].date.slice(5) + ' 至 ' + days[days.length - 1].date.slice(5); weekTitle.appendChild(range); week.appendChild(weekTitle);
-      var dayGrid = document.createElement('div'); dayGrid.className = 'ai-draft-days';
-      days.forEach(function (day, relativeIndex) {
-        var dayIndex = first + relativeIndex;
-        var dayEl = document.createElement('article'); dayEl.className = 'ai-draft-day';
-        var heading = document.createElement('h4');
-        var date = document.createElement('time'); date.dateTime = day.date; date.textContent = day.date.slice(5, 7) + ' 月 ' + day.date.slice(8, 10) + ' 日';
-        var goal = document.createElement('span'); goal.textContent = day.weekGoal || '按自己的节奏推进'; heading.appendChild(date); heading.appendChild(goal); dayEl.appendChild(heading);
-        if (!day.tasks.length) { var empty = document.createElement('p'); empty.className = 'ai-draft-empty'; empty.textContent = '留作休息或机动安排'; dayEl.appendChild(empty); }
-        day.tasks.forEach(function (task, taskIndex) {
-          var row = document.createElement('div'); row.className = 'ai-draft-task';
-          var input = document.createElement('input'); input.type = 'text'; input.value = task.text; input.maxLength = 160; input.setAttribute('aria-label', day.date + '任务内容'); input.addEventListener('input', function () { draft.days[dayIndex].tasks[taskIndex].text = input.value; });
-          var subject = document.createElement('select'); subject.setAttribute('aria-label', day.date + '科目');
-          DRAFT_SUBJECTS.forEach(function (item) { var option = document.createElement('option'); option.value = item; option.textContent = item; option.selected = item === task.subject; subject.appendChild(option); });
-          subject.addEventListener('change', function () { draft.days[dayIndex].tasks[taskIndex].subject = subject.value; });
-          var minutes = document.createElement('input'); minutes.type = 'number'; minutes.min = '5'; minutes.max = '720'; minutes.step = '5'; minutes.value = String(task.estimateMinutes || 30); minutes.setAttribute('aria-label', day.date + '预计分钟'); minutes.addEventListener('change', function () { task.estimateMinutes = clamp(parseInt(minutes.value, 10) || 0, 0, 720); minutes.value = String(task.estimateMinutes || 30); });
-          var remove = document.createElement('button'); remove.type = 'button'; remove.textContent = '×'; remove.title = '删除任务'; remove.setAttribute('aria-label', '删除任务'); remove.addEventListener('click', function () { draft.days[dayIndex].tasks.splice(taskIndex, 1); renderDraft(); });
-          row.appendChild(input); row.appendChild(subject); row.appendChild(minutes); row.appendChild(remove); dayEl.appendChild(row);
-        });
-        var add = document.createElement('button'); add.type = 'button'; add.className = 'ai-draft-add'; add.textContent = '+ 添加一项'; add.addEventListener('click', function () { draft.days[dayIndex].tasks.push({ text: '新增学习任务', subject: '行测', estimateMinutes: 30 }); renderDraft(); }); dayEl.appendChild(add);
-        dayGrid.appendChild(dayEl);
-      });
-      week.appendChild(dayGrid); weeks.appendChild(week);
-    }
-    root.appendChild(weeks);
-  }
-  function closeDraft() { var el = document.getElementById('ai-draft-modal'); if (el) el.classList.remove('open'); }
-  function applyDraft() {
-    try { var count = window.PortalPlan.applyAiDraft(validateDraft(draft)); closeDraft(); renderTasks(); render(); alert('已应用 ' + count + ' 项 AI 建议，可在学习计划中继续编辑。'); }
-    catch (error) { alert(error && error.message ? error.message : '应用失败'); }
-  }
-
   function init() {
     load(); renderTasks(); render(); refreshTick();
     document.getElementById('journey-start').addEventListener('click', startOrPause);
@@ -310,6 +210,6 @@
     window.addEventListener('beforeunload', save);
   }
 
-  window.Journey = { openAiPlanner: openAiPlanner, closeAiPlanner: closeAiPlanner, generateAiPlan: generateAiPlan, closeDraft: closeDraft, applyDraft: applyDraft, closeCompletion: closeCompletion, confirmCompletion: confirmCompletion, refresh: function () { renderTasks(); render(); } };
+  window.Journey = { closeCompletion: closeCompletion, confirmCompletion: confirmCompletion, refresh: function () { renderTasks(); render(); } };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

@@ -3931,6 +3931,44 @@ textarea:focus-visible,
   .ai-draft-task { grid-template-columns: minmax(0, 1fr) 78px 58px 30px; }
 }
 
+/* Tool cards use scene imagery as a quiet recognition layer. */
+.tool-card[data-view="exam"], .tool-card[data-view="speed"], .tool-card[data-view="curve"] { position:relative; isolation:isolate; overflow:hidden; color:#fff8e7; background-color:#15343c; }
+.tool-card[data-view="exam"]::before, .tool-card[data-view="speed"]::before, .tool-card[data-view="curve"]::before { position:absolute; z-index:-2; inset:0; background-position:center; background-size:cover; content:""; opacity:.38; transition:transform 240ms cubic-bezier(.2,.8,.2,1),opacity 240ms cubic-bezier(.2,.8,.2,1); }
+.tool-card[data-view="exam"]::after, .tool-card[data-view="speed"]::after, .tool-card[data-view="curve"]::after { position:absolute; z-index:-1; inset:0; background:rgba(8,31,37,.68); content:""; }
+.tool-card[data-view="exam"]::before { background-image:url("../images/changan/tool-exam-gate.webp"); }
+.tool-card[data-view="speed"]::before { background-image:url("../images/changan/tool-speed-route.webp"); }
+.tool-card[data-view="curve"]::before { background-image:url("../images/changan/tool-review-lantern.webp"); }
+.tool-card[data-view="exam"] .tool-card-title, .tool-card[data-view="speed"] .tool-card-title, .tool-card[data-view="curve"] .tool-card-title { color:#fff9ed; }
+.tool-card[data-view="exam"] .tool-card-desc, .tool-card[data-view="speed"] .tool-card-desc, .tool-card[data-view="curve"] .tool-card-desc { color:rgba(255,249,237,.8); }
+.tool-card[data-view="exam"] .tool-card-hint, .tool-card[data-view="speed"] .tool-card-hint, .tool-card[data-view="curve"] .tool-card-hint { color:#f1c86d; }
+.tool-card[data-view="exam"] .tool-card-icon, .tool-card[data-view="speed"] .tool-card-icon, .tool-card[data-view="curve"] .tool-card-icon { background:rgba(255,250,236,.16); color:#f4d482; }
+.tool-card[data-view="exam"]:hover::before, .tool-card[data-view="speed"]:hover::before, .tool-card[data-view="curve"]:hover::before { opacity:.54; transform:scale(1.045); }
+.tool-card[data-view="exam"]:hover, .tool-card[data-view="speed"]:hover, .tool-card[data-view="curve"]:hover { border-color:#d6b45d; }
+
+/* A single focused week replaces the flat strategic planning wall. */
+.plan-command-secondary, .plan-toolbar .plan-primary-btn { display:none; }
+.plan-itinerary { margin-top:20px; padding:26px; border:1px solid var(--ca-line); border-radius:8px; background:rgba(255,253,248,.9); box-shadow:0 8px 24px rgba(27,54,55,.06); animation:plan-enter 240ms cubic-bezier(.2,.8,.2,1); }
+.plan-itinerary-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+.plan-itinerary h2 { margin:0; color:var(--ca-ink); font-family:"STKaiti","KaiTi",serif; font-size:26px; }
+.plan-itinerary-stat { color:#6b7b78; font-size:13px; font-weight:750; }
+.plan-week-switcher { display:flex; gap:7px; margin:20px 0; overflow-x:auto; }
+.plan-week-switch { min-width:78px; min-height:36px; border:1px solid var(--ca-line); border-radius:5px; background:#f6f7f2; color:#61736f; font:inherit; font-size:13px; font-weight:750; cursor:pointer; }
+.plan-week-switch.is-active { border-color:var(--ca-celadon); background:var(--ca-celadon); color:#fff; }
+.plan-itinerary-days { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:8px; }
+.plan-itinerary-day { min-height:102px; padding:12px 6px; border:1px solid #dce4dc; border-radius:6px; background:#fffefa; color:#647773; cursor:pointer; text-align:left; transition:transform 180ms cubic-bezier(.2,.8,.2,1),border-color 180ms,background 180ms; }
+.plan-itinerary-day:hover { border-color:#c9ab62; transform:translateY(-2px); }
+.plan-itinerary-day.is-selected { border-color:var(--ca-celadon); background:#e8f2ed; color:var(--ca-ink); box-shadow:inset 0 -3px 0 var(--ca-celadon); }
+.plan-itinerary-day span,.plan-itinerary-day strong,.plan-itinerary-day em { display:block; font-style:normal; }
+.plan-itinerary-day span { font-size:11px; }.plan-itinerary-day strong { margin:8px 0 11px; font-size:22px; }.plan-itinerary-day em { color:#8a6f31; font-size:12px; }
+.plan-week-pack { margin-top:18px; border-top:1px solid var(--ca-line); }
+.plan-week-pack summary { display:flex; justify-content:space-between; padding:17px 0; color:var(--ca-ink); font-weight:800; cursor:pointer; list-style:none; }
+.plan-week-pack summary::-webkit-details-marker { display:none; }.plan-week-pack summary span { color:#8b6e2d; font-size:12px; }
+.plan-week-pack[open] summary { border-bottom:1px solid var(--ca-line); }.plan-week-pack .plan-item-editor { margin-top:16px; }
+@keyframes plan-enter { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+@media (max-width:760px) { .plan-itinerary { padding:18px; }.plan-itinerary h2 { font-size:22px; }.plan-itinerary-head { display:block; }.plan-itinerary-stat { margin-top:6px; }.plan-itinerary-days { gap:5px; }.plan-itinerary-day { min-height:84px; padding:8px 4px; }.plan-itinerary-day strong { font-size:18px; }.plan-itinerary-day em { font-size:10px; } }
+[data-theme="dark"] .plan-itinerary { border-color:rgba(229,239,227,.13); background:#17343a; box-shadow:none; }
+[data-theme="dark"] .plan-itinerary h2,[data-theme="dark"] .plan-week-pack summary { color:#eef3eb; }
+
 /* =========================================================
    Portal refresh: focused study workspace
    ========================================================= */

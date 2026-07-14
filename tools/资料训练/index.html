@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speed Master V11.0 - 含复习功能</title>
+    <title>数理驿道 · 资料速算</title>
     <style>
         :root {
             --accent: #6366f1; --success: #10b981; --danger: #ef4444; --bg: #0f172a; --card: #1e293b;
@@ -119,14 +119,74 @@
             .review-img-container { margin-bottom: 10px; }
         }
 
+        /* 长安题途 · 数理驿道工作台 */
+        :root { --ink:#12313a; --ink-deep:#0b232b; --paper:#f6f3ea; --line:#d7ded5; --jade:#287c74; --gold:#d5a942; --cinnabar:#bd5145; }
+        body { display:block; min-height:100vh; overflow:auto; background:var(--paper); color:var(--ink); font-family:system-ui,"Microsoft YaHei",sans-serif; }
+        .speed-topbar { position:sticky; top:0; z-index:20; display:flex; align-items:center; height:68px; gap:14px; padding:0 5vw; border-bottom:1px solid var(--line); background:rgba(255,253,247,.94); backdrop-filter:blur(12px); box-sizing:border-box; }
+        .speed-back { padding:8px 10px; border:1px solid var(--line); border-radius:5px; color:var(--ink); font-size:13px; font-weight:800; text-decoration:none; }
+        .speed-topbar p { margin:0; font-family:"STKaiti","KaiTi",serif; font-size:21px; font-weight:800; }
+        .speed-topbar span { color:#6b7a78; font-size:12px; }
+        .topbar-review { margin-left:auto; min-height:36px; padding:0 12px; border:1px solid #c8ab67; border-radius:5px; background:#fff8e6; color:#795d20; font:inherit; font-size:13px; font-weight:800; cursor:pointer; }
+        .container { width:min(1280px,100%); max-width:none; margin:0 auto; padding:32px 5vw 48px; box-sizing:border-box; }
+        .setup-workspace { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(390px,.8fr); min-height:calc(100vh - 68px); gap:28px; align-items:stretch; }
+        .speed-intro { position:relative; min-height:560px; overflow:hidden; border:1px solid rgba(214,184,102,.45); border-radius:8px; background:#133640 url("../公考工具箱/assets/images/changan/tool-speed-route.webp") center/cover no-repeat; box-shadow:0 18px 36px rgba(23,48,47,.12); }
+        .speed-intro::after { position:absolute; inset:0; background:rgba(7,31,38,.52); content:""; }
+        .speed-intro > div { position:absolute; z-index:1; right:0; bottom:0; left:0; padding:34px; color:#fff7e4; }
+        .speed-intro p,.panel-eyebrow { margin:0 0 9px; color:#efc96e; font-size:12px; font-weight:800; }
+        .speed-intro h1 { max-width:560px; margin:0; color:#fff9ed; font-family:"STKaiti","KaiTi",serif; font-size:32px; letter-spacing:0; line-height:1.3; }
+        .speed-intro span { display:block; margin-top:12px; color:rgba(255,247,228,.78); font-size:14px; }
+        .panel.speed-config { align-self:center; padding:32px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; box-shadow:0 12px 28px rgba(28,54,54,.08); text-align:left; }
+        .speed-config h1 { margin:0 0 26px; color:var(--ink); font-family:"STKaiti","KaiTi",serif; font-size:30px; letter-spacing:0; }
+        .setting-item { margin-bottom:22px; }
+        .label { margin-bottom:9px; color:#6d7c79; font-size:12px; font-weight:800; text-transform:none; }
+        .mode-grid { gap:8px; margin:0; }
+        .mode-btn { min-height:46px; padding:10px; border:1px solid var(--line); border-radius:6px; background:#f5f6f0; color:#526562; font:inherit; font-size:14px; font-weight:700; }
+        .mode-btn.active { border-color:var(--jade); background:#e7f1ed; color:#175b55; }
+        .select-grid { gap:7px; margin:0; padding:12px; border:1px solid #dfe5dc; border-radius:7px; background:#f4f6f1; }
+        .num-chip { min-height:36px; padding:7px; border:1px solid #d5ddd4; border-radius:5px; background:#fffdf8; color:#657673; font-weight:800; }
+        .num-chip.active { border-color:var(--jade); background:var(--jade); color:white; }
+        #limit-input { width:112px !important; border:1px solid #cdd8cd !important; border-radius:5px !important; background:#fffdf8 !important; color:var(--ink) !important; font-size:20px !important; text-align:left; }
+        .btn-start { min-height:48px; margin-top:10px; border:0; border-radius:6px; background:var(--gold); color:#1b3033; font:inherit; font-weight:800; transition:transform 180ms cubic-bezier(.2,.8,.2,1),background 180ms; }
+        .btn-start:hover { background:#e6c267; transform:translateY(-1px); }
+        .btn-secondary { border:1px solid #cbd7cf; background:#f6f7f2; color:var(--ink); }
+        .btn-secondary:hover { background:#e8eee8; }
+        .setup-hint { margin-top:12px; color:#72807d; font-size:12px; line-height:1.6; }
+        .play-workspace { min-height:calc(100vh - 68px); display:grid; place-content:center; max-width:980px; }
+        .play-workspace > * { width:min(100%,760px); }
+        .play-status { display:flex; justify-content:space-between; margin-bottom:14px; color:#58706c; font-size:13px; font-weight:750; }
+        .play-status span:first-child { color:var(--jade); }
+        .timer-track { height:7px; margin:0 0 46px; border-radius:6px; background:#dce5dc; }
+        #timer-bar { background:var(--jade); transition:width 50ms linear,background 180ms; }
+        #q-text { height:auto; margin:0 0 30px; color:var(--ink); font-family:"STKaiti","KaiTi",serif; font-size:88px; line-height:1.1; }
+        #main-input { border-bottom:2px solid #afc1b6; color:var(--ink); font-size:54px; }
+        #feedback { min-height:26px; margin-top:20px; }
+        .play-workspace > div[style*="margin-top"] { display:none; }
+        .exit-btn { width:auto; min-width:132px; margin:34px auto 0; padding:12px 18px; }
+        .modal-overlay { background:rgba(8,26,31,.78); backdrop-filter:blur(8px); }
+        .review-card { border:1px solid rgba(230,202,127,.38); border-radius:8px; background:#102f37; box-shadow:0 18px 48px rgba(0,0,0,.32); }
+        .review-title { color:#f0c96c; font-family:"STKaiti","KaiTi",serif; font-size:22px; }
+        .img-counter,.review-hint,.zoom-label { color:#c5d0c7; }
+        .review-img-container { border-color:rgba(237,220,175,.24); background:#0a2229; }
+        .review-btn { border:1px solid rgba(237,220,175,.22); border-radius:5px; background:#173d45; color:#f3f5eb; }
+        .review-btn:hover { background:#245460; }
+        .review-btn.primary { border-color:var(--gold); background:var(--gold); color:#172d32; }
+        @media (max-width:780px) { .speed-topbar { padding:0 14px; }.setup-workspace { grid-template-columns:1fr; padding:18px 14px 30px; gap:16px; }.speed-intro { min-height:300px; }.speed-intro > div { padding:24px; }.speed-intro h1 { font-size:30px; }.panel.speed-config { padding:22px; }.play-workspace { padding:28px 18px; }.play-workspace > * { width:100%; } #q-text { font-size:58px; } #main-input { font-size:42px; }.topbar-review { padding:0 9px; }.speed-back { display:none; } }
+        @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:1ms!important; transition-duration:1ms!important; } }
     </style>
 </head>
 <body>
+    <header class="speed-topbar">
+        <a class="speed-back" href="../公考工具箱/index.html" aria-label="返回长安题途">长安题途</a>
+        <div><p>数理驿道</p><span>资料速算训练</span></div>
+        <button class="topbar-review" type="button" onclick="openReview()">速览公式</button>
+    </header>
 
     <!-- 设置界面 -->
-    <div class="container" id="setup-view">
-        <div class="panel">
-            <h1>SPEED CORE V11</h1>
+    <div class="container setup-workspace" id="setup-view">
+        <aside class="speed-intro" aria-hidden="true"><div><p>长安题途 / 数理驿道</p><h1>在一题之间，练出稳定的速度</h1><span>选择节奏，开始下一段训练。</span></div></aside>
+        <div class="panel speed-config">
+            <p class="panel-eyebrow">训练设置</p>
+            <h1>准备启程</h1>
             
             <div class="setting-item">
                 <span class="label">练习模式</span>
@@ -153,7 +213,8 @@
     </div>
 
     <!-- 练习界面 -->
-    <div class="container" id="play-view" style="display: none;">
+    <div class="container play-workspace" id="play-view" style="display: none;">
+        <div class="play-status"><span id="play-mode-label">标准乘法</span><span>剩余 <strong id="count-num">0</strong> 题</span></div>
         <div class="timer-track"><div id="timer-bar"></div></div>
         <div id="q-text">--</div>
         <input type="text" id="main-input" placeholder="?" autocomplete="off">
@@ -401,6 +462,15 @@
             });
         }
 
+        document.title = '数理驿道 · 资料速算';
+        const primarySetupButton = document.querySelector('#setup-view .btn-start');
+        if (primarySetupButton) {
+            primarySetupButton.textContent = '开始训练';
+            primarySetupButton.onclick = startGame;
+        }
+        const legacyHint = document.querySelector('#setup-view .btn-start + div');
+        if (legacyHint) legacyHint.textContent = '公式速览可从右上角随时打开；错题会自动回到本轮队列。';
+
         initReviewGestures();
 
         // --- 游戏核心逻辑 ---
@@ -419,6 +489,9 @@
             
             document.getElementById('setup-view').style.display = 'none';
             document.getElementById('play-view').style.display = 'block';
+            const modeLabels = { std: '标准乘法', pct: '百化分', rev: '逆向因数' };
+            const modeLabel = document.getElementById('play-mode-label');
+            if (modeLabel) modeLabel.textContent = modeLabels[mode] || '资料速算';
             
             const input = document.getElementById('main-input');
             input.onkeydown = e => { if(e.key === 'Enter') handleCheck(); };
@@ -429,7 +502,7 @@
             if(deck.length === 0) {
                 document.getElementById('play-view').innerHTML = `
                     <div class="panel">
-                        <h1 style="color:#10b981">MISSION COMPLETE</h1>
+                        <h1 style="color:#10b981">本轮完成</h1>
                         <p style="color:#888; margin-bottom:20px;">太棒了！所有题目已完成。</p>
                         <button class='btn-start' onclick='location.reload()'>再来一组</button>
                     </div>`;
