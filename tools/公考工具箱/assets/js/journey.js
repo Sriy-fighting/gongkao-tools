@@ -7,7 +7,7 @@
     { name: '晨读驿', minutes: 0, story: '卷轴初启，先把今天走稳。' },
     { name: '申论渡', minutes: 300, story: '渡口的题纲已点亮。' },
     { name: '数理关', minutes: 900, story: '算筹与思路在关隘汇合。' },
-    { name: '行测坊', minutes: 1800, story: '坊间的节奏愈发笃定。' },
+    { name: '政治理论坊', minutes: 1800, story: '理论的脉络愈发清晰笃定。' },
     { name: '金榜台', minutes: 3000, story: '登台之前，每一步都算数。' }
   ];
   var state = freshState();

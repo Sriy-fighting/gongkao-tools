@@ -19,7 +19,7 @@
   var TOOL_ORDER_STORAGE_KEY = 'gk-tool-order';
   var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'plan'];
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
-  var PLAN_SUBJECTS = ['行测', '申论', '资料分析', '常识', '判断推理', '言语理解', '数量关系', '复盘', '其他'];
+  var PLAN_SUBJECTS = ['政治理论', '申论', '资料分析', '常识', '判断推理', '言语理解', '数量关系', '复盘', '其他'];
   var PLAN_DAY_PARTS = [
     { id: 'morning', label: '上午', range: '06:00-11:59', defaultStart: '08:00' },
     { id: 'noon', label: '中午', range: '12:00-13:59', defaultStart: '12:00' },
@@ -39,7 +39,7 @@
     if (brandText) brandText.textContent = '长安题途';
     if (brandIcon) brandIcon.textContent = '长';
     ['ai-plan-modal', 'ai-draft-modal'].forEach(function (id) { var modal = document.getElementById(id); if (modal) modal.remove(); });
-    var displayNames = { dashboard: '行旅台', plan: '本周行程', essay: '申论写作', speed: '数理驿道', curve: '复习灯台', exam: '模考记分' };
+    var displayNames = { dashboard: '行旅台', plan: '行程计划', essay: '申论写作', speed: '数理驿道', curve: '复习灯台', exam: '模考记分' };
     Object.keys(displayNames).forEach(function (view) {
       if (TOOLS[view]) TOOLS[view].name = displayNames[view];
       var nav = document.querySelector('.nav-item[data-view="' + view + '"]');
@@ -329,7 +329,7 @@
       els.dashboard.style.display = 'none';
       if (els.planView) els.planView.style.display = '';
       els.toolContainer.classList.remove('active');
-      els.pageTitle.textContent = '学习计划';
+      els.pageTitle.textContent = '行程计划';
       renderPlan();
     } else {
       els.dashboard.style.display = 'none';
@@ -1655,7 +1655,9 @@
     var title = String(task.title || task.text || '').trim();
     if (!title) return null;
     var date = isISODate(task.date) ? task.date : getTodayStr();
-    var subject = PLAN_SUBJECTS.indexOf(task.subject) >= 0 ? task.subject : '其他';
+    // Migrate only the retired subject label; retain all other stored task fields.
+    var legacySubject = task.subject === '行测' ? '政治理论' : task.subject;
+    var subject = PLAN_SUBJECTS.indexOf(legacySubject) >= 0 ? legacySubject : '其他';
     var mins = parseInt(task.estimateMin, 10);
     if (!isFinite(mins) || mins < 0) mins = 0;
     var startTime = normalizePlanTime(task.startTime || task.start || '');
@@ -1843,7 +1845,7 @@
     planData.tasks.push(normalizePlanTask({
       title: title,
       date: dateEl && isISODate(dateEl.value) ? dateEl.value : getPlanSelectedDate(),
-      subject: subjectEl && subjectEl.value ? subjectEl.value : '行测',
+      subject: subjectEl && subjectEl.value ? subjectEl.value : '政治理论',
       period: periodEl && periodEl.value ? periodEl.value : '',
       startTime: startTime,
       endTime: endTime,
@@ -2298,7 +2300,7 @@
     var stats = getWeekTaskStats(active);
     var month = ensureMonthPlan(planCurrentMonth);
     var weekPlan = ensureWeekPlan(month, active.key);
-    var html = '<section class="plan-itinerary"><div class="plan-itinerary-head"><div><p class="plan-section-overline">本周行程</p><h2>' + esc(active.label) + ' · ' + esc(formatDateShort(active.start)) + ' - ' + esc(formatDateShort(active.end)) + '</h2></div><div class="plan-itinerary-stat">' + stats.done + '/' + stats.total + ' 项完成 · ' + esc(formatMinutes(stats.minutes)) + '</div></div><div class="plan-week-switcher">';
+    var html = '<section class="plan-itinerary"><div class="plan-itinerary-head"><div><p class="plan-section-overline">行程计划</p><h2>' + esc(active.label) + ' · ' + esc(formatDateShort(active.start)) + ' - ' + esc(formatDateShort(active.end)) + '</h2></div><div class="plan-itinerary-stat">' + stats.done + '/' + stats.total + ' 项完成 · ' + esc(formatMinutes(stats.minutes)) + '</div></div><div class="plan-week-switcher">';
     for (var j = 0; j < weeks.length; j++) html += '<button class="plan-week-switch' + (weeks[j].key === active.key ? ' is-active' : '') + '" onclick="planSelectWeek(' + jsSingleArg(weeks[j].key) + ')">' + esc(weeks[j].label) + '</button>';
     html += '</div><div class="plan-itinerary-days">';
     for (var d = 0; d < 7; d++) {
@@ -2425,7 +2427,7 @@
           '<select class="plan-select" id="plan-quick-period" aria-label="时段">' + renderDayPartOptions('morning') + '</select>',
           '<input class="plan-input" id="plan-quick-start" type="time" aria-label="开始时间">',
           '<input class="plan-input" id="plan-quick-end" type="time" aria-label="结束时间">',
-          '<select class="plan-select" id="plan-quick-subject">' + renderSubjectOptions('行测') + '</select>',
+          '<select class="plan-select" id="plan-quick-subject">' + renderSubjectOptions('政治理论') + '</select>',
           '<input class="plan-input" id="plan-quick-minutes" type="number" min="0" step="5" value="60" aria-label="预计分钟数">',
           '<button class="plan-primary-btn" onclick="planAddTaskFromQuick()">添加任务</button>',
         '</div>',
@@ -2609,7 +2611,7 @@
       { minutes: 0, name: '晨读驿', story: '先把书页翻开，路就从此刻开始。', image: 'stage-chen-du-yi.webp' },
       { minutes: 300, name: '申论渡', story: '把思考写成自己的表达。', image: 'stage-shen-lun-du.webp' },
       { minutes: 900, name: '数理关', story: '在复杂里看清方法与秩序。', image: 'stage-shu-li-guan.webp' },
-      { minutes: 1800, name: '行测坊', story: '让判断更快，让方法更稳。', image: 'stage-xing-ce-fang.webp' },
+      { minutes: 1800, name: '政治理论坊', story: '让理论更扎实，让判断更笃定。', image: 'stage-xing-ce-fang.webp' },
       { minutes: 3000, name: '金榜台', story: '每一次完成，都让目标更近。', image: 'stage-jin-bang-tai.webp' }
     ];
     var current = stages[0];
@@ -2641,7 +2643,7 @@
     var current = getPlanJourneyStage();
     var stages = [
       { name: '晨读驿', image: 'stage-chen-du-yi.webp' }, { name: '申论渡', image: 'stage-shen-lun-du.webp' },
-      { name: '数理关', image: 'stage-shu-li-guan.webp' }, { name: '行测坊', image: 'stage-xing-ce-fang.webp' }, { name: '金榜台', image: 'stage-jin-bang-tai.webp' }
+      { name: '数理关', image: 'stage-shu-li-guan.webp' }, { name: '政治理论坊', image: 'stage-xing-ce-fang.webp' }, { name: '金榜台', image: 'stage-jin-bang-tai.webp' }
     ];
     var html = '<section class="plan-journey-rail"><div class="plan-journey-rail-head"><div><p class="plan-section-overline">长安题途</p><h2>每一段专注，都在推进你的路</h2></div><button class="plan-ghost-btn" onclick="document.querySelector(\'.nav-item[data-view=dashboard]\').click()">回到今日行程</button></div><div class="plan-stage-rail">';
     for (var i = 0; i < stages.length; i++) {

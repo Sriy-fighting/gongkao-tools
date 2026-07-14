@@ -4491,6 +4491,11 @@ body { background: var(--ca-paper); color: var(--ca-ink); }
 [data-theme="dark"] .plan-filter-note, [data-theme="dark"] .plan-day-part-range, [data-theme="dark"] .plan-day-part-empty, [data-theme="dark"] .plan-section-count { color: #b9c8c1; }
 
 button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid rgba(201, 155, 61, .52); outline-offset: 2px; }
+body { cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M4 3l17 10-8 2-4 8z' fill='%23d5a942' stroke='%23142f38' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E") 3 3, auto; }
+button, a, .tool-card, .nav-item, select, summary { cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M9 2v12M13 2v12M17 2v12M6 10h14v7c0 5-3 8-7 8s-7-3-7-8z' fill='%23fff3cf' stroke='%23287c74' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 13 3, pointer; }
+input, textarea { cursor:text; }
+.dashboard-view > *, .plan-shell > * { animation:ca-arrive .46s ease both; }.dashboard-view > *:nth-child(2), .plan-shell > *:nth-child(2) { animation-delay:.05s; }.dashboard-view > *:nth-child(3), .plan-shell > *:nth-child(3) { animation-delay:.1s; }
+@keyframes ca-arrive { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 1ms !important; animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
 }

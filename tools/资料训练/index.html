@@ -123,7 +123,6 @@
         :root { --ink:#12313a; --ink-deep:#0b232b; --paper:#f6f3ea; --line:#d7ded5; --jade:#287c74; --gold:#d5a942; --cinnabar:#bd5145; }
         body { display:block; min-height:100vh; overflow:auto; background:var(--paper); color:var(--ink); font-family:system-ui,"Microsoft YaHei",sans-serif; }
         .speed-topbar { position:sticky; top:0; z-index:20; display:flex; align-items:center; height:68px; gap:14px; padding:0 5vw; border-bottom:1px solid var(--line); background:rgba(255,253,247,.94); backdrop-filter:blur(12px); box-sizing:border-box; }
-        .speed-back { padding:8px 10px; border:1px solid var(--line); border-radius:5px; color:var(--ink); font-size:13px; font-weight:800; text-decoration:none; }
         .speed-topbar p { margin:0; font-family:"STKaiti","KaiTi",serif; font-size:21px; font-weight:800; }
         .speed-topbar span { color:#6b7a78; font-size:12px; }
         .topbar-review { margin-left:auto; min-height:36px; padding:0 12px; border:1px solid #c8ab67; border-radius:5px; background:#fff8e6; color:#795d20; font:inherit; font-size:13px; font-weight:800; cursor:pointer; }
@@ -170,13 +169,21 @@
         .review-btn { border:1px solid rgba(237,220,175,.22); border-radius:5px; background:#173d45; color:#f3f5eb; }
         .review-btn:hover { background:#245460; }
         .review-btn.primary { border-color:var(--gold); background:var(--gold); color:#172d32; }
+        .review-exit { margin-top:10px; background:transparent; color:#dbe5dc; font-size:12px; }
+        .review-exit:hover { color:#fff8e6; background:rgba(255,255,255,.08); }
+        body, .speed-topbar { cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M4 3l17 10-8 2-4 8z' fill='%23e4bc55' stroke='%23132f37' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E") 3 3, auto; }
+        button, a, select, .mode-btn, .num-chip { cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M9 2v12M13 2v12M17 2v12M6 10h14v7c0 5-3 8-7 8s-7-3-7-8z' fill='%23f8edc9' stroke='%23132f37' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 13 3, pointer; }
+        input { cursor:text; }
+        .setup-workspace > *, .review-card { animation:speed-rise .48s ease both; }
+        .speed-intro::after { transition:background .28s ease; }
+        .speed-intro:hover::after { background:rgba(7,31,38,.36); }
+        @keyframes speed-rise { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
         @media (max-width:780px) { .speed-topbar { padding:0 14px; }.setup-workspace { grid-template-columns:1fr; padding:18px 14px 30px; gap:16px; }.speed-intro { min-height:300px; }.speed-intro > div { padding:24px; }.speed-intro h1 { font-size:30px; }.panel.speed-config { padding:22px; }.play-workspace { padding:28px 18px; }.play-workspace > * { width:100%; } #q-text { font-size:58px; } #main-input { font-size:42px; }.topbar-review { padding:0 9px; }.speed-back { display:none; } }
         @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:1ms!important; transition-duration:1ms!important; } }
     </style>
 </head>
 <body>
     <header class="speed-topbar">
-        <a class="speed-back" href="../公考工具箱/index.html" aria-label="返回长安题途">长安题途</a>
         <div><p>数理驿道</p><span>资料速算训练</span></div>
         <button class="topbar-review" type="button" onclick="openReview()">速览公式</button>
     </header>
@@ -245,7 +252,7 @@
                 <button class="review-btn" onclick="nextImage()">下一张 ➡️</button>
             </div>
             <div class="review-hint">滚轮缩放，按住图片拖动查看细节</div>
-            <button class="review-btn" style="margin-top:10px; background:transparent; color:#666; font-size:12px;" onclick="closeReview()">取消</button>
+            <button class="review-btn review-exit" type="button" onclick="closeReview()" aria-label="退出公式速览，返回训练设置">退出速览</button>
         </div>
     </div>
 
@@ -312,11 +319,6 @@
 
         // --- 复习功能逻辑 ---
         function openReview() {
-            if(mode === 'std' && selectedNums.length === 0) {
-                alert("请先至少选择一个乘数数字！");
-                return;
-            }
-            
             currentModeImages = reviewImages[mode] || reviewImages['std'];
             currentReviewIndex = 0;
             
@@ -390,7 +392,7 @@
             };
             imgEl.onerror = () => {
                 placeholder.style.display = 'block';
-                placeholder.innerHTML = `❌ 图片未找到<br><span style="font-size:12px;color:#888">请检查路径：<br>${imgData.src}</span>`;
+                placeholder.textContent = `图片未找到，请检查路径：${imgData.src}`;
             };
         }
 
@@ -412,6 +414,14 @@
             document.getElementById('review-modal').style.display = 'none';
             resetReviewZoom();
         }
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && document.getElementById('review-modal').style.display === 'flex') closeReview();
+        });
+
+        document.getElementById('review-modal').addEventListener('click', function (event) {
+            if (event.target === this) closeReview();
+        });
 
         function startGameFromReview() {
             closeReview();

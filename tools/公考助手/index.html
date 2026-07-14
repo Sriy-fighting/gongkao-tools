@@ -18,7 +18,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: var(--bg);
+            background: linear-gradient(rgba(248,250,252,.93),rgba(248,250,252,.96)), url("../公考工具箱/assets/images/changan/tool-exam-gate.webp") center/cover fixed;
             color: var(--ink);
             font-family: var(--font-sans);
             padding: 160px 2vw 40px; /* 留出顶部空间 */
@@ -100,7 +100,7 @@
         .btn-save:hover { opacity: 0.8; }
         .btn-cancel:hover { background: #f1f5f9; }
         /* === 主体内容 === */
-        main { max-width: 1200px; margin: 0 auto; }
+        main { max-width: 1200px; margin: 0 auto; animation: exam-arrive .5s ease both; }
 
         .hero-title {
             font-size: clamp(1.8rem, 4vw, 3.5rem);
@@ -117,7 +117,7 @@
         @media (max-width: 768px) { .grid-container { grid-template-columns: 1fr; } }
 
         .module {
-            border-right: var(--border); border-bottom: var(--border);
+            border-right: var(--border); border-bottom: var(--border); background:rgba(255,255,255,.88); backdrop-filter:blur(8px);
             padding: 30px; display: flex; flex-direction: column; justify-content: space-between;
             min-height: 180px;
         }
@@ -145,6 +145,9 @@
         }
         .score-huge { font-size: 8rem; font-weight: 900; color: var(--accent); line-height: 1; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes exam-arrive { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+        body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M4 3l17 10-8 2-4 8z' fill='%234f46e5' stroke='%230f172a' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E") 3 3,auto}button{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M9 2v12M13 2v12M17 2v12M6 10h14v7c0 5-3 8-7 8s-7-3-7-8z' fill='%23eef2ff' stroke='%234f46e5' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 13 3,pointer}input{cursor:text}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
     </style>
 </head>
 <body>
