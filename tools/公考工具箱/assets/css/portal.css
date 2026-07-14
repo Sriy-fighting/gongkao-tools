@@ -3964,10 +3964,32 @@ textarea:focus-visible,
 .plan-week-pack summary { display:flex; justify-content:space-between; padding:17px 0; color:var(--ca-ink); font-weight:800; cursor:pointer; list-style:none; }
 .plan-week-pack summary::-webkit-details-marker { display:none; }.plan-week-pack summary span { color:#8b6e2d; font-size:12px; }
 .plan-week-pack[open] summary { border-bottom:1px solid var(--ca-line); }.plan-week-pack .plan-item-editor { margin-top:16px; }
+.plan-month-pack { margin-top:10px; }.plan-month-pack-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }.plan-month-pack .plan-item-editor { margin-top:16px; }
 @keyframes plan-enter { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
-@media (max-width:760px) { .plan-itinerary { padding:18px; }.plan-itinerary h2 { font-size:22px; }.plan-itinerary-head { display:block; }.plan-itinerary-stat { margin-top:6px; }.plan-itinerary-days { gap:5px; }.plan-itinerary-day { min-height:84px; padding:8px 4px; }.plan-itinerary-day strong { font-size:18px; }.plan-itinerary-day em { font-size:10px; } }
+@media (max-width:760px) { .plan-itinerary { padding:18px; }.plan-itinerary h2 { font-size:22px; }.plan-itinerary-head { display:block; }.plan-itinerary-stat { margin-top:6px; }.plan-itinerary-days { gap:5px; }.plan-itinerary-day { min-height:84px; padding:8px 4px; }.plan-itinerary-day strong { font-size:18px; }.plan-itinerary-day em { font-size:10px; }.plan-month-pack-grid { grid-template-columns:1fr; } }
 [data-theme="dark"] .plan-itinerary { border-color:rgba(229,239,227,.13); background:#17343a; box-shadow:none; }
 [data-theme="dark"] .plan-itinerary h2,[data-theme="dark"] .plan-week-pack summary { color:#eef3eb; }
+
+/* Keep the dashboard rail contained when an exam has many milestones. */
+@media (min-width:1181px) {
+  .countdown-section { height:398px; min-height:0; justify-content:flex-start; overflow-y:auto; overscroll-behavior:contain; }
+}
+
+/* All home tools carry a visible, low-contrast Chang-an scene. */
+.tool-card[data-view] { position:relative; isolation:isolate; overflow:hidden; color:#fff9ed; background-color:#12343c; }
+.tool-card[data-view]::before { position:absolute; z-index:-2; inset:0; background-position:center; background-size:cover; content:""; opacity:.58; transition:transform 240ms cubic-bezier(.2,.8,.2,1),opacity 240ms cubic-bezier(.2,.8,.2,1); }
+.tool-card[data-view]::after { position:absolute; z-index:-1; inset:0; background:rgba(8,30,36,.46); content:""; }
+.tool-card[data-view="plan"]::before { background-image:url("../images/changan/tool-weekly-journey.webp"); }
+.tool-card[data-view="essay"]::before { background-image:url("../images/changan/tool-essay-pavilion.webp"); }
+.tool-card[data-view="exam"]::before { background-image:url("../images/changan/tool-exam-gate.webp"); }
+.tool-card[data-view="speed"]::before { background-image:url("../images/changan/tool-speed-route.webp"); }
+.tool-card[data-view="curve"]::before { background-image:url("../images/changan/tool-review-lantern.webp"); }
+.tool-card[data-view] .tool-card-title { color:#fff9ed; }
+.tool-card[data-view] .tool-card-desc { color:rgba(255,249,237,.86); }
+.tool-card[data-view] .tool-card-hint { color:#f1cd74; }
+.tool-card[data-view] .tool-card-icon { background:rgba(255,250,236,.18); color:#f4d482; }
+.tool-card[data-view]:hover::before,.tool-card[data-view]:focus-within::before { opacity:.72; transform:scale(1.045); }
+.tool-card[data-view]:hover { border-color:#d6b45d; }
 
 /* =========================================================
    Portal refresh: focused study workspace

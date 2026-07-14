@@ -2309,6 +2309,7 @@
       html += '<button class="plan-itinerary-day' + (date === selectedDate ? ' is-selected' : '') + '" onclick="planChangeSelectedDate(' + jsSingleArg(date) + ')"><span>周' + label + '</span><strong>' + parseLocalDate(date).getDate() + '</strong><em>' + (tasks.length ? done + '/' + tasks.length : '空') + '</em></button>';
     }
     html += '</div><details class="plan-week-pack"><summary>本周行囊 <span>' + (weekPlan.items ? weekPlan.items.length : 0) + ' 项</span></summary>' + renderPlanItemEditor('week', active.key, '本周要完成的事', '添加一项本周任务...') + '<div class="plan-week-card-actions"><button class="plan-primary-btn" onclick="savePlanWeekGoal(' + jsSingleArg(active.key) + ')">保存本周行囊</button></div></details></section>';
+    html += '<details class="plan-week-pack plan-month-pack"><summary>本月行囊 <span>' + ((month.goalItems || []).length + (month.focusItems || []).length) + ' 项</span></summary><div class="plan-month-pack-grid">' + renderPlanItemEditor('goal', '', '本月想做到什么？', '添加一个本月目标...') + renderPlanItemEditor('focus', '', '本月优先投入', '添加一个本月重点...') + '</div><div class="plan-week-card-actions"><button class="plan-primary-btn" onclick="savePlanMonthPanel()">保存本月行囊</button></div></details>';
     return html;
   }
 
