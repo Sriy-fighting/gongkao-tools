@@ -267,18 +267,6 @@ window.SyncStore = (function () {
     }, 500);
   }
 
-  function invokeFunction(name, body) {
-    return ensureClient().then(function (sb) {
-      if (!sb || !session) throw new Error("请先登录后再使用 AI 制定计划");
-      if (!name || !/^[a-z0-9-]{1,64}$/.test(name)) throw new Error("无效的服务请求");
-      return sb.functions.invoke(name, { body: body });
-    }).then(function (result) {
-      if (!result) throw new Error("服务没有返回结果");
-      if (result.error) throw result.error;
-      return result.data;
-    });
-  }
-
   function upsertCloudValue(key, value) {
     ensureClient().then(function (sb) {
       if (!sb || !session) return;
@@ -363,7 +351,6 @@ window.SyncStore = (function () {
     signIn: signIn,
     signOut: signOut,
     mergeLocalWithCloud: mergeLocalWithCloud,
-    invokeFunction: invokeFunction,
     getSyncKey: getSyncKey,
     setSyncKey: setSyncKey,
     isConfigured: isConfigured,

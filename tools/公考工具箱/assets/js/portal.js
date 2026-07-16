@@ -38,7 +38,6 @@
     var brandIcon = document.querySelector('.sidebar-brand-icon');
     if (brandText) brandText.textContent = '长安题途';
     if (brandIcon) brandIcon.textContent = '长';
-    ['ai-plan-modal', 'ai-draft-modal'].forEach(function (id) { var modal = document.getElementById(id); if (modal) modal.remove(); });
     var displayNames = { dashboard: '行旅台', plan: '行程计划', essay: '申论写作', speed: '数理驿道', curve: '复习灯台', exam: '模考记分' };
     Object.keys(displayNames).forEach(function (view) {
       if (TOOLS[view]) TOOLS[view].name = displayNames[view];
@@ -1394,7 +1393,7 @@
       var task = normalizeTask(tasks[i]);
       list += '<div class="plan-today-task' + (task.done ? ' done' : '') + '"><span>' + esc(task.text) + '</span><small>' + (task.focusMinutes ? '已专注 ' + task.focusMinutes + ' 分' : (task.estimateMinutes ? '预计 ' + task.estimateMinutes + ' 分' : '待开始')) + '</small></div>';
     }
-    if (!list) list = '<p class="plan-today-empty">今天还没有任务。可直接添加，或让 AI 先生成一份草案。</p>';
+    if (!list) list = '<p class="plan-today-empty">今天还没有任务。直接添加一项，开始今天的安排。</p>';
     el.innerHTML = '<section class="plan-today-card"><div><div class="plan-section-label">今天要做什么</div><p class="plan-today-week">本周进度 ' + weekProgress.done + '/' + weekProgress.total + '</p></div><div class="plan-today-list">' + list + '</div></section>';
   }
 
