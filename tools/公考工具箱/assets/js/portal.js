@@ -31,6 +31,9 @@
   var planSelectedDate = '';
   var planEditContext = {};
   var planSyncInterval = null;
+  // Keep transient plan UI state while data mutations rebuild the plan view.
+  var planPackOpenState = { week: false, month: false };
+  var planLastSavedAt = 0;
 
   function init() {
     document.title = '长安题途 · 公考备考助手';
@@ -1662,13 +1665,15 @@
     var startTime = normalizePlanTime(task.startTime || task.start || '');
     var endTime = normalizePlanTime(task.endTime || task.end || '');
     if (startTime && endTime && timeToMinutes(endTime) <= timeToMinutes(startTime)) endTime = '';
-    var period = inferDayPartFromTime(startTime) || getValidDayPartId(task.period) || inferDayPartFromTitle(title) || 'morning';
+    var fallbackPeriod = inferDayPartFromTime(startTime) || getValidDayPartId(task.period) || inferDayPartFromTitle(title) || 'morning';
+    var periods = normalizePlanPeriodIds(task.periods, fallbackPeriod);
     return {
       id: task.id || getId(),
       title: title,
       date: date,
       subject: subject,
-      period: period,
+      period: periods[0],
+      periods: periods,
       startTime: startTime,
       endTime: endTime,
       estimateMin: mins,
@@ -1705,6 +1710,16 @@
     return '';
   }
 
+  function normalizePlanPeriodIds(values, fallback) {
+    var source = Array.isArray(values) ? values : [];
+    var result = [];
+    for (var i = 0; i < PLAN_DAY_PARTS.length; i++) {
+      if (source.indexOf(PLAN_DAY_PARTS[i].id) !== -1) result.push(PLAN_DAY_PARTS[i].id);
+    }
+    if (!result.length) result.push(getValidDayPartId(fallback) || 'morning');
+    return result;
+  }
+
   function getDayPartById(id) {
     for (var i = 0; i < PLAN_DAY_PARTS.length; i++) {
       if (PLAN_DAY_PARTS[i].id === id) return PLAN_DAY_PARTS[i];
@@ -1739,18 +1754,26 @@
 
   function getPlanTaskSortValue(task) {
     var minutes = timeToMinutes(task && task.startTime);
-    var partId = minutes >= 0 ? inferDayPartFromTime(task.startTime) : getPlanTaskPeriodId(task);
+    var partId = getPlanTaskPeriodId(task);
     var partIndex = getDayPartIndex(partId);
     if (minutes < 0) minutes = 9999;
     return partIndex * 10000 + minutes;
   }
 
   function getPlanTaskPeriodId(task) {
-    return inferDayPartFromTime(task && task.startTime) || getValidDayPartId(task && task.period) || inferDayPartFromTitle(task && task.title) || 'morning';
+    return getPlanTaskPeriodIds(task)[0];
+  }
+
+  function getPlanTaskPeriodIds(task) {
+    var fallback = inferDayPartFromTime(task && task.startTime) || getValidDayPartId(task && task.period) || inferDayPartFromTitle(task && task.title) || 'morning';
+    return normalizePlanPeriodIds(task && task.periods, fallback);
   }
 
   function getPlanTaskPeriodLabel(task) {
-    return getDayPartById(getPlanTaskPeriodId(task)).label;
+    var ids = getPlanTaskPeriodIds(task);
+    var labels = [];
+    for (var i = 0; i < ids.length; i++) labels.push(getDayPartById(ids[i]).label);
+    return labels.join(' + ');
   }
 
   function formatTaskTimeSlot(task) {
@@ -1807,6 +1830,7 @@
 
   function savePlan() {
     planData = normalizePlanData(planData);
+    planLastSavedAt = Date.now();
     try {
       localStorage.setItem(PLAN_STORAGE_KEY, JSON.stringify(planData));
       if (window.SyncStore) window.SyncStore.writeData(PLAN_STORAGE_KEY, planData);
@@ -1825,10 +1849,11 @@
     setPlanSelectedDate(getTodayStr());
   }
 
-  function planAddTaskFromQuick() {
+  function planAddTaskFromQuick(event) {
+    if (event && event.preventDefault) event.preventDefault();
     var titleEl = document.getElementById('plan-quick-title');
     var dateEl = document.getElementById('plan-quick-date');
-    var periodEl = document.getElementById('plan-quick-period');
+    var periods = getPeriodPickerValues('plan-quick-period');
     var startEl = document.getElementById('plan-quick-start');
     var endEl = document.getElementById('plan-quick-end');
     var subjectEl = document.getElementById('plan-quick-subject');
@@ -1836,6 +1861,7 @@
     if (!titleEl) return;
     var title = titleEl.value.trim();
     if (!title) { showSyncToast('先写下要完成的任务'); titleEl.focus(); return; }
+    if (!periods.length) { showSyncToast('至少选择一个时段'); return; }
     var mins = parseInt(minutesEl && minutesEl.value, 10);
     if (!isFinite(mins) || mins < 0) mins = 0;
     var startTime = normalizePlanTime(startEl && startEl.value ? startEl.value : '');
@@ -1845,7 +1871,8 @@
       title: title,
       date: dateEl && isISODate(dateEl.value) ? dateEl.value : getPlanSelectedDate(),
       subject: subjectEl && subjectEl.value ? subjectEl.value : '政治理论',
-      period: periodEl && periodEl.value ? periodEl.value : '',
+      period: periods[0],
+      periods: periods,
       startTime: startTime,
       endTime: endTime,
       estimateMin: mins,
@@ -1864,7 +1891,7 @@
     var month = ensureMonthPlan(planCurrentMonth);
     syncLegacyPlanText(month);
     savePlan();
-    renderPlan();
+    renderPlanKeepingPackOpen('month');
     showSyncToast('已保存月度计划');
   }
 
@@ -1875,7 +1902,7 @@
     var weekPlan = ensureWeekPlan(month, weekKey);
     weekPlan.goal = planItemsToText(weekPlan.items);
     savePlan();
-    renderPlan();
+    renderPlanKeepingPackOpen('week');
     showSyncToast('已保存周计划');
   }
 
@@ -1890,7 +1917,7 @@
     input.value = '';
     syncCurrentMonthLegacyText();
     savePlan();
-    renderPlan();
+    renderPlanKeepingPackOpen(scope);
   }
 
   function planTogglePlanItem(scope, weekKey, itemId) {
@@ -1899,7 +1926,7 @@
     item.done = !item.done;
     syncCurrentMonthLegacyText();
     savePlan();
-    renderPlan();
+    renderPlanKeepingPackOpen(scope);
   }
 
   function planUpdatePlanItem(scope, weekKey, itemId, value) {
@@ -1921,7 +1948,7 @@
     }
     syncCurrentMonthLegacyText();
     savePlan();
-    renderPlan();
+    renderPlanKeepingPackOpen(scope);
   }
 
   function planToggleTask(taskId) {
@@ -1938,7 +1965,7 @@
     if (!task) return;
     planEditContext.taskId = taskId;
     fillSubjectSelect(document.getElementById('plan-task-subject-input'), task.subject);
-    fillDayPartSelect(document.getElementById('plan-task-period-input'), getPlanTaskPeriodId(task));
+    fillDayPartPicker(document.getElementById('plan-task-period-input'), getPlanTaskPeriodIds(task));
     document.getElementById('plan-task-title-input').value = task.title;
     document.getElementById('plan-task-date-input').value = task.date;
     document.getElementById('plan-task-start-input').value = task.startTime || '';
@@ -1953,16 +1980,18 @@
     var title = document.getElementById('plan-task-title-input').value.trim();
     var date = document.getElementById('plan-task-date-input').value;
     var subject = document.getElementById('plan-task-subject-input').value;
-    var period = document.getElementById('plan-task-period-input').value;
+    var periods = getPeriodPickerValues('plan-task-period-input');
     var startTime = normalizePlanTime(document.getElementById('plan-task-start-input').value);
     var endTime = normalizePlanTime(document.getElementById('plan-task-end-input').value);
     var mins = parseInt(document.getElementById('plan-task-minutes-input').value, 10);
     if (!title) { showSyncToast('任务内容不能为空'); return; }
+    if (!periods.length) { showSyncToast('至少选择一个时段'); return; }
     if (!isValidPlanTimeRange(startTime, endTime)) { showSyncToast('结束时间要晚于开始时间'); return; }
     task.title = title;
     task.date = isISODate(date) ? date : getPlanSelectedDate();
     task.subject = PLAN_SUBJECTS.indexOf(subject) >= 0 ? subject : '其他';
-    task.period = inferDayPartFromTime(startTime) || getValidDayPartId(period) || inferDayPartFromTitle(title) || 'morning';
+    task.periods = normalizePlanPeriodIds(periods, inferDayPartFromTime(startTime) || inferDayPartFromTitle(title) || 'morning');
+    task.period = task.periods[0];
     task.startTime = startTime;
     task.endTime = endTime;
     task.estimateMin = isFinite(mins) && mins > 0 ? mins : 0;
@@ -2124,12 +2153,88 @@
     return { total: total, done: done, minutes: minutes };
   }
 
+  function capturePlanRenderState(root) {
+    var state = { quickDraft: null, quickFocusId: '', quickSelection: null };
+    if (!root) return state;
+    var quick = root.querySelector('.plan-quick-form');
+    var title = quick && quick.querySelector('#plan-quick-title');
+    // A non-empty title is the user's draft. Empty fields after a successful
+    // add must stay empty, so they are intentionally not restored.
+    if (title && title.value.trim()) {
+      state.quickDraft = {};
+      var fields = ['plan-quick-title', 'plan-quick-date', 'plan-quick-period', 'plan-quick-start', 'plan-quick-end', 'plan-quick-subject', 'plan-quick-minutes'];
+      for (var j = 0; j < fields.length; j++) {
+        var field = quick.querySelector('#' + fields[j]);
+        if (field) state.quickDraft[fields[j]] = fields[j] === 'plan-quick-period' ? getPeriodPickerValues(fields[j]).join(',') : field.value;
+      }
+      var active = document.activeElement;
+      if (active && quick.contains(active) && active.id) {
+        state.quickFocusId = active.id;
+        state.quickSelection = {
+          start: typeof active.selectionStart === 'number' ? active.selectionStart : null,
+          end: typeof active.selectionEnd === 'number' ? active.selectionEnd : null
+        };
+      }
+    }
+    return state;
+  }
+
+  function restorePlanRenderState(root, state) {
+    if (!root) return;
+    var packs = root.querySelectorAll('details.plan-week-pack');
+    for (var i = 0; i < packs.length; i++) {
+      var kind = packs[i].classList.contains('plan-month-pack') ? 'month' : 'week';
+      packs[i].open = !!planPackOpenState[kind];
+      (function (pack, packKind) {
+        var summary = pack.querySelector('summary');
+        if (summary) summary.addEventListener('click', function () {
+          // The native details toggle happens after click handlers run.
+          planPackOpenState[packKind] = !pack.open;
+        });
+        pack.addEventListener('toggle', function () {
+          planPackOpenState[packKind] = !!pack.open;
+        });
+      })(packs[i], kind);
+    }
+    if (!state || !state.quickDraft) return;
+    for (var key in state.quickDraft) {
+      if (!state.quickDraft.hasOwnProperty(key)) continue;
+      var field = root.querySelector('#' + key);
+      if (field && key === 'plan-quick-period') {
+        var selected = state.quickDraft[key].split(',');
+        var options = field.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < options.length; i++) options[i].checked = selected.indexOf(options[i].value) !== -1;
+      } else if (field) {
+        field.value = state.quickDraft[key];
+      }
+    }
+    if (state.quickFocusId) {
+      var focused = root.querySelector('#' + state.quickFocusId);
+      if (focused) {
+        focused.focus();
+        if (state.quickSelection && state.quickSelection.start !== null && typeof focused.setSelectionRange === 'function') {
+          focused.setSelectionRange(state.quickSelection.start, state.quickSelection.end);
+        }
+      }
+    }
+  }
+
+  function renderPlanKeepingPackOpen(scope) {
+    var kind = scope === 'week' ? 'week' : 'month';
+    planPackOpenState[kind] = true;
+    renderPlan();
+    var selector = kind === 'week' ? '#plan-app .plan-itinerary details.plan-week-pack' : '#plan-app details.plan-month-pack';
+    var pack = document.querySelector(selector);
+    if (pack) pack.open = true;
+  }
+
   function renderPlan() {
     var view = els.planView;
     if (!view || view.style.display === 'none') return;
     planData = normalizePlanData(planData);
     var root = document.getElementById('plan-app');
     if (!root) return;
+    var renderState = capturePlanRenderState(root);
     root.innerHTML = [
       '<div class="plan-shell">',
         renderPlanHero(),
@@ -2138,6 +2243,7 @@
       '</div>'
     ].join('');
     root.querySelectorAll('.plan-command-secondary, .plan-toolbar .plan-primary-btn').forEach(function (button) { button.remove(); });
+    restorePlanRenderState(root, renderState);
   }
 
   function renderPlanHero() {
@@ -2421,14 +2527,14 @@
           '<div class="plan-quick-title">快速添加</div>',
         '</div>',
         '<div class="plan-quick-form">',
-          '<input class="plan-input" id="plan-quick-title" type="text" placeholder="添加学习任务..." onkeydown="if(event.key===&quot;Enter&quot;)planAddTaskFromQuick()">',
+          '<input class="plan-input" id="plan-quick-title" type="text" placeholder="添加学习任务..." onkeydown="if(event.key===&quot;Enter&quot;){event.preventDefault();planAddTaskFromQuick(event);}">',
           '<input class="plan-input" id="plan-quick-date" type="date" value="' + esc(selectedDate) + '" onchange="planChangeSelectedDate(this.value)" aria-label="任务日期">',
-          '<select class="plan-select" id="plan-quick-period" aria-label="时段">' + renderDayPartOptions('morning') + '</select>',
+          renderPeriodPicker('plan-quick-period', ['morning'], '时段'),
           '<input class="plan-input" id="plan-quick-start" type="time" aria-label="开始时间">',
           '<input class="plan-input" id="plan-quick-end" type="time" aria-label="结束时间">',
           '<select class="plan-select" id="plan-quick-subject">' + renderSubjectOptions('政治理论') + '</select>',
           '<input class="plan-input" id="plan-quick-minutes" type="number" min="0" step="5" value="60" aria-label="预计分钟数">',
-          '<button class="plan-primary-btn" onclick="planAddTaskFromQuick()">添加任务</button>',
+          '<button type="button" class="plan-primary-btn" onclick="planAddTaskFromQuick(event)">添加任务</button>',
         '</div>',
       '</section>'
     ].join('');
@@ -2481,7 +2587,7 @@
       var part = PLAN_DAY_PARTS[i];
       var partTasks = [];
       for (var j = 0; j < tasks.length; j++) {
-        if (getPlanTaskPeriodId(tasks[j]) === part.id) partTasks.push(tasks[j]);
+        if (getPlanTaskPeriodIds(tasks[j]).indexOf(part.id) !== -1) partTasks.push(tasks[j]);
       }
       partTasks.sort(sortPlanTasks);
       html += '<article class="plan-day-part"><div class="plan-day-part-head"><div><div class="plan-day-part-title">' + esc(part.label) + '</div><div class="plan-day-part-range">' + esc(part.range) + '</div></div><span>' + partTasks.length + ' 项</span></div>';
@@ -2652,9 +2758,31 @@
     return html + '</div></section>';
   }
 
-  function fillDayPartSelect(select, selected) {
-    if (!select) return;
-    select.innerHTML = renderDayPartOptions(selected);
+  function renderPeriodPicker(id, selected, label) {
+    var values = normalizePlanPeriodIds(selected, 'morning');
+    var html = '<div class="plan-period-picker" id="' + esc(id) + '" role="group" aria-label="' + esc(label || '时段') + '">';
+    for (var i = 0; i < PLAN_DAY_PARTS.length; i++) {
+      var part = PLAN_DAY_PARTS[i];
+      html += '<label class="plan-period-option"><input type="checkbox" value="' + esc(part.id) + '"' + (values.indexOf(part.id) !== -1 ? ' checked' : '') + '><span>' + esc(part.label) + '</span></label>';
+    }
+    return html + '</div>';
+  }
+
+  function fillDayPartPicker(container, selected) {
+    if (!container) return;
+    container.innerHTML = renderPeriodPicker(container.id + '-options', selected, '时段');
+  }
+
+  function getPeriodPickerValues(id) {
+    var container = document.getElementById(id);
+    if (!container) return [];
+    var checked = container.querySelectorAll('input[type="checkbox"]:checked');
+    var values = [];
+    for (var i = 0; i < checked.length; i++) {
+      var value = getValidDayPartId(checked[i].value);
+      if (value && values.indexOf(value) === -1) values.push(value);
+    }
+    return values;
   }
 
   function renderSubjectOptions(selected) {
@@ -2662,16 +2790,6 @@
     for (var i = 0; i < PLAN_SUBJECTS.length; i++) {
       var subject = PLAN_SUBJECTS[i];
       html += '<option value="' + esc(subject) + '"' + (subject === selected ? ' selected' : '') + '>' + esc(subject) + '</option>';
-    }
-    return html;
-  }
-
-  function renderDayPartOptions(selected) {
-    var selectedId = getValidDayPartId(selected) || 'morning';
-    var html = '';
-    for (var i = 0; i < PLAN_DAY_PARTS.length; i++) {
-      var part = PLAN_DAY_PARTS[i];
-      html += '<option value="' + esc(part.id) + '"' + (part.id === selectedId ? ' selected' : '') + '>' + esc(part.label) + '</option>';
     }
     return html;
   }
@@ -2746,6 +2864,12 @@
         for (var _ri = 0; _ri < rows.length; _ri++) {
           var _row = rows[_ri];
           if (_row.data_value == null || !_row.data_key) continue;
+          // A just-saved local plan may reach the cloud slightly after this
+          // poll. Never let an older cloud snapshot erase the user's input.
+          if (_row.data_key === PLAN_STORAGE_KEY && planLastSavedAt && _row.updated_at) {
+            var _cloudUpdatedAt = new Date(_row.updated_at).getTime();
+            if (isFinite(_cloudUpdatedAt) && _cloudUpdatedAt < planLastSavedAt) continue;
+          }
           var _oldVal = localStorage.getItem(_row.data_key);
           var _newVal = typeof _row.data_value === 'string' ? _row.data_value : JSON.stringify(_row.data_value);
           if (_oldVal !== _newVal) {

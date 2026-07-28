@@ -4349,8 +4349,22 @@ body { background: var(--ca-paper); color: var(--ca-ink); }
 .plan-quick-panel { margin: 18px 0; padding: 13px; border: 1px solid #d9e0d6; border-radius: 7px; background: #f2f5ef; }
 .plan-quick-head { margin: 0; }
 .plan-quick-title { color: var(--ca-ink); font-size: 13px; font-weight: 800; }
-.plan-quick-form { grid-template-columns: minmax(160px, 1.5fr) 130px 96px 90px 90px 105px minmax(84px, .75fr); gap: 7px; }
+.plan-quick-form { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 7px; }
+.plan-quick-form #plan-quick-title { grid-column:span 4; }
+.plan-quick-form #plan-quick-date { grid-column:span 3; }
+.plan-quick-form #plan-quick-period { grid-column:span 5; }
+.plan-quick-form #plan-quick-start, .plan-quick-form #plan-quick-end { grid-column:span 2; }
+.plan-quick-form #plan-quick-subject { grid-column:span 3; }
+.plan-quick-form #plan-quick-minutes { grid-column:span 2; }
+.plan-quick-form > .plan-primary-btn { grid-column:span 3; }
 .plan-input, .plan-select { min-height: 36px; border-color: #ccd7cc; border-radius: 5px; background: #fffefa; color: var(--ca-ink); }
+.plan-period-picker { display:flex; align-items:center; min-height:36px; padding:3px; border:1px solid #ccd7cc; border-radius:5px; background:#fffefa; }
+.plan-period-option { position:relative; flex:1; min-width:0; cursor:pointer; }
+.plan-period-option input { position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
+.plan-period-option span { display:flex; align-items:center; justify-content:center; min-height:28px; padding:0 5px; border-radius:4px; color:#5b6e6e; font-size:12px; white-space:nowrap; }
+.plan-period-option input:focus-visible + span { outline:2px solid #c9ab62; outline-offset:1px; }
+.plan-period-option input:checked + span { background:var(--ca-celadon); color:#fff; font-weight:750; }
+.plan-modal-field > #plan-task-period-input .plan-period-picker { min-height:44px; }
 .plan-section { border-color: var(--ca-line); }
 .plan-section-title { color: var(--ca-ink); font-family: "STKaiti", "KaiTi", serif; font-size: 18px; font-weight: 700; }
 .plan-section-dot.day { background: var(--ca-celadon); }
@@ -4416,6 +4430,8 @@ body { background: var(--ca-paper); color: var(--ca-ink); }
 [data-theme="dark"] .plan-quick-panel, [data-theme="dark"] .plan-day-part, [data-theme="dark"] .plan-task-row, [data-theme="dark"] .plan-week-card, [data-theme="dark"] .plan-item-editor { border-color: rgba(229, 239, 227, .12); background: #1c3d43; }
 [data-theme="dark"] .plan-day-part-head { border-color: rgba(229, 239, 227, .1); background: #1a383e; }
 [data-theme="dark"] .plan-input, [data-theme="dark"] .plan-select, [data-theme="dark"] .plan-date-jump { border-color: rgba(229, 239, 227, .18); background: #112c32; color: #edf2eb; }
+[data-theme="dark"] .plan-period-picker { border-color:rgba(229,239,227,.18); background:#112c32; }
+[data-theme="dark"] .plan-period-option span { color:#cbd8d2; }
 [data-theme="dark"] .plan-ghost-btn { border-color: rgba(229, 239, 227, .2); color: #edf2eb; }
 [data-theme="dark"] .plan-pill { border-color: rgba(229, 239, 227, .14); background: #23474b; color: #d7e3da; }
 [data-theme="dark"] .plan-nav-title-v2, [data-theme="dark"] .plan-quick-title, [data-theme="dark"] .plan-subject-summary-title, [data-theme="dark"] .plan-day-part-title { color: #edf2eb; }
@@ -4436,7 +4452,7 @@ input, textarea { cursor:text; }
   .plan-rhythm-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .plan-rhythm-head { grid-column: 1 / -1; }
   .plan-subject-summary { margin: 0; padding: 0; border: 0; }
-  .plan-quick-form { grid-template-columns: minmax(160px, 1fr) 130px 96px 90px 90px 105px 104px; }
+  .plan-quick-form { grid-template-columns: repeat(12, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
   .header { height: 58px; }
@@ -4462,6 +4478,9 @@ input, textarea { cursor:text; }
   .plan-filter-note { display: none; }
   .plan-quick-form { grid-template-columns: 1fr 1fr; }
   .plan-quick-form #plan-quick-title { grid-column: 1 / -1; }
+  .plan-quick-form #plan-quick-date, .plan-quick-form #plan-quick-start, .plan-quick-form #plan-quick-end, .plan-quick-form #plan-quick-subject, .plan-quick-form #plan-quick-minutes { grid-column:auto; }
+  .plan-quick-form #plan-quick-period { grid-column: 1 / -1; }
+  .plan-quick-form > .plan-primary-btn { grid-column:1 / -1; }
   .plan-stage-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .plan-stage-card:last-child { grid-column: 1 / -1; }
 }
