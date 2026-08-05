@@ -330,11 +330,6 @@ window.SyncStore = (function () {
       });
 
       localKeys.forEach(function (key) {
-        // Plan data is merged item-by-item by portal.js after this bootstrap.
-        // Do not let an empty or stale local snapshot overwrite an existing
-        // cloud plan before that recovery merge can run.
-        if ((key === 'gk-study-plan-v2' || key === 'gk-plan-index' || /^gk-plan-\d{4}-\d{2}$/.test(key)) &&
-            Object.prototype.hasOwnProperty.call(cloudMap, key)) return;
         writes.push(upsertCloudValue(key, localData[key]));
       });
 

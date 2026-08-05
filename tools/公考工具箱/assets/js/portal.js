@@ -20,7 +20,6 @@
   var TOOL_ORDER_STORAGE_KEY = 'gk-tool-order';
   var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'wusi', 'plan'];
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
-  var PLAN_RECOVERY_BACKUP_KEY = 'gk-study-plan-recovery-backup';
   var PLAN_SUBJECTS = ['政治理论', '申论', '资料分析', '常识', '判断推理', '言语理解', '数量关系', '复盘', '其他'];
   var PLAN_DAY_PARTS = [
     { id: 'morning', label: '上午', range: '06:00-11:59', defaultStart: '08:00' },
@@ -36,7 +35,6 @@
   // Keep transient plan UI state while data mutations rebuild the plan view.
   var planPackOpenState = { week: false, month: false };
   var planLastSavedAt = 0;
-  var planRecoverySummary = '';
 
   function init() {
     document.title = '长安题途 · 公考备考助手';
@@ -106,21 +104,7 @@
       window.SyncStore.fetchAllKeys(function (rows) {
         if (rows && rows.length > 0) {
           rows.forEach(function (row) {
-            if (row.data_value == null || !row.data_key) return;
-            try {
-              if (row.data_key === PLAN_STORAGE_KEY) {
-                var mergedPlan = mergePlanDataSources(parseStoredValue(localStorage.getItem(PLAN_STORAGE_KEY)), row.data_value);
-                localStorage.setItem(PLAN_STORAGE_KEY, JSON.stringify(mergedPlan));
-                syncMergedPlanToCloud(mergedPlan, row.data_value);
-              } else if (row.data_key === 'gk-plan-index') {
-                localStorage.setItem(row.data_key, JSON.stringify(mergePlanMonthIds(parseStoredValue(localStorage.getItem(row.data_key)), row.data_value)));
-              } else if (isLegacyPlanMonthKey(row.data_key)) {
-                var mergedLegacyMonth = mergeLegacyPlanMonthSources(parseStoredValue(localStorage.getItem(row.data_key)), row.data_value);
-                localStorage.setItem(row.data_key, JSON.stringify(mergedLegacyMonth));
-              } else {
-                localStorage.setItem(row.data_key, typeof row.data_value === 'string' ? row.data_value : JSON.stringify(row.data_value));
-              }
-            } catch(e) {}
+            if (row.data_value != null) { try { localStorage.setItem(row.data_key, typeof row.data_value === 'string' ? row.data_value : JSON.stringify(row.data_value)); } catch(e) {} }
           });
         }
         loadFromLocal();
@@ -144,347 +128,18 @@
     } catch(e) {}
     try { var cdd = JSON.parse(localStorage.getItem('gk-countdown')); if (cdd) { cdState.name = cdd.name || ''; cdState.date = cdd.date || ''; cdState.milestones = cdd.milestones || []; } } catch(e) {}
     try { var ld = JSON.parse(localStorage.getItem('gk-links')); if (ld && Array.isArray(ld)) links = ld; } catch(e) {}
-    var storedPlan = parseStoredValue(localStorage.getItem(PLAN_STORAGE_KEY));
-    var recoveredPlan = recoverLegacyPlanData(storedPlan);
-    planData = recoveredPlan.data;
-    if (recoveredPlan.changed) persistRecoveredPlan(recoveredPlan);
+    try {
+      var sp = JSON.parse(localStorage.getItem(PLAN_STORAGE_KEY));
+      if (sp && Array.isArray(sp.tasks)) planData = normalizePlanData(sp);
+      else planData = normalizePlanData({ version: 2, tasks: [] });
+    } catch(e) {
+      planData = normalizePlanData({ version: 2, tasks: [] });
+    }
     renderPlan();
     applySavedToolOrder();
     els.navItems = document.querySelectorAll('.nav-item');
     refreshNavMoveControls();
     renderTimer(); renderCountdown(); renderLinks(); renderSyncStatus(); renderAccountStatus();
-  }
-
-  function parseStoredValue(value) {
-    if (value == null || typeof value !== 'string') return value;
-    try { return JSON.parse(value); }
-    catch (e) { return null; }
-  }
-
-  function isLegacyPlanMonthKey(key) {
-    return /^gk-plan-\d{4}-\d{2}$/.test(String(key || ''));
-  }
-
-  function mergePlanMonthIds(localIds, cloudIds) {
-    localIds = parseStoredValue(localIds);
-    cloudIds = parseStoredValue(cloudIds);
-    var result = [];
-    var sources = [Array.isArray(localIds) ? localIds : [], Array.isArray(cloudIds) ? cloudIds : []];
-    for (var s = 0; s < sources.length; s++) {
-      for (var i = 0; i < sources[s].length; i++) {
-        var id = String(sources[s][i] || '');
-        if (/^\d{4}-\d{2}$/.test(id) && result.indexOf(id) === -1) result.push(id);
-      }
-    }
-    return result.sort();
-  }
-
-  function clonePlanValue(value) {
-    try { return JSON.parse(JSON.stringify(value)); }
-    catch (e) { return value; }
-  }
-
-  function mergeLegacyText(primary, secondary) {
-    var lines = [], seen = {};
-    var sources = [primary, secondary];
-    for (var s = 0; s < sources.length; s++) {
-      var parts = String(sources[s] || '').split(/\r?\n/);
-      for (var i = 0; i < parts.length; i++) {
-        var line = parts[i].trim();
-        var key = line.toLowerCase();
-        if (line && !seen[key]) {
-          seen[key] = true;
-          lines.push(line);
-        }
-      }
-    }
-    return lines.join('\n');
-  }
-
-  function getLegacyRecordKey(item, fields) {
-    var values = [];
-    for (var i = 0; i < fields.length; i++) values.push(String(item && item[fields[i]] != null ? item[fields[i]] : ''));
-    return values.join('|').trim().toLowerCase();
-  }
-
-  function mergeLegacyRecords(primary, secondary, signatureFields) {
-    var result = Array.isArray(primary) ? clonePlanValue(primary) : [];
-    var incoming = Array.isArray(secondary) ? secondary : [];
-    var ids = Object.create(null), signatures = Object.create(null);
-    for (var i = 0; i < result.length; i++) {
-      if (result[i] && result[i].id) ids[result[i].id] = i;
-      signatures[getLegacyRecordKey(result[i], signatureFields)] = i;
-    }
-    for (var j = 0; j < incoming.length; j++) {
-      var item = incoming[j] || {};
-      var signature = getLegacyRecordKey(item, signatureFields);
-      var existingIndex = item.id && Object.prototype.hasOwnProperty.call(ids, item.id) ? ids[item.id] :
-        (Object.prototype.hasOwnProperty.call(signatures, signature) ? signatures[signature] : -1);
-      if (existingIndex >= 0) {
-        var existing = result[existingIndex];
-        existing.done = !!(existing.done || item.done);
-        existing.focusMinutes = Math.max(parseInt(existing.focusMinutes, 10) || 0, parseInt(item.focusMinutes, 10) || 0);
-        continue;
-      }
-      result.push(clonePlanValue(item));
-      var addedIndex = result.length - 1;
-      if (item.id) ids[item.id] = addedIndex;
-      signatures[signature] = addedIndex;
-    }
-    return result;
-  }
-
-  function mergeLegacyPlanMonthSources(primary, secondary) {
-    primary = parseStoredValue(primary);
-    secondary = parseStoredValue(secondary);
-    var localMonth = primary && typeof primary === 'object' ? clonePlanValue(primary) : null;
-    var cloudMonth = secondary && typeof secondary === 'object' ? clonePlanValue(secondary) : null;
-    if (!localMonth) return cloudMonth || {};
-    if (!cloudMonth) return localMonth;
-    if (!localMonth.id && cloudMonth.id) localMonth.id = cloudMonth.id;
-    if (!localMonth.title && cloudMonth.title) localMonth.title = cloudMonth.title;
-    localMonth.focus = mergeLegacyText(localMonth.focus, cloudMonth.focus);
-    localMonth.todos = mergeLegacyRecords(localMonth.todos, cloudMonth.todos, ['text']);
-    if (!Array.isArray(localMonth.weeks)) localMonth.weeks = [];
-    var cloudWeeks = Array.isArray(cloudMonth.weeks) ? cloudMonth.weeks : [];
-    for (var wi = 0; wi < cloudWeeks.length; wi++) {
-      var cloudWeek = cloudWeeks[wi] || {};
-      var localWeek = null;
-      for (var li = 0; li < localMonth.weeks.length; li++) {
-        if ((cloudWeek.id && localMonth.weeks[li].id === cloudWeek.id) ||
-            (cloudWeek.weekNum != null && localMonth.weeks[li].weekNum === cloudWeek.weekNum)) {
-          localWeek = localMonth.weeks[li];
-          break;
-        }
-      }
-      if (!localWeek) {
-        localMonth.weeks.push(clonePlanValue(cloudWeek));
-        continue;
-      }
-      localWeek.goals = mergeLegacyText(localWeek.goals || localWeek.goal, cloudWeek.goals || cloudWeek.goal);
-      if (!Array.isArray(localWeek.days)) localWeek.days = [];
-      var cloudDays = Array.isArray(cloudWeek.days) ? cloudWeek.days : [];
-      for (var di = 0; di < cloudDays.length; di++) {
-        var cloudDay = cloudDays[di] || {};
-        var localDay = null;
-        for (var ldi = 0; ldi < localWeek.days.length; ldi++) {
-          if (localWeek.days[ldi].date === cloudDay.date) {
-            localDay = localWeek.days[ldi];
-            break;
-          }
-        }
-        if (!localDay) {
-          localWeek.days.push(clonePlanValue(cloudDay));
-          continue;
-        }
-        localDay.tasks = mergeLegacyRecords(localDay.tasks, cloudDay.tasks, ['text', 'title', 'startTime', 'start', 'estimateMinutes', 'estimateMin']);
-      }
-    }
-    return localMonth;
-  }
-
-  function getPlanItemMergeKey(item) {
-    return String(item && item.text ? item.text : '').trim().toLowerCase();
-  }
-
-  function mergePlanItems(target, sourceItems, fallbackText, fallbackDone) {
-    if (!Array.isArray(target)) return 0;
-    var incoming = normalizePlanItems(sourceItems, fallbackText, fallbackDone);
-    var ids = Object.create(null), texts = Object.create(null);
-    for (var i = 0; i < target.length; i++) {
-      if (target[i].id) ids[target[i].id] = i;
-      texts[getPlanItemMergeKey(target[i])] = i;
-    }
-    var added = 0;
-    for (var j = 0; j < incoming.length; j++) {
-      var key = getPlanItemMergeKey(incoming[j]);
-      var existingIndex = incoming[j].id && Object.prototype.hasOwnProperty.call(ids, incoming[j].id) ? ids[incoming[j].id] :
-        (Object.prototype.hasOwnProperty.call(texts, key) ? texts[key] : -1);
-      if (existingIndex >= 0) {
-        target[existingIndex].done = !!(target[existingIndex].done || incoming[j].done);
-        continue;
-      }
-      target.push(incoming[j]);
-      var addedIndex = target.length - 1;
-      if (incoming[j].id) ids[incoming[j].id] = addedIndex;
-      texts[key] = addedIndex;
-      added++;
-    }
-    return added;
-  }
-
-  function mergeMonthPlanData(target, source) {
-    var added = 0;
-    if (!target || !source) return added;
-    added += mergePlanItems(target.goalItems, source.goalItems, source.goal, source.goalDone);
-    added += mergePlanItems(target.focusItems, source.focusItems, source.focus, source.focusDone);
-    if (!target.goal && source.goal) target.goal = String(source.goal);
-    if (!target.focus && source.focus) target.focus = String(source.focus);
-    var weeks = source.weeks && !Array.isArray(source.weeks) ? source.weeks : {};
-    for (var key in weeks) {
-      if (!weeks.hasOwnProperty(key)) continue;
-      if (!target.weeks[key]) target.weeks[key] = { goal: '', items: [] };
-      added += mergePlanItems(target.weeks[key].items, weeks[key].items, weeks[key].goal, weeks[key].done);
-      if (!target.weeks[key].goal && weeks[key].goal) target.weeks[key].goal = String(weeks[key].goal);
-    }
-    return added;
-  }
-
-  function getPlanTaskMergeKey(task) {
-    return [task.date, task.title, task.subject, task.startTime, task.estimateMin].join('|').toLowerCase();
-  }
-
-  function mergePlanDataSources(primary, secondary) {
-    primary = parseStoredValue(primary);
-    secondary = parseStoredValue(secondary);
-    var result = normalizePlanData(primary && Array.isArray(primary.tasks) ? primary : { version: 3, tasks: [], monthPlans: {} });
-    var incoming = normalizePlanData(secondary && Array.isArray(secondary.tasks) ? secondary : { version: 3, tasks: [], monthPlans: {} });
-    var ids = Object.create(null), signatures = Object.create(null);
-    for (var i = 0; i < result.tasks.length; i++) {
-      ids[result.tasks[i].id] = i;
-      signatures[getPlanTaskMergeKey(result.tasks[i])] = i;
-    }
-    for (var j = 0; j < incoming.tasks.length; j++) {
-      var task = incoming.tasks[j];
-      var signature = getPlanTaskMergeKey(task);
-      var existingIndex = Object.prototype.hasOwnProperty.call(ids, task.id) ? ids[task.id] :
-        (Object.prototype.hasOwnProperty.call(signatures, signature) ? signatures[signature] : -1);
-      if (existingIndex >= 0) {
-        var existing = result.tasks[existingIndex];
-        existing.done = !!(existing.done || task.done);
-        existing.focusMinutes = Math.max(existing.focusMinutes || 0, task.focusMinutes || 0);
-        existing.periods = normalizePlanPeriodIds((existing.periods || []).concat(task.periods || []), existing.period);
-        existing.period = existing.periods[0];
-        if (existing.done && !existing.completedAt) existing.completedAt = task.completedAt || new Date().toISOString();
-        continue;
-      }
-      result.tasks.push(task);
-      var addedIndex = result.tasks.length - 1;
-      ids[task.id] = addedIndex;
-      signatures[signature] = addedIndex;
-    }
-    for (var ym in incoming.monthPlans) {
-      if (!incoming.monthPlans.hasOwnProperty(ym)) continue;
-      if (!result.monthPlans[ym]) result.monthPlans[ym] = normalizeMonthPlan({});
-      mergeMonthPlanData(result.monthPlans[ym], incoming.monthPlans[ym]);
-    }
-    return normalizePlanData(result);
-  }
-
-  function syncMergedPlanToCloud(mergedPlan, cloudPlan) {
-    if (!window.SyncStore || !window.SyncStore.writeData) return;
-    var mergedJson = JSON.stringify(normalizePlanData(mergedPlan));
-    var cloudJson = JSON.stringify(mergePlanDataSources(null, parseStoredValue(cloudPlan)));
-    if (mergedJson === cloudJson) return;
-    planLastSavedAt = Date.now();
-    window.SyncStore.writeData(PLAN_STORAGE_KEY, JSON.parse(mergedJson));
-  }
-
-  function getLegacyPlanMonths() {
-    var ids = mergePlanMonthIds(parseStoredValue(localStorage.getItem('gk-plan-index')), []);
-    try {
-      for (var i = 0; i < localStorage.length; i++) {
-        var key = localStorage.key(i);
-        if (!isLegacyPlanMonthKey(key)) continue;
-        var id = key.slice('gk-plan-'.length);
-        if (ids.indexOf(id) === -1) ids.push(id);
-      }
-    } catch (e) {}
-    var months = [];
-    for (var j = 0; j < ids.length; j++) {
-      var month = parseStoredValue(localStorage.getItem('gk-plan-' + ids[j]));
-      if (month && typeof month === 'object') {
-        if (!month.id) month.id = ids[j];
-        months.push(month);
-      }
-    }
-    return months;
-  }
-
-  function recoverLegacyPlanData(storedPlan) {
-    var before = storedPlan && Array.isArray(storedPlan.tasks) ? storedPlan : { version: 3, tasks: [], monthPlans: {} };
-    var data = mergePlanDataSources(before, null);
-    var legacyMonths = getLegacyPlanMonths();
-    var taskIds = Object.create(null), taskSignatures = Object.create(null);
-    for (var i = 0; i < data.tasks.length; i++) {
-      taskIds[data.tasks[i].id] = true;
-      taskSignatures[getPlanTaskMergeKey(data.tasks[i])] = true;
-    }
-    var recoveredTasks = 0, recoveredItems = 0;
-    for (var mi = 0; mi < legacyMonths.length; mi++) {
-      var month = legacyMonths[mi];
-      var ym = /^\d{4}-\d{2}$/.test(month.id || '') ? month.id : '';
-      if (!ym) continue;
-      if (!data.monthPlans[ym]) data.monthPlans[ym] = normalizeMonthPlan({});
-      var monthPlan = data.monthPlans[ym];
-      recoveredItems += mergePlanItems(monthPlan.goalItems, month.goalItems, month.goal, month.goalDone);
-      recoveredItems += mergePlanItems(monthPlan.goalItems, month.todos, '', false);
-      recoveredItems += mergePlanItems(monthPlan.focusItems, month.focusItems, month.focus, month.focusDone);
-      var weeks = Array.isArray(month.weeks) ? month.weeks : [];
-      for (var wi = 0; wi < weeks.length; wi++) {
-        var week = weeks[wi] || {};
-        var weekNum = parseInt(week.weekNum, 10) || wi + 1;
-        var weekKey = ym + '-w' + weekNum;
-        if (!monthPlan.weeks[weekKey]) monthPlan.weeks[weekKey] = { goal: '', items: [] };
-        recoveredItems += mergePlanItems(monthPlan.weeks[weekKey].items, week.items, week.goal || week.goals, week.done);
-        var days = Array.isArray(week.days) ? week.days : [];
-        for (var di = 0; di < days.length; di++) {
-          var day = days[di] || {};
-          var tasks = Array.isArray(day.tasks) ? day.tasks : [];
-          for (var ti = 0; ti < tasks.length; ti++) {
-            var oldTask = tasks[ti] || {};
-            var candidate = normalizePlanTask({
-              id: oldTask.id,
-              title: oldTask.title || oldTask.text,
-              date: day.date,
-              subject: oldTask.subject,
-              period: oldTask.period,
-              periods: oldTask.periods,
-              startTime: oldTask.startTime || oldTask.start,
-              endTime: oldTask.endTime || oldTask.end,
-              estimateMin: oldTask.estimateMin != null ? oldTask.estimateMin : oldTask.estimateMinutes,
-              focusMinutes: oldTask.focusMinutes,
-              done: oldTask.done,
-              createdAt: oldTask.createdAt,
-              completedAt: oldTask.completedAt
-            });
-            if (!candidate) continue;
-            var signature = getPlanTaskMergeKey(candidate);
-            if (taskIds[candidate.id] || taskSignatures[signature]) continue;
-            data.tasks.push(candidate);
-            taskIds[candidate.id] = true;
-            taskSignatures[signature] = true;
-            recoveredTasks++;
-          }
-        }
-      }
-      syncLegacyPlanText(monthPlan);
-    }
-    data = normalizePlanData(data);
-    return {
-      data: data,
-      changed: recoveredTasks > 0 || recoveredItems > 0,
-      recoveredTasks: recoveredTasks,
-      recoveredItems: recoveredItems,
-      before: before,
-      legacyMonths: legacyMonths
-    };
-  }
-
-  function persistRecoveredPlan(recovery) {
-    try {
-      if (!localStorage.getItem(PLAN_RECOVERY_BACKUP_KEY)) {
-        localStorage.setItem(PLAN_RECOVERY_BACKUP_KEY, JSON.stringify({
-          createdAt: new Date().toISOString(),
-          previousPlan: recovery.before,
-          legacyMonths: recovery.legacyMonths
-        }));
-      }
-      localStorage.setItem(PLAN_STORAGE_KEY, JSON.stringify(recovery.data));
-      planLastSavedAt = Date.now();
-      if (window.SyncStore) window.SyncStore.writeData(PLAN_STORAGE_KEY, recovery.data);
-      planRecoverySummary = '已恢复旧版数据：' + recovery.recoveredTasks + ' 项任务，' + recovery.recoveredItems + ' 条行囊内容';
-    } catch (e) {}
   }
 
   function getSavedToolOrder() {
@@ -2023,7 +1678,6 @@
       startTime: startTime,
       endTime: endTime,
       estimateMin: mins,
-      focusMinutes: Math.max(0, parseInt(task.focusMinutes, 10) || 0),
       done: !!task.done,
       createdAt: task.createdAt || new Date().toISOString(),
       completedAt: task.done ? (task.completedAt || new Date().toISOString()) : ''
@@ -2575,11 +2229,6 @@
     if (pack) pack.open = true;
   }
 
-  function renderPlanRecoveryNotice() {
-    if (!planRecoverySummary) return '';
-    return '<div class="plan-recovery-notice" role="status">' + esc(planRecoverySummary) + '</div>';
-  }
-
   function renderPlan() {
     var view = els.planView;
     if (!view || view.style.display === 'none') return;
@@ -2589,7 +2238,6 @@
     var renderState = capturePlanRenderState(root);
     root.innerHTML = [
       '<div class="plan-shell">',
-        renderPlanRecoveryNotice(),
         renderPlanHero(),
         renderPlanDailyWorkspace(),
         renderPlanPlanning(),
@@ -3224,33 +2872,18 @@
             if (isFinite(_cloudUpdatedAt) && _cloudUpdatedAt < planLastSavedAt) continue;
           }
           var _oldVal = localStorage.getItem(_row.data_key);
-          var _newVal;
-          if (_row.data_key === PLAN_STORAGE_KEY) {
-            var _mergedPlan = mergePlanDataSources(parseStoredValue(_oldVal), _row.data_value);
-            _newVal = JSON.stringify(_mergedPlan);
-            syncMergedPlanToCloud(_mergedPlan, _row.data_value);
-          } else if (_row.data_key === 'gk-plan-index') {
-            _newVal = JSON.stringify(mergePlanMonthIds(parseStoredValue(_oldVal), _row.data_value));
-          } else if (isLegacyPlanMonthKey(_row.data_key)) {
-            _newVal = JSON.stringify(mergeLegacyPlanMonthSources(parseStoredValue(_oldVal), _row.data_value));
-          } else {
-            _newVal = typeof _row.data_value === 'string' ? _row.data_value : JSON.stringify(_row.data_value);
-          }
+          var _newVal = typeof _row.data_value === 'string' ? _row.data_value : JSON.stringify(_row.data_value);
           if (_oldVal !== _newVal) {
             try { localStorage.setItem(_row.data_key, _newVal); } catch(e) {}
             changed = true;
           }
         }
-        // A restored login can download legacy month records after the first
-        // page render. Re-run recovery here so those late records appear
-        // without requiring another manual refresh.
-        var _periodicRecovery = recoverLegacyPlanData(parseStoredValue(localStorage.getItem(PLAN_STORAGE_KEY)));
-        if (_periodicRecovery.changed) {
-          persistRecoveredPlan(_periodicRecovery);
-          changed = true;
-        }
         if (!changed) return;
-        planData = _periodicRecovery.data;
+        // Reload study plan data from localStorage
+        try {
+          var _planV2 = JSON.parse(localStorage.getItem(PLAN_STORAGE_KEY));
+          if (_planV2 && Array.isArray(_planV2.tasks)) planData = normalizePlanData(_planV2);
+        } catch(e) {}
         if (els.planView && els.planView.style.display !== 'none') renderPlan();
         updateSyncTime();
       });
