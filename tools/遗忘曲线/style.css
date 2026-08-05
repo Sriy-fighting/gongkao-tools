@@ -783,3 +783,34 @@ body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wi
   .week-nav-btn{flex:1}
   .toast{width:calc(100% - 32px);white-space:normal}
 }
+
+/* Dense two-column workspace: the secondary rail stays useful while the main
+   review queue grows independently. */
+.review-column,.support-column{min-width:0}
+.support-column{display:flex;flex-direction:column;gap:18px}
+.review-column{display:flex;flex-direction:column;gap:18px}
+.support-column .section,.review-column .section{min-width:0}
+
+@media(min-width:900px){
+  .container{
+    display:grid;
+    grid-template-columns:minmax(0,1.45fr) minmax(330px,.75fr);
+    align-items:start;
+    column-gap:20px;
+    row-gap:18px;
+  }
+  .stats-bar{grid-column:1/-1}
+  .review-column{grid-column:1;grid-row:2}
+  .support-column{grid-column:2;grid-row:2;align-self:start}
+  .section{padding:20px 22px}
+  .support-column .section{padding:18px 20px}
+  #reviewSection .empty-state{padding:24px 12px}
+  #weeklySection .section-title{margin-bottom:12px}
+  #weeklySection .weekly-grid{gap:5px}
+  #weeklySection .weekly-day{padding:8px 2px}
+  #historySection .history-item{margin-bottom:6px}
+}
+
+@media(max-width:899px){
+  .review-column,.support-column{display:contents}
+}
