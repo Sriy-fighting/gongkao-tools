@@ -63,6 +63,7 @@
     els.syncBtn = document.getElementById('sidebar-sync-btn');
     els.accountBtn = document.getElementById('sidebar-account-btn');
     els.planView = document.getElementById('plan-view');
+    els.recitationView = document.getElementById('recitation-view');
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
@@ -325,18 +326,28 @@
     if (view === 'dashboard') {
       els.dashboard.style.display = '';
       if (els.planView) els.planView.style.display = 'none';
+      if (els.recitationView) els.recitationView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       els.pageTitle.textContent = '首页';
       if (timerState.running && !timerState.tickId) timerState.tickId = setInterval(tickTimer, 100);
     } else if (view === 'plan') {
       els.dashboard.style.display = 'none';
       if (els.planView) els.planView.style.display = '';
+      if (els.recitationView) els.recitationView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       els.pageTitle.textContent = '行程计划';
       renderPlan();
+    } else if (view === 'wusi') {
+      els.dashboard.style.display = 'none';
+      if (els.planView) els.planView.style.display = 'none';
+      if (els.recitationView) els.recitationView.style.display = '';
+      els.toolContainer.classList.remove('active');
+      els.pageTitle.textContent = tool.name;
+      if (window.RecitationApp && window.RecitationApp.refresh) window.RecitationApp.refresh();
     } else {
       els.dashboard.style.display = 'none';
       if (els.planView) els.planView.style.display = 'none';
+      if (els.recitationView) els.recitationView.style.display = 'none';
       els.toolContainer.classList.add('active');
       els.pageTitle.textContent = tool.name;
       els.toolFrame.src = tool.path;
@@ -2986,6 +2997,39 @@
     return true;
   }
 
+  function markRecitationDayDone(dayNumber) {
+    var date = getTodayStr();
+    var title = '五四讲话背诵 · 第 ' + dayNumber + ' 天';
+    var task = null;
+    for (var i = 0; i < planData.tasks.length; i++) {
+      if (planData.tasks[i].date === date && planData.tasks[i].title === title) {
+        task = planData.tasks[i];
+        break;
+      }
+    }
+    if (!task) {
+      task = normalizePlanTask({
+        title: title,
+        date: date,
+        subject: '政治理论',
+        period: 'morning',
+        periods: ['morning'],
+        startTime: '',
+        endTime: '',
+        estimateMin: 60,
+        done: true,
+        completedAt: new Date().toISOString()
+      });
+      planData.tasks.push(task);
+    } else {
+      task.done = true;
+      task.completedAt = task.completedAt || new Date().toISOString();
+    }
+    savePlan();
+    if (els.planView && els.planView.style.display !== 'none') renderPlan();
+    return true;
+  }
+
   window.timerStartStop = timerStartStop; window.timerReset = timerReset; window.timerLap = timerLap;
   window.switchTimerMode = switchTimerMode; window.openLinkManager = openLinkManager;
   window.closeLinkManager = closeLinkManager; window.addLink = addLink;
@@ -3015,6 +3059,7 @@
   window.PortalPlan = {
     getTodayTasks: getTodayTasksForJourneyV2,
     addFocus: addJourneyFocusV2,
+    markRecitationDayDone: markRecitationDayDone,
     refresh: renderPlan
   };
 
