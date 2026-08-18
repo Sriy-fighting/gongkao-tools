@@ -7,7 +7,8 @@
     essay:     { name: '申论方格纸', path: '../申论方格纸/index.html' },
     speed:     { name: '资料速算',   path: '../资料训练/index.html' },
     curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html' },
-    wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html' }
+    wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html' },
+    review:    { name: '复盘台', path: null }
   };
 
   var currentView = 'dashboard';
@@ -18,7 +19,7 @@
   var cdState = { name: '', date: '', milestones: [] };
   var links = [];
   var TOOL_ORDER_STORAGE_KEY = 'gk-tool-order';
-  var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'wusi', 'plan'];
+  var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'wusi', 'review', 'plan'];
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
   var PLAN_SUBJECTS = ['政治理论', '申论', '资料分析', '常识', '判断推理', '言语理解', '数量关系', '复盘', '其他'];
   var PLAN_DAY_PARTS = [
@@ -42,7 +43,7 @@
     var brandIcon = document.querySelector('.sidebar-brand-icon');
     if (brandText) brandText.textContent = '长安题途';
     if (brandIcon) brandIcon.textContent = '长';
-    var displayNames = { dashboard: '行旅台', plan: '行程计划', essay: '申论写作', speed: '数理驿道', curve: '复习灯台', exam: '模考记分', wusi: '五四讲话背诵' };
+    var displayNames = { dashboard: '行旅台', plan: '行程计划', essay: '申论写作', speed: '数理驿道', curve: '复习灯台', exam: '模考记分', wusi: '五四讲话背诵', review: '复盘台' };
     Object.keys(displayNames).forEach(function (view) {
       if (TOOLS[view]) TOOLS[view].name = displayNames[view];
       var nav = document.querySelector('.nav-item[data-view="' + view + '"]');
@@ -64,6 +65,7 @@
     els.accountBtn = document.getElementById('sidebar-account-btn');
     els.planView = document.getElementById('plan-view');
     els.recitationView = document.getElementById('recitation-view');
+    els.reviewView = document.getElementById('review-view');
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
@@ -94,7 +96,10 @@
     startPeriodicSync();
     loadAllData();
     setGreeting();
-    navigateTo('dashboard');
+    navigateTo(window.location.hash.indexOf('#q=') === 0 ? 'review' : 'dashboard');
+    window.addEventListener('hashchange', function () {
+      if (window.location.hash.indexOf('#q=') === 0 && currentView !== 'review') navigateTo('review');
+    });
   }
 
   function loadAllData() {
@@ -105,7 +110,18 @@
       window.SyncStore.fetchAllKeys(function (rows) {
         if (rows && rows.length > 0) {
           rows.forEach(function (row) {
-            if (row.data_value != null) { try { localStorage.setItem(row.data_key, typeof row.data_value === 'string' ? row.data_value : JSON.stringify(row.data_value)); } catch(e) {} }
+            if (row.data_value != null) {
+              try {
+                if (row.data_key === 'gk-review-library-v1') {
+                  var localReview = JSON.parse(localStorage.getItem(row.data_key) || 'null');
+                  var cloudReview = typeof row.data_value === 'string' ? JSON.parse(row.data_value) : row.data_value;
+                  var localAt = Date.parse(localReview && localReview.updatedAt || '') || 0;
+                  var cloudAt = Date.parse(cloudReview && cloudReview.updatedAt || row.updated_at || '') || 0;
+                  if (localReview && localAt >= cloudAt) return;
+                }
+                localStorage.setItem(row.data_key, typeof row.data_value === 'string' ? row.data_value : JSON.stringify(row.data_value));
+              } catch(e) {}
+            }
           });
         }
         loadFromLocal();
@@ -327,6 +343,7 @@
       els.dashboard.style.display = '';
       if (els.planView) els.planView.style.display = 'none';
       if (els.recitationView) els.recitationView.style.display = 'none';
+      if (els.reviewView) els.reviewView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       els.pageTitle.textContent = '首页';
       if (timerState.running && !timerState.tickId) timerState.tickId = setInterval(tickTimer, 100);
@@ -334,6 +351,7 @@
       els.dashboard.style.display = 'none';
       if (els.planView) els.planView.style.display = '';
       if (els.recitationView) els.recitationView.style.display = 'none';
+      if (els.reviewView) els.reviewView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       els.pageTitle.textContent = '行程计划';
       renderPlan();
@@ -341,13 +359,23 @@
       els.dashboard.style.display = 'none';
       if (els.planView) els.planView.style.display = 'none';
       if (els.recitationView) els.recitationView.style.display = '';
+      if (els.reviewView) els.reviewView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       els.pageTitle.textContent = tool.name;
       if (window.RecitationApp && window.RecitationApp.refresh) window.RecitationApp.refresh();
+    } else if (view === 'review') {
+      els.dashboard.style.display = 'none';
+      if (els.planView) els.planView.style.display = 'none';
+      if (els.recitationView) els.recitationView.style.display = 'none';
+      els.toolContainer.classList.remove('active');
+      if (els.reviewView) els.reviewView.style.display = '';
+      els.pageTitle.textContent = tool.name;
+      if (window.ReviewApp && window.ReviewApp.refresh) window.ReviewApp.refresh();
     } else {
       els.dashboard.style.display = 'none';
       if (els.planView) els.planView.style.display = 'none';
       if (els.recitationView) els.recitationView.style.display = 'none';
+      if (els.reviewView) els.reviewView.style.display = 'none';
       els.toolContainer.classList.add('active');
       els.pageTitle.textContent = tool.name;
       els.toolFrame.src = tool.path;

@@ -1,0 +1,2829 @@
+{
+  "version": 1,
+  "libraryName": "政治理论与常识复盘资料库",
+  "exportedAt": "2026-08-18T17:17:37.678Z",
+  "questions": [
+    {
+      "id": "2027-国考-第30季-政治理论-01",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 1,
+      "stem": "某村在乡村振兴工作中，针对本地山地多、耕地少、特色中药材资源丰富的实际，组织村民搭建中药材种植基地，邀请农业专家指导进行标准化种植，同时搭建线上线下销售渠道，推动中药材产业提质增效，带动村民增收致富。但相邻某村无视自身资源禀赋，盲目跟风建设大型中药材种植基地，因缺乏技术支撑、销路不畅，造成项目亏损。关于其中蕴含的马克思主义哲学原理，下列说法错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "具体问题具体分析是正确解决矛盾的关键"
+        },
+        {
+          "key": "B",
+          "text": "正确发挥主观能动性必须以尊重客观规律为前提"
+        },
+        {
+          "key": "C",
+          "text": "认识对实践具有反作用，正确的认识能促进实践发展"
+        },
+        {
+          "key": "D",
+          "text": "矛盾的普遍性寓于特殊性之中，特殊性离不开普遍性"
+        }
+      ],
+      "answer": "D",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "材料直接体现具体问题具体分析、尊重客观规律和认识对实践的反作用。",
+        "analysis": "前一村立足资源禀赋并接受专业指导，体现具体问题具体分析和按规律办事；正确认识促进产业实践。D 本身是哲学命题，但不是两村对比材料所直接体现的原理。",
+        "pitfalls": [
+          "题目问的是材料蕴含，而不只是判断表述本身是否正确。"
+        ],
+        "memoryCue": "先看材料对应，再判断哲学表述。"
+      },
+      "tags": [
+        "马克思主义哲学",
+        "矛盾分析法"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第1题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第1题",
+          "asset": "assets/sources/exam-2.jpg",
+          "crop": {
+            "focusY": 18,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第1题知识点",
+          "asset": "assets/sources/politics-1.jpg",
+          "crop": {
+            "focusY": 13,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-02",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 2,
+      "stem": "马克思主义之所以能在中国落地生根、开花结果，根本在于中国共产党始终坚持解放思想、实事求是、与时俱进、求真务实，并非简单套用马克思主义经典作家设想的模板，而是勇于结合新的实践不断推进理论创新，推动马克思主义中国化实现飞跃。这一论述未体现的马克思主义哲学观点是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "实践作为检验真理的标准具有不确定性"
+        },
+        {
+          "key": "B",
+          "text": "认识过程是反映和创造的统一"
+        },
+        {
+          "key": "C",
+          "text": "人们对客体的认识需要经历反复的过程"
+        },
+        {
+          "key": "D",
+          "text": "实践需接受理论检验并完善新的理论"
+        }
+      ],
+      "answer": "D",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "理论要接受实践检验，而不是实践接受理论检验。",
+        "analysis": "实践标准同时具有确定性与不确定性；认识是反映与创造的统一，并会在实践中反复发展。选项 D 倒置了理论与实践的检验关系。",
+        "pitfalls": [
+          "固定表述是“实践检验理论”，不能反向表述。"
+        ],
+        "memoryCue": "实践是检验认识真理性的唯一标准。"
+      },
+      "tags": [
+        "马克思主义哲学",
+        "实践与认识"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第2题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第2题",
+          "asset": "assets/sources/exam-2.jpg",
+          "crop": {
+            "focusY": 34,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第2题知识点",
+          "asset": "assets/sources/politics-1.jpg",
+          "crop": {
+            "focusY": 24,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-03",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 3,
+      "stem": "关于构建公正合理的全球人工智能治理体系，下列说法正确的有：\n①坚持开放共赢，驱动创新发展，鼓励开源开放、合作共享\n②强化风险意识，确保安全可控，高度重视人工智能引发的内生和衍生风险\n③鼓励包容并蓄，促进文明互鉴，用全人类共同价值塑造人工智能价值观\n④倡导和衷共济，完善全球治理，践行真正的多边主义",
+      "options": [
+        {
+          "key": "A",
+          "text": "1项"
+        },
+        {
+          "key": "B",
+          "text": "2项"
+        },
+        {
+          "key": "C",
+          "text": "3项"
+        },
+        {
+          "key": "D",
+          "text": "4项"
+        }
+      ],
+      "answer": "D",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "四项均属于全球人工智能治理体系的重要原则。",
+        "analysis": "治理体系强调开放共赢、风险意识、文明互鉴和多边主义；人工智能价值观应以和平、发展、公平、正义、民主、自由的全人类共同价值塑造。",
+        "pitfalls": [
+          "不要把“全人类共同价值”误判为西方所谓普世价值。"
+        ],
+        "memoryCue": "开放、安全、包容、多边。"
+      },
+      "tags": [
+        "时政",
+        "人工智能治理"
+      ],
+      "difficulty": "medium",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第3题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第3题",
+          "asset": "assets/sources/exam-2.jpg",
+          "crop": {
+            "focusY": 50,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第3题知识点",
+          "asset": "assets/sources/politics-1.jpg",
+          "crop": {
+            "focusY": 34,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-04",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 4,
+      "stem": "关于树立和践行正确政绩观，下列说法正确的有：\n①检查思想和行动是否偏离远大理想、背离全心全意为人民服务根本宗旨\n②政绩既体现在即期见效的潜绩上，也体现在打基础、利长远的显绩上\n③高质量发展是全面建设社会主义现代化国家的首要任务，应成为领导干部政绩观的重要内容\n④完善考评体系，积极促成“数字出官、官出数字”的良性循环",
+      "options": [
+        {
+          "key": "A",
+          "text": "1项"
+        },
+        {
+          "key": "B",
+          "text": "2项"
+        },
+        {
+          "key": "C",
+          "text": "3项"
+        },
+        {
+          "key": "D",
+          "text": "4项"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "①③正确，正确政绩观以人民为中心并服务高质量发展。",
+        "analysis": "显绩是当下可见的工作，潜绩是打基础、利长远的工作，②将二者倒置；“数字出官、官出数字”是应防止的恶性循环，④错误。",
+        "pitfalls": [
+          "显绩与潜绩经常被互换设置干扰。",
+          "“数字出官、官出数字”不是正向表述。"
+        ],
+        "memoryCue": "显绩看当下，潜绩利长远。"
+      },
+      "tags": [
+        "政绩观",
+        "服务人民"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第4题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第4题",
+          "asset": "assets/sources/exam-2.jpg",
+          "crop": {
+            "focusY": 66,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第4题知识点",
+          "asset": "assets/sources/politics-1.jpg",
+          "crop": {
+            "focusY": 45,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-05",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 5,
+      "stem": "关于中国共产党105年不懈奋斗的相关表述，正确的有：\n①展示了马克思主义的强大生命力，极大丰富和发展了马克思主义\n②从根本上改变了中国人民的前途命运，建立人民当家作主的新中国\n③深刻影响了世界历史进程，我们党始终站在历史正确一边\n④我们党已经发展成为具有重大全球影响力的世界第二大执政党",
+      "options": [
+        {
+          "key": "A",
+          "text": "1项"
+        },
+        {
+          "key": "B",
+          "text": "2项"
+        },
+        {
+          "key": "C",
+          "text": "3项"
+        },
+        {
+          "key": "D",
+          "text": "4项"
+        }
+      ],
+      "answer": "C",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "①②③正确，中国共产党是世界第一大政党。",
+        "analysis": "百余年奋斗改变中国人民命运、丰富发展马克思主义并影响世界历史进程。④把中国共产党的世界第一大政党地位错写为第二大。",
+        "pitfalls": [
+          "人民性是党的根本属性，不只是一般重要特征。"
+        ],
+        "memoryCue": "中国共产党是世界第一大政党。"
+      },
+      "tags": [
+        "党史",
+        "政党地位"
+      ],
+      "difficulty": "hard",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第5题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第5题",
+          "asset": "assets/sources/exam-2.jpg",
+          "crop": {
+            "focusY": 82,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第5题知识点",
+          "asset": "assets/sources/politics-1.jpg",
+          "crop": {
+            "focusY": 55,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-06",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 6,
+      "stem": "关于教育强国，下列说法正确的有：\n①牢牢把握教育的政治属性、人民属性、战略属性，聚焦高质量教育体系建设\n②建立学龄人口预测预警机制，扩大学龄人口净流出城镇和薄弱地区教育资源供给\n③加强科技自主创新和人才自主培养，引导高校从注重学科发展向服务国家战略转变\n④强化全国统筹，保证国家财政性教育经费支出占国内生产总值比例高于4%",
+      "options": [
+        {
+          "key": "A",
+          "text": "1项"
+        },
+        {
+          "key": "B",
+          "text": "2项"
+        },
+        {
+          "key": "C",
+          "text": "3项"
+        },
+        {
+          "key": "D",
+          "text": "4项"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "①③正确，教育具有政治、人民、战略属性，高校发展要更好服务国家战略。",
+        "analysis": "资源供给应重点关注人口流入城镇和薄弱地区，②方向写反；教育经费强调省级统筹并稳定在合理比例，④“全国统筹、高于4%”表述不准确。",
+        "pitfalls": [
+          "学龄人口流动方向是高频偷换点。",
+          "规模扩张要转向质量提升。"
+        ],
+        "memoryCue": "人口流向哪里，教育资源就跟到哪里。"
+      },
+      "tags": [
+        "教育强国",
+        "公共服务"
+      ],
+      "difficulty": "medium",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第6题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第3页，第6题",
+          "asset": "assets/sources/exam-3.jpg",
+          "crop": {
+            "focusY": 17,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第6题知识点",
+          "asset": "assets/sources/politics-1.jpg",
+          "crop": {
+            "focusY": 66,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-07",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 7,
+      "stem": "党的十八大以来，我国服务业规模稳步扩大，质效持续提升。下列关于服务业发展的表述错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "从战略和全局高度深化认识，坚持扩能和提质并举、发展和监管统筹"
+        },
+        {
+          "key": "B",
+          "text": "培育新增长点，提升服务业数智化、行业化、互通化、协同化发展水平"
+        },
+        {
+          "key": "C",
+          "text": "顺应人口、消费和产业结构变化，分层分类推动服务业发展"
+        },
+        {
+          "key": "D",
+          "text": "用改革创新的思路把握产业演进趋势，营造良好环境"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "服务业发展方向应为数字化、标准化、融合化、国际化。",
+        "analysis": "B 将政策中的四个发展方向替换为“数智化、行业化、互通化、协同化”，属于近义词拼接型干扰。其余选项符合扩能提质、分类发展和改革创新要求。",
+        "pitfalls": [
+          "时政题要警惕看似合理但并非原文的四字词组合。"
+        ],
+        "memoryCue": "数字化、标准化、融合化、国际化。"
+      },
+      "tags": [
+        "服务业",
+        "高质量发展"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第7题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第3页，第7题",
+          "asset": "assets/sources/exam-3.jpg",
+          "crop": {
+            "focusY": 30,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第7题知识点",
+          "asset": "assets/sources/politics-1.jpg",
+          "crop": {
+            "focusY": 76,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-08",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 8,
+      "stem": "关于“三农”工作，下列说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "打破原集体土地所有权界限，在全村范围内搞平均承包"
+        },
+        {
+          "key": "B",
+          "text": "健全财政优先保障、金融重点倾斜、社会积极参与的多元投入格局"
+        },
+        {
+          "key": "C",
+          "text": "发展农业扩大规模经营，促进小农户和现代农业衔接"
+        },
+        {
+          "key": "D",
+          "text": "节约集约利用城镇集体经营性建设用地，有序推进入市改革"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "乡村振兴要健全财政、金融、社会共同参与的多元投入格局。",
+        "analysis": "严禁打破集体土地所有权界限搞平均承包；农业经营强调适度规模而非简单扩大规模；入市改革对象是农村集体经营性建设用地。",
+        "pitfalls": [
+          "“扩大规模”应为“适度规模”。",
+          "“城镇集体”应为“农村集体”。"
+        ],
+        "memoryCue": "财政优先、金融倾斜、社会参与。"
+      },
+      "tags": [
+        "三农",
+        "乡村振兴"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第8题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第3页，第8题",
+          "asset": "assets/sources/exam-3.jpg",
+          "crop": {
+            "focusY": 43,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第8题知识点",
+          "asset": "assets/sources/politics-1.jpg",
+          "crop": {
+            "focusY": 87,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-09",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 9,
+      "stem": "关于建设金融强国，下列说法正确的有：\n①我们党领导的金融事业归根到底要服务国家战略\n②实体经济是金融的根基，金融是实体经济的血脉\n③坚持把防控风险作为金融工作的永恒主题\n④我国金融体系的重要特征和优势是以人民为中心",
+      "options": [
+        {
+          "key": "A",
+          "text": "1项"
+        },
+        {
+          "key": "B",
+          "text": "2项"
+        },
+        {
+          "key": "C",
+          "text": "3项"
+        },
+        {
+          "key": "D",
+          "text": "4项"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "②③正确，金融服务实体经济，防控风险是永恒主题。",
+        "analysis": "金融服务实体经济是根本宗旨，金融事业归根到底要造福人民；人民性是金融工作的根本属性，用“一般重要特征”替代根本属性会降低表述强度。",
+        "pitfalls": [
+          "根本宗旨：服务实体经济。",
+          "价值取向：以人民为中心。"
+        ],
+        "memoryCue": "金融是血脉，实体经济是根基。"
+      },
+      "tags": [
+        "金融强国",
+        "实体经济"
+      ],
+      "difficulty": "medium",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第9题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第3页，第9题",
+          "asset": "assets/sources/exam-3.jpg",
+          "crop": {
+            "focusY": 57,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第9题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 13,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-10",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 10,
+      "stem": "关于纵深推进全国统一大市场建设，下列说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "有序取消所有行政性限制消费购买的规定"
+        },
+        {
+          "key": "B",
+          "text": "推广经营主体注册地统计，优化总部、分支机构及生产地、消费地利益分享"
+        },
+        {
+          "key": "C",
+          "text": "缩小强制性国家标准覆盖面"
+        },
+        {
+          "key": "D",
+          "text": "修改完善招标投标法、价格法等法律法规，强化制度标准刚性约束"
+        }
+      ],
+      "answer": "D",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "建设全国统一大市场要完善法律法规、强化刚性约束。",
+        "analysis": "行政性限制应有序取消“一些”而非所有；统计应更多反映经营活动发生地而非简单注册地；强制性国家标准覆盖面应扩大而非缩小。",
+        "pitfalls": [
+          "“所有”“缩小”等绝对化、方向性词语是关键。"
+        ],
+        "memoryCue": "法律刚性、破除壁垒、统一标准。"
+      },
+      "tags": [
+        "全国统一大市场",
+        "制度建设"
+      ],
+      "difficulty": "hard",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第10题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第3页，第10题",
+          "asset": "assets/sources/exam-3.jpg",
+          "crop": {
+            "focusY": 70,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第10题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 20,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-11",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 11,
+      "stem": "关于对外开放，下列说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "全面放开金融市场互联互通"
+        },
+        {
+          "key": "B",
+          "text": "对发达国家和合作潜力大的伙伴扩大单边开放"
+        },
+        {
+          "key": "C",
+          "text": "实行高水平贸易和投资自由化便利化，全面实行准入前国民待遇加负面清单制度"
+        },
+        {
+          "key": "D",
+          "text": "开放合作、互利共赢是中国式现代化的战略安排"
+        }
+      ],
+      "answer": "C",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "我国全面实行准入前国民待遇加负面清单管理制度。",
+        "analysis": "金融市场互联互通应稳慎拓展而非全面放开；单边开放重点面向最不发达国家；开放合作、互利共赢是中国式现代化的必然要求，而非一般“战略安排”。",
+        "pitfalls": [
+          "“全面放开”通常比政策表述更激进。",
+          "单边开放重点是最不发达国家。"
+        ],
+        "memoryCue": "稳步扩大制度型开放。"
+      },
+      "tags": [
+        "对外开放",
+        "负面清单"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第11题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第11题",
+          "asset": "assets/sources/exam-4.jpg",
+          "crop": {
+            "focusY": 83,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第11题选项续页",
+          "asset": "assets/sources/exam-4.jpg",
+          "crop": {
+            "focusY": 50,
+            "label": "选项续页单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第11题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 26,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-12",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 12,
+      "stem": "关于推动海洋经济高质量发展，下列说法正确的有：\n①党的二十大首次提出建设海洋强国重大部署\n②推动海洋经济向质量规模型转变\n③突破关键核心技术，推动海洋科技高水平自立自强\n④实施重点海域综合治理，推进蓝色海湾、美丽岸滩、和美海岛建设",
+      "options": [
+        {
+          "key": "A",
+          "text": "1项"
+        },
+        {
+          "key": "B",
+          "text": "2项"
+        },
+        {
+          "key": "C",
+          "text": "3项"
+        },
+        {
+          "key": "D",
+          "text": "4项"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "③④正确，海洋经济要创新驱动并加强综合治理。",
+        "analysis": "建设海洋强国重大部署由党的十八大提出；海洋经济要向质量效益型转变，不是质量规模型。",
+        "pitfalls": [
+          "“十八大”与“二十大”容易混淆。",
+          "质量效益型，不是质量规模型。"
+        ],
+        "memoryCue": "创新驱动、质量效益、综合治理。"
+      },
+      "tags": [
+        "海洋经济",
+        "海洋强国"
+      ],
+      "difficulty": "medium",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第12题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第12题",
+          "asset": "assets/sources/exam-4.jpg",
+          "crop": {
+            "focusY": 18,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第12题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 33,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-13",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 13,
+      "stem": "关于雄安新区，下列说法正确的有：\n①更加有力有序推进北京非首都功能疏解和承接\n②积极稳妥统一推进央企、高校、医院疏解项目建设\n③以要素资源合理集聚为引领，以改革创新为重点\n④推动新兴产业和未来产业集群发展，积极发展生活性服务业",
+      "options": [
+        {
+          "key": "A",
+          "text": "1项"
+        },
+        {
+          "key": "B",
+          "text": "2项"
+        },
+        {
+          "key": "C",
+          "text": "3项"
+        },
+        {
+          "key": "D",
+          "text": "4项"
+        }
+      ],
+      "answer": "A",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "仅①正确，雄安新区的重要任务是承接北京非首都功能疏解。",
+        "analysis": "疏解项目应分批推进而非统一推进；改革创新是动力、要素资源集聚是重点，③将关系倒置；应发展生产性服务业，不能以生活性服务业替换。",
+        "pitfalls": [
+          "分批推进，不是统一推进。",
+          "生产性服务业是产业承接关键词。"
+        ],
+        "memoryCue": "承接疏解、改革创新、要素集聚。"
+      },
+      "tags": [
+        "雄安新区",
+        "非首都功能疏解"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第13题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第13题",
+          "asset": "assets/sources/exam-4.jpg",
+          "crop": {
+            "focusY": 34,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第13题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 39,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-14",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 14,
+      "stem": "关于健全电力市场各项功能，下列说法正确的是：\n①通过分时价格信号引导经营主体优化发用电行为\n②落实中长期合同履约激励约束，实现电力资源长期稳定配置\n③加强绿证价格监测，引导绿证价格在规定范围运行\n④制定零售市场交易规则，加强全过程监管、信息披露和风险控制",
+      "options": [
+        {
+          "key": "A",
+          "text": "①②③"
+        },
+        {
+          "key": "B",
+          "text": "②③④"
+        },
+        {
+          "key": "C",
+          "text": "①②④"
+        },
+        {
+          "key": "D",
+          "text": "①③④"
+        }
+      ],
+      "answer": "C",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "①②④正确，市场价格应在合理水平运行。",
+        "analysis": "分时价格、中长期合同和零售市场监管均符合健全电力市场功能要求。绿证价格由市场形成，应引导其在合理水平运行，不能机械限定在规定范围。",
+        "pitfalls": [
+          "市场化价格通常强调合理水平，而不是行政规定区间。"
+        ],
+        "memoryCue": "分时信号、中长期合同、零售监管。"
+      },
+      "tags": [
+        "电力市场",
+        "市场价格"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第14题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第14题",
+          "asset": "assets/sources/exam-4.jpg",
+          "crop": {
+            "focusY": 50,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第14题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 46,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-15",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 15,
+      "stem": "关于国家安全，下列说法错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "提升粮食产购储加销协同保障能力，确保谷物完全自给、口粮绝对安全"
+        },
+        {
+          "key": "B",
+          "text": "强化政府储备和企业储备协同，提升国家石油储备规模"
+        },
+        {
+          "key": "C",
+          "text": "以海湾为基本单元，一湾一策推进近岸海域治理"
+        },
+        {
+          "key": "D",
+          "text": "金融既有管理和分散风险功能，又自带风险基因"
+        }
+      ],
+      "answer": "A",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "粮食安全要求谷物基本自给、口粮绝对安全。",
+        "analysis": "A 把“谷物基本自给”偷换成“谷物完全自给”。能源储备、海湾治理和金融风险表述均符合相关要求。",
+        "pitfalls": [
+          "基本自给与完全自给只差两个字，政策含义不同。"
+        ],
+        "memoryCue": "谷物基本自给，口粮绝对安全。"
+      },
+      "tags": [
+        "国家安全",
+        "粮食安全"
+      ],
+      "difficulty": "hard",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第15题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第15题",
+          "asset": "assets/sources/exam-4.jpg",
+          "crop": {
+            "focusY": 66,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第15题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 52,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-16",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 16,
+      "stem": "关于城市工作，下列说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "在省域建设用地总量不变前提下均衡化配置增存比例"
+        },
+        {
+          "key": "B",
+          "text": "建立以建筑为主体的历史文化保护实施机制"
+        },
+        {
+          "key": "C",
+          "text": "快速提高农民工参加城镇职工社会保险比例"
+        },
+        {
+          "key": "D",
+          "text": "推动超大特大城市强身健体，做强做精核心功能并有序疏解非核心功能"
+        }
+      ],
+      "answer": "D",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "超大特大城市要做强做精核心功能，合理有序疏解非核心功能。",
+        "analysis": "建设用地配置应差异化而非均衡化；历史文化保护以居民、村民为主体而非建筑；社保比例要稳步提高而非快速提高。",
+        "pitfalls": [
+          "“均衡化、建筑主体、快速提高”都是方向或力度偷换。"
+        ],
+        "memoryCue": "城市核心是人。"
+      },
+      "tags": [
+        "城市工作",
+        "城市治理"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第16题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第16题",
+          "asset": "assets/sources/exam-5.jpg",
+          "crop": {
+            "focusY": 82,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第16题选项续页",
+          "asset": "assets/sources/exam-5.jpg",
+          "crop": {
+            "focusY": 50,
+            "label": "选项续页单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第16题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 59,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-17",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 17,
+      "stem": "关于碳达峰和应对气候变化，下列说法正确的有：\n①实施地方碳考核、行业碳管控、企业碳管理、项目碳评价、产品碳足迹等制度\n②推动全部高载能产业向可再生能源富集区域转移\n③坚持减缓与适应并重，积极应对气候变化风险\n④全面落实联合国气候变化框架公约及其纽约协定",
+      "options": [
+        {
+          "key": "A",
+          "text": "1项"
+        },
+        {
+          "key": "B",
+          "text": "2项"
+        },
+        {
+          "key": "C",
+          "text": "3项"
+        },
+        {
+          "key": "D",
+          "text": "4项"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "①③正确，碳治理需要制度建设并坚持减缓与适应并重。",
+        "analysis": "高载能产业转移应有序推进，不能要求全部转移；相关国际协定是《巴黎协定》，不是“纽约协定”。",
+        "pitfalls": [
+          "“全部转移”过于绝对。",
+          "气候治理核心国际协定是《巴黎协定》。"
+        ],
+        "memoryCue": "有序转移，巴黎协定。"
+      },
+      "tags": [
+        "碳达峰",
+        "气候治理"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第17题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第17题",
+          "asset": "assets/sources/exam-5.jpg",
+          "crop": {
+            "focusY": 20,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第17题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 65,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-18",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 18,
+      "stem": "关于全民阅读，下列说法正确的是：\n①建设全民阶段性学习的学习型社会、学习型大国\n②数字阅读要和传统阅读结合起来，守住内核和素养\n③提倡多读书，建设书香社会，提升人民思想境界和精神力量\n④学习理论最有效的办法是读原著、学原文、悟原理",
+      "options": [
+        {
+          "key": "A",
+          "text": "②③④"
+        },
+        {
+          "key": "B",
+          "text": "①②④"
+        },
+        {
+          "key": "C",
+          "text": "①③④"
+        },
+        {
+          "key": "D",
+          "text": "①②③"
+        }
+      ],
+      "answer": "A",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "②③④正确，要倡导终身学习而非阶段性学习。",
+        "analysis": "学习型社会强调人人皆学、处处能学、时时可学，属于终身学习。数字阅读与传统阅读结合、建设书香社会、读原著学原文悟原理均正确。",
+        "pitfalls": [
+          "“阶段性学习”应为“终身学习”。"
+        ],
+        "memoryCue": "人人、处处、时时可学。"
+      },
+      "tags": [
+        "全民阅读",
+        "终身学习"
+      ],
+      "difficulty": "medium",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第18题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第18题",
+          "asset": "assets/sources/exam-5.jpg",
+          "crop": {
+            "focusY": 40,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第18题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 72,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-19",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 19,
+      "stem": "关于收入分配制度，以下说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "坚持按需分配为主体、多种分配方式并存"
+        },
+        {
+          "key": "B",
+          "text": "坚决拉平制度间、区域间筹资和待遇保障差距"
+        },
+        {
+          "key": "C",
+          "text": "稳步减少中等收入群体规模，形成橄榄型格局"
+        },
+        {
+          "key": "D",
+          "text": "加大税收调节力度，健全自然人税费服务监管体系，实行劳动性所得统一征税"
+        }
+      ],
+      "answer": "D",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "完善收入分配制度要加强税收调节和自然人税费服务监管。",
+        "analysis": "我国坚持按劳分配为主体；差距要缩小而非拉平；橄榄型结构需要扩大中等收入群体规模。",
+        "pitfalls": [
+          "按劳分配不是按需分配。",
+          "缩小差距不等于拉平差距。"
+        ],
+        "memoryCue": "扩中、提低、调高、取缔非法。"
+      },
+      "tags": [
+        "收入分配",
+        "共同富裕"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第19题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第19题",
+          "asset": "assets/sources/exam-5.jpg",
+          "crop": {
+            "focusY": 60,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第19题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 78,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-政治理论-20",
+      "season": "2027 国考第30季",
+      "subject": "政治理论",
+      "number": 20,
+      "stem": "关于医疗卫生服务，以下说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "三级医院加强常见病专业建设，拓展康复护理等服务"
+        },
+        {
+          "key": "B",
+          "text": "未设置社区卫生服务中心的街道，可根据实际由辖区内政府办一级医院等转型建设"
+        },
+        {
+          "key": "C",
+          "text": "稳步推动基本医疗保险县级统筹"
+        },
+        {
+          "key": "D",
+          "text": "完善不同层级医疗机构统一化支付政策"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "未设置社区卫生服务中心的街道，可结合实际推动现有医疗机构转型建设。",
+        "analysis": "三级医院侧重疑难重症，常见病由基层机构负责；基本医疗保险推进省级统筹；医保支付应差异化而非统一化。",
+        "pitfalls": [
+          "三级医院与基层机构的功能不可倒置。",
+          "医保支付强调差异化。"
+        ],
+        "memoryCue": "大病上医院，常见病在基层。"
+      },
+      "tags": [
+        "医疗卫生",
+        "分级诊疗"
+      ],
+      "difficulty": "hard",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第20题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第20题",
+          "asset": "assets/sources/exam-5.jpg",
+          "crop": {
+            "focusY": 80,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第20题选项续页",
+          "asset": "assets/sources/exam-6.jpg",
+          "crop": {
+            "focusY": 50,
+            "label": "选项续页单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季政治理论复盘.pdf",
+          "locator": "第3页，第20题知识点",
+          "asset": "assets/sources/politics-3.jpg",
+          "crop": {
+            "focusY": 85,
+            "label": "政治理论复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-21",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 21,
+      "stem": "甲将房屋出租给乙，租期30年。两年后甲未通知乙即将房屋卖给丙并完成过户。下列说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "租赁期限超过20年的部分无效"
+        },
+        {
+          "key": "B",
+          "text": "乙可主张甲、丙的房屋买卖合同无效"
+        },
+        {
+          "key": "C",
+          "text": "丙取得所有权后可要求乙立即搬离"
+        },
+        {
+          "key": "D",
+          "text": "租赁期满后丙才能取得所有权"
+        }
+      ],
+      "answer": "A",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "租赁期限最长20年，超过20年的部分无效。",
+        "analysis": "出租人未通知承租人出售房屋，承租人可请求赔偿，但不能主张买卖合同无效；买卖不破租赁，新房东继续履行租赁合同；不动产登记过户即发生物权变动。",
+        "pitfalls": [
+          "超过20年只是超出部分无效。",
+          "优先购买权受侵害不等于买卖合同无效。"
+        ],
+        "memoryCue": "二十年上限，买卖不破租赁。"
+      },
+      "tags": [
+        "民法",
+        "房屋租赁"
+      ],
+      "difficulty": "medium",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第21题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第21题",
+          "asset": "assets/sources/exam-6.jpg",
+          "crop": {
+            "focusY": 17,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第1页，第21题知识点",
+          "asset": "assets/sources/knowledge-1.jpg",
+          "crop": {
+            "focusY": 18,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-22",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 22,
+      "stem": "某公司欠缴水土保持补偿费9万元，县水务局作出追缴欠费并罚款9万元的决定，公司申请行政复议。关于本案，下列说法错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "作出罚款决定前，可以告知公司有要求听证的权利"
+        },
+        {
+          "key": "B",
+          "text": "罚款9万元可能违反过罚相当原则"
+        },
+        {
+          "key": "C",
+          "text": "行政复议机关可以进行调解"
+        },
+        {
+          "key": "D",
+          "text": "复议期间县水务局不得自行向申请人收集证据"
+        }
+      ],
+      "answer": "A",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "较大数额罚款应当告知听证权，不能只表述为“可以”。",
+        "analysis": "行政处罚应符合过罚相当原则并考虑具体情节；行政复议可以依法调解；复议期间被申请人不得自行向申请人和有关单位或个人收集证据。",
+        "pitfalls": [
+          "法条中的“应当”被改成“可以”即构成错误。"
+        ],
+        "memoryCue": "听证应告知，复议先取证后裁决。"
+      },
+      "tags": [
+        "行政法",
+        "行政复议"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第22题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第22题",
+          "asset": "assets/sources/exam-6.jpg",
+          "crop": {
+            "focusY": 30,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第1页，第22题知识点",
+          "asset": "assets/sources/knowledge-1.jpg",
+          "crop": {
+            "focusY": 33,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-23",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 23,
+      "stem": "张三犯诈骗罪被判七年，2018年刑满释放；2022年又犯敲诈勒索罪被判六年。下列说法不正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "张三构成累犯"
+        },
+        {
+          "key": "B",
+          "text": "敲诈勒索罪在符合条件下可以假释"
+        },
+        {
+          "key": "C",
+          "text": "敲诈勒索罪不适用缓刑"
+        },
+        {
+          "key": "D",
+          "text": "敲诈勒索罪在符合条件下可以减刑"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "累犯不适用缓刑、不适用假释，但可以适用减刑。",
+        "analysis": "一般累犯要求前罪与后罪均为故意犯罪、有期徒刑以上刑罚，并在前刑执行完毕后5年内再犯应判有期徒刑以上刑罚的故意犯罪。本案满足条件。",
+        "pitfalls": [
+          "累犯不能假释，但并非不能减刑。"
+        ],
+        "memoryCue": "累犯：不缓、不假、可减。"
+      },
+      "tags": [
+        "刑法",
+        "累犯"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第23题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第23题",
+          "asset": "assets/sources/exam-6.jpg",
+          "crop": {
+            "focusY": 43,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第1页，第23题知识点",
+          "asset": "assets/sources/knowledge-1.jpg",
+          "crop": {
+            "focusY": 49,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-24",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 24,
+      "stem": "根据人大代表法及相关法律规定，下列说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "人大代表受到行政拘留处罚，应暂停执行代表职务"
+        },
+        {
+          "key": "B",
+          "text": "县级人大代表在闭会期间非现行犯，被逮捕前须经本级人大常委会许可"
+        },
+        {
+          "key": "C",
+          "text": "代表履职调研费用由本人承担"
+        },
+        {
+          "key": "D",
+          "text": "3名代表联名即可提出罢免本级政府正职负责人的议案"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "县级人大代表闭会期间非现行犯，被逮捕须经本级人大常委会许可。",
+        "analysis": "行政拘留不会导致暂停代表职务；履职费用由本级财政承担；罢免案提出主体包括主席团、常委会或十分之一以上代表联名，不是3人。",
+        "pitfalls": [
+          "代表的人身特别保护重点区分现行犯与非现行犯。"
+        ],
+        "memoryCue": "闭会非现行犯，逮捕先许可。"
+      },
+      "tags": [
+        "宪法法律",
+        "人大代表"
+      ],
+      "difficulty": "medium",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第24题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第24题",
+          "asset": "assets/sources/exam-6.jpg",
+          "crop": {
+            "focusY": 57,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第1页，第24题知识点",
+          "asset": "assets/sources/knowledge-1.jpg",
+          "crop": {
+            "focusY": 65,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-25",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 25,
+      "stem": "依据新修订的《中华人民共和国渔业法》，下列说法错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "有关部门应加强渔业信用体系建设并建立信用记录制度"
+        },
+        {
+          "key": "B",
+          "text": "水产种质资源是可直接用于繁育、养殖生产等的亲本、稚体、受精卵等"
+        },
+        {
+          "key": "C",
+          "text": "未取得养殖证擅自在国有水域养殖的，责令改正并补证或拆除设施"
+        },
+        {
+          "key": "D",
+          "text": "渔业执法机构及工作人员不得参与渔业生产经营活动"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "B 混淆了“水产种质资源”和“水产苗种”两个概念。",
+        "analysis": "水产种质资源侧重物种及其遗传多样性保护；可直接用于繁育、养殖生产的鱼苗、鱼卵、受精卵等属于水产苗种概念。",
+        "pitfalls": [
+          "新法题常把相近法定概念的定义互换。"
+        ],
+        "memoryCue": "种质重保护，苗种重生产。"
+      },
+      "tags": [
+        "法律常识",
+        "渔业法"
+      ],
+      "difficulty": "hard",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第25题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第25题",
+          "asset": "assets/sources/exam-6.jpg",
+          "crop": {
+            "focusY": 70,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第1页，第25题知识点",
+          "asset": "assets/sources/knowledge-1.jpg",
+          "crop": {
+            "focusY": 80,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-26",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 26,
+      "stem": "根据新修订的《中华人民共和国国际海运条例》，下列说法错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "经营无船承运业务应在开业后15日内向省级交通运输主管部门备案"
+        },
+        {
+          "key": "B",
+          "text": "变更国际班轮班期应提前15日公告，并在行为发生后15日内备案"
+        },
+        {
+          "key": "C",
+          "text": "外国国际海运辅助企业在境内设立的常驻代表机构不得经营"
+        },
+        {
+          "key": "D",
+          "text": "国际散装液体危险品船经营者未经省级主管部门许可，不得将经营资格提供给他人使用"
+        }
+      ],
+      "answer": "D",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "国际散装液体危险品船运输经营资格禁止转让或出借。",
+        "analysis": "该经营资格不得提供给他人使用，不存在经省级主管部门许可即可出借的例外。D 通过添加“未经许可”暗示可以批准转让，错误。",
+        "pitfalls": [
+          "绝对禁止事项不能被改写为许可事项。"
+        ],
+        "memoryCue": "危险品船经营资格不得转让出借。"
+      },
+      "tags": [
+        "法律常识",
+        "国际海运"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第26题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第26题",
+          "asset": "assets/sources/exam-6.jpg",
+          "crop": {
+            "focusY": 83,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第26题选项续页",
+          "asset": "assets/sources/exam-7.jpg",
+          "crop": {
+            "focusY": 50,
+            "label": "选项续页单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第26题知识点",
+          "asset": "assets/sources/knowledge-2.jpg",
+          "crop": {
+            "focusY": 13,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-27",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 27,
+      "stem": "根据《中华人民共和国监狱法》，下列说法错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "监狱工作坚持惩罚和改造、教育和劳动相结合"
+        },
+        {
+          "key": "B",
+          "text": "监狱的设置、撤销、迁移由国务院批准"
+        },
+        {
+          "key": "C",
+          "text": "监狱设监狱长、政治委员各一人，副监狱长若干人"
+        },
+        {
+          "key": "D",
+          "text": "监狱人民警察有权提出办理减刑、假释建议"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "监狱的设置、撤销、迁移由国务院司法行政部门批准。",
+        "analysis": "选项 B 把国务院司法行政部门偷换为国务院直接批准。其余表述符合监狱法的组织和职责规定。",
+        "pitfalls": [
+          "“国务院”与“国务院某主管部门”不是同一审批主体。"
+        ],
+        "memoryCue": "监狱事务主管部门是司法部。"
+      },
+      "tags": [
+        "法律常识",
+        "监狱法"
+      ],
+      "difficulty": "medium",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第27题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第27题",
+          "asset": "assets/sources/exam-7.jpg",
+          "crop": {
+            "focusY": 15,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第27题知识点",
+          "asset": "assets/sources/knowledge-2.jpg",
+          "crop": {
+            "focusY": 22,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-28",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 28,
+      "stem": "许多电气设计运用了电流、电阻和热效应原理。下列哪种做法运用的原理与其他三项不同？",
+      "options": [
+        {
+          "key": "A",
+          "text": "电热器采用电阻率大的合金丝"
+        },
+        {
+          "key": "B",
+          "text": "连接电路时常用粗铜线"
+        },
+        {
+          "key": "C",
+          "text": "选用铜、铝制作导线"
+        },
+        {
+          "key": "D",
+          "text": "电熨斗通过缩短电阻丝长度降温"
+        }
+      ],
+      "answer": "A",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "A 利用大电阻增强发热，其余三项均通过减小电阻来降低发热损耗。",
+        "analysis": "粗导线、铜铝材料和缩短电阻丝都会减小电阻；电热器则需要较大电阻把电能转化为热能。",
+        "pitfalls": [
+          "先判断设计目标是“需要发热”还是“减少发热”。"
+        ],
+        "memoryCue": "电热器要大电阻，导线要小电阻。"
+      },
+      "tags": [
+        "物理常识",
+        "电流热效应"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第28题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第28题",
+          "asset": "assets/sources/exam-7.jpg",
+          "crop": {
+            "focusY": 25,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第28题知识点",
+          "asset": "assets/sources/knowledge-2.jpg",
+          "crop": {
+            "focusY": 31,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-29",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 29,
+      "stem": "下列化学家与其提出的著名观点对应错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "道尔顿——原子论"
+        },
+        {
+          "key": "B",
+          "text": "拉瓦锡——氧化燃烧理论"
+        },
+        {
+          "key": "C",
+          "text": "凯库勒——苯的环状结构理论"
+        },
+        {
+          "key": "D",
+          "text": "门捷列夫——分子是保持化学性质的最小粒子"
+        }
+      ],
+      "answer": "D",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "分子学说主要由阿伏伽德罗提出，门捷列夫的代表贡献是元素周期律和元素周期表。",
+        "analysis": "道尔顿对应原子论，拉瓦锡解释氧化燃烧，凯库勒提出苯环结构。D 将阿伏伽德罗的分子学说归给门捷列夫。",
+        "pitfalls": [
+          "门捷列夫与阿伏伽德罗是高频错配。"
+        ],
+        "memoryCue": "道原子、拉燃烧、凯苯环、门周期表。"
+      },
+      "tags": [
+        "化学常识",
+        "科学史"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第29题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第29题",
+          "asset": "assets/sources/exam-7.jpg",
+          "crop": {
+            "focusY": 35,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第29题知识点",
+          "asset": "assets/sources/knowledge-2.jpg",
+          "crop": {
+            "focusY": 41,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-30",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 30,
+      "stem": "关于物质的分类，下列说法错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "锂、钠、钾都属于碱金属"
+        },
+        {
+          "key": "B",
+          "text": "H₂、CO、CH₄都属于可燃气体"
+        },
+        {
+          "key": "C",
+          "text": "生石灰、笑气、干冰都属于氧化物"
+        },
+        {
+          "key": "D",
+          "text": "亚铁离子、亚铜离子、镁离子都属于二价离子"
+        }
+      ],
+      "answer": "D",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "亚铜离子为+1价，不属于二价离子。",
+        "analysis": "亚铁离子 Fe²⁺和镁离子 Mg²⁺为二价；亚铜离子 Cu⁺是一价。氧化物由两种元素组成且其中一种为氧元素。",
+        "pitfalls": [
+          "“亚铜”是一价，“铜”离子通常指二价。"
+        ],
+        "memoryCue": "亚铜一价，铜二价。"
+      },
+      "tags": [
+        "化学常识",
+        "物质分类"
+      ],
+      "difficulty": "hard",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第30题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第30题",
+          "asset": "assets/sources/exam-7.jpg",
+          "crop": {
+            "focusY": 45,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第30题知识点",
+          "asset": "assets/sources/knowledge-2.jpg",
+          "crop": {
+            "focusY": 50,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-31",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 31,
+      "stem": "关于中医药的理论与实践，下列说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "中医诊疗以辨病论治为核心，同病需统一方药"
+        },
+        {
+          "key": "B",
+          "text": "十八反规定甘草反甘遂、大戟、芫花、海藻，不可同用"
+        },
+        {
+          "key": "C",
+          "text": "六淫具有强烈传染性，容易引发大范围流行"
+        },
+        {
+          "key": "D",
+          "text": "中药汤剂煎煮时间越长越好，均需30分钟以上"
+        }
+      ],
+      "answer": "B",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "甘草反甘遂、大戟、芫花、海藻，属于十八反配伍禁忌。",
+        "analysis": "中医核心是辨证论治，包含同病异治、异病同治；六淫是外感病邪但无强烈传染性；不同药材煎煮时长不同，并非越久越好。",
+        "pitfalls": [
+          "辨证论治不等于辨病后统一用药。",
+          "六淫与疫病不能混同。"
+        ],
+        "memoryCue": "甘草反甘遂、大戟、海藻、芫花。"
+      },
+      "tags": [
+        "中医药",
+        "十八反"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第31题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第31题",
+          "asset": "assets/sources/exam-7.jpg",
+          "crop": {
+            "focusY": 55,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第31题知识点",
+          "asset": "assets/sources/knowledge-2.jpg",
+          "crop": {
+            "focusY": 59,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-32",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 32,
+      "stem": "石峁遗址是龙山晚期到夏早期规模最大的城址。下列研究方向与使用技术对应错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "研究城墙石料矿物成分和风化程度——遥感卫星图像分析"
+        },
+        {
+          "key": "B",
+          "text": "研究殉葬人群血缘关系——古DNA亲缘关系分析"
+        },
+        {
+          "key": "C",
+          "text": "研究居民蛋白质摄入来源——碳氮稳定同位素分析"
+        },
+        {
+          "key": "D",
+          "text": "研究人群迁徙与基因交流——基因组测序与群体遗传学分析"
+        }
+      ],
+      "answer": "A",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "遥感卫星适合宏观地貌扫描，不能精细分析石料矿物成分和风化程度。",
+        "analysis": "矿物成分和风化程度需要实验室仪器分析；古DNA、稳定同位素和群体遗传学分别适合亲缘、饮食结构和迁徙研究。",
+        "pitfalls": [
+          "技术能力要与研究尺度匹配。"
+        ],
+        "memoryCue": "遥感看宏观，成分靠实验室。"
+      },
+      "tags": [
+        "考古科技",
+        "石峁遗址"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第32题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第32题",
+          "asset": "assets/sources/exam-7.jpg",
+          "crop": {
+            "focusY": 65,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第32题知识点",
+          "asset": "assets/sources/knowledge-2.jpg",
+          "crop": {
+            "focusY": 69,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-33",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 33,
+      "stem": "关于世界洋流及其地理作用，下列说法错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "北半球中低纬大洋环流整体呈顺时针"
+        },
+        {
+          "key": "B",
+          "text": "直布罗陀海峡表层大西洋水流入地中海、底层反向流出，属于密度流"
+        },
+        {
+          "key": "C",
+          "text": "北大西洋暖流使欧洲西海岸冬季较同经度其他地区更温和湿润"
+        },
+        {
+          "key": "D",
+          "text": "本格拉寒流抑制降水，促成非洲西南沿岸纳米布沙漠"
+        }
+      ],
+      "answer": "C",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "北大西洋暖流使欧洲西岸较同纬度地区更温和湿润，题干偷换为“同经度”。",
+        "analysis": "北半球中低纬环流顺时针、直布罗陀海峡存在密度流、本格拉寒流促成沿岸荒漠均正确。比较气候差异应选同纬度地区。",
+        "pitfalls": [
+          "洋流影响气候的比较基准通常是同纬度。"
+        ],
+        "memoryCue": "暖流增温增湿，比较要同纬度。"
+      },
+      "tags": [
+        "地理常识",
+        "洋流"
+      ],
+      "difficulty": "medium",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第33题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第33题",
+          "asset": "assets/sources/exam-7.jpg",
+          "crop": {
+            "focusY": 75,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第33题知识点",
+          "asset": "assets/sources/knowledge-2.jpg",
+          "crop": {
+            "focusY": 78,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-34",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 34,
+      "stem": "二十四节气与地域农事活动紧密结合。下列说法错误的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "清明：江南播种早稻，黄河流域修剪果树"
+        },
+        {
+          "key": "B",
+          "text": "芒种：长江流域收割冬小麦，华南抢种晚稻"
+        },
+        {
+          "key": "C",
+          "text": "白露：华北收获夏玉米，西北播种冬小麦"
+        },
+        {
+          "key": "D",
+          "text": "霜降：南方收摘柑橘，北方储存蔬菜"
+        }
+      ],
+      "answer": "C",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "白露播种冬小麦不能一概而论，主要适用于高海拔寒凉区域。",
+        "analysis": "多数热量条件较好的地区在白露播种冬小麦偏早，冬季易受冻害。节气农事要结合纬度、海拔和热量条件判断。",
+        "pitfalls": [
+          "全国性的节气结论要警惕忽略地域差异。"
+        ],
+        "memoryCue": "节气农事要看热量与区域。"
+      },
+      "tags": [
+        "农业常识",
+        "二十四节气"
+      ],
+      "difficulty": "easy",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第34题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第34题",
+          "asset": "assets/sources/exam-7.jpg",
+          "crop": {
+            "focusY": 85,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第8页，第34题选项续页",
+          "asset": "assets/sources/exam-8.jpg",
+          "crop": {
+            "focusY": 50,
+            "label": "选项续页单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第34题知识点",
+          "asset": "assets/sources/knowledge-2.jpg",
+          "crop": {
+            "focusY": 87,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    },
+    {
+      "id": "2027-国考-第30季-常识-35",
+      "season": "2027 国考第30季",
+      "subject": "常识",
+      "number": 35,
+      "stem": "下列关于中国古代文学流派、代表人物及核心主张的对应关系，正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "江西诗派——黄庭坚——点铁成金、夺胎换骨"
+        },
+        {
+          "key": "B",
+          "text": "公安派——袁宏道——文必秦汉、诗必盛唐"
+        },
+        {
+          "key": "C",
+          "text": "桐城派——方苞——独抒性灵、不拘格套"
+        },
+        {
+          "key": "D",
+          "text": "格调派——王士祯——温柔敦厚、重视诗教"
+        }
+      ],
+      "answer": "A",
+      "answerStatus": "verified",
+      "review": {
+        "summary": "江西诗派代表人物黄庭坚主张“点铁成金”“夺胎换骨”。",
+        "analysis": "公安派袁宏道主张独抒性灵、不拘格套；桐城派方苞讲究义法；格调派代表沈德潜，主张温柔敦厚；王士祯属于神韵派。",
+        "pitfalls": [
+          "各流派主张常通过交叉互换设置选项。"
+        ],
+        "memoryCue": "江西黄庭坚点铁；公安袁宏道性灵；桐城方苞义法。"
+      },
+      "tags": [
+        "文学常识",
+        "文学流派"
+      ],
+      "difficulty": "hard",
+      "match": {
+        "status": "verified",
+        "confidence": 0.99,
+        "evidence": [
+          "原题与复盘均以第35题标号，题目顺序和知识点主题一致。"
+        ]
+      },
+      "sourceRefs": [
+        {
+          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
+          "locator": "第8页，第35题",
+          "asset": "assets/sources/exam-8.jpg",
+          "crop": {
+            "focusY": 50,
+            "label": "原题单题聚焦"
+          }
+        },
+        {
+          "file": "27国考行测模考第30季常识判断复盘.pdf",
+          "locator": "第3页，第35题知识点",
+          "asset": "assets/sources/knowledge-3.jpg",
+          "crop": {
+            "focusY": 50,
+            "label": "常识复盘单题聚焦"
+          }
+        }
+      ],
+      "mastery": "new",
+      "reviewState": {
+        "step": 0,
+        "nextReviewAt": null,
+        "steps": {
+          "again": 0,
+          "fuzzy": 0,
+          "know": 0
+        },
+        "history": []
+      },
+      "note": ""
+    }
+  ]
+}

@@ -137,3 +137,13 @@ var SUPABASE_ANON_KEY = "你的 anon public key";
 - 满 5 分钟的已结算专注获得一枚行程印记；累计 0 / 300 / 900 / 1800 / 3000 分钟依次解锁晨读驿、申论渡、数理关、政治理论坊、金榜台。
 - 关联任务会累计专注分钟；是否完成任务始终由用户在保存行程时确认。
 - 刷新或切换标签页后按保存的开始时间重算；同一会话 ID 只结算一次。该数据是个人学习记录，不用于任何高价值积分或排名。
+
+## 复盘资料库
+
+公考工具箱内置“复盘台”，用于政治理论与常识的逐题阅读、来源证据、答题历史和间隔复习。资料位于 tools/公考工具箱/reviews/：
+
+- seasons/季度目录/：每季独立的 review-data.json、匹配报告、原始资料和可选证据；
+- assets/sources/：页面使用的原题/复盘裁剪证据图片；
+- scripts/build-library.mjs：扫描所有季度并生成汇总题库。
+
+新增季度后，在仓库根目录运行 node tools/公考工具箱/reviews/scripts/build-library.mjs，确认 tools/公考工具箱/reviews/match-report.json 没有未处理的冲突或数据错误，再更新 GitHub Pages。学习进度保存在浏览器的 gk-review-library-v1，登录后沿用现有 Supabase 同步，JSON 备份可跨设备迁移。
