@@ -37,8 +37,17 @@
     sourceRef: null,
     sourceCropped: true,
     initialHashApplied: false,
-    storageError: false
+    storageError: false,
+    cloudSyncInFlight: false,
+    hasLocalSnapshot: false,
+    initialRenderComplete: false
   };
+
+  function hasStoredSnapshot() {
+    try { return Boolean(localStorage.getItem(STORAGE_KEY)); } catch (error) { return false; }
+  }
+
+  state.hasLocalSnapshot = hasStoredSnapshot();
 
   function normalizeQuestion(q) {
     const legacyReview = q.reviewState || {};
@@ -108,20 +117,34 @@
   }
 
   function syncCloudData() {
-    if (!window.SyncStore || !window.SyncStore.readData) return;
-    const localData = state.data;
+    if (!window.SyncStore || !window.SyncStore.readData || state.cloudSyncInFlight) return;
+    state.cloudSyncInFlight = true;
     window.SyncStore.readData(STORAGE_KEY, (cloudData) => {
+      state.cloudSyncInFlight = false;
+      if (typeof cloudData === "string") {
+        try { cloudData = JSON.parse(cloudData); } catch (error) { cloudData = null; }
+      }
       if (!cloudData || !Array.isArray(cloudData.questions)) return;
+      // A user may answer or edit while the remote request is in flight.
+      // Compare against the latest in-memory snapshot, never the request-time one.
+      const localData = state.data;
       const localUpdated = Date.parse(localData.updatedAt || "") || 0;
       const cloudUpdated = Date.parse(cloudData.updatedAt || "") || 0;
-      if (localUpdated && localUpdated >= cloudUpdated) {
+      const localQuestions = Array.isArray(localData.questions) ? localData.questions : [];
+      const cloudQuestions = Array.isArray(cloudData.questions) ? cloudData.questions : [];
+      const sameSnapshot = localUpdated === cloudUpdated && localQuestions.length === cloudQuestions.length &&
+        JSON.stringify(localQuestions) === JSON.stringify(cloudQuestions);
+      if (sameSnapshot) return;
+      if (localUpdated > cloudUpdated || (localUpdated === cloudUpdated && state.hasLocalSnapshot)) {
         if (window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, localData);
         return;
       }
       state.data = {
         ...cloudData,
-        questions: mergeQuestions(seed.questions || [], cloudData.questions, false)
+        questions: mergeQuestions(seed.questions || [], cloudQuestions, false)
       };
+      state.hasLocalSnapshot = true;
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data)); } catch (error) { /* saveData reports storage errors */ }
       renderAll(true);
     });
   }
@@ -214,6 +237,7 @@
   }
 
   function filterQuestions() {
+    clearAccountAutofill();
     const query = els.search.value.trim().toLowerCase();
     state.filtered = state.data.questions.filter((q) => {
       const haystack = [q.stem, q.subject, q.season, ...(q.tags || []), q.review.summary, q.review.analysis].join(" ").toLowerCase();
@@ -466,6 +490,17 @@
     if (render) renderAll(false);
   }
 
+  function clearAccountAutofill() {
+    const value = String(els.search.value || "").trim();
+    // Account forms elsewhere on the portal can autofill this search field.
+    // An email is never a useful review query, so remove only this unmistakable artifact.
+    if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value)) {
+      els.search.value = "";
+      return true;
+    }
+    return false;
+  }
+
   function openEdit() {
     const q = currentQuestion();
     if (!q) return;
@@ -626,6 +661,7 @@
 
   [els.search, els.season, els.subject, els.mastery, els.status].forEach((control) => {
     control.addEventListener(control === els.search ? "input" : "change", () => {
+      if (control === els.search) clearAccountAutofill();
       state.quick = null;
       renderAll(false);
     });
@@ -708,12 +744,25 @@
   });
   window.ReviewApp = {
     refresh() {
-      state.data = loadData();
+      const nextData = loadData();
+      const nextQuestions = nextData.questions || [];
+      const currentQuestions = state.data.questions || [];
+      const unchanged = nextData.updatedAt === state.data.updatedAt && nextQuestions.length === currentQuestions.length;
+      state.data = nextData;
+      state.hasLocalSnapshot = hasStoredSnapshot();
       applyDeepLink();
-      renderAll(true);
+      if (!state.initialRenderComplete || !unchanged) renderAll(true);
       syncCloudData();
     }
   };
   renderAll(true);
+  state.initialRenderComplete = true;
   syncCloudData();
+  // Some password managers fill fields after DOMContentLoaded without firing input.
+  setTimeout(() => {
+    if (clearAccountAutofill()) renderAll(false);
+  }, 0);
+  setTimeout(() => {
+    if (clearAccountAutofill()) renderAll(false);
+  }, 300);
 })();

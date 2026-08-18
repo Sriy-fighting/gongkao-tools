@@ -245,7 +245,8 @@ window.SyncStore = (function () {
     }
     fetchFromCloud(key, function (cloudData) {
       if (cloudData !== null) {
-        setLocalValue(key, cloudData);
+        // The caller decides whether the remote snapshot is newer. Writing it
+        // here first can erase a newer local review library before that check.
         if (typeof callback === "function") callback(cloudData);
       } else if (typeof callback === "function") {
         callback(localData);

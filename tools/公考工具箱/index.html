@@ -206,7 +206,7 @@
         <div class="review-workspace">
           <aside class="review-sidebar" id="reviewSidebar" aria-label="题目导航">
             <div class="review-filter-box">
-              <div class="review-search"><span class="review-icon" aria-hidden="true">⌕</span><label class="sr-only" for="searchInput">搜索题干或知识点</label><input id="searchInput" type="search" placeholder="搜索题干、标签、知识点"></div>
+              <div class="review-search"><span class="review-icon" aria-hidden="true">⌕</span><label class="sr-only" for="searchInput">搜索题干或知识点</label><input id="searchInput" name="review-search" type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-1p-ignore="true" data-lpignore="true" placeholder="搜索题干、标签、知识点"></div>
               <div class="review-filter-grid">
                 <select id="seasonFilter" aria-label="按季度筛选"></select>
                 <select id="subjectFilter" aria-label="按科目筛选"><option value="all">全部科目</option><option>政治理论</option><option>常识</option><option>公基</option></select>
@@ -470,11 +470,11 @@
   </div>
 </div>
 
-<script src="assets/js/sync.js"></script>
-<script src="assets/js/portal.js?v=20260729-plan-stability-periods"></script>
+<script src="assets/js/sync.js?v=20260819-review-stability"></script>
+<script src="assets/js/portal.js?v=20260819-review-stability"></script>
 <script src="assets/js/journey.js?v=20260714-draft-editor"></script>
 <script src="assets/js/recitation.js?v=1"></script>
 <script src="reviews/review-data.js?v=20260819"></script>
-<script src="assets/js/review-app.js?v=20260819"></script>
+<script src="assets/js/review-app.js?v=20260819-filter-stability"></script>
 </body>
 </html>

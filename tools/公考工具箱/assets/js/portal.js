@@ -2912,6 +2912,18 @@
           }
           var _oldVal = localStorage.getItem(_row.data_key);
           var _newVal = typeof _row.data_value === 'string' ? _row.data_value : JSON.stringify(_row.data_value);
+          if (_row.data_key === 'gk-review-library-v1') {
+            // Never let an older cloud review snapshot replace newer local
+            // answers, mastery, notes, or review history during polling.
+            try {
+              var _localReview = _oldVal ? JSON.parse(_oldVal) : null;
+              var _cloudReview = typeof _row.data_value === 'string' ? JSON.parse(_row.data_value) : _row.data_value;
+              var _localReviewAt = Date.parse(_localReview && _localReview.updatedAt || '') || 0;
+              var _cloudReviewAt = Date.parse(_cloudReview && _cloudReview.updatedAt || _row.updated_at || '') || 0;
+              if (_localReviewAt >= _cloudReviewAt && _localReviewAt > 0) continue;
+              if (_localReviewAt === _cloudReviewAt && _oldVal) continue;
+            } catch (e) {}
+          }
           if (_oldVal !== _newVal) {
             try { localStorage.setItem(_row.data_key, _newVal); } catch(e) {}
             changed = true;
