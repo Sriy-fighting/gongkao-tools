@@ -270,7 +270,7 @@
     const attempts = all.flatMap((q) => historyOf(q).filter((item) => item.kind === "answer").map((item) => ({ ...item, q })));
     const scored = attempts.filter((item) => item.answerStatus === "verified" && typeof item.correct === "boolean");
     $("insightsMeta").textContent = scored.length ? `已完成 ${scored.length} 次有效作答 · 正确率 ${Math.round(scored.filter((item) => item.correct).length / scored.length * 100)}%` : "完成作答后会在这里形成统计";
-    const bySubject = ["政治理论", "常识"].map((subject) => {
+    const bySubject = ["政治理论", "常识", "公基"].map((subject) => {
       const rows = scored.filter((item) => item.q.subject === subject);
       const accuracy = rows.length ? Math.round(rows.filter((item) => item.correct).length / rows.length * 100) : null;
       return `<div class="insight-row"><span>${escapeHtml(subject)}</span><strong>${accuracy === null ? "—" : accuracy + "%"}</strong><small>${rows.length} 次作答</small></div>`;

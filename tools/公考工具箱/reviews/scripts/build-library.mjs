@@ -110,7 +110,7 @@ async function build() {
 
   const library = {
     version: 1,
-    libraryName: "政治理论与常识复盘资料库",
+    libraryName: "政治理论、常识与公基复盘资料库",
     generatedAt: new Date().toISOString(),
     seasons: seasonReports,
     questions: [...questions.values()]
