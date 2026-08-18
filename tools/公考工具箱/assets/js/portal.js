@@ -20,6 +20,18 @@
   var links = [];
   var TOOL_ORDER_STORAGE_KEY = 'gk-tool-order';
   var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'wusi', 'review', 'plan'];
+  var TOOL_NAMES_STORAGE_KEY = 'gk-tool-names-v1';
+  var DEFAULT_TOOL_NAMES = {
+    dashboard: '行旅台',
+    plan: '行程计划',
+    exam: '模考记分',
+    essay: '申论写作',
+    speed: '数理驿道',
+    curve: '复习灯台',
+    wusi: '五四讲话背诵',
+    review: '复盘台'
+  };
+  var toolNames = {};
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
   var PLAN_SUBJECTS = ['政治理论', '申论', '资料分析', '常识', '判断推理', '言语理解', '数量关系', '复盘', '其他'];
   var PLAN_DAY_PARTS = [
@@ -43,14 +55,8 @@
     var brandIcon = document.querySelector('.sidebar-brand-icon');
     if (brandText) brandText.textContent = '长安题途';
     if (brandIcon) brandIcon.textContent = '长';
-    var displayNames = { dashboard: '行旅台', plan: '行程计划', essay: '申论写作', speed: '数理驿道', curve: '复习灯台', exam: '模考记分', wusi: '五四讲话背诵', review: '复盘台' };
-    Object.keys(displayNames).forEach(function (view) {
-      if (TOOLS[view]) TOOLS[view].name = displayNames[view];
-      var nav = document.querySelector('.nav-item[data-view="' + view + '"]');
-      if (nav) Array.prototype.slice.call(nav.childNodes).forEach(function (node) { if (node.nodeType === 3 && node.nodeValue.trim()) node.nodeValue = displayNames[view]; });
-      var card = document.querySelector('.tool-card[data-view="' + view + '"] .tool-card-title');
-      if (card) card.textContent = displayNames[view];
-    });
+    toolNames = loadToolNames();
+    applyToolNames();
     initPlanModalAccessibility();
     if (window.SyncStore) syncInfo = window.SyncStore.init();
     els.sidebar = document.querySelector('.sidebar');
@@ -63,6 +69,9 @@
     els.themeToggle = document.getElementById('theme-toggle');
     els.syncBtn = document.getElementById('sidebar-sync-btn');
     els.accountBtn = document.getElementById('sidebar-account-btn');
+    els.toolNamesBtn = document.getElementById('tool-names-btn');
+    els.toolNamesDialog = document.getElementById('tool-names-dialog');
+    els.toolNamesForm = document.getElementById('tool-names-form');
     els.planView = document.getElementById('plan-view');
     els.recitationView = document.getElementById('recitation-view');
     els.reviewView = document.getElementById('review-view');
@@ -80,6 +89,14 @@
     els.themeToggle.addEventListener('click', toggleTheme);
     if (els.syncBtn) els.syncBtn.addEventListener('click', openSyncConfig);
     if (els.accountBtn) els.accountBtn.addEventListener('click', openAccountModal);
+    if (els.toolNamesBtn) els.toolNamesBtn.addEventListener('click', openToolNamesDialog);
+    if (els.toolNamesForm) els.toolNamesForm.addEventListener('submit', saveToolNamesFromDialog);
+    var toolNamesClose = document.getElementById('tool-names-close');
+    if (toolNamesClose) toolNamesClose.addEventListener('click', function () { els.toolNamesDialog.close(); });
+    var toolNamesCancel = document.getElementById('tool-names-cancel');
+    if (toolNamesCancel) toolNamesCancel.addEventListener('click', function () { els.toolNamesDialog.close(); });
+    var toolNamesRestore = document.getElementById('tool-names-restore');
+    if (toolNamesRestore) toolNamesRestore.addEventListener('click', restoreToolNamesInDialog);
     if (window.SyncStore && window.SyncStore.onAuthChange) {
       window.SyncStore.onAuthChange(function (info) {
         syncInfo.hasConfig = !!info.hasConfig;
@@ -152,11 +169,91 @@
     } catch(e) {
       planData = normalizePlanData({ version: 2, tasks: [] });
     }
+    toolNames = loadToolNames();
+    applyToolNames();
     renderPlan();
     applySavedToolOrder();
     els.navItems = document.querySelectorAll('.nav-item');
     refreshNavMoveControls();
     renderTimer(); renderCountdown(); renderLinks(); renderSyncStatus(); renderAccountStatus();
+  }
+
+  function loadToolNames() {
+    var names = {};
+    Object.keys(DEFAULT_TOOL_NAMES).forEach(function (view) { names[view] = DEFAULT_TOOL_NAMES[view]; });
+    try {
+      var saved = JSON.parse(localStorage.getItem(TOOL_NAMES_STORAGE_KEY) || 'null');
+      if (saved && typeof saved === 'object') {
+        Object.keys(DEFAULT_TOOL_NAMES).forEach(function (view) {
+          var value = typeof saved[view] === 'string' ? saved[view].replace(/\s+/g, ' ').trim() : '';
+          if (value) names[view] = value.slice(0, 18);
+        });
+      }
+    } catch(e) {}
+    return names;
+  }
+
+  function getToolName(view) {
+    return toolNames[view] || DEFAULT_TOOL_NAMES[view] || (TOOLS[view] && TOOLS[view].name) || view;
+  }
+
+  function applyToolNames() {
+    Object.keys(DEFAULT_TOOL_NAMES).forEach(function (view) {
+      var name = getToolName(view);
+      if (TOOLS[view]) TOOLS[view].name = name;
+      var nav = document.querySelector('.nav-item[data-view="' + view + '"]');
+      if (nav) {
+        Array.prototype.slice.call(nav.childNodes).forEach(function (node) {
+          if (node.nodeType === 3 && node.nodeValue.trim()) node.nodeValue = name;
+        });
+        nav.setAttribute('title', name);
+      }
+      var card = document.querySelector('.tool-card[data-view="' + view + '"] .tool-card-title');
+      if (card) card.textContent = name;
+    });
+    if (els.pageTitle && DEFAULT_TOOL_NAMES[currentView]) els.pageTitle.textContent = getToolName(currentView);
+  }
+
+  function saveToolNames(names) {
+    try {
+      localStorage.setItem(TOOL_NAMES_STORAGE_KEY, JSON.stringify(names));
+      if (window.SyncStore) window.SyncStore.writeData(TOOL_NAMES_STORAGE_KEY, names);
+    } catch(e) {}
+  }
+
+  function openToolNamesDialog() {
+    if (!els.toolNamesDialog) return;
+    els.toolNamesDialog.querySelectorAll('[data-tool-name]').forEach(function (input) {
+      input.value = getToolName(input.dataset.toolName);
+    });
+    els.toolNamesDialog.showModal();
+    setTimeout(function () {
+      var firstField = els.toolNamesDialog.querySelector('[data-tool-name]');
+      if (firstField) firstField.focus();
+    }, 0);
+  }
+
+  function restoreToolNamesInDialog() {
+    if (!els.toolNamesDialog) return;
+    els.toolNamesDialog.querySelectorAll('[data-tool-name]').forEach(function (input) {
+      input.value = DEFAULT_TOOL_NAMES[input.dataset.toolName];
+    });
+  }
+
+  function saveToolNamesFromDialog(event) {
+    event.preventDefault();
+    if (!els.toolNamesDialog) return;
+    var next = {};
+    Object.keys(DEFAULT_TOOL_NAMES).forEach(function (view) { next[view] = DEFAULT_TOOL_NAMES[view]; });
+    els.toolNamesDialog.querySelectorAll('[data-tool-name]').forEach(function (input) {
+      var value = String(input.value || '').replace(/\s+/g, ' ').trim().slice(0, 18);
+      if (value) next[input.dataset.toolName] = value;
+    });
+    toolNames = next;
+    applyToolNames();
+    saveToolNames(toolNames);
+    els.toolNamesDialog.close();
+    showSyncToast('模块名称已保存');
   }
 
   function getSavedToolOrder() {
@@ -345,7 +442,7 @@
       if (els.recitationView) els.recitationView.style.display = 'none';
       if (els.reviewView) els.reviewView.style.display = 'none';
       els.toolContainer.classList.remove('active');
-      els.pageTitle.textContent = '首页';
+      els.pageTitle.textContent = getToolName('dashboard');
       if (timerState.running && !timerState.tickId) timerState.tickId = setInterval(tickTimer, 100);
     } else if (view === 'plan') {
       els.dashboard.style.display = 'none';
@@ -353,7 +450,7 @@
       if (els.recitationView) els.recitationView.style.display = 'none';
       if (els.reviewView) els.reviewView.style.display = 'none';
       els.toolContainer.classList.remove('active');
-      els.pageTitle.textContent = '行程计划';
+      els.pageTitle.textContent = getToolName('plan');
       renderPlan();
     } else if (view === 'wusi') {
       els.dashboard.style.display = 'none';
@@ -2901,6 +2998,7 @@
       window.SyncStore.fetchAllKeys(function (rows) {
         if (!rows || rows.length === 0) return;
         var changed = false;
+        var toolNamesChanged = false;
         for (var _ri = 0; _ri < rows.length; _ri++) {
           var _row = rows[_ri];
           if (_row.data_value == null || !_row.data_key) continue;
@@ -2927,9 +3025,14 @@
           if (_oldVal !== _newVal) {
             try { localStorage.setItem(_row.data_key, _newVal); } catch(e) {}
             changed = true;
+            if (_row.data_key === TOOL_NAMES_STORAGE_KEY) toolNamesChanged = true;
           }
         }
         if (!changed) return;
+        if (toolNamesChanged) {
+          toolNames = loadToolNames();
+          applyToolNames();
+        }
         // Reload study plan data from localStorage
         try {
           var _planV2 = JSON.parse(localStorage.getItem(PLAN_STORAGE_KEY));

@@ -4485,3 +4485,71 @@ input, textarea { cursor:text; }
   .plan-stage-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .plan-stage-card:last-child { grid-column: 1 / -1; }
 }
+
+.tool-names-dialog {
+  width: min(560px, calc(100vw - 32px));
+  max-width: 100%;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, .24);
+}
+
+.tool-names-dialog::backdrop { background: rgba(15, 23, 42, .56); }
+.tool-names-dialog form { margin: 0; }
+.tool-names-dialog-head,
+.tool-names-dialog-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+}
+
+.tool-names-dialog-head { border-bottom: 1px solid var(--border); }
+.tool-names-dialog-head h2 { margin: 0; font-size: 19px; font-weight: 800; }
+.tool-names-close {
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 25px;
+  line-height: 1;
+}
+
+.tool-names-close:hover { background: var(--surface-hover); color: var(--text-primary); }
+.tool-names-dialog-body { padding: 20px; }
+.tool-names-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.tool-name-field { display: grid; gap: 6px; color: var(--text-secondary); font-size: 13px; font-weight: 700; }
+.tool-name-field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  font: inherit;
+  font-weight: 600;
+}
+
+.tool-name-field input:focus { border-color: var(--primary); outline: 3px solid rgba(19, 113, 105, .24); }
+.tool-names-dialog-actions { border-top: 1px solid var(--border); }
+.tool-names-dialog-actions > span { flex: 1; }
+.tool-names-dialog-actions button { min-height: 42px; padding: 0 15px; border-radius: 7px; font-weight: 750; }
+.tool-names-restore,
+.tool-names-secondary { border: 1px solid var(--border); background: var(--surface-hover); color: var(--text-secondary); }
+.tool-names-restore:hover,
+.tool-names-secondary:hover { border-color: var(--primary); color: var(--text-primary); }
+.tool-names-primary { border: 1px solid var(--primary); background: var(--primary); color: #fff; }
+.tool-names-primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
+
+@media (max-width: 520px) {
+  .tool-names-grid { grid-template-columns: minmax(0, 1fr); }
+  .tool-names-dialog-head, .tool-names-dialog-actions { padding: 14px 16px; }
+  .tool-names-dialog-body { padding: 16px; }
+}
