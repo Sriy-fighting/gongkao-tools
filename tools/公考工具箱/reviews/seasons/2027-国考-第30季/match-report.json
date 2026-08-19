@@ -1,1108 +1,376 @@
 {
   "version": 1,
   "season": "2027 国考第30季",
-  "generatedAt": "2026-08-18T17:17:37.678Z",
+  "generatedAt": "2026-08-19T01:29:58.868905+00:00",
+  "reviewSource": {
+    "mode": "user_pdf_literal_ordered",
+    "files": [
+      "27国考⾏测模考第30季政治理论复盘.pdf",
+      "27国考⾏测模考第30季常识判断复盘.pdf"
+    ],
+    "policy": "展示用 review 仅提取用户提供复盘笔记；按明确题号和自然顺序配对，不重写、扩写、纠错或补写。"
+  },
   "totals": {
     "questions": 35,
     "verified": 35,
     "pending": 0,
-    "unmatched": 0
+    "unmatched": 0,
+    "validationErrors": 0,
+    "duplicateConflicts": 0,
+    "evidenceCount": 75
   },
-  "matches": [
+  "items": [
     {
-      "id": "2027-国考-第30季-政治理论-01",
-      "number": 1,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-01",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第1题标号，题目顺序和知识点主题一致。"
+        "原题第1题与复盘笔记第1条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第2页，第1题",
-          "asset": "assets/sources/exam-2.jpg",
-          "crop": {
-            "focusY": 18,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第1题知识点",
-          "asset": "assets/sources/politics-1.jpg",
-          "crop": {
-            "focusY": 13,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-02",
-      "number": 2,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-02",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第2题标号，题目顺序和知识点主题一致。"
+        "原题第2题与复盘笔记第2条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第2页，第2题",
-          "asset": "assets/sources/exam-2.jpg",
-          "crop": {
-            "focusY": 34,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第2题知识点",
-          "asset": "assets/sources/politics-1.jpg",
-          "crop": {
-            "focusY": 24,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-03",
-      "number": 3,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-03",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第3题标号，题目顺序和知识点主题一致。"
+        "原题第3题与复盘笔记第3条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第2页，第3题",
-          "asset": "assets/sources/exam-2.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第3题知识点",
-          "asset": "assets/sources/politics-1.jpg",
-          "crop": {
-            "focusY": 34,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-04",
-      "number": 4,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-04",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第4题标号，题目顺序和知识点主题一致。"
+        "原题第4题与复盘笔记第4条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第2页，第4题",
-          "asset": "assets/sources/exam-2.jpg",
-          "crop": {
-            "focusY": 66,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第4题知识点",
-          "asset": "assets/sources/politics-1.jpg",
-          "crop": {
-            "focusY": 45,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-05",
-      "number": 5,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-05",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第5题标号，题目顺序和知识点主题一致。"
+        "原题第5题与复盘笔记第5条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第2页，第5题",
-          "asset": "assets/sources/exam-2.jpg",
-          "crop": {
-            "focusY": 82,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第5题知识点",
-          "asset": "assets/sources/politics-1.jpg",
-          "crop": {
-            "focusY": 55,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-06",
-      "number": 6,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-06",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第6题标号，题目顺序和知识点主题一致。"
+        "原题第6题与复盘笔记第6条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第3页，第6题",
-          "asset": "assets/sources/exam-3.jpg",
-          "crop": {
-            "focusY": 17,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第6题知识点",
-          "asset": "assets/sources/politics-1.jpg",
-          "crop": {
-            "focusY": 66,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-07",
-      "number": 7,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-07",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第7题标号，题目顺序和知识点主题一致。"
+        "原题第7题与复盘笔记第7条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第3页，第7题",
-          "asset": "assets/sources/exam-3.jpg",
-          "crop": {
-            "focusY": 30,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第7题知识点",
-          "asset": "assets/sources/politics-1.jpg",
-          "crop": {
-            "focusY": 76,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-08",
-      "number": 8,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-08",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第8题标号，题目顺序和知识点主题一致。"
+        "原题第8题与复盘笔记第8条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第3页，第8题",
-          "asset": "assets/sources/exam-3.jpg",
-          "crop": {
-            "focusY": 43,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第8题知识点",
-          "asset": "assets/sources/politics-1.jpg",
-          "crop": {
-            "focusY": 87,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-09",
-      "number": 9,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-09",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第9题标号，题目顺序和知识点主题一致。"
+        "原题第9题与复盘笔记第9条按明确题号配对。",
+        "复盘笔记定位：第1-2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第3页，第9题",
-          "asset": "assets/sources/exam-3.jpg",
-          "crop": {
-            "focusY": 57,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第9题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 13,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-10",
-      "number": 10,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-10",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第10题标号，题目顺序和知识点主题一致。"
+        "原题第10题与复盘笔记第10条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第3页，第10题",
-          "asset": "assets/sources/exam-3.jpg",
-          "crop": {
-            "focusY": 70,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第10题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 20,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-11",
-      "number": 11,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-11",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第11题标号，题目顺序和知识点主题一致。"
+        "原题第11题与复盘笔记第11条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第4页，第11题",
-          "asset": "assets/sources/exam-4.jpg",
-          "crop": {
-            "focusY": 83,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第4页，第11题选项续页",
-          "asset": "assets/sources/exam-4.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "选项续页单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第11题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 26,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-12",
-      "number": 12,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-12",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第12题标号，题目顺序和知识点主题一致。"
+        "原题第12题与复盘笔记第12条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第4页，第12题",
-          "asset": "assets/sources/exam-4.jpg",
-          "crop": {
-            "focusY": 18,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第12题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 33,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-13",
-      "number": 13,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-13",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第13题标号，题目顺序和知识点主题一致。"
+        "原题第13题与复盘笔记第13条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第4页，第13题",
-          "asset": "assets/sources/exam-4.jpg",
-          "crop": {
-            "focusY": 34,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第13题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 39,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-14",
-      "number": 14,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-14",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第14题标号，题目顺序和知识点主题一致。"
+        "原题第14题与复盘笔记第14条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第4页，第14题",
-          "asset": "assets/sources/exam-4.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第14题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 46,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-15",
-      "number": 15,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-15",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第15题标号，题目顺序和知识点主题一致。"
+        "原题第15题与复盘笔记第15条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第4页，第15题",
-          "asset": "assets/sources/exam-4.jpg",
-          "crop": {
-            "focusY": 66,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第15题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 52,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-16",
-      "number": 16,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-16",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第16题标号，题目顺序和知识点主题一致。"
+        "原题第16题与复盘笔记第16条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第5页，第16题",
-          "asset": "assets/sources/exam-5.jpg",
-          "crop": {
-            "focusY": 82,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第5页，第16题选项续页",
-          "asset": "assets/sources/exam-5.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "选项续页单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第16题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 59,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-17",
-      "number": 17,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-17",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第17题标号，题目顺序和知识点主题一致。"
+        "原题第17题与复盘笔记第17条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第5页，第17题",
-          "asset": "assets/sources/exam-5.jpg",
-          "crop": {
-            "focusY": 20,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第17题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 65,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-18",
-      "number": 18,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-18",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第18题标号，题目顺序和知识点主题一致。"
+        "原题第18题与复盘笔记第18条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第5页，第18题",
-          "asset": "assets/sources/exam-5.jpg",
-          "crop": {
-            "focusY": 40,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第18题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 72,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-19",
-      "number": 19,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-19",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第19题标号，题目顺序和知识点主题一致。"
+        "原题第19题与复盘笔记第19条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第5页，第19题",
-          "asset": "assets/sources/exam-5.jpg",
-          "crop": {
-            "focusY": 60,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第19题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 78,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-政治理论-20",
-      "number": 20,
-      "subject": "政治理论",
+      "questionId": "2027-国考-第30季-政治理论-20",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第20题标号，题目顺序和知识点主题一致。"
+        "原题第20题与复盘笔记第20条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第5页，第20题",
-          "asset": "assets/sources/exam-5.jpg",
-          "crop": {
-            "focusY": 80,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第6页，第20题选项续页",
-          "asset": "assets/sources/exam-6.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "选项续页单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第20题知识点",
-          "asset": "assets/sources/politics-3.jpg",
-          "crop": {
-            "focusY": 85,
-            "label": "政治理论复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-21",
-      "number": 21,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-21",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第21题标号，题目顺序和知识点主题一致。"
+        "原题第21题与复盘笔记第21条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第6页，第21题",
-          "asset": "assets/sources/exam-6.jpg",
-          "crop": {
-            "focusY": 17,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第1页，第21题知识点",
-          "asset": "assets/sources/knowledge-1.jpg",
-          "crop": {
-            "focusY": 18,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-22",
-      "number": 22,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-22",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第22题标号，题目顺序和知识点主题一致。"
+        "原题第22题与复盘笔记第22条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第6页，第22题",
-          "asset": "assets/sources/exam-6.jpg",
-          "crop": {
-            "focusY": 30,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第1页，第22题知识点",
-          "asset": "assets/sources/knowledge-1.jpg",
-          "crop": {
-            "focusY": 33,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-23",
-      "number": 23,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-23",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第23题标号，题目顺序和知识点主题一致。"
+        "原题第23题与复盘笔记第23条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第6页，第23题",
-          "asset": "assets/sources/exam-6.jpg",
-          "crop": {
-            "focusY": 43,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第1页，第23题知识点",
-          "asset": "assets/sources/knowledge-1.jpg",
-          "crop": {
-            "focusY": 49,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-24",
-      "number": 24,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-24",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第24题标号，题目顺序和知识点主题一致。"
+        "原题第24题与复盘笔记第24条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第6页，第24题",
-          "asset": "assets/sources/exam-6.jpg",
-          "crop": {
-            "focusY": 57,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第1页，第24题知识点",
-          "asset": "assets/sources/knowledge-1.jpg",
-          "crop": {
-            "focusY": 65,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-25",
-      "number": 25,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-25",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第25题标号，题目顺序和知识点主题一致。"
+        "原题第25题与复盘笔记第25条按明确题号配对。",
+        "复盘笔记定位：第1页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第6页，第25题",
-          "asset": "assets/sources/exam-6.jpg",
-          "crop": {
-            "focusY": 70,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第1页，第25题知识点",
-          "asset": "assets/sources/knowledge-1.jpg",
-          "crop": {
-            "focusY": 80,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-26",
-      "number": 26,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-26",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第26题标号，题目顺序和知识点主题一致。"
+        "原题第26题与复盘笔记第26条按明确题号配对。",
+        "复盘笔记定位：第1-2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第6页，第26题",
-          "asset": "assets/sources/exam-6.jpg",
-          "crop": {
-            "focusY": 83,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第7页，第26题选项续页",
-          "asset": "assets/sources/exam-7.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "选项续页单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第26题知识点",
-          "asset": "assets/sources/knowledge-2.jpg",
-          "crop": {
-            "focusY": 13,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-27",
-      "number": 27,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-27",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第27题标号，题目顺序和知识点主题一致。"
+        "原题第27题与复盘笔记第27条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第7页，第27题",
-          "asset": "assets/sources/exam-7.jpg",
-          "crop": {
-            "focusY": 15,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第27题知识点",
-          "asset": "assets/sources/knowledge-2.jpg",
-          "crop": {
-            "focusY": 22,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-28",
-      "number": 28,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-28",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第28题标号，题目顺序和知识点主题一致。"
+        "原题第28题与复盘笔记第28条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第7页，第28题",
-          "asset": "assets/sources/exam-7.jpg",
-          "crop": {
-            "focusY": 25,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第28题知识点",
-          "asset": "assets/sources/knowledge-2.jpg",
-          "crop": {
-            "focusY": 31,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-29",
-      "number": 29,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-29",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第29题标号，题目顺序和知识点主题一致。"
+        "原题第29题与复盘笔记第29条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第7页，第29题",
-          "asset": "assets/sources/exam-7.jpg",
-          "crop": {
-            "focusY": 35,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第29题知识点",
-          "asset": "assets/sources/knowledge-2.jpg",
-          "crop": {
-            "focusY": 41,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-30",
-      "number": 30,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-30",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第30题标号，题目顺序和知识点主题一致。"
+        "原题第30题与复盘笔记第30条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第7页，第30题",
-          "asset": "assets/sources/exam-7.jpg",
-          "crop": {
-            "focusY": 45,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第30题知识点",
-          "asset": "assets/sources/knowledge-2.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-31",
-      "number": 31,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-31",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第31题标号，题目顺序和知识点主题一致。"
+        "原题第31题与复盘笔记第31条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第7页，第31题",
-          "asset": "assets/sources/exam-7.jpg",
-          "crop": {
-            "focusY": 55,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第31题知识点",
-          "asset": "assets/sources/knowledge-2.jpg",
-          "crop": {
-            "focusY": 59,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-32",
-      "number": 32,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-32",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第32题标号，题目顺序和知识点主题一致。"
+        "原题第32题与复盘笔记第32条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第7页，第32题",
-          "asset": "assets/sources/exam-7.jpg",
-          "crop": {
-            "focusY": 65,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第32题知识点",
-          "asset": "assets/sources/knowledge-2.jpg",
-          "crop": {
-            "focusY": 69,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-33",
-      "number": 33,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-33",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第33题标号，题目顺序和知识点主题一致。"
+        "原题第33题与复盘笔记第33条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第7页，第33题",
-          "asset": "assets/sources/exam-7.jpg",
-          "crop": {
-            "focusY": 75,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第33题知识点",
-          "asset": "assets/sources/knowledge-2.jpg",
-          "crop": {
-            "focusY": 78,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-34",
-      "number": 34,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-34",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第34题标号，题目顺序和知识点主题一致。"
+        "原题第34题与复盘笔记第34条按明确题号配对。",
+        "复盘笔记定位：第2页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第7页，第34题",
-          "asset": "assets/sources/exam-7.jpg",
-          "crop": {
-            "focusY": 85,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第8页，第34题选项续页",
-          "asset": "assets/sources/exam-8.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "选项续页单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第34题知识点",
-          "asset": "assets/sources/knowledge-2.jpg",
-          "crop": {
-            "focusY": 87,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     },
     {
-      "id": "2027-国考-第30季-常识-35",
-      "number": 35,
-      "subject": "常识",
+      "questionId": "2027-国考-第30季-常识-35",
       "status": "verified",
       "confidence": 0.99,
       "evidence": [
-        "原题与复盘均以第35题标号，题目顺序和知识点主题一致。"
+        "原题第35题与复盘笔记第35条按明确题号配对。",
+        "复盘笔记定位：第2-3页。"
       ],
-      "sourceRefs": [
-        {
-          "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
-          "locator": "第8页，第35题",
-          "asset": "assets/sources/exam-8.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "原题单题聚焦"
-          }
-        },
-        {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第3页，第35题知识点",
-          "asset": "assets/sources/knowledge-3.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "常识复盘单题聚焦"
-          }
-        }
-      ]
+      "issues": []
     }
-  ]
+  ],
+  "issues": [],
+  "resolvedIssues": []
 }

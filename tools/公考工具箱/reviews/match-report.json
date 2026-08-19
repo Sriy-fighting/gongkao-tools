@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-18T18:47:45.644Z",
+  "generatedAt": "2026-08-19T01:29:58.974Z",
   "totals": {
     "questions": 70,
     "verified": 69,
@@ -17,7 +17,7 @@
       "unmatched": 0
     },
     {
-      "season": "2027-国考-第30季",
+      "season": "2027 国考第30季",
       "directory": "2027-国考-第30季",
       "questions": 35,
       "verified": 35,
@@ -33,28 +33,33 @@
       "number": 1,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第1题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第1题标号，题号和主题顺序一致。",
+        "粉笔网页第1题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第1题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第1题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第1题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第1题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第1题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第1题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第1题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第2页，第1题",
-          "asset": "reviews/assets/sources/gk28-exam-2.jpg",
-          "crop": {
-            "focusY": 31,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第1页，第1题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-1.jpg",
-          "crop": {
-            "focusY": 33,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第1题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:1; 题目区:页面题号导航1; 解析区:答案解析面板"
         }
       ]
     },
@@ -63,28 +68,33 @@
       "number": 2,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第2题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第2题标号，题号和主题顺序一致。",
+        "粉笔网页第2题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第2题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第2题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第2题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第2题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第2题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第2题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第2题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第2页，第2题",
-          "asset": "reviews/assets/sources/gk28-exam-2.jpg",
-          "crop": {
-            "focusY": 44,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第1页，第2题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-1.jpg",
-          "crop": {
-            "focusY": 50,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第2题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:2; 题目区:页面题号导航2; 解析区:答案解析面板"
         }
       ]
     },
@@ -93,28 +103,33 @@
       "number": 3,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第3题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第3题标号，题号和主题顺序一致。",
+        "粉笔网页第3题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第3题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第3题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第3题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第3题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第3题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第3题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第3题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第2页，第3题",
-          "asset": "reviews/assets/sources/gk28-exam-2.jpg",
-          "crop": {
-            "focusY": 57,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第1页，第3题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-1.jpg",
-          "crop": {
-            "focusY": 67,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第3题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:3; 题目区:页面题号导航3; 解析区:答案解析面板"
         }
       ]
     },
@@ -123,28 +138,33 @@
       "number": 4,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第4题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第4题标号，题号和主题顺序一致。",
+        "粉笔网页第4题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第4题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第4题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第4题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第4题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第4题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第4题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第4题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第2页，第4题",
-          "asset": "reviews/assets/sources/gk28-exam-2.jpg",
-          "crop": {
-            "focusY": 70,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第1页，第4题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-1.jpg",
-          "crop": {
-            "focusY": 84,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第4题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:4; 题目区:页面题号导航4; 解析区:答案解析面板"
         }
       ]
     },
@@ -153,28 +173,33 @@
       "number": 5,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第5题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第5题标号，题号和主题顺序一致。",
+        "粉笔网页第5题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第5题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第5题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第5题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第5题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第5题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第5题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第5题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第2页，第5题",
-          "asset": "reviews/assets/sources/gk28-exam-2.jpg",
-          "crop": {
-            "focusY": 83,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第1页，第5题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-1.jpg",
-          "crop": {
-            "focusY": 31,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第5题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:5; 题目区:页面题号导航5; 解析区:答案解析面板"
         }
       ]
     },
@@ -182,29 +207,34 @@
       "id": "2027-国考-第28季-政治理论-06",
       "number": 6,
       "subject": "政治理论",
-      "status": "verified",
-      "confidence": 0.98,
+      "status": "pending",
+      "confidence": 0.55,
       "evidence": [
-        "原题与复盘资料均以第6题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第6题标号，题号和主题顺序一致。",
+        "粉笔网页第6题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第6题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第6题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第6题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第6题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第6题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第6题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第6题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第3页，第6题",
-          "asset": "reviews/assets/sources/gk28-exam-3.jpg",
-          "crop": {
-            "focusY": 28,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-3.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第1页，第6题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-1.jpg",
-          "crop": {
-            "focusY": 48,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第6题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:6; 题目区:页面题号导航6; 解析区:答案解析面板"
         }
       ]
     },
@@ -213,28 +243,33 @@
       "number": 7,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第7题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第7题标号，题号和主题顺序一致。",
+        "粉笔网页第7题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第7题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第7题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第7题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第7题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第7题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第7题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第7题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第3页，第7题",
-          "asset": "reviews/assets/sources/gk28-exam-3.jpg",
-          "crop": {
-            "focusY": 41,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-3.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第1页，第7题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-1.jpg",
-          "crop": {
-            "focusY": 65,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第7题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:7; 题目区:页面题号导航7; 解析区:答案解析面板"
         }
       ]
     },
@@ -243,28 +278,33 @@
       "number": 8,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第8题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第8题标号，题号和主题顺序一致。",
+        "粉笔网页第8题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第8题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第8题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第8题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第8题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第8题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第8题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第8题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第3页，第8题",
-          "asset": "reviews/assets/sources/gk28-exam-3.jpg",
-          "crop": {
-            "focusY": 54,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-3.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第2页，第8题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-2.jpg",
-          "crop": {
-            "focusY": 82,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第8题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:8; 题目区:页面题号导航8; 解析区:答案解析面板"
         }
       ]
     },
@@ -273,28 +313,33 @@
       "number": 9,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第9题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第9题标号，题号和主题顺序一致。",
+        "粉笔网页第9题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第9题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第9题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第9题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第9题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第9题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第9题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第9题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第3页，第9题",
-          "asset": "reviews/assets/sources/gk28-exam-3.jpg",
-          "crop": {
-            "focusY": 67,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-3.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第2页，第9题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-2.jpg",
-          "crop": {
-            "focusY": 29,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第9题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:9; 题目区:页面题号导航9; 解析区:答案解析面板"
         }
       ]
     },
@@ -303,28 +348,33 @@
       "number": 10,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第10题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第10题标号，题号和主题顺序一致。",
+        "粉笔网页第10题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第10题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第10题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第10题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第10题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第10题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第10题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第10题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第3页，第10题",
-          "asset": "reviews/assets/sources/gk28-exam-3.jpg",
-          "crop": {
-            "focusY": 80,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-3.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第2页，第10题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-2.jpg",
-          "crop": {
-            "focusY": 46,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第10题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:10; 题目区:页面题号导航10; 解析区:答案解析面板"
         }
       ]
     },
@@ -333,28 +383,33 @@
       "number": 11,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第11题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第11题标号，题号和主题顺序一致。",
+        "粉笔网页第11题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第11题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第11题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第11题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第11题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第11题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第11题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第11题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第11题",
-          "asset": "reviews/assets/sources/gk28-exam-4.jpg",
-          "crop": {
-            "focusY": 25,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第2页，第11题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-2.jpg",
-          "crop": {
-            "focusY": 63,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第11题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:11; 题目区:页面题号导航11; 解析区:答案解析面板"
         }
       ]
     },
@@ -363,28 +418,33 @@
       "number": 12,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第12题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第12题标号，题号和主题顺序一致。",
+        "粉笔网页第12题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第12题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第12题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第12题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第12题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第12题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第12题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第12题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第12题",
-          "asset": "reviews/assets/sources/gk28-exam-4.jpg",
-          "crop": {
-            "focusY": 38,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第2页，第12题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-2.jpg",
-          "crop": {
-            "focusY": 80,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第12题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:12; 题目区:页面题号导航12; 解析区:答案解析面板"
         }
       ]
     },
@@ -393,28 +453,33 @@
       "number": 13,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第13题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第13题标号，题号和主题顺序一致。",
+        "粉笔网页第13题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第13题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第13题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第13题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第13题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第13题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第13题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第13题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第13题",
-          "asset": "reviews/assets/sources/gk28-exam-4.jpg",
-          "crop": {
-            "focusY": 51,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第2页，第13题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-2.jpg",
-          "crop": {
-            "focusY": 27,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第13题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:13; 题目区:页面题号导航13; 解析区:答案解析面板"
         }
       ]
     },
@@ -423,28 +488,33 @@
       "number": 14,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第14题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第14题标号，题号和主题顺序一致。",
+        "粉笔网页第14题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第14题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第14题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第14题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第14题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第14题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第14题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第14题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第14题",
-          "asset": "reviews/assets/sources/gk28-exam-4.jpg",
-          "crop": {
-            "focusY": 64,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第2页，第14题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-2.jpg",
-          "crop": {
-            "focusY": 44,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第14题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:14; 题目区:页面题号导航14; 解析区:答案解析面板"
         }
       ]
     },
@@ -453,28 +523,33 @@
       "number": 15,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第15题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第15题标号，题号和主题顺序一致。",
+        "粉笔网页第15题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第15题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第15题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第15题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第15题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第15题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第15题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第15题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第15题",
-          "asset": "reviews/assets/sources/gk28-exam-4.jpg",
-          "crop": {
-            "focusY": 77,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第3页，第15题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-3.jpg",
-          "crop": {
-            "focusY": 61,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第15题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:15; 题目区:页面题号导航15; 解析区:答案解析面板"
         }
       ]
     },
@@ -483,28 +558,33 @@
       "number": 16,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第16题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第16题标号，题号和主题顺序一致。",
+        "粉笔网页第16题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第16题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第16题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第16题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第16题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第16题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第16题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第16题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第16题",
-          "asset": "reviews/assets/sources/gk28-exam-5.jpg",
-          "crop": {
-            "focusY": 22,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-5.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第3页，第16题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-3.jpg",
-          "crop": {
-            "focusY": 78,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第16题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:16; 题目区:页面题号导航16; 解析区:答案解析面板"
         }
       ]
     },
@@ -513,28 +593,33 @@
       "number": 17,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第17题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第17题标号，题号和主题顺序一致。",
+        "粉笔网页第17题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第17题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第17题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第17题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第17题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第17题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第17题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第17题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第17题",
-          "asset": "reviews/assets/sources/gk28-exam-5.jpg",
-          "crop": {
-            "focusY": 35,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-5.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第3页，第17题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-3.jpg",
-          "crop": {
-            "focusY": 25,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第17题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:17; 题目区:页面题号导航17; 解析区:答案解析面板"
         }
       ]
     },
@@ -543,28 +628,33 @@
       "number": 18,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第18题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第18题标号，题号和主题顺序一致。",
+        "粉笔网页第18题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第18题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第18题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第18题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第18题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第18题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第18题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第18题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第18题",
-          "asset": "reviews/assets/sources/gk28-exam-5.jpg",
-          "crop": {
-            "focusY": 48,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-5.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第3页，第18题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-3.jpg",
-          "crop": {
-            "focusY": 42,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第18题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:18; 题目区:页面题号导航18; 解析区:答案解析面板"
         }
       ]
     },
@@ -573,28 +663,33 @@
       "number": 19,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第19题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第19题标号，题号和主题顺序一致。",
+        "粉笔网页第19题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第19题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第19题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第19题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第19题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第19题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第19题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第19题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第19题",
-          "asset": "reviews/assets/sources/gk28-exam-5.jpg",
-          "crop": {
-            "focusY": 61,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-5.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第3页，第19题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-3.jpg",
-          "crop": {
-            "focusY": 59,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第19题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:19; 题目区:页面题号导航19; 解析区:答案解析面板"
         }
       ]
     },
@@ -603,28 +698,33 @@
       "number": 20,
       "subject": "政治理论",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第20题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第20题标号，题号和主题顺序一致。",
+        "粉笔网页第20题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第20题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第20题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第20题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第20题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第20题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第20题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第20题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第20题",
-          "asset": "reviews/assets/sources/gk28-exam-5.jpg",
-          "crop": {
-            "focusY": 74,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-5.jpg"
         },
         {
           "file": "27国考行测模考第28季政治理论复盘.pdf",
-          "locator": "第3页，第20题知识点",
-          "asset": "reviews/assets/sources/gk28-politics-3.jpg",
-          "crop": {
-            "focusY": 76,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第3页，第20题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:20; 题目区:页面题号导航20; 解析区:答案解析面板"
         }
       ]
     },
@@ -633,28 +733,33 @@
       "number": 21,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第21题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第21题标号，题号和主题顺序一致。",
+        "粉笔网页第21题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第21题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第21题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第21题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第21题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第21题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第21题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第21题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第21题",
-          "asset": "reviews/assets/sources/gk28-exam-6.jpg",
-          "crop": {
-            "focusY": 19,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第21题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 23,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第21题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:21; 题目区:页面题号导航21; 解析区:答案解析面板"
         }
       ]
     },
@@ -663,28 +768,33 @@
       "number": 22,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第22题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第22题标号，题号和主题顺序一致。",
+        "粉笔网页第22题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第22题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第22题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第22题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第22题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第22题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第22题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第22题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第22题",
-          "asset": "reviews/assets/sources/gk28-exam-6.jpg",
-          "crop": {
-            "focusY": 32,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第22题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 40,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第22题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:22; 题目区:页面题号导航22; 解析区:答案解析面板"
         }
       ]
     },
@@ -693,28 +803,33 @@
       "number": 23,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第23题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第23题标号，题号和主题顺序一致。",
+        "粉笔网页第23题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第23题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第23题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第23题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第23题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第23题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第23题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第23题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第23题",
-          "asset": "reviews/assets/sources/gk28-exam-6.jpg",
-          "crop": {
-            "focusY": 45,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第23题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 57,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第23题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:23; 题目区:页面题号导航23; 解析区:答案解析面板"
         }
       ]
     },
@@ -723,28 +838,33 @@
       "number": 24,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第24题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第24题标号，题号和主题顺序一致。",
+        "粉笔网页第24题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第24题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第24题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第24题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第24题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第24题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第24题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第24题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第24题",
-          "asset": "reviews/assets/sources/gk28-exam-6.jpg",
-          "crop": {
-            "focusY": 58,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第24题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 74,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第24题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:24; 题目区:页面题号导航24; 解析区:答案解析面板"
         }
       ]
     },
@@ -753,28 +873,33 @@
       "number": 25,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第25题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第25题标号，题号和主题顺序一致。",
+        "粉笔网页第25题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第25题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第25题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第25题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第25题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第25题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第25题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第25题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第25题",
-          "asset": "reviews/assets/sources/gk28-exam-6.jpg",
-          "crop": {
-            "focusY": 71,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第25题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 21,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第25题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:25; 题目区:页面题号导航25; 解析区:答案解析面板"
         }
       ]
     },
@@ -782,30 +907,35 @@
       "id": "2027-国考-第28季-常识-26",
       "number": 26,
       "subject": "常识",
-      "status": "pending",
-      "confidence": 0.55,
+      "status": "verified",
+      "confidence": 0.99,
       "evidence": [
         "原题与复盘资料均以第26题标号，题号和主题顺序一致。",
-        "C、D均存在不正确表述：否认犯罪后并非只能转简易程序；未成年人并非绝对不得适用速裁。"
+        "C、D均存在不正确表述：否认犯罪后并非只能转简易程序；未成年人并非绝对不得适用速裁。",
+        "粉笔网页第26题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第26题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第26题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第26题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第26题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第26题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第26题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第26题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第26题",
-          "asset": "reviews/assets/sources/gk28-exam-6.jpg",
-          "crop": {
-            "focusY": 84,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第26题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 38,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第26题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:26; 题目区:页面题号导航26; 解析区:答案解析面板"
         }
       ]
     },
@@ -814,28 +944,33 @@
       "number": 27,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第27题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第27题标号，题号和主题顺序一致。",
+        "粉笔网页第27题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第27题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第27题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第27题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第27题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第27题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第27题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第27题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第27题",
-          "asset": "reviews/assets/sources/gk28-exam-6.jpg",
-          "crop": {
-            "focusY": 29,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第27题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 55,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第1页，第27题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:27; 题目区:页面题号导航27; 解析区:答案解析面板"
         }
       ]
     },
@@ -844,28 +979,33 @@
       "number": 28,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第28题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第28题标号，题号和主题顺序一致。",
+        "粉笔网页第28题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第28题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第28题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第28题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第28题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第28题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第28题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第28题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第28题",
-          "asset": "reviews/assets/sources/gk28-exam-7.jpg",
-          "crop": {
-            "focusY": 42,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第28题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 72,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第28题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:28; 题目区:页面题号导航28; 解析区:答案解析面板"
         }
       ]
     },
@@ -874,28 +1014,33 @@
       "number": 29,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第29题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第29题标号，题号和主题顺序一致。",
+        "粉笔网页第29题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第29题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第29题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第29题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第29题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第29题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第29题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第29题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第29题",
-          "asset": "reviews/assets/sources/gk28-exam-7.jpg",
-          "crop": {
-            "focusY": 55,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第29题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 19,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第29题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:29; 题目区:页面题号导航29; 解析区:答案解析面板"
         }
       ]
     },
@@ -904,28 +1049,33 @@
       "number": 30,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第30题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第30题标号，题号和主题顺序一致。",
+        "粉笔网页第30题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第30题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第30题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第30题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第30题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第30题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第30题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第30题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第30题",
-          "asset": "reviews/assets/sources/gk28-exam-7.jpg",
-          "crop": {
-            "focusY": 68,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第30题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 36,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第30题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:30; 题目区:页面题号导航30; 解析区:答案解析面板"
         }
       ]
     },
@@ -934,28 +1084,33 @@
       "number": 31,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第31题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第31题标号，题号和主题顺序一致。",
+        "粉笔网页第31题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第31题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第31题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第31题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第31题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第31题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第31题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第31题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第31题",
-          "asset": "reviews/assets/sources/gk28-exam-7.jpg",
-          "crop": {
-            "focusY": 81,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第31题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 53,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第31题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:31; 题目区:页面题号导航31; 解析区:答案解析面板"
         }
       ]
     },
@@ -964,28 +1119,33 @@
       "number": 32,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第32题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第32题标号，题号和主题顺序一致。",
+        "粉笔网页第32题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第32题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第32题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第32题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第32题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第32题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第32题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第32题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第32题",
-          "asset": "reviews/assets/sources/gk28-exam-7.jpg",
-          "crop": {
-            "focusY": 26,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第32题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 70,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第32题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:32; 题目区:页面题号导航32; 解析区:答案解析面板"
         }
       ]
     },
@@ -994,28 +1154,33 @@
       "number": 33,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第33题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第33题标号，题号和主题顺序一致。",
+        "粉笔网页第33题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第33题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第33题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第33题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第33题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第33题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第33题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第33题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第33题",
-          "asset": "reviews/assets/sources/gk28-exam-7.jpg",
-          "crop": {
-            "focusY": 39,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第33题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 17,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第33题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:33; 题目区:页面题号导航33; 解析区:答案解析面板"
         }
       ]
     },
@@ -1024,28 +1189,33 @@
       "number": 34,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第34题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第34题标号，题号和主题顺序一致。",
+        "粉笔网页第34题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第34题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第34题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第34题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第34题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第34题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第34题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第34题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第34题",
-          "asset": "reviews/assets/sources/gk28-exam-7.jpg",
-          "crop": {
-            "focusY": 52,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第34题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 34,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第34题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:34; 题目区:页面题号导航34; 解析区:答案解析面板"
         }
       ]
     },
@@ -1054,28 +1224,33 @@
       "number": 35,
       "subject": "常识",
       "status": "verified",
-      "confidence": 0.98,
+      "confidence": 0.99,
       "evidence": [
-        "原题与复盘资料均以第35题标号，题号和主题顺序一致。"
+        "原题与复盘资料均以第35题标号，题号和主题顺序一致。",
+        "粉笔网页第35题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第35题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第35题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第35题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第35题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第35题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第35题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。",
+        "粉笔网页第35题：题目、选项、页面答案和解析均已提取，网页答案与解析结论一致。"
       ],
       "sourceRefs": [
         {
           "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
           "locator": "第8页，第35题",
-          "asset": "reviews/assets/sources/gk28-exam-8.jpg",
-          "crop": {
-            "focusY": 65,
-            "label": "原题单题聚焦"
-          }
+          "asset": "reviews/assets/sources/gk28-exam-8.jpg"
         },
         {
           "file": "27国考行测模考第28季常识判断复盘.pdf",
-          "locator": "第3页，第35题知识点",
-          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg",
-          "crop": {
-            "focusY": 51,
-            "label": "复盘资料单题聚焦"
-          }
+          "locator": "第2页，第35题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        },
+        {
+          "file": "粉笔模考网页",
+          "url": "https://spa.fenbi.com/ti/exam/solution/1_1_3p0cr8c?routecs=xingce&examcatid=1000248",
+          "locator": "题号:35; 题目区:页面题号导航35; 解析区:答案解析面板"
         }
       ]
     },
@@ -1099,8 +1274,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第1题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第1题复盘条目",
           "asset": "reviews/assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 13,
@@ -1129,8 +1304,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第2题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第2题复盘条目",
           "asset": "reviews/assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 24,
@@ -1159,8 +1334,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第3题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第3题复盘条目",
           "asset": "reviews/assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 34,
@@ -1189,8 +1364,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第4题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第4题复盘条目",
           "asset": "reviews/assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 45,
@@ -1219,8 +1394,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第5题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第5题复盘条目",
           "asset": "reviews/assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 55,
@@ -1249,8 +1424,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第6题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第6题复盘条目",
           "asset": "reviews/assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 66,
@@ -1279,8 +1454,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第7题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第7题复盘条目",
           "asset": "reviews/assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 76,
@@ -1309,8 +1484,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第1页，第8题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第1页，第8题复盘条目",
           "asset": "reviews/assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 87,
@@ -1339,8 +1514,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第9题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第1-2页，第9题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 13,
@@ -1369,8 +1544,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第10题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第10题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 20,
@@ -1408,8 +1583,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第11题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第11题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 26,
@@ -1438,8 +1613,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第12题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第12题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 33,
@@ -1468,8 +1643,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第13题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第13题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 39,
@@ -1498,8 +1673,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第14题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第14题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 46,
@@ -1528,8 +1703,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第15题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第15题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 52,
@@ -1567,8 +1742,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第16题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第16题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 59,
@@ -1597,8 +1772,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第17题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第17题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 65,
@@ -1627,8 +1802,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第18题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第18题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 72,
@@ -1657,8 +1832,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第19题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第19题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 78,
@@ -1696,8 +1871,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季政治理论复盘.pdf",
-          "locator": "第3页，第20题知识点",
+          "file": "27国考⾏测模考第30季政治理论复盘.pdf",
+          "locator": "第2页，第20题复盘条目",
           "asset": "reviews/assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 85,
@@ -1726,8 +1901,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第1页，第21题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第1页，第21题复盘条目",
           "asset": "reviews/assets/sources/knowledge-1.jpg",
           "crop": {
             "focusY": 18,
@@ -1756,8 +1931,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第1页，第22题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第1页，第22题复盘条目",
           "asset": "reviews/assets/sources/knowledge-1.jpg",
           "crop": {
             "focusY": 33,
@@ -1786,8 +1961,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第1页，第23题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第1页，第23题复盘条目",
           "asset": "reviews/assets/sources/knowledge-1.jpg",
           "crop": {
             "focusY": 49,
@@ -1816,8 +1991,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第1页，第24题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第1页，第24题复盘条目",
           "asset": "reviews/assets/sources/knowledge-1.jpg",
           "crop": {
             "focusY": 65,
@@ -1846,8 +2021,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第1页，第25题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第1页，第25题复盘条目",
           "asset": "reviews/assets/sources/knowledge-1.jpg",
           "crop": {
             "focusY": 80,
@@ -1885,8 +2060,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第26题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第1-2页，第26题复盘条目",
           "asset": "reviews/assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 13,
@@ -1915,8 +2090,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第27题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第27题复盘条目",
           "asset": "reviews/assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 22,
@@ -1945,8 +2120,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第28题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第28题复盘条目",
           "asset": "reviews/assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 31,
@@ -1975,8 +2150,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第29题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第29题复盘条目",
           "asset": "reviews/assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 41,
@@ -2005,8 +2180,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第30题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第30题复盘条目",
           "asset": "reviews/assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 50,
@@ -2035,8 +2210,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第31题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第31题复盘条目",
           "asset": "reviews/assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 59,
@@ -2065,8 +2240,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第32题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第32题复盘条目",
           "asset": "reviews/assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 69,
@@ -2095,8 +2270,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第33题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第33题复盘条目",
           "asset": "reviews/assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 78,
@@ -2134,8 +2309,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第2页，第34题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第2页，第34题复盘条目",
           "asset": "reviews/assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 87,
@@ -2164,8 +2339,8 @@
           }
         },
         {
-          "file": "27国考行测模考第30季常识判断复盘.pdf",
-          "locator": "第3页，第35题知识点",
+          "file": "27国考⾏测模考第30季常识判断复盘.pdf",
+          "locator": "第2-3页，第35题复盘条目",
           "asset": "reviews/assets/sources/knowledge-3.jpg",
           "crop": {
             "focusY": 50,
