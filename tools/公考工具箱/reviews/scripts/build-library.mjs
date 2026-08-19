@@ -6,6 +6,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const reviewsDir = path.resolve(here, "..");
 const seasonsDir = path.join(reviewsDir, "seasons");
 const assetDir = path.join(reviewsDir, "assets", "sources");
+const allowedSubjects = new Set(["政治理论", "常识", "公基"]);
 
 const readJson = async (file) => JSON.parse(await fs.readFile(file, "utf8"));
 
@@ -54,12 +55,21 @@ async function scanSeasons() {
 
 function validateQuestion(question, errors) {
   const label = `${question.id || "无 ID"}`;
+  if (!allowedSubjects.has(question.subject)) errors.push(`${label} 科目不在白名单内：${question.subject || "未填写"}`);
   if (!question.id) errors.push(`${label} 缺少稳定 ID`);
   if (!question.stem || !String(question.stem).trim()) errors.push(`${label} 缺少题干`);
   if (!Array.isArray(question.options) || question.options.length < 2) errors.push(`${label} 选项少于 2 个`);
   if (!["verified", "pending", "unmatched"].includes(question.match?.status)) errors.push(`${label} 匹配状态非法`);
   if (!["verified", "inferred", "pending"].includes(question.answerStatus)) errors.push(`${label} 答案状态非法`);
   if (!Array.isArray(question.sourceRefs) || question.sourceRefs.length === 0) errors.push(`${label} 缺少来源证据`);
+  for (const [index, ref] of (question.sourceRefs || []).entries()) {
+    const region = ref?.crop?.region;
+    if (!region) continue;
+    const valid = ["x", "y", "width", "height"].every((key) => Number.isFinite(Number(region[key])))
+      && Number(region.x) >= 0 && Number(region.y) >= 0
+      && Number(region.width) > 0 && Number(region.height) > 0;
+    if (!valid) errors.push(`${label} 来源证据 ${index + 1} 的 crop.region 非法`);
+  }
 }
 
 async function build() {
