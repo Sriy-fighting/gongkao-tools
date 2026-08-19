@@ -1,17 +1,7 @@
 {
   "version": 1,
-  "libraryName": "政治理论、常识与公基复盘资料库",
-  "generatedAt": "2026-08-19T09:13:04.152Z",
-  "seasons": [
-    {
-      "season": "2027 国考第30季",
-      "directory": "2027-国考-第30季",
-      "questions": 35,
-      "verified": 35,
-      "pending": 0,
-      "unmatched": 0
-    }
-  ],
+  "libraryName": "政治理论与常识复盘资料库",
+  "exportedAt": "2026-08-18T17:17:37.678Z",
   "questions": [
     {
       "id": "2027-国考-第30季-政治理论-01",
@@ -61,7 +51,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第2页，第1题",
-          "asset": "reviews/assets/sources/exam-2.jpg",
+          "asset": "assets/sources/exam-2.jpg",
           "crop": {
             "focusY": 18,
             "label": "原题单题聚焦"
@@ -70,7 +60,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第1页，第1题复盘条目",
-          "asset": "reviews/assets/sources/politics-1.jpg",
+          "asset": "assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 13,
             "label": "政治理论复盘单题聚焦"
@@ -138,7 +128,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第2页，第2题",
-          "asset": "reviews/assets/sources/exam-2.jpg",
+          "asset": "assets/sources/exam-2.jpg",
           "crop": {
             "focusY": 34,
             "label": "原题单题聚焦"
@@ -147,7 +137,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第1页，第2题复盘条目",
-          "asset": "reviews/assets/sources/politics-1.jpg",
+          "asset": "assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 24,
             "label": "政治理论复盘单题聚焦"
@@ -215,7 +205,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第2页，第3题",
-          "asset": "reviews/assets/sources/exam-2.jpg",
+          "asset": "assets/sources/exam-2.jpg",
           "crop": {
             "focusY": 50,
             "label": "原题单题聚焦"
@@ -224,7 +214,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第1页，第3题复盘条目",
-          "asset": "reviews/assets/sources/politics-1.jpg",
+          "asset": "assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 34,
             "label": "政治理论复盘单题聚焦"
@@ -292,7 +282,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第2页，第4题",
-          "asset": "reviews/assets/sources/exam-2.jpg",
+          "asset": "assets/sources/exam-2.jpg",
           "crop": {
             "focusY": 66,
             "label": "原题单题聚焦"
@@ -301,7 +291,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第1页，第4题复盘条目",
-          "asset": "reviews/assets/sources/politics-1.jpg",
+          "asset": "assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 45,
             "label": "政治理论复盘单题聚焦"
@@ -369,7 +359,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第2页，第5题",
-          "asset": "reviews/assets/sources/exam-2.jpg",
+          "asset": "assets/sources/exam-2.jpg",
           "crop": {
             "focusY": 82,
             "label": "原题单题聚焦"
@@ -378,7 +368,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第1页，第5题复盘条目",
-          "asset": "reviews/assets/sources/politics-1.jpg",
+          "asset": "assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 55,
             "label": "政治理论复盘单题聚焦"
@@ -446,7 +436,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第3页，第6题",
-          "asset": "reviews/assets/sources/exam-3.jpg",
+          "asset": "assets/sources/exam-3.jpg",
           "crop": {
             "focusY": 17,
             "label": "原题单题聚焦"
@@ -455,7 +445,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第1页，第6题复盘条目",
-          "asset": "reviews/assets/sources/politics-1.jpg",
+          "asset": "assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 66,
             "label": "政治理论复盘单题聚焦"
@@ -523,7 +513,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第3页，第7题",
-          "asset": "reviews/assets/sources/exam-3.jpg",
+          "asset": "assets/sources/exam-3.jpg",
           "crop": {
             "focusY": 30,
             "label": "原题单题聚焦"
@@ -532,7 +522,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第1页，第7题复盘条目",
-          "asset": "reviews/assets/sources/politics-1.jpg",
+          "asset": "assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 76,
             "label": "政治理论复盘单题聚焦"
@@ -600,7 +590,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第3页，第8题",
-          "asset": "reviews/assets/sources/exam-3.jpg",
+          "asset": "assets/sources/exam-3.jpg",
           "crop": {
             "focusY": 43,
             "label": "原题单题聚焦"
@@ -609,7 +599,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第1页，第8题复盘条目",
-          "asset": "reviews/assets/sources/politics-1.jpg",
+          "asset": "assets/sources/politics-1.jpg",
           "crop": {
             "focusY": 87,
             "label": "政治理论复盘单题聚焦"
@@ -677,7 +667,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第3页，第9题",
-          "asset": "reviews/assets/sources/exam-3.jpg",
+          "asset": "assets/sources/exam-3.jpg",
           "crop": {
             "focusY": 57,
             "label": "原题单题聚焦"
@@ -686,7 +676,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第1-2页，第9题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 13,
             "label": "政治理论复盘单题聚焦"
@@ -754,7 +744,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第3页，第10题",
-          "asset": "reviews/assets/sources/exam-3.jpg",
+          "asset": "assets/sources/exam-3.jpg",
           "crop": {
             "focusY": 70,
             "label": "原题单题聚焦"
@@ -763,7 +753,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第10题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 20,
             "label": "政治理论复盘单题聚焦"
@@ -831,7 +821,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第11题",
-          "asset": "reviews/assets/sources/exam-4.jpg",
+          "asset": "assets/sources/exam-4.jpg",
           "crop": {
             "focusY": 83,
             "label": "原题单题聚焦"
@@ -840,7 +830,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第11题选项续页",
-          "asset": "reviews/assets/sources/exam-4.jpg",
+          "asset": "assets/sources/exam-4.jpg",
           "crop": {
             "focusY": 50,
             "label": "选项续页单题聚焦"
@@ -849,7 +839,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第11题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 26,
             "label": "政治理论复盘单题聚焦"
@@ -917,7 +907,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第12题",
-          "asset": "reviews/assets/sources/exam-4.jpg",
+          "asset": "assets/sources/exam-4.jpg",
           "crop": {
             "focusY": 18,
             "label": "原题单题聚焦"
@@ -926,7 +916,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第12题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 33,
             "label": "政治理论复盘单题聚焦"
@@ -994,7 +984,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第13题",
-          "asset": "reviews/assets/sources/exam-4.jpg",
+          "asset": "assets/sources/exam-4.jpg",
           "crop": {
             "focusY": 34,
             "label": "原题单题聚焦"
@@ -1003,7 +993,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第13题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 39,
             "label": "政治理论复盘单题聚焦"
@@ -1071,7 +1061,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第14题",
-          "asset": "reviews/assets/sources/exam-4.jpg",
+          "asset": "assets/sources/exam-4.jpg",
           "crop": {
             "focusY": 50,
             "label": "原题单题聚焦"
@@ -1080,7 +1070,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第14题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 46,
             "label": "政治理论复盘单题聚焦"
@@ -1148,7 +1138,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第4页，第15题",
-          "asset": "reviews/assets/sources/exam-4.jpg",
+          "asset": "assets/sources/exam-4.jpg",
           "crop": {
             "focusY": 66,
             "label": "原题单题聚焦"
@@ -1157,7 +1147,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第15题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 52,
             "label": "政治理论复盘单题聚焦"
@@ -1225,7 +1215,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第16题",
-          "asset": "reviews/assets/sources/exam-5.jpg",
+          "asset": "assets/sources/exam-5.jpg",
           "crop": {
             "focusY": 82,
             "label": "原题单题聚焦"
@@ -1234,7 +1224,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第16题选项续页",
-          "asset": "reviews/assets/sources/exam-5.jpg",
+          "asset": "assets/sources/exam-5.jpg",
           "crop": {
             "focusY": 50,
             "label": "选项续页单题聚焦"
@@ -1243,7 +1233,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第16题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 59,
             "label": "政治理论复盘单题聚焦"
@@ -1311,7 +1301,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第17题",
-          "asset": "reviews/assets/sources/exam-5.jpg",
+          "asset": "assets/sources/exam-5.jpg",
           "crop": {
             "focusY": 20,
             "label": "原题单题聚焦"
@@ -1320,7 +1310,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第17题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 65,
             "label": "政治理论复盘单题聚焦"
@@ -1388,7 +1378,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第18题",
-          "asset": "reviews/assets/sources/exam-5.jpg",
+          "asset": "assets/sources/exam-5.jpg",
           "crop": {
             "focusY": 40,
             "label": "原题单题聚焦"
@@ -1397,7 +1387,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第18题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 72,
             "label": "政治理论复盘单题聚焦"
@@ -1465,7 +1455,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第19题",
-          "asset": "reviews/assets/sources/exam-5.jpg",
+          "asset": "assets/sources/exam-5.jpg",
           "crop": {
             "focusY": 60,
             "label": "原题单题聚焦"
@@ -1474,7 +1464,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第19题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 78,
             "label": "政治理论复盘单题聚焦"
@@ -1542,7 +1532,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第5页，第20题",
-          "asset": "reviews/assets/sources/exam-5.jpg",
+          "asset": "assets/sources/exam-5.jpg",
           "crop": {
             "focusY": 80,
             "label": "原题单题聚焦"
@@ -1551,7 +1541,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第20题选项续页",
-          "asset": "reviews/assets/sources/exam-6.jpg",
+          "asset": "assets/sources/exam-6.jpg",
           "crop": {
             "focusY": 50,
             "label": "选项续页单题聚焦"
@@ -1560,7 +1550,7 @@
         {
           "file": "27国考⾏测模考第30季政治理论复盘.pdf",
           "locator": "第2页，第20题复盘条目",
-          "asset": "reviews/assets/sources/politics-3.jpg",
+          "asset": "assets/sources/politics-3.jpg",
           "crop": {
             "focusY": 85,
             "label": "政治理论复盘单题聚焦"
@@ -1628,7 +1618,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第21题",
-          "asset": "reviews/assets/sources/exam-6.jpg",
+          "asset": "assets/sources/exam-6.jpg",
           "crop": {
             "focusY": 17,
             "label": "原题单题聚焦"
@@ -1637,7 +1627,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第1页，第21题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-1.jpg",
+          "asset": "assets/sources/knowledge-1.jpg",
           "crop": {
             "focusY": 18,
             "label": "常识复盘单题聚焦"
@@ -1705,7 +1695,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第22题",
-          "asset": "reviews/assets/sources/exam-6.jpg",
+          "asset": "assets/sources/exam-6.jpg",
           "crop": {
             "focusY": 30,
             "label": "原题单题聚焦"
@@ -1714,7 +1704,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第1页，第22题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-1.jpg",
+          "asset": "assets/sources/knowledge-1.jpg",
           "crop": {
             "focusY": 33,
             "label": "常识复盘单题聚焦"
@@ -1782,7 +1772,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第23题",
-          "asset": "reviews/assets/sources/exam-6.jpg",
+          "asset": "assets/sources/exam-6.jpg",
           "crop": {
             "focusY": 43,
             "label": "原题单题聚焦"
@@ -1791,7 +1781,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第1页，第23题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-1.jpg",
+          "asset": "assets/sources/knowledge-1.jpg",
           "crop": {
             "focusY": 49,
             "label": "常识复盘单题聚焦"
@@ -1859,7 +1849,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第24题",
-          "asset": "reviews/assets/sources/exam-6.jpg",
+          "asset": "assets/sources/exam-6.jpg",
           "crop": {
             "focusY": 57,
             "label": "原题单题聚焦"
@@ -1868,7 +1858,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第1页，第24题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-1.jpg",
+          "asset": "assets/sources/knowledge-1.jpg",
           "crop": {
             "focusY": 65,
             "label": "常识复盘单题聚焦"
@@ -1936,7 +1926,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第25题",
-          "asset": "reviews/assets/sources/exam-6.jpg",
+          "asset": "assets/sources/exam-6.jpg",
           "crop": {
             "focusY": 70,
             "label": "原题单题聚焦"
@@ -1945,7 +1935,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第1页，第25题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-1.jpg",
+          "asset": "assets/sources/knowledge-1.jpg",
           "crop": {
             "focusY": 80,
             "label": "常识复盘单题聚焦"
@@ -2013,7 +2003,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第6页，第26题",
-          "asset": "reviews/assets/sources/exam-6.jpg",
+          "asset": "assets/sources/exam-6.jpg",
           "crop": {
             "focusY": 83,
             "label": "原题单题聚焦"
@@ -2022,7 +2012,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第26题选项续页",
-          "asset": "reviews/assets/sources/exam-7.jpg",
+          "asset": "assets/sources/exam-7.jpg",
           "crop": {
             "focusY": 50,
             "label": "选项续页单题聚焦"
@@ -2031,7 +2021,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第1-2页，第26题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-2.jpg",
+          "asset": "assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 13,
             "label": "常识复盘单题聚焦"
@@ -2099,7 +2089,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第27题",
-          "asset": "reviews/assets/sources/exam-7.jpg",
+          "asset": "assets/sources/exam-7.jpg",
           "crop": {
             "focusY": 15,
             "label": "原题单题聚焦"
@@ -2108,7 +2098,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第2页，第27题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-2.jpg",
+          "asset": "assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 22,
             "label": "常识复盘单题聚焦"
@@ -2176,7 +2166,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第28题",
-          "asset": "reviews/assets/sources/exam-7.jpg",
+          "asset": "assets/sources/exam-7.jpg",
           "crop": {
             "focusY": 25,
             "label": "原题单题聚焦"
@@ -2185,7 +2175,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第2页，第28题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-2.jpg",
+          "asset": "assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 31,
             "label": "常识复盘单题聚焦"
@@ -2253,7 +2243,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第29题",
-          "asset": "reviews/assets/sources/exam-7.jpg",
+          "asset": "assets/sources/exam-7.jpg",
           "crop": {
             "focusY": 35,
             "label": "原题单题聚焦"
@@ -2262,7 +2252,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第2页，第29题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-2.jpg",
+          "asset": "assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 41,
             "label": "常识复盘单题聚焦"
@@ -2330,7 +2320,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第30题",
-          "asset": "reviews/assets/sources/exam-7.jpg",
+          "asset": "assets/sources/exam-7.jpg",
           "crop": {
             "focusY": 45,
             "label": "原题单题聚焦"
@@ -2339,7 +2329,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第2页，第30题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-2.jpg",
+          "asset": "assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 50,
             "label": "常识复盘单题聚焦"
@@ -2407,7 +2397,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第31题",
-          "asset": "reviews/assets/sources/exam-7.jpg",
+          "asset": "assets/sources/exam-7.jpg",
           "crop": {
             "focusY": 55,
             "label": "原题单题聚焦"
@@ -2416,7 +2406,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第2页，第31题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-2.jpg",
+          "asset": "assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 59,
             "label": "常识复盘单题聚焦"
@@ -2484,7 +2474,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第32题",
-          "asset": "reviews/assets/sources/exam-7.jpg",
+          "asset": "assets/sources/exam-7.jpg",
           "crop": {
             "focusY": 65,
             "label": "原题单题聚焦"
@@ -2493,7 +2483,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第2页，第32题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-2.jpg",
+          "asset": "assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 69,
             "label": "常识复盘单题聚焦"
@@ -2561,7 +2551,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第33题",
-          "asset": "reviews/assets/sources/exam-7.jpg",
+          "asset": "assets/sources/exam-7.jpg",
           "crop": {
             "focusY": 75,
             "label": "原题单题聚焦"
@@ -2570,7 +2560,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第2页，第33题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-2.jpg",
+          "asset": "assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 78,
             "label": "常识复盘单题聚焦"
@@ -2638,7 +2628,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第7页，第34题",
-          "asset": "reviews/assets/sources/exam-7.jpg",
+          "asset": "assets/sources/exam-7.jpg",
           "crop": {
             "focusY": 85,
             "label": "原题单题聚焦"
@@ -2647,7 +2637,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第8页，第34题选项续页",
-          "asset": "reviews/assets/sources/exam-8.jpg",
+          "asset": "assets/sources/exam-8.jpg",
           "crop": {
             "focusY": 50,
             "label": "选项续页单题聚焦"
@@ -2656,7 +2646,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第2页，第34题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-2.jpg",
+          "asset": "assets/sources/knowledge-2.jpg",
           "crop": {
             "focusY": 87,
             "label": "常识复盘单题聚焦"
@@ -2724,7 +2714,7 @@
         {
           "file": "2027年国考第三十季行测模考大赛（行政执法类）.pdf",
           "locator": "第8页，第35题",
-          "asset": "reviews/assets/sources/exam-8.jpg",
+          "asset": "assets/sources/exam-8.jpg",
           "crop": {
             "focusY": 50,
             "label": "原题单题聚焦"
@@ -2733,7 +2723,7 @@
         {
           "file": "27国考⾏测模考第30季常识判断复盘.pdf",
           "locator": "第2-3页，第35题复盘条目",
-          "asset": "reviews/assets/sources/knowledge-3.jpg",
+          "asset": "assets/sources/knowledge-3.jpg",
           "crop": {
             "focusY": 50,
             "label": "常识复盘单题聚焦"
@@ -2753,5 +2743,7 @@
       },
       "note": ""
     }
-  ]
+  ],
+  "season": "2027 国考第30季",
+  "updatedAt": "2026-08-19T01:29:58.868905+00:00"
 }
