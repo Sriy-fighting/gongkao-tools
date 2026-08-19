@@ -3,7 +3,9 @@
 
   const reviewRoot = document.getElementById("review-view");
   if (!reviewRoot) return;
-  const STORAGE_KEY = "gk-review-library-v1";
+  // v2 intentionally starts with the rebuilt empty library after the season reset.
+  // Keeping a new key prevents stale v1 snapshots from repopulating deleted questions.
+  const STORAGE_KEY = "gk-review-library-v2";
   const seed = window.REVIEW_SEED || { version: 1, libraryName: "复盘资料库", questions: [] };
   const $ = (id) => reviewRoot.querySelector("#" + id);
   const els = {
@@ -19,9 +21,6 @@
     search: $("searchInput"),
     editDialog: $("editDialog"),
     importDialog: $("importDialog"),
-    sourceDialog: $("sourceDialog"),
-    sourceFrame: $("sourceFrame"),
-    sourceImage: $("sourceImage"),
     toast: $("toast")
   };
   const state = {
@@ -34,8 +33,6 @@
     toastTimer: null,
     pendingImport: null,
     undoSnapshot: null,
-    sourceRef: null,
-    sourceCropped: true,
     initialHashApplied: false,
     storageError: false,
     cloudSyncInFlight: false,
@@ -341,12 +338,9 @@
     }).join("");
     els.question.innerHTML =
       '<div class="pane-label"><span>QUESTION ' + escapeHtml(q.number) + '</span><span class="badges">' +
-        '<span class="badge ' + escapeHtml(q.match.status) + '">' + escapeHtml(statusLabel(q.match.status)) + "</span>" +
-        '<span class="badge ' + (q.answerStatus === "verified" ? "verified" : "pending") + '">' + escapeHtml(answerStatusLabel(q.answerStatus)) + "</span>" +
-        '<span class="badge">匹配 ' + Math.round((q.match.confidence || 0) * 100) + "%</span></span></div>" +
+        '<span class="badge ' + (q.answerStatus === "verified" ? "verified" : "pending") + '">' + escapeHtml(answerStatusLabel(q.answerStatus)) + "</span></span></div>" +
       '<h2 class="question-title">' + escapeHtml(q.stem) + '</h2><div class="options" role="radiogroup" aria-label="选择答案">' + options + "</div>" +
       '<div class="answer-actions"><button class="btn primary" id="revealBtn">' + (revealed ? "收起答案与复盘" : "查看答案与复盘") + '</button><button class="btn" id="editBtn">编辑复盘</button>' +
-        (q.match.status !== "verified" ? '<button class="btn" id="verifyBtn">确认此匹配</button>' : "") +
       '</div><p class="hint">快捷键：← / → 切题，Enter 揭示答案</p>' +
       '<div class="tags">' + q.tags.map((tag) => '<span class="tag"># ' + escapeHtml(tag) + "</span>").join("") + "</div>" +
       (q.note ? '<div class="note"><strong>我的笔记</strong>' + escapeHtml(q.note) + "</div>" : "");
@@ -362,15 +356,6 @@
       renderAll(false);
     };
     $("editBtn").onclick = openEdit;
-    if ($("verifyBtn")) {
-      $("verifyBtn").onclick = () => {
-        q.match.status = "verified";
-        q.match.confidence = Math.max(q.match.confidence || 0, 0.9);
-        saveData();
-        toast("已确认题目与复盘的对应关系");
-        renderAll(false);
-      };
-    }
     els.question.querySelectorAll("[data-option]").forEach((button) => {
       button.onclick = () => {
         if (!revealed) {
@@ -392,34 +377,20 @@
 
   function renderReview(q, revealed) {
     if (!revealed) {
-      els.review.innerHTML = '<div class="review-placeholder"><div><div class="placeholder-mark">答</div><strong>先独立完成这道题</strong><p>作答后再揭示答案、知识点与原文证据。</p></div></div>';
+      els.review.innerHTML = '<div class="review-placeholder"><div><div class="placeholder-mark">答</div><strong>先独立完成这道题</strong><p>作答后再揭示答案与详细复盘。</p></div></div>';
       return;
     }
     const answerText = q.answerStatus === "pending" ? "暂无可确认答案" : (q.options.find((opt) => opt.key === q.answer)?.text || "答案尚待核验");
-    const evidence = (q.match.evidence || []).map((item) => '<p class="hint">• ' + escapeHtml(item) + "</p>").join("");
-    const sources = q.sourceRefs.map((ref, index) =>
-      '<div class="source-card"><b>' + escapeHtml(ref.file) + "</b><span>" + escapeHtml(ref.locator) + "</span>" +
-      (ref.excerpt ? '<span>“' + escapeHtml(ref.excerpt) + '”</span>' : "") +
-      (ref.asset ? '<button class="btn" data-source-index="' + index + '">' + (ref.crop ? "查看单题证据" : "查看原图") + '</button>' : "") +
-      "</div>"
-    ).join("");
     els.review.innerHTML =
       '<div class="review-content"><div class="pane-label"><span>REVIEW</span><button class="btn ghost clear-filter" id="printBtn">打印本题</button></div>' +
       '<div class="answer-line ' + (q.answerStatus === "verified" ? "verified" : "pending") + '"><span class="answer-key">' + escapeHtml(q.answerStatus === "pending" ? "?" : (q.answer || "?")) + '</span><span><small>' + escapeHtml(q.answerStatus === "verified" ? "正确答案" : answerStatusLabel(q.answerStatus)) + '</small><br><strong>' + escapeHtml(answerText) + "</strong></span></div>" +
       "<h2>" + escapeHtml(q.review.summary || "复盘内容待补充") + "</h2>" +
       '<div class="review-block"><h3>逐题复盘</h3><p>' + escapeHtml(q.review.analysis || "暂无详细解析。") + "</p></div>" +
-      '<div class="review-block"><h3>易错点</h3><ul class="pitfalls">' + (q.review.pitfalls.length ? q.review.pitfalls.map((item) => "<li>" + escapeHtml(item) + "</li>").join("") : "<li>暂无记录</li>") + "</ul></div>" +
-      '<div class="review-block"><h3>记忆提示</h3><p class="memory">' + escapeHtml(q.review.memoryCue || "暂无记忆提示。") + "</p></div>" +
-      "<details><summary>来源证据与匹配依据</summary><div>" + evidence + sources + "</div></details>" +
       '<div class="mastery-box"><p>这道题现在掌握得怎么样？选择后会自动安排复习。</p><div class="mastery-actions">' +
         '<button class="btn again" data-mastery="again">不会</button><button class="btn fuzzy" data-mastery="fuzzy">模糊</button><button class="btn know" data-mastery="know">会</button>' +
       '</div><p class="next-review">当前状态：' + escapeHtml(masteryLabel(q.mastery)) + " · 下次复习：" + escapeHtml(formatDate(q.reviewState.nextReviewAt)) + "</p></div></div>";
     $("printBtn").onclick = () => window.print();
     els.review.querySelectorAll("[data-mastery]").forEach((button) => button.onclick = () => markMastery(q, button.dataset.mastery));
-    els.review.querySelectorAll("[data-source-index]").forEach((button) => button.onclick = () => {
-      const ref = q.sourceRefs[Number(button.dataset.sourceIndex)];
-      openSource(ref, ref.file + " · " + ref.locator);
-    });
   }
 
   function recordAnswerAttempt(q, selected) {
@@ -505,13 +476,9 @@
     const q = currentQuestion();
     if (!q) return;
     $("editAnswer").value = q.answer;
-    $("editConfidence").value = q.match.confidence;
     $("editAnswerStatus").value = q.answerStatus;
-    $("editMatchStatus").value = q.match.status;
     $("editSummary").value = q.review.summary;
     $("editAnalysis").value = q.review.analysis;
-    $("editPitfalls").value = q.review.pitfalls.join("\n");
-    $("editMemory").value = q.review.memoryCue;
     $("editTags").value = q.tags.join("，");
     $("editNote").value = q.note;
     els.editDialog.showModal();
@@ -526,44 +493,15 @@
       toast("答案必须是现有选项中的 A、B、C 或 D");
       return;
     }
-    q.match.confidence = Math.max(0, Math.min(1, Number($("editConfidence").value) || 0));
     q.answerStatus = $("editAnswerStatus").value;
-    q.match.status = $("editMatchStatus").value;
     q.review.summary = $("editSummary").value.trim();
     q.review.analysis = $("editAnalysis").value.trim();
-    q.review.pitfalls = $("editPitfalls").value.split(/\r?\n/).map((value) => value.trim()).filter(Boolean);
-    q.review.memoryCue = $("editMemory").value.trim();
     q.tags = $("editTags").value.split(/[，,]/).map((value) => value.trim()).filter(Boolean);
     q.note = $("editNote").value.trim();
     saveData();
     els.editDialog.close();
     toast("修改已保存在本机");
     renderAll(false);
-  }
-
-  function renderSourcePreview() {
-    const ref = state.sourceRef;
-    if (!ref) return;
-    const cropped = state.sourceCropped && ref.crop;
-    els.sourceFrame.classList.toggle("crop", Boolean(cropped));
-    els.sourceFrame.style.setProperty("--focus-y", ((ref.crop && ref.crop.focusY) || 50) + "%");
-    $("sourceModeLabel").textContent = cropped ? "单题证据裁剪" : "来源整页";
-    $("toggleSourceModeBtn").textContent = cropped ? "查看整页" : "回到单题裁剪";
-    $("toggleSourceModeBtn").setAttribute("aria-label", cropped ? "查看来源整页" : "回到单题证据裁剪");
-    els.sourceImage.alt = cropped ? "来源资料单题证据裁剪" : "来源资料整页原图";
-  }
-
-  function openSource(ref, title) {
-    if (!ref || !normalizeAssetPath(ref.asset)) {
-      toast("来源图片路径无效，已阻止打开");
-      return;
-    }
-    state.sourceRef = ref;
-    state.sourceCropped = Boolean(ref?.crop);
-    $("sourceTitle").textContent = title || "来源原图";
-    $("sourceImage").src = normalizeAssetPath(ref.asset);
-    renderSourcePreview();
-    els.sourceDialog.showModal();
   }
 
   function toast(message) {
@@ -705,14 +643,9 @@
   $("cancelImportBtnBottom").onclick = () => els.importDialog.close();
   $("confirmImportBtn").onclick = confirmImport;
   $("undoImportBtn").onclick = undoImport;
-  $("closeSourceBtn").onclick = () => els.sourceDialog.close();
-  $("toggleSourceModeBtn").onclick = () => {
-    state.sourceCropped = !state.sourceCropped;
-    renderSourcePreview();
-  };
   document.addEventListener("keydown", (event) => {
     if (reviewRoot.style.display === "none" || !reviewRoot.contains(event.target)) return;
-    if (event.target.matches("input,textarea,select,button,a,[role=radio]") || els.editDialog.open || els.sourceDialog.open || els.importDialog.open) return;
+    if (event.target.matches("input,textarea,select,button,a,[role=radio]") || els.editDialog.open || els.importDialog.open) return;
     if (event.key === "ArrowLeft") navigate(-1);
     if (event.key === "ArrowRight") navigate(1);
     if (event.key === "Enter") {

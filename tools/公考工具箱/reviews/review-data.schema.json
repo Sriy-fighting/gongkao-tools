@@ -37,8 +37,21 @@
           "type": "object",
           "required": ["focusY"],
           "properties": {
+            "kind": {"enum": ["question", "review", "answer", "segment"]},
+            "mode": {"enum": ["native", "legacy-focus"]},
             "focusY": {"type": "number", "minimum": 0, "maximum": 100},
-            "label": {"type": "string"}
+            "label": {"type": "string"},
+            "region": {
+              "type": "object",
+              "required": ["x", "y", "width", "height"],
+              "properties": {
+                "x": {"type": "number", "minimum": 0},
+                "y": {"type": "number", "minimum": 0},
+                "width": {"type": "number", "exclusiveMinimum": 0},
+                "height": {"type": "number", "exclusiveMinimum": 0},
+                "scale": {"type": "number", "exclusiveMinimum": 0}
+              }
+            }
           }
         }
       }

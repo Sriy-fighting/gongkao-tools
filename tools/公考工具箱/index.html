@@ -7,7 +7,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23175cd3'/%3E%3Cpath d='M21 44V20h12c6 0 10 3 10 8 0 4-2 6-5 7l7 9H34l-6-8h-1v8H21zm6-13h5c3 0 5-1 5-4s-2-4-5-4h-5v8z' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/portal.css?v=20260819-tool-names">
 <link rel="stylesheet" href="assets/css/recitation.css?v=1">
-<link rel="stylesheet" href="assets/css/review.css?v=20260819">
+<link rel="stylesheet" href="assets/css/review.css?v=20260819-review-ui-v3">
 </head>
 <body>
 <a class="skip-link" href="#dashboard-view">跳到主要内容</a>
@@ -166,7 +166,7 @@
           <div class="tool-card" data-view="review">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17"/><path d="M9 6h7M9 10h7M9 14h5"/></svg></div>
             <div class="tool-card-title">复盘台</div>
-            <div class="tool-card-desc">政治理论、常识与公基逐题复习，来源证据、错题统计和间隔复习</div>
+            <div class="tool-card-desc">政治理论、常识与公基逐题复习，错题统计和间隔复习</div>
             <div class="tool-card-hint">点击进入 →</div>
           </div>
         </div>
@@ -239,13 +239,9 @@
             <div class="review-dialog-head"><h2 id="editTitle">编辑题目复盘</h2><button class="review-mini-btn" value="cancel" aria-label="关闭">×</button></div>
             <div class="review-dialog-body"><div class="review-form-grid">
               <div class="review-field"><label for="editAnswer">答案</label><input id="editAnswer" maxlength="8"></div>
-              <div class="review-field"><label for="editConfidence">匹配置信度（0–1）</label><input id="editConfidence" type="number" min="0" max="1" step="0.01"></div>
               <div class="review-field"><label for="editAnswerStatus">答案状态</label><select id="editAnswerStatus"><option value="verified">已确认</option><option value="inferred">由知识点推断</option><option value="pending">待核验</option></select></div>
-              <div class="review-field"><label for="editMatchStatus">匹配状态</label><select id="editMatchStatus"><option value="verified">已确认</option><option value="pending">待核验</option><option value="unmatched">未匹配</option></select></div>
               <div class="review-field full"><label for="editSummary">核心考点</label><textarea id="editSummary"></textarea></div>
               <div class="review-field full"><label for="editAnalysis">详细复盘</label><textarea id="editAnalysis"></textarea></div>
-              <div class="review-field full"><label for="editPitfalls">易错点（每行一条）</label><textarea id="editPitfalls"></textarea></div>
-              <div class="review-field full"><label for="editMemory">记忆提示</label><textarea id="editMemory"></textarea></div>
               <div class="review-field full"><label for="editTags">标签（用逗号分隔）</label><input id="editTags"></div>
               <div class="review-field full"><label for="editNote">个人笔记</label><textarea id="editNote"></textarea></div>
             </div></div>
@@ -259,11 +255,6 @@
           <div class="review-dialog-actions"><button class="review-btn" id="cancelImportBtnBottom">取消</button><button class="review-btn review-primary" id="confirmImportBtn">确认合并</button></div>
         </dialog>
 
-        <dialog class="review-source-viewer" id="sourceDialog" aria-labelledby="sourceTitle">
-          <div class="review-dialog-head"><h2 id="sourceTitle">来源原图</h2><button class="review-mini-btn" id="closeSourceBtn" aria-label="关闭">×</button></div>
-          <div class="review-source-tools"><span id="sourceModeLabel">单题证据裁剪</span><button class="review-btn review-ghost" id="toggleSourceModeBtn">查看整页</button></div>
-          <div class="review-dialog-body"><div class="review-source-frame review-crop" id="sourceFrame"><img id="sourceImage" alt="来源资料单题证据"></div></div>
-        </dialog>
         <div class="review-undo-bar" id="undoBar" role="status" aria-live="polite" hidden><span id="undoText">导入已完成</span><button class="review-btn" id="undoImportBtn">撤销</button></div>
         <div class="review-toast" id="toast" role="status" aria-live="polite"></div>
         <input class="sr-only" id="fileInput" type="file" accept="application/json,.json">
@@ -505,7 +496,7 @@
 <script src="assets/js/portal.js?v=20260819-tool-names"></script>
 <script src="assets/js/journey.js?v=20260714-draft-editor"></script>
 <script src="assets/js/recitation.js?v=1"></script>
-<script src="reviews/review-data.js?v=20260819"></script>
-<script src="assets/js/review-app.js?v=20260819-filter-stability"></script>
+<script src="reviews/review-data.js?v=20260819-empty-library"></script>
+<script src="assets/js/review-app.js?v=20260819-review-ui-v3"></script>
 </body>
 </html>
