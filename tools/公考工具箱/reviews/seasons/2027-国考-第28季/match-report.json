@@ -1,0 +1,358 @@
+{
+  "version": 1,
+  "season": "2027 国考第28季",
+  "generatedAt": "2026-08-19T15:04:30.247Z",
+  "reviewSource": {
+    "mode": "user_pdf_literal_ordered",
+    "files": [
+      "27国考行测模考第28季政治理论复盘.pdf",
+      "27国考行测模考第28季常识判断复盘.pdf"
+    ],
+    "policy": "政治理论1-20、常识21-35展示用 review 均按 Markdown 中间层的用户复盘原文顺序配对；其他科目跳过。"
+  },
+  "inputAudit": {
+    "sourceFile": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+    "includedQuestionRange": "政治理论1-20、常识21-35",
+    "markdownFiles": [
+      "source/markdown/exam.md",
+      "source/markdown/politics-review.md",
+      "source/markdown/knowledge-review.md"
+    ],
+    "initialCheck": "原题8页、政治理论复盘3页、常识复盘3页均完成 Markdown 转换；三份 PDF 文字层均成功提取，未使用 OCR。"
+  },
+  "totals": {
+    "questions": 35,
+    "verified": 33,
+    "pending": 2,
+    "unmatched": 0,
+    "validationErrors": 0,
+    "duplicateConflicts": 0,
+    "evidenceCount": 72
+  },
+  "items": [
+    {
+      "questionId": "2027-国考-第28季-政治理论-01",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第1题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-02",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第2题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-03",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第3题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-04",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第4题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-05",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第5题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-06",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第6题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-07",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第7题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-08",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第8题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-09",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第9题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-10",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第10题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-11",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第11题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-12",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第12题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-13",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第13题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-14",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第14题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-15",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第15题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-16",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第16题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-17",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第17题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-18",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第18题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-19",
+      "status": "pending",
+      "confidence": 0.55,
+      "evidence": [
+        "复盘条目只给出科技创新与产业创新融合的判断规则，未提供①-④组合的唯一答案依据；保留为待核验。"
+      ],
+      "issues": [
+        "复盘条目只给出科技创新与产业创新融合的判断规则，未提供①-④组合的唯一答案依据；保留为待核验。"
+      ]
+    },
+    {
+      "questionId": "2027-国考-第28季-政治理论-20",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第20题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-21",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第21题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-22",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第22题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-23",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第23题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-24",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第24题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-25",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第25题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-26",
+      "status": "pending",
+      "confidence": 0.55,
+      "evidence": [
+        "原题中C、D均涉及速裁程序不适用/转换条件，复盘文字对未成年人案件表述为‘慎用但并非绝对禁止’，与选项组合存在冲突，保留为待核验。"
+      ],
+      "issues": [
+        "原题中C、D均涉及速裁程序不适用/转换条件，复盘文字对未成年人案件表述为‘慎用但并非绝对禁止’，与选项组合存在冲突，保留为待核验。"
+      ]
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-27",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第27题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-28",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第28题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-29",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第29题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-30",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第30题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-31",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第31题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-32",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第32题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-33",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第33题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-34",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第34题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    },
+    {
+      "questionId": "2027-国考-第28季-常识-35",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第35题标号，按自然阅读顺序配对。"
+      ],
+      "issues": []
+    }
+  ],
+  "issues": [
+    "原题 PDF 文字层对部分化学式/特殊符号提取不完整，相关题目保留 Markdown 原样并以页码证据定位。",
+    "复盘条目只给出科技创新与产业创新融合的判断规则，未提供①-④组合的唯一答案依据；保留为待核验。",
+    "原题中C、D均涉及速裁程序不适用/转换条件，复盘文字对未成年人案件表述为‘慎用但并非绝对禁止’，与选项组合存在冲突，保留为待核验。"
+  ]
+}

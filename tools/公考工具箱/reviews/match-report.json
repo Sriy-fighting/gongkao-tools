@@ -1,13 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-19T09:13:04.152Z",
+  "generatedAt": "2026-08-19T15:04:30.340Z",
   "totals": {
-    "questions": 35,
-    "verified": 35,
-    "pending": 0,
+    "questions": 70,
+    "verified": 68,
+    "pending": 2,
     "unmatched": 0
   },
   "seasons": [
+    {
+      "season": "2027 国考第28季",
+      "directory": "2027-国考-第28季",
+      "questions": 35,
+      "verified": 33,
+      "pending": 2,
+      "unmatched": 0
+    },
     {
       "season": "2027 国考第30季",
       "directory": "2027-国考-第30季",
@@ -20,6 +28,786 @@
   "duplicateConflicts": [],
   "validationErrors": [],
   "matches": [
+    {
+      "id": "2027-国考-第28季-政治理论-01",
+      "number": 1,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第1题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第1题",
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第1页，第1题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-02",
+      "number": 2,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第2题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第2题",
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第1页，第2题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-03",
+      "number": 3,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第3题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第3题",
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第1页，第3题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-04",
+      "number": 4,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第4题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第4题",
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第1页，第4题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-05",
+      "number": 5,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第5题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第5题",
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第1页，第5题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-06",
+      "number": 6,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第6题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第2页，第6题",
+          "asset": "reviews/assets/sources/gk28-exam-2.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第1页，第6题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-07",
+      "number": 7,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第7题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第3页，第7题",
+          "asset": "reviews/assets/sources/gk28-exam-3.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第7题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-08",
+      "number": 8,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第8题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第3页，第8题",
+          "asset": "reviews/assets/sources/gk28-exam-3.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第8题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-09",
+      "number": 9,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第9题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第3页，第9题",
+          "asset": "reviews/assets/sources/gk28-exam-3.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第9题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-10",
+      "number": 10,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第10题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第3页，第10题",
+          "asset": "reviews/assets/sources/gk28-exam-3.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第10题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-11",
+      "number": 11,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第11题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第11题",
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第11题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-12",
+      "number": 12,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第12题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第12题",
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第12题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-13",
+      "number": 13,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第13题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第13题",
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第13题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-14",
+      "number": 14,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第14题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第14题",
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第14题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-15",
+      "number": 15,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第15题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第15题",
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第15题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-16",
+      "number": 16,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第16题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第4页，第16题",
+          "asset": "reviews/assets/sources/gk28-exam-4.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第16题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-17",
+      "number": 17,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第17题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第17题",
+          "asset": "reviews/assets/sources/gk28-exam-5.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第17题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-18",
+      "number": 18,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第18题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第18题",
+          "asset": "reviews/assets/sources/gk28-exam-5.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第2页，第18题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-19",
+      "number": 19,
+      "subject": "政治理论",
+      "status": "pending",
+      "confidence": 0.55,
+      "evidence": [
+        "复盘条目只给出科技创新与产业创新融合的判断规则，未提供①-④组合的唯一答案依据；保留为待核验。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第19题",
+          "asset": "reviews/assets/sources/gk28-exam-5.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第3页，第19题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-政治理论-20",
+      "number": 20,
+      "subject": "政治理论",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第20题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第20题",
+          "asset": "reviews/assets/sources/gk28-exam-5.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季政治理论复盘.pdf",
+          "locator": "第3页，第20题复盘条目",
+          "asset": "reviews/assets/sources/gk28-politics-3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-21",
+      "number": 21,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第21题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第5页，第21题",
+          "asset": "reviews/assets/sources/gk28-exam-5.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第1页，第21题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-22",
+      "number": 22,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第22题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第22题",
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第1页，第22题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-23",
+      "number": 23,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第23题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第23题",
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第1页，第23题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-24",
+      "number": 24,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第24题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第24题",
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第1页，第24题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-25",
+      "number": 25,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第25题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第25题",
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第1页，第25题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-26",
+      "number": 26,
+      "subject": "常识",
+      "status": "pending",
+      "confidence": 0.55,
+      "evidence": [
+        "原题中C、D均涉及速裁程序不适用/转换条件，复盘文字对未成年人案件表述为‘慎用但并非绝对禁止’，与选项组合存在冲突，保留为待核验。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第26题",
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第1页，第26题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-27",
+      "number": 27,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第27题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6页，第27题",
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第1页，第27题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-28",
+      "number": 28,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第28题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第6-7页，第28题（题干跨页，选项在第7页）",
+          "asset": "reviews/assets/sources/gk28-exam-6.jpg"
+        },
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第28题选项",
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第2页，第28题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-29",
+      "number": 29,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第29题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第29题",
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第2页，第29题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-30",
+      "number": 30,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第30题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第30题",
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第2页，第30题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-31",
+      "number": 31,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第31题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第31题",
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第2页，第31题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-32",
+      "number": 32,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第32题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第32题",
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第2页，第32题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-33",
+      "number": 33,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第33题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第33题",
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第2页，第33题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-34",
+      "number": 34,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第34题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7页，第34题",
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第2页，第34题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2027-国考-第28季-常识-35",
+      "number": 35,
+      "subject": "常识",
+      "status": "verified",
+      "confidence": 0.98,
+      "evidence": [
+        "原题与复盘资料均以第35题标号，按自然阅读顺序配对。"
+      ],
+      "sourceRefs": [
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第7-8页，第35题（题干在第7页，选项在第8页）",
+          "asset": "reviews/assets/sources/gk28-exam-7.jpg"
+        },
+        {
+          "file": "2027年国考第二十八季行测模考大赛（行政执法类）.pdf",
+          "locator": "第8页，第35题选项",
+          "asset": "reviews/assets/sources/gk28-exam-8.jpg"
+        },
+        {
+          "file": "27国考行测模考第28季常识判断复盘.pdf",
+          "locator": "第3页，第35题复盘条目",
+          "asset": "reviews/assets/sources/gk28-knowledge-3.jpg"
+        }
+      ]
+    },
     {
       "id": "2027-国考-第30季-政治理论-01",
       "number": 1,
