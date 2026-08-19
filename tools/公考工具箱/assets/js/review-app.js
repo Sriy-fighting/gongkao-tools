@@ -7,6 +7,7 @@
   // Keeping a new key prevents stale v1 snapshots from repopulating deleted questions.
   const STORAGE_KEY = "gk-review-library-v2";
   const seed = window.REVIEW_SEED || { version: 1, libraryName: "复盘资料库", questions: [] };
+  const SEED_REVISION = "20260820-season28-text-v2";
   const $ = (id) => reviewRoot.querySelector("#" + id);
   const els = {
     sidebar: $("reviewSidebar"),
@@ -105,12 +106,20 @@
     try {
       const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
       if (stored && Array.isArray(stored.questions)) {
-        return { ...stored, dirty: Boolean(stored.dirty), questions: mergeQuestions(seed.questions || [], stored.questions, false) };
+        const seedChanged = stored.seedRevision !== SEED_REVISION;
+        const questions = seedChanged
+          ? mergeQuestions(stored.questions, seed.questions || [], true)
+          : mergeQuestions(seed.questions || [], stored.questions, false);
+        const next = { ...stored, seedRevision: SEED_REVISION, dirty: Boolean(stored.dirty), questions };
+        if (seedChanged) {
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch (error) { /* saveData reports storage errors */ }
+        }
+        return next;
       }
     } catch (error) {
       console.warn("Local data could not be read", error);
     }
-    return { ...seed, questions: (seed.questions || []).map(normalizeQuestion) };
+    return { ...seed, seedRevision: SEED_REVISION, questions: (seed.questions || []).map(normalizeQuestion) };
   }
 
   function syncCloudData() {
@@ -122,6 +131,22 @@
         try { cloudData = JSON.parse(cloudData); } catch (error) { cloudData = null; }
       }
       if (!cloudData || !Array.isArray(cloudData.questions)) return;
+      if (cloudData.seedRevision !== SEED_REVISION) {
+        if (state.hasLocalSnapshot) {
+          if (window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, state.data);
+          return;
+        }
+        state.data = {
+          ...cloudData,
+          seedRevision: SEED_REVISION,
+          questions: mergeQuestions(cloudData.questions, seed.questions || [], true)
+        };
+        state.hasLocalSnapshot = true;
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data)); } catch (error) { /* saveData reports storage errors */ }
+        if (window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, state.data);
+        renderAll(true);
+        return;
+      }
       // A user may answer or edit while the remote request is in flight.
       // Compare against the latest in-memory snapshot, never the request-time one.
       const localData = state.data;
@@ -626,7 +651,7 @@
   $("resetBtn").onclick = () => {
     if (confirm("恢复原始资料会清除本机的掌握度、笔记和修改，确定继续吗？")) {
       localStorage.removeItem(STORAGE_KEY);
-      state.data = { ...seed, questions: seed.questions.map(normalizeQuestion) };
+      state.data = { ...seed, seedRevision: SEED_REVISION, questions: seed.questions.map(normalizeQuestion) };
       state.data.dirty = false;
       state.revealed.clear();
       state.selected = {};
