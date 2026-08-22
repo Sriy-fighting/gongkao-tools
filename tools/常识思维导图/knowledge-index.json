@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-22T09:30:35.918Z",
+  "generatedAt": "2026-08-22T10:02:31.454Z",
   "maps": [
     {
       "id": "science-section-1",
@@ -2141,6 +2141,22 @@
       "key": "const seedModules=",
       "order": 3,
       "nodes": [
+        {
+          "id": "history-section-2-xihan-timeline",
+          "text": "西汉事件记",
+          "path": "西汉 › 西汉事件记",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": true
+        },
+        {
+          "id": "history-section-2-xihan-timeline-sequence",
+          "text": "西汉建立（汉高祖刘邦）→文景之治→七国之乱→汉武盛世→昭宣中兴→王莽篡汉",
+          "path": "西汉 › 西汉事件记 › 西汉建立（汉高祖刘邦）→文景之治→七国之乱→汉武盛世→昭宣中兴→王莽篡汉",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
         {
           "id": "history-section-2-0",
           "text": "秦朝事件记",

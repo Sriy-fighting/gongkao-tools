@@ -541,9 +541,12 @@
     currentView = 'knowledge-chapter';
   }
 
-  function openKnowledgeMap(map) {
+  function openKnowledgeMap(map, target) {
     if (!map) return;
     var path = map.path || ('data:text/html;charset=utf-8,' + encodeURIComponent(map.content || '<!doctype html><title>思维导图</title><p>导入文件为空</p>'));
+    if (target && map.path) {
+      path += (path.indexOf('?') === -1 ? '?' : '&') + 'q=' + encodeURIComponent(target.text || '') + '&target=' + encodeURIComponent(target.path || '');
+    }
     openKnowledgeChapter(path, map.title);
   }
 
@@ -603,7 +606,7 @@
     if (!els.globalKnowledgeResults) return;
     var q = String(query || '').trim(); knowledgeSearchQuery = q; els.globalKnowledgeResults.innerHTML = ''; els.globalKnowledgeResults.classList.toggle('is-open', !!q); if (els.clearGlobalKnowledgeSearch) els.clearGlobalKnowledgeSearch.style.display = q ? 'block' : 'none'; if (!q) return;
     var matches = flattenKnowledgeMatches(q); if (!matches.length) { els.globalKnowledgeResults.innerHTML = '<div class="portal-search-empty">未找到匹配的知识点</div>'; return; }
-    matches.forEach(function (item) { var button = document.createElement('button'); button.type = 'button'; button.className = 'portal-search-result'; button.innerHTML = '<strong>' + knowledgeEsc(item.text) + '</strong><small>' + knowledgeEsc(item.map.title) + ' · ' + knowledgeEsc(item.path) + '</small>'; button.addEventListener('click', function () { openKnowledgeMap(item.map); }); els.globalKnowledgeResults.appendChild(button); });
+    matches.forEach(function (item) { var button = document.createElement('button'); button.type = 'button'; button.className = 'portal-search-result'; button.innerHTML = '<strong>' + knowledgeEsc(item.text) + '</strong><small>' + knowledgeEsc(item.map.title) + ' · ' + knowledgeEsc(item.path) + '</small>'; button.addEventListener('click', function () { openKnowledgeMap(item.map, item); }); els.globalKnowledgeResults.appendChild(button); });
   }
 
   function initKnowledgeLibrary() {
