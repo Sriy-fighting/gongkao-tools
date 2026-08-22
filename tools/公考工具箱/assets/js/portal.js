@@ -5,7 +5,7 @@
     dashboard: { name: '首页', path: null },
     exam:      { name: '套卷分数计算',   path: '../公考助手/index.html' },
     essay:     { name: '申论方格纸', path: '../申论方格纸/index.html' },
-    speed:     { name: '资料速算',   path: '../资料训练/index.html' },
+    speed:     { name: '资料速算',   path: '../资料训练/index.html?v=20260823-question-bank' },
     curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html' },
     wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html' },
     review:    { name: '复盘台', path: null },
@@ -25,9 +25,13 @@
   var KNOWLEDGE_INDEX_URL = '../常识思维导图/knowledge-index.json';
   var KNOWLEDGE_ORDER_STORAGE_KEY = 'gk-knowledge-order-v1';
   var KNOWLEDGE_LIBRARY_STORAGE_KEY = 'gk-knowledge-library-v1';
+  var KNOWLEDGE_FOLDER_STORAGE_KEY = 'gk-knowledge-folders-v1';
+  var KNOWLEDGE_FOLDERS = ['政治理论', '常识', '公基'];
   var knowledgeMaps = [];
   var knowledgeLoaded = false;
   var knowledgeSearchQuery = '';
+  var knowledgeFolder = '常识';
+  var knowledgeFolders = {};
   var DEFAULT_TOOL_NAMES = {
     dashboard: '行旅台',
     plan: '行程计划',
@@ -85,6 +89,7 @@
     els.reviewView = document.getElementById('review-view');
     els.knowledgeView = document.getElementById('knowledge-view');
     els.knowledgeGrid = document.getElementById('knowledge-grid');
+    els.knowledgeFolderTabs = document.getElementById('knowledge-folder-tabs');
     els.globalKnowledgeSearch = document.getElementById('globalKnowledgeSearch');
     els.clearGlobalKnowledgeSearch = document.getElementById('clearGlobalKnowledgeSearch');
     els.globalKnowledgeResults = document.getElementById('globalKnowledgeResults');
@@ -130,6 +135,7 @@
     if (els.globalKnowledgeSearch) els.globalKnowledgeSearch.addEventListener('input', function () { renderKnowledgeSearch(els.globalKnowledgeSearch.value); });
     if (els.clearGlobalKnowledgeSearch) els.clearGlobalKnowledgeSearch.addEventListener('click', function () { els.globalKnowledgeSearch.value = ''; renderKnowledgeSearch(''); els.globalKnowledgeSearch.focus(); });
     if (els.knowledgeImportInput) els.knowledgeImportInput.addEventListener('change', handleKnowledgeImport);
+    if (els.toolFrame) els.toolFrame.addEventListener('load', enhanceEmbeddedKnowledgeMap);
     document.addEventListener('click', function (event) {
       if (els.globalKnowledgeResults && els.portalSearch && !els.portalSearch.contains(event.target)) renderKnowledgeSearch('');
     });
@@ -534,11 +540,35 @@
     if (els.reviewView) els.reviewView.style.display = 'none';
     if (els.knowledgeView) els.knowledgeView.style.display = 'none';
     els.toolContainer.classList.add('active');
-    if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = false;
+    // Chapters open directly inside the portal frame; navigation stays in the portal sidebar.
+    if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
     if (els.pageTitle) els.pageTitle.textContent = title || getToolName('knowledge');
     els.toolFrame.src = path;
     els.navItems.forEach(function (el) { el.classList.toggle('active', el.dataset.view === 'knowledge'); });
     currentView = 'knowledge-chapter';
+  }
+
+  function enhanceEmbeddedKnowledgeMap() {
+    var doc;
+    try { doc = els.toolFrame && els.toolFrame.contentDocument; } catch (e) { return; }
+    if (!doc || !doc.getElementById('toggleLeft') || !doc.querySelector('.layout') || doc.getElementById('portal-map-panel-style')) return;
+    // Do not inherit the old text-button state, which could leave a narrow map column.
+    doc.body.classList.remove('left-hidden', 'right-hidden');
+    var style = doc.createElement('style'); style.id = 'portal-map-panel-style';
+    style.textContent = '#toggleLeft,#toggleRight{display:none!important}.layout{grid-template-columns:var(--side) minmax(0,1fr) var(--right,var(--assist))!important;min-width:0}.layout main{min-width:0!important;width:auto!important;overflow:visible!important}.layout .module{width:100%!important;min-width:0!important}.portal-map-left-hidden .layout{grid-template-columns:minmax(0,1fr) var(--right,var(--assist))!important}.portal-map-left-hidden .left{display:none!important}.portal-map-right-hidden .layout{grid-template-columns:var(--side) minmax(0,1fr)!important}.portal-map-right-hidden .right,.portal-map-right-hidden .assistant{display:none!important}.portal-map-left-hidden.portal-map-right-hidden .layout{grid-template-columns:minmax(0,1fr)!important}.portal-map-toggle{position:fixed;z-index:60;top:50%;display:grid;place-items:center;width:30px;height:52px;padding:0;border:1px solid #b8cde1;border-radius:7px;background:#fff;color:#1766b3;box-shadow:0 4px 13px #133b5c2b;font-size:22px;line-height:1}.portal-map-toggle.left{left:8px}.portal-map-toggle.right{right:8px}@media(max-width:980px){.portal-map-toggle{display:none!important}.layout{grid-template-columns:var(--side) minmax(0,1fr)!important}}@media(max-width:680px){.layout{display:block!important}.layout .left,.layout .right,.layout .assistant{display:none!important}}';
+    doc.head.appendChild(style);
+    var left = doc.createElement('button'), right = doc.createElement('button');
+    left.type = right.type = 'button'; left.className = 'portal-map-toggle left'; right.className = 'portal-map-toggle right';
+    left.setAttribute('aria-label', '收起章节导航'); right.setAttribute('aria-label', '收起学习面板');
+    function refresh() {
+      var leftHidden = doc.body.classList.contains('portal-map-left-hidden'), rightHidden = doc.body.classList.contains('portal-map-right-hidden');
+      left.textContent = leftHidden ? '›' : '‹'; right.textContent = rightHidden ? '‹' : '›';
+      left.setAttribute('aria-label', leftHidden ? '展开章节导航' : '收起章节导航'); right.setAttribute('aria-label', rightHidden ? '展开学习面板' : '收起学习面板');
+      left.title = left.getAttribute('aria-label'); right.title = right.getAttribute('aria-label');
+    }
+    left.addEventListener('click', function () { doc.body.classList.toggle('portal-map-left-hidden'); refresh(); });
+    right.addEventListener('click', function () { doc.body.classList.toggle('portal-map-right-hidden'); refresh(); });
+    doc.body.append(left, right); refresh();
   }
 
   function openKnowledgeMap(map, target) {
@@ -575,22 +605,54 @@
     try { localStorage.setItem(KNOWLEDGE_ORDER_STORAGE_KEY, JSON.stringify(order)); if (window.SyncStore) window.SyncStore.writeData(KNOWLEDGE_ORDER_STORAGE_KEY, order); } catch (e) {}
   }
 
+  function loadKnowledgeFolders() {
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KNOWLEDGE_FOLDER_STORAGE_KEY) || '{}'); } catch (e) {}
+    knowledgeFolders = saved && typeof saved === 'object' ? saved : {};
+    knowledgeMaps.forEach(function (map) { if (KNOWLEDGE_FOLDERS.indexOf(knowledgeFolders[map.id]) === -1) knowledgeFolders[map.id] = '常识'; });
+  }
+
+  function saveKnowledgeFolders() {
+    try { localStorage.setItem(KNOWLEDGE_FOLDER_STORAGE_KEY, JSON.stringify(knowledgeFolders)); if (window.SyncStore) window.SyncStore.writeData(KNOWLEDGE_FOLDER_STORAGE_KEY, knowledgeFolders); } catch (e) {}
+  }
+
+  function renderKnowledgeFolders() {
+    if (!els.knowledgeFolderTabs) return;
+    els.knowledgeFolderTabs.innerHTML = '';
+    KNOWLEDGE_FOLDERS.forEach(function (folder) {
+      var count = knowledgeMaps.filter(function (map) { return knowledgeFolders[map.id] === folder; }).length;
+      var button = document.createElement('button');
+      button.type = 'button'; button.className = 'knowledge-folder-tab' + (folder === knowledgeFolder ? ' active' : '');
+      button.setAttribute('role', 'tab'); button.setAttribute('aria-selected', folder === knowledgeFolder ? 'true' : 'false');
+      button.innerHTML = '<span>' + knowledgeEsc(folder) + '</span><small>' + count + '</small>';
+      button.addEventListener('click', function () { knowledgeFolder = folder; renderKnowledgeLibrary(); });
+      els.knowledgeFolderTabs.appendChild(button);
+    });
+  }
+
   function knowledgeEsc(value) { return String(value || '').replace(/[&<>"']/g, function (c) { return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[c]; }); }
 
   function renderKnowledgeLibrary() {
     if (!els.knowledgeGrid) return;
+    renderKnowledgeFolders();
     els.knowledgeGrid.innerHTML = '';
-    knowledgeMaps.forEach(function (map, index) {
+    var mapsInFolder = knowledgeMaps.filter(function (map) { return knowledgeFolders[map.id] === knowledgeFolder; });
+    if (!mapsInFolder.length) {
+      els.knowledgeGrid.innerHTML = '<div class="knowledge-folder-empty"><strong>' + knowledgeEsc(knowledgeFolder) + '</strong><span>暂时没有思维导图。导入后可将内容移动到这里。</span></div>';
+      return;
+    }
+    mapsInFolder.forEach(function (map, index) {
       var card = document.createElement('article');
       card.className = 'knowledge-card'; card.draggable = true; card.dataset.mapId = map.id;
-      card.innerHTML = '<button class="knowledge-card-main" type="button"><span class="knowledge-card-mark" style="background:' + knowledgeEsc(map.color) + '22;color:' + knowledgeEsc(map.color) + '">' + knowledgeEsc(map.icon || '图') + '</span><span class="knowledge-card-body"><strong>' + knowledgeEsc(map.title) + '</strong><small>' + knowledgeEsc(map.subtitle || '') + '</small></span><span class="knowledge-card-arrow" aria-hidden="true">→</span></button><div class="knowledge-card-actions"><span class="knowledge-drag-label">拖拽调整顺序</span><button type="button" data-move="up" title="上移" aria-label="上移">↑</button><button type="button" data-move="down" title="下移" aria-label="下移">↓</button></div>';
+      card.innerHTML = '<button class="knowledge-card-main" type="button"><span class="knowledge-card-mark" style="background:' + knowledgeEsc(map.color) + '22;color:' + knowledgeEsc(map.color) + '">' + knowledgeEsc(map.icon || '图') + '</span><span class="knowledge-card-body"><strong>' + knowledgeEsc(map.title) + '</strong><small>' + knowledgeEsc(map.subtitle || '') + '</small></span><span class="knowledge-card-arrow" aria-hidden="true">→</span></button><div class="knowledge-card-actions"><label class="knowledge-folder-move">移至 <select data-folder aria-label="移动 ' + knowledgeEsc(map.title) + ' 到文件夹"><option>政治理论</option><option>常识</option><option>公基</option></select></label><span class="knowledge-drag-label">拖拽调整顺序</span><button type="button" data-move="up" title="上移" aria-label="上移">↑</button><button type="button" data-move="down" title="下移" aria-label="下移">↓</button></div>';
       card.querySelector('.knowledge-card-main').addEventListener('click', function () { openKnowledgeMap(map); });
-      card.querySelectorAll('[data-move]').forEach(function (button) { button.addEventListener('click', function (event) { event.stopPropagation(); var from = knowledgeMaps.indexOf(map), to = button.dataset.move === 'up' ? from - 1 : from + 1; if (to < 0 || to >= knowledgeMaps.length) return; var other = knowledgeMaps[to]; knowledgeMaps[to] = map; knowledgeMaps[from] = other; saveKnowledgeOrder(); renderKnowledgeLibrary(); }); });
+      var folderSelect = card.querySelector('[data-folder]'); folderSelect.value = knowledgeFolders[map.id]; folderSelect.addEventListener('click', function (event) { event.stopPropagation(); }); folderSelect.addEventListener('change', function () { knowledgeFolders[map.id] = folderSelect.value; saveKnowledgeFolders(); renderKnowledgeLibrary(); });
+      card.querySelectorAll('[data-move]').forEach(function (button) { button.addEventListener('click', function (event) { event.stopPropagation(); var from = mapsInFolder.indexOf(map), to = button.dataset.move === 'up' ? from - 1 : from + 1; if (to < 0 || to >= mapsInFolder.length) return; var other = mapsInFolder[to], fromGlobal = knowledgeMaps.indexOf(map), toGlobal = knowledgeMaps.indexOf(other); knowledgeMaps[fromGlobal] = other; knowledgeMaps[toGlobal] = map; saveKnowledgeOrder(); renderKnowledgeLibrary(); }); });
       card.addEventListener('dragstart', function (event) { card.classList.add('is-dragging'); event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', map.id); });
       card.addEventListener('dragend', function () { card.classList.remove('is-dragging'); document.querySelectorAll('.knowledge-card.is-over').forEach(function (el) { el.classList.remove('is-over'); }); });
       card.addEventListener('dragover', function (event) { event.preventDefault(); card.classList.add('is-over'); });
       card.addEventListener('dragleave', function () { card.classList.remove('is-over'); });
-      card.addEventListener('drop', function (event) { event.preventDefault(); card.classList.remove('is-over'); var fromId = event.dataTransfer.getData('text/plain'); var from = knowledgeMaps.findIndex(function (m) { return m.id === fromId; }); var to = knowledgeMaps.indexOf(map); if (from < 0 || from === to) return; var moved = knowledgeMaps.splice(from, 1)[0]; knowledgeMaps.splice(to, 0, moved); saveKnowledgeOrder(); renderKnowledgeLibrary(); });
+      card.addEventListener('drop', function (event) { event.preventDefault(); card.classList.remove('is-over'); var fromId = event.dataTransfer.getData('text/plain'); var from = knowledgeMaps.findIndex(function (m) { return m.id === fromId; }), to = knowledgeMaps.indexOf(map); if (from < 0 || from === to || knowledgeFolders[fromId] !== knowledgeFolder) return; var moved = knowledgeMaps.splice(from, 1)[0]; knowledgeMaps.splice(to, 0, moved); saveKnowledgeOrder(); renderKnowledgeLibrary(); });
       els.knowledgeGrid.appendChild(card);
     });
   }
@@ -611,7 +673,7 @@
 
   function initKnowledgeLibrary() {
     var fallback = { maps: [{ id: 'science-section-1', title: '科技常识：波、电磁波与光学', subtitle: '声音、波动、电磁波、光学现象与成像', path: '../常识思维导图/科技常识_第一节_学习增强版.html', icon: '科', color: '#2783c9', order: 1, nodes: [] }, { id: 'science-section-2', title: '科技常识：力学、电学与能量', subtitle: '牛顿定律、常见力、电学现象、能量守恒与核能', path: '../常识思维导图/科技常识_第二节_学习增强版.html', icon: '力', color: '#2778b8', order: 2, nodes: [] }, { id: 'history-section-2', title: '历史常识：秦汉', subtitle: '秦朝建立、西汉盛世与汉武帝时期', path: '../常识思维导图/历史常识_第二节_学习增强版.html', icon: '秦', color: '#b05f26', order: 3, nodes: [] }, { id: 'history-section-3', title: '历史常识：东汉至隋朝', subtitle: '东汉、三国、两晋南北朝与隋朝历史脉络', path: '../常识思维导图/历史常识_第三节_学习增强版.html', icon: '史', color: '#a34d37', order: 4, nodes: [] }, { id: 'history-section-4', title: '历史常识：唐宋', subtitle: '唐朝盛衰、五代十国与北宋制度变革', path: '../常识思维导图/历史常识_第四节_学习增强版.html', icon: '唐', color: '#9b4d28', order: 5, nodes: [] }, { id: 'history-section-5', title: '历史常识：南宋至清末', subtitle: '南宋、元明清政权与近代转折', path: '../常识思维导图/历史常识_第五节_学习增强版.html', icon: '明', color: '#1766a8', order: 6, nodes: [] }] };
-    function finish(data) { knowledgeMaps = Array.isArray(data && data.maps) && data.maps.length ? data.maps : fallback.maps; try { var local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); if (Array.isArray(local)) knowledgeMaps = knowledgeMaps.concat(local.filter(function (m) { return !knowledgeMaps.some(function (base) { return base.id === m.id; }); })); } catch (e) {} applyKnowledgeOrder(); knowledgeLoaded = true; renderKnowledgeLibrary(); if (knowledgeSearchQuery) renderKnowledgeSearch(knowledgeSearchQuery); }
+    function finish(data) { knowledgeMaps = Array.isArray(data && data.maps) && data.maps.length ? data.maps : fallback.maps; try { var local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); if (Array.isArray(local)) knowledgeMaps = knowledgeMaps.concat(local.filter(function (m) { return !knowledgeMaps.some(function (base) { return base.id === m.id; }); })); } catch (e) {} loadKnowledgeFolders(); saveKnowledgeFolders(); applyKnowledgeOrder(); knowledgeLoaded = true; renderKnowledgeLibrary(); if (knowledgeSearchQuery) renderKnowledgeSearch(knowledgeSearchQuery); }
     fetch(KNOWLEDGE_INDEX_URL).then(function (response) { if (!response.ok) throw new Error('index'); return response.json(); }).then(finish).catch(function () { finish({ maps: [] }); });
   }
 
@@ -626,7 +688,7 @@
 
   function handleKnowledgeImport(event) {
     var file = event.target.files && event.target.files[0]; if (!file) return;
-    var reader = new FileReader(); reader.onload = function () { try { var html = String(reader.result || ''); var titleMatch = html.match(/<title[^>]*>([^<]+)</i); var title = titleMatch ? titleMatch[1].replace(/\s*[|｜].*$/, '').trim() : file.name.replace(/\.(html?|json)$/i, ''); var id = 'imported-' + Date.now(); var map = { id: id, title: title, subtitle: '新导入思维导图', path: '', content: html, icon: title.slice(0, 1) || '图', color: '#2783c9', order: null, nodes: extractImportedNodes(html, id) }; var local = []; try { local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); } catch (e) {} local.push(map); localStorage.setItem(KNOWLEDGE_LIBRARY_STORAGE_KEY, JSON.stringify(local)); knowledgeMaps.push(map); knowledgeMaps.sort(function (a, b) { return knowledgeSortValue(a) - knowledgeSortValue(b) || String(a.title).localeCompare(String(b.title), 'zh-CN'); }); saveKnowledgeOrder(); renderKnowledgeLibrary(); showSyncToast('已导入思维导图，并按章节顺序整理'); } catch (e) { showSyncToast('导入失败：文件格式错误'); } }; reader.readAsText(file); event.target.value = '';
+    var reader = new FileReader(); reader.onload = function () { try { var html = String(reader.result || ''); var titleMatch = html.match(/<title[^>]*>([^<]+)</i); var title = titleMatch ? titleMatch[1].replace(/\s*[|｜].*$/, '').trim() : file.name.replace(/\.(html?|json)$/i, ''); var id = 'imported-' + Date.now(); var map = { id: id, title: title, subtitle: '新导入思维导图', path: '', content: html, icon: title.slice(0, 1) || '图', color: '#2783c9', order: null, nodes: extractImportedNodes(html, id) }; var local = []; try { local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); } catch (e) {} local.push(map); localStorage.setItem(KNOWLEDGE_LIBRARY_STORAGE_KEY, JSON.stringify(local)); knowledgeMaps.push(map); knowledgeFolders[id] = knowledgeFolder; saveKnowledgeFolders(); knowledgeMaps.sort(function (a, b) { return knowledgeSortValue(a) - knowledgeSortValue(b) || String(a.title).localeCompare(String(b.title), 'zh-CN'); }); saveKnowledgeOrder(); renderKnowledgeLibrary(); showSyncToast('已导入思维导图，并放入“' + knowledgeFolder + '”文件夹'); } catch (e) { showSyncToast('导入失败：文件格式错误'); } }; reader.readAsText(file); event.target.value = '';
   }
 
   function setGreeting() {
