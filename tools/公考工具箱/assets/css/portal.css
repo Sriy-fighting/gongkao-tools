@@ -4191,11 +4191,9 @@ body {
 .knowledge-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .knowledge-card {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 14px;
+  gap: 0;
   min-height: 142px;
-  padding: 20px;
+  padding: 0;
   border: 1px solid var(--ca-line);
   border-radius: var(--ca-radius);
   background: var(--ca-paper-strong);
@@ -4204,6 +4202,32 @@ body {
   box-shadow: var(--shadow-sm);
   transition: transform var(--ca-ease), border-color var(--ca-ease), box-shadow var(--ca-ease);
 }
+.knowledge-card.is-dragging { opacity: .5; }
+.knowledge-card.is-over { border-color: var(--ca-gold); box-shadow: 0 0 0 3px rgba(190,145,48,.18); }
+.knowledge-card-main { display: grid; grid-template-columns: 48px minmax(0,1fr) auto; align-items: center; gap: 14px; width: 100%; min-height: 108px; padding: 20px; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
+.knowledge-card-actions { display: flex; align-items: center; gap: 5px; padding: 6px 14px; border-top: 1px solid var(--ca-line); color: var(--ca-muted); font-size: 11px; }
+.knowledge-drag-label { margin-right: auto; }
+.knowledge-card-actions button { width: 25px; height: 25px; border: 1px solid var(--ca-line); border-radius: 5px; background: var(--ca-paper); color: var(--ca-muted); cursor: pointer; }
+.knowledge-card-actions button:hover { border-color: var(--ca-gold); color: var(--ca-cinnabar); }
+.knowledge-toolbar { display: flex; align-items: center; gap: 12px; margin: -10px 0 16px; }
+.knowledge-order-hint { color: var(--ca-muted); font-size: 12px; }
+.knowledge-import-btn { margin-left: auto; display: inline-flex; align-items: center; padding: 7px 11px; border: 1px solid var(--ca-line); border-radius: 6px; background: var(--ca-paper-strong); color: var(--ca-ink); font-size: 12px; font-weight: 700; cursor: pointer; }
+.knowledge-import-btn:hover { border-color: var(--ca-gold); background: #fff7df; }
+.knowledge-import-btn input { display: none; }
+.portal-search { position: relative; display: flex; align-items: center; width: min(390px, 42vw); min-width: 220px; }
+.portal-search-icon { position: absolute; left: 11px; width: 15px; height: 15px; color: var(--text-muted); pointer-events: none; }
+.portal-search input { width: 100%; height: 34px; padding: 0 30px 0 33px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); }
+.portal-search input::placeholder { color: var(--text-muted); }
+.portal-search input:focus { border-color: var(--primary); outline: 3px solid rgba(32,103,188,.16); }
+.portal-search > button { display: none; position: absolute; right: 7px; width: 22px; height: 22px; padding: 0; border: 0; background: transparent; color: var(--text-muted); font-size: 18px; line-height: 1; cursor: pointer; }
+.portal-search-results { position: absolute; top: calc(100% + 7px); right: 0; left: 0; z-index: 80; display: none; max-height: 420px; overflow: auto; padding: 5px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface); box-shadow: 0 12px 28px rgba(18,45,74,.18); }
+.portal-search-results.is-open { display: block; }
+.portal-search-result { display: block; width: 100%; padding: 9px 10px; border: 0; border-radius: 6px; background: transparent; color: var(--text); text-align: left; cursor: pointer; }
+.portal-search-result:hover, .portal-search-result:focus-visible { background: var(--primary-light); }
+.portal-search-result strong, .portal-search-result small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.portal-search-result strong { font-size: 13px; }
+.portal-search-result small, .portal-search-empty { margin-top: 3px; color: var(--text-muted); font-size: 11px; }
+.portal-search-empty { padding: 12px 10px; }
 .knowledge-card:hover, .knowledge-card:focus-visible { border-color: var(--ca-gold); box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .knowledge-card-mark {
   display: grid;
@@ -4250,7 +4274,11 @@ body {
   .knowledge-view { padding: 22px 14px 28px; }
   .knowledge-heading h1 { font-size: 29px; }
   .knowledge-grid { grid-template-columns: 1fr; }
-  .knowledge-card { min-height: 124px; padding: 17px; }
+  .knowledge-card { min-height: 124px; padding: 0; }
+  .knowledge-card-main { padding: 17px; }
+  .knowledge-toolbar { align-items: flex-start; flex-wrap: wrap; }
+  .knowledge-import-btn { margin-left: 0; }
+  .portal-search { width: min(52vw, 320px); min-width: 0; }
 }
 
 @media (max-width: 1180px) {

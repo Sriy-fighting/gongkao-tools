@@ -78,6 +78,13 @@
         <span class="page-title" id="page-title">首页</span>
       </div>
       <div class="header-actions">
+        <div class="portal-search" id="portal-search" role="search">
+          <svg class="portal-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+          <label class="sr-only" for="globalKnowledgeSearch">搜索所有思维导图</label>
+          <input id="globalKnowledgeSearch" type="search" autocomplete="off" placeholder="搜索所有思维导图…">
+          <button id="clearGlobalKnowledgeSearch" type="button" title="清除搜索" aria-label="清除搜索">×</button>
+          <div class="portal-search-results" id="globalKnowledgeResults" role="listbox" aria-label="思维导图搜索结果"></div>
+        </div>
         <button class="global-link-trigger" type="button" title="显示快捷链接" aria-label="显示快捷链接">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.07 0l2.12-2.12a5 5 0 0 0-7.07-7.07L11 4.93"/><path d="M14 11a5 5 0 0 0-7.07 0L4.81 13.12a5 5 0 0 0 7.07 7.07L13 19.07"/></svg>
         </button>
@@ -188,18 +195,12 @@
             <h1 id="knowledge-title">常识思维导图</h1>
             <p>选择章节进入交互式知识图谱，边看结构边用闪卡巩固。</p>
           </div>
-          <div class="knowledge-grid">
-            <button class="knowledge-card" type="button" data-knowledge-path="../常识思维导图/科技常识_第一节_学习增强版.html" data-knowledge-title="科技常识：波、电磁波与光学">
-              <span class="knowledge-card-mark">科</span>
-              <span class="knowledge-card-body"><strong>科技常识：波、电磁波与光学</strong><small>声音、波动、电磁波、光学现象与成像</small></span>
-              <span class="knowledge-card-arrow" aria-hidden="true">→</span>
-            </button>
-            <button class="knowledge-card" type="button" data-knowledge-path="../常识思维导图/历史常识_第三节_学习增强版.html" data-knowledge-title="历史常识：东汉至隋朝">
-              <span class="knowledge-card-mark history">史</span>
-              <span class="knowledge-card-body"><strong>历史常识：东汉至隋朝</strong><small>东汉、三国、两晋南北朝与隋朝历史脉络</small></span>
-              <span class="knowledge-card-arrow" aria-hidden="true">→</span>
-            </button>
+          <div class="knowledge-toolbar">
+            <span class="knowledge-order-hint">章节可拖拽排序，顺序会保存在本机</span>
+            <label class="knowledge-import-btn" for="knowledge-import-input">导入思维导图<input id="knowledge-import-input" type="file" accept=".html,.htm,.json,text/html,application/json"></label>
+            <input id="knowledge-import-input-proxy" type="hidden">
           </div>
+          <div class="knowledge-grid" id="knowledge-grid"></div>
         </div>
       </section>
       

@@ -22,6 +22,11 @@
   var TOOL_ORDER_STORAGE_KEY = 'gk-tool-order';
   var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'wusi', 'review', 'knowledge', 'plan'];
   var TOOL_NAMES_STORAGE_KEY = 'gk-tool-names-v1';
+  var KNOWLEDGE_INDEX_URL = '../常识思维导图/knowledge-index.json';
+  var KNOWLEDGE_ORDER_STORAGE_KEY = 'gk-knowledge-order-v1';
+  var KNOWLEDGE_LIBRARY_STORAGE_KEY = 'gk-knowledge-library-v1';
+  var knowledgeMaps = [];
+  var knowledgeLoaded = false;
   var DEFAULT_TOOL_NAMES = {
     dashboard: '行旅台',
     plan: '行程计划',
@@ -78,6 +83,12 @@
     els.recitationView = document.getElementById('recitation-view');
     els.reviewView = document.getElementById('review-view');
     els.knowledgeView = document.getElementById('knowledge-view');
+    els.knowledgeGrid = document.getElementById('knowledge-grid');
+    els.globalKnowledgeSearch = document.getElementById('globalKnowledgeSearch');
+    els.clearGlobalKnowledgeSearch = document.getElementById('clearGlobalKnowledgeSearch');
+    els.globalKnowledgeResults = document.getElementById('globalKnowledgeResults');
+    els.portalSearch = document.getElementById('portal-search');
+    els.knowledgeImportInput = document.getElementById('knowledge-import-input');
     els.toolFrameToolbar = document.getElementById('tool-frame-toolbar');
     els.toolFrameBack = document.getElementById('tool-frame-back');
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
@@ -114,8 +125,12 @@
     document.querySelectorAll('.tool-card').forEach(function (card) {
       card.addEventListener('click', function () { var v = card.dataset.view; if (v) navigateTo(v); });
     });
-    document.querySelectorAll('.knowledge-card').forEach(function (card) {
-      card.addEventListener('click', function () { openKnowledgeChapter(card.dataset.knowledgePath, card.dataset.knowledgeTitle); });
+    initKnowledgeLibrary();
+    if (els.globalKnowledgeSearch) els.globalKnowledgeSearch.addEventListener('input', function () { renderKnowledgeSearch(els.globalKnowledgeSearch.value); });
+    if (els.clearGlobalKnowledgeSearch) els.clearGlobalKnowledgeSearch.addEventListener('click', function () { els.globalKnowledgeSearch.value = ''; renderKnowledgeSearch(''); els.globalKnowledgeSearch.focus(); });
+    if (els.knowledgeImportInput) els.knowledgeImportInput.addEventListener('change', handleKnowledgeImport);
+    document.addEventListener('click', function (event) {
+      if (els.globalKnowledgeResults && els.portalSearch && !els.portalSearch.contains(event.target)) renderKnowledgeSearch('');
     });
     if (els.toolFrameBack) els.toolFrameBack.addEventListener('click', function () { navigateTo('knowledge'); });
     initPlan();
@@ -522,6 +537,91 @@
     els.toolFrame.src = path;
     els.navItems.forEach(function (el) { el.classList.toggle('active', el.dataset.view === 'knowledge'); });
     currentView = 'knowledge-chapter';
+  }
+
+  function openKnowledgeMap(map) {
+    if (!map) return;
+    var path = map.path || ('data:text/html;charset=utf-8,' + encodeURIComponent(map.content || '<!doctype html><title>思维导图</title><p>导入文件为空</p>'));
+    openKnowledgeChapter(path, map.title);
+  }
+
+  function knowledgeSortValue(map) {
+    var title = String(map.title || '');
+    var match = title.match(/第\s*(\d+)\s*[章节节]/);
+    return map.order != null ? Number(map.order) : (match ? Number(match[1]) : 9999);
+  }
+
+  function getKnowledgeOrder() {
+    var saved = [];
+    try { saved = JSON.parse(localStorage.getItem(KNOWLEDGE_ORDER_STORAGE_KEY) || '[]'); } catch (e) {}
+    var ids = knowledgeMaps.map(function (m) { return m.id; });
+    var order = Array.isArray(saved) ? saved.filter(function (id) { return ids.indexOf(id) !== -1; }) : [];
+    knowledgeMaps.slice().sort(function (a, b) { return knowledgeSortValue(a) - knowledgeSortValue(b) || String(a.title).localeCompare(String(b.title), 'zh-CN'); }).forEach(function (m) { if (order.indexOf(m.id) === -1) order.push(m.id); });
+    return order;
+  }
+
+  function applyKnowledgeOrder() {
+    var order = getKnowledgeOrder();
+    knowledgeMaps.sort(function (a, b) { return order.indexOf(a.id) - order.indexOf(b.id); });
+  }
+
+  function saveKnowledgeOrder() {
+    var order = knowledgeMaps.map(function (m) { return m.id; });
+    try { localStorage.setItem(KNOWLEDGE_ORDER_STORAGE_KEY, JSON.stringify(order)); if (window.SyncStore) window.SyncStore.writeData(KNOWLEDGE_ORDER_STORAGE_KEY, order); } catch (e) {}
+  }
+
+  function knowledgeEsc(value) { return String(value || '').replace(/[&<>"']/g, function (c) { return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[c]; }); }
+
+  function renderKnowledgeLibrary() {
+    if (!els.knowledgeGrid) return;
+    els.knowledgeGrid.innerHTML = '';
+    knowledgeMaps.forEach(function (map, index) {
+      var card = document.createElement('article');
+      card.className = 'knowledge-card'; card.draggable = true; card.dataset.mapId = map.id;
+      card.innerHTML = '<button class="knowledge-card-main" type="button"><span class="knowledge-card-mark" style="background:' + knowledgeEsc(map.color) + '22;color:' + knowledgeEsc(map.color) + '">' + knowledgeEsc(map.icon || '图') + '</span><span class="knowledge-card-body"><strong>' + knowledgeEsc(map.title) + '</strong><small>' + knowledgeEsc(map.subtitle || '') + '</small></span><span class="knowledge-card-arrow" aria-hidden="true">→</span></button><div class="knowledge-card-actions"><span class="knowledge-drag-label">拖拽调整顺序</span><button type="button" data-move="up" title="上移" aria-label="上移">↑</button><button type="button" data-move="down" title="下移" aria-label="下移">↓</button></div>';
+      card.querySelector('.knowledge-card-main').addEventListener('click', function () { openKnowledgeMap(map); });
+      card.querySelectorAll('[data-move]').forEach(function (button) { button.addEventListener('click', function (event) { event.stopPropagation(); var from = knowledgeMaps.indexOf(map), to = button.dataset.move === 'up' ? from - 1 : from + 1; if (to < 0 || to >= knowledgeMaps.length) return; var other = knowledgeMaps[to]; knowledgeMaps[to] = map; knowledgeMaps[from] = other; saveKnowledgeOrder(); renderKnowledgeLibrary(); }); });
+      card.addEventListener('dragstart', function (event) { card.classList.add('is-dragging'); event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', map.id); });
+      card.addEventListener('dragend', function () { card.classList.remove('is-dragging'); document.querySelectorAll('.knowledge-card.is-over').forEach(function (el) { el.classList.remove('is-over'); }); });
+      card.addEventListener('dragover', function (event) { event.preventDefault(); card.classList.add('is-over'); });
+      card.addEventListener('dragleave', function () { card.classList.remove('is-over'); });
+      card.addEventListener('drop', function (event) { event.preventDefault(); card.classList.remove('is-over'); var fromId = event.dataTransfer.getData('text/plain'); var from = knowledgeMaps.findIndex(function (m) { return m.id === fromId; }); var to = knowledgeMaps.indexOf(map); if (from < 0 || from === to) return; var moved = knowledgeMaps.splice(from, 1)[0]; knowledgeMaps.splice(to, 0, moved); saveKnowledgeOrder(); renderKnowledgeLibrary(); });
+      els.knowledgeGrid.appendChild(card);
+    });
+  }
+
+  function flattenKnowledgeMatches(query) {
+    var q = String(query || '').trim().toLowerCase(); if (!q) return [];
+    var result = [];
+    knowledgeMaps.forEach(function (map) { if (String(map.title).toLowerCase().indexOf(q) >= 0 || String(map.subtitle || '').toLowerCase().indexOf(q) >= 0) result.push({ map: map, text: map.title, path: map.subtitle || '思维导图' }); (map.nodes || []).forEach(function (node) { if (String(node.text).toLowerCase().indexOf(q) >= 0 || String(node.path).toLowerCase().indexOf(q) >= 0) result.push({ map: map, text: node.text, path: node.path }); }); });
+    return result.slice(0, 30);
+  }
+
+  function renderKnowledgeSearch(query) {
+    if (!els.globalKnowledgeResults) return;
+    var q = String(query || '').trim(); els.globalKnowledgeResults.innerHTML = ''; els.globalKnowledgeResults.classList.toggle('is-open', !!q); if (els.clearGlobalKnowledgeSearch) els.clearGlobalKnowledgeSearch.style.display = q ? 'block' : 'none'; if (!q) return;
+    var matches = flattenKnowledgeMatches(q); if (!matches.length) { els.globalKnowledgeResults.innerHTML = '<div class="portal-search-empty">未找到匹配的知识点</div>'; return; }
+    matches.forEach(function (item) { var button = document.createElement('button'); button.type = 'button'; button.className = 'portal-search-result'; button.innerHTML = '<strong>' + knowledgeEsc(item.text) + '</strong><small>' + knowledgeEsc(item.map.title) + ' · ' + knowledgeEsc(item.path) + '</small>'; button.addEventListener('click', function () { openKnowledgeMap(item.map); }); els.globalKnowledgeResults.appendChild(button); });
+  }
+
+  function initKnowledgeLibrary() {
+    var fallback = { maps: [{ id: 'science-section-1', title: '科技常识：波、电磁波与光学', subtitle: '声音、波动、电磁波、光学现象与成像', path: '../常识思维导图/科技常识_第一节_学习增强版.html', icon: '科', color: '#2783c9', order: 1, nodes: [] }, { id: 'history-section-3', title: '历史常识：东汉至隋朝', subtitle: '东汉、三国、两晋南北朝与隋朝历史脉络', path: '../常识思维导图/历史常识_第三节_学习增强版.html', icon: '史', color: '#a34d37', order: 2, nodes: [] }] };
+    function finish(data) { knowledgeMaps = Array.isArray(data && data.maps) && data.maps.length ? data.maps : fallback.maps; try { var local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); if (Array.isArray(local)) knowledgeMaps = knowledgeMaps.concat(local.filter(function (m) { return !knowledgeMaps.some(function (base) { return base.id === m.id; }); })); } catch (e) {} applyKnowledgeOrder(); knowledgeLoaded = true; renderKnowledgeLibrary(); }
+    fetch(KNOWLEDGE_INDEX_URL).then(function (response) { if (!response.ok) throw new Error('index'); return response.json(); }).then(finish).catch(function () { finish({ maps: [] }); });
+  }
+
+  function extractImportedNodes(html, mapId) {
+    var nodes = [], re = /text\s*:\s*(['"])((?:\\.|(?!\1)[\s\S])*?)\1/g, match;
+    while ((match = re.exec(html)) && nodes.length < 3000) {
+      var value = match[2].replace(/\\(['"])/g, '$1').replace(/\\n/g, ' ').trim();
+      if (value && value.length < 300) nodes.push({ id: mapId + '-' + nodes.length, text: value, path: value, mapId: mapId });
+    }
+    return nodes;
+  }
+
+  function handleKnowledgeImport(event) {
+    var file = event.target.files && event.target.files[0]; if (!file) return;
+    var reader = new FileReader(); reader.onload = function () { try { var html = String(reader.result || ''); var titleMatch = html.match(/<title[^>]*>([^<]+)</i); var title = titleMatch ? titleMatch[1].replace(/\s*[|｜].*$/, '').trim() : file.name.replace(/\.(html?|json)$/i, ''); var id = 'imported-' + Date.now(); var map = { id: id, title: title, subtitle: '新导入思维导图', path: '', content: html, icon: title.slice(0, 1) || '图', color: '#2783c9', order: null, nodes: extractImportedNodes(html, id) }; var local = []; try { local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); } catch (e) {} local.push(map); localStorage.setItem(KNOWLEDGE_LIBRARY_STORAGE_KEY, JSON.stringify(local)); knowledgeMaps.push(map); knowledgeMaps.sort(function (a, b) { return knowledgeSortValue(a) - knowledgeSortValue(b) || String(a.title).localeCompare(String(b.title), 'zh-CN'); }); saveKnowledgeOrder(); renderKnowledgeLibrary(); showSyncToast('已导入思维导图，并按章节顺序整理'); } catch (e) { showSyncToast('导入失败：文件格式错误'); } }; reader.readAsText(file); event.target.value = '';
   }
 
   function setGreeting() {

@@ -1,0 +1,2328 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-22T08:17:52.471Z",
+  "maps": [
+    {
+      "id": "science-section-1",
+      "title": "科技常识：波、电磁波与光学",
+      "subtitle": "声音、波动、电磁波、光学现象与成像",
+      "path": "../常识思维导图/科技常识_第一节_学习增强版.html",
+      "icon": "科",
+      "color": "#2783c9",
+      "file": "tools/常识思维导图/科技常识_第一节_学习增强版.html",
+      "key": "const seed=",
+      "order": 1,
+      "nodes": [
+        {
+          "id": "science-section-1-0",
+          "text": "机械波定义",
+          "path": "机械波 › 机械波定义",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": true
+        },
+        {
+          "id": "science-section-1-1",
+          "text": "机械波是机械振动在介质（固、液、气）中的传播过程",
+          "path": "机械波 › 机械波定义 › 机械波是机械振动在介质（固、液、气）中的传播过程",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-2",
+          "text": "机械振动与机械波的区别：机械波不等于介质本身的振动",
+          "path": "机械波 › 机械波定义 › 机械振动与机械波的区别：机械波不等于介质本身的振动",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-3",
+          "text": "包括声波、水波、地震波、绳波等",
+          "path": "机械波 › 机械波定义 › 包括声波、水波、地震波、绳波等",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-4",
+          "text": "区别于电磁波",
+          "path": "机械波 › 机械波定义 › 区别于电磁波",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-5",
+          "text": "声音的产生与传播",
+          "path": "机械波 › 声音的产生与传播",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": true
+        },
+        {
+          "id": "science-section-1-6",
+          "text": "产生原理：物体振动产生机械波；振动停止，发声停止",
+          "path": "机械波 › 声音的产生与传播 › 产生原理：物体振动产生机械波；振动停止，发声停止",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-7",
+          "text": "传播条件：需要介质（固体、液体、气体），真空不能传声",
+          "path": "机械波 › 声音的产生与传播 › 传播条件：需要介质（固体、液体、气体），真空不能传声",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-8",
+          "text": "固体 > 液体 > 气体（一般传播速度）",
+          "path": "机械波 › 声音的产生与传播 › 固体 > 液体 > 气体（一般传播速度）",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-9",
+          "text": "15℃空气中声速约 340 m/s",
+          "path": "机械波 › 声音的产生与传播 › 15℃空气中声速约 340 m/s",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-10",
+          "text": "温度每升高 5℃，声速约增加 3 m/s",
+          "path": "机械波 › 声音的产生与传播 › 温度每升高 5℃，声速约增加 3 m/s",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-11",
+          "text": "声音三要素",
+          "path": "机械波 › 声音三要素",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-12",
+          "text": "音调",
+          "path": "机械波 › 声音三要素 › 音调",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": true
+        },
+        {
+          "id": "science-section-1-13",
+          "text": "决定因素：频率，单位赫兹（Hz）",
+          "path": "机械波 › 声音三要素 › 音调 › 决定因素：频率，单位赫兹（Hz）",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-14",
+          "text": "频率越高，音调越高",
+          "path": "机械波 › 声音三要素 › 音调 › 频率越高，音调越高",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-15",
+          "text": "人耳可听范围：20 Hz～20 000 Hz",
+          "path": "机械波 › 声音三要素 › 音调 › 人耳可听范围：20 Hz～20 000 Hz",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-16",
+          "text": "实例：由高和寡、弦其高兮与宫商；走近小弦为大声，以大弦为小声",
+          "path": "机械波 › 声音三要素 › 音调 › 实例：由高和寡、弦其高兮与宫商；走近小弦为大声，以大弦为小声",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-17",
+          "text": "响度 / 音量",
+          "path": "机械波 › 声音三要素 › 响度 / 音量",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": true
+        },
+        {
+          "id": "science-section-1-18",
+          "text": "决定因素：振幅、距离",
+          "path": "机械波 › 声音三要素 › 响度 / 音量 › 决定因素：振幅、距离",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-19",
+          "text": "振幅越大，响度越大；离声源越远，响度越小",
+          "path": "机械波 › 声音三要素 › 响度 / 音量 › 振幅越大，响度越大；离声源越远，响度越小",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-20",
+          "text": "分贝等级：0 分贝（最低可闻声）、30 分贝（不影响休息）、60 分贝（正常交谈）、70 分贝（闹市区）",
+          "path": "机械波 › 声音三要素 › 响度 / 音量 › 分贝等级：0 分贝（最低可闻声）、30 分贝（不影响休息）、60 分贝（正常交谈）、70 分贝（闹市区）",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-21",
+          "text": "85 分贝（汽车穿梭）、95 分贝（摩托车启动）、100 分贝（电钻装修）、120 分贝（飞机起飞）",
+          "path": "机械波 › 声音三要素 › 响度 / 音量 › 85 分贝（汽车穿梭）、95 分贝（摩托车启动）、100 分贝（电钻装修）、120 分贝（飞机起飞）",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-22",
+          "text": "音色",
+          "path": "机械波 › 声音三要素 › 音色",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-23",
+          "text": "决定因素：材料；是区分不同声源的重要特征",
+          "path": "机械波 › 声音三要素 › 音色 › 决定因素：材料；是区分不同声源的重要特征",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-24",
+          "text": "实例：闻其声而知其人；音容宛在；隔叶黄鹂空好音",
+          "path": "机械波 › 声音三要素 › 音色 › 实例：闻其声而知其人；音容宛在；隔叶黄鹂空好音",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-25",
+          "text": "图像判断",
+          "path": "机械波 › 声音三要素 › 图像判断",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-26",
+          "text": "响度看振幅",
+          "path": "机械波 › 声音三要素 › 图像判断 › 响度看振幅",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-27",
+          "text": "音调看频率（疏密程度）",
+          "path": "机械波 › 声音三要素 › 图像判断 › 音调看频率（疏密程度）",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-28",
+          "text": "音色看形状",
+          "path": "机械波 › 声音三要素 › 图像判断 › 音色看形状",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-29",
+          "text": "声现象",
+          "path": "机械波 › 声现象",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-30",
+          "text": "声音反射",
+          "path": "机械波 › 声现象 › 声音反射",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": true
+        },
+        {
+          "id": "science-section-1-31",
+          "text": "定义：声波遇到障碍物，返回原介质继续传播",
+          "path": "机械波 › 声现象 › 声音反射 › 定义：声波遇到障碍物，返回原介质继续传播",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-32",
+          "text": "回声：长啸一声，山鸣谷应",
+          "path": "机械波 › 声现象 › 声音反射 › 回声：长啸一声，山鸣谷应",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-33",
+          "text": "实例：声呐、倒车雷达（超声波）；音乐厅、录音棚吸音设计（减少声音回声 / 混响）；雪地吸音多、雪地松软多孔，减少声波反射、消音",
+          "path": "机械波 › 声现象 › 声音反射 › 实例：声呐、倒车雷达（超声波）；音乐厅、录音棚吸音设计（减少声音回声 / 混响）；雪地吸音多、雪地松软多孔，减少声波反射、消音",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-34",
+          "text": "声音衍射",
+          "path": "机械波 › 声现象 › 声音衍射",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-35",
+          "text": "定义：声波绕过障碍物继续传播",
+          "path": "机械波 › 声现象 › 声音衍射 › 定义：声波绕过障碍物继续传播",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-36",
+          "text": "实例：未见其人，先闻其声；空山不见人，但闻人语响",
+          "path": "机械波 › 声现象 › 声音衍射 › 实例：未见其人，先闻其声；空山不见人，但闻人语响",
+          "moduleId": "mechanical",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-37",
+          "text": "定义与发现历程",
+          "path": "电磁波 › 定义与发现历程",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-38",
+          "text": "定义：电磁波是电磁场的运动形态，由交变电场与磁场相互感应产生",
+          "path": "电磁波 › 定义与发现历程 › 定义：电磁波是电磁场的运动形态，由交变电场与磁场相互感应产生",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-39",
+          "text": "普朗克：量子假说",
+          "path": "电磁波 › 定义与发现历程 › 普朗克：量子假说",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-40",
+          "text": "麦克斯韦（1864）：建立理论、预言电磁波，推断光是电磁波",
+          "path": "电磁波 › 定义与发现历程 › 麦克斯韦（1864）：建立理论、预言电磁波，推断光是电磁波",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-41",
+          "text": "赫兹（1887）：实验首次证实电磁波真实存在",
+          "path": "电磁波 › 定义与发现历程 › 赫兹（1887）：实验首次证实电磁波真实存在",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-42",
+          "text": "马可尼（1898）：推动无线电通信",
+          "path": "电磁波 › 定义与发现历程 › 马可尼（1898）：推动无线电通信",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-43",
+          "text": "波型",
+          "path": "电磁波 › 波型",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-44",
+          "text": "横波：电磁振动方向与传播方向垂直",
+          "path": "电磁波 › 波型 › 横波：电磁振动方向与传播方向垂直",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-45",
+          "text": "纵波：振动方向与传播方向平行",
+          "path": "电磁波 › 波型 › 纵波：振动方向与传播方向平行",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-46",
+          "text": "电磁波是横波；声波是纵波；地震波同时有横波和纵波",
+          "path": "电磁波 › 波型 › 电磁波是横波；声波是纵波；地震波同时有横波和纵波",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-47",
+          "text": "特性与公式",
+          "path": "电磁波 › 特性与公式",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": true
+        },
+        {
+          "id": "science-section-1-48",
+          "text": "真空中光速 c = 3×10^8 m/s",
+          "path": "电磁波 › 特性与公式 › 真空中光速 c = 3×10^8 m/s",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-49",
+          "text": "无需介质，可在真空传播",
+          "path": "电磁波 › 特性与公式 › 无需介质，可在真空传播",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-50",
+          "text": "核心公式：c = λf",
+          "path": "电磁波 › 特性与公式 › 核心公式：c = λf",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-51",
+          "text": "c 为真空光速；λ 为波长（m）；f 为频率（Hz）",
+          "path": "电磁波 › 特性与公式 › c 为真空光速；λ 为波长（m）；f 为频率（Hz）",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-52",
+          "text": "波长和频率成反比",
+          "path": "电磁波 › 特性与公式 › 波长和频率成反比",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-53",
+          "text": "能量关系：频率越高、波长越短，电磁波能量越强",
+          "path": "电磁波 › 特性与公式 › 能量关系：频率越高、波长越短，电磁波能量越强",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-54",
+          "text": "物质作用：易被金属反射，金属可屏蔽电磁波信号（如金属隔绝信号）",
+          "path": "电磁波 › 特性与公式 › 物质作用：易被金属反射，金属可屏蔽电磁波信号（如金属隔绝信号）",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-55",
+          "text": "电磁波分类",
+          "path": "电磁波 › 电磁波分类",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": true
+        },
+        {
+          "id": "science-section-1-56",
+          "text": "无线电波",
+          "path": "电磁波 › 电磁波分类 › 无线电波",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-57",
+          "text": "广播、电视通信",
+          "path": "电磁波 › 电磁波分类 › 无线电波 › 广播、电视通信",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-58",
+          "text": "波长越长，衍射能力越强，越易绕过障碍物",
+          "path": "电磁波 › 电磁波分类 › 无线电波 › 波长越长，衍射能力越强，越易绕过障碍物",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-59",
+          "text": "微波",
+          "path": "电磁波 › 电磁波分类 › 微波",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-60",
+          "text": "雷达、卫星通信、微波炉",
+          "path": "电磁波 › 电磁波分类 › 微波 › 雷达、卫星通信、微波炉",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-61",
+          "text": "波长较短，方向性强",
+          "path": "电磁波 › 电磁波分类 › 微波 › 波长较短，方向性强",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-62",
+          "text": "红外线",
+          "path": "电磁波 › 电磁波分类 › 红外线",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-63",
+          "text": "热效应；遥控、夜视仪、热成像、红外制导导弹",
+          "path": "电磁波 › 电磁波分类 › 红外线 › 热效应；遥控、夜视仪、热成像、红外制导导弹",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-64",
+          "text": "不可见光，能被物体吸收产生热量",
+          "path": "电磁波 › 电磁波分类 › 红外线 › 不可见光，能被物体吸收产生热量",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-65",
+          "text": "可见光",
+          "path": "电磁波 › 电磁波分类 › 可见光",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-66",
+          "text": "成像、照明、光合作用、光纤通信",
+          "path": "电磁波 › 电磁波分类 › 可见光 › 成像、照明、光合作用、光纤通信",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-67",
+          "text": "红→紫：波长逐渐减小",
+          "path": "电磁波 › 电磁波分类 › 可见光 › 红→紫：波长逐渐减小",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-68",
+          "text": "人眼可感知波长约 400 nm～700 nm",
+          "path": "电磁波 › 电磁波分类 › 可见光 › 人眼可感知波长约 400 nm～700 nm",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-69",
+          "text": "紫外线",
+          "path": "电磁波 › 电磁波分类 › 紫外线",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-70",
+          "text": "杀菌消毒、荧光验钞、光刻技术、促进维生素 D 合成",
+          "path": "电磁波 › 电磁波分类 › 紫外线 › 杀菌消毒、荧光验钞、光刻技术、促进维生素 D 合成",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-71",
+          "text": "过量会损伤皮肤眼睛",
+          "path": "电磁波 › 电磁波分类 › 紫外线 › 过量会损伤皮肤眼睛",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-72",
+          "text": "X 射线（伦琴射线）",
+          "path": "电磁波 › 电磁波分类 › X 射线（伦琴射线）",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-73",
+          "text": "CT 透视、安检、工业探伤、放疗",
+          "path": "电磁波 › 电磁波分类 › X 射线（伦琴射线） › CT 透视、安检、工业探伤、放疗",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-74",
+          "text": "穿透性强，带有辐射",
+          "path": "电磁波 › 电磁波分类 › X 射线（伦琴射线） › 穿透性强，带有辐射",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-75",
+          "text": "γ 射线",
+          "path": "电磁波 › 电磁波分类 › γ 射线",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-76",
+          "text": "肿瘤放疗、金属探伤、食品保鲜",
+          "path": "电磁波 › 电磁波分类 › γ 射线 › 肿瘤放疗、金属探伤、食品保鲜",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-77",
+          "text": "能量和穿透性最强",
+          "path": "电磁波 › 电磁波分类 › γ 射线 › 能量和穿透性最强",
+          "moduleId": "electromagnetic",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-78",
+          "text": "光的直线传播",
+          "path": "光 › 光的直线传播",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": true
+        },
+        {
+          "id": "science-section-1-79",
+          "text": "本质：光属于电磁波；真空速度 3×10^8 m/s；传播不需要介质",
+          "path": "光 › 光的直线传播 › 本质：光属于电磁波；真空速度 3×10^8 m/s；传播不需要介质",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-80",
+          "text": "条件：同种均匀介质",
+          "path": "光 › 光的直线传播 › 条件：同种均匀介质",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-81",
+          "text": "实例：日食、月食、小孔成像、影子形成",
+          "path": "光 › 光的直线传播 › 实例：日食、月食、小孔成像、影子形成",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-82",
+          "text": "光源分类",
+          "path": "光 › 光源分类",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-83",
+          "text": "热光源",
+          "path": "光 › 光源分类 › 热光源",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-84",
+          "text": "利用热能激发物质发光；光谱连续，包含大量红外线",
+          "path": "光 › 光源分类 › 热光源 › 利用热能激发物质发光；光谱连续，包含大量红外线",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-85",
+          "text": "钨是熔点最高的金属；如白炽灯中电流加热钨丝至白炽状态发光",
+          "path": "光 › 光源分类 › 热光源 › 钨是熔点最高的金属；如白炽灯中电流加热钨丝至白炽状态发光",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-86",
+          "text": "冷光源",
+          "path": "光 › 光源分类 › 冷光源",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-87",
+          "text": "光谱通常不连续（线状 / 带状），红外辐射极少，能量效率高",
+          "path": "光 › 光源分类 › 冷光源 › 光谱通常不连续（线状 / 带状），红外辐射极少，能量效率高",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-88",
+          "text": "如 LED、萤火虫",
+          "path": "光 › 光源分类 › 冷光源 › 如 LED、萤火虫",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-89",
+          "text": "反射",
+          "path": "光 › 反射",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-90",
+          "text": "定义：光在传播到不同物质时，在分界面上改变传播方向又返回原来物质中的现象",
+          "path": "光 › 反射 › 定义：光在传播到不同物质时，在分界面上改变传播方向又返回原来物质中的现象",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-91",
+          "text": "镜面反射（光滑）",
+          "path": "光 › 反射 › 镜面反射（光滑）",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-92",
+          "text": "平面镜：水中倒影、潜望镜、湿衣服颜色更深",
+          "path": "光 › 反射 › 镜面反射（光滑） › 平面镜：水中倒影、潜望镜、湿衣服颜色更深",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-93",
+          "text": "凹面镜（会聚）：太阳灶、望远镜、手电筒反射面，成像可放大或缩小",
+          "path": "光 › 反射 › 镜面反射（光滑） › 凹面镜（会聚）：太阳灶、望远镜、手电筒反射面，成像可放大或缩小",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-94",
+          "text": "凸面镜（发散）：后视镜、弯道反光镜，缩小的像",
+          "path": "光 › 反射 › 镜面反射（光滑） › 凸面镜（发散）：后视镜、弯道反光镜，缩小的像",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-95",
+          "text": "漫反射（粗糙）",
+          "path": "光 › 反射 › 漫反射（粗糙）",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-96",
+          "text": "实例：电影银幕、黑板",
+          "path": "光 › 反射 › 漫反射（粗糙） › 实例：电影银幕、黑板",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-97",
+          "text": "镜面反射与漫反射共同点",
+          "path": "光 › 反射 › 镜面反射与漫反射共同点",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": true
+        },
+        {
+          "id": "science-section-1-98",
+          "text": "都遵守光的反射定律；光路都是可逆的",
+          "path": "光 › 反射 › 镜面反射与漫反射共同点 › 都遵守光的反射定律；光路都是可逆的",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-99",
+          "text": "全反射",
+          "path": "光 › 反射 › 全反射",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-100",
+          "text": "实例：光纤通信、自行车尾灯、潜水镜",
+          "path": "光 › 反射 › 全反射 › 实例：光纤通信、自行车尾灯、潜水镜",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-101",
+          "text": "折射",
+          "path": "光 › 折射",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-102",
+          "text": "现象：光斜射入另一介质发生偏折",
+          "path": "光 › 折射 › 现象：光斜射入另一介质发生偏折",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-103",
+          "text": "实例：池水变浅、筷子弯折、海市蜃楼、水中人看岸上树更高、星星眨眼、显微镜、落日",
+          "path": "光 › 折射 › 实例：池水变浅、筷子弯折、海市蜃楼、水中人看岸上树更高、星星眨眼、显微镜、落日",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-104",
+          "text": "透镜应用",
+          "path": "光 › 透镜应用",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-105",
+          "text": "凸透镜（会聚）：照相机、投影仪、放大镜、老花镜",
+          "path": "光 › 透镜应用 › 凸透镜（会聚）：照相机、投影仪、放大镜、老花镜",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-106",
+          "text": "凹透镜（发散）：近视镜",
+          "path": "光 › 透镜应用 › 凹透镜（发散）：近视镜",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-107",
+          "text": "色散与颜色",
+          "path": "光 › 色散与颜色",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-108",
+          "text": "复色光分解为单色光，形成彩虹",
+          "path": "光 › 色散与颜色 › 复色光分解为单色光，形成彩虹",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-109",
+          "text": "色光三原色：红、绿、蓝，叠加为白色（RGB）",
+          "path": "光 › 色散与颜色 › 色光三原色：红、绿、蓝，叠加为白色（RGB）",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-110",
+          "text": "颜料三原色：品红、黄、青，叠加为黑色",
+          "path": "光 › 色散与颜色 › 颜料三原色：品红、黄、青，叠加为黑色",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-111",
+          "text": "波动现象",
+          "path": "光 › 波动现象",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-112",
+          "text": "干涉：两列或多列频率相同、振动方向一致的光波叠加，形成明暗相间或彩色条纹；如阳光下肥皂泡、增透膜、水中油膜",
+          "path": "光 › 波动现象 › 干涉：两列或多列频率相同、振动方向一致的光波叠加，形成明暗相间或彩色条纹；如阳光下肥皂泡、增透膜、水中油膜",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-113",
+          "text": "衍射：光遇障碍物或小孔偏离直线传播路径进入几何阴影区；狭缝衍射形成彩色条纹，圆孔衍射形成艾里斑",
+          "path": "光 › 波动现象 › 衍射：光遇障碍物或小孔偏离直线传播路径进入几何阴影区；狭缝衍射形成彩色条纹，圆孔衍射形成艾里斑",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-114",
+          "text": "散射：光在介质中传播时部分光线偏离原方向四散；天空呈蓝色、晚霞橙红色、汽车雾灯用黄光；丁达尔效应",
+          "path": "光 › 波动现象 › 散射：光在介质中传播时部分光线偏离原方向四散；天空呈蓝色、晚霞橙红色、汽车雾灯用黄光；丁达尔效应",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-115",
+          "text": "偏振与本性",
+          "path": "光 › 偏振与本性",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-116",
+          "text": "偏振：光波振动方向对传播方向的不对称性；偏光太阳镜、3D 电影、液晶显示器",
+          "path": "光 › 偏振与本性 › 偏振：光波振动方向对传播方向的不对称性；偏光太阳镜、3D 电影、液晶显示器",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-117",
+          "text": "光的波粒二象性",
+          "path": "光 › 偏振与本性 › 光的波粒二象性",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": true
+        },
+        {
+          "id": "science-section-1-118",
+          "text": "波动性：干涉、衍射、偏振",
+          "path": "光 › 偏振与本性 › 光的波粒二象性 › 波动性：干涉、衍射、偏振",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        },
+        {
+          "id": "science-section-1-119",
+          "text": "粒子性：光电效应、康普顿散射",
+          "path": "光 › 偏振与本性 › 光的波粒二象性 › 粒子性：光电效应、康普顿散射",
+          "moduleId": "light",
+          "mapId": "science-section-1",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "history-section-3",
+      "title": "历史常识：东汉至隋朝",
+      "subtitle": "东汉、三国、两晋南北朝与隋朝历史脉络",
+      "path": "../常识思维导图/历史常识_第三节_学习增强版.html",
+      "icon": "史",
+      "color": "#a34d37",
+      "file": "tools/常识思维导图/历史常识_第三节_学习增强版.html",
+      "key": "const seedModules=",
+      "order": 2,
+      "nodes": [
+        {
+          "id": "history-section-3-0",
+          "text": "东汉事件记",
+          "path": "东汉 › 东汉事件记",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-1",
+          "text": "光武中兴",
+          "path": "东汉 › 东汉事件记 › 光武中兴",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-2",
+          "text": "光武帝刘秀",
+          "path": "东汉 › 东汉事件记 › 光武中兴 › 光武帝刘秀",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-3",
+          "text": "昆阳大战：打败王莽；名将马援——马革裹尸、老当益壮",
+          "path": "东汉 › 东汉事件记 › 光武中兴 › 昆阳大战：打败王莽；名将马援——马革裹尸、老当益壮",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-4",
+          "text": "成语：得陇望蜀、乐此不疲、手不释卷",
+          "path": "东汉 › 东汉事件记 › 光武中兴 › 成语：得陇望蜀、乐此不疲、手不释卷",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-5",
+          "text": "明章之治：汉明帝、汉章帝",
+          "path": "东汉 › 东汉事件记 › 明章之治：汉明帝、汉章帝",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-6",
+          "text": "永元之隆",
+          "path": "东汉 › 东汉事件记 › 永元之隆",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-7",
+          "text": "文化",
+          "path": "东汉 › 文化",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-8",
+          "text": "永平求法",
+          "path": "东汉 › 文化 › 永平求法",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-9",
+          "text": "汉明帝派遣使臣西行求访佛法，将佛教传入中国",
+          "path": "东汉 › 文化 › 永平求法 › 汉明帝派遣使臣西行求访佛法，将佛教传入中国",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-10",
+          "text": "白马寺（洛阳）：佛教传入中国后兴建的第一座官办寺院；中国佛教发源地，有“祖庭”“释源”之称",
+          "path": "东汉 › 文化 › 永平求法 › 白马寺（洛阳）：佛教传入中国后兴建的第一座官办寺院；中国佛教发源地，有“祖庭”“释源”之称",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-11",
+          "text": "蔡伦改进造纸术：汉和帝时期",
+          "path": "东汉 › 文化 › 蔡伦改进造纸术：汉和帝时期",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-12",
+          "text": "班超出使西域",
+          "path": "东汉 › 文化 › 班超出使西域",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-13",
+          "text": "汉明帝时，班超被封为定远侯",
+          "path": "东汉 › 文化 › 班超出使西域 › 汉明帝时，班超被封为定远侯",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-14",
+          "text": "典故：投笔从戎；不入虎穴，焉得虎子",
+          "path": "东汉 › 文化 › 班超出使西域 › 典故：投笔从戎；不入虎穴，焉得虎子",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-15",
+          "text": "甘英出使大秦：汉和帝时期",
+          "path": "东汉 › 文化 › 班超出使西域 › 甘英出使大秦：汉和帝时期",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-16",
+          "text": "三班：班彪、班固、班昭",
+          "path": "东汉 › 文化 › 班超出使西域 › 三班：班彪、班固、班昭",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-17",
+          "text": "东汉末年",
+          "path": "东汉 › 东汉末年",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-18",
+          "text": "黄巾起义",
+          "path": "东汉 › 东汉末年 › 黄巾起义",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-19",
+          "text": "张角领导",
+          "path": "东汉 › 东汉末年 › 黄巾起义 › 张角领导",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-20",
+          "text": "口号：“苍天已死，黄天当立，岁在甲子，天下大吉”",
+          "path": "东汉 › 东汉末年 › 黄巾起义 › 口号：“苍天已死，黄天当立，岁在甲子，天下大吉”",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-21",
+          "text": "董卓之乱",
+          "path": "东汉 › 东汉末年 › 董卓之乱",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-22",
+          "text": "董卓废汉少帝，立陈留王刘协（汉献帝）为帝；自为相国，独揽朝政",
+          "path": "东汉 › 东汉末年 › 董卓之乱 › 董卓废汉少帝，立陈留王刘协（汉献帝）为帝；自为相国，独揽朝政",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-23",
+          "text": "伐董人物：袁绍（盟主）、孙坚（败吕布、杀华雄）、曹操、刘表",
+          "path": "东汉 › 东汉末年 › 董卓之乱 › 伐董人物：袁绍（盟主）、孙坚（败吕布、杀华雄）、曹操、刘表",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-24",
+          "text": "揭开群雄并起的局面",
+          "path": "东汉 › 东汉末年 › 董卓之乱 › 揭开群雄并起的局面",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-25",
+          "text": "演义：刘关张三英战吕布；关羽温酒斩华雄",
+          "path": "东汉 › 东汉末年 › 董卓之乱 › 演义：刘关张三英战吕布；关羽温酒斩华雄",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-26",
+          "text": "《三国演义》",
+          "path": "东汉 › 东汉末年 › 《三国演义》",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-27",
+          "text": "作者罗贯中；第一部章回体小说、第一部历史演义小说",
+          "path": "东汉 › 东汉末年 › 《三国演义》 › 作者罗贯中；第一部章回体小说、第一部历史演义小说",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-28",
+          "text": "历史走向：黄巾起义→董卓之乱→群雄逐鹿→三国鼎立→三国归晋",
+          "path": "东汉 › 东汉末年 › 《三国演义》 › 历史走向：黄巾起义→董卓之乱→群雄逐鹿→三国鼎立→三国归晋",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-29",
+          "text": "正史参照：《三国志》——西晋陈寿",
+          "path": "东汉 › 东汉末年 › 《三国演义》 › 正史参照：《三国志》——西晋陈寿",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-30",
+          "text": "三大战役（以少胜多）",
+          "path": "三国 › 三大战役（以少胜多）",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-31",
+          "text": "官渡之战：曹操 VS 袁绍",
+          "path": "三国 › 三大战役（以少胜多） › 官渡之战：曹操 VS 袁绍",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-32",
+          "text": "许攸献计，曹操火烧袁军乌巢粮仓，大破袁绍",
+          "path": "三国 › 三大战役（以少胜多） › 官渡之战：曹操 VS 袁绍 › 许攸献计，曹操火烧袁军乌巢粮仓，大破袁绍",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-33",
+          "text": "奠定曹操统一北方的基础",
+          "path": "三国 › 三大战役（以少胜多） › 官渡之战：曹操 VS 袁绍 › 奠定曹操统一北方的基础",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-34",
+          "text": "赤壁之战：曹操 VS 孙刘",
+          "path": "三国 › 三大战役（以少胜多） › 赤壁之战：曹操 VS 孙刘",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-35",
+          "text": "周瑜、黄盖火烧连环船；孙刘联军以少胜多",
+          "path": "三国 › 三大战役（以少胜多） › 赤壁之战：曹操 VS 孙刘 › 周瑜、黄盖火烧连环船；孙刘联军以少胜多",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-36",
+          "text": "奠定三国鼎立的基础",
+          "path": "三国 › 三大战役（以少胜多） › 赤壁之战：曹操 VS 孙刘 › 奠定三国鼎立的基础",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-37",
+          "text": "周瑜（周公瑾）：羽扇纶巾",
+          "path": "三国 › 三大战役（以少胜多） › 赤壁之战：曹操 VS 孙刘 › 周瑜（周公瑾）：羽扇纶巾",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-38",
+          "text": "夷陵之战：刘备 VS 孙权",
+          "path": "三国 › 三大战役（以少胜多） › 夷陵之战：刘备 VS 孙权",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-39",
+          "text": "此战之后，三国版图基本定型",
+          "path": "三国 › 三大战役（以少胜多） › 夷陵之战：刘备 VS 孙权 › 此战之后，三国版图基本定型",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-40",
+          "text": "陆逊以逸待劳、火烧连营，大败刘备",
+          "path": "三国 › 三大战役（以少胜多） › 夷陵之战：刘备 VS 孙权 › 陆逊以逸待劳、火烧连营，大败刘备",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-41",
+          "text": "三国政权",
+          "path": "三国 › 三国政权",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-42",
+          "text": "魏文帝曹丕：定都洛阳",
+          "path": "三国 › 三国政权 › 魏文帝曹丕：定都洛阳",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-43",
+          "text": "汉昭烈帝刘备：定都成都；三顾茅庐、如鱼得水、白帝城托孤",
+          "path": "三国 › 三国政权 › 汉昭烈帝刘备：定都成都；三顾茅庐、如鱼得水、白帝城托孤",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-44",
+          "text": "吴大帝孙权：定都建康、建业（今南京、石头城）",
+          "path": "三国 › 三国政权 › 吴大帝孙权：定都建康、建业（今南京、石头城）",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-45",
+          "text": "蜀汉灭亡→魏灭蜀",
+          "path": "三国 › 三国政权 › 蜀汉灭亡→魏灭蜀",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-46",
+          "text": "司马昭之心，路人皆知；刘禅“乐不思蜀”",
+          "path": "三国 › 三国政权 › 蜀汉灭亡→魏灭蜀 › 司马昭之心，路人皆知；刘禅“乐不思蜀”",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-47",
+          "text": "司马炎篡魏→西晋灭吴，三国至此结束",
+          "path": "三国 › 三国政权 › 蜀汉灭亡→魏灭蜀 › 司马炎篡魏→西晋灭吴，三国至此结束",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-48",
+          "text": "灭亡顺序：蜀、魏、吴",
+          "path": "三国 › 三国政权 › 蜀汉灭亡→魏灭蜀 › 灭亡顺序：蜀、魏、吴",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-49",
+          "text": "人物与典故",
+          "path": "三国 › 人物与典故",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-50",
+          "text": "诸葛亮",
+          "path": "三国 › 人物与典故 › 诸葛亮",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-51",
+          "text": "《隆中对》（陈寿）、《出师表》",
+          "path": "三国 › 人物与典故 › 诸葛亮 › 《隆中对》（陈寿）、《出师表》",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-52",
+          "text": "鞠躬尽瘁、梁父吟、五丈原",
+          "path": "三国 › 人物与典故 › 诸葛亮 › 鞠躬尽瘁、梁父吟、五丈原",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-53",
+          "text": "卧龙凤雏：诸葛亮、庞统",
+          "path": "三国 › 人物与典故 › 诸葛亮 › 卧龙凤雏：诸葛亮、庞统",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-54",
+          "text": "上任三把火：火烧博望坡、火烧新野、火烧赤壁",
+          "path": "三国 › 人物与典故 › 诸葛亮 › 上任三把火：火烧博望坡、火烧新野、火烧赤壁",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-55",
+          "text": "刘禅：乐不思蜀；“可怜后主还祠庙，日暮聊为梁甫吟”",
+          "path": "三国 › 人物与典故 › 刘禅：乐不思蜀；“可怜后主还祠庙，日暮聊为梁甫吟”",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-56",
+          "text": "建安文学",
+          "path": "三国 › 建安文学",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-57",
+          "text": "三曹",
+          "path": "三国 › 建安文学 › 三曹",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-58",
+          "text": "曹操：追封魏武帝；挟天子以令诸侯；望梅止渴；割发代首；唯才是举；割须弃袍",
+          "path": "三国 › 建安文学 › 三曹 › 曹操：追封魏武帝；挟天子以令诸侯；望梅止渴；割发代首；唯才是举；割须弃袍",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-59",
+          "text": "曹丕：《典论·论文》",
+          "path": "三国 › 建安文学 › 三曹 › 曹丕：《典论·论文》",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-60",
+          "text": "曹植：七步成诗、煮豆燃萁、才高八斗（谢灵运）、下笔成章",
+          "path": "三国 › 建安文学 › 三曹 › 曹植：七步成诗、煮豆燃萁、才高八斗（谢灵运）、下笔成章",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-61",
+          "text": "建安七子：孔融、陈琳、王粲、徐干、阮瑀、应玚、刘桢",
+          "path": "三国 › 建安文学 › 建安七子：孔融、陈琳、王粲、徐干、阮瑀、应玚、刘桢",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-62",
+          "text": "拓展：古人的名与字",
+          "path": "三国 › 拓展：古人的名与字",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-63",
+          "text": "名与字同义",
+          "path": "三国 › 拓展：古人的名与字 › 名与字同义",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-64",
+          "text": "诸葛亮，字孔明：亮、明都为光明",
+          "path": "三国 › 拓展：古人的名与字 › 名与字同义 › 诸葛亮，字孔明：亮、明都为光明",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-65",
+          "text": "周瑜，字公瑾：瑜、瑾都为美玉",
+          "path": "三国 › 拓展：古人的名与字 › 名与字同义 › 周瑜，字公瑾：瑜、瑾都为美玉",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-66",
+          "text": "杜甫，字子美：甫、美都表示外貌上佳",
+          "path": "三国 › 拓展：古人的名与字 › 名与字同义 › 杜甫，字子美：甫、美都表示外貌上佳",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-67",
+          "text": "名与字反义",
+          "path": "三国 › 拓展：古人的名与字 › 名与字反义",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-68",
+          "text": "朱熹，字元晦：熹为晨光明亮，晦为昏暗",
+          "path": "三国 › 拓展：古人的名与字 › 名与字反义 › 朱熹，字元晦：熹为晨光明亮，晦为昏暗",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-69",
+          "text": "韩愈，字退之：愈为前进、超越，退为后退",
+          "path": "三国 › 拓展：古人的名与字 › 名与字反义 › 韩愈，字退之：愈为前进、超越，退为后退",
+          "moduleId": "sanguo",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-70",
+          "text": "西晋事件记",
+          "path": "西晋 › 西晋事件记",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-71",
+          "text": "晋朝建立→太康盛世→八王之乱→五胡内迁→永嘉之乱",
+          "path": "西晋 › 西晋事件记 › 晋朝建立→太康盛世→八王之乱→五胡内迁→永嘉之乱",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-72",
+          "text": "建立",
+          "path": "西晋 › 建立",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-73",
+          "text": "晋武帝司马炎，定都洛阳",
+          "path": "西晋 › 建立 › 晋武帝司马炎，定都洛阳",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-74",
+          "text": "天下变为“西晋”与“东吴”的南北对峙局面",
+          "path": "西晋 › 建立 › 天下变为“西晋”与“东吴”的南北对峙局面",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-75",
+          "text": "治世：太康盛世",
+          "path": "西晋 › 治世：太康盛世",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-76",
+          "text": "晋武帝司马炎，年号“太康”",
+          "path": "西晋 › 治世：太康盛世 › 晋武帝司马炎，年号“太康”",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-77",
+          "text": "拓展：何不食肉糜——晋惠帝司马衷",
+          "path": "西晋 › 治世：太康盛世 › 拓展：何不食肉糜——晋惠帝司马衷",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-78",
+          "text": "战乱与灭亡",
+          "path": "西晋 › 战乱与灭亡",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-79",
+          "text": "八王之乱",
+          "path": "西晋 › 战乱与灭亡 › 八王之乱",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-80",
+          "text": "东海王司马越取得成功，西晋由盛转衰",
+          "path": "西晋 › 战乱与灭亡 › 八王之乱 › 东海王司马越取得成功，西晋由盛转衰",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-81",
+          "text": "成语：乱七八糟",
+          "path": "西晋 › 战乱与灭亡 › 八王之乱 › 成语：乱七八糟",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-82",
+          "text": "五胡乱华：匈奴、鲜卑、羯、氐、羌",
+          "path": "西晋 › 战乱与灭亡 › 五胡乱华：匈奴、鲜卑、羯、氐、羌",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-83",
+          "text": "永嘉之乱",
+          "path": "西晋 › 战乱与灭亡 › 永嘉之乱",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-84",
+          "text": "匈奴俘获晋愍帝，西晋灭亡",
+          "path": "西晋 › 战乱与灭亡 › 永嘉之乱 › 匈奴俘获晋愍帝，西晋灭亡",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-85",
+          "text": "五胡十六国",
+          "path": "西晋 › 战乱与灭亡 › 五胡十六国",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-86",
+          "text": "五胡：匈奴、鲜卑、羯、氐、羌",
+          "path": "西晋 › 战乱与灭亡 › 五胡十六国 › 五胡：匈奴、鲜卑、羯、氐、羌",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-87",
+          "text": "十六国：前凉、成汉、前赵、后赵、北凉、西凉、后凉、南凉、前燕、后燕、南燕、北燕、夏、前秦、西秦、后秦",
+          "path": "西晋 › 战乱与灭亡 › 五胡十六国 › 十六国：前凉、成汉、前赵、后赵、北凉、西凉、后凉、南凉、前燕、后燕、南燕、北燕、夏、前秦、西秦、后秦",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-88",
+          "text": "东晋事件记",
+          "path": "东晋 › 东晋事件记",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-89",
+          "text": "衣冠南渡→祖逖北伐→淝水之战→东晋灭亡",
+          "path": "东晋 › 东晋事件记 › 衣冠南渡→祖逖北伐→淝水之战→东晋灭亡",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-90",
+          "text": "衣冠南渡",
+          "path": "东晋 › 衣冠南渡",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-91",
+          "text": "晋元帝司马睿：“王与马，共天下”",
+          "path": "东晋 › 衣冠南渡 › 晋元帝司马睿：“王与马，共天下”",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-92",
+          "text": "司马睿南渡建康（今江苏南京）延续晋朝，史称东晋",
+          "path": "东晋 › 衣冠南渡 › 司马睿南渡建康（今江苏南京）延续晋朝，史称东晋",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-93",
+          "text": "东晋统治地区大部分在江东，古称江左，因此以“江左”代指东晋",
+          "path": "东晋 › 衣冠南渡 › 东晋统治地区大部分在江东，古称江左，因此以“江左”代指东晋",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-94",
+          "text": "祖逖（tì）北伐",
+          "path": "东晋 › 祖逖（tì）北伐",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-95",
+          "text": "典故：闻鸡起舞（祖逖、刘琨）；中流击楫",
+          "path": "东晋 › 祖逖（tì）北伐 › 典故：闻鸡起舞（祖逖、刘琨）；中流击楫",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-96",
+          "text": "淝水之战",
+          "path": "东晋 › 淝水之战",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-97",
+          "text": "东晋谢安、谢玄 VS 前秦苻坚；东晋以少胜多",
+          "path": "东晋 › 淝水之战 › 东晋谢安、谢玄 VS 前秦苻坚；东晋以少胜多",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-98",
+          "text": "谢家代表：谢道韫（咏絮之才）、谢灵运（山水诗派鼻祖）",
+          "path": "东晋 › 淝水之战 › 谢家代表：谢道韫（咏絮之才）、谢灵运（山水诗派鼻祖）",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-99",
+          "text": "谢安：东山再起",
+          "path": "东晋 › 淝水之战 › 谢安：东山再起",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-100",
+          "text": "相关典故：投鞭断流、草木皆兵、风声鹤唳",
+          "path": "东晋 › 淝水之战 › 相关典故：投鞭断流、草木皆兵、风声鹤唳",
+          "moduleId": "dongjin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-101",
+          "text": "南北朝事件记",
+          "path": "南北朝 › 南北朝事件记",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-102",
+          "text": "刘宋建立→北魏孝文帝改革→侯景之乱→隋灭陈",
+          "path": "南北朝 › 南北朝事件记 › 刘宋建立→北魏孝文帝改革→侯景之乱→隋灭陈",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-103",
+          "text": "北朝",
+          "path": "南北朝 › 北朝",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-104",
+          "text": "北魏、东魏、西魏、北齐、北周",
+          "path": "南北朝 › 北朝 › 北魏、东魏、西魏、北齐、北周",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-105",
+          "text": "北魏分裂为东魏、西魏；北齐取代东魏；北周取代西魏；北周灭北齐",
+          "path": "南北朝 › 北朝 › 北魏、东魏、西魏、北齐、北周 › 北魏分裂为东魏、西魏；北齐取代东魏；北周取代西魏；北周灭北齐",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-106",
+          "text": "北魏孝文帝改革",
+          "path": "南北朝 › 北朝 › 北魏孝文帝改革",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-107",
+          "text": "由平城迁都洛阳；推行均田制和户调制",
+          "path": "南北朝 › 北朝 › 北魏孝文帝改革 › 由平城迁都洛阳；推行均田制和户调制",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-108",
+          "text": "学汉语、穿汉服、改汉姓、与汉人通婚",
+          "path": "南北朝 › 北朝 › 北魏孝文帝改革 › 学汉语、穿汉服、改汉姓、与汉人通婚",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-109",
+          "text": "采用汉族官制律令；学习汉族礼法，尊崇孔子",
+          "path": "南北朝 › 北朝 › 北魏孝文帝改革 › 采用汉族官制律令；学习汉族礼法，尊崇孔子",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-110",
+          "text": "南朝",
+          "path": "南北朝 › 南朝",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-111",
+          "text": "宋、齐、梁、陈：均以建康（南京）为都",
+          "path": "南北朝 › 南朝 › 宋、齐、梁、陈：均以建康（南京）为都",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-112",
+          "text": "南京：六朝古都——东吴、东晋、宋、齐、梁、陈",
+          "path": "南北朝 › 南朝 › 南京：六朝古都——东吴、东晋、宋、齐、梁、陈",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-113",
+          "text": "拓展：范缜《神灭论》反对佛教，早期唯物主义",
+          "path": "南北朝 › 南朝 › 拓展：范缜《神灭论》反对佛教，早期唯物主义",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-114",
+          "text": "“南朝四百八十寺，多少楼台烟雨中”联系佛教知识",
+          "path": "南北朝 › 南朝 › “南朝四百八十寺，多少楼台烟雨中”联系佛教知识",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-115",
+          "text": "侯景之乱",
+          "path": "南北朝 › 南朝 › 侯景之乱",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-116",
+          "text": "东魏降将侯景在梁发动叛乱，次年攻破建康",
+          "path": "南北朝 › 南朝 › 侯景之乱 › 东魏降将侯景在梁发动叛乱，次年攻破建康",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-117",
+          "text": "梁武帝饿死，南朝衰落",
+          "path": "南北朝 › 南朝 › 侯景之乱 › 梁武帝饿死，南朝衰落",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-118",
+          "text": "侯景：宇宙大将军",
+          "path": "南北朝 › 南朝 › 侯景之乱 › 侯景：宇宙大将军",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-119",
+          "text": "隋朝事件记",
+          "path": "隋朝 › 隋朝事件记",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-120",
+          "text": "隋朝建立→开皇之治→隋朝灭亡",
+          "path": "隋朝 › 隋朝事件记 › 隋朝建立→开皇之治→隋朝灭亡",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-121",
+          "text": "建立与开皇之治",
+          "path": "隋朝 › 建立与开皇之治",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-122",
+          "text": "隋文帝杨坚，定都大兴（西安）",
+          "path": "隋朝 › 建立与开皇之治 › 隋文帝杨坚，定都大兴（西安）",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-123",
+          "text": "杨坚相关典故：一衣带水（长江）",
+          "path": "隋朝 › 建立与开皇之治 › 杨坚相关典故：一衣带水（长江）",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-124",
+          "text": "三省六部制",
+          "path": "隋朝 › 建立与开皇之治 › 三省六部制",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-125",
+          "text": "始于隋朝五省六曹制，确立于隋朝，完善于唐朝；直至清末六部制基本沿袭未改",
+          "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 始于隋朝五省六曹制，确立于隋朝，完善于唐朝；直至清末六部制基本沿袭未改",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-126",
+          "text": "三省：中书省（起草）、门下省（审核）、尚书省（执行）",
+          "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 三省：中书省（起草）、门下省（审核）、尚书省（执行）",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-127",
+          "text": "尚书省之下分六部",
+          "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-128",
+          "text": "吏部：官吏任免、考核",
+          "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 吏部：官吏任免、考核",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-129",
+          "text": "户部：土地、户口、赋税、财政",
+          "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 户部：土地、户口、赋税、财政",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-130",
+          "text": "礼部：典礼、科举",
+          "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 礼部：典礼、科举",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-131",
+          "text": "兵部：全国军事",
+          "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 兵部：全国军事",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-132",
+          "text": "刑部：刑法、狱讼",
+          "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 刑部：刑法、狱讼",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-133",
+          "text": "工部：工程营造、屯田水利",
+          "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 工部：工程营造、屯田水利",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-134",
+          "text": "科举",
+          "path": "隋朝 › 建立与开皇之治 › 科举",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-135",
+          "text": "废九品中正制，分科取士（科举制雏形）；设明经、秀才两科",
+          "path": "隋朝 › 建立与开皇之治 › 科举 › 废九品中正制，分科取士（科举制雏形）；设明经、秀才两科",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-136",
+          "text": "创立进士科（科举制形成），标志科举制正式确立",
+          "path": "隋朝 › 建立与开皇之治 › 科举 › 创立进士科（科举制形成），标志科举制正式确立",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-137",
+          "text": "科举制变迁",
+          "path": "隋朝 › 科举制变迁",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-138",
+          "text": "商朝：世卿世禄制（嫡长子继承制）",
+          "path": "隋朝 › 科举制变迁 › 商朝：世卿世禄制（嫡长子继承制）",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-139",
+          "text": "秦朝：军功爵制度，奖励军功",
+          "path": "隋朝 › 科举制变迁 › 秦朝：军功爵制度，奖励军功",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-140",
+          "text": "汉朝：察举制、征辟制",
+          "path": "隋朝 › 科举制变迁 › 汉朝：察举制、征辟制",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-141",
+          "text": "魏晋南北朝：九品中正制",
+          "path": "隋朝 › 科举制变迁 › 魏晋南北朝：九品中正制",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-142",
+          "text": "隋朝：隋文帝设明经、秀才；隋炀帝开进士科",
+          "path": "隋朝 › 科举制变迁 › 隋朝：隋文帝设明经、秀才；隋炀帝开进士科",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-143",
+          "text": "唐朝：唐太宗设明经、进士；武则天增加武举和殿试；唐玄宗以诗赋为主要考试内容",
+          "path": "隋朝 › 科举制变迁 › 唐朝：唐太宗设明经、进士；武则天增加武举和殿试；唐玄宗以诗赋为主要考试内容",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-144",
+          "text": "宋朝：锁院制、糊名制、誊写制",
+          "path": "隋朝 › 科举制变迁 › 宋朝：锁院制、糊名制、誊写制",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-145",
+          "text": "明朝：八股取士",
+          "path": "隋朝 › 科举制变迁 › 明朝：八股取士",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-146",
+          "text": "清朝：1905年光绪清末新政废除科举制",
+          "path": "隋朝 › 科举制变迁 › 清朝：1905年光绪清末新政废除科举制",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-147",
+          "text": "隋炀帝杨广",
+          "path": "隋朝 › 隋炀帝杨广",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-148",
+          "text": "三征高句丽",
+          "path": "隋朝 › 隋炀帝杨广 › 三征高句丽",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-149",
+          "text": "极大动摇隋朝统治根基，是隋朝速亡的关键诱因",
+          "path": "隋朝 › 隋炀帝杨广 › 三征高句丽 › 极大动摇隋朝统治根基，是隋朝速亡的关键诱因",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-150",
+          "text": "第一次：隋军指挥失当，惨败而归，死伤惨重",
+          "path": "隋朝 › 隋炀帝杨广 › 三征高句丽 › 第一次：隋军指挥失当，惨败而归，死伤惨重",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-151",
+          "text": "第二次：战事僵持；杨玄感国内叛乱，炀帝仓促撤军",
+          "path": "隋朝 › 隋炀帝杨广 › 三征高句丽 › 第二次：战事僵持；杨玄感国内叛乱，炀帝仓促撤军",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-152",
+          "text": "第三次：国内农民起义四起；高句丽求和，炀帝收兵",
+          "path": "隋朝 › 隋炀帝杨广 › 三征高句丽 › 第三次：国内农民起义四起；高句丽求和，炀帝收兵",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-153",
+          "text": "开凿大运河",
+          "path": "隋朝 › 隋炀帝杨广 › 开凿大运河",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": true
+        },
+        {
+          "id": "history-section-3-154",
+          "text": "始建于春秋（邗沟），完成于隋朝，繁荣于唐宋，取直于元代，疏通于明清",
+          "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 始建于春秋（邗沟），完成于隋朝，繁荣于唐宋，取直于元代，疏通于明清",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-155",
+          "text": "春秋：吴王夫差开挖邗沟，连接长江与淮河；是大运河“第一锹”的开挖者",
+          "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 春秋：吴王夫差开挖邗沟，连接长江与淮河；是大运河“第一锹”的开挖者",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-156",
+          "text": "隋朝：以洛阳为中心，北至涿郡，南至余杭",
+          "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 隋朝：以洛阳为中心，北至涿郡，南至余杭",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-157",
+          "text": "四段：永济渠、通济渠、邗沟、江南河",
+          "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 四段：永济渠、通济渠、邗沟、江南河",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-158",
+          "text": "五大水系：海河、黄河、淮河、长江、钱塘江",
+          "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 五大水系：海河、黄河、淮河、长江、钱塘江",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-159",
+          "text": "元朝：以“截弯取直”方式开凿京杭大运河；开凿济州河、会通河、通惠河，奠定今日走向；元后不再经过洛阳",
+          "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 元朝：以“截弯取直”方式开凿京杭大运河；开凿济州河、会通河、通惠河，奠定今日走向；元后不再经过洛阳",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-160",
+          "text": "世界里程最长、工程最大；南起余杭（今杭州），北到涿郡（今北京）",
+          "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 世界里程最长、工程最大；南起余杭（今杭州），北到涿郡（今北京）",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-161",
+          "text": "京杭大运河主要水源：微山湖",
+          "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 京杭大运河主要水源：微山湖",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-162",
+          "text": "明清：继续维护与完善",
+          "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 明清：继续维护与完善",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-163",
+          "text": "杨广相关典故：罄竹难书",
+          "path": "隋朝 › 隋炀帝杨广 › 杨广相关典故：罄竹难书",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-164",
+          "text": "拓展：赵州桥",
+          "path": "隋朝 › 拓展：赵州桥",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-165",
+          "text": "由隋朝工匠李春设计建造",
+          "path": "隋朝 › 拓展：赵州桥 › 由隋朝工匠李春设计建造",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-166",
+          "text": "当今世界上现存最早、保存最完整的古代单孔敞肩石拱桥",
+          "path": "隋朝 › 拓展：赵州桥 › 当今世界上现存最早、保存最完整的古代单孔敞肩石拱桥",
+          "moduleId": "suichao",
+          "mapId": "history-section-3",
+          "important": false
+        }
+      ]
+    }
+  ]
+}
