@@ -9,7 +9,7 @@
     curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html' },
     wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html' },
     review:    { name: '复盘台', path: null },
-    knowledge: { name: '常识思维导图', path: null }
+    knowledge: { name: '思维导图', path: null }
   };
 
   var currentView = 'dashboard';
@@ -41,7 +41,7 @@
     curve: '复习灯台',
     wusi: '五四讲话背诵',
     review: '复盘台',
-    knowledge: '常识思维导图'
+    knowledge: '思维导图'
   };
   var toolNames = {};
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
