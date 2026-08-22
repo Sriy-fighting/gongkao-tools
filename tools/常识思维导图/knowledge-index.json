@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-22T09:12:37.122Z",
+  "generatedAt": "2026-08-22T09:30:35.918Z",
   "maps": [
     {
       "id": "science-section-1",
@@ -2199,6 +2199,22 @@
         },
         {
           "id": "history-section-2-7",
+          "text": "秦始皇陵及兵马俑坑：被称为“世界第八大奇迹”",
+          "path": "秦朝 › 建立与制度 › 秦始皇陵及兵马俑坑：被称为“世界第八大奇迹”",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-8",
+          "text": "泰山封禅：秦始皇是第一位举行封禅的皇帝",
+          "path": "秦朝 › 建立与制度 › 泰山封禅：秦始皇是第一位举行封禅的皇帝",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-9",
           "text": "统一措施",
           "path": "秦朝 › 统一措施",
           "moduleId": "qin",
@@ -2206,7 +2222,7 @@
           "important": true
         },
         {
-          "id": "history-section-2-8",
+          "id": "history-section-2-10",
           "text": "统一货币：圆形方孔半两钱",
           "path": "秦朝 › 统一措施 › 统一货币：圆形方孔半两钱",
           "moduleId": "qin",
@@ -2214,7 +2230,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-9",
+          "id": "history-section-2-11",
           "text": "统一度量衡：度为长度、量为容积、衡为重量",
           "path": "秦朝 › 统一措施 › 统一度量衡：度为长度、量为容积、衡为重量",
           "moduleId": "qin",
@@ -2222,7 +2238,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-10",
+          "id": "history-section-2-12",
           "text": "书同文（小篆）、车同轨",
           "path": "秦朝 › 统一措施 › 书同文（小篆）、车同轨",
           "moduleId": "qin",
@@ -2230,7 +2246,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-11",
+          "id": "history-section-2-13",
           "text": "焚书坑儒：李斯主持；医药、占卜、种植等书籍保留",
           "path": "秦朝 › 统一措施 › 焚书坑儒：李斯主持；医药、占卜、种植等书籍保留",
           "moduleId": "qin",
@@ -2238,7 +2254,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-12",
+          "id": "history-section-2-14",
           "text": "军事与工程",
           "path": "秦朝 › 军事与工程",
           "moduleId": "qin",
@@ -2246,7 +2262,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-13",
+          "id": "history-section-2-15",
           "text": "北击匈奴：蒙恬连接秦、赵、燕旧长城；唐、元、清未修筑长城",
           "path": "秦朝 › 军事与工程 › 北击匈奴：蒙恬连接秦、赵、燕旧长城；唐、元、清未修筑长城",
           "moduleId": "qin",
@@ -2254,7 +2270,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-14",
+          "id": "history-section-2-16",
           "text": "南征百越：设置南海郡（广东）、象郡（海南）、桂林郡（广西）",
           "path": "秦朝 › 军事与工程 › 南征百越：设置南海郡（广东）、象郡（海南）、桂林郡（广西）",
           "moduleId": "qin",
@@ -2262,7 +2278,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-15",
+          "id": "history-section-2-17",
           "text": "开凿灵渠，沟通湘江与漓江；秦三大水利工程为都江堰、郑国渠、灵渠",
           "path": "秦朝 › 军事与工程 › 开凿灵渠，沟通湘江与漓江；秦三大水利工程为都江堰、郑国渠、灵渠",
           "moduleId": "qin",
@@ -2270,7 +2286,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-16",
+          "id": "history-section-2-18",
           "text": "直道用于防范匈奴；驰道便利交通且中央道路为皇帝专用；五尺道标志中央政权开始系统经营西南边疆",
           "path": "秦朝 › 军事与工程 › 直道用于防范匈奴；驰道便利交通且中央道路为皇帝专用；五尺道标志中央政权开始系统经营西南边疆",
           "moduleId": "qin",
@@ -2278,7 +2294,15 @@
           "important": false
         },
         {
-          "id": "history-section-2-17",
+          "id": "history-section-2-19",
+          "text": "四大民间传说：《牛郎织女》《孟姜女》《梁山伯与祝英台》《白蛇传》",
+          "path": "秦朝 › 军事与工程 › 四大民间传说：《牛郎织女》《孟姜女》《梁山伯与祝英台》《白蛇传》",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-20",
           "text": "秦末事件",
           "path": "秦朝 › 秦末事件",
           "moduleId": "qin",
@@ -2286,7 +2310,7 @@
           "important": true
         },
         {
-          "id": "history-section-2-18",
+          "id": "history-section-2-21",
           "text": "沙丘之变：赵高、李斯杀害公子扶苏，拥立秦二世；赵高典故“指鹿为马”",
           "path": "秦朝 › 秦末事件 › 沙丘之变：赵高、李斯杀害公子扶苏，拥立秦二世；赵高典故“指鹿为马”",
           "moduleId": "qin",
@@ -2294,7 +2318,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-19",
+          "id": "history-section-2-22",
           "text": "大泽乡起义：陈胜、吴广领导，中国历史上第一次农民起义；口号“王侯将相，宁有种乎”",
           "path": "秦朝 › 秦末事件 › 大泽乡起义：陈胜、吴广领导，中国历史上第一次农民起义；口号“王侯将相，宁有种乎”",
           "moduleId": "qin",
@@ -2302,7 +2326,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-20",
+          "id": "history-section-2-23",
           "text": "巨鹿之战：项羽破釜沉舟，大破章邯、王离率领的秦军",
           "path": "秦朝 › 秦末事件 › 巨鹿之战：项羽破釜沉舟，大破章邯、王离率领的秦军",
           "moduleId": "qin",
@@ -2310,7 +2334,39 @@
           "important": false
         },
         {
-          "id": "history-section-2-21",
+          "id": "history-section-2-24",
+          "text": "巨鹿之战相关典故：破釜沉舟、作壁上观",
+          "path": "秦朝 › 秦末事件 › 巨鹿之战相关典故：破釜沉舟、作壁上观",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-25",
+          "text": "秦始皇行迹",
+          "path": "秦朝 › 秦始皇行迹",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-26",
+          "text": "博浪沙刺秦：张良策划；相关典故“孺子可教”“运筹帷幄”",
+          "path": "秦朝 › 秦始皇行迹 › 博浪沙刺秦：张良策划；相关典故“孺子可教”“运筹帷幄”",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-27",
+          "text": "五次巡游；徐福东渡；病逝于沙丘",
+          "path": "秦朝 › 秦始皇行迹 › 五次巡游；徐福东渡；病逝于沙丘",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-28",
           "text": "入关与鸿门宴",
           "path": "楚汉争霸 › 入关与鸿门宴",
           "moduleId": "chuhan",
@@ -2318,7 +2374,7 @@
           "important": true
         },
         {
-          "id": "history-section-2-22",
+          "id": "history-section-2-29",
           "text": "刘邦先入关中，秋毫无犯、约法三章；“先入关中者为王”",
           "path": "楚汉争霸 › 入关与鸿门宴 › 刘邦先入关中，秋毫无犯、约法三章；“先入关中者为王”",
           "moduleId": "chuhan",
@@ -2326,7 +2382,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-23",
+          "id": "history-section-2-30",
           "text": "项羽、范增、项庄 VS 刘邦、张良、樊哙；典故“项庄舞剑，意在沛公”",
           "path": "楚汉争霸 › 入关与鸿门宴 › 项羽、范增、项庄 VS 刘邦、张良、樊哙；典故“项庄舞剑，意在沛公”",
           "moduleId": "chuhan",
@@ -2334,7 +2390,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-24",
+          "id": "history-section-2-31",
           "text": "战争与典故",
           "path": "楚汉争霸 › 战争与典故",
           "moduleId": "chuhan",
@@ -2342,7 +2398,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-25",
+          "id": "history-section-2-32",
           "text": "明修栈道，暗度陈仓；筑坛拜将",
           "path": "楚汉争霸 › 战争与典故 › 明修栈道，暗度陈仓；筑坛拜将",
           "moduleId": "chuhan",
@@ -2350,7 +2406,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-26",
+          "id": "history-section-2-33",
           "text": "韩信：背水一战、一饭千金、胯下之辱",
           "path": "楚汉争霸 › 战争与典故 › 韩信：背水一战、一饭千金、胯下之辱",
           "moduleId": "chuhan",
@@ -2358,7 +2414,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-27",
+          "id": "history-section-2-34",
           "text": "彭城之战：项羽胜刘邦",
           "path": "楚汉争霸 › 战争与典故 › 彭城之战：项羽胜刘邦",
           "moduleId": "chuhan",
@@ -2366,7 +2422,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-28",
+          "id": "history-section-2-35",
           "text": "鸿沟合议：以鸿沟为界，楚河汉界由此而来",
           "path": "楚汉争霸 › 战争与典故 › 鸿沟合议：以鸿沟为界，楚河汉界由此而来",
           "moduleId": "chuhan",
@@ -2374,7 +2430,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-29",
+          "id": "history-section-2-36",
           "text": "垓下之战：刘邦胜；四面楚歌、十面埋伏、霸王别姬、乌江自刎",
           "path": "楚汉争霸 › 战争与典故 › 垓下之战：刘邦胜；四面楚歌、十面埋伏、霸王别姬、乌江自刎",
           "moduleId": "chuhan",
@@ -2382,7 +2438,15 @@
           "important": false
         },
         {
-          "id": "history-section-2-30",
+          "id": "history-section-2-37",
+          "text": "垓下之战相关艺术与典故：琵琶曲《十面埋伏》、京剧《霸王别姬》；项羽乌江自刎并称“羞见江东父老”",
+          "path": "楚汉争霸 › 战争与典故 › 垓下之战相关艺术与典故：琵琶曲《十面埋伏》、京剧《霸王别姬》；项羽乌江自刎并称“羞见江东父老”",
+          "moduleId": "chuhan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-38",
           "text": "建立与文景之治",
           "path": "西汉 › 建立与文景之治",
           "moduleId": "xihan",
@@ -2390,7 +2454,7 @@
           "important": true
         },
         {
-          "id": "history-section-2-31",
+          "id": "history-section-2-39",
           "text": "汉高祖刘邦建立西汉，定都长安；推崇黄老之术，实行休养生息、无为而治、郡国并行制",
           "path": "西汉 › 建立与文景之治 › 汉高祖刘邦建立西汉，定都长安；推崇黄老之术，实行休养生息、无为而治、郡国并行制",
           "moduleId": "xihan",
@@ -2398,7 +2462,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-32",
+          "id": "history-section-2-40",
           "text": "白登之围后，刘邦开启对匈奴和亲政策；白马之盟提出“非刘氏而王者，天下共击之”",
           "path": "西汉 › 建立与文景之治 › 白登之围后，刘邦开启对匈奴和亲政策；白马之盟提出“非刘氏而王者，天下共击之”",
           "moduleId": "xihan",
@@ -2406,7 +2470,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-33",
+          "id": "history-section-2-41",
           "text": "汉文帝刘恒、汉景帝刘启实行轻徭薄赋、与民休息，形成文景之治；汉景帝时期发生七国之乱，周亚夫平叛",
           "path": "西汉 › 建立与文景之治 › 汉文帝刘恒、汉景帝刘启实行轻徭薄赋、与民休息，形成文景之治；汉景帝时期发生七国之乱，周亚夫平叛",
           "moduleId": "xihan",
@@ -2414,7 +2478,31 @@
           "important": false
         },
         {
-          "id": "history-section-2-34",
+          "id": "history-section-2-42",
+          "text": "刘邦作《大风歌》；汉初三杰为张良、萧何、韩信",
+          "path": "西汉 › 建立与文景之治 › 刘邦作《大风歌》；汉初三杰为张良、萧何、韩信",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-43",
+          "text": "吕后当权后有“萧规曹随”；萧何奠定制度基础，曹参沿袭执行",
+          "path": "西汉 › 建立与文景之治 › 吕后当权后有“萧规曹随”；萧何奠定制度基础，曹参沿袭执行",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-44",
+          "text": "七国之乱：汉景帝时晁错提出《削藩策》，叛军口号“诛晁错，清君侧”，周亚夫平定叛乱",
+          "path": "西汉 › 建立与文景之治 › 七国之乱：汉景帝时晁错提出《削藩策》，叛军口号“诛晁错，清君侧”，周亚夫平定叛乱",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-45",
           "text": "汉武盛世",
           "path": "西汉 › 汉武盛世",
           "moduleId": "xihan",
@@ -2422,7 +2510,7 @@
           "important": true
         },
         {
-          "id": "history-section-2-35",
+          "id": "history-section-2-46",
           "text": "政治：中外朝制度、推恩令、察举制；设置刺史监察地方",
           "path": "西汉 › 汉武盛世 › 政治：中外朝制度、推恩令、察举制；设置刺史监察地方",
           "moduleId": "xihan",
@@ -2430,7 +2518,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-36",
+          "id": "history-section-2-47",
           "text": "经济：统一铸五铢钱；桑弘羊主持盐铁专卖、均输平准，财政权集中中央",
           "path": "西汉 › 汉武盛世 › 经济：统一铸五铢钱；桑弘羊主持盐铁专卖、均输平准，财政权集中中央",
           "moduleId": "xihan",
@@ -2438,7 +2526,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-37",
+          "id": "history-section-2-48",
           "text": "思想文化：董仲舒提出罢黜百家、独尊儒术和天人三策；设太学、五经博士；司马迁《史记》是第一部纪传体通史",
           "path": "西汉 › 汉武盛世 › 思想文化：董仲舒提出罢黜百家、独尊儒术和天人三策；设太学、五经博士；司马迁《史记》是第一部纪传体通史",
           "moduleId": "xihan",
@@ -2446,7 +2534,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-38",
+          "id": "history-section-2-49",
           "text": "军事：卫青、霍去病抗击匈奴；霍去病封狼居胥；设置河西四郡：武威、张掖、酒泉、敦煌",
           "path": "西汉 › 汉武盛世 › 军事：卫青、霍去病抗击匈奴；霍去病封狼居胥；设置河西四郡：武威、张掖、酒泉、敦煌",
           "moduleId": "xihan",
@@ -2454,7 +2542,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-39",
+          "id": "history-section-2-50",
           "text": "张骞出使西域，又称凿空之旅，开辟丝绸之路；传入葡萄、石榴、苜蓿、胡豆、胡麻、胡瓜、胡桃、大蒜等，传出丝织品、金属工具、铸铁和凿井技术",
           "path": "西汉 › 汉武盛世 › 张骞出使西域，又称凿空之旅，开辟丝绸之路；传入葡萄、石榴、苜蓿、胡豆、胡麻、胡瓜、胡桃、大蒜等，传出丝织品、金属工具、铸铁和凿井技术",
           "moduleId": "xihan",
@@ -2462,7 +2550,23 @@
           "important": false
         },
         {
-          "id": "history-section-2-40",
+          "id": "history-section-2-51",
+          "text": "李广号“飞将军”，有“桃李不言，下自成蹊”之语",
+          "path": "西汉 › 汉武盛世 › 李广号“飞将军”，有“桃李不言，下自成蹊”之语",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-52",
+          "text": "卫青战功：河南之战、漠北之战；霍去病有“匈奴未灭，何以家为”，并登临瀚海、禅姑衍山",
+          "path": "西汉 › 汉武盛世 › 卫青战功：河南之战、漠北之战；霍去病有“匈奴未灭，何以家为”，并登临瀚海、禅姑衍山",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-53",
           "text": "昭宣中兴与衰亡",
           "path": "西汉 › 昭宣中兴与衰亡",
           "moduleId": "xihan",
@@ -2470,7 +2574,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-41",
+          "id": "history-section-2-54",
           "text": "巫蛊之祸导致皇后卫子夫、太子刘据自杀；汉武帝晚年发布轮台诏，停止对外扩张、与民休息",
           "path": "西汉 › 昭宣中兴与衰亡 › 巫蛊之祸导致皇后卫子夫、太子刘据自杀；汉武帝晚年发布轮台诏，停止对外扩张、与民休息",
           "moduleId": "xihan",
@@ -2478,7 +2582,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-42",
+          "id": "history-section-2-55",
           "text": "汉昭帝、汉宣帝时期形成昭宣中兴",
           "path": "西汉 › 昭宣中兴与衰亡 › 汉昭帝、汉宣帝时期形成昭宣中兴",
           "moduleId": "xihan",
@@ -2486,7 +2590,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-43",
+          "id": "history-section-2-56",
           "text": "汉宣帝设西域都护府管辖新疆，首任西域都护为郑吉",
           "path": "西汉 › 昭宣中兴与衰亡 › 汉宣帝设西域都护府管辖新疆，首任西域都护为郑吉",
           "moduleId": "xihan",
@@ -2494,7 +2598,7 @@
           "important": false
         },
         {
-          "id": "history-section-2-44",
+          "id": "history-section-2-57",
           "text": "王昭君出塞发生在汉元帝时期；西施沉鱼、王昭君落雁、貂蝉闭月、杨玉环羞花合称四大美女",
           "path": "西汉 › 昭宣中兴与衰亡 › 王昭君出塞发生在汉元帝时期；西施沉鱼、王昭君落雁、貂蝉闭月、杨玉环羞花合称四大美女",
           "moduleId": "xihan",
@@ -2502,9 +2606,17 @@
           "important": false
         },
         {
-          "id": "history-section-2-45",
+          "id": "history-section-2-58",
           "text": "绿林、赤眉起义与昆阳之战后，西汉走向灭亡，王莽篡汉",
           "path": "西汉 › 昭宣中兴与衰亡 › 绿林、赤眉起义与昆阳之战后，西汉走向灭亡，王莽篡汉",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-59",
+          "text": "昭君墓位于内蒙古呼和浩特，又称“青冢”",
+          "path": "西汉 › 昭宣中兴与衰亡 › 昭君墓位于内蒙古呼和浩特，又称“青冢”",
           "moduleId": "xihan",
           "mapId": "history-section-2",
           "important": false
@@ -2580,6 +2692,14 @@
         },
         {
           "id": "history-section-3-7",
+          "text": "戚宦之争：东汉后期外戚与宦官交替专权，是东汉政局动荡的重要背景",
+          "path": "东汉 › 东汉事件记 › 戚宦之争：东汉后期外戚与宦官交替专权，是东汉政局动荡的重要背景",
+          "moduleId": "donghan",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-8",
           "text": "文化",
           "path": "东汉 › 文化",
           "moduleId": "donghan",
@@ -2587,7 +2707,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-8",
+          "id": "history-section-3-9",
           "text": "永平求法",
           "path": "东汉 › 文化 › 永平求法",
           "moduleId": "donghan",
@@ -2595,7 +2715,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-9",
+          "id": "history-section-3-10",
           "text": "汉明帝派遣使臣西行求访佛法，将佛教传入中国",
           "path": "东汉 › 文化 › 永平求法 › 汉明帝派遣使臣西行求访佛法，将佛教传入中国",
           "moduleId": "donghan",
@@ -2603,7 +2723,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-10",
+          "id": "history-section-3-11",
           "text": "白马寺（洛阳）：佛教传入中国后兴建的第一座官办寺院；中国佛教发源地，有“祖庭”“释源”之称",
           "path": "东汉 › 文化 › 永平求法 › 白马寺（洛阳）：佛教传入中国后兴建的第一座官办寺院；中国佛教发源地，有“祖庭”“释源”之称",
           "moduleId": "donghan",
@@ -2611,7 +2731,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-11",
+          "id": "history-section-3-12",
           "text": "蔡伦改进造纸术：汉和帝时期",
           "path": "东汉 › 文化 › 蔡伦改进造纸术：汉和帝时期",
           "moduleId": "donghan",
@@ -2619,7 +2739,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-12",
+          "id": "history-section-3-13",
           "text": "班超出使西域",
           "path": "东汉 › 文化 › 班超出使西域",
           "moduleId": "donghan",
@@ -2627,7 +2747,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-13",
+          "id": "history-section-3-14",
           "text": "汉明帝时，班超被封为定远侯",
           "path": "东汉 › 文化 › 班超出使西域 › 汉明帝时，班超被封为定远侯",
           "moduleId": "donghan",
@@ -2635,7 +2755,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-14",
+          "id": "history-section-3-15",
           "text": "典故：投笔从戎；不入虎穴，焉得虎子",
           "path": "东汉 › 文化 › 班超出使西域 › 典故：投笔从戎；不入虎穴，焉得虎子",
           "moduleId": "donghan",
@@ -2643,7 +2763,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-15",
+          "id": "history-section-3-16",
           "text": "甘英出使大秦：汉和帝时期",
           "path": "东汉 › 文化 › 班超出使西域 › 甘英出使大秦：汉和帝时期",
           "moduleId": "donghan",
@@ -2651,7 +2771,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-16",
+          "id": "history-section-3-17",
           "text": "三班：班彪、班固、班昭",
           "path": "东汉 › 文化 › 班超出使西域 › 三班：班彪、班固、班昭",
           "moduleId": "donghan",
@@ -2659,7 +2779,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-17",
+          "id": "history-section-3-18",
           "text": "东汉末年",
           "path": "东汉 › 东汉末年",
           "moduleId": "donghan",
@@ -2667,7 +2787,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-18",
+          "id": "history-section-3-19",
           "text": "黄巾起义",
           "path": "东汉 › 东汉末年 › 黄巾起义",
           "moduleId": "donghan",
@@ -2675,7 +2795,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-19",
+          "id": "history-section-3-20",
           "text": "张角领导",
           "path": "东汉 › 东汉末年 › 黄巾起义 › 张角领导",
           "moduleId": "donghan",
@@ -2683,7 +2803,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-20",
+          "id": "history-section-3-21",
           "text": "口号：“苍天已死，黄天当立，岁在甲子，天下大吉”",
           "path": "东汉 › 东汉末年 › 黄巾起义 › 口号：“苍天已死，黄天当立，岁在甲子，天下大吉”",
           "moduleId": "donghan",
@@ -2691,7 +2811,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-21",
+          "id": "history-section-3-22",
           "text": "董卓之乱",
           "path": "东汉 › 东汉末年 › 董卓之乱",
           "moduleId": "donghan",
@@ -2699,7 +2819,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-22",
+          "id": "history-section-3-23",
           "text": "董卓废汉少帝，立陈留王刘协（汉献帝）为帝；自为相国，独揽朝政",
           "path": "东汉 › 东汉末年 › 董卓之乱 › 董卓废汉少帝，立陈留王刘协（汉献帝）为帝；自为相国，独揽朝政",
           "moduleId": "donghan",
@@ -2707,7 +2827,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-23",
+          "id": "history-section-3-24",
           "text": "伐董人物：袁绍（盟主）、孙坚（败吕布、杀华雄）、曹操、刘表",
           "path": "东汉 › 东汉末年 › 董卓之乱 › 伐董人物：袁绍（盟主）、孙坚（败吕布、杀华雄）、曹操、刘表",
           "moduleId": "donghan",
@@ -2715,7 +2835,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-24",
+          "id": "history-section-3-25",
           "text": "揭开群雄并起的局面",
           "path": "东汉 › 东汉末年 › 董卓之乱 › 揭开群雄并起的局面",
           "moduleId": "donghan",
@@ -2723,7 +2843,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-25",
+          "id": "history-section-3-26",
           "text": "演义：刘关张三英战吕布；关羽温酒斩华雄",
           "path": "东汉 › 东汉末年 › 董卓之乱 › 演义：刘关张三英战吕布；关羽温酒斩华雄",
           "moduleId": "donghan",
@@ -2731,7 +2851,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-26",
+          "id": "history-section-3-27",
           "text": "《三国演义》",
           "path": "东汉 › 东汉末年 › 《三国演义》",
           "moduleId": "donghan",
@@ -2739,7 +2859,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-27",
+          "id": "history-section-3-28",
           "text": "作者罗贯中；第一部章回体小说、第一部历史演义小说",
           "path": "东汉 › 东汉末年 › 《三国演义》 › 作者罗贯中；第一部章回体小说、第一部历史演义小说",
           "moduleId": "donghan",
@@ -2747,7 +2867,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-28",
+          "id": "history-section-3-29",
           "text": "历史走向：黄巾起义→董卓之乱→群雄逐鹿→三国鼎立→三国归晋",
           "path": "东汉 › 东汉末年 › 《三国演义》 › 历史走向：黄巾起义→董卓之乱→群雄逐鹿→三国鼎立→三国归晋",
           "moduleId": "donghan",
@@ -2755,7 +2875,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-29",
+          "id": "history-section-3-30",
           "text": "正史参照：《三国志》——西晋陈寿",
           "path": "东汉 › 东汉末年 › 《三国演义》 › 正史参照：《三国志》——西晋陈寿",
           "moduleId": "donghan",
@@ -2763,7 +2883,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-30",
+          "id": "history-section-3-31",
           "text": "三大战役（以少胜多）",
           "path": "三国 › 三大战役（以少胜多）",
           "moduleId": "sanguo",
@@ -2771,7 +2891,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-31",
+          "id": "history-section-3-32",
           "text": "官渡之战：曹操 VS 袁绍",
           "path": "三国 › 三大战役（以少胜多） › 官渡之战：曹操 VS 袁绍",
           "moduleId": "sanguo",
@@ -2779,7 +2899,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-32",
+          "id": "history-section-3-33",
           "text": "许攸献计，曹操火烧袁军乌巢粮仓，大破袁绍",
           "path": "三国 › 三大战役（以少胜多） › 官渡之战：曹操 VS 袁绍 › 许攸献计，曹操火烧袁军乌巢粮仓，大破袁绍",
           "moduleId": "sanguo",
@@ -2787,7 +2907,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-33",
+          "id": "history-section-3-34",
           "text": "奠定曹操统一北方的基础",
           "path": "三国 › 三大战役（以少胜多） › 官渡之战：曹操 VS 袁绍 › 奠定曹操统一北方的基础",
           "moduleId": "sanguo",
@@ -2795,7 +2915,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-34",
+          "id": "history-section-3-35",
           "text": "赤壁之战：曹操 VS 孙刘",
           "path": "三国 › 三大战役（以少胜多） › 赤壁之战：曹操 VS 孙刘",
           "moduleId": "sanguo",
@@ -2803,7 +2923,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-35",
+          "id": "history-section-3-36",
           "text": "周瑜、黄盖火烧连环船；孙刘联军以少胜多",
           "path": "三国 › 三大战役（以少胜多） › 赤壁之战：曹操 VS 孙刘 › 周瑜、黄盖火烧连环船；孙刘联军以少胜多",
           "moduleId": "sanguo",
@@ -2811,7 +2931,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-36",
+          "id": "history-section-3-37",
           "text": "奠定三国鼎立的基础",
           "path": "三国 › 三大战役（以少胜多） › 赤壁之战：曹操 VS 孙刘 › 奠定三国鼎立的基础",
           "moduleId": "sanguo",
@@ -2819,7 +2939,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-37",
+          "id": "history-section-3-38",
           "text": "周瑜（周公瑾）：羽扇纶巾",
           "path": "三国 › 三大战役（以少胜多） › 赤壁之战：曹操 VS 孙刘 › 周瑜（周公瑾）：羽扇纶巾",
           "moduleId": "sanguo",
@@ -2827,7 +2947,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-38",
+          "id": "history-section-3-39",
           "text": "夷陵之战：刘备 VS 孙权",
           "path": "三国 › 三大战役（以少胜多） › 夷陵之战：刘备 VS 孙权",
           "moduleId": "sanguo",
@@ -2835,7 +2955,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-39",
+          "id": "history-section-3-40",
           "text": "此战之后，三国版图基本定型",
           "path": "三国 › 三大战役（以少胜多） › 夷陵之战：刘备 VS 孙权 › 此战之后，三国版图基本定型",
           "moduleId": "sanguo",
@@ -2843,7 +2963,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-40",
+          "id": "history-section-3-41",
           "text": "陆逊以逸待劳、火烧连营，大败刘备",
           "path": "三国 › 三大战役（以少胜多） › 夷陵之战：刘备 VS 孙权 › 陆逊以逸待劳、火烧连营，大败刘备",
           "moduleId": "sanguo",
@@ -2851,7 +2971,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-41",
+          "id": "history-section-3-42",
           "text": "三国政权",
           "path": "三国 › 三国政权",
           "moduleId": "sanguo",
@@ -2859,7 +2979,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-42",
+          "id": "history-section-3-43",
           "text": "魏文帝曹丕：定都洛阳",
           "path": "三国 › 三国政权 › 魏文帝曹丕：定都洛阳",
           "moduleId": "sanguo",
@@ -2867,7 +2987,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-43",
+          "id": "history-section-3-44",
           "text": "汉昭烈帝刘备：定都成都；三顾茅庐、如鱼得水、白帝城托孤",
           "path": "三国 › 三国政权 › 汉昭烈帝刘备：定都成都；三顾茅庐、如鱼得水、白帝城托孤",
           "moduleId": "sanguo",
@@ -2875,7 +2995,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-44",
+          "id": "history-section-3-45",
           "text": "吴大帝孙权：定都建康、建业（今南京、石头城）",
           "path": "三国 › 三国政权 › 吴大帝孙权：定都建康、建业（今南京、石头城）",
           "moduleId": "sanguo",
@@ -2883,7 +3003,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-45",
+          "id": "history-section-3-46",
           "text": "蜀汉灭亡→魏灭蜀",
           "path": "三国 › 三国政权 › 蜀汉灭亡→魏灭蜀",
           "moduleId": "sanguo",
@@ -2891,7 +3011,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-46",
+          "id": "history-section-3-47",
           "text": "司马昭之心，路人皆知；刘禅“乐不思蜀”",
           "path": "三国 › 三国政权 › 蜀汉灭亡→魏灭蜀 › 司马昭之心，路人皆知；刘禅“乐不思蜀”",
           "moduleId": "sanguo",
@@ -2899,7 +3019,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-47",
+          "id": "history-section-3-48",
           "text": "司马炎篡魏→西晋灭吴，三国至此结束",
           "path": "三国 › 三国政权 › 蜀汉灭亡→魏灭蜀 › 司马炎篡魏→西晋灭吴，三国至此结束",
           "moduleId": "sanguo",
@@ -2907,7 +3027,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-48",
+          "id": "history-section-3-49",
           "text": "灭亡顺序：蜀、魏、吴",
           "path": "三国 › 三国政权 › 蜀汉灭亡→魏灭蜀 › 灭亡顺序：蜀、魏、吴",
           "moduleId": "sanguo",
@@ -2915,7 +3035,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-49",
+          "id": "history-section-3-50",
           "text": "人物与典故",
           "path": "三国 › 人物与典故",
           "moduleId": "sanguo",
@@ -2923,7 +3043,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-50",
+          "id": "history-section-3-51",
           "text": "诸葛亮",
           "path": "三国 › 人物与典故 › 诸葛亮",
           "moduleId": "sanguo",
@@ -2931,7 +3051,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-51",
+          "id": "history-section-3-52",
           "text": "《隆中对》（陈寿）、《出师表》",
           "path": "三国 › 人物与典故 › 诸葛亮 › 《隆中对》（陈寿）、《出师表》",
           "moduleId": "sanguo",
@@ -2939,7 +3059,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-52",
+          "id": "history-section-3-53",
           "text": "鞠躬尽瘁、梁父吟、五丈原",
           "path": "三国 › 人物与典故 › 诸葛亮 › 鞠躬尽瘁、梁父吟、五丈原",
           "moduleId": "sanguo",
@@ -2947,7 +3067,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-53",
+          "id": "history-section-3-54",
           "text": "卧龙凤雏：诸葛亮、庞统",
           "path": "三国 › 人物与典故 › 诸葛亮 › 卧龙凤雏：诸葛亮、庞统",
           "moduleId": "sanguo",
@@ -2955,7 +3075,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-54",
+          "id": "history-section-3-55",
           "text": "上任三把火：火烧博望坡、火烧新野、火烧赤壁",
           "path": "三国 › 人物与典故 › 诸葛亮 › 上任三把火：火烧博望坡、火烧新野、火烧赤壁",
           "moduleId": "sanguo",
@@ -2963,7 +3083,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-55",
+          "id": "history-section-3-56",
           "text": "刘禅：乐不思蜀；“可怜后主还祠庙，日暮聊为梁甫吟”",
           "path": "三国 › 人物与典故 › 刘禅：乐不思蜀；“可怜后主还祠庙，日暮聊为梁甫吟”",
           "moduleId": "sanguo",
@@ -2971,7 +3091,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-56",
+          "id": "history-section-3-57",
           "text": "建安文学",
           "path": "三国 › 建安文学",
           "moduleId": "sanguo",
@@ -2979,7 +3099,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-57",
+          "id": "history-section-3-58",
           "text": "三曹",
           "path": "三国 › 建安文学 › 三曹",
           "moduleId": "sanguo",
@@ -2987,7 +3107,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-58",
+          "id": "history-section-3-59",
           "text": "曹操：追封魏武帝；挟天子以令诸侯；望梅止渴；割发代首；唯才是举；割须弃袍",
           "path": "三国 › 建安文学 › 三曹 › 曹操：追封魏武帝；挟天子以令诸侯；望梅止渴；割发代首；唯才是举；割须弃袍",
           "moduleId": "sanguo",
@@ -2995,7 +3115,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-59",
+          "id": "history-section-3-60",
           "text": "曹丕：《典论·论文》",
           "path": "三国 › 建安文学 › 三曹 › 曹丕：《典论·论文》",
           "moduleId": "sanguo",
@@ -3003,7 +3123,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-60",
+          "id": "history-section-3-61",
           "text": "曹植：七步成诗、煮豆燃萁、才高八斗（谢灵运）、下笔成章",
           "path": "三国 › 建安文学 › 三曹 › 曹植：七步成诗、煮豆燃萁、才高八斗（谢灵运）、下笔成章",
           "moduleId": "sanguo",
@@ -3011,7 +3131,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-61",
+          "id": "history-section-3-62",
           "text": "建安七子：孔融、陈琳、王粲、徐干、阮瑀、应玚、刘桢",
           "path": "三国 › 建安文学 › 建安七子：孔融、陈琳、王粲、徐干、阮瑀、应玚、刘桢",
           "moduleId": "sanguo",
@@ -3019,7 +3139,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-62",
+          "id": "history-section-3-63",
           "text": "拓展：古人的名与字",
           "path": "三国 › 拓展：古人的名与字",
           "moduleId": "sanguo",
@@ -3027,7 +3147,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-63",
+          "id": "history-section-3-64",
           "text": "名与字同义",
           "path": "三国 › 拓展：古人的名与字 › 名与字同义",
           "moduleId": "sanguo",
@@ -3035,7 +3155,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-64",
+          "id": "history-section-3-65",
           "text": "诸葛亮，字孔明：亮、明都为光明",
           "path": "三国 › 拓展：古人的名与字 › 名与字同义 › 诸葛亮，字孔明：亮、明都为光明",
           "moduleId": "sanguo",
@@ -3043,7 +3163,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-65",
+          "id": "history-section-3-66",
           "text": "周瑜，字公瑾：瑜、瑾都为美玉",
           "path": "三国 › 拓展：古人的名与字 › 名与字同义 › 周瑜，字公瑾：瑜、瑾都为美玉",
           "moduleId": "sanguo",
@@ -3051,7 +3171,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-66",
+          "id": "history-section-3-67",
           "text": "杜甫，字子美：甫、美都表示外貌上佳",
           "path": "三国 › 拓展：古人的名与字 › 名与字同义 › 杜甫，字子美：甫、美都表示外貌上佳",
           "moduleId": "sanguo",
@@ -3059,7 +3179,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-67",
+          "id": "history-section-3-68",
           "text": "名与字反义",
           "path": "三国 › 拓展：古人的名与字 › 名与字反义",
           "moduleId": "sanguo",
@@ -3067,7 +3187,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-68",
+          "id": "history-section-3-69",
           "text": "朱熹，字元晦：熹为晨光明亮，晦为昏暗",
           "path": "三国 › 拓展：古人的名与字 › 名与字反义 › 朱熹，字元晦：熹为晨光明亮，晦为昏暗",
           "moduleId": "sanguo",
@@ -3075,7 +3195,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-69",
+          "id": "history-section-3-70",
           "text": "韩愈，字退之：愈为前进、超越，退为后退",
           "path": "三国 › 拓展：古人的名与字 › 名与字反义 › 韩愈，字退之：愈为前进、超越，退为后退",
           "moduleId": "sanguo",
@@ -3083,7 +3203,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-70",
+          "id": "history-section-3-71",
           "text": "西晋事件记",
           "path": "西晋 › 西晋事件记",
           "moduleId": "xijin",
@@ -3091,7 +3211,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-71",
+          "id": "history-section-3-72",
           "text": "晋朝建立→太康盛世→八王之乱→五胡内迁→永嘉之乱",
           "path": "西晋 › 西晋事件记 › 晋朝建立→太康盛世→八王之乱→五胡内迁→永嘉之乱",
           "moduleId": "xijin",
@@ -3099,7 +3219,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-72",
+          "id": "history-section-3-73",
           "text": "建立",
           "path": "西晋 › 建立",
           "moduleId": "xijin",
@@ -3107,7 +3227,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-73",
+          "id": "history-section-3-74",
           "text": "晋武帝司马炎，定都洛阳",
           "path": "西晋 › 建立 › 晋武帝司马炎，定都洛阳",
           "moduleId": "xijin",
@@ -3115,7 +3235,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-74",
+          "id": "history-section-3-75",
           "text": "天下变为“西晋”与“东吴”的南北对峙局面",
           "path": "西晋 › 建立 › 天下变为“西晋”与“东吴”的南北对峙局面",
           "moduleId": "xijin",
@@ -3123,7 +3243,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-75",
+          "id": "history-section-3-76",
           "text": "治世：太康盛世",
           "path": "西晋 › 治世：太康盛世",
           "moduleId": "xijin",
@@ -3131,7 +3251,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-76",
+          "id": "history-section-3-77",
           "text": "晋武帝司马炎，年号“太康”",
           "path": "西晋 › 治世：太康盛世 › 晋武帝司马炎，年号“太康”",
           "moduleId": "xijin",
@@ -3139,7 +3259,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-77",
+          "id": "history-section-3-78",
           "text": "拓展：何不食肉糜——晋惠帝司马衷",
           "path": "西晋 › 治世：太康盛世 › 拓展：何不食肉糜——晋惠帝司马衷",
           "moduleId": "xijin",
@@ -3147,7 +3267,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-78",
+          "id": "history-section-3-79",
           "text": "战乱与灭亡",
           "path": "西晋 › 战乱与灭亡",
           "moduleId": "xijin",
@@ -3155,7 +3275,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-79",
+          "id": "history-section-3-80",
           "text": "八王之乱",
           "path": "西晋 › 战乱与灭亡 › 八王之乱",
           "moduleId": "xijin",
@@ -3163,7 +3283,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-80",
+          "id": "history-section-3-81",
           "text": "东海王司马越取得成功，西晋由盛转衰",
           "path": "西晋 › 战乱与灭亡 › 八王之乱 › 东海王司马越取得成功，西晋由盛转衰",
           "moduleId": "xijin",
@@ -3171,7 +3291,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-81",
+          "id": "history-section-3-82",
           "text": "成语：乱七八糟",
           "path": "西晋 › 战乱与灭亡 › 八王之乱 › 成语：乱七八糟",
           "moduleId": "xijin",
@@ -3179,15 +3299,15 @@
           "important": false
         },
         {
-          "id": "history-section-3-82",
-          "text": "五胡乱华：匈奴、鲜卑、羯、氐、羌",
-          "path": "西晋 › 战乱与灭亡 › 五胡乱华：匈奴、鲜卑、羯、氐、羌",
+          "id": "history-section-3-83",
+          "text": "五胡内迁与五胡乱华：匈奴、鲜卑、羯、氐、羌",
+          "path": "西晋 › 战乱与灭亡 › 五胡内迁与五胡乱华：匈奴、鲜卑、羯、氐、羌",
           "moduleId": "xijin",
           "mapId": "history-section-3",
           "important": false
         },
         {
-          "id": "history-section-3-83",
+          "id": "history-section-3-84",
           "text": "永嘉之乱",
           "path": "西晋 › 战乱与灭亡 › 永嘉之乱",
           "moduleId": "xijin",
@@ -3195,15 +3315,23 @@
           "important": true
         },
         {
-          "id": "history-section-3-84",
-          "text": "匈奴俘获晋愍帝，西晋灭亡",
-          "path": "西晋 › 战乱与灭亡 › 永嘉之乱 › 匈奴俘获晋愍帝，西晋灭亡",
+          "id": "history-section-3-85",
+          "text": "永嘉之乱中匈奴攻陷洛阳，晋怀帝被俘，西晋统治受到重创",
+          "path": "西晋 › 战乱与灭亡 › 永嘉之乱 › 永嘉之乱中匈奴攻陷洛阳，晋怀帝被俘，西晋统治受到重创",
           "moduleId": "xijin",
           "mapId": "history-section-3",
           "important": false
         },
         {
-          "id": "history-section-3-85",
+          "id": "history-section-3-86",
+          "text": "316年晋愍帝被俘，西晋灭亡",
+          "path": "西晋 › 战乱与灭亡 › 永嘉之乱 › 316年晋愍帝被俘，西晋灭亡",
+          "moduleId": "xijin",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-87",
           "text": "五胡十六国",
           "path": "西晋 › 战乱与灭亡 › 五胡十六国",
           "moduleId": "xijin",
@@ -3211,7 +3339,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-86",
+          "id": "history-section-3-88",
           "text": "五胡：匈奴、鲜卑、羯、氐、羌",
           "path": "西晋 › 战乱与灭亡 › 五胡十六国 › 五胡：匈奴、鲜卑、羯、氐、羌",
           "moduleId": "xijin",
@@ -3219,7 +3347,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-87",
+          "id": "history-section-3-89",
           "text": "十六国：前凉、成汉、前赵、后赵、北凉、西凉、后凉、南凉、前燕、后燕、南燕、北燕、夏、前秦、西秦、后秦",
           "path": "西晋 › 战乱与灭亡 › 五胡十六国 › 十六国：前凉、成汉、前赵、后赵、北凉、西凉、后凉、南凉、前燕、后燕、南燕、北燕、夏、前秦、西秦、后秦",
           "moduleId": "xijin",
@@ -3227,7 +3355,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-88",
+          "id": "history-section-3-90",
           "text": "东晋事件记",
           "path": "东晋 › 东晋事件记",
           "moduleId": "dongjin",
@@ -3235,7 +3363,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-89",
+          "id": "history-section-3-91",
           "text": "衣冠南渡→祖逖北伐→淝水之战→东晋灭亡",
           "path": "东晋 › 东晋事件记 › 衣冠南渡→祖逖北伐→淝水之战→东晋灭亡",
           "moduleId": "dongjin",
@@ -3243,7 +3371,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-90",
+          "id": "history-section-3-92",
           "text": "衣冠南渡",
           "path": "东晋 › 衣冠南渡",
           "moduleId": "dongjin",
@@ -3251,7 +3379,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-91",
+          "id": "history-section-3-93",
           "text": "晋元帝司马睿：“王与马，共天下”",
           "path": "东晋 › 衣冠南渡 › 晋元帝司马睿：“王与马，共天下”",
           "moduleId": "dongjin",
@@ -3259,7 +3387,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-92",
+          "id": "history-section-3-94",
           "text": "司马睿南渡建康（今江苏南京）延续晋朝，史称东晋",
           "path": "东晋 › 衣冠南渡 › 司马睿南渡建康（今江苏南京）延续晋朝，史称东晋",
           "moduleId": "dongjin",
@@ -3267,7 +3395,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-93",
+          "id": "history-section-3-95",
           "text": "东晋统治地区大部分在江东，古称江左，因此以“江左”代指东晋",
           "path": "东晋 › 衣冠南渡 › 东晋统治地区大部分在江东，古称江左，因此以“江左”代指东晋",
           "moduleId": "dongjin",
@@ -3275,7 +3403,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-94",
+          "id": "history-section-3-96",
           "text": "祖逖（tì）北伐",
           "path": "东晋 › 祖逖（tì）北伐",
           "moduleId": "dongjin",
@@ -3283,7 +3411,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-95",
+          "id": "history-section-3-97",
           "text": "典故：闻鸡起舞（祖逖、刘琨）；中流击楫",
           "path": "东晋 › 祖逖（tì）北伐 › 典故：闻鸡起舞（祖逖、刘琨）；中流击楫",
           "moduleId": "dongjin",
@@ -3291,7 +3419,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-96",
+          "id": "history-section-3-98",
           "text": "淝水之战",
           "path": "东晋 › 淝水之战",
           "moduleId": "dongjin",
@@ -3299,7 +3427,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-97",
+          "id": "history-section-3-99",
           "text": "东晋谢安、谢玄 VS 前秦苻坚；东晋以少胜多",
           "path": "东晋 › 淝水之战 › 东晋谢安、谢玄 VS 前秦苻坚；东晋以少胜多",
           "moduleId": "dongjin",
@@ -3307,7 +3435,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-98",
+          "id": "history-section-3-100",
           "text": "谢家代表：谢道韫（咏絮之才）、谢灵运（山水诗派鼻祖）",
           "path": "东晋 › 淝水之战 › 谢家代表：谢道韫（咏絮之才）、谢灵运（山水诗派鼻祖）",
           "moduleId": "dongjin",
@@ -3315,7 +3443,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-99",
+          "id": "history-section-3-101",
           "text": "谢安：东山再起",
           "path": "东晋 › 淝水之战 › 谢安：东山再起",
           "moduleId": "dongjin",
@@ -3323,7 +3451,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-100",
+          "id": "history-section-3-102",
           "text": "相关典故：投鞭断流、草木皆兵、风声鹤唳",
           "path": "东晋 › 淝水之战 › 相关典故：投鞭断流、草木皆兵、风声鹤唳",
           "moduleId": "dongjin",
@@ -3331,7 +3459,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-101",
+          "id": "history-section-3-103",
           "text": "南北朝事件记",
           "path": "南北朝 › 南北朝事件记",
           "moduleId": "nanbeichao",
@@ -3339,7 +3467,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-102",
+          "id": "history-section-3-104",
           "text": "刘宋建立→北魏孝文帝改革→侯景之乱→隋灭陈",
           "path": "南北朝 › 南北朝事件记 › 刘宋建立→北魏孝文帝改革→侯景之乱→隋灭陈",
           "moduleId": "nanbeichao",
@@ -3347,7 +3475,15 @@
           "important": false
         },
         {
-          "id": "history-section-3-103",
+          "id": "history-section-3-105",
+          "text": "隋灭陈：隋朝灭南朝陈，结束南北朝分裂并统一全国",
+          "path": "南北朝 › 南北朝事件记 › 隋灭陈：隋朝灭南朝陈，结束南北朝分裂并统一全国",
+          "moduleId": "nanbeichao",
+          "mapId": "history-section-3",
+          "important": false
+        },
+        {
+          "id": "history-section-3-106",
           "text": "北朝",
           "path": "南北朝 › 北朝",
           "moduleId": "nanbeichao",
@@ -3355,7 +3491,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-104",
+          "id": "history-section-3-107",
           "text": "北魏、东魏、西魏、北齐、北周",
           "path": "南北朝 › 北朝 › 北魏、东魏、西魏、北齐、北周",
           "moduleId": "nanbeichao",
@@ -3363,7 +3499,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-105",
+          "id": "history-section-3-108",
           "text": "北魏分裂为东魏、西魏；北齐取代东魏；北周取代西魏；北周灭北齐",
           "path": "南北朝 › 北朝 › 北魏、东魏、西魏、北齐、北周 › 北魏分裂为东魏、西魏；北齐取代东魏；北周取代西魏；北周灭北齐",
           "moduleId": "nanbeichao",
@@ -3371,7 +3507,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-106",
+          "id": "history-section-3-109",
           "text": "北魏孝文帝改革",
           "path": "南北朝 › 北朝 › 北魏孝文帝改革",
           "moduleId": "nanbeichao",
@@ -3379,7 +3515,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-107",
+          "id": "history-section-3-110",
           "text": "由平城迁都洛阳；推行均田制和户调制",
           "path": "南北朝 › 北朝 › 北魏孝文帝改革 › 由平城迁都洛阳；推行均田制和户调制",
           "moduleId": "nanbeichao",
@@ -3387,7 +3523,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-108",
+          "id": "history-section-3-111",
           "text": "学汉语、穿汉服、改汉姓、与汉人通婚",
           "path": "南北朝 › 北朝 › 北魏孝文帝改革 › 学汉语、穿汉服、改汉姓、与汉人通婚",
           "moduleId": "nanbeichao",
@@ -3395,7 +3531,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-109",
+          "id": "history-section-3-112",
           "text": "采用汉族官制律令；学习汉族礼法，尊崇孔子",
           "path": "南北朝 › 北朝 › 北魏孝文帝改革 › 采用汉族官制律令；学习汉族礼法，尊崇孔子",
           "moduleId": "nanbeichao",
@@ -3403,7 +3539,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-110",
+          "id": "history-section-3-113",
           "text": "南朝",
           "path": "南北朝 › 南朝",
           "moduleId": "nanbeichao",
@@ -3411,7 +3547,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-111",
+          "id": "history-section-3-114",
           "text": "宋、齐、梁、陈：均以建康（南京）为都",
           "path": "南北朝 › 南朝 › 宋、齐、梁、陈：均以建康（南京）为都",
           "moduleId": "nanbeichao",
@@ -3419,7 +3555,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-112",
+          "id": "history-section-3-115",
           "text": "南京：六朝古都——东吴、东晋、宋、齐、梁、陈",
           "path": "南北朝 › 南朝 › 南京：六朝古都——东吴、东晋、宋、齐、梁、陈",
           "moduleId": "nanbeichao",
@@ -3427,7 +3563,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-113",
+          "id": "history-section-3-116",
           "text": "拓展：范缜《神灭论》反对佛教，早期唯物主义",
           "path": "南北朝 › 南朝 › 拓展：范缜《神灭论》反对佛教，早期唯物主义",
           "moduleId": "nanbeichao",
@@ -3435,7 +3571,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-114",
+          "id": "history-section-3-117",
           "text": "“南朝四百八十寺，多少楼台烟雨中”联系佛教知识",
           "path": "南北朝 › 南朝 › “南朝四百八十寺，多少楼台烟雨中”联系佛教知识",
           "moduleId": "nanbeichao",
@@ -3443,7 +3579,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-115",
+          "id": "history-section-3-118",
           "text": "侯景之乱",
           "path": "南北朝 › 南朝 › 侯景之乱",
           "moduleId": "nanbeichao",
@@ -3451,7 +3587,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-116",
+          "id": "history-section-3-119",
           "text": "东魏降将侯景在梁发动叛乱，次年攻破建康",
           "path": "南北朝 › 南朝 › 侯景之乱 › 东魏降将侯景在梁发动叛乱，次年攻破建康",
           "moduleId": "nanbeichao",
@@ -3459,7 +3595,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-117",
+          "id": "history-section-3-120",
           "text": "梁武帝饿死，南朝衰落",
           "path": "南北朝 › 南朝 › 侯景之乱 › 梁武帝饿死，南朝衰落",
           "moduleId": "nanbeichao",
@@ -3467,7 +3603,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-118",
+          "id": "history-section-3-121",
           "text": "侯景：宇宙大将军",
           "path": "南北朝 › 南朝 › 侯景之乱 › 侯景：宇宙大将军",
           "moduleId": "nanbeichao",
@@ -3475,7 +3611,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-119",
+          "id": "history-section-3-122",
           "text": "隋朝事件记",
           "path": "隋朝 › 隋朝事件记",
           "moduleId": "suichao",
@@ -3483,7 +3619,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-120",
+          "id": "history-section-3-123",
           "text": "隋朝建立→开皇之治→隋朝灭亡",
           "path": "隋朝 › 隋朝事件记 › 隋朝建立→开皇之治→隋朝灭亡",
           "moduleId": "suichao",
@@ -3491,7 +3627,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-121",
+          "id": "history-section-3-124",
           "text": "建立与开皇之治",
           "path": "隋朝 › 建立与开皇之治",
           "moduleId": "suichao",
@@ -3499,7 +3635,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-122",
+          "id": "history-section-3-125",
           "text": "隋文帝杨坚，定都大兴（西安）",
           "path": "隋朝 › 建立与开皇之治 › 隋文帝杨坚，定都大兴（西安）",
           "moduleId": "suichao",
@@ -3507,7 +3643,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-123",
+          "id": "history-section-3-126",
           "text": "杨坚相关典故：一衣带水（长江）",
           "path": "隋朝 › 建立与开皇之治 › 杨坚相关典故：一衣带水（长江）",
           "moduleId": "suichao",
@@ -3515,7 +3651,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-124",
+          "id": "history-section-3-127",
           "text": "三省六部制",
           "path": "隋朝 › 建立与开皇之治 › 三省六部制",
           "moduleId": "suichao",
@@ -3523,7 +3659,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-125",
+          "id": "history-section-3-128",
           "text": "始于隋朝五省六曹制，确立于隋朝，完善于唐朝；直至清末六部制基本沿袭未改",
           "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 始于隋朝五省六曹制，确立于隋朝，完善于唐朝；直至清末六部制基本沿袭未改",
           "moduleId": "suichao",
@@ -3531,7 +3667,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-126",
+          "id": "history-section-3-129",
           "text": "三省：中书省（起草）、门下省（审核）、尚书省（执行）",
           "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 三省：中书省（起草）、门下省（审核）、尚书省（执行）",
           "moduleId": "suichao",
@@ -3539,7 +3675,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-127",
+          "id": "history-section-3-130",
           "text": "尚书省之下分六部",
           "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部",
           "moduleId": "suichao",
@@ -3547,7 +3683,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-128",
+          "id": "history-section-3-131",
           "text": "吏部：官吏任免、考核",
           "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 吏部：官吏任免、考核",
           "moduleId": "suichao",
@@ -3555,7 +3691,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-129",
+          "id": "history-section-3-132",
           "text": "户部：土地、户口、赋税、财政",
           "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 户部：土地、户口、赋税、财政",
           "moduleId": "suichao",
@@ -3563,7 +3699,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-130",
+          "id": "history-section-3-133",
           "text": "礼部：典礼、科举",
           "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 礼部：典礼、科举",
           "moduleId": "suichao",
@@ -3571,7 +3707,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-131",
+          "id": "history-section-3-134",
           "text": "兵部：全国军事",
           "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 兵部：全国军事",
           "moduleId": "suichao",
@@ -3579,7 +3715,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-132",
+          "id": "history-section-3-135",
           "text": "刑部：刑法、狱讼",
           "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 刑部：刑法、狱讼",
           "moduleId": "suichao",
@@ -3587,7 +3723,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-133",
+          "id": "history-section-3-136",
           "text": "工部：工程营造、屯田水利",
           "path": "隋朝 › 建立与开皇之治 › 三省六部制 › 尚书省之下分六部 › 工部：工程营造、屯田水利",
           "moduleId": "suichao",
@@ -3595,7 +3731,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-134",
+          "id": "history-section-3-137",
           "text": "科举",
           "path": "隋朝 › 建立与开皇之治 › 科举",
           "moduleId": "suichao",
@@ -3603,7 +3739,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-135",
+          "id": "history-section-3-138",
           "text": "废九品中正制，分科取士（科举制雏形）；设明经、秀才两科",
           "path": "隋朝 › 建立与开皇之治 › 科举 › 废九品中正制，分科取士（科举制雏形）；设明经、秀才两科",
           "moduleId": "suichao",
@@ -3611,7 +3747,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-136",
+          "id": "history-section-3-139",
           "text": "创立进士科（科举制形成），标志科举制正式确立",
           "path": "隋朝 › 建立与开皇之治 › 科举 › 创立进士科（科举制形成），标志科举制正式确立",
           "moduleId": "suichao",
@@ -3619,7 +3755,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-137",
+          "id": "history-section-3-140",
           "text": "科举制变迁",
           "path": "隋朝 › 科举制变迁",
           "moduleId": "suichao",
@@ -3627,7 +3763,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-138",
+          "id": "history-section-3-141",
           "text": "商朝：世卿世禄制（嫡长子继承制）",
           "path": "隋朝 › 科举制变迁 › 商朝：世卿世禄制（嫡长子继承制）",
           "moduleId": "suichao",
@@ -3635,7 +3771,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-139",
+          "id": "history-section-3-142",
           "text": "秦朝：军功爵制度，奖励军功",
           "path": "隋朝 › 科举制变迁 › 秦朝：军功爵制度，奖励军功",
           "moduleId": "suichao",
@@ -3643,7 +3779,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-140",
+          "id": "history-section-3-143",
           "text": "汉朝：察举制、征辟制",
           "path": "隋朝 › 科举制变迁 › 汉朝：察举制、征辟制",
           "moduleId": "suichao",
@@ -3651,7 +3787,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-141",
+          "id": "history-section-3-144",
           "text": "魏晋南北朝：九品中正制",
           "path": "隋朝 › 科举制变迁 › 魏晋南北朝：九品中正制",
           "moduleId": "suichao",
@@ -3659,7 +3795,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-142",
+          "id": "history-section-3-145",
           "text": "隋朝：隋文帝设明经、秀才；隋炀帝开进士科",
           "path": "隋朝 › 科举制变迁 › 隋朝：隋文帝设明经、秀才；隋炀帝开进士科",
           "moduleId": "suichao",
@@ -3667,7 +3803,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-143",
+          "id": "history-section-3-146",
           "text": "唐朝：唐太宗设明经、进士；武则天增加武举和殿试；唐玄宗以诗赋为主要考试内容",
           "path": "隋朝 › 科举制变迁 › 唐朝：唐太宗设明经、进士；武则天增加武举和殿试；唐玄宗以诗赋为主要考试内容",
           "moduleId": "suichao",
@@ -3675,7 +3811,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-144",
+          "id": "history-section-3-147",
           "text": "宋朝：锁院制、糊名制、誊写制",
           "path": "隋朝 › 科举制变迁 › 宋朝：锁院制、糊名制、誊写制",
           "moduleId": "suichao",
@@ -3683,7 +3819,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-145",
+          "id": "history-section-3-148",
           "text": "明朝：八股取士",
           "path": "隋朝 › 科举制变迁 › 明朝：八股取士",
           "moduleId": "suichao",
@@ -3691,7 +3827,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-146",
+          "id": "history-section-3-149",
           "text": "清朝：1905年光绪清末新政废除科举制",
           "path": "隋朝 › 科举制变迁 › 清朝：1905年光绪清末新政废除科举制",
           "moduleId": "suichao",
@@ -3699,7 +3835,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-147",
+          "id": "history-section-3-150",
           "text": "隋炀帝杨广",
           "path": "隋朝 › 隋炀帝杨广",
           "moduleId": "suichao",
@@ -3707,7 +3843,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-148",
+          "id": "history-section-3-151",
           "text": "三征高句丽",
           "path": "隋朝 › 隋炀帝杨广 › 三征高句丽",
           "moduleId": "suichao",
@@ -3715,7 +3851,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-149",
+          "id": "history-section-3-152",
           "text": "极大动摇隋朝统治根基，是隋朝速亡的关键诱因",
           "path": "隋朝 › 隋炀帝杨广 › 三征高句丽 › 极大动摇隋朝统治根基，是隋朝速亡的关键诱因",
           "moduleId": "suichao",
@@ -3723,7 +3859,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-150",
+          "id": "history-section-3-153",
           "text": "第一次：隋军指挥失当，惨败而归，死伤惨重",
           "path": "隋朝 › 隋炀帝杨广 › 三征高句丽 › 第一次：隋军指挥失当，惨败而归，死伤惨重",
           "moduleId": "suichao",
@@ -3731,7 +3867,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-151",
+          "id": "history-section-3-154",
           "text": "第二次：战事僵持；杨玄感国内叛乱，炀帝仓促撤军",
           "path": "隋朝 › 隋炀帝杨广 › 三征高句丽 › 第二次：战事僵持；杨玄感国内叛乱，炀帝仓促撤军",
           "moduleId": "suichao",
@@ -3739,7 +3875,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-152",
+          "id": "history-section-3-155",
           "text": "第三次：国内农民起义四起；高句丽求和，炀帝收兵",
           "path": "隋朝 › 隋炀帝杨广 › 三征高句丽 › 第三次：国内农民起义四起；高句丽求和，炀帝收兵",
           "moduleId": "suichao",
@@ -3747,7 +3883,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-153",
+          "id": "history-section-3-156",
           "text": "开凿大运河",
           "path": "隋朝 › 隋炀帝杨广 › 开凿大运河",
           "moduleId": "suichao",
@@ -3755,7 +3891,7 @@
           "important": true
         },
         {
-          "id": "history-section-3-154",
+          "id": "history-section-3-157",
           "text": "始建于春秋（邗沟），完成于隋朝，繁荣于唐宋，取直于元代，疏通于明清",
           "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 始建于春秋（邗沟），完成于隋朝，繁荣于唐宋，取直于元代，疏通于明清",
           "moduleId": "suichao",
@@ -3763,7 +3899,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-155",
+          "id": "history-section-3-158",
           "text": "春秋：吴王夫差开挖邗沟，连接长江与淮河；是大运河“第一锹”的开挖者",
           "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 春秋：吴王夫差开挖邗沟，连接长江与淮河；是大运河“第一锹”的开挖者",
           "moduleId": "suichao",
@@ -3771,7 +3907,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-156",
+          "id": "history-section-3-159",
           "text": "隋朝：以洛阳为中心，北至涿郡，南至余杭",
           "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 隋朝：以洛阳为中心，北至涿郡，南至余杭",
           "moduleId": "suichao",
@@ -3779,7 +3915,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-157",
+          "id": "history-section-3-160",
           "text": "四段：永济渠、通济渠、邗沟、江南河",
           "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 四段：永济渠、通济渠、邗沟、江南河",
           "moduleId": "suichao",
@@ -3787,7 +3923,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-158",
+          "id": "history-section-3-161",
           "text": "五大水系：海河、黄河、淮河、长江、钱塘江",
           "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 五大水系：海河、黄河、淮河、长江、钱塘江",
           "moduleId": "suichao",
@@ -3795,7 +3931,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-159",
+          "id": "history-section-3-162",
           "text": "元朝：以“截弯取直”方式开凿京杭大运河；开凿济州河、会通河、通惠河，奠定今日走向；元后不再经过洛阳",
           "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 元朝：以“截弯取直”方式开凿京杭大运河；开凿济州河、会通河、通惠河，奠定今日走向；元后不再经过洛阳",
           "moduleId": "suichao",
@@ -3803,7 +3939,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-160",
+          "id": "history-section-3-163",
           "text": "世界里程最长、工程最大；南起余杭（今杭州），北到涿郡（今北京）",
           "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 世界里程最长、工程最大；南起余杭（今杭州），北到涿郡（今北京）",
           "moduleId": "suichao",
@@ -3811,7 +3947,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-161",
+          "id": "history-section-3-164",
           "text": "京杭大运河主要水源：微山湖",
           "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 京杭大运河主要水源：微山湖",
           "moduleId": "suichao",
@@ -3819,7 +3955,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-162",
+          "id": "history-section-3-165",
           "text": "明清：继续维护与完善",
           "path": "隋朝 › 隋炀帝杨广 › 开凿大运河 › 明清：继续维护与完善",
           "moduleId": "suichao",
@@ -3827,7 +3963,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-163",
+          "id": "history-section-3-166",
           "text": "杨广相关典故：罄竹难书",
           "path": "隋朝 › 隋炀帝杨广 › 杨广相关典故：罄竹难书",
           "moduleId": "suichao",
@@ -3835,7 +3971,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-164",
+          "id": "history-section-3-167",
           "text": "拓展：赵州桥",
           "path": "隋朝 › 拓展：赵州桥",
           "moduleId": "suichao",
@@ -3843,7 +3979,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-165",
+          "id": "history-section-3-168",
           "text": "由隋朝工匠李春设计建造",
           "path": "隋朝 › 拓展：赵州桥 › 由隋朝工匠李春设计建造",
           "moduleId": "suichao",
@@ -3851,7 +3987,7 @@
           "important": false
         },
         {
-          "id": "history-section-3-166",
+          "id": "history-section-3-169",
           "text": "当今世界上现存最早、保存最完整的古代单孔敞肩石拱桥",
           "path": "隋朝 › 拓展：赵州桥 › 当今世界上现存最早、保存最完整的古代单孔敞肩石拱桥",
           "moduleId": "suichao",
@@ -3913,6 +4049,30 @@
         },
         {
           "id": "history-section-4-5",
+          "text": "唐太宗被尊为“天可汗”，陵墓为昭陵",
+          "path": "唐朝 › 建立与贞观之治 › 唐太宗被尊为“天可汗”，陵墓为昭陵",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-6",
+          "text": "门神：秦叔宝、尉迟恭；凌烟阁二十四功臣包括房玄龄、杜如晦、程咬金、魏征、萧瑀、李靖等",
+          "path": "唐朝 › 建立与贞观之治 › 门神：秦叔宝、尉迟恭；凌烟阁二十四功臣包括房玄龄、杜如晦、程咬金、魏征、萧瑀、李靖等",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-7",
+          "text": "房玄龄、杜如晦并称“房谋杜断”；萧瑀有“疾风知劲草，板荡识诚臣”",
+          "path": "唐朝 › 建立与贞观之治 › 房玄龄、杜如晦并称“房谋杜断”；萧瑀有“疾风知劲草，板荡识诚臣”",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-8",
           "text": "文化与外交",
           "path": "唐朝 › 文化与外交",
           "moduleId": "tang",
@@ -3920,7 +4080,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-6",
+          "id": "history-section-4-9",
           "text": "玄奘西行到天竺，著《大唐西域记》",
           "path": "唐朝 › 文化与外交 › 玄奘西行到天竺，著《大唐西域记》",
           "moduleId": "tang",
@@ -3928,7 +4088,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-7",
+          "id": "history-section-4-10",
           "text": "唐太宗、李靖灭东突厥；唐高宗时期薛仁贵抗击突厥",
           "path": "唐朝 › 文化与外交 › 唐太宗、李靖灭东突厥；唐高宗时期薛仁贵抗击突厥",
           "moduleId": "tang",
@@ -3936,7 +4096,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-8",
+          "id": "history-section-4-11",
           "text": "文成公主下嫁松赞干布；《步辇图》由阎立本绘制，记录唐太宗会见吐蕃使臣",
           "path": "唐朝 › 文化与外交 › 文成公主下嫁松赞干布；《步辇图》由阎立本绘制，记录唐太宗会见吐蕃使臣",
           "moduleId": "tang",
@@ -3944,7 +4104,23 @@
           "important": false
         },
         {
-          "id": "history-section-4-9",
+          "id": "history-section-4-12",
+          "text": "唐代改革科举，增加科目，进士科逐渐成为最重要科目",
+          "path": "唐朝 › 文化与外交 › 唐代改革科举，增加科目，进士科逐渐成为最重要科目",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-13",
+          "text": "文成公主为唐宗室远支之女，下嫁松赞干布；布达拉宫与文成公主传说相关",
+          "path": "唐朝 › 文化与外交 › 文成公主为唐宗室远支之女，下嫁松赞干布；布达拉宫与文成公主传说相关",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-14",
           "text": "唐代称号与制度",
           "path": "唐朝 › 唐代称号与制度",
           "moduleId": "tang",
@@ -3952,7 +4128,7 @@
           "important": true
         },
         {
-          "id": "history-section-4-10",
+          "id": "history-section-4-15",
           "text": "庙号：皇帝死后供奉太庙的名号，常带“祖”“宗”",
           "path": "唐朝 › 唐代称号与制度 › 庙号：皇帝死后供奉太庙的名号，常带“祖”“宗”",
           "moduleId": "tang",
@@ -3960,7 +4136,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-11",
+          "id": "history-section-4-16",
           "text": "谥号：评价君臣一生的褒贬文字；帝王如汉武帝，大臣如岳飞谥武穆、诸葛亮谥忠武",
           "path": "唐朝 › 唐代称号与制度 › 谥号：评价君臣一生的褒贬文字；帝王如汉武帝，大臣如岳飞谥武穆、诸葛亮谥忠武",
           "moduleId": "tang",
@@ -3968,7 +4144,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-12",
+          "id": "history-section-4-17",
           "text": "年号：皇帝在世时纪年的名号；汉武帝开始使用年号，第一个年号为建元",
           "path": "唐朝 › 唐代称号与制度 › 年号：皇帝在世时纪年的名号；汉武帝开始使用年号，第一个年号为建元",
           "moduleId": "tang",
@@ -3976,7 +4152,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-13",
+          "id": "history-section-4-18",
           "text": "唐高宗永徽之治：修成《唐律疏议》，现存最早的一部内容完备的法典",
           "path": "唐朝 › 唐代称号与制度 › 唐高宗永徽之治：修成《唐律疏议》，现存最早的一部内容完备的法典",
           "moduleId": "tang",
@@ -3984,7 +4160,23 @@
           "important": false
         },
         {
-          "id": "history-section-4-14",
+          "id": "history-section-4-19",
+          "text": "唐朝事件记",
+          "path": "唐朝 › 唐朝事件记",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": true
+        },
+        {
+          "id": "history-section-4-20",
+          "text": "唐朝建立→玄武门之变→贞观之治→永徽之治→武周代唐→开元盛世→安史之乱→黄巢起义→唐朝灭亡",
+          "path": "唐朝 › 唐朝事件记 › 唐朝建立→玄武门之变→贞观之治→永徽之治→武周代唐→开元盛世→安史之乱→黄巢起义→唐朝灭亡",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-21",
           "text": "武周政权",
           "path": "武周与开元 › 武周政权",
           "moduleId": "wuzhou",
@@ -3992,7 +4184,7 @@
           "important": true
         },
         {
-          "id": "history-section-4-15",
+          "id": "history-section-4-22",
           "text": "武则天建立武周，定都洛阳；是中国历史上唯一的正统女皇帝",
           "path": "武周与开元 › 武周政权 › 武则天建立武周，定都洛阳；是中国历史上唯一的正统女皇帝",
           "moduleId": "wuzhou",
@@ -4000,7 +4192,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-16",
+          "id": "history-section-4-23",
           "text": "武则天首创殿试、武举；“政启开元，治宏贞观”",
           "path": "武周与开元 › 武周政权 › 武则天首创殿试、武举；“政启开元，治宏贞观”",
           "moduleId": "wuzhou",
@@ -4008,7 +4200,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-17",
+          "id": "history-section-4-24",
           "text": "典故：请君入瓮、桃李满天下、唾面自干",
           "path": "武周与开元 › 武周政权 › 典故：请君入瓮、桃李满天下、唾面自干",
           "moduleId": "wuzhou",
@@ -4016,7 +4208,15 @@
           "important": false
         },
         {
-          "id": "history-section-4-18",
+          "id": "history-section-4-25",
+          "text": "相关典故：笑里藏刀（李义府）；请君入瓮（来俊臣、周兴）；桃李满天下（狄仁杰）；唾面自干（娄师德）",
+          "path": "武周与开元 › 武周政权 › 相关典故：笑里藏刀（李义府）；请君入瓮（来俊臣、周兴）；桃李满天下（狄仁杰）；唾面自干（娄师德）",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-26",
           "text": "开元盛世",
           "path": "武周与开元 › 开元盛世",
           "moduleId": "wuzhou",
@@ -4024,7 +4224,7 @@
           "important": true
         },
         {
-          "id": "history-section-4-19",
+          "id": "history-section-4-27",
           "text": "唐玄宗李隆基时期唐朝进入全盛，是当时世界上最强盛的国家之一",
           "path": "武周与开元 › 开元盛世 › 唐玄宗李隆基时期唐朝进入全盛，是当时世界上最强盛的国家之一",
           "moduleId": "wuzhou",
@@ -4032,7 +4232,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-20",
+          "id": "history-section-4-28",
           "text": "鉴真东渡日本，传播佛教律宗和唐朝文化",
           "path": "武周与开元 › 开元盛世 › 鉴真东渡日本，传播佛教律宗和唐朝文化",
           "moduleId": "wuzhou",
@@ -4040,7 +4240,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-21",
+          "id": "history-section-4-29",
           "text": "农业技术改进，发明曲辕犁和筒车",
           "path": "武周与开元 › 开元盛世 › 农业技术改进，发明曲辕犁和筒车",
           "moduleId": "wuzhou",
@@ -4048,7 +4248,15 @@
           "important": false
         },
         {
-          "id": "history-section-4-22",
+          "id": "history-section-4-30",
+          "text": "唐宪宗李纯时期出现“元和中兴”",
+          "path": "武周与开元 › 开元盛世 › 唐宪宗李纯时期出现“元和中兴”",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-31",
           "text": "安史之乱与唐亡",
           "path": "武周与开元 › 安史之乱与唐亡",
           "moduleId": "wuzhou",
@@ -4056,7 +4264,7 @@
           "important": true
         },
         {
-          "id": "history-section-4-23",
+          "id": "history-section-4-32",
           "text": "安禄山、史思明发动安史之乱，又称天宝之乱，唐朝由盛转衰",
           "path": "武周与开元 › 安史之乱与唐亡 › 安禄山、史思明发动安史之乱，又称天宝之乱，唐朝由盛转衰",
           "moduleId": "wuzhou",
@@ -4064,7 +4272,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-24",
+          "id": "history-section-4-33",
           "text": "马嵬坡之变：唐玄宗被迫处死杨国忠并令杨玉环自尽；相关作品有《长恨歌》《长生殿》《梧桐雨》",
           "path": "武周与开元 › 安史之乱与唐亡 › 马嵬坡之变：唐玄宗被迫处死杨国忠并令杨玉环自尽；相关作品有《长恨歌》《长生殿》《梧桐雨》",
           "moduleId": "wuzhou",
@@ -4072,7 +4280,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-25",
+          "id": "history-section-4-34",
           "text": "黄巢、王仙芝起义历时久、波及广，直接打击唐朝统治；朱温禅让夺帝位，建立后梁，唐朝灭亡",
           "path": "武周与开元 › 安史之乱与唐亡 › 黄巢、王仙芝起义历时久、波及广，直接打击唐朝统治；朱温禅让夺帝位，建立后梁，唐朝灭亡",
           "moduleId": "wuzhou",
@@ -4080,7 +4288,23 @@
           "important": false
         },
         {
-          "id": "history-section-4-26",
+          "id": "history-section-4-35",
+          "text": "马嵬坡之变后，唐玄宗为杨贵妃谱《霓裳羽衣曲》；相关作品还有《桃花扇》",
+          "path": "武周与开元 › 安史之乱与唐亡 › 马嵬坡之变后，唐玄宗为杨贵妃谱《霓裳羽衣曲》；相关作品还有《桃花扇》",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-36",
+          "text": "黄巢、王仙芝起义口号“天补平均”；黄巢诗句“冲天香阵透长安，满城尽带黄金甲”",
+          "path": "武周与开元 › 安史之乱与唐亡 › 黄巢、王仙芝起义口号“天补平均”；黄巢诗句“冲天香阵透长安，满城尽带黄金甲”",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-37",
           "text": "五代",
           "path": "五代十国 › 五代",
           "moduleId": "wudai",
@@ -4088,7 +4312,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-27",
+          "id": "history-section-4-38",
           "text": "后梁、后唐、后晋、后汉、后周；只有后唐定都洛阳，其余定都开封",
           "path": "五代十国 › 五代 › 后梁、后唐、后晋、后汉、后周；只有后唐定都洛阳，其余定都开封",
           "moduleId": "wudai",
@@ -4096,7 +4320,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-28",
+          "id": "history-section-4-39",
           "text": "十国",
           "path": "五代十国 › 十国",
           "moduleId": "wudai",
@@ -4104,7 +4328,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-29",
+          "id": "history-section-4-40",
           "text": "前蜀、后蜀、南吴、南唐、吴越、闽国、南楚、南汉、南平、北汉",
           "path": "五代十国 › 十国 › 前蜀、后蜀、南吴、南唐、吴越、闽国、南楚、南汉、南平、北汉",
           "moduleId": "wudai",
@@ -4112,7 +4336,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-30",
+          "id": "history-section-4-41",
           "text": "南唐后主李煜：代表作《虞美人》《相见欢》；南唐画家顾闳中《韩熙载夜宴图》",
           "path": "五代十国 › 十国 › 南唐后主李煜：代表作《虞美人》《相见欢》；南唐画家顾闳中《韩熙载夜宴图》",
           "moduleId": "wudai",
@@ -4120,7 +4344,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-31",
+          "id": "history-section-4-42",
           "text": "燕云十六州",
           "path": "五代十国 › 燕云十六州",
           "moduleId": "wudai",
@@ -4128,15 +4352,15 @@
           "important": true
         },
         {
-          "id": "history-section-4-32",
-          "text": "后唐石敬瑭割让燕云十六州给契丹，引契丹军南下，后唐灭亡",
-          "path": "五代十国 › 燕云十六州 › 后唐石敬瑭割让燕云十六州给契丹，引契丹军南下，后唐灭亡",
+          "id": "history-section-4-43",
+          "text": "后晋石敬瑭以割让燕云十六州给契丹为条件，引契丹军南下攻破洛阳，后唐灭亡",
+          "path": "五代十国 › 燕云十六州 › 后晋石敬瑭以割让燕云十六州给契丹为条件，引契丹军南下攻破洛阳，后唐灭亡",
           "moduleId": "wudai",
           "mapId": "history-section-4",
           "important": false
         },
         {
-          "id": "history-section-4-33",
+          "id": "history-section-4-44",
           "text": "建立与中央制度",
           "path": "北宋建立与制度 › 建立与中央制度",
           "moduleId": "beisong",
@@ -4144,7 +4368,7 @@
           "important": true
         },
         {
-          "id": "history-section-4-34",
+          "id": "history-section-4-45",
           "text": "后周赵匡胤发动陈桥驿兵变、黄袍加身，建立北宋，定都汴京（开封）",
           "path": "北宋建立与制度 › 建立与中央制度 › 后周赵匡胤发动陈桥驿兵变、黄袍加身，建立北宋，定都汴京（开封）",
           "moduleId": "beisong",
@@ -4152,7 +4376,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-35",
+          "id": "history-section-4-46",
           "text": "杯酒释兵权：赵普献策，解除节度使兵权",
           "path": "北宋建立与制度 › 建立与中央制度 › 杯酒释兵权：赵普献策，解除节度使兵权",
           "moduleId": "beisong",
@@ -4160,7 +4384,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-36",
+          "id": "history-section-4-47",
           "text": "二府三司：中书门下掌行政，枢密院掌军事，三司掌财政；最高行政机构为政事堂",
           "path": "北宋建立与制度 › 建立与中央制度 › 二府三司：中书门下掌行政，枢密院掌军事，三司掌财政；最高行政机构为政事堂",
           "moduleId": "beisong",
@@ -4168,7 +4392,23 @@
           "important": false
         },
         {
-          "id": "history-section-4-37",
+          "id": "history-section-4-48",
+          "text": "烛影斧声：赵匡胤召赵光义入宫，传有斧声；当夜宋太祖骤亡，次日赵光义即位",
+          "path": "北宋建立与制度 › 建立与中央制度 › 烛影斧声：赵匡胤召赵光义入宫，传有斧声；当夜宋太祖骤亡，次日赵光义即位",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-49",
+          "text": "二府细分：中书门下（政事堂）以同平章事为宰相、参知政事为副相；枢密院以枢密使、枢密副使掌军事；三司由户部、盐铁、度支组成，三司使又称“计相”",
+          "path": "北宋建立与制度 › 建立与中央制度 › 二府细分：中书门下（政事堂）以同平章事为宰相、参知政事为副相；枢密院以枢密使、枢密副使掌军事；三司由户部、盐铁、度支组成，三司使又称“计相”",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-50",
           "text": "统一与对外关系",
           "path": "北宋建立与制度 › 统一与对外关系",
           "moduleId": "beisong",
@@ -4176,7 +4416,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-38",
+          "id": "history-section-4-51",
           "text": "宋太宗灭南唐，吴越和平纳土归宋，是五代十国中唯一未经战乱完成统一的割据政权",
           "path": "北宋建立与制度 › 统一与对外关系 › 宋太宗灭南唐，吴越和平纳土归宋，是五代十国中唯一未经战乱完成统一的割据政权",
           "moduleId": "beisong",
@@ -4184,7 +4424,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-39",
+          "id": "history-section-4-52",
           "text": "宋太宗高梁河之战、雍熙北伐均对辽失利",
           "path": "北宋建立与制度 › 统一与对外关系 › 宋太宗高梁河之战、雍熙北伐均对辽失利",
           "moduleId": "beisong",
@@ -4192,7 +4432,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-40",
+          "id": "history-section-4-53",
           "text": "辽耶律阿保机建辽；宋真宗与辽订澶渊之盟，宋向辽输送岁币",
           "path": "北宋建立与制度 › 统一与对外关系 › 辽耶律阿保机建辽；宋真宗与辽订澶渊之盟，宋向辽输送岁币",
           "moduleId": "beisong",
@@ -4200,7 +4440,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-41",
+          "id": "history-section-4-54",
           "text": "宋仁宗时期党项族李元昊建立西夏，宋夏订立和约",
           "path": "北宋建立与制度 › 统一与对外关系 › 宋仁宗时期党项族李元昊建立西夏，宋夏订立和约",
           "moduleId": "beisong",
@@ -4208,7 +4448,23 @@
           "important": false
         },
         {
-          "id": "history-section-4-42",
+          "id": "history-section-4-55",
+          "text": "宋太宗灭北汉后北伐幽州，在高梁河之战被辽军击溃；雍熙北伐失利，杨继业被俘",
+          "path": "北宋建立与制度 › 统一与对外关系 › 宋太宗灭北汉后北伐幽州，在高梁河之战被辽军击溃；雍熙北伐失利，杨继业被俘",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-56",
+          "text": "宋真宗赵恒：咸平之治；是最后一位泰山封禅的皇帝",
+          "path": "北宋建立与制度 › 统一与对外关系 › 宋真宗赵恒：咸平之治；是最后一位泰山封禅的皇帝",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-57",
           "text": "经济与农业",
           "path": "北宋建立与制度 › 经济与农业",
           "moduleId": "beisong",
@@ -4216,7 +4472,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-43",
+          "id": "history-section-4-58",
           "text": "广州设置市舶司管理海运",
           "path": "北宋建立与制度 › 经济与农业 › 广州设置市舶司管理海运",
           "moduleId": "beisong",
@@ -4224,7 +4480,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-44",
+          "id": "history-section-4-59",
           "text": "宋真宗时期发行交子，流通于成都，是世界上最早的纸币",
           "path": "北宋建立与制度 › 经济与农业 › 宋真宗时期发行交子，流通于成都，是世界上最早的纸币",
           "moduleId": "beisong",
@@ -4232,7 +4488,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-45",
+          "id": "history-section-4-60",
           "text": "从越南引入占城稻",
           "path": "北宋建立与制度 › 经济与农业 › 从越南引入占城稻",
           "moduleId": "beisong",
@@ -4240,7 +4496,55 @@
           "important": false
         },
         {
-          "id": "history-section-4-46",
+          "id": "history-section-4-61",
+          "text": "物种、宗教与交流",
+          "path": "北宋建立与制度 › 物种、宗教与交流",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-62",
+          "text": "西汉经西域传入：黄瓜、葡萄、石榴、苜蓿、大蒜、大葱、芝麻（胡麻）、胡椒、核桃（胡桃）、蚕豆（胡豆）、香菜（芫荽、胡荽）等",
+          "path": "北宋建立与制度 › 物种、宗教与交流 › 西汉经西域传入：黄瓜、葡萄、石榴、苜蓿、大蒜、大葱、芝麻（胡麻）、胡椒、核桃（胡桃）、蚕豆（胡豆）、香菜（芫荽、胡荽）等",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-63",
+          "text": "唐朝传入：西瓜、甜瓜、菠菜、伊斯兰教、景教；景教是最早进入中国的基督教派",
+          "path": "北宋建立与制度 › 物种、宗教与交流 › 唐朝传入：西瓜、甜瓜、菠菜、伊斯兰教、景教；景教是最早进入中国的基督教派",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-64",
+          "text": "宋朝传入：占城稻、哈密瓜；明朝传入：花生、土豆、番薯、苦瓜、木瓜、玉米、辣椒、烟草、西红柿、向日葵、菠萝等",
+          "path": "北宋建立与制度 › 物种、宗教与交流 › 宋朝传入：占城稻、哈密瓜；明朝传入：花生、土豆、番薯、苦瓜、木瓜、玉米、辣椒、烟草、西红柿、向日葵、菠萝等",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-65",
+          "text": "清朝传入：苹果、草莓、菜花、包心菜、洋葱等；中国本土有稻、黍、稷、菽以及荔枝、猕猴桃、豆腐、花椒等，“麦”为西亚传入",
+          "path": "北宋建立与制度 › 物种、宗教与交流 › 清朝传入：苹果、草莓、菜花、包心菜、洋葱等；中国本土有稻、黍、稷、菽以及荔枝、猕猴桃、豆腐、花椒等，“麦”为西亚传入",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-66",
+          "text": "道教出现于东汉；北魏贾思勰《齐民要术》记载茄子",
+          "path": "北宋建立与制度 › 物种、宗教与交流 › 道教出现于东汉；北魏贾思勰《齐民要术》记载茄子",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-67",
           "text": "庆历新政",
           "path": "北宋改革与文化 › 庆历新政",
           "moduleId": "songreform",
@@ -4248,7 +4552,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-47",
+          "id": "history-section-4-68",
           "text": "宋仁宗支持范仲淹，旨在澄清吏治、富国强兵、厉行法治；范仲淹任参知政事",
           "path": "北宋改革与文化 › 庆历新政 › 宋仁宗支持范仲淹，旨在澄清吏治、富国强兵、厉行法治；范仲淹任参知政事",
           "moduleId": "songreform",
@@ -4256,7 +4560,15 @@
           "important": false
         },
         {
-          "id": "history-section-4-48",
+          "id": "history-section-4-69",
+          "text": "宋仁宗赵祯时期名臣有包拯、范仲淹、欧阳修、晏殊",
+          "path": "北宋改革与文化 › 庆历新政 › 宋仁宗赵祯时期名臣有包拯、范仲淹、欧阳修、晏殊",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-70",
           "text": "王安石变法",
           "path": "北宋改革与文化 › 王安石变法",
           "moduleId": "songreform",
@@ -4264,7 +4576,7 @@
           "important": true
         },
         {
-          "id": "history-section-4-49",
+          "id": "history-section-4-71",
           "text": "宋神宗支持王安石；原因是三冗两积：冗官、冗兵、冗费，积贫、积弱",
           "path": "北宋改革与文化 › 王安石变法 › 宋神宗支持王安石；原因是三冗两积：冗官、冗兵、冗费，积贫、积弱",
           "moduleId": "songreform",
@@ -4272,7 +4584,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-50",
+          "id": "history-section-4-72",
           "text": "经济措施：青苗法、募役法、农田水利法、方田均税法、市易法、均输法",
           "path": "北宋改革与文化 › 王安石变法 › 经济措施：青苗法、募役法、农田水利法、方田均税法、市易法、均输法",
           "moduleId": "songreform",
@@ -4280,7 +4592,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-51",
+          "id": "history-section-4-73",
           "text": "军事措施：保甲法、保马法、将兵法、设军器监",
           "path": "北宋改革与文化 › 王安石变法 › 军事措施：保甲法、保马法、将兵法、设军器监",
           "moduleId": "songreform",
@@ -4288,7 +4600,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-52",
+          "id": "history-section-4-74",
           "text": "文化措施：改革科举、整顿太学、唯才用人",
           "path": "北宋改革与文化 › 王安石变法 › 文化措施：改革科举、整顿太学、唯才用人",
           "moduleId": "songreform",
@@ -4296,7 +4608,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-53",
+          "id": "history-section-4-75",
           "text": "史学与文字狱",
           "path": "北宋改革与文化 › 史学与文字狱",
           "moduleId": "songreform",
@@ -4304,7 +4616,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-54",
+          "id": "history-section-4-76",
           "text": "司马光《资治通鉴》是第一部编年体通史；开篇为三家分晋",
           "path": "北宋改革与文化 › 史学与文字狱 › 司马光《资治通鉴》是第一部编年体通史；开篇为三家分晋",
           "moduleId": "songreform",
@@ -4312,7 +4624,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-55",
+          "id": "history-section-4-77",
           "text": "第一部编年体史书为《春秋》，第一部纪传体通史为《史记》，第一部纪传体断代史为《汉书》",
           "path": "北宋改革与文化 › 史学与文字狱 › 第一部编年体史书为《春秋》，第一部纪传体通史为《史记》，第一部纪传体断代史为《汉书》",
           "moduleId": "songreform",
@@ -4320,7 +4632,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-56",
+          "id": "history-section-4-78",
           "text": "乌台诗案：苏轼被御史台审讯；苏轼在黄州写《黄州寒食帖》",
           "path": "北宋改革与文化 › 史学与文字狱 › 乌台诗案：苏轼被御史台审讯；苏轼在黄州写《黄州寒食帖》",
           "moduleId": "songreform",
@@ -4328,7 +4640,23 @@
           "important": false
         },
         {
-          "id": "history-section-4-57",
+          "id": "history-section-4-79",
+          "text": "宋神宗评价“鉴于往事，有资于治道”，赐名《资治通鉴》；司马光相关典故“圆木警枕”",
+          "path": "北宋改革与文化 › 史学与文字狱 › 宋神宗评价“鉴于往事，有资于治道”，赐名《资治通鉴》；司马光相关典故“圆木警枕”",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-80",
+          "text": "苏轼又称诗神、词圣、唐宋八大家之一；《黄州寒食帖》被称为“天下第三行书”",
+          "path": "北宋改革与文化 › 史学与文字狱 › 苏轼又称诗神、词圣、唐宋八大家之一；《黄州寒食帖》被称为“天下第三行书”",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-81",
           "text": "北宋灭亡",
           "path": "北宋改革与文化 › 北宋灭亡",
           "moduleId": "songreform",
@@ -4336,7 +4664,7 @@
           "important": true
         },
         {
-          "id": "history-section-4-58",
+          "id": "history-section-4-82",
           "text": "女真完颜阿骨打建立金，定都会宁；靖康之耻中金军掳走宋徽宗、宋钦宗，北宋灭亡",
           "path": "北宋改革与文化 › 北宋灭亡 › 女真完颜阿骨打建立金，定都会宁；靖康之耻中金军掳走宋徽宗、宋钦宗，北宋灭亡",
           "moduleId": "songreform",
@@ -4344,7 +4672,7 @@
           "important": false
         },
         {
-          "id": "history-section-4-59",
+          "id": "history-section-4-83",
           "text": "宋徽宗赵佶擅长瘦金体，著《大观茶论》；王希孟《千里江山图》、张择端《清明上河图》",
           "path": "北宋改革与文化 › 北宋灭亡 › 宋徽宗赵佶擅长瘦金体，著《大观茶论》；王希孟《千里江山图》、张择端《清明上河图》",
           "moduleId": "songreform",
@@ -4352,9 +4680,25 @@
           "important": false
         },
         {
-          "id": "history-section-4-60",
+          "id": "history-section-4-84",
           "text": "唐陆羽《茶经》是现存最早最完整的茶学专著，被尊为茶圣、茶仙；北宋蔡襄《茶录》继其后有重要影响",
           "path": "北宋改革与文化 › 北宋灭亡 › 唐陆羽《茶经》是现存最早最完整的茶学专著，被尊为茶圣、茶仙；北宋蔡襄《茶录》继其后有重要影响",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-85",
+          "text": "宋徽宗瘦金体代表作《秾芳依翠萼诗帖》；《大观茶论》原名《茶论》，涉及点茶",
+          "path": "北宋改革与文化 › 北宋灭亡 › 宋徽宗瘦金体代表作《秾芳依翠萼诗帖》；《大观茶论》原名《茶论》，涉及点茶",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-86",
+          "text": "茶书补充：明朱权《茶谱》；日本荣西《吃茶养生记》开创日本茶道；美国威廉·乌克斯《茶叶全书》以世界视野介绍全球茶业",
+          "path": "北宋改革与文化 › 北宋灭亡 › 茶书补充：明朱权《茶谱》；日本荣西《吃茶养生记》开创日本茶道；美国威廉·乌克斯《茶叶全书》以世界视野介绍全球茶业",
           "moduleId": "songreform",
           "mapId": "history-section-4",
           "important": false
@@ -4422,6 +4766,22 @@
         },
         {
           "id": "history-section-5-6",
+          "text": "秦桧相关典故：东窗事发、莫须有；“三字狱”指“莫须有”",
+          "path": "南宋 › 岳飞抗金 › 秦桧相关典故：东窗事发、莫须有；“三字狱”指“莫须有”",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-7",
+          "text": "岳飞评价与名句：“文臣不爱钱，武臣不惜死”；杭州岳王庙联“青山有幸埋忠骨，白铁无辜铸佞臣”",
+          "path": "南宋 › 岳飞抗金 › 岳飞评价与名句：“文臣不爱钱，武臣不惜死”；杭州岳王庙联“青山有幸埋忠骨，白铁无辜铸佞臣”",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-8",
           "text": "宋金和议与灭亡",
           "path": "南宋 › 宋金和议与灭亡",
           "moduleId": "nansong",
@@ -4429,7 +4789,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-7",
+          "id": "history-section-5-9",
           "text": "绍兴和议：宋金第一个和平协议，宋向金俯首称臣，宋金对峙形成",
           "path": "南宋 › 宋金和议与灭亡 › 绍兴和议：宋金第一个和平协议，宋向金俯首称臣，宋金对峙形成",
           "moduleId": "nansong",
@@ -4437,7 +4797,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-8",
+          "id": "history-section-5-10",
           "text": "隆兴和议：宋孝宗时期宋金第二个和平协议",
           "path": "南宋 › 宋金和议与灭亡 › 隆兴和议：宋孝宗时期宋金第二个和平协议",
           "moduleId": "nansong",
@@ -4445,7 +4805,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-9",
+          "id": "history-section-5-11",
           "text": "崖山海战：南宋与蒙古决战；陆秀夫背小皇帝赵昺跳海，南宋灭亡，元朝统一全国",
           "path": "南宋 › 宋金和议与灭亡 › 崖山海战：南宋与蒙古决战；陆秀夫背小皇帝赵昺跳海，南宋灭亡，元朝统一全国",
           "moduleId": "nansong",
@@ -4453,7 +4813,23 @@
           "important": false
         },
         {
-          "id": "history-section-5-10",
+          "id": "history-section-5-12",
+          "text": "绍兴和议关联地名：西湖在杭州，汴州为开封；林升《题临安邸》有“山外青山楼外楼，西湖歌舞几时休”",
+          "path": "南宋 › 宋金和议与灭亡 › 绍兴和议关联地名：西湖在杭州，汴州为开封；林升《题临安邸》有“山外青山楼外楼，西湖歌舞几时休”",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-13",
+          "text": "蒙宋战争是蒙古帝国与南宋的战略决战；崖山海战是宋元改朝换代的最后一战",
+          "path": "南宋 › 宋金和议与灭亡 › 蒙宋战争是蒙古帝国与南宋的战略决战；崖山海战是宋元改朝换代的最后一战",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-14",
           "text": "南宋人物",
           "path": "南宋 › 南宋人物",
           "moduleId": "nansong",
@@ -4461,7 +4837,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-11",
+          "id": "history-section-5-15",
           "text": "辛弃疾，字幼安，豪放派词人，被誉为“词中之龙”；现存词作数量多",
           "path": "南宋 › 南宋人物 › 辛弃疾，字幼安，豪放派词人，被誉为“词中之龙”；现存词作数量多",
           "moduleId": "nansong",
@@ -4469,7 +4845,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-12",
+          "id": "history-section-5-16",
           "text": "李清照，号易安居士，婉约派代表词人，著《词论》",
           "path": "南宋 › 南宋人物 › 李清照，号易安居士，婉约派代表词人，著《词论》",
           "moduleId": "nansong",
@@ -4477,7 +4853,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-13",
+          "id": "history-section-5-17",
           "text": "文天祥：《过零丁洋》《正气歌》，“人生自古谁无死，留取丹心照汗青”",
           "path": "南宋 › 南宋人物 › 文天祥：《过零丁洋》《正气歌》，“人生自古谁无死，留取丹心照汗青”",
           "moduleId": "nansong",
@@ -4485,7 +4861,15 @@
           "important": false
         },
         {
-          "id": "history-section-5-14",
+          "id": "history-section-5-18",
+          "text": "辛弃疾与李清照并称“济南二安”；李清照代表作《声声慢·寻寻觅觅》《醉花阴》，有“千古第一才女”之称",
+          "path": "南宋 › 南宋人物 › 辛弃疾与李清照并称“济南二安”；李清照代表作《声声慢·寻寻觅觅》《醉花阴》，有“千古第一才女”之称",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-19",
           "text": "政权对照",
           "path": "宋辽夏金政权 › 政权对照",
           "moduleId": "songjindui",
@@ -4493,7 +4877,7 @@
           "important": true
         },
         {
-          "id": "history-section-5-15",
+          "id": "history-section-5-20",
           "text": "辽：907年，耶律阿保机建立，契丹族，都城上京（今内蒙古赤峰一带）",
           "path": "宋辽夏金政权 › 政权对照 › 辽：907年，耶律阿保机建立，契丹族，都城上京（今内蒙古赤峰一带）",
           "moduleId": "songjindui",
@@ -4501,7 +4885,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-16",
+          "id": "history-section-5-21",
           "text": "北宋：960年，赵匡胤建立，汉族，都城汴京（今河南开封）",
           "path": "宋辽夏金政权 › 政权对照 › 北宋：960年，赵匡胤建立，汉族，都城汴京（今河南开封）",
           "moduleId": "songjindui",
@@ -4509,7 +4893,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-17",
+          "id": "history-section-5-22",
           "text": "西夏：1038年，元昊建立，党项族，都城兴庆（今宁夏银川）",
           "path": "宋辽夏金政权 › 政权对照 › 西夏：1038年，元昊建立，党项族，都城兴庆（今宁夏银川）",
           "moduleId": "songjindui",
@@ -4517,7 +4901,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-18",
+          "id": "history-section-5-23",
           "text": "金：1115年，完颜阿骨打建立，女真族，都城会宁（今黑龙江哈尔滨），后迁中都（今北京）等",
           "path": "宋辽夏金政权 › 政权对照 › 金：1115年，完颜阿骨打建立，女真族，都城会宁（今黑龙江哈尔滨），后迁中都（今北京）等",
           "moduleId": "songjindui",
@@ -4525,7 +4909,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-19",
+          "id": "history-section-5-24",
           "text": "南宋：1127年，赵构建立，汉族，都城临安（今浙江杭州）",
           "path": "宋辽夏金政权 › 政权对照 › 南宋：1127年，赵构建立，汉族，都城临安（今浙江杭州）",
           "moduleId": "songjindui",
@@ -4533,7 +4917,15 @@
           "important": false
         },
         {
-          "id": "history-section-5-20",
+          "id": "history-section-5-25",
+          "text": "金先定都会宁，后有中都（北京）、汴梁（开封）等都城变化",
+          "path": "宋辽夏金政权 › 政权对照 › 金先定都会宁，后有中都（北京）、汴梁（开封）等都城变化",
+          "moduleId": "songjindui",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-26",
           "text": "建立与统一",
           "path": "元朝 › 建立与统一",
           "moduleId": "yuan",
@@ -4541,7 +4933,7 @@
           "important": true
         },
         {
-          "id": "history-section-5-21",
+          "id": "history-section-5-27",
           "text": "成吉思汗铁木真建立蒙古汗国；窝阔台灭金；忽必烈定国号元，建立元朝，定都大都（北京）",
           "path": "元朝 › 建立与统一 › 成吉思汗铁木真建立蒙古汗国；窝阔台灭金；忽必烈定国号元，建立元朝，定都大都（北京）",
           "moduleId": "yuan",
@@ -4549,7 +4941,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-22",
+          "id": "history-section-5-28",
           "text": "元朝是中国历史上首次由少数民族建立的大一统王朝；泉州港（刺桐城）是宋元时期重要港口",
           "path": "元朝 › 建立与统一 › 元朝是中国历史上首次由少数民族建立的大一统王朝；泉州港（刺桐城）是宋元时期重要港口",
           "moduleId": "yuan",
@@ -4557,7 +4949,23 @@
           "important": false
         },
         {
-          "id": "history-section-5-23",
+          "id": "history-section-5-29",
+          "text": "“元”取自《易经》“大哉乾元，万物资始”",
+          "path": "元朝 › 建立与统一 › “元”取自《易经》“大哉乾元，万物资始”",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-30",
+          "text": "成吉思汗灭西夏；窝阔台灭金；泉州港又称刺桐港，是元朝最大港口之一",
+          "path": "元朝 › 建立与统一 › 成吉思汗灭西夏；窝阔台灭金；泉州港又称刺桐港，是元朝最大港口之一",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-31",
           "text": "行省制度",
           "path": "元朝 › 行省制度",
           "moduleId": "yuan",
@@ -4565,7 +4973,7 @@
           "important": true
         },
         {
-          "id": "history-section-5-24",
+          "id": "history-section-5-32",
           "text": "中央设中书省为全国最高行政机构；地方设行中书省，简称行省，开省级制度先河",
           "path": "元朝 › 行省制度 › 中央设中书省为全国最高行政机构；地方设行中书省，简称行省，开省级制度先河",
           "moduleId": "yuan",
@@ -4573,7 +4981,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-25",
+          "id": "history-section-5-33",
           "text": "设澎湖巡检司，管理澎湖和台湾，是中央政权最早管理台湾地区的行政机构",
           "path": "元朝 › 行省制度 › 设澎湖巡检司，管理澎湖和台湾，是中央政权最早管理台湾地区的行政机构",
           "moduleId": "yuan",
@@ -4581,7 +4989,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-26",
+          "id": "history-section-5-34",
           "text": "设宣政院掌管全国佛教并管理西藏地区",
           "path": "元朝 › 行省制度 › 设宣政院掌管全国佛教并管理西藏地区",
           "moduleId": "yuan",
@@ -4589,7 +4997,23 @@
           "important": false
         },
         {
-          "id": "history-section-5-27",
+          "id": "history-section-5-35",
+          "text": "行省制源于魏晋时期的行台；澎湖巡检司是中央政权最早管理台湾、澎湖的行政机构",
+          "path": "元朝 › 行省制度 › 行省制源于魏晋时期的行台；澎湖巡检司是中央政权最早管理台湾、澎湖的行政机构",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-36",
+          "text": "边疆治理对照：西汉西域都护府管辖新疆；唐太宗时安西都护府管理南疆；武则天时北庭都护府管理北疆",
+          "path": "元朝 › 行省制度 › 边疆治理对照：西汉西域都护府管辖新疆；唐太宗时安西都护府管理南疆；武则天时北庭都护府管理北疆",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-37",
           "text": "文化与社会",
           "path": "元朝 › 文化与社会",
           "moduleId": "yuan",
@@ -4597,7 +5021,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-28",
+          "id": "history-section-5-38",
           "text": "忽必烈时期马可·波罗来华，著《马可·波罗行纪》",
           "path": "元朝 › 文化与社会 › 忽必烈时期马可·波罗来华，著《马可·波罗行纪》",
           "moduleId": "yuan",
@@ -4605,7 +5029,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-29",
+          "id": "history-section-5-39",
           "text": "四等人制：蒙古人、色目人、汉人、南人",
           "path": "元朝 › 文化与社会 › 四等人制：蒙古人、色目人、汉人、南人",
           "moduleId": "yuan",
@@ -4613,7 +5037,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-30",
+          "id": "history-section-5-40",
           "text": "黄道婆推广黎族先进棉纺技术；郭守敬编《授时历》",
           "path": "元朝 › 文化与社会 › 黄道婆推广黎族先进棉纺技术；郭守敬编《授时历》",
           "moduleId": "yuan",
@@ -4621,7 +5045,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-31",
+          "id": "history-section-5-41",
           "text": "红巾军起义后，朱元璋派徐达攻入大都，元朝灭亡",
           "path": "元朝 › 文化与社会 › 红巾军起义后，朱元璋派徐达攻入大都，元朝灭亡",
           "moduleId": "yuan",
@@ -4629,7 +5053,23 @@
           "important": false
         },
         {
-          "id": "history-section-5-32",
+          "id": "history-section-5-42",
+          "text": "四等人制对应：蒙古人、色目人、汉人、南人；其中色目人多为西域各民族，汉人多为原金国人，南人多为原南宋人",
+          "path": "元朝 › 文化与社会 › 四等人制对应：蒙古人、色目人、汉人、南人；其中色目人多为西域各民族，汉人多为原金国人，南人多为原南宋人",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-43",
+          "text": "元末红巾军起义：韩山童、刘福通等借白莲教发动农民大起义",
+          "path": "元朝 › 文化与社会 › 元末红巾军起义：韩山童、刘福通等借白莲教发动农民大起义",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-44",
           "text": "洪武之治",
           "path": "明朝 › 洪武之治",
           "moduleId": "ming",
@@ -4637,7 +5077,7 @@
           "important": true
         },
         {
-          "id": "history-section-5-33",
+          "id": "history-section-5-45",
           "text": "明太祖朱元璋建立明朝，定都应天（南京）",
           "path": "明朝 › 洪武之治 › 明太祖朱元璋建立明朝，定都应天（南京）",
           "moduleId": "ming",
@@ -4645,7 +5085,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-34",
+          "id": "history-section-5-46",
           "text": "废丞相、设殿阁大学士；废行中书省、设承宣布政使司（民政财政）、提刑按察使司（司法）、都指挥使司（军事）",
           "path": "明朝 › 洪武之治 › 废丞相、设殿阁大学士；废行中书省、设承宣布政使司（民政财政）、提刑按察使司（司法）、都指挥使司（军事）",
           "moduleId": "ming",
@@ -4653,7 +5093,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-35",
+          "id": "history-section-5-47",
           "text": "设厂卫，朱元璋设锦衣卫；洪武四大案为胡惟庸案、空印案、郭桓案、蓝玉案",
           "path": "明朝 › 洪武之治 › 设厂卫，朱元璋设锦衣卫；洪武四大案为胡惟庸案、空印案、郭桓案、蓝玉案",
           "moduleId": "ming",
@@ -4661,7 +5101,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-36",
+          "id": "history-section-5-48",
           "text": "八股取士：题目出自四书五经，解释以朱熹《四书集注》为标准",
           "path": "明朝 › 洪武之治 › 八股取士：题目出自四书五经，解释以朱熹《四书集注》为标准",
           "moduleId": "ming",
@@ -4669,7 +5109,23 @@
           "important": false
         },
         {
-          "id": "history-section-5-37",
+          "id": "history-section-5-49",
+          "text": "军事：收复燕云十六州和陇右地区；改大都督府为五军都督府，使统兵权、调兵权分离",
+          "path": "明朝 › 洪武之治 › 军事：收复燕云十六州和陇右地区；改大都督府为五军都督府，使统兵权、调兵权分离",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-50",
+          "text": "确立以程朱理学为核心的科举制度；八股取士始于洪武、定制于成化",
+          "path": "明朝 › 洪武之治 › 确立以程朱理学为核心的科举制度；八股取士始于洪武、定制于成化",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-51",
           "text": "永乐盛世",
           "path": "明朝 › 永乐盛世",
           "moduleId": "ming",
@@ -4677,7 +5133,7 @@
           "important": true
         },
         {
-          "id": "history-section-5-38",
+          "id": "history-section-5-52",
           "text": "靖难之役：朱棣击败朱允炆即位；迁都北京，修筑紫禁城，设内阁",
           "path": "明朝 › 永乐盛世 › 靖难之役：朱棣击败朱允炆即位；迁都北京，修筑紫禁城，设内阁",
           "moduleId": "ming",
@@ -4685,7 +5141,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-39",
+          "id": "history-section-5-53",
           "text": "明成祖设东厂；五次亲征漠北，南下平定安南；组建五军营、三千营、神机营",
           "path": "明朝 › 永乐盛世 › 明成祖设东厂；五次亲征漠北，南下平定安南；组建五军营、三千营、神机营",
           "moduleId": "ming",
@@ -4693,7 +5149,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-40",
+          "id": "history-section-5-54",
           "text": "解缙主持编纂《永乐大典》；郑和七下西洋，最远到达非洲东海岸和红海沿岸",
           "path": "明朝 › 永乐盛世 › 解缙主持编纂《永乐大典》；郑和七下西洋，最远到达非洲东海岸和红海沿岸",
           "moduleId": "ming",
@@ -4701,7 +5157,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-41",
+          "id": "history-section-5-55",
           "text": "仁宣之治：明仁宗、明宣宗时期；大学士拥有票拟权，皇帝负责批红",
           "path": "明朝 › 永乐盛世 › 仁宣之治：明仁宗、明宣宗时期；大学士拥有票拟权，皇帝负责批红",
           "moduleId": "ming",
@@ -4709,7 +5165,15 @@
           "important": false
         },
         {
-          "id": "history-section-5-42",
+          "id": "history-section-5-56",
+          "text": "陈诚奉命陆路出使中亚西域诸国，包括撒马尔罕、哈烈等",
+          "path": "明朝 › 永乐盛世 › 陈诚奉命陆路出使中亚西域诸国，包括撒马尔罕、哈烈等",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-57",
           "text": "由盛转衰与灭亡",
           "path": "明朝 › 由盛转衰与灭亡",
           "moduleId": "ming",
@@ -4717,7 +5181,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-43",
+          "id": "history-section-5-58",
           "text": "土木堡之变：明英宗朱祁镇北伐败于瓦剌，明朝由盛转衰；夺门之变后朱祁镇复位",
           "path": "明朝 › 由盛转衰与灭亡 › 土木堡之变：明英宗朱祁镇北伐败于瓦剌，明朝由盛转衰；夺门之变后朱祁镇复位",
           "moduleId": "ming",
@@ -4725,7 +5189,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-44",
+          "id": "history-section-5-59",
           "text": "戚继光抗倭；张居正万历新政实行一条鞭法，将实物税折为货币税",
           "path": "明朝 › 由盛转衰与灭亡 › 戚继光抗倭；张居正万历新政实行一条鞭法，将实物税折为货币税",
           "moduleId": "ming",
@@ -4733,7 +5197,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-45",
+          "id": "history-section-5-60",
           "text": "萨尔浒之战明军大败，后金势力崛起；李自成起义攻入北京，崇祯帝自缢，明朝灭亡",
           "path": "明朝 › 由盛转衰与灭亡 › 萨尔浒之战明军大败，后金势力崛起；李自成起义攻入北京，崇祯帝自缢，明朝灭亡",
           "moduleId": "ming",
@@ -4741,7 +5205,23 @@
           "important": false
         },
         {
-          "id": "history-section-5-46",
+          "id": "history-section-5-61",
+          "text": "嘉靖年间明世宗朱厚熜在位，戚继光抗倭，有“封侯非我意，但愿海波平”",
+          "path": "明朝 › 由盛转衰与灭亡 › 嘉靖年间明世宗朱厚熜在位，戚继光抗倭，有“封侯非我意，但愿海波平”",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-62",
+          "text": "明熹宗时期东林党与魏忠贤斗争；李自成起义口号“均田免赋”“闯王来了不纳粮”",
+          "path": "明朝 › 由盛转衰与灭亡 › 明熹宗时期东林党与魏忠贤斗争；李自成起义口号“均田免赋”“闯王来了不纳粮”",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-63",
           "text": "西学东渐",
           "path": "明朝 › 西学东渐",
           "moduleId": "ming",
@@ -4749,7 +5229,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-47",
+          "id": "history-section-5-64",
           "text": "利玛窦进献《坤舆万国全图》；徐光启与西洋教士合作译《泰西水法》",
           "path": "明朝 › 西学东渐 › 利玛窦进献《坤舆万国全图》；徐光启与西洋教士合作译《泰西水法》",
           "moduleId": "ming",
@@ -4757,7 +5237,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-48",
+          "id": "history-section-5-65",
           "text": "徐光启《农政全书》与《齐民要术》《王祯农书》并称古代三大农书",
           "path": "明朝 › 西学东渐 › 徐光启《农政全书》与《齐民要术》《王祯农书》并称古代三大农书",
           "moduleId": "ming",
@@ -4765,7 +5245,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-49",
+          "id": "history-section-5-66",
           "text": "番薯、玉米、花生、马铃薯、辣椒、西红柿等美洲作物传入",
           "path": "明朝 › 西学东渐 › 番薯、玉米、花生、马铃薯、辣椒、西红柿等美洲作物传入",
           "moduleId": "ming",
@@ -4773,7 +5253,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-50",
+          "id": "history-section-5-67",
           "text": "清朝建立",
           "path": "清朝与近代转折 › 清朝建立",
           "moduleId": "qing",
@@ -4781,7 +5261,7 @@
           "important": true
         },
         {
-          "id": "history-section-5-51",
+          "id": "history-section-5-68",
           "text": "努尔哈赤建立后金；皇太极改国号为清，定都盛京（沈阳）；顺治迁都北京",
           "path": "清朝与近代转折 › 清朝建立 › 努尔哈赤建立后金；皇太极改国号为清，定都盛京（沈阳）；顺治迁都北京",
           "moduleId": "qing",
@@ -4789,7 +5269,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-52",
+          "id": "history-section-5-69",
           "text": "山海关大战中吴三桂引清军入关；郑成功驱逐荷兰殖民者，收复台湾",
           "path": "清朝与近代转折 › 清朝建立 › 山海关大战中吴三桂引清军入关；郑成功驱逐荷兰殖民者，收复台湾",
           "moduleId": "qing",
@@ -4797,7 +5277,15 @@
           "important": false
         },
         {
-          "id": "history-section-5-53",
+          "id": "history-section-5-70",
+          "text": "“冲冠一怒为红颜”关联吴三桂、陈圆圆；山海关大战中清军击败李自成",
+          "path": "清朝与近代转折 › 清朝建立 › “冲冠一怒为红颜”关联吴三桂、陈圆圆；山海关大战中清军击败李自成",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-71",
           "text": "康雍乾盛世",
           "path": "清朝与近代转折 › 康雍乾盛世",
           "moduleId": "qing",
@@ -4805,7 +5293,7 @@
           "important": true
         },
         {
-          "id": "history-section-5-54",
+          "id": "history-section-5-72",
           "text": "康熙平定三藩、统一台湾、雅克萨之战后签订《尼布楚条约》；册封达赖，管理西藏",
           "path": "清朝与近代转折 › 康雍乾盛世 › 康熙平定三藩、统一台湾、雅克萨之战后签订《尼布楚条约》；册封达赖，管理西藏",
           "moduleId": "qing",
@@ -4813,7 +5301,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-55",
+          "id": "history-section-5-73",
           "text": "雍正设军机处，君主专制达到顶峰；摊丁入亩、改土归流、设置驻藏大臣、伊犁将军",
           "path": "清朝与近代转折 › 康雍乾盛世 › 雍正设军机处，君主专制达到顶峰；摊丁入亩、改土归流、设置驻藏大臣、伊犁将军",
           "moduleId": "qing",
@@ -4821,7 +5309,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-56",
+          "id": "history-section-5-74",
           "text": "乾隆时期《四库全书》；土尔扈特部回归祖国；康雍乾时期文字狱严重",
           "path": "清朝与近代转折 › 康雍乾盛世 › 乾隆时期《四库全书》；土尔扈特部回归祖国；康雍乾时期文字狱严重",
           "moduleId": "qing",
@@ -4829,7 +5317,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-57",
+          "id": "history-section-5-75",
           "text": "八旗制度：上三旗为正黄、镶黄、正白，下五旗为正红、镶红、镶白、正蓝、镶蓝",
           "path": "清朝与近代转折 › 康雍乾盛世 › 八旗制度：上三旗为正黄、镶黄、正白，下五旗为正红、镶红、镶白、正蓝、镶蓝",
           "moduleId": "qing",
@@ -4837,7 +5325,23 @@
           "important": false
         },
         {
-          "id": "history-section-5-58",
+          "id": "history-section-5-76",
+          "text": "三藩为吴三桂、尚可喜、耿精忠；统一台湾由施琅完成",
+          "path": "清朝与近代转折 › 康雍乾盛世 › 三藩为吴三桂、尚可喜、耿精忠；统一台湾由施琅完成",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-77",
+          "text": "乾隆在西藏实行金瓶掣签制度；康熙文字狱有《明史案》《南山集案》，乾隆有胡中藻案；闭关锁国与海禁政策并行",
+          "path": "清朝与近代转折 › 康雍乾盛世 › 乾隆在西藏实行金瓶掣签制度；康熙文字狱有《明史案》《南山集案》，乾隆有胡中藻案；闭关锁国与海禁政策并行",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-78",
           "text": "晚清与帝制终结",
           "path": "清朝与近代转折 › 晚清与帝制终结",
           "moduleId": "qing",
@@ -4845,7 +5349,7 @@
           "important": true
         },
         {
-          "id": "history-section-5-59",
+          "id": "history-section-5-79",
           "text": "林则徐虎门销烟；鸦片战争战败签订《南京条约》，中国开始沦为半殖民地半封建社会",
           "path": "清朝与近代转折 › 晚清与帝制终结 › 林则徐虎门销烟；鸦片战争战败签订《南京条约》，中国开始沦为半殖民地半封建社会",
           "moduleId": "qing",
@@ -4853,7 +5357,7 @@
           "important": false
         },
         {
-          "id": "history-section-5-60",
+          "id": "history-section-5-80",
           "text": "第二次鸦片战争火烧圆明园；洋务运动兴办军工、新式学堂；同治时期平定太平天国、捻军",
           "path": "清朝与近代转折 › 晚清与帝制终结 › 第二次鸦片战争火烧圆明园；洋务运动兴办军工、新式学堂；同治时期平定太平天国、捻军",
           "moduleId": "qing",
@@ -4861,9 +5365,25 @@
           "important": false
         },
         {
-          "id": "history-section-5-61",
+          "id": "history-section-5-81",
           "text": "光绪支持戊戌变法，甲午战争惨败；宣统帝溥仪于1912年颁布退位诏书，清朝灭亡，封建帝制终结",
           "path": "清朝与近代转折 › 晚清与帝制终结 › 光绪支持戊戌变法，甲午战争惨败；宣统帝溥仪于1912年颁布退位诏书，清朝灭亡，封建帝制终结",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-82",
+          "text": "道光帝时鸦片战争；咸丰帝时第二次鸦片战争；同治帝时洋务运动及“同治中兴”",
+          "path": "清朝与近代转折 › 晚清与帝制终结 › 道光帝时鸦片战争；咸丰帝时第二次鸦片战争；同治帝时洋务运动及“同治中兴”",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-83",
+          "text": "光绪帝建设新式海军、学堂并支持戊戌变法；百日维新失败，甲午战争惨败",
+          "path": "清朝与近代转折 › 晚清与帝制终结 › 光绪帝建设新式海军、学堂并支持戊戌变法；百日维新失败，甲午战争惨败",
           "moduleId": "qing",
           "mapId": "history-section-5",
           "important": false
