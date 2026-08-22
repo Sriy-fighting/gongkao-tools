@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-22T10:02:31.454Z",
+  "generatedAt": "2026-08-22T10:18:43.794Z",
   "maps": [
     {
       "id": "science-section-1",
@@ -5402,6 +5402,2886 @@
           "path": "清朝与近代转折 › 晚清与帝制终结 › 光绪帝建设新式海军、学堂并支持戊戌变法；百日维新失败，甲午战争惨败",
           "moduleId": "qing",
           "mapId": "history-section-5",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "humanities-section-1",
+      "title": "人文常识：诸子百家与节气",
+      "subtitle": "诸子百家与二十四节气",
+      "path": "../常识思维导图/人文常识_第一节_学习增强版.html",
+      "icon": "文",
+      "color": "#a4563b",
+      "key": "const seed=",
+      "order": 7,
+      "nodes": [
+        {
+          "id": "humanities-section-1-0",
+          "text": "儒家：孔子",
+          "path": "诸子百家 › 儒家：孔子",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-1",
+          "text": "春秋时期，至圣、文圣人；名丘，字仲尼",
+          "path": "诸子百家 › 儒家：孔子 › 春秋时期，至圣、文圣人；名丘，字仲尼",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-2",
+          "text": "弟子：颜回（复圣）、子路、子贡、子游、子夏；孔门十哲",
+          "path": "诸子百家 › 儒家：孔子 › 弟子：颜回（复圣）、子路、子贡、子游、子夏；孔门十哲",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-3",
+          "text": "整理《诗》《书》《礼》《乐》《易》《春秋》，著作以《论语》记录",
+          "path": "诸子百家 › 儒家：孔子 › 整理《诗》《书》《礼》《乐》《易》《春秋》，著作以《论语》记录",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-4",
+          "text": "政治：君君、臣臣、父父、子子；克己复礼；道之以政、齐之以刑，民免而无耻；道之以德、齐之以礼，有耻且格",
+          "path": "诸子百家 › 儒家：孔子 › 政治：君君、臣臣、父父、子子；克己复礼；道之以政、齐之以刑，民免而无耻；道之以德、齐之以礼，有耻且格",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-5",
+          "text": "仁：己所不欲，勿施于人；仁者爱人；为国以礼；北辰比喻德治",
+          "path": "诸子百家 › 儒家：孔子 › 仁：己所不欲，勿施于人；仁者爱人；为国以礼；北辰比喻德治",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-6",
+          "text": "教育：有教无类、因材施教；创办私学，打破官学；六艺为礼乐射御书数",
+          "path": "诸子百家 › 儒家：孔子 › 教育：有教无类、因材施教；创办私学，打破官学；六艺为礼乐射御书数",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-7",
+          "text": "孔门四配：复圣颜回、宗圣曾子、述圣子思、亚圣孟子",
+          "path": "诸子百家 › 儒家：孔子 › 孔门四配：复圣颜回、宗圣曾子、述圣子思、亚圣孟子",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-8",
+          "text": "儒家：孟子",
+          "path": "诸子百家 › 儒家：孟子",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-9",
+          "text": "战国时期，亚圣，名轲，字子舆；与孔子并称“孔孟”",
+          "path": "诸子百家 › 儒家：孟子 › 战国时期，亚圣，名轲，字子舆；与孔子并称“孔孟”",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-10",
+          "text": "《孟子》：天时不如地利，地利不如人和；民为贵，社稷次之，君为轻",
+          "path": "诸子百家 › 儒家：孟子 › 《孟子》：天时不如地利，地利不如人和；民为贵，社稷次之，君为轻",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-11",
+          "text": "仁政与民本：不违农时，谷不可胜食；数罟不入洿池；斧斤以时入山林",
+          "path": "诸子百家 › 儒家：孟子 › 仁政与民本：不违农时，谷不可胜食；数罟不入洿池；斧斤以时入山林",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-12",
+          "text": "性善论：人性之善也，犹水之就下；恻隐、羞恶、辞让、是非之心",
+          "path": "诸子百家 › 儒家：孟子 › 性善论：人性之善也，犹水之就下；恻隐、羞恶、辞让、是非之心",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-13",
+          "text": "道家：老子与庄子",
+          "path": "诸子百家 › 道家：老子与庄子",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-14",
+          "text": "老子：春秋末期，姓李名耳，著《道德经》；“道可道，非常道”",
+          "path": "诸子百家 › 道家：老子与庄子 › 老子：春秋末期，姓李名耳，著《道德经》；“道可道，非常道”",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-15",
+          "text": "老子主张：道法自然、无为而治、祸兮福所倚、福兮祸所伏；上善若水",
+          "path": "诸子百家 › 道家：老子与庄子 › 老子主张：道法自然、无为而治、祸兮福所倚、福兮祸所伏；上善若水",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-16",
+          "text": "庄子：战国宋人，名周，《庄子》又称《南华经》；文学的哲学、哲学的文学",
+          "path": "诸子百家 › 道家：老子与庄子 › 庄子：战国宋人，名周，《庄子》又称《南华经》；文学的哲学、哲学的文学",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-17",
+          "text": "庄子主张：天人合一、清静无为、内圣外王、齐物论、逍遥游；“鹏之徙于南冥也”",
+          "path": "诸子百家 › 道家：老子与庄子 › 庄子主张：天人合一、清静无为、内圣外王、齐物论、逍遥游；“鹏之徙于南冥也”",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-18",
+          "text": "庄周梦蝶、庖丁解牛、井蛙不可语于海、相濡以沫、邯郸之梦",
+          "path": "诸子百家 › 道家：老子与庄子 › 庄周梦蝶、庖丁解牛、井蛙不可语于海、相濡以沫、邯郸之梦",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-19",
+          "text": "法家：李悝、商鞅、韩非",
+          "path": "诸子百家 › 法家：李悝、商鞅、韩非",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-20",
+          "text": "李悝：魏国人，以法治国、变法、中央集权；《法经》是中国历史上第一部比较系统的封建成文法典",
+          "path": "诸子百家 › 法家：李悝、商鞅、韩非 › 李悝：魏国人，以法治国、变法、中央集权；《法经》是中国历史上第一部比较系统的封建成文法典",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-21",
+          "text": "李悝变法：尽地力、平籴法，主张农战",
+          "path": "诸子百家 › 法家：李悝、商鞅、韩非 › 李悝变法：尽地力、平籴法，主张农战",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-22",
+          "text": "商鞅两次变法：废除世卿世禄制、奖励军功、重农抑商、奖励耕织；推行县制、什伍制度、统一度量衡",
+          "path": "诸子百家 › 法家：李悝、商鞅、韩非 › 商鞅两次变法：废除世卿世禄制、奖励军功、重农抑商、奖励耕织；推行县制、什伍制度、统一度量衡",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-23",
+          "text": "韩非：法家集大成者，《韩非子》；以法为本、法术势结合；主张“世异则事异”",
+          "path": "诸子百家 › 法家：李悝、商鞅、韩非 › 韩非：法家集大成者，《韩非子》；以法为本、法术势结合；主张“世异则事异”",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-24",
+          "text": "韩非典故：自相矛盾、守株待兔、滥竽充数、老马识途、买椟还珠；郡县制取代分封制",
+          "path": "诸子百家 › 法家：李悝、商鞅、韩非 › 韩非典故：自相矛盾、守株待兔、滥竽充数、老马识途、买椟还珠；郡县制取代分封制",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-25",
+          "text": "墨家、兵家与其他学派",
+          "path": "诸子百家 › 墨家、兵家与其他学派",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-26",
+          "text": "墨子：兼爱非攻、尚贤节用；《墨子》；“兼相爱，交相利”；墨守成规",
+          "path": "诸子百家 › 墨家、兵家与其他学派 › 墨子：兼爱非攻、尚贤节用；《墨子》；“兼相爱，交相利”；墨守成规",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-27",
+          "text": "孙武：兵家鼻祖，《孙子兵法》；知己知彼、百战不殆；兵者，诡道也；三令五申",
+          "path": "诸子百家 › 墨家、兵家与其他学派 › 孙武：兵家鼻祖，《孙子兵法》；知己知彼、百战不殆；兵者，诡道也；三令五申",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-28",
+          "text": "孙膑：战国齐人，《孙膑兵法》；围魏救赵、增兵减灶、田忌赛马",
+          "path": "诸子百家 › 墨家、兵家与其他学派 › 孙膑：战国齐人，《孙膑兵法》；围魏救赵、增兵减灶、田忌赛马",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-29",
+          "text": "杂家：吕不韦《吕氏春秋》，兼儒墨合名法；“千百家之道无不贯综”",
+          "path": "诸子百家 › 墨家、兵家与其他学派 › 杂家：吕不韦《吕氏春秋》，兼儒墨合名法；“千百家之道无不贯综”",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-30",
+          "text": "名家：邓析；惠施创“历物十事”，公孙龙“白马非马”",
+          "path": "诸子百家 › 墨家、兵家与其他学派 › 名家：邓析；惠施创“历物十事”，公孙龙“白马非马”",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-31",
+          "text": "纵横家：鬼谷子（王诩）、苏秦合纵、张仪连横；悬梁刺股、朝秦暮楚",
+          "path": "诸子百家 › 墨家、兵家与其他学派 › 纵横家：鬼谷子（王诩）、苏秦合纵、张仪连横；悬梁刺股、朝秦暮楚",
+          "moduleId": "schools",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-32",
+          "text": "起源与发展",
+          "path": "二十四节气概览 › 起源与发展",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-33",
+          "text": "二十四节气始于上古，起源于黄河流域；春秋时期产生仲春、仲夏、仲秋、仲冬四个节气",
+          "path": "二十四节气概览 › 起源与发展 › 二十四节气始于上古，起源于黄河流域；春秋时期产生仲春、仲夏、仲秋、仲冬四个节气",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-34",
+          "text": "秦汉时期《淮南子·天文训》有完整二十四节气名称；汉武帝太初历正式将其纳入历法",
+          "path": "二十四节气概览 › 起源与发展 › 秦汉时期《淮南子·天文训》有完整二十四节气名称；汉武帝太初历正式将其纳入历法",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-35",
+          "text": "节气以太阳在黄道上的位置划分；太阳每运行15°为一个节气",
+          "path": "二十四节气概览 › 起源与发展 › 节气以太阳在黄道上的位置划分；太阳每运行15°为一个节气",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-36",
+          "text": "太阳直射点与二分二至",
+          "path": "二十四节气概览 › 太阳直射点与二分二至",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-37",
+          "text": "春分、秋分：太阳直射赤道，全球昼夜等长",
+          "path": "二十四节气概览 › 太阳直射点与二分二至 › 春分、秋分：太阳直射赤道，全球昼夜等长",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-38",
+          "text": "夏至：太阳直射北回归线，北半球昼最长夜最短，北极圈内极昼",
+          "path": "二十四节气概览 › 太阳直射点与二分二至 › 夏至：太阳直射北回归线，北半球昼最长夜最短，北极圈内极昼",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-39",
+          "text": "冬至：太阳直射南回归线，北半球昼最短夜最长，北极圈内极夜",
+          "path": "二十四节气概览 › 太阳直射点与二分二至 › 冬至：太阳直射南回归线，北半球昼最短夜最长，北极圈内极夜",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-40",
+          "text": "直射点北移，北半球昼长夜短；直射点南移，北半球昼短夜长；太阳高度角越大，影子越短",
+          "path": "二十四节气概览 › 太阳直射点与二分二至 › 直射点北移，北半球昼长夜短；直射点南移，北半球昼短夜长；太阳高度角越大，影子越短",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-41",
+          "text": "二十四节气歌与分类",
+          "path": "二十四节气概览 › 二十四节气歌与分类",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-42",
+          "text": "节气歌：春雨惊春清谷天，夏满芒夏暑相连；秋处露秋寒霜降，冬雪雪冬小大寒",
+          "path": "二十四节气概览 › 二十四节气歌与分类 › 节气歌：春雨惊春清谷天，夏满芒夏暑相连；秋处露秋寒霜降，冬雪雪冬小大寒",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-43",
+          "text": "四立：立春、立夏、立秋、立冬",
+          "path": "二十四节气概览 › 二十四节气歌与分类 › 四立：立春、立夏、立秋、立冬",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-44",
+          "text": "二分二至：春分、秋分、夏至、冬至",
+          "path": "二十四节气概览 › 二十四节气歌与分类 › 二分二至：春分、秋分、夏至、冬至",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-45",
+          "text": "温度类：小暑、大暑、处暑、小寒、大寒",
+          "path": "二十四节气概览 › 二十四节气歌与分类 › 温度类：小暑、大暑、处暑、小寒、大寒",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-46",
+          "text": "天气类：雨水、谷雨、白露、寒露、霜降、小雪、大雪",
+          "path": "二十四节气概览 › 二十四节气歌与分类 › 天气类：雨水、谷雨、白露、寒露、霜降、小雪、大雪",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-47",
+          "text": "物候类：惊蛰、清明、小满、芒种",
+          "path": "二十四节气概览 › 二十四节气歌与分类 › 物候类：惊蛰、清明、小满、芒种",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-48",
+          "text": "二分二至常见日期与直射纬度",
+          "path": "二十四节气概览 › 二分二至常见日期与直射纬度",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-49",
+          "text": "春分约3月21日、秋分约9月23日：太阳直射赤道",
+          "path": "二十四节气概览 › 二分二至常见日期与直射纬度 › 春分约3月21日、秋分约9月23日：太阳直射赤道",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-50",
+          "text": "夏至约6月22日：太阳直射北回归线（23.5°N）；冬至约12月22日：太阳直射南回归线（23.5°S）",
+          "path": "二十四节气概览 › 二分二至常见日期与直射纬度 › 夏至约6月22日：太阳直射北回归线（23.5°N）；冬至约12月22日：太阳直射南回归线（23.5°S）",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-51",
+          "text": "北半球一年中：太阳直射点北移时昼渐长、影渐短；南移时昼渐短、影渐长",
+          "path": "二十四节气概览 › 二分二至常见日期与直射纬度 › 北半球一年中：太阳直射点北移时昼渐长、影渐短；南移时昼渐短、影渐长",
+          "moduleId": "solar",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-52",
+          "text": "春季：立春、雨水、惊蛰",
+          "path": "春夏节气 › 春季：立春、雨水、惊蛰",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-53",
+          "text": "立春：春天开始、万物复苏；民俗有打春牛、咬春；三候东风解冻、蛰虫始振、鱼陟负冰",
+          "path": "春夏节气 › 春季：立春、雨水、惊蛰 › 立春：春天开始、万物复苏；民俗有打春牛、咬春；三候东风解冻、蛰虫始振、鱼陟负冰",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-54",
+          "text": "雨水：降雨由雪转细雨；三候獭祭鱼、鸿雁来、草木萌动",
+          "path": "春夏节气 › 春季：立春、雨水、惊蛰 › 雨水：降雨由雪转细雨；三候獭祭鱼、鸿雁来、草木萌动",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-55",
+          "text": "惊蛰：春雷乍动，惊醒蛰伏动物；三候桃始华、仓庚鸣、鹰化为鸠",
+          "path": "春夏节气 › 春季：立春、雨水、惊蛰 › 惊蛰：春雷乍动，惊醒蛰伏动物；三候桃始华、仓庚鸣、鹰化为鸠",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-56",
+          "text": "春季：春分、清明、谷雨",
+          "path": "春夏节气 › 春季：春分、清明、谷雨",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-57",
+          "text": "春分：太阳直射赤道；昼夜平分；春分后北半球昼长夜短；三候玄鸟至、雷乃发声、始电",
+          "path": "春夏节气 › 春季：春分、清明、谷雨 › 春分：太阳直射赤道；昼夜平分；春分后北半球昼长夜短；三候玄鸟至、雷乃发声、始电",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-58",
+          "text": "清明：气清景明，清明时雨纷纷；三候桐始华、田鼠化鴽、虹始见",
+          "path": "春夏节气 › 春季：春分、清明、谷雨 › 清明：气清景明，清明时雨纷纷；三候桐始华、田鼠化鴽、虹始见",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-59",
+          "text": "谷雨：雨水滋润大地，五谷得以生长；三候萍始生、鸣鸠拂其羽、戴胜降于桑",
+          "path": "春夏节气 › 春季：春分、清明、谷雨 › 谷雨：雨水滋润大地，五谷得以生长；三候萍始生、鸣鸠拂其羽、戴胜降于桑",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-60",
+          "text": "夏季：立夏、小满、芒种",
+          "path": "春夏节气 › 夏季：立夏、小满、芒种",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-61",
+          "text": "立夏：夏季开始，万物生长旺盛；三候蝼蝈鸣、蚯蚓出、王瓜生",
+          "path": "春夏节气 › 夏季：立夏、小满、芒种 › 立夏：夏季开始，万物生长旺盛；三候蝼蝈鸣、蚯蚓出、王瓜生",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-62",
+          "text": "小满：夏熟作物籽粒开始灌浆饱满但未成熟；三候苦菜秀、靡草死、麦秋至",
+          "path": "春夏节气 › 夏季：立夏、小满、芒种 › 小满：夏熟作物籽粒开始灌浆饱满但未成熟；三候苦菜秀、靡草死、麦秋至",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-63",
+          "text": "芒种：有芒谷类作物成熟；又名“忙种”；农谚“芒种插秧忙”；三候螳螂生、鵙始鸣、反舌无声",
+          "path": "春夏节气 › 夏季：立夏、小满、芒种 › 芒种：有芒谷类作物成熟；又名“忙种”；农谚“芒种插秧忙”；三候螳螂生、鵙始鸣、反舌无声",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-64",
+          "text": "夏季：夏至、小暑、大暑",
+          "path": "春夏节气 › 夏季：夏至、小暑、大暑",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-65",
+          "text": "夏至：北回归线直射，北半球昼最长夜最短；三候鹿角解、蝉始鸣、半夏生",
+          "path": "春夏节气 › 夏季：夏至、小暑、大暑 › 夏至：北回归线直射，北半球昼最长夜最短；三候鹿角解、蝉始鸣、半夏生",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-66",
+          "text": "小暑：天气开始炎热但未达最热；三候温风至、蟋蟀居壁、鹰始挚",
+          "path": "春夏节气 › 夏季：夏至、小暑、大暑 › 小暑：天气开始炎热但未达最热；三候温风至、蟋蟀居壁、鹰始挚",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-67",
+          "text": "大暑：一年最热时段；三候腐草为萤、土润溽暑、大雨时行",
+          "path": "春夏节气 › 夏季：夏至、小暑、大暑 › 大暑：一年最热时段；三候腐草为萤、土润溽暑、大雨时行",
+          "moduleId": "spring-summer",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-68",
+          "text": "秋季：立秋、处暑、白露",
+          "path": "秋冬节气 › 秋季：立秋、处暑、白露",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-69",
+          "text": "立秋：秋天开始，暑去凉来；三候凉风至、白露降、寒蝉鸣",
+          "path": "秋冬节气 › 秋季：立秋、处暑、白露 › 立秋：秋天开始，暑去凉来；三候凉风至、白露降、寒蝉鸣",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-70",
+          "text": "处暑：炎热即将结束，七月流火；三候鹰乃祭鸟、天地始肃、禾乃登",
+          "path": "秋冬节气 › 秋季：立秋、处暑、白露 › 处暑：炎热即将结束，七月流火；三候鹰乃祭鸟、天地始肃、禾乃登",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-71",
+          "text": "白露：昼夜温差大，露水增多；三候鸿雁来、玄鸟归、群鸟养羞",
+          "path": "秋冬节气 › 秋季：立秋、处暑、白露 › 白露：昼夜温差大，露水增多；三候鸿雁来、玄鸟归、群鸟养羞",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-72",
+          "text": "秋季：秋分、寒露、霜降",
+          "path": "秋冬节气 › 秋季：秋分、寒露、霜降",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-73",
+          "text": "秋分：太阳直射赤道，昼夜再次等长；一场秋雨一场寒；三候雷始收声、蛰虫坯户、水始涸",
+          "path": "秋冬节气 › 秋季：秋分、寒露、霜降 › 秋分：太阳直射赤道，昼夜再次等长；一场秋雨一场寒；三候雷始收声、蛰虫坯户、水始涸",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-74",
+          "text": "寒露：气温比白露更低，初霜出现；三候鸿雁来宾、雀入大水为蛤、菊有黄华",
+          "path": "秋冬节气 › 秋季：秋分、寒露、霜降 › 寒露：气温比白露更低，初霜出现；三候鸿雁来宾、雀入大水为蛤、菊有黄华",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-75",
+          "text": "霜降：秋季最后节气，初霜出现；三候豺乃祭兽、草木黄落、蛰虫咸俯",
+          "path": "秋冬节气 › 秋季：秋分、寒露、霜降 › 霜降：秋季最后节气，初霜出现；三候豺乃祭兽、草木黄落、蛰虫咸俯",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-76",
+          "text": "冬季：立冬、小雪、大雪",
+          "path": "秋冬节气 › 冬季：立冬、小雪、大雪",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-77",
+          "text": "立冬：冬天开始；三候水始冰、地始冻、雉入大水为蜃",
+          "path": "秋冬节气 › 冬季：立冬、小雪、大雪 › 立冬：冬天开始；三候水始冰、地始冻、雉入大水为蜃",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-78",
+          "text": "小雪：开始出现初雪；三候虹藏不见、天气上升地气下降、闭塞成冬",
+          "path": "秋冬节气 › 冬季：立冬、小雪、大雪 › 小雪：开始出现初雪；三候虹藏不见、天气上升地气下降、闭塞成冬",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-79",
+          "text": "大雪：降雪量增多、地面积雪；三候鹖鴠不鸣、虎始交、荔挺出",
+          "path": "秋冬节气 › 冬季：立冬、小雪、大雪 › 大雪：降雪量增多、地面积雪；三候鹖鴠不鸣、虎始交、荔挺出",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-80",
+          "text": "冬季：冬至、小寒、大寒",
+          "path": "秋冬节气 › 冬季：冬至、小寒、大寒",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-81",
+          "text": "冬至：北半球太阳高度角最小、白昼最短；“数九”从冬至日起；三候蚯蚓结、麋角解、水泉动",
+          "path": "秋冬节气 › 冬季：冬至、小寒、大寒 › 冬至：北半球太阳高度角最小、白昼最短；“数九”从冬至日起；三候蚯蚓结、麋角解、水泉动",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": true
+        },
+        {
+          "id": "humanities-section-1-82",
+          "text": "小寒：开始进入最冷季节；三候雁北乡、鹊始巢、雉始雊",
+          "path": "秋冬节气 › 冬季：冬至、小寒、大寒 › 小寒：开始进入最冷季节；三候雁北乡、鹊始巢、雉始雊",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        },
+        {
+          "id": "humanities-section-1-83",
+          "text": "大寒：一年中气温最低、最冷时期；三候鸡乳、征鸟厉疾、水泽腹坚",
+          "path": "秋冬节气 › 冬季：冬至、小寒、大寒 › 大寒：一年中气温最低、最冷时期；三候鸡乳、征鸟厉疾、水泽腹坚",
+          "moduleId": "autumn-winter",
+          "mapId": "humanities-section-1",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "humanities-section-2",
+      "title": "人文常识：科技、医学与制度",
+      "subtitle": "四大发明、医学、农工科技、水利与古代选官",
+      "path": "../常识思维导图/人文常识_第二节_学习增强版.html",
+      "icon": "技",
+      "color": "#307e8d",
+      "key": "const seed=",
+      "order": 8,
+      "nodes": [
+        {
+          "id": "humanities-section-2-0",
+          "text": "造纸术",
+          "path": "四大发明 › 造纸术",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-1",
+          "text": "起源于西汉，东汉蔡伦改良造纸术，称“蔡侯纸”",
+          "path": "四大发明 › 造纸术 › 起源于西汉，东汉蔡伦改良造纸术，称“蔡侯纸”",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": true
+        },
+        {
+          "id": "humanities-section-2-2",
+          "text": "典故：洛阳纸贵；纸张促进文化传播",
+          "path": "四大发明 › 造纸术 › 典故：洛阳纸贵；纸张促进文化传播",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-3",
+          "text": "造纸八步流程：切麻→洗涤→浸灰水→蒸煮→舂捣→抄纸→晒纸→揭纸",
+          "path": "四大发明 › 造纸术 › 造纸八步流程：切麻→洗涤→浸灰水→蒸煮→舂捣→抄纸→晒纸→揭纸",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": true
+        },
+        {
+          "id": "humanities-section-2-4",
+          "text": "指南针",
+          "path": "四大发明 › 指南针",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-5",
+          "text": "战国出现司南；北宋制成指南针，适应南方航海",
+          "path": "四大发明 › 指南针 › 战国出现司南；北宋制成指南针，适应南方航海",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-6",
+          "text": "经阿拉伯人传入欧洲，用于环球航行和新大陆发现",
+          "path": "四大发明 › 指南针 › 经阿拉伯人传入欧洲，用于环球航行和新大陆发现",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-7",
+          "text": "沈括《梦溪笔谈》记载磁偏角，比欧洲早400多年",
+          "path": "四大发明 › 指南针 › 沈括《梦溪笔谈》记载磁偏角，比欧洲早400多年",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-8",
+          "text": "火药",
+          "path": "四大发明 › 火药",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-9",
+          "text": "古代炼丹家炼丹时偶然发明；唐末用于军事",
+          "path": "四大发明 › 火药 › 古代炼丹家炼丹时偶然发明；唐末用于军事",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-10",
+          "text": "南宋发明突火枪，开创管形火器新时代；元朝出现火铳",
+          "path": "四大发明 › 火药 › 南宋发明突火枪，开创管形火器新时代；元朝出现火铳",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-11",
+          "text": "主要成分：硝酸钾、硫、木炭",
+          "path": "四大发明 › 火药 › 主要成分：硝酸钾、硫、木炭",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-12",
+          "text": "印刷术",
+          "path": "四大发明 › 印刷术",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-13",
+          "text": "东汉出现拓印；隋唐雕版成熟，现存最早实物《金刚经》",
+          "path": "四大发明 › 印刷术 › 东汉出现拓印；隋唐雕版成熟，现存最早实物《金刚经》",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-14",
+          "text": "北宋毕昇发明活字印刷术",
+          "path": "四大发明 › 印刷术 › 北宋毕昇发明活字印刷术",
+          "moduleId": "inventions",
+          "mapId": "humanities-section-2",
+          "important": true
+        },
+        {
+          "id": "humanities-section-2-15",
+          "text": "中医四大经典",
+          "path": "医学 › 中医四大经典",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-16",
+          "text": "《黄帝内经》：分《灵枢》《素问》，提出“治未病”；中国最早医学典籍，被誉为“医学之祖、医家之宗”",
+          "path": "医学 › 中医四大经典 › 《黄帝内经》：分《灵枢》《素问》，提出“治未病”；中国最早医学典籍，被誉为“医学之祖、医家之宗”",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": true
+        },
+        {
+          "id": "humanities-section-2-17",
+          "text": "《难经》：相传扁鹊所作，问答式；又称《八十一难》《黄帝八十一难经》",
+          "path": "医学 › 中医四大经典 › 《难经》：相传扁鹊所作，问答式；又称《八十一难》《黄帝八十一难经》",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-18",
+          "text": "《伤寒杂病论》：东汉张仲景著，中国第一部临床医学专著；后分《伤寒论》《金匮要略》",
+          "path": "医学 › 中医四大经典 › 《伤寒杂病论》：东汉张仲景著，中国第一部临床医学专著；后分《伤寒论》《金匮要略》",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": true
+        },
+        {
+          "id": "humanities-section-2-19",
+          "text": "《神农本草经》：东汉成书，现存最早中药学著作",
+          "path": "医学 › 中医四大经典 › 《神农本草经》：东汉成书，现存最早中药学著作",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-20",
+          "text": "中医四诊与扁鹊",
+          "path": "医学 › 中医四诊与扁鹊",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-21",
+          "text": "四诊：望、闻、问、切；扁鹊被称为脉学之宗",
+          "path": "医学 › 中医四诊与扁鹊 › 四诊：望、闻、问、切；扁鹊被称为脉学之宗",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-22",
+          "text": "相关典故：讳疾忌医、起死回生",
+          "path": "医学 › 中医四诊与扁鹊 › 相关典故：讳疾忌医、起死回生",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-23",
+          "text": "其他医学典籍",
+          "path": "医学 › 其他医学典籍",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-24",
+          "text": "《肘后备急方》：东晋葛洪，中国第一部临床急救手册；记载天花、恙虫病等，记录青蒿治疟",
+          "path": "医学 › 其他医学典籍 › 《肘后备急方》：东晋葛洪，中国第一部临床急救手册；记载天花、恙虫病等，记录青蒿治疟",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-25",
+          "text": "《千金要方》：唐孙思邈（药王），中国最早临床百科全书，将妇科儿科独立分科",
+          "path": "医学 › 其他医学典籍 › 《千金要方》：唐孙思邈（药王），中国最早临床百科全书，将妇科儿科独立分科",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-26",
+          "text": "《唐本草》又称《新修本草》：世界第一部由国家编定、颁布的药典",
+          "path": "医学 › 其他医学典籍 › 《唐本草》又称《新修本草》：世界第一部由国家编定、颁布的药典",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-27",
+          "text": "《洗冤集录》：南宋宋慈，世界现存最早、公认杰出的法医学专著",
+          "path": "医学 › 其他医学典籍 › 《洗冤集录》：南宋宋慈，世界现存最早、公认杰出的法医学专著",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-28",
+          "text": "《本草纲目》：明李时珍，“东方药学巨典”，被称为中国古代百科全书",
+          "path": "医学 › 其他医学典籍 › 《本草纲目》：明李时珍，“东方药学巨典”，被称为中国古代百科全书",
+          "moduleId": "medicine",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-29",
+          "text": "农业与手工业著作",
+          "path": "农工科技与地理著作 › 农业与手工业著作",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-30",
+          "text": "《汜胜之书》：西汉，最早农书；《齐民要术》：北魏贾思勰，现存最完整农书",
+          "path": "农工科技与地理著作 › 农业与手工业著作 › 《汜胜之书》：西汉，最早农书；《齐民要术》：北魏贾思勰，现存最完整农书",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-31",
+          "text": "《王祯农书》：元王祯；《农政全书》：明徐光启，“中国17世纪工艺百科全书”",
+          "path": "农工科技与地理著作 › 农业与手工业著作 › 《王祯农书》：元王祯；《农政全书》：明徐光启，“中国17世纪工艺百科全书”",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-32",
+          "text": "《农桑辑要》：元官修，现存最早官修农书；《天工开物》：明宋应星",
+          "path": "农工科技与地理著作 › 农业与手工业著作 › 《农桑辑要》：元官修，现存最早官修农书；《天工开物》：明宋应星",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-33",
+          "text": "科技著作与人物",
+          "path": "农工科技与地理著作 › 科技著作与人物",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-34",
+          "text": "《墨经》：战国墨子科室，涉及力学、光学（小孔成像）、几何早期知识",
+          "path": "农工科技与地理著作 › 科技著作与人物 › 《墨经》：战国墨子科室，涉及力学、光学（小孔成像）、几何早期知识",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-35",
+          "text": "《论衡》：东汉王充，唯物主义著作；“知屋漏者在宇下，知政失者在草野”",
+          "path": "农工科技与地理著作 › 科技著作与人物 › 《论衡》：东汉王充，唯物主义著作；“知屋漏者在宇下，知政失者在草野”",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-36",
+          "text": "《梦溪笔谈》：北宋沈括；被誉为中国科学史上的里程碑，首用凹凸术印刷并记载磁偏角",
+          "path": "农工科技与地理著作 › 科技著作与人物 › 《梦溪笔谈》：北宋沈括；被誉为中国科学史上的里程碑，首用凹凸术印刷并记载磁偏角",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-37",
+          "text": "《徐霞客游记》：明徐弘祖，最早系统考察岩溶地貌；游记首日为5月19日中国旅游日",
+          "path": "农工科技与地理著作 › 科技著作与人物 › 《徐霞客游记》：明徐弘祖，最早系统考察岩溶地貌；游记首日为5月19日中国旅游日",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-38",
+          "text": "地理名著",
+          "path": "农工科技与地理著作 › 地理名著",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-39",
+          "text": "《山海经》：上古社会百科全书；包括《山经》《海经》两部分",
+          "path": "农工科技与地理著作 › 地理名著 › 《山海经》：上古社会百科全书；包括《山经》《海经》两部分",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-40",
+          "text": "《禹贡》：出自《尚书》，中国第一部区域地理著作；记载九州",
+          "path": "农工科技与地理著作 › 地理名著 › 《禹贡》：出自《尚书》，中国第一部区域地理著作；记载九州",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-41",
+          "text": "《水经注》：北魏郦道元注释《水经》，中国古代地理学名著",
+          "path": "农工科技与地理著作 › 地理名著 › 《水经注》：北魏郦道元注释《水经》，中国古代地理学名著",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-42",
+          "text": "《大唐西域记》：唐玄奘、辩机，记录贞观西行见闻；价值在中亚、印度史与地理研究",
+          "path": "农工科技与地理著作 › 地理名著 › 《大唐西域记》：唐玄奘、辩机，记录贞观西行见闻；价值在中亚、印度史与地理研究",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-43",
+          "text": "《海国图志》：魏源，提出“师夷长技以制夷”，介绍西方科技与世界地理",
+          "path": "农工科技与地理著作 › 地理名著 › 《海国图志》：魏源，提出“师夷长技以制夷”，介绍西方科技与世界地理",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-44",
+          "text": "农工著作补充",
+          "path": "农工科技与地理著作 › 农工著作补充",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-45",
+          "text": "《考工记》：春秋齐国官书，现存最早的手工业技术专著之一",
+          "path": "农工科技与地理著作 › 农工著作补充 › 《考工记》：春秋齐国官书，现存最早的手工业技术专著之一",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-46",
+          "text": "《茶经》：唐代陆羽著，世界首部茶叶专著",
+          "path": "农工科技与地理著作 › 农工著作补充 › 《茶经》：唐代陆羽著，世界首部茶叶专著",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-47",
+          "text": "《荔枝谱》：北宋蔡襄著，最早的荔枝专著",
+          "path": "农工科技与地理著作 › 农工著作补充 › 《荔枝谱》：北宋蔡襄著，最早的荔枝专著",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-48",
+          "text": "《农政全书》：明代徐光启著，内容涵盖农政与水利，被誉为“中国17世纪工艺百科全书”",
+          "path": "农工科技与地理著作 › 农工著作补充 › 《农政全书》：明代徐光启著，内容涵盖农政与水利，被誉为“中国17世纪工艺百科全书”",
+          "moduleId": "science",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-49",
+          "text": "数学典籍与数学家",
+          "path": "数学与天文历法 › 数学典籍与数学家",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-50",
+          "text": "《墨经》含几何早期知识；墨子号称量子卫星",
+          "path": "数学与天文历法 › 数学典籍与数学家 › 《墨经》含几何早期知识；墨子号称量子卫星",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-51",
+          "text": "《九章算术》：西汉，现存最早中国古代数学专著；提出正负数、方程等",
+          "path": "数学与天文历法 › 数学典籍与数学家 › 《九章算术》：西汉，现存最早中国古代数学专著；提出正负数、方程等",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-52",
+          "text": "刘徽：魏晋数学家，创割圆术，提出割圆术极限思想",
+          "path": "数学与天文历法 › 数学典籍与数学家 › 刘徽：魏晋数学家，创割圆术，提出割圆术极限思想",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-53",
+          "text": "祖冲之、祖暅：《缀术》；祖冲之将圆周率精确到小数点后七位，提出祖暅原理",
+          "path": "数学与天文历法 › 数学典籍与数学家 › 祖冲之、祖暅：《缀术》；祖冲之将圆周率精确到小数点后七位，提出祖暅原理",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-54",
+          "text": "宋元数学四大家：秦九韶《数书九章》、李冶《测圆海镜》、杨辉《详解九章算法》、朱世杰《四元玉鉴》",
+          "path": "数学与天文历法 › 数学典籍与数学家 › 宋元数学四大家：秦九韶《数书九章》、李冶《测圆海镜》、杨辉《详解九章算法》、朱世杰《四元玉鉴》",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-55",
+          "text": "早期数学与天文",
+          "path": "数学与天文历法 › 早期数学与天文",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-56",
+          "text": "《周髀算经》：西汉；提出勾股定理；“盖天说、天圆地方”",
+          "path": "数学与天文历法 › 早期数学与天文 › 《周髀算经》：西汉；提出勾股定理；“盖天说、天圆地方”",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-57",
+          "text": "《九章算术》以“方田”“粟米”等分类，包含开方术",
+          "path": "数学与天文历法 › 早期数学与天文 › 《九章算术》以“方田”“粟米”等分类，包含开方术",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-58",
+          "text": "《甘石星经》：战国甘德、石申；世界最早天文学著作之一",
+          "path": "数学与天文历法 › 早期数学与天文 › 《甘石星经》：战国甘德、石申；世界最早天文学著作之一",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-59",
+          "text": "《太初历》：汉武帝时期，采用落下闳等成果，规定正月为岁首",
+          "path": "数学与天文历法 › 早期数学与天文 › 《太初历》：汉武帝时期，采用落下闳等成果，规定正月为岁首",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-60",
+          "text": "《灵宪》：东汉张衡，浑天说；发明浑天仪、候风地动仪",
+          "path": "数学与天文历法 › 早期数学与天文 › 《灵宪》：东汉张衡，浑天说；发明浑天仪、候风地动仪",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-61",
+          "text": "《大明历》：南朝祖冲之；《授时历》：元许衡、郭守敬，测回归年365.2425日",
+          "path": "数学与天文历法 › 早期数学与天文 › 《大明历》：南朝祖冲之；《授时历》：元许衡、郭守敬，测回归年365.2425日",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-62",
+          "text": "天文记录：哈雷彗星见于《春秋》；太阳黑子见于《汉书·五行志》",
+          "path": "数学与天文历法 › 早期数学与天文 › 天文记录：哈雷彗星见于《春秋》；太阳黑子见于《汉书·五行志》",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-63",
+          "text": "数学与历法补充",
+          "path": "数学与天文历法 › 数学与历法补充",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-64",
+          "text": "《九章算术》奠定中国古代数学体系；“方田、粟米”等分类涵盖分数、开方、方程等问题",
+          "path": "数学与天文历法 › 数学与历法补充 › 《九章算术》奠定中国古代数学体系；“方田、粟米”等分类涵盖分数、开方、方程等问题",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-65",
+          "text": "祖冲之将圆周率精确到小数点后第七位；祖暅原理用于几何体积计算",
+          "path": "数学与天文历法 › 数学与历法补充 › 祖冲之将圆周率精确到小数点后第七位；祖暅原理用于几何体积计算",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-66",
+          "text": "《授时历》：元代许衡、郭守敬等编成，测得回归年365.2425日",
+          "path": "数学与天文历法 › 数学与历法补充 › 《授时历》：元代许衡、郭守敬等编成，测得回归年365.2425日",
+          "moduleId": "math",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-67",
+          "text": "中国古代四大水利工程",
+          "path": "水利工程 › 中国古代四大水利工程",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-68",
+          "text": "安丰塘（芍陂）：春秋楚相孙叔敖主持修建，今安徽寿县",
+          "path": "水利工程 › 中国古代四大水利工程 › 安丰塘（芍陂）：春秋楚相孙叔敖主持修建，今安徽寿县",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-69",
+          "text": "都江堰：战国秦蜀郡太守李冰父子主持；鱼嘴、飞沙堰、宝瓶口三大主体",
+          "path": "水利工程 › 中国古代四大水利工程 › 都江堰：战国秦蜀郡太守李冰父子主持；鱼嘴、飞沙堰、宝瓶口三大主体",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": true
+        },
+        {
+          "id": "humanities-section-2-70",
+          "text": "郑国渠：战国韩国水工郑国主持修建，大型引水灌溉工程",
+          "path": "水利工程 › 中国古代四大水利工程 › 郑国渠：战国韩国水工郑国主持修建，大型引水灌溉工程",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-71",
+          "text": "灵渠：秦朝，沟通湘江与漓江",
+          "path": "水利工程 › 中国古代四大水利工程 › 灵渠：秦朝，沟通湘江与漓江",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-72",
+          "text": "都江堰",
+          "path": "水利工程 › 都江堰",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-73",
+          "text": "鱼嘴分水堤：将岷江分为内江外江，内江灌溉、外江排洪",
+          "path": "水利工程 › 都江堰 › 鱼嘴分水堤：将岷江分为内江外江，内江灌溉、外江排洪",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-74",
+          "text": "飞沙堰：泄洪排沙、二次分流；宝瓶口：控制进水、引水入成都平原",
+          "path": "水利工程 › 都江堰 › 飞沙堰：泄洪排沙、二次分流；宝瓶口：控制进水、引水入成都平原",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-75",
+          "text": "治水理念“深淘滩，低作堰”；持续使用的无坝引水工程，造就天府之国",
+          "path": "水利工程 › 都江堰 › 治水理念“深淘滩，低作堰”；持续使用的无坝引水工程，造就天府之国",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-76",
+          "text": "京杭大运河",
+          "path": "水利工程 › 京杭大运河",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-77",
+          "text": "世界里程最长、工程最大、最古老古代运河之一；与长城、坎儿井并称中国古代三项伟大工程",
+          "path": "水利工程 › 京杭大运河 › 世界里程最长、工程最大、最古老古代运河之一；与长城、坎儿井并称中国古代三项伟大工程",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-78",
+          "text": "发展时间线：春秋吴王夫差开邗沟→隋炀帝扩建形成以洛阳为中心大运河→元代取直通北京→明清维护完善",
+          "path": "水利工程 › 京杭大运河 › 发展时间线：春秋吴王夫差开邗沟→隋炀帝扩建形成以洛阳为中心大运河→元代取直通北京→明清维护完善",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": true
+        },
+        {
+          "id": "humanities-section-2-79",
+          "text": "隋朝：通济渠、永济渠、江南河，整治邗沟；元朝：济州河、会通河、通惠河",
+          "path": "水利工程 › 京杭大运河 › 隋朝：通济渠、永济渠、江南河，整治邗沟；元朝：济州河、会通河、通惠河",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-80",
+          "text": "自北向南七段：通惠河→北运河→南运河→鲁运河→中运河→里运河→江南运河",
+          "path": "水利工程 › 京杭大运河 › 自北向南七段：通惠河→北运河→南运河→鲁运河→中运河→里运河→江南运河",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": true
+        },
+        {
+          "id": "humanities-section-2-81",
+          "text": "沿线城市：北京、天津、德州、聊城、济宁、徐州、淮安、扬州、镇江、南京、常州、无锡、苏州、嘉兴、杭州",
+          "path": "水利工程 › 京杭大运河 › 沿线城市：北京、天津、德州、聊城、济宁、徐州、淮安、扬州、镇江、南京、常州、无锡、苏州、嘉兴、杭州",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-82",
+          "text": "四大水利工程补充",
+          "path": "水利工程 › 四大水利工程补充",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-83",
+          "text": "郑国渠：战国韩国水工郑国主持修建，是大型引水灌溉工程",
+          "path": "水利工程 › 四大水利工程补充 › 郑国渠：战国韩国水工郑国主持修建，是大型引水灌溉工程",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-84",
+          "text": "灵渠：秦朝修建，沟通湘江与漓江，连接长江、珠江两大水系",
+          "path": "水利工程 › 四大水利工程补充 › 灵渠：秦朝修建，沟通湘江与漓江，连接长江、珠江两大水系",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-85",
+          "text": "都江堰：战国秦蜀郡太守李冰父子主持修建；“深淘滩，低作堰”体现其治水理念",
+          "path": "水利工程 › 四大水利工程补充 › 都江堰：战国秦蜀郡太守李冰父子主持修建；“深淘滩，低作堰”体现其治水理念",
+          "moduleId": "water",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-86",
+          "text": "早期选官",
+          "path": "古代选官制度 › 早期选官",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-87",
+          "text": "先秦世卿世禄制：贵族世代承袭爵位；春秋军功爵制，战功授爵",
+          "path": "古代选官制度 › 早期选官 › 先秦世卿世禄制：贵族世代承袭爵位；春秋军功爵制，战功授爵",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-88",
+          "text": "秦国：商鞅变法废除世卿世禄制，以军功爵制取代",
+          "path": "古代选官制度 › 早期选官 › 秦国：商鞅变法废除世卿世禄制，以军功爵制取代",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-89",
+          "text": "察举制与九品中正制",
+          "path": "古代选官制度 › 察举制与九品中正制",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-90",
+          "text": "汉朝察举制：地方长官考察推荐人才，察廉、茂才（秀才）、光禄四行、明经；自下而上",
+          "path": "古代选官制度 › 察举制与九品中正制 › 汉朝察举制：地方长官考察推荐人才，察廉、茂才（秀才）、光禄四行、明经；自下而上",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-91",
+          "text": "征辟制：皇帝直接征召人才；官府征召人才为“辟”",
+          "path": "古代选官制度 › 察举制与九品中正制 › 征辟制：皇帝直接征召人才；官府征召人才为“辟”",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-92",
+          "text": "魏晋南北朝九品中正制：中正官评定品级，选拔核心标准为门第、出身；上品无寒门，下品无士族",
+          "path": "古代选官制度 › 察举制与九品中正制 › 魏晋南北朝九品中正制：中正官评定品级，选拔核心标准为门第、出身；上品无寒门，下品无士族",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-93",
+          "text": "科举制发展",
+          "path": "古代选官制度 › 科举制发展",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-94",
+          "text": "隋文帝废除九品中正制，隋炀帝设进士科，科举制正式诞生",
+          "path": "古代选官制度 › 科举制发展 › 隋文帝废除九品中正制，隋炀帝设进士科，科举制正式诞生",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-95",
+          "text": "唐朝：分明经、制科；武则天首创殿试、武举；宋朝殿试成为定制并推行糊名、誉录防作弊",
+          "path": "古代选官制度 › 科举制发展 › 唐朝：分明经、制科；武则天首创殿试、武举；宋朝殿试成为定制并推行糊名、誉录防作弊",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-96",
+          "text": "明清八股取士；八股结构为破题、承题、起讲、入题、起股、中股、后股、束股；清1905年废除科举",
+          "path": "古代选官制度 › 科举制发展 › 明清八股取士；八股结构为破题、承题、起讲、入题、起股、中股、后股、束股；清1905年废除科举",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-97",
+          "text": "科举四级流程",
+          "path": "古代选官制度 › 科举四级流程",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-98",
+          "text": "院试（童生试）：县府，考中生员/秀才",
+          "path": "古代选官制度 › 科举四级流程 › 院试（童生试）：县府，考中生员/秀才",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-99",
+          "text": "乡试：省城，考中举人，第一名称解元",
+          "path": "古代选官制度 › 科举四级流程 › 乡试：省城，考中举人，第一名称解元",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-100",
+          "text": "会试：京城，考中贡士，第一名称会元",
+          "path": "古代选官制度 › 科举四级流程 › 会试：京城，考中贡士，第一名称会元",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        },
+        {
+          "id": "humanities-section-2-101",
+          "text": "殿试：皇宫，考中进士，第一名称状元；一甲赐进士及第，状元、榜眼、探花为三鼎甲",
+          "path": "古代选官制度 › 科举四级流程 › 殿试：皇宫，考中进士，第一名称状元；一甲赐进士及第，状元、榜眼、探花为三鼎甲",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": true
+        },
+        {
+          "id": "humanities-section-2-102",
+          "text": "连中三元：解元、会元、状元；相关典故：金榜题名、蟾宫折桂、独占鳌头、五子登科、名落孙山",
+          "path": "古代选官制度 › 科举四级流程 › 连中三元：解元、会元、状元；相关典故：金榜题名、蟾宫折桂、独占鳌头、五子登科、名落孙山",
+          "moduleId": "selection",
+          "mapId": "humanities-section-2",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "humanities-section-3",
+      "title": "人文常识：文字、书画与戏曲",
+      "subtitle": "汉字演变、书法、绘画、中国十大名画与戏曲",
+      "path": "../常识思维导图/人文常识_第三节_学习增强版.html",
+      "icon": "艺",
+      "color": "#76539f",
+      "key": "const seed=",
+      "order": 9,
+      "nodes": [
+        {
+          "id": "humanities-section-3-0",
+          "text": "文字演变主线",
+          "path": "文字 › 文字演变主线",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-1",
+          "text": "甲骨文→金文→篆文→隶书→草书、楷书、行书",
+          "path": "文字 › 文字演变主线 › 甲骨文→金文→篆文→隶书→草书、楷书、行书",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": true
+        },
+        {
+          "id": "humanities-section-3-2",
+          "text": "甲骨文：商代，刻在龟甲兽骨上，也称卜辞；中国最早成体系文字，出土于殷墟；发现者王懿荣",
+          "path": "文字 › 文字演变主线 › 甲骨文：商代，刻在龟甲兽骨上，也称卜辞；中国最早成体系文字，出土于殷墟；发现者王懿荣",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-3",
+          "text": "金文：商周青铜器铭文，又称钟鼎文；线条粗壮、字形浑厚；利簋记载武王伐纣，何尊有最早“中国”二字铭文",
+          "path": "文字 › 文字演变主线 › 金文：商周青铜器铭文，又称钟鼎文；线条粗壮、字形浑厚；利簋记载武王伐纣，何尊有最早“中国”二字铭文",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-4",
+          "text": "大篆：西周通行，含金文、籀文、石鼓文；石鼓文为最早刻石文字，被称石刻之祖",
+          "path": "文字 › 文字演变主线 › 大篆：西周通行，含金文、籀文、石鼓文；石鼓文为最早刻石文字，被称石刻之祖",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-5",
+          "text": "小篆：秦朝李斯、赵高等创制；秦始皇“书同文”，中国第一次以政府力量规范统一文字；上紧下松、匀称",
+          "path": "文字 › 文字演变主线 › 小篆：秦朝李斯、赵高等创制；秦始皇“书同文”，中国第一次以政府力量规范统一文字；上紧下松、匀称",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-6",
+          "text": "隶书：始创于秦、通行汉；由篆书发展而来，蚕头燕尾、一波三折，是古今汉字分水岭",
+          "path": "文字 › 文字演变主线 › 隶书：始创于秦、通行汉；由篆书发展而来，蚕头燕尾、一波三折，是古今汉字分水岭",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": true
+        },
+        {
+          "id": "humanities-section-3-7",
+          "text": "草书：形成于汉代，章草为早期；楷书始于汉末，形体方正；行书介于楷书和草书之间，晋代发展至高峰",
+          "path": "文字 › 文字演变主线 › 草书：形成于汉代，章草为早期；楷书始于汉末，形体方正；行书介于楷书和草书之间，晋代发展至高峰",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-8",
+          "text": "书体与代表书家",
+          "path": "文字 › 书体与代表书家",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-9",
+          "text": "草书三绝：张芝（草书之祖）、张旭（草圣）、怀素（草书三绝）",
+          "path": "文字 › 书体与代表书家 › 草书三绝：张芝（草书之祖）、张旭（草圣）、怀素（草书三绝）",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-10",
+          "text": "楷书四大家：欧阳询（欧体）、颜真卿（颜体）、柳公权（柳体）、赵孟頫（赵体)",
+          "path": "文字 › 书体与代表书家 › 楷书四大家：欧阳询（欧体）、颜真卿（颜体）、柳公权（柳体）、赵孟頫（赵体)",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-11",
+          "text": "“颜筋柳骨”指颜真卿、柳公权的书法风格",
+          "path": "文字 › 书体与代表书家 › “颜筋柳骨”指颜真卿、柳公权的书法风格",
+          "moduleId": "characters",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-12",
+          "text": "两汉与东晋",
+          "path": "书法 › 两汉与东晋",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-13",
+          "text": "蔡邕：蔡文姬之父，创飞白体；《熹平石经》",
+          "path": "书法 › 两汉与东晋 › 蔡邕：蔡文姬之父，创飞白体；《熹平石经》",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-14",
+          "text": "张芝：草书之祖，独创今草，草圣先驱；钟繇：楷书之祖，开始把隶书转化为楷书",
+          "path": "书法 › 两汉与东晋 › 张芝：草书之祖，独创今草，草圣先驱；钟繇：楷书之祖，开始把隶书转化为楷书",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-15",
+          "text": "王羲之：东晋书圣；代表《兰亭集序》，被誉“天下第一行书”；曲水流觞、入木三分、东床快婿、书成换鹅",
+          "path": "书法 › 两汉与东晋 › 王羲之：东晋书圣；代表《兰亭集序》，被誉“天下第一行书”；曲水流觞、入木三分、东床快婿、书成换鹅",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": true
+        },
+        {
+          "id": "humanities-section-3-16",
+          "text": "王献之：王羲之第七子；《中秋帖》；与父并称“二王”",
+          "path": "书法 › 两汉与东晋 › 王献之：王羲之第七子；《中秋帖》；与父并称“二王”",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-17",
+          "text": "唐代书法",
+          "path": "书法 › 唐代书法",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-18",
+          "text": "初唐四大家：欧阳询、虞世南、褚遂良、薛稷",
+          "path": "书法 › 唐代书法 › 初唐四大家：欧阳询、虞世南、褚遂良、薛稷",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-19",
+          "text": "张旭、怀素：草书双璧；张旭与李白诗歌、裴旻剑舞并称“三绝”",
+          "path": "书法 › 唐代书法 › 张旭、怀素：草书双璧；张旭与李白诗歌、裴旻剑舞并称“三绝”",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-20",
+          "text": "颜真卿：开创“颜体”，《祭侄文稿》为天下第二行书",
+          "path": "书法 › 唐代书法 › 颜真卿：开创“颜体”，《祭侄文稿》为天下第二行书",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-21",
+          "text": "柳公权：柳体；《玄秘塔碑》《神策军碑》；“心正则笔正”",
+          "path": "书法 › 唐代书法 › 柳公权：柳体；《玄秘塔碑》《神策军碑》；“心正则笔正”",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-22",
+          "text": "欧阳询：欧体，《九成宫醴泉铭》；《张翰帖》",
+          "path": "书法 › 唐代书法 › 欧阳询：欧体，《九成宫醴泉铭》；《张翰帖》",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-23",
+          "text": "宋元明清书法与名帖",
+          "path": "书法 › 宋元明清书法与名帖",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-24",
+          "text": "宋四家：苏轼、黄庭坚、米芾、蔡襄；苏轼《黄州寒食帖》为天下第三行书",
+          "path": "书法 › 宋元明清书法与名帖 › 宋四家：苏轼、黄庭坚、米芾、蔡襄；苏轼《黄州寒食帖》为天下第三行书",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-25",
+          "text": "赵孟頫：元代楷书四大家之一",
+          "path": "书法 › 宋元明清书法与名帖 › 赵孟頫：元代楷书四大家之一",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-26",
+          "text": "天下第一楷书《九成宫醴泉铭》；天下四大行书：兰亭集序、祭侄文稿、寒食帖、伯远帖",
+          "path": "书法 › 宋元明清书法与名帖 › 天下第一楷书《九成宫醴泉铭》；天下四大行书：兰亭集序、祭侄文稿、寒食帖、伯远帖",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-27",
+          "text": "三希堂法帖：乾隆收《快雪时晴帖》《中秋帖》《伯远帖》",
+          "path": "书法 › 宋元明清书法与名帖 › 三希堂法帖：乾隆收《快雪时晴帖》《中秋帖》《伯远帖》",
+          "moduleId": "calligraphy",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-28",
+          "text": "东晋、北齐与唐代",
+          "path": "绘画 › 东晋、北齐与唐代",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-29",
+          "text": "顾恺之：被称“画祖”；提出“以形写神”；代表《洛神赋图》《女史箴图》；六朝四大家之一",
+          "path": "绘画 › 东晋、北齐与唐代 › 顾恺之：被称“画祖”；提出“以形写神”；代表《洛神赋图》《女史箴图》；六朝四大家之一",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-30",
+          "text": "展子虔《游春图》为现存最早独立山水画，中国存世最古老山水画",
+          "path": "绘画 › 东晋、北齐与唐代 › 展子虔《游春图》为现存最早独立山水画，中国存世最古老山水画",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-31",
+          "text": "阎立本《步辇图》《历代帝王图》；吴道子画圣，“吴带当风”",
+          "path": "绘画 › 东晋、北齐与唐代 › 阎立本《步辇图》《历代帝王图》；吴道子画圣，“吴带当风”",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-32",
+          "text": "唐代张萱、周昉：仕女画代表；《簪花仕女图》为全世界唯一认定的唐代仕女画传世孤本",
+          "path": "绘画 › 东晋、北齐与唐代 › 唐代张萱、周昉：仕女画代表；《簪花仕女图》为全世界唯一认定的唐代仕女画传世孤本",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-33",
+          "text": "韩滉《五牛图》为现存最早纸质画",
+          "path": "绘画 › 东晋、北齐与唐代 › 韩滉《五牛图》为现存最早纸质画",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-34",
+          "text": "五代宋元明清",
+          "path": "绘画 › 五代宋元明清",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-35",
+          "text": "五代顾闳中《韩熙载夜宴图》",
+          "path": "绘画 › 五代宋元明清 › 五代顾闳中《韩熙载夜宴图》",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-36",
+          "text": "北宋张择端《清明上河图》描绘东京汴京，最杰出风俗画；王希孟《千里江山图》",
+          "path": "绘画 › 五代宋元明清 › 北宋张择端《清明上河图》描绘东京汴京，最杰出风俗画；王希孟《千里江山图》",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-37",
+          "text": "北宋米芾开创山水画米点山水；南宋李唐、马远、夏圭",
+          "path": "绘画 › 五代宋元明清 › 北宋米芾开创山水画米点山水；南宋李唐、马远、夏圭",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-38",
+          "text": "元四家：黄公望、王蒙、吴镇、倪瓒；黄公望《富春山居图》被誉“画中之兰亭”",
+          "path": "绘画 › 五代宋元明清 › 元四家：黄公望、王蒙、吴镇、倪瓒；黄公望《富春山居图》被誉“画中之兰亭”",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-39",
+          "text": "明四家：沈周、文徵明、唐寅、仇英；清代郑燮《兰竹石图》",
+          "path": "绘画 › 五代宋元明清 › 明四家：沈周、文徵明、唐寅、仇英；清代郑燮《兰竹石图》",
+          "moduleId": "painting",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-40",
+          "text": "东晋至唐代",
+          "path": "中国十大名画 › 东晋至唐代",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-41",
+          "text": "《洛神赋图》：顾恺之，东晋；中国绘画始祖，绢本，辽宁博物馆等收藏",
+          "path": "中国十大名画 › 东晋至唐代 › 《洛神赋图》：顾恺之，东晋；中国绘画始祖，绢本，辽宁博物馆等收藏",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-42",
+          "text": "《步辇图》：阎立本，唐；描绘松赞干布迎娶文成公主",
+          "path": "中国十大名画 › 东晋至唐代 › 《步辇图》：阎立本，唐；描绘松赞干布迎娶文成公主",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-43",
+          "text": "《唐宫仕女图》：张萱、周昉，唐；整套画作由五幅画组成",
+          "path": "中国十大名画 › 东晋至唐代 › 《唐宫仕女图》：张萱、周昉，唐；整套画作由五幅画组成",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-44",
+          "text": "《五牛图》：韩滉，唐；现存最早纸本画",
+          "path": "中国十大名画 › 东晋至唐代 › 《五牛图》：韩滉，唐；现存最早纸本画",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-45",
+          "text": "五代至北宋",
+          "path": "中国十大名画 › 五代至北宋",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-46",
+          "text": "《韩熙载夜宴图》：顾闳中，五代；全画分五段：琵琶演奏、观舞、宴间休息、清吹、送客",
+          "path": "中国十大名画 › 五代至北宋 › 《韩熙载夜宴图》：顾闳中，五代；全画分五段：琵琶演奏、观舞、宴间休息、清吹、送客",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-47",
+          "text": "《千里江山图》：王希孟，北宋；主要取景庐山和鄱阳湖",
+          "path": "中国十大名画 › 五代至北宋 › 《千里江山图》：王希孟，北宋；主要取景庐山和鄱阳湖",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-48",
+          "text": "《清明上河图》：张择端，北宋；描绘北宋都城东京汴京社会生活",
+          "path": "中国十大名画 › 五代至北宋 › 《清明上河图》：张择端，北宋；描绘北宋都城东京汴京社会生活",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-49",
+          "text": "元明清",
+          "path": "中国十大名画 › 元明清",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-50",
+          "text": "《富春山居图》：黄公望，元；被火烧分两段，剩山图在浙博、无用师卷在台北故宫",
+          "path": "中国十大名画 › 元明清 › 《富春山居图》：黄公望，元；被火烧分两段，剩山图在浙博、无用师卷在台北故宫",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-51",
+          "text": "《汉宫春晓图》：仇英，明；中国“重彩仕女第一长卷”",
+          "path": "中国十大名画 › 元明清 › 《汉宫春晓图》：仇英，明；中国“重彩仕女第一长卷”",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-52",
+          "text": "《百骏图》：郎世宁，清；意大利籍，纸质稿本与绢本绘画两种版本",
+          "path": "中国十大名画 › 元明清 › 《百骏图》：郎世宁，清；意大利籍，纸质稿本与绢本绘画两种版本",
+          "moduleId": "top-ten",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-53",
+          "text": "昆曲",
+          "path": "戏曲：昆曲与京剧 › 昆曲",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-54",
+          "text": "原名“昆山腔”，中国古老戏曲声腔；被称为“百戏之祖、百戏之师”",
+          "path": "戏曲：昆曲与京剧 › 昆曲 › 原名“昆山腔”，中国古老戏曲声腔；被称为“百戏之祖、百戏之师”",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-55",
+          "text": "汤显祖“临川四梦”：《牡丹亭》《紫钗记》《邯郸记》《南柯记》",
+          "path": "戏曲：昆曲与京剧 › 昆曲 › 汤显祖“临川四梦”：《牡丹亭》《紫钗记》《邯郸记》《南柯记》",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-56",
+          "text": "四大名剧：元王实甫《西厢记》、明汤显祖《牡丹亭》、清洪昇《长生殿》、清孔尚任《桃花扇》",
+          "path": "戏曲：昆曲与京剧 › 昆曲 › 四大名剧：元王实甫《西厢记》、明汤显祖《牡丹亭》、清洪昇《长生殿》、清孔尚任《桃花扇》",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-57",
+          "text": "京剧概况与表演",
+          "path": "戏曲：昆曲与京剧 › 京剧概况与表演",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-58",
+          "text": "又称平剧、京戏、皮黄；国粹、五大戏曲剧种之首；2010年列入人类非遗",
+          "path": "戏曲：昆曲与京剧 › 京剧概况与表演 › 又称平剧、京戏、皮黄；国粹、五大戏曲剧种之首；2010年列入人类非遗",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-59",
+          "text": "唱念做打：唱为唱腔、念为念白、做为表演身段、打为武打",
+          "path": "戏曲：昆曲与京剧 › 京剧概况与表演 › 唱念做打：唱为唱腔、念为念白、做为表演身段、打为武打",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-60",
+          "text": "四大行当：生、旦、净、丑；生有老生武生小生，旦有青衣花旦老旦，净为花脸，丑为小花脸",
+          "path": "戏曲：昆曲与京剧 › 京剧概况与表演 › 四大行当：生、旦、净、丑；生有老生武生小生，旦有青衣花旦老旦，净为花脸，丑为小花脸",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-61",
+          "text": "京剧脸谱",
+          "path": "戏曲：昆曲与京剧 › 京剧脸谱",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-62",
+          "text": "红色：忠勇侠义，如关羽、赵匡胤、黄盖、姜维",
+          "path": "戏曲：昆曲与京剧 › 京剧脸谱 › 红色：忠勇侠义，如关羽、赵匡胤、黄盖、姜维",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-63",
+          "text": "黑色：刚直不阿、勇猛，如包拯、张飞、李逵",
+          "path": "戏曲：昆曲与京剧 › 京剧脸谱 › 黑色：刚直不阿、勇猛，如包拯、张飞、李逵",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-64",
+          "text": "白色：阴险狡诈，如曹操、董卓、赵高、司马懿",
+          "path": "戏曲：昆曲与京剧 › 京剧脸谱 › 白色：阴险狡诈，如曹操、董卓、赵高、司马懿",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-65",
+          "text": "蓝色：刚强、骁勇、反抗精神；黄色：凶猛残暴；紫色：刚正稳重；金银色：神秘威武；绿色：顽强暴躁",
+          "path": "戏曲：昆曲与京剧 › 京剧脸谱 › 蓝色：刚强、骁勇、反抗精神；黄色：凶猛残暴；紫色：刚正稳重；金银色：神秘威武；绿色：顽强暴躁",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": true
+        },
+        {
+          "id": "humanities-section-3-66",
+          "text": "京剧代表剧目",
+          "path": "戏曲：昆曲与京剧 › 京剧代表剧目",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-67",
+          "text": "《贵妃醉酒》《霸王别姬》《长坂坡》《打渔杀家》《锁麟囊》",
+          "path": "戏曲：昆曲与京剧 › 京剧代表剧目 › 《贵妃醉酒》《霸王别姬》《长坂坡》《打渔杀家》《锁麟囊》",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-68",
+          "text": "三国戏：《群英会》《借东风》《定军山》《空城计》；《定军山》是中国第一部故事片",
+          "path": "戏曲：昆曲与京剧 › 京剧代表剧目 › 三国戏：《群英会》《借东风》《定军山》《空城计》；《定军山》是中国第一部故事片",
+          "moduleId": "opera1",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-69",
+          "text": "中国五大剧种",
+          "path": "地方戏曲 › 中国五大剧种",
+          "moduleId": "opera2",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-70",
+          "text": "京剧、越剧、黄梅戏、豫剧、评剧",
+          "path": "地方戏曲 › 中国五大剧种 › 京剧、越剧、黄梅戏、豫剧、评剧",
+          "moduleId": "opera2",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-71",
+          "text": "代表地方剧种",
+          "path": "地方戏曲 › 代表地方剧种",
+          "moduleId": "opera2",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-72",
+          "text": "越剧：起源浙江上海，女子之戏、中国歌剧；代表《梁山伯与祝英台》《红楼梦》《西厢记》",
+          "path": "地方戏曲 › 代表地方剧种 › 越剧：起源浙江上海，女子之戏、中国歌剧；代表《梁山伯与祝英台》《红楼梦》《西厢记》",
+          "moduleId": "opera2",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-73",
+          "text": "黄梅戏：起源湖北黄梅，流传安徽；代表《天仙配》《女驸马》《牛郎织女》",
+          "path": "地方戏曲 › 代表地方剧种 › 黄梅戏：起源湖北黄梅，流传安徽；代表《天仙配》《女驸马》《牛郎织女》",
+          "moduleId": "opera2",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-74",
+          "text": "豫剧：原称河南梆子，河南地方大戏；代表《花木兰》《穆桂英挂帅》《朝阳沟》",
+          "path": "地方戏曲 › 代表地方剧种 › 豫剧：原称河南梆子，河南地方大戏；代表《花木兰》《穆桂英挂帅》《朝阳沟》",
+          "moduleId": "opera2",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-75",
+          "text": "评剧：起源河北，民生、底层女性；代表《花为媒》《杨三姐告状》《秦香莲》",
+          "path": "地方戏曲 › 代表地方剧种 › 评剧：起源河北，民生、底层女性；代表《花为媒》《杨三姐告状》《秦香莲》",
+          "moduleId": "opera2",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-76",
+          "text": "粤剧：广东大戏；代表《帝女花》《苏武牧羊》《紫钗记》",
+          "path": "地方戏曲 › 代表地方剧种 › 粤剧：广东大戏；代表《帝女花》《苏武牧羊》《紫钗记》",
+          "moduleId": "opera2",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-77",
+          "text": "秦腔：陕西梆子，元明流行关中；代表《春秋笔》《八义图》《秦腔宫》《和氏璧》",
+          "path": "地方戏曲 › 代表地方剧种 › 秦腔：陕西梆子，元明流行关中；代表《春秋笔》《八义图》《秦腔宫》《和氏璧》",
+          "moduleId": "opera2",
+          "mapId": "humanities-section-3",
+          "important": false
+        },
+        {
+          "id": "humanities-section-3-78",
+          "text": "二人转：东北曲艺，载歌载舞；代表《大西厢》《回杯记》",
+          "path": "地方戏曲 › 代表地方剧种 › 二人转：东北曲艺，载歌载舞；代表《大西厢》《回杯记》",
+          "moduleId": "opera2",
+          "mapId": "humanities-section-3",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "humanities-section-4",
+      "title": "人文常识：文化遗址与文物",
+      "subtitle": "史前文明、考古遗址、青铜文化与重要文物",
+      "path": "../常识思维导图/人文常识_第四节_学习增强版.html",
+      "icon": "遗",
+      "color": "#8a5a36",
+      "key": "const seed=",
+      "order": 10,
+      "nodes": [
+        {
+          "id": "humanities-section-4-0",
+          "text": "元谋人",
+          "path": "旧石器时代遗址 › 元谋人",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-1",
+          "text": "云南省元谋县；使用打制石器；会使用天然火；人类发现最早的四颗牙齿、能猎取食物",
+          "path": "旧石器时代遗址 › 元谋人 › 云南省元谋县；使用打制石器；会使用天然火；人类发现最早的四颗牙齿、能猎取食物",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-2",
+          "text": "蓝田人",
+          "path": "旧石器时代遗址 › 蓝田人",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-3",
+          "text": "陕西省蓝田县，黄河流域早期直立人代表；使用打制石器；能使用天然火，体质特征保留较多原始直立人特点",
+          "path": "旧石器时代遗址 › 蓝田人 › 陕西省蓝田县，黄河流域早期直立人代表；使用打制石器；能使用天然火，体质特征保留较多原始直立人特点",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-4",
+          "text": "周口店北京人",
+          "path": "旧石器时代遗址 › 周口店北京人",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-5",
+          "text": "北京周口店龙骨山；使用标准化打制石器、石器种类丰富",
+          "path": "旧石器时代遗址 › 周口店北京人 › 北京周口店龙骨山；使用标准化打制石器、石器种类丰富",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-6",
+          "text": "长期定居洞穴，能长时间保存火种、实现火的持续利用；依靠采集、狩猎为生",
+          "path": "旧石器时代遗址 › 周口店北京人 › 长期定居洞穴，能长时间保存火种、实现火的持续利用；依靠采集、狩猎为生",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-7",
+          "text": "山顶洞人",
+          "path": "旧石器时代遗址 › 山顶洞人",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-8",
+          "text": "晚期智人，生产以打制石器为主，磨制骨针、标志原始缝纫工艺诞生",
+          "path": "旧石器时代遗址 › 山顶洞人 › 晚期智人，生产以打制石器为主，磨制骨针、标志原始缝纫工艺诞生",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": true
+        },
+        {
+          "id": "humanities-section-4-9",
+          "text": "掌握人工取火；用骨针缝制兽皮衣物，制作石珠、贝壳等饰品；有规范埋葬习俗，出现血缘氏族萌芽",
+          "path": "旧石器时代遗址 › 山顶洞人 › 掌握人工取火；用骨针缝制兽皮衣物，制作石珠、贝壳等饰品；有规范埋葬习俗，出现血缘氏族萌芽",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-10",
+          "text": "旧石器时代核心对照",
+          "path": "旧石器时代遗址 › 旧石器时代核心对照",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-11",
+          "text": "元谋人、蓝田人、北京人均会使用天然火；山顶洞人已掌握人工取火",
+          "path": "旧石器时代遗址 › 旧石器时代核心对照 › 元谋人、蓝田人、北京人均会使用天然火；山顶洞人已掌握人工取火",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-12",
+          "text": "只有山顶洞人出现装饰品、规范墓葬和原始缝纫技术，社会组织进入母系氏族萌芽阶段",
+          "path": "旧石器时代遗址 › 旧石器时代核心对照 › 只有山顶洞人出现装饰品、规范墓葬和原始缝纫技术，社会组织进入母系氏族萌芽阶段",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-13",
+          "text": "北京人长期居住洞穴并保存火种；山顶洞人以打制石器为主，磨制骨针",
+          "path": "旧石器时代遗址 › 旧石器时代核心对照 › 北京人长期居住洞穴并保存火种；山顶洞人以打制石器为主，磨制骨针",
+          "moduleId": "paleolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-14",
+          "text": "河姆渡遗址",
+          "path": "新石器时代文化 › 河姆渡遗址",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-15",
+          "text": "长江流域，浙江宁波余姚；南方农耕文明标杆",
+          "path": "新石器时代文化 › 河姆渡遗址 › 长江流域，浙江宁波余姚；南方农耕文明标杆",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-16",
+          "text": "骨耜农具配合磨制石器；饲养猪狗水牛；修建干栏式房屋，底层架空防潮",
+          "path": "新石器时代文化 › 河姆渡遗址 › 骨耜农具配合磨制石器；饲养猪狗水牛；修建干栏式房屋，底层架空防潮",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-17",
+          "text": "黄河流域与北方新石器文化",
+          "path": "新石器时代文化 › 黄河流域与北方新石器文化",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-18",
+          "text": "仰韶遗址：黄河流域，母系氏族巅峰；粟与石斧石铲，彩陶人面鱼纹盆；半地穴式房屋",
+          "path": "新石器时代文化 › 黄河流域与北方新石器文化 › 仰韶遗址：黄河流域，母系氏族巅峰；粟与石斧石铲，彩陶人面鱼纹盆；半地穴式房屋",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-19",
+          "text": "红山遗址：西辽河流域，早期父系萌芽；农业渔猎，细石器与玉器；玉猪龙、女神庙遗存",
+          "path": "新石器时代文化 › 黄河流域与北方新石器文化 › 红山遗址：西辽河流域，早期父系萌芽；农业渔猎，细石器与玉器；玉猪龙、女神庙遗存",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-20",
+          "text": "龙山遗址：黄河流域，成熟父系社会；原始农业高度发达，蛋壳黑陶为标志性器物，早期铜器出现",
+          "path": "新石器时代文化 › 黄河流域与北方新石器文化 › 龙山遗址：黄河流域，成熟父系社会；原始农业高度发达，蛋壳黑陶为标志性器物，早期铜器出现",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-21",
+          "text": "大汶口遗址：黄河下游、山东泰安；农耕与手工业分工细化，私有制产生，母系氏族向父系氏族过渡",
+          "path": "新石器时代文化 › 黄河流域与北方新石器文化 › 大汶口遗址：黄河下游、山东泰安；农耕与手工业分工细化，私有制产生，母系氏族向父系氏族过渡",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-22",
+          "text": "龙山遗址补充：山东章丘，又称黑陶文化；蛋壳黑陶为标志性器物，父系社会与社会分层明显",
+          "path": "新石器时代文化 › 黄河流域与北方新石器文化 › 龙山遗址补充：山东章丘，又称黑陶文化；蛋壳黑陶为标志性器物，父系社会与社会分层明显",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-23",
+          "text": "良渚遗址",
+          "path": "新石器时代文化 › 良渚遗址",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-24",
+          "text": "长江流域浙江杭州余杭，成熟国家文明，世界文化遗产",
+          "path": "新石器时代文化 › 良渚遗址 › 长江流域浙江杭州余杭，成熟国家文明，世界文化遗产",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-25",
+          "text": "稻作农业体系高度发达，配套完整水利灌溉系统；玉琮、玉璧、玉钺；修建古城、水坝水利，城市格局完整",
+          "path": "新石器时代文化 › 良渚遗址 › 稻作农业体系高度发达，配套完整水利灌溉系统；玉琮、玉璧、玉钺；修建古城、水坝水利，城市格局完整",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": true
+        },
+        {
+          "id": "humanities-section-4-26",
+          "text": "新石器时代农业核心考点：河姆渡与良渚种水稻；仰韶、龙山等种粟；半地穴式房屋多见北方，干栏式房屋多见南方",
+          "path": "新石器时代文化 › 良渚遗址 › 新石器时代农业核心考点：河姆渡与良渚种水稻；仰韶、龙山等种粟；半地穴式房屋多见北方，干栏式房屋多见南方",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-27",
+          "text": "新石器时代对照",
+          "path": "新石器时代文化 › 新石器时代对照",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-28",
+          "text": "农作物：河姆渡、良渚位于长江流域，以水稻为主；仰韶、大汶口、龙山位于黄河流域，以粟、黍为主",
+          "path": "新石器时代文化 › 新石器时代对照 › 农作物：河姆渡、良渚位于长江流域，以水稻为主；仰韶、大汶口、龙山位于黄河流域，以粟、黍为主",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-29",
+          "text": "房屋：南方潮湿多干栏式房屋（河姆渡）；北方寒冷干燥多半地穴式房屋（仰韶）",
+          "path": "新石器时代文化 › 新石器时代对照 › 房屋：南方潮湿多干栏式房屋（河姆渡）；北方寒冷干燥多半地穴式房屋（仰韶）",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-30",
+          "text": "陶器：仰韶彩陶、河姆渡夹炭黑陶、龙山蛋壳黑陶",
+          "path": "新石器时代文化 › 新石器时代对照 › 陶器：仰韶彩陶、河姆渡夹炭黑陶、龙山蛋壳黑陶",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-31",
+          "text": "礼制玉器：红山玉猪龙；良渚玉琮、玉璧、玉钺",
+          "path": "新石器时代文化 › 新石器时代对照 › 礼制玉器：红山玉猪龙；良渚玉琮、玉璧、玉钺",
+          "moduleId": "neolithic",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-32",
+          "text": "青铜时代与三星堆",
+          "path": "青铜时代与早期文明 › 青铜时代与三星堆",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-33",
+          "text": "三星堆遗址：古蜀文明代表，四川广汉；长江上游规模最大青铜文明遗址",
+          "path": "青铜时代与早期文明 › 青铜时代与三星堆 › 三星堆遗址：古蜀文明代表，四川广汉；长江上游规模最大青铜文明遗址",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-34",
+          "text": "青铜冶炼、铸造工艺水准越过同时中原；金器加工成熟；与中原夏商文明存在文化交流",
+          "path": "青铜时代与早期文明 › 青铜时代与三星堆 › 青铜冶炼、铸造工艺水准越过同时中原；金器加工成熟；与中原夏商文明存在文化交流",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-35",
+          "text": "代表文物：青铜神树（国内现存最高青铜文物）、青铜立人像、纵目青铜面具、黄金权杖、象牙祭祀堆",
+          "path": "青铜时代与早期文明 › 青铜时代与三星堆 › 代表文物：青铜神树（国内现存最高青铜文物）、青铜立人像、纵目青铜面具、黄金权杖、象牙祭祀堆",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-36",
+          "text": "重要青铜器",
+          "path": "青铜时代与早期文明 › 重要青铜器",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-37",
+          "text": "后母戊鼎（司母戊鼎）：商代晚期，重832.84千克，世界现存最重青铜器，禁止出境文物",
+          "path": "青铜时代与早期文明 › 重要青铜器 › 后母戊鼎（司母戊鼎）：商代晚期，重832.84千克，世界现存最重青铜器，禁止出境文物",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-38",
+          "text": "四羊方尊：商代晚期，青铜铸造工艺巅峰，湖南宁乡出土",
+          "path": "青铜时代与早期文明 › 重要青铜器 › 四羊方尊：商代晚期，青铜铸造工艺巅峰，湖南宁乡出土",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-39",
+          "text": "大盂鼎：西周早期，内壁铭291字，史料价值极高",
+          "path": "青铜时代与早期文明 › 重要青铜器 › 大盂鼎：西周早期，内壁铭291字，史料价值极高",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-40",
+          "text": "利簋：武王伐商簋，西周第一青铜器，铭文记载武王伐纣",
+          "path": "青铜时代与早期文明 › 重要青铜器 › 利簋：武王伐商簋，西周第一青铜器，铭文记载武王伐纣",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-41",
+          "text": "曾侯乙编钟：65件青铜编钟，音域跨五个半八度；现存规模最大、音律最全、保存最完整编钟",
+          "path": "青铜时代与早期文明 › 重要青铜器 › 曾侯乙编钟：65件青铜编钟，音域跨五个半八度；现存规模最大、音律最全、保存最完整编钟",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-42",
+          "text": "青铜器补充考点",
+          "path": "青铜时代与早期文明 › 青铜器补充考点",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-43",
+          "text": "后母戊鼎：商代晚期，河南安阳殷墟出土，重832.84千克，为商代青铜铸造高水平代表",
+          "path": "青铜时代与早期文明 › 青铜器补充考点 › 后母戊鼎：商代晚期，河南安阳殷墟出土，重832.84千克，为商代青铜铸造高水平代表",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-44",
+          "text": "四羊方尊：商代晚期、湖南宁乡出土，分铸焊接后一体成型，为青铜方尊代表",
+          "path": "青铜时代与早期文明 › 青铜器补充考点 › 四羊方尊：商代晚期、湖南宁乡出土，分铸焊接后一体成型，为青铜方尊代表",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-45",
+          "text": "大盂鼎：西周早期，内壁铸291字铭文；与大克鼎、毛公鼎并称“海内三宝”",
+          "path": "青铜时代与早期文明 › 青铜器补充考点 › 大盂鼎：西周早期，内壁铸291字铭文；与大克鼎、毛公鼎并称“海内三宝”",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-46",
+          "text": "利簋：西周早期，陕西临潼出土；铭文记载武王伐纣，是直接印证牧野之战的重要文物",
+          "path": "青铜时代与早期文明 › 青铜器补充考点 › 利簋：西周早期，陕西临潼出土；铭文记载武王伐纣，是直接印证牧野之战的重要文物",
+          "moduleId": "bronze",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-47",
+          "text": "故宫与国家博物馆",
+          "path": "博物馆与重要文物 › 故宫与国家博物馆",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-48",
+          "text": "故宫博物院：《清明上河图》为北宋张择端风俗长卷；金瓯永固杯为清代皇帝元旦饮酒礼器",
+          "path": "博物馆与重要文物 › 故宫与国家博物馆 › 故宫博物院：《清明上河图》为北宋张择端风俗长卷；金瓯永固杯为清代皇帝元旦饮酒礼器",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-49",
+          "text": "中国国家博物馆：后母戊鼎、四羊方尊、大盂鼎、利簋、明孝端皇后九龙九凤冠等重要馆藏",
+          "path": "博物馆与重要文物 › 故宫与国家博物馆 › 中国国家博物馆：后母戊鼎、四羊方尊、大盂鼎、利簋、明孝端皇后九龙九凤冠等重要馆藏",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-50",
+          "text": "各地代表馆藏",
+          "path": "博物馆与重要文物 › 各地代表馆藏",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-51",
+          "text": "陕西：兵马俑被称世界第八大奇迹；铜车马为秦青铜工艺高水平代表；茂陵马踏匈奴为汉武帝功业象征",
+          "path": "博物馆与重要文物 › 各地代表馆藏 › 陕西：兵马俑被称世界第八大奇迹；铜车马为秦青铜工艺高水平代表；茂陵马踏匈奴为汉武帝功业象征",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-52",
+          "text": "湖北：越王勾践剑，鸟虫书铭文“越王鸠浅，自作用剑”；曾侯乙编钟",
+          "path": "博物馆与重要文物 › 各地代表馆藏 › 湖北：越王勾践剑，鸟虫书铭文“越王鸠浅，自作用剑”；曾侯乙编钟",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-53",
+          "text": "湖南：素纱禅衣为西汉纺织巅峰，马王堆汉墓展现汉代贵族生活",
+          "path": "博物馆与重要文物 › 各地代表馆藏 › 湖南：素纱禅衣为西汉纺织巅峰，马王堆汉墓展现汉代贵族生活",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-54",
+          "text": "上海：汝窑天青釉洗，汝、官、哥、钧、定五大名窑之首",
+          "path": "博物馆与重要文物 › 各地代表馆藏 › 上海：汝窑天青釉洗，汝、官、哥、钧、定五大名窑之首",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-55",
+          "text": "南京：西汉金兽含金量99%；错银铜牛灯环保可调节光亮",
+          "path": "博物馆与重要文物 › 各地代表馆藏 › 南京：西汉金兽含金量99%；错银铜牛灯环保可调节光亮",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-56",
+          "text": "杭州：良渚玉琮王；《富春山居图》前半卷《剩山图》",
+          "path": "博物馆与重要文物 › 各地代表馆藏 › 杭州：良渚玉琮王；《富春山居图》前半卷《剩山图》",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-57",
+          "text": "广汉：青铜神树、纵目面具；成都金沙：太阳神鸟金饰与金面具",
+          "path": "博物馆与重要文物 › 各地代表馆藏 › 广汉：青铜神树、纵目面具；成都金沙：太阳神鸟金饰与金面具",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-58",
+          "text": "其他重点文物",
+          "path": "博物馆与重要文物 › 其他重点文物",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-59",
+          "text": "云南牛虎铜案：战国古滇国青铜器，寓意生死轮回",
+          "path": "博物馆与重要文物 › 其他重点文物 › 云南牛虎铜案：战国古滇国青铜器，寓意生死轮回",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-60",
+          "text": "甘肃铜奔马（马踏飞燕）：东汉，力学平衡完美，中国国家旅游官方标志",
+          "path": "博物馆与重要文物 › 其他重点文物 › 甘肃铜奔马（马踏飞燕）：东汉，力学平衡完美，中国国家旅游官方标志",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-61",
+          "text": "新疆营盘织护膊：汉代织锦，见证丝绸之路民族交融；“五星出东方利中国”锦护膊",
+          "path": "博物馆与重要文物 › 其他重点文物 › 新疆营盘织护膊：汉代织锦，见证丝绸之路民族交融；“五星出东方利中国”锦护膊",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-62",
+          "text": "宁夏：手抄描金《古兰经》、鎏金铜牛，反映回族历史宗教艺术",
+          "path": "博物馆与重要文物 › 其他重点文物 › 宁夏：手抄描金《古兰经》、鎏金铜牛，反映回族历史宗教艺术",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-63",
+          "text": "华北与中原博物馆馆藏",
+          "path": "博物馆与重要文物 › 华北与中原博物馆馆藏",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-64",
+          "text": "天津博物馆：《雪景寒林图》，北宋范宽真迹、传世孤本",
+          "path": "博物馆与重要文物 › 华北与中原博物馆馆藏 › 天津博物馆：《雪景寒林图》，北宋范宽真迹、传世孤本",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-65",
+          "text": "河北博物院：长信宫灯为西汉青铜器，烟尘可吸入灯体内；金缕玉衣出自西汉中山靖王刘胜墓",
+          "path": "博物馆与重要文物 › 华北与中原博物馆馆藏 › 河北博物院：长信宫灯为西汉青铜器，烟尘可吸入灯体内；金缕玉衣出自西汉中山靖王刘胜墓",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-66",
+          "text": "山西博物院：晋侯鸟尊为西周青铜器；鸮卣为商代晚期双鸮造型盛酒器",
+          "path": "博物馆与重要文物 › 华北与中原博物馆馆藏 › 山西博物院：晋侯鸟尊为西周青铜器；鸮卣为商代晚期双鸮造型盛酒器",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-67",
+          "text": "河南博物院：贾湖骨笛距今约8000年；莲鹤方壶为春秋青铜绝唱；云纹铜禁为失蜡法代表",
+          "path": "博物馆与重要文物 › 华北与中原博物馆馆藏 › 河南博物院：贾湖骨笛距今约8000年；莲鹤方壶为春秋青铜绝唱；云纹铜禁为失蜡法代表",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-68",
+          "text": "山东博物馆：蛋壳黑陶高柄杯属龙山文化；《孙子兵法》竹简为西汉文物",
+          "path": "博物馆与重要文物 › 华北与中原博物馆馆藏 › 山东博物馆：蛋壳黑陶高柄杯属龙山文化；《孙子兵法》竹简为西汉文物",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-69",
+          "text": "陕西历史博物馆：鎏金兽首玛瑙杯为唐代西域来通杯造型；舞马衔杯纹银壶为唐代鎏金银器",
+          "path": "博物馆与重要文物 › 华北与中原博物馆馆藏 › 陕西历史博物馆：鎏金兽首玛瑙杯为唐代西域来通杯造型；舞马衔杯纹银壶为唐代鎏金银器",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-70",
+          "text": "陕西、湖北与湖南馆藏",
+          "path": "博物馆与重要文物 › 陕西、湖北与湖南馆藏",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-71",
+          "text": "秦始皇帝陵博物院：兵马俑被称“世界第八大奇迹”；铜车马为秦代青铜工艺高水平代表",
+          "path": "博物馆与重要文物 › 陕西、湖北与湖南馆藏 › 秦始皇帝陵博物院：兵马俑被称“世界第八大奇迹”；铜车马为秦代青铜工艺高水平代表",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-72",
+          "text": "茂陵博物馆：马踏匈奴为汉武帝时期石刻，象征霍去病北击匈奴功绩",
+          "path": "博物馆与重要文物 › 陕西、湖北与湖南馆藏 › 茂陵博物馆：马踏匈奴为汉武帝时期石刻，象征霍去病北击匈奴功绩",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-73",
+          "text": "湖北省博物馆：曾侯乙编钟65件、音域跨五个半八度；越王勾践剑铭“越王鸠浅，自作用剑”",
+          "path": "博物馆与重要文物 › 陕西、湖北与湖南馆藏 › 湖北省博物馆：曾侯乙编钟65件、音域跨五个半八度；越王勾践剑铭“越王鸠浅，自作用剑”",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-74",
+          "text": "湖南博物院：素纱禅衣为西汉纺织巅峰；马王堆汉墓出土辛追夫人遗体、帛书、漆器与竹简",
+          "path": "博物馆与重要文物 › 陕西、湖北与湖南馆藏 › 湖南博物院：素纱禅衣为西汉纺织巅峰；马王堆汉墓出土辛追夫人遗体、帛书、漆器与竹简",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-75",
+          "text": "华东与西南馆藏",
+          "path": "博物馆与重要文物 › 华东与西南馆藏",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-76",
+          "text": "上海博物馆：汝窑天青釉洗，汝、官、哥、钧、定五大名窑中汝窑居首",
+          "path": "博物馆与重要文物 › 华东与西南馆藏 › 上海博物馆：汝窑天青釉洗，汝、官、哥、钧、定五大名窑中汝窑居首",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-77",
+          "text": "南京博物院：西汉金兽含金量99%；错银铜牛灯可调节光亮，属环保铜灯",
+          "path": "博物馆与重要文物 › 华东与西南馆藏 › 南京博物院：西汉金兽含金量99%；错银铜牛灯可调节光亮，属环保铜灯",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-78",
+          "text": "浙江省博物馆：良渚玉琮王刻神人兽面纹；《富春山居图》前半卷为《剩山图》",
+          "path": "博物馆与重要文物 › 华东与西南馆藏 › 浙江省博物馆：良渚玉琮王刻神人兽面纹；《富春山居图》前半卷为《剩山图》",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-79",
+          "text": "江西省博物馆：伏鸟双尾青铜虎为商代江南青铜文化代表；元青花釉里红堆塑楼阁式谷仓存世极罕见",
+          "path": "博物馆与重要文物 › 华东与西南馆藏 › 江西省博物馆：伏鸟双尾青铜虎为商代江南青铜文化代表；元青花釉里红堆塑楼阁式谷仓存世极罕见",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-80",
+          "text": "三星堆博物馆：青铜神树通高3.96米；青铜纵目面具眼球柱状外凸，属古蜀祭祀礼器",
+          "path": "博物馆与重要文物 › 华东与西南馆藏 › 三星堆博物馆：青铜神树通高3.96米；青铜纵目面具眼球柱状外凸，属古蜀祭祀礼器",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-81",
+          "text": "金沙遗址博物馆：太阳神鸟金饰为商周金器，是中国文化遗产官方标志；另有金面具",
+          "path": "博物馆与重要文物 › 华东与西南馆藏 › 金沙遗址博物馆：太阳神鸟金饰为商周金器，是中国文化遗产官方标志；另有金面具",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-82",
+          "text": "西北、东北与边疆馆藏",
+          "path": "博物馆与重要文物 › 西北、东北与边疆馆藏",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-83",
+          "text": "云南省博物馆：牛虎铜案为战国古滇国青铜器，寓意生死轮回",
+          "path": "博物馆与重要文物 › 西北、东北与边疆馆藏 › 云南省博物馆：牛虎铜案为战国古滇国青铜器，寓意生死轮回",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-84",
+          "text": "甘肃省博物馆：铜奔马（马踏飞燕）为东汉文物，三足腾空、单足踏飞鸟，是中国国家旅游官方标志",
+          "path": "博物馆与重要文物 › 西北、东北与边疆馆藏 › 甘肃省博物馆：铜奔马（马踏飞燕）为东汉文物，三足腾空、单足踏飞鸟，是中国国家旅游官方标志",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-85",
+          "text": "新疆维吾尔自治区博物馆：“五星出东方利中国”锦护膊为汉代织锦，见证丝绸之路民族交融",
+          "path": "博物馆与重要文物 › 西北、东北与边疆馆藏 › 新疆维吾尔自治区博物馆：“五星出东方利中国”锦护膊为汉代织锦，见证丝绸之路民族交融",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-86",
+          "text": "辽宁省博物馆：《瑞鹤图》为北宋宋徽宗赵佶画作，描绘宫殿群上空祥鹤",
+          "path": "博物馆与重要文物 › 西北、东北与边疆馆藏 › 辽宁省博物馆：《瑞鹤图》为北宋宋徽宗赵佶画作，描绘宫殿群上空祥鹤",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
+          "important": false
+        },
+        {
+          "id": "humanities-section-4-87",
+          "text": "宁夏回族自治区博物馆：手抄描金《古兰经》为研究回族历史、宗教和艺术的重要实物；鎏金铜牛为西夏青铜器",
+          "path": "博物馆与重要文物 › 西北、东北与边疆馆藏 › 宁夏回族自治区博物馆：手抄描金《古兰经》为研究回族历史、宗教和艺术的重要实物；鎏金铜牛为西夏青铜器",
+          "moduleId": "museums",
+          "mapId": "humanities-section-4",
           "important": false
         }
       ]
