@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-22T08:17:52.471Z",
+  "generatedAt": "2026-08-22T08:53:11.024Z",
   "maps": [
     {
       "id": "science-section-1",
@@ -976,6 +976,1161 @@
       ]
     },
     {
+      "id": "science-section-2",
+      "title": "科技常识：力学、电学与能量",
+      "subtitle": "牛顿定律、常见力、电学现象、能量守恒与核能",
+      "path": "../常识思维导图/科技常识_第二节_学习增强版.html",
+      "icon": "力",
+      "color": "#2778b8",
+      "order": 2,
+      "nodes": [
+        {
+          "id": "science-section-2-0",
+          "text": "牛顿运动定律",
+          "path": "力学和运动学 › 牛顿运动定律",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-1",
+          "text": "牛顿第一定律（惯性定律）",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第一定律（惯性定律）",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-2",
+          "text": "物体保持静止或匀速直线运动，直到合外力改变其运动状态",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第一定律（惯性定律） › 物体保持静止或匀速直线运动，直到合外力改变其运动状态",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-3",
+          "text": "惯性是物体保持原有运动状态的性质，与质量有关，与速度无关",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第一定律（惯性定律） › 惯性是物体保持原有运动状态的性质，与质量有关，与速度无关",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-4",
+          "text": "力是改变物体运动状态的原因，不是维持运动的原因",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第一定律（惯性定律） › 力是改变物体运动状态的原因，不是维持运动的原因",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-5",
+          "text": "牛顿第二定律",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第二定律",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-6",
+          "text": "加速度大小与合外力成正比，与质量成反比",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第二定律 › 加速度大小与合外力成正比，与质量成反比",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-7",
+          "text": "公式：F=ma",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第二定律 › 公式：F=ma",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-8",
+          "text": "加速度方向与合外力方向相同",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第二定律 › 加速度方向与合外力方向相同",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-9",
+          "text": "质量m（kg）不等于重力G（N）",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第二定律 › 质量m（kg）不等于重力G（N）",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-10",
+          "text": "牛顿第三定律",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第三定律",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-11",
+          "text": "相互作用的两个物体之间，作用力和反作用力大小相等、方向相反",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第三定律 › 相互作用的两个物体之间，作用力和反作用力大小相等、方向相反",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-12",
+          "text": "作用力和反作用力作用在同一直线上、不同物体上，同时产生、同时消失",
+          "path": "力学和运动学 › 牛顿运动定律 › 牛顿第三定律 › 作用力和反作用力作用在同一直线上、不同物体上，同时产生、同时消失",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-13",
+          "text": "开普勒行星三大定律",
+          "path": "力学和运动学 › 开普勒行星三大定律",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-14",
+          "text": "第一定律（椭圆轨道定律）",
+          "path": "力学和运动学 › 开普勒行星三大定律 › 第一定律（椭圆轨道定律）",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-15",
+          "text": "行星轨道是椭圆，太阳位于椭圆的一个焦点",
+          "path": "力学和运动学 › 开普勒行星三大定律 › 第一定律（椭圆轨道定律） › 行星轨道是椭圆，太阳位于椭圆的一个焦点",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-16",
+          "text": "不同行星的椭圆轨道不同",
+          "path": "力学和运动学 › 开普勒行星三大定律 › 第一定律（椭圆轨道定律） › 不同行星的椭圆轨道不同",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-17",
+          "text": "第二定律（面积定律）",
+          "path": "力学和运动学 › 开普勒行星三大定律 › 第二定律（面积定律）",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-18",
+          "text": "行星与太阳的连线在相等时间内扫过相等面积",
+          "path": "力学和运动学 › 开普勒行星三大定律 › 第二定律（面积定律） › 行星与太阳的连线在相等时间内扫过相等面积",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-19",
+          "text": "行星离太阳越近，运行速度越快",
+          "path": "力学和运动学 › 开普勒行星三大定律 › 第二定律（面积定律） › 行星离太阳越近，运行速度越快",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-20",
+          "text": "第三定律（周期定律）",
+          "path": "力学和运动学 › 开普勒行星三大定律 › 第三定律（周期定律）",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-21",
+          "text": "轨道半长轴的三次方与公转周期的二次方之比是常数",
+          "path": "力学和运动学 › 开普勒行星三大定律 › 第三定律（周期定律） › 轨道半长轴的三次方与公转周期的二次方之比是常数",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-22",
+          "text": "公式：a³/T²=k",
+          "path": "力学和运动学 › 开普勒行星三大定律 › 第三定律（周期定律） › 公式：a³/T²=k",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-23",
+          "text": "各种力",
+          "path": "力学和运动学 › 各种力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-24",
+          "text": "相互作用力与平衡力对比",
+          "path": "力学和运动学 › 各种力 › 相互作用力与平衡力对比",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-25",
+          "text": "共同点：大小相等、方向相反、作用线在同一直线上",
+          "path": "力学和运动学 › 各种力 › 相互作用力与平衡力对比 › 共同点：大小相等、方向相反、作用线在同一直线上",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-26",
+          "text": "平衡力作用在同一物体上，可以相互抵消，力的性质不一定相同",
+          "path": "力学和运动学 › 各种力 › 相互作用力与平衡力对比 › 平衡力作用在同一物体上，可以相互抵消，力的性质不一定相同",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-27",
+          "text": "相互作用力作用在不同物体上，不能相互抵消，力的性质一定相同，同时产生、同时消失",
+          "path": "力学和运动学 › 各种力 › 相互作用力与平衡力对比 › 相互作用力作用在不同物体上，不能相互抵消，力的性质一定相同，同时产生、同时消失",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-28",
+          "text": "重力",
+          "path": "力学和运动学 › 各种力 › 重力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-29",
+          "text": "地球对物体的吸引力，方向竖直向下",
+          "path": "力学和运动学 › 各种力 › 重力 › 地球对物体的吸引力，方向竖直向下",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-30",
+          "text": "公式：G=mg，m为物体质量，g为重力加速度",
+          "path": "力学和运动学 › 各种力 › 重力 › 公式：G=mg，m为物体质量，g为重力加速度",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-31",
+          "text": "浮力",
+          "path": "力学和运动学 › 各种力 › 浮力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-32",
+          "text": "浸在流体内的物体受到流体竖直向上的作用力",
+          "path": "力学和运动学 › 各种力 › 浮力 › 浸在流体内的物体受到流体竖直向上的作用力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-33",
+          "text": "阿基米德原理：F浮=ρ液gV排=m排g",
+          "path": "力学和运动学 › 各种力 › 浮力 › 阿基米德原理：F浮=ρ液gV排=m排g",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-34",
+          "text": "轮船通过空心增大排开液体体积，从而增大浮力",
+          "path": "力学和运动学 › 各种力 › 浮力 › 轮船通过空心增大排开液体体积，从而增大浮力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-35",
+          "text": "潜水艇通过充水或排水改变自身重力实现上浮、下潜或悬浮",
+          "path": "力学和运动学 › 各种力 › 浮力 › 潜水艇通过充水或排水改变自身重力实现上浮、下潜或悬浮",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-36",
+          "text": "热气球加热空气使内部空气密度减小，浮力大于重力时上升",
+          "path": "力学和运动学 › 各种力 › 浮力 › 热气球加热空气使内部空气密度减小，浮力大于重力时上升",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-37",
+          "text": "密度计漂浮时浮力等于重力，刻度通常上小下大",
+          "path": "力学和运动学 › 各种力 › 浮力 › 密度计漂浮时浮力等于重力，刻度通常上小下大",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-38",
+          "text": "表面张力",
+          "path": "力学和运动学 › 各种力 › 表面张力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-39",
+          "text": "液体表面具有使表面积尽可能缩小的力",
+          "path": "力学和运动学 › 各种力 › 表面张力 › 液体表面具有使表面积尽可能缩小的力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-40",
+          "text": "实例：硬币浮在水面、水黾在水面行走、露珠和泡泡呈球形",
+          "path": "力学和运动学 › 各种力 › 表面张力 › 实例：硬币浮在水面、水黾在水面行走、露珠和泡泡呈球形",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-41",
+          "text": "摩擦力",
+          "path": "力学和运动学 › 各种力 › 摩擦力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-42",
+          "text": "两个相互接触的物体发生或将要发生相对运动时，产生阻碍相对运动的力",
+          "path": "力学和运动学 › 各种力 › 摩擦力 › 两个相互接触的物体发生或将要发生相对运动时，产生阻碍相对运动的力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-43",
+          "text": "公式：f=μN，μ为摩擦系数，N为正压力",
+          "path": "力学和运动学 › 各种力 › 摩擦力 › 公式：f=μN，μ为摩擦系数，N为正压力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-44",
+          "text": "产生条件：相互接触并挤压，发生或将要发生相对运动，方向与相对运动趋势相反",
+          "path": "力学和运动学 › 各种力 › 摩擦力 › 产生条件：相互接触并挤压，发生或将要发生相对运动，方向与相对运动趋势相反",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-45",
+          "text": "自行车后轮是主动轮，静摩擦方向向前；前轮是从动轮，滚动摩擦方向向后",
+          "path": "力学和运动学 › 各种力 › 摩擦力 › 自行车后轮是主动轮，静摩擦方向向前；前轮是从动轮，滚动摩擦方向向后",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-46",
+          "text": "增大摩擦：增大压力、增加粗糙程度、将滚动摩擦变为滑动摩擦",
+          "path": "力学和运动学 › 各种力 › 摩擦力 › 增大摩擦：增大压力、增加粗糙程度、将滚动摩擦变为滑动摩擦",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-47",
+          "text": "减小摩擦：减小压力、使接触面光滑、将滑动摩擦变为滚动摩擦、加润滑油",
+          "path": "力学和运动学 › 各种力 › 摩擦力 › 减小摩擦：减小压力、使接触面光滑、将滑动摩擦变为滚动摩擦、加润滑油",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-48",
+          "text": "引力",
+          "path": "力学和运动学 › 各种力 › 引力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-49",
+          "text": "任意两个物体或粒子之间都存在与质量乘积及距离有关的引力",
+          "path": "力学和运动学 › 各种力 › 引力 › 任意两个物体或粒子之间都存在与质量乘积及距离有关的引力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-50",
+          "text": "公式：F=Gm₁m₂/R²",
+          "path": "力学和运动学 › 各种力 › 引力 › 公式：F=Gm₁m₂/R²",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-51",
+          "text": "压强",
+          "path": "力学和运动学 › 压强",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-52",
+          "text": "压强定义与公式",
+          "path": "力学和运动学 › 压强 › 压强定义与公式",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-53",
+          "text": "压强是物体单位面积上受到的压力",
+          "path": "力学和运动学 › 压强 › 压强定义与公式 › 压强是物体单位面积上受到的压力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-54",
+          "text": "公式：p=F/S，单位为帕斯卡（Pa）",
+          "path": "力学和运动学 › 压强 › 压强定义与公式 › 公式：p=F/S，单位为帕斯卡（Pa）",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-55",
+          "text": "1Pa表示1m²面积上受到1N的压力",
+          "path": "力学和运动学 › 压强 › 压强定义与公式 › 1Pa表示1m²面积上受到1N的压力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-56",
+          "text": "大气压强",
+          "path": "力学和运动学 › 压强 › 大气压强",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-57",
+          "text": "马德堡半球实验证明大气压存在且很大",
+          "path": "力学和运动学 › 压强 › 大气压强 › 马德堡半球实验证明大气压存在且很大",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-58",
+          "text": "托里拆利实验测得标准大气压：760mm汞柱≈1.013×10⁵Pa",
+          "path": "力学和运动学 › 压强 › 大气压强 › 托里拆利实验测得标准大气压：760mm汞柱≈1.013×10⁵Pa",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-59",
+          "text": "海拔越高，气压越低；气压越低，水的沸点越低",
+          "path": "力学和运动学 › 压强 › 大气压强 › 海拔越高，气压越低；气压越低，水的沸点越低",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-60",
+          "text": "开放环境中温度越高，气压通常越低；密闭等容环境中温度越高，气压越高",
+          "path": "力学和运动学 › 压强 › 大气压强 › 开放环境中温度越高，气压通常越低；密闭等容环境中温度越高，气压越高",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-61",
+          "text": "流体力学",
+          "path": "力学和运动学 › 压强 › 流体力学",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-62",
+          "text": "伯努利原理：流体流动时，流速越大，压强越小",
+          "path": "力学和运动学 › 压强 › 流体力学 › 伯努利原理：流体流动时，流速越大，压强越小",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-63",
+          "text": "飞机机翼上方流速较快、压强较小，下方压强较大，压强差产生升力",
+          "path": "力学和运动学 › 压强 › 流体力学 › 飞机机翼上方流速较快、压强较小，下方压强较大，压强差产生升力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-64",
+          "text": "流线型设计可减小压差阻力",
+          "path": "力学和运动学 › 压强 › 流体力学 › 流线型设计可减小压差阻力",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-65",
+          "text": "高铁站台安全线利用流速增大、压强减小的原理保障安全",
+          "path": "力学和运动学 › 压强 › 流体力学 › 高铁站台安全线利用流速增大、压强减小的原理保障安全",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-66",
+          "text": "液体压强",
+          "path": "力学和运动学 › 压强 › 液体压强",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-67",
+          "text": "公式：p=ρgh，ρ为液体密度，h为深度",
+          "path": "力学和运动学 › 压强 › 液体压强 › 公式：p=ρgh，ρ为液体密度，h为深度",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-68",
+          "text": "同种液体中，深度越大压强越大",
+          "path": "力学和运动学 › 压强 › 液体压强 › 同种液体中，深度越大压强越大",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-69",
+          "text": "同一深度向各个方向的压强相等",
+          "path": "力学和运动学 › 压强 › 液体压强 › 同一深度向各个方向的压强相等",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-70",
+          "text": "液体密度越大，压强越大",
+          "path": "力学和运动学 › 压强 › 液体压强 › 液体密度越大，压强越大",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-71",
+          "text": "U形管压强计通过液面高度差测量微小压强",
+          "path": "力学和运动学 › 压强 › 液体压强 › U形管压强计通过液面高度差测量微小压强",
+          "moduleId": "mechanics",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-72",
+          "text": "电荷与静电",
+          "path": "电学 › 电荷与静电",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-73",
+          "text": "电荷基本规律",
+          "path": "电学 › 电荷与静电 › 电荷基本规律",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-74",
+          "text": "同种电荷相斥，异种电荷相吸；质子带正电，电子带负电",
+          "path": "电学 › 电荷与静电 › 电荷基本规律 › 同种电荷相斥，异种电荷相吸；质子带正电，电子带负电",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-75",
+          "text": "相互吸引不一定是异种电荷，也可能是一个带电体吸引一个不带电体",
+          "path": "电学 › 电荷与静电 › 电荷基本规律 › 相互吸引不一定是异种电荷，也可能是一个带电体吸引一个不带电体",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-76",
+          "text": "电荷守恒定律",
+          "path": "电学 › 电荷与静电 › 电荷守恒定律",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-77",
+          "text": "电荷只能转移，不能凭空创造或消灭",
+          "path": "电学 › 电荷与静电 › 电荷守恒定律 › 电荷只能转移，不能凭空创造或消灭",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-78",
+          "text": "摩擦起电是电子转移，原子核不能自由移动",
+          "path": "电学 › 电荷与静电 › 电荷守恒定律 › 摩擦起电是电子转移，原子核不能自由移动",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-79",
+          "text": "静电感应",
+          "path": "电学 › 电荷与静电 › 静电感应",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-80",
+          "text": "带电体靠近导体时，导体内部电荷重新分布",
+          "path": "电学 › 电荷与静电 › 静电感应 › 带电体靠近导体时，导体内部电荷重新分布",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-81",
+          "text": "应用：静电除尘、静电复印、静电喷涂",
+          "path": "电学 › 电荷与静电 › 静电感应 › 应用：静电除尘、静电复印、静电喷涂",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-82",
+          "text": "避雷针通过尖端放电并用粗导线接地，将电荷导入大地",
+          "path": "电学 › 电荷与静电 › 静电感应 › 避雷针通过尖端放电并用粗导线接地，将电荷导入大地",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-83",
+          "text": "导体与绝缘体",
+          "path": "电学 › 导体与绝缘体",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-84",
+          "text": "导体容易导电，含有较多自由电荷：金属、人体、大地、盐水、石墨、酸碱水溶液",
+          "path": "电学 › 导体与绝缘体 › 导体容易导电，含有较多自由电荷：金属、人体、大地、盐水、石墨、酸碱水溶液",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-85",
+          "text": "绝缘体不容易导电，自由电荷很少：橡胶、塑料、玻璃、陶瓷、干燥木头、纯水、油",
+          "path": "电学 › 导体与绝缘体 › 绝缘体不容易导电，自由电荷很少：橡胶、塑料、玻璃、陶瓷、干燥木头、纯水、油",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-86",
+          "text": "半导体导电能力介于导体和绝缘体之间，常见材料有硅、锗、砷化镓",
+          "path": "电学 › 导体与绝缘体 › 半导体导电能力介于导体和绝缘体之间，常见材料有硅、锗、砷化镓",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-87",
+          "text": "电流与电压",
+          "path": "电学 › 电流与电压",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-88",
+          "text": "电流是自由电子定向移动形成的，方向规定为正电荷定向移动的方向",
+          "path": "电学 › 电流与电压 › 电流是自由电子定向移动形成的，方向规定为正电荷定向移动的方向",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-89",
+          "text": "电流公式：I=Q/t，单位为安培（A）",
+          "path": "电学 › 电流与电压 › 电流公式：I=Q/t，单位为安培（A）",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-90",
+          "text": "电压提供电荷定向移动的动力，单位为伏特（V）",
+          "path": "电学 › 电流与电压 › 电压提供电荷定向移动的动力，单位为伏特（V）",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-91",
+          "text": "家庭电压约220V，安全电压通常不高于36V，持续接触安全电压不高于24V，安全电流通常不超过10mA",
+          "path": "电学 › 电流与电压 › 家庭电压约220V，安全电压通常不高于36V，持续接触安全电压不高于24V，安全电流通常不超过10mA",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-92",
+          "text": "电阻",
+          "path": "电学 › 电阻",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-93",
+          "text": "电阻是导体对电流阻碍作用的大小，单位为欧姆（Ω）",
+          "path": "电学 › 电阻 › 电阻是导体对电流阻碍作用的大小，单位为欧姆（Ω）",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-94",
+          "text": "电阻是导体本身的属性，不通电也有电阻",
+          "path": "电学 › 电阻 › 电阻是导体本身的属性，不通电也有电阻",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-95",
+          "text": "影响因素：材料、电阻率、长度、横截面积和温度",
+          "path": "电学 › 电阻 › 影响因素：材料、电阻率、长度、横截面积和温度",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-96",
+          "text": "长度越长电阻越大，横截面积越小电阻越大；金属温度升高电阻通常增大",
+          "path": "电学 › 电阻 › 长度越长电阻越大，横截面积越小电阻越大；金属温度升高电阻通常增大",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-97",
+          "text": "欧姆定律",
+          "path": "电学 › 欧姆定律",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-98",
+          "text": "在同一电阻中，电流与电压成正比，与电阻成反比",
+          "path": "电学 › 欧姆定律 › 在同一电阻中，电流与电压成正比，与电阻成反比",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-99",
+          "text": "公式：I=U/R",
+          "path": "电学 › 欧姆定律 › 公式：I=U/R",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-100",
+          "text": "若电路内部电阻无限大，电流趋近于零，说明可能发生断路",
+          "path": "电学 › 欧姆定律 › 若电路内部电阻无限大，电流趋近于零，说明可能发生断路",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-101",
+          "text": "电流的热效应",
+          "path": "电学 › 电流的热效应",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-102",
+          "text": "电流通过电阻时，电能转化为内能并产生热量",
+          "path": "电学 › 电流的热效应 › 电流通过电阻时，电能转化为内能并产生热量",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-103",
+          "text": "焦耳定律：Q=I²Rt，Q为热量（J），I为电流（A），R为电阻（Ω），t为时间（s）",
+          "path": "电学 › 电流的热效应 › 焦耳定律：Q=I²Rt，Q为热量（J），I为电流（A），R为电阻（Ω），t为时间（s）",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-104",
+          "text": "应用：电炉、电熨斗、电热水器、白炽灯",
+          "path": "电学 › 电流的热效应 › 应用：电炉、电熨斗、电热水器、白炽灯",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-105",
+          "text": "保险丝和空气开关都可在电流过大时保护电路，通常择一使用",
+          "path": "电学 › 电流的热效应 › 保险丝和空气开关都可在电流过大时保护电路，通常择一使用",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-106",
+          "text": "电流的磁效应（电生磁）",
+          "path": "电学 › 电流的磁效应（电生磁）",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-107",
+          "text": "奥斯特发现通电导线周围会产生磁场",
+          "path": "电学 › 电流的磁效应（电生磁） › 奥斯特发现通电导线周围会产生磁场",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-108",
+          "text": "安培发现磁场方向与电流方向有关",
+          "path": "电学 › 电流的磁效应（电生磁） › 安培发现磁场方向与电流方向有关",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-109",
+          "text": "右手螺旋定则：右手握住螺线管，四指指向电流方向，大拇指指向N极",
+          "path": "电学 › 电流的磁效应（电生磁） › 右手螺旋定则：右手握住螺线管，四指指向电流方向，大拇指指向N极",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-110",
+          "text": "电磁铁磁性强弱与电流大小和线圈匝数有关",
+          "path": "电学 › 电流的磁效应（电生磁） › 电磁铁磁性强弱与电流大小和线圈匝数有关",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-111",
+          "text": "应用：电动机、电磁继电器、电铃",
+          "path": "电学 › 电流的磁效应（电生磁） › 应用：电动机、电磁继电器、电铃",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-112",
+          "text": "电磁感应（磁生电）",
+          "path": "电学 › 电磁感应（磁生电）",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-113",
+          "text": "法拉第发现电磁感应现象",
+          "path": "电学 › 电磁感应（磁生电） › 法拉第发现电磁感应现象",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-114",
+          "text": "闭合电路的磁通量发生变化时，电路中会产生电流",
+          "path": "电学 › 电磁感应（磁生电） › 闭合电路的磁通量发生变化时，电路中会产生电流",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-115",
+          "text": "闭合电路的一部分导体在磁场中切割磁感线运动可产生感应电流",
+          "path": "电学 › 电磁感应（磁生电） › 闭合电路的一部分导体在磁场中切割磁感线运动可产生感应电流",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-116",
+          "text": "应用：发电机、变压器、电磁炉、无线充电、金属探测",
+          "path": "电学 › 电磁感应（磁生电） › 应用：发电机、变压器、电磁炉、无线充电、金属探测",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-117",
+          "text": "发电机的能量转化：机械能→电能",
+          "path": "电学 › 电磁感应（磁生电） › 发电机的能量转化：机械能→电能",
+          "moduleId": "electricity",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-118",
+          "text": "能量守恒定律",
+          "path": "能量 › 能量守恒定律",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-119",
+          "text": "能量只能相互转化或转移，总量保持不变",
+          "path": "能量 › 能量守恒定律 › 能量只能相互转化或转移，总量保持不变",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-120",
+          "text": "永动机违反能量守恒定律，无法实现",
+          "path": "能量 › 能量守恒定律 › 永动机违反能量守恒定律，无法实现",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-121",
+          "text": "能量的存在形式",
+          "path": "能量 › 能量的存在形式",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-122",
+          "text": "机械能=动能+势能",
+          "path": "能量 › 能量的存在形式 › 机械能=动能+势能",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-123",
+          "text": "内能包括分子热运动动能和分子势能",
+          "path": "能量 › 能量的存在形式 › 内能包括分子热运动动能和分子势能",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-124",
+          "text": "电能是电以各种形式做功的能力",
+          "path": "能量 › 能量的存在形式 › 电能是电以各种形式做功的能力",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-125",
+          "text": "化学能储存在燃料、食物和电池中",
+          "path": "能量 › 能量的存在形式 › 化学能储存在燃料、食物和电池中",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-126",
+          "text": "光能来自光辐射，核能来自原子核裂变或聚变",
+          "path": "能量 › 能量的存在形式 › 光能来自光辐射，核能来自原子核裂变或聚变",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-127",
+          "text": "常见能量转化",
+          "path": "能量 › 常见能量转化",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-128",
+          "text": "机械能→内能：摩擦生热、钻木取火",
+          "path": "能量 › 常见能量转化 › 机械能→内能：摩擦生热、钻木取火",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-129",
+          "text": "内能→机械能：热机做功冲程",
+          "path": "能量 › 常见能量转化 › 内能→机械能：热机做功冲程",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-130",
+          "text": "机械能→电能：发电机",
+          "path": "能量 › 常见能量转化 › 机械能→电能：发电机",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-131",
+          "text": "电能→机械能：电动机",
+          "path": "能量 › 常见能量转化 › 电能→机械能：电动机",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-132",
+          "text": "电能→内能：电热水器、加热器",
+          "path": "能量 › 常见能量转化 › 电能→内能：电热水器、加热器",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-133",
+          "text": "电能→光能：电灯",
+          "path": "能量 › 常见能量转化 › 电能→光能：电灯",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-134",
+          "text": "光能→电能：太阳能电池、光伏板",
+          "path": "能量 › 常见能量转化 › 光能→电能：太阳能电池、光伏板",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-135",
+          "text": "内能→光能：火焰发光",
+          "path": "能量 › 常见能量转化 › 内能→光能：火焰发光",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-136",
+          "text": "光能→化学能：光合作用",
+          "path": "能量 › 常见能量转化 › 光能→化学能：光合作用",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-137",
+          "text": "电能→化学能：电池充电",
+          "path": "能量 › 常见能量转化 › 电能→化学能：电池充电",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-138",
+          "text": "化学能→电能：电池放电",
+          "path": "能量 › 常见能量转化 › 化学能→电能：电池放电",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-139",
+          "text": "核能",
+          "path": "能量 › 核能",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": true
+        },
+        {
+          "id": "science-section-2-140",
+          "text": "核能包括核裂变和核聚变",
+          "path": "能量 › 核能 › 核能包括核裂变和核聚变",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-141",
+          "text": "核电站利用可控核裂变放热：核裂变→加热水产生蒸汽→蒸汽推动汽轮机→带动发电机发电",
+          "path": "能量 › 核能 › 核电站利用可控核裂变放热：核裂变→加热水产生蒸汽→蒸汽推动汽轮机→带动发电机发电",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        },
+        {
+          "id": "science-section-2-142",
+          "text": "核电站能量转化：核能→内能→机械能→电能",
+          "path": "能量 › 核能 › 核电站能量转化：核能→内能→机械能→电能",
+          "moduleId": "energy",
+          "mapId": "science-section-2",
+          "important": false
+        }
+      ]
+    },
+    {
       "id": "history-section-3",
       "title": "历史常识：东汉至隋朝",
       "subtitle": "东汉、三国、两晋南北朝与隋朝历史脉络",
@@ -984,7 +2139,7 @@
       "color": "#a34d37",
       "file": "tools/常识思维导图/历史常识_第三节_学习增强版.html",
       "key": "const seedModules=",
-      "order": 2,
+      "order": 3,
       "nodes": [
         {
           "id": "history-section-3-0",
