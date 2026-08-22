@@ -138,7 +138,8 @@
     startPeriodicSync();
     loadAllData();
     setGreeting();
-    navigateTo(window.location.hash.indexOf('#q=') === 0 ? 'review' : 'dashboard');
+    // The site root is the Journey dashboard; review links can still route via hashchange.
+    navigateTo('dashboard');
     window.addEventListener('hashchange', function () {
       if (window.location.hash.indexOf('#q=') === 0 && currentView !== 'review') navigateTo('review');
     });
