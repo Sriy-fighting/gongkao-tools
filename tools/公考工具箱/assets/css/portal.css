@@ -857,6 +857,13 @@
   outline: none;
 }
 .countdown-config-milestone input:focus { border-color: var(--primary); }
+.countdown-config-milestone input.cd-ms-name { flex: 1; min-width: 0; width: auto; font-family: var(--font); }
+.countdown-delete-milestone,
+.countdown-add-milestone { border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text-secondary); cursor: pointer; }
+.countdown-delete-milestone { flex: 0 0 28px; width: 28px; height: 28px; padding: 0; font-size: 18px; line-height: 1; }
+.countdown-delete-milestone:hover { border-color: #c64d4d; color: #b83e3e; background: #fff1f1; }
+.countdown-add-milestone { width: 100%; margin-top: 2px; padding: 8px 10px; font-size: 13px; }
+.countdown-add-milestone:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
 .countdown-config-footer {
   display: flex;
   gap: 8px;

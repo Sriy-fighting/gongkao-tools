@@ -928,8 +928,8 @@
       if (isDone) done++;
       mh += '<button type="button" class="countdown-milestone ' + (isDone ? 'done' : 'upcoming') + '" onclick="window.toggleCountdownMilestone(' + idx + ')" aria-pressed="' + (isDone ? 'true' : 'false') + '" title="点击切换完成状态"><span class="ms-check" aria-hidden="true">' + (isDone ? '✓' : '') + '</span><span class="ms-name">' + (ms.name||'') + '</span><span class="ms-date">' + (ms.date||'') + '</span></button>';
     });
-    section.innerHTML = '<div class="countdown-header"><div class="countdown-title">' + cdState.name + '</div><button class="countdown-edit-btn" onclick="window.openCountdownConfig()">编辑</button></div>' +
-      '<div class="countdown-big-number">' + (diffDays > 0 ? diffDays : 0) + '</div><div class="countdown-big-unit">' + (diffDays > 0 ? '天' : '已到期') + '</div>' +
+    section.innerHTML = '<div class="countdown-header"><div class="countdown-title">距离 ' + esc(cdState.name) + '</div><button class="countdown-edit-btn" onclick="window.openCountdownConfig()">编辑</button></div>' +
+      '<div class="countdown-big-number">' + (diffDays > 0 ? diffDays : 0) + '</div><div class="countdown-big-unit">' + (diffDays > 0 ? '天后考试' : '考试日已到') + '</div>' +
       '<div class="countdown-progress"><div class="countdown-progress-fill" style="width:' + pct + '%"></div></div>' +
       '<div class="countdown-milestones-title">里程碑 (' + done + '/' + cdState.milestones.length + ')</div><div class="countdown-milestones">' + mh + '</div>';
   }
@@ -945,6 +945,22 @@
 
   function saveCountdownConfig() { try { localStorage.setItem('gk-countdown', JSON.stringify(cdState)); if (window.SyncStore) window.SyncStore.writeData('gk-countdown', cdState); } catch(e) {} renderCountdown(); }
 
+  function defaultCountdownMilestones() {
+    return [{name:'报名截止',date:''},{name:'缴费截止',date:''},{name:'打印准考证',date:''},{name:'笔试',date:''},{name:'面试',date:''}];
+  }
+
+  function appendCountdownMilestoneRow(list, milestone) {
+    var ms = milestone || { name: '', date: '' };
+    var row = document.createElement('div');
+    row.className = 'countdown-config-milestone';
+    row.dataset.completed = ms.completed === true ? 'true' : (ms.completed === false ? 'false' : '');
+    row.innerHTML = '<input type="text" class="cd-ms-name" maxlength="40" aria-label="里程碑名称" placeholder="如：报名截止" value="' + esc(ms.name || '') + '">' +
+      '<input type="date" class="cd-ms-date" aria-label="里程碑日期" value="' + esc(ms.date || '') + '">' +
+      '<button type="button" class="countdown-delete-milestone" aria-label="删除此里程碑" title="删除此里程碑">×</button>';
+    row.querySelector('.countdown-delete-milestone').addEventListener('click', function () { row.remove(); });
+    list.appendChild(row);
+  }
+
   function openCountdownConfig() {
     var overlay = document.getElementById('cd-config-overlay'); if (!overlay) return;
     var nameInp = document.getElementById('cd-config-name'), dateInp = document.getElementById('cd-config-date');
@@ -952,16 +968,19 @@
     if (dateInp) dateInp.value = cdState.date || '';
     var list = document.getElementById('cd-config-milestones');
     if (list) {
-      var defMs = [{name:'报名截止',date:''},{name:'缴费截止',date:''},{name:'打印准考证',date:''},{name:'笔试',date:''},{name:'面试',date:''}];
-      var msList = cdState.milestones.length > 0 ? cdState.milestones : defMs;
+      var msList = cdState.milestones.length > 0 ? cdState.milestones : defaultCountdownMilestones();
       list.innerHTML = '';
-      msList.forEach(function(ms, idx) {
-        var div = document.createElement('div'); div.className = 'countdown-config-milestone';
-        div.innerHTML = '<label>' + (ms.name||'') + '</label><input type="date" class="cd-ms-date" data-idx="' + idx + '" value="' + (ms.date||'') + '">';
-        list.appendChild(div);
-      });
+      msList.forEach(function(ms) { appendCountdownMilestoneRow(list, ms); });
     }
     overlay.classList.add('open');
+  }
+
+  function addCountdownMilestone() {
+    var list = document.getElementById('cd-config-milestones');
+    if (!list) return;
+    appendCountdownMilestoneRow(list, { name: '', date: '' });
+    var input = list.lastElementChild && list.lastElementChild.querySelector('.cd-ms-name');
+    if (input) input.focus();
   }
 
   function saveCountdownConfigModal() {
@@ -970,9 +989,17 @@
     if (dateInp) cdState.date = dateInp.value;
     var list = document.getElementById('cd-config-milestones');
     if (list) {
-      var defMs = [{name:'报名截止',date:''},{name:'缴费截止',date:''},{name:'打印准考证',date:''},{name:'笔试',date:''},{name:'面试',date:''}];
-      cdState.milestones = cdState.milestones.length > 0 ? cdState.milestones : defMs;
-      list.querySelectorAll('.cd-ms-date').forEach(function(inp) { var idx = parseInt(inp.dataset.idx, 10); if (cdState.milestones[idx]) cdState.milestones[idx].date = inp.value; });
+      var milestones = [];
+      list.querySelectorAll('.countdown-config-milestone').forEach(function(row) {
+        var name = row.querySelector('.cd-ms-name').value.trim().slice(0, 40);
+        var date = row.querySelector('.cd-ms-date').value;
+        if (!name) return;
+        var ms = { name: name, date: date };
+        if (row.dataset.completed === 'true') ms.completed = true;
+        if (row.dataset.completed === 'false') ms.completed = false;
+        milestones.push(ms);
+      });
+      cdState.milestones = milestones;
     }
     saveCountdownConfig();
     closeCountdownConfigModal();
@@ -3403,6 +3430,7 @@
   window.accountSignOut = accountSignOut; window.accountManualSync = accountManualSync;
   window.saveCountdownConfigModal = saveCountdownConfigModal; window.closeCountdownConfigModal = closeCountdownConfigModal;
   window.toggleCountdownMilestone = toggleCountdownMilestone;
+  window.addCountdownMilestone = addCountdownMilestone;
   window.planPrevMonth = planPrevMonth; window.planNextMonth = planNextMonth;
   window.planSelectWeek = planSelectWeek;
   window.planJumpToday = planJumpToday; window.planChangeSelectedDate = planChangeSelectedDate;
