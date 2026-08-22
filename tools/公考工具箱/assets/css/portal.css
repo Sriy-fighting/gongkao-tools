@@ -4126,9 +4126,10 @@ body {
   background: var(--surface);
   box-shadow: var(--shadow);
 }
-.countdown-header { margin-bottom: 22px; }
-.countdown-title { font-size: 17px; }
-.countdown-edit-btn { border-color: var(--border); border-style: solid; background: var(--surface-hover); }
+.countdown-header { position: sticky; top: -1px; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: -8px 0 14px; padding: 8px 0 10px; background: var(--ca-paper-strong); }
+.countdown-title { font-size: 17px; line-height: 1.35; }
+.countdown-target-date { margin-top: 3px; color: var(--ca-muted); font-size: 12px; }
+.countdown-edit-btn { flex: 0 0 auto; min-width: 92px; border-color: var(--border); border-style: solid; background: var(--surface-hover); color: var(--text-primary); font-weight: 700; white-space: nowrap; }
 .countdown-big-number { color: #087f74; font-size: clamp(64px, 7vw, 92px); font-variant-numeric: tabular-nums; }
 .countdown-big-unit { margin: 5px 0 26px; font-size: 14px; }
 .countdown-progress { height: 8px; background: #e2efee; }

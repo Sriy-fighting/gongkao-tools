@@ -928,7 +928,7 @@
       if (isDone) done++;
       mh += '<button type="button" class="countdown-milestone ' + (isDone ? 'done' : 'upcoming') + '" onclick="window.toggleCountdownMilestone(' + idx + ')" aria-pressed="' + (isDone ? 'true' : 'false') + '" title="点击切换完成状态"><span class="ms-check" aria-hidden="true">' + (isDone ? '✓' : '') + '</span><span class="ms-name">' + (ms.name||'') + '</span><span class="ms-date">' + (ms.date||'') + '</span></button>';
     });
-    section.innerHTML = '<div class="countdown-header"><div class="countdown-title">距离 ' + esc(cdState.name) + '</div><button class="countdown-edit-btn" onclick="window.openCountdownConfig()">编辑</button></div>' +
+    section.innerHTML = '<div class="countdown-header"><div><div class="countdown-title">距离 ' + esc(cdState.name) + '</div><div class="countdown-target-date">目标日期：' + esc(cdState.date) + '</div></div><button type="button" class="countdown-edit-btn" onclick="window.openCountdownConfig()">编辑倒计时</button></div>' +
       '<div class="countdown-big-number">' + (diffDays > 0 ? diffDays : 0) + '</div><div class="countdown-big-unit">' + (diffDays > 0 ? '天后考试' : '考试日已到') + '</div>' +
       '<div class="countdown-progress"><div class="countdown-progress-fill" style="width:' + pct + '%"></div></div>' +
       '<div class="countdown-milestones-title">里程碑 (' + done + '/' + cdState.milestones.length + ')</div><div class="countdown-milestones">' + mh + '</div>';
