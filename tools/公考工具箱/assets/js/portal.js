@@ -8,7 +8,8 @@
     speed:     { name: '资料速算',   path: '../资料训练/index.html' },
     curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html' },
     wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html' },
-    review:    { name: '复盘台', path: null }
+    review:    { name: '复盘台', path: null },
+    knowledge: { name: '常识思维导图', path: null }
   };
 
   var currentView = 'dashboard';
@@ -19,7 +20,7 @@
   var cdState = { name: '', date: '', milestones: [] };
   var links = [];
   var TOOL_ORDER_STORAGE_KEY = 'gk-tool-order';
-  var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'wusi', 'review', 'plan'];
+  var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'wusi', 'review', 'knowledge', 'plan'];
   var TOOL_NAMES_STORAGE_KEY = 'gk-tool-names-v1';
   var DEFAULT_TOOL_NAMES = {
     dashboard: '行旅台',
@@ -29,7 +30,8 @@
     speed: '数理驿道',
     curve: '复习灯台',
     wusi: '五四讲话背诵',
-    review: '复盘台'
+    review: '复盘台',
+    knowledge: '常识思维导图'
   };
   var toolNames = {};
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
@@ -75,6 +77,9 @@
     els.planView = document.getElementById('plan-view');
     els.recitationView = document.getElementById('recitation-view');
     els.reviewView = document.getElementById('review-view');
+    els.knowledgeView = document.getElementById('knowledge-view');
+    els.toolFrameToolbar = document.getElementById('tool-frame-toolbar');
+    els.toolFrameBack = document.getElementById('tool-frame-back');
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
@@ -109,6 +114,10 @@
     document.querySelectorAll('.tool-card').forEach(function (card) {
       card.addEventListener('click', function () { var v = card.dataset.view; if (v) navigateTo(v); });
     });
+    document.querySelectorAll('.knowledge-card').forEach(function (card) {
+      card.addEventListener('click', function () { openKnowledgeChapter(card.dataset.knowledgePath, card.dataset.knowledgeTitle); });
+    });
+    if (els.toolFrameBack) els.toolFrameBack.addEventListener('click', function () { navigateTo('knowledge'); });
     initPlan();
     startPeriodicSync();
     loadAllData();
@@ -441,7 +450,9 @@
       if (els.planView) els.planView.style.display = 'none';
       if (els.recitationView) els.recitationView.style.display = 'none';
       if (els.reviewView) els.reviewView.style.display = 'none';
+      if (els.knowledgeView) els.knowledgeView.style.display = 'none';
       els.toolContainer.classList.remove('active');
+      if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
       els.pageTitle.textContent = getToolName('dashboard');
       if (timerState.running && !timerState.tickId) timerState.tickId = setInterval(tickTimer, 100);
     } else if (view === 'plan') {
@@ -449,7 +460,9 @@
       if (els.planView) els.planView.style.display = '';
       if (els.recitationView) els.recitationView.style.display = 'none';
       if (els.reviewView) els.reviewView.style.display = 'none';
+      if (els.knowledgeView) els.knowledgeView.style.display = 'none';
       els.toolContainer.classList.remove('active');
+      if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
       els.pageTitle.textContent = getToolName('plan');
       renderPlan();
     } else if (view === 'wusi') {
@@ -457,7 +470,9 @@
       if (els.planView) els.planView.style.display = 'none';
       if (els.recitationView) els.recitationView.style.display = '';
       if (els.reviewView) els.reviewView.style.display = 'none';
+      if (els.knowledgeView) els.knowledgeView.style.display = 'none';
       els.toolContainer.classList.remove('active');
+      if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
       els.pageTitle.textContent = tool.name;
       if (window.RecitationApp && window.RecitationApp.refresh) window.RecitationApp.refresh();
     } else if (view === 'review') {
@@ -466,18 +481,47 @@
       if (els.recitationView) els.recitationView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       if (els.reviewView) els.reviewView.style.display = '';
+      if (els.knowledgeView) els.knowledgeView.style.display = 'none';
+      if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
       els.pageTitle.textContent = tool.name;
       if (window.ReviewApp && window.ReviewApp.refresh) window.ReviewApp.refresh();
+    } else if (view === 'knowledge') {
+      els.dashboard.style.display = 'none';
+      if (els.planView) els.planView.style.display = 'none';
+      if (els.recitationView) els.recitationView.style.display = 'none';
+      if (els.reviewView) els.reviewView.style.display = 'none';
+      if (els.knowledgeView) els.knowledgeView.style.display = '';
+      els.toolContainer.classList.remove('active');
+      if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
+      els.pageTitle.textContent = tool.name;
     } else {
       els.dashboard.style.display = 'none';
       if (els.planView) els.planView.style.display = 'none';
       if (els.recitationView) els.recitationView.style.display = 'none';
       if (els.reviewView) els.reviewView.style.display = 'none';
+      if (els.knowledgeView) els.knowledgeView.style.display = 'none';
       els.toolContainer.classList.add('active');
+      if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
       els.pageTitle.textContent = tool.name;
       els.toolFrame.src = tool.path;
     }
     currentView = view;
+  }
+
+  function openKnowledgeChapter(path, title) {
+    if (!path) return;
+    if (timerState.running) saveTimerState();
+    els.dashboard.style.display = 'none';
+    if (els.planView) els.planView.style.display = 'none';
+    if (els.recitationView) els.recitationView.style.display = 'none';
+    if (els.reviewView) els.reviewView.style.display = 'none';
+    if (els.knowledgeView) els.knowledgeView.style.display = 'none';
+    els.toolContainer.classList.add('active');
+    if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = false;
+    if (els.pageTitle) els.pageTitle.textContent = title || getToolName('knowledge');
+    els.toolFrame.src = path;
+    els.navItems.forEach(function (el) { el.classList.toggle('active', el.dataset.view === 'knowledge'); });
+    currentView = 'knowledge-chapter';
   }
 
   function setGreeting() {
