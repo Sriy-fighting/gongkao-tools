@@ -4214,7 +4214,9 @@ body {
 .knowledge-import-btn { margin-left: auto; display: inline-flex; align-items: center; padding: 7px 11px; border: 1px solid var(--ca-line); border-radius: 6px; background: var(--ca-paper-strong); color: var(--ca-ink); font-size: 12px; font-weight: 700; cursor: pointer; }
 .knowledge-import-btn:hover { border-color: var(--ca-gold); background: #fff7df; }
 .knowledge-import-btn input { display: none; }
-.portal-search { position: relative; display: flex; align-items: center; width: min(390px, 42vw); min-width: 220px; }
+.portal-search { position: relative; display: flex; align-items: center; flex: 0 0 300px; width: 300px; min-width: 220px; }
+.header-actions.has-portal-search { overflow: visible; }
+.sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
 .portal-search-icon { position: absolute; left: 11px; width: 15px; height: 15px; color: var(--text-muted); pointer-events: none; }
 .portal-search input { width: 100%; height: 34px; padding: 0 30px 0 33px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); }
 .portal-search input::placeholder { color: var(--text-muted); }
@@ -4278,7 +4280,7 @@ body {
   .knowledge-card-main { padding: 17px; }
   .knowledge-toolbar { align-items: flex-start; flex-wrap: wrap; }
   .knowledge-import-btn { margin-left: 0; }
-  .portal-search { width: min(52vw, 320px); min-width: 0; }
+  .portal-search { flex: 0 1 52vw; width: min(52vw, 320px); min-width: 0; }
 }
 
 @media (max-width: 1180px) {

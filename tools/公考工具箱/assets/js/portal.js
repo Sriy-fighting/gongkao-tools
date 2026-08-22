@@ -27,6 +27,7 @@
   var KNOWLEDGE_LIBRARY_STORAGE_KEY = 'gk-knowledge-library-v1';
   var knowledgeMaps = [];
   var knowledgeLoaded = false;
+  var knowledgeSearchQuery = '';
   var DEFAULT_TOOL_NAMES = {
     dashboard: '行旅台',
     plan: '行程计划',
@@ -599,14 +600,14 @@
 
   function renderKnowledgeSearch(query) {
     if (!els.globalKnowledgeResults) return;
-    var q = String(query || '').trim(); els.globalKnowledgeResults.innerHTML = ''; els.globalKnowledgeResults.classList.toggle('is-open', !!q); if (els.clearGlobalKnowledgeSearch) els.clearGlobalKnowledgeSearch.style.display = q ? 'block' : 'none'; if (!q) return;
+    var q = String(query || '').trim(); knowledgeSearchQuery = q; els.globalKnowledgeResults.innerHTML = ''; els.globalKnowledgeResults.classList.toggle('is-open', !!q); if (els.clearGlobalKnowledgeSearch) els.clearGlobalKnowledgeSearch.style.display = q ? 'block' : 'none'; if (!q) return;
     var matches = flattenKnowledgeMatches(q); if (!matches.length) { els.globalKnowledgeResults.innerHTML = '<div class="portal-search-empty">未找到匹配的知识点</div>'; return; }
     matches.forEach(function (item) { var button = document.createElement('button'); button.type = 'button'; button.className = 'portal-search-result'; button.innerHTML = '<strong>' + knowledgeEsc(item.text) + '</strong><small>' + knowledgeEsc(item.map.title) + ' · ' + knowledgeEsc(item.path) + '</small>'; button.addEventListener('click', function () { openKnowledgeMap(item.map); }); els.globalKnowledgeResults.appendChild(button); });
   }
 
   function initKnowledgeLibrary() {
     var fallback = { maps: [{ id: 'science-section-1', title: '科技常识：波、电磁波与光学', subtitle: '声音、波动、电磁波、光学现象与成像', path: '../常识思维导图/科技常识_第一节_学习增强版.html', icon: '科', color: '#2783c9', order: 1, nodes: [] }, { id: 'history-section-3', title: '历史常识：东汉至隋朝', subtitle: '东汉、三国、两晋南北朝与隋朝历史脉络', path: '../常识思维导图/历史常识_第三节_学习增强版.html', icon: '史', color: '#a34d37', order: 2, nodes: [] }] };
-    function finish(data) { knowledgeMaps = Array.isArray(data && data.maps) && data.maps.length ? data.maps : fallback.maps; try { var local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); if (Array.isArray(local)) knowledgeMaps = knowledgeMaps.concat(local.filter(function (m) { return !knowledgeMaps.some(function (base) { return base.id === m.id; }); })); } catch (e) {} applyKnowledgeOrder(); knowledgeLoaded = true; renderKnowledgeLibrary(); }
+    function finish(data) { knowledgeMaps = Array.isArray(data && data.maps) && data.maps.length ? data.maps : fallback.maps; try { var local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); if (Array.isArray(local)) knowledgeMaps = knowledgeMaps.concat(local.filter(function (m) { return !knowledgeMaps.some(function (base) { return base.id === m.id; }); })); } catch (e) {} applyKnowledgeOrder(); knowledgeLoaded = true; renderKnowledgeLibrary(); if (knowledgeSearchQuery) renderKnowledgeSearch(knowledgeSearchQuery); }
     fetch(KNOWLEDGE_INDEX_URL).then(function (response) { if (!response.ok) throw new Error('index'); return response.json(); }).then(finish).catch(function () { finish({ maps: [] }); });
   }
 
