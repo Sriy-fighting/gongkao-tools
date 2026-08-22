@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="历史常识第三节：东汉至隋朝交互式学习思维导图">
-  <title>历史常识 · 第三节｜学习增强版</title>
+  <meta name="description" content="历史常识南宋至清末：交互式学习思维导图">
+  <title>历史常识 · 南宋至清末｜学习增强版</title>
   <style>
     :root{--ink:#10233f;--muted:#64748b;--paper:#f4f7fb;--line:#d8e2ef;--blue:#1766c1;--blue2:#0d3e85;--gold:#f59e0b;--red:#dc555d;--green:#29966f;--side:224px;--assist:328px}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.55 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
@@ -22,92 +22,293 @@
 </head>
 <body>
   <header>
-    <div class="brand"><div class="brand-mark">史</div><div><h1>历史常识 · 第三节</h1><small>东汉至隋朝｜学习增强版</small></div></div>
+    <div class="brand"><div class="brand-mark">明</div><div><h1>历史常识 · 南宋至清末</h1><small>南宋、元明清政权与近代转折</small></div></div>
     <label class="search"><span>⌕</span><input id="search" type="search" placeholder="搜索知识点、人物、典故…" autocomplete="off"><button id="clearSearch" class="clear-search" title="清除搜索">×</button></label>
     <div class="header-actions"><button id="editToggle" aria-pressed="false">✎ 编辑</button><button id="foldAll">⌄ 折叠</button><button id="exportData">⇩ 导出</button><button id="toggleLeft" title="显示或隐藏章节导航">☰ 导航</button><button id="toggleRight" title="显示或隐藏学习面板">▣ 面板</button></div>
   </header>
   <div class="layout">
     <aside class="left"><h2>章节导航</h2><nav id="navList" class="nav-list" aria-label="章节导航"></nav><section class="progress-box"><div class="progress-top"><span>学习进度</span><strong id="progressText">0%</strong></div><div class="bar"><span id="progressBar"></span></div></section><section class="legend"><strong>标记图例</strong><span><i class="key gold"></i>重点考点</span><span><i class="key green"></i>已掌握</span><span><i class="key red"></i>待复习</span></section></aside>
-    <main><section class="intro"><div><div class="eyebrow">伯洁历史常识 · 第三节试做</div><h2>东汉至隋朝知识脉络</h2><p>点击节点查看详情；用右侧面板记录、复习和追踪掌握情况。</p></div><p class="source">依据《实战桶 _ 伯洁历史常识 第三节》PDF（三页）整理</p></section><div id="modules"></div></main>
+    <main><section class="intro"><div><div class="eyebrow">伯洁历史常识 · 南宋至清末试做</div><h2>南宋、元明清政权与近代转折</h2><p>点击节点查看详情；用右侧面板记录、复习和追踪掌握情况。</p></div><p class="source">依据《实战桶 _ 伯洁历史常识 第五节》PDF（四页）整理</p></section><div id="modules"></div></main>
     <aside class="assistant"><div class="tabs" role="tablist"><button class="tab active" data-tab="detail" role="tab">📋 详情</button><button class="tab" data-tab="note" role="tab">📝 笔记</button><button class="tab" data-tab="cards" role="tab">🎴 闪卡</button><button class="tab" data-tab="stats" role="tab">📈 统计</button></div><section id="detail" class="panel active"></section><section id="note" class="panel"><h2>全局学习笔记</h2><textarea id="noteText" class="note" placeholder="写下自己的记忆线索、易错点或复习计划…"></textarea><p class="save-note">自动保存到浏览器本地。</p></section><section id="cards" class="panel"></section><section id="stats" class="panel"></section></aside>
   </div><div id="toast" class="toast" role="status"></div>
   <script>
-  const STORAGE='history_section_3_learning_v1';
+  const STORAGE='history_section_5_learning_v1';
   const seedModules=[
-    {id:'donghan',icon:'汉',title:'东汉',desc:'光武中兴、文化外交与东汉末年',color:'#1b72c6',children:[
-      {text:'东汉事件记',important:true,children:[{text:'光武中兴',children:[{text:'光武帝刘秀'},{text:'昆阳大战：打败王莽；名将马援——马革裹尸、老当益壮'},{text:'成语：得陇望蜀、乐此不疲、手不释卷'}]},{text:'明章之治：汉明帝、汉章帝'},{text:'永元之隆'}]},
-      {text:'文化',children:[{text:'永平求法',important:true,children:[{text:'汉明帝派遣使臣西行求访佛法，将佛教传入中国'},{text:'白马寺（洛阳）：佛教传入中国后兴建的第一座官办寺院；中国佛教发源地，有“祖庭”“释源”之称'}]},{text:'蔡伦改进造纸术：汉和帝时期'},{text:'班超出使西域',important:true,children:[{text:'汉明帝时，班超被封为定远侯'},{text:'典故：投笔从戎；不入虎穴，焉得虎子'},{text:'甘英出使大秦：汉和帝时期'},{text:'三班：班彪、班固、班昭'}]}]},
-      {text:'东汉末年',children:[{text:'黄巾起义',important:true,children:[{text:'张角领导'},{text:'口号：“苍天已死，黄天当立，岁在甲子，天下大吉”'}]},{text:'董卓之乱',important:true,children:[{text:'董卓废汉少帝，立陈留王刘协（汉献帝）为帝；自为相国，独揽朝政'},{text:'伐董人物：袁绍（盟主）、孙坚（败吕布、杀华雄）、曹操、刘表'},{text:'揭开群雄并起的局面'},{text:'演义：刘关张三英战吕布；关羽温酒斩华雄'}]},{text:'《三国演义》',children:[{text:'作者罗贯中；第一部章回体小说、第一部历史演义小说'},{text:'历史走向：黄巾起义→董卓之乱→群雄逐鹿→三国鼎立→三国归晋'},{text:'正史参照：《三国志》——西晋陈寿'}]}]}
-    ]},
-    {id:'sanguo',icon:'三',title:'三国',desc:'三大战役、政权更替与建安文学',color:'#8b3eae',children:[
-      {text:'三大战役（以少胜多）',important:true,children:[{text:'官渡之战：曹操 VS 袁绍',important:true,children:[{text:'许攸献计，曹操火烧袁军乌巢粮仓，大破袁绍'},{text:'奠定曹操统一北方的基础'}]},{text:'赤壁之战：曹操 VS 孙刘',important:true,children:[{text:'周瑜、黄盖火烧连环船；孙刘联军以少胜多'},{text:'奠定三国鼎立的基础'},{text:'周瑜（周公瑾）：羽扇纶巾'}]},{text:'夷陵之战：刘备 VS 孙权',important:true,children:[{text:'此战之后，三国版图基本定型'},{text:'陆逊以逸待劳、火烧连营，大败刘备'}]}]},
-      {text:'三国政权',children:[{text:'魏文帝曹丕：定都洛阳'},{text:'汉昭烈帝刘备：定都成都；三顾茅庐、如鱼得水、白帝城托孤'},{text:'吴大帝孙权：定都建康、建业（今南京、石头城）'},{text:'蜀汉灭亡→魏灭蜀',children:[{text:'司马昭之心，路人皆知；刘禅“乐不思蜀”'},{text:'司马炎篡魏→西晋灭吴，三国至此结束'},{text:'灭亡顺序：蜀、魏、吴'}]}]},
-      {text:'人物与典故',children:[{text:'诸葛亮',important:true,children:[{text:'《隆中对》（陈寿）、《出师表》'},{text:'鞠躬尽瘁、梁父吟、五丈原'},{text:'卧龙凤雏：诸葛亮、庞统'},{text:'上任三把火：火烧博望坡、火烧新野、火烧赤壁'}]},{text:'刘禅：乐不思蜀；“可怜后主还祠庙，日暮聊为梁甫吟”'}]},
-      {text:'建安文学',children:[{text:'三曹',children:[{text:'曹操：追封魏武帝；挟天子以令诸侯；望梅止渴；割发代首；唯才是举；割须弃袍'},{text:'曹丕：《典论·论文》'},{text:'曹植：七步成诗、煮豆燃萁、才高八斗（谢灵运）、下笔成章'}]},{text:'建安七子：孔融、陈琳、王粲、徐干、阮瑀、应玚、刘桢'}]},
-      {text:'拓展：古人的名与字',children:[{text:'名与字同义',children:[{text:'诸葛亮，字孔明：亮、明都为光明'},{text:'周瑜，字公瑾：瑜、瑾都为美玉'},{text:'杜甫，字子美：甫、美都表示外貌上佳'}]},{text:'名与字反义',children:[{text:'朱熹，字元晦：熹为晨光明亮，晦为昏暗'},{text:'韩愈，字退之：愈为前进、超越，退为后退'}]}]}
-    ]},
-    {id:'xijin',icon:'晋',title:'西晋',desc:'统一、太康盛世与五胡十六国',color:'#b05f26',children:[
-      {text:'西晋事件记',important:true,children:[{text:'晋朝建立→太康盛世→八王之乱→五胡内迁→永嘉之乱'}]},
-      {text:'建立',children:[{text:'晋武帝司马炎，定都洛阳'},{text:'天下变为“西晋”与“东吴”的南北对峙局面'}]},
-      {text:'治世：太康盛世',important:true,children:[{text:'晋武帝司马炎，年号“太康”'},{text:'拓展：何不食肉糜——晋惠帝司马衷'}]},
-      {text:'战乱与灭亡',children:[{text:'八王之乱',important:true,children:[{text:'东海王司马越取得成功，西晋由盛转衰'},{text:'成语：乱七八糟'}]},{text:'五胡乱华：匈奴、鲜卑、羯、氐、羌'},{text:'永嘉之乱',important:true,children:[{text:'匈奴俘获晋愍帝，西晋灭亡'}]},{text:'五胡十六国',children:[{text:'五胡：匈奴、鲜卑、羯、氐、羌'},{text:'十六国：前凉、成汉、前赵、后赵、北凉、西凉、后凉、南凉、前燕、后燕、南燕、北燕、夏、前秦、西秦、后秦'}]}]}
-    ]},
-    {id:'dongjin',icon:'东',title:'东晋',desc:'衣冠南渡、祖逖北伐与淝水之战',color:'#12817a',children:[
-      {text:'东晋事件记',important:true,children:[{text:'衣冠南渡→祖逖北伐→淝水之战→东晋灭亡'}]},
-      {text:'衣冠南渡',important:true,children:[{text:'晋元帝司马睿：“王与马，共天下”'},{text:'司马睿南渡建康（今江苏南京）延续晋朝，史称东晋'},{text:'东晋统治地区大部分在江东，古称江左，因此以“江左”代指东晋'}]},
-      {text:'祖逖（tì）北伐',children:[{text:'典故：闻鸡起舞（祖逖、刘琨）；中流击楫'}]},
-      {text:'淝水之战',important:true,children:[{text:'东晋谢安、谢玄 VS 前秦苻坚；东晋以少胜多'},{text:'谢家代表：谢道韫（咏絮之才）、谢灵运（山水诗派鼻祖）'},{text:'谢安：东山再起'},{text:'相关典故：投鞭断流、草木皆兵、风声鹤唳'}]}
-    ]},
-    {id:'nanbeichao',icon:'南北',title:'南北朝',desc:'孝文帝改革与侯景之乱',color:'#c05555',children:[
-      {text:'南北朝事件记',important:true,children:[{text:'刘宋建立→北魏孝文帝改革→侯景之乱→隋灭陈'}]},
-      {text:'北朝',children:[{text:'北魏、东魏、西魏、北齐、北周',children:[{text:'北魏分裂为东魏、西魏；北齐取代东魏；北周取代西魏；北周灭北齐'}]},{text:'北魏孝文帝改革',important:true,children:[{text:'由平城迁都洛阳；推行均田制和户调制'},{text:'学汉语、穿汉服、改汉姓、与汉人通婚'},{text:'采用汉族官制律令；学习汉族礼法，尊崇孔子'}]}]},
-      {text:'南朝',children:[{text:'宋、齐、梁、陈：均以建康（南京）为都'},{text:'南京：六朝古都——东吴、东晋、宋、齐、梁、陈'},{text:'拓展：范缜《神灭论》反对佛教，早期唯物主义'},{text:'“南朝四百八十寺，多少楼台烟雨中”联系佛教知识'},{text:'侯景之乱',important:true,children:[{text:'东魏降将侯景在梁发动叛乱，次年攻破建康'},{text:'梁武帝饿死，南朝衰落'},{text:'侯景：宇宙大将军'}]}]}
-    ]},
-    {id:'suichao',icon:'隋',title:'隋朝',desc:'开皇之治、科举与大运河',color:'#2364a1',children:[
-      {text:'隋朝事件记',important:true,children:[{text:'隋朝建立→开皇之治→隋朝灭亡'}]},
-      {text:'建立与开皇之治',children:[{text:'隋文帝杨坚，定都大兴（西安）'},{text:'杨坚相关典故：一衣带水（长江）'},{text:'三省六部制',important:true,children:[{text:'始于隋朝五省六曹制，确立于隋朝，完善于唐朝；直至清末六部制基本沿袭未改'},{text:'三省：中书省（起草）、门下省（审核）、尚书省（执行）'},{text:'尚书省之下分六部',children:[{text:'吏部：官吏任免、考核'},{text:'户部：土地、户口、赋税、财政'},{text:'礼部：典礼、科举'},{text:'兵部：全国军事'},{text:'刑部：刑法、狱讼'},{text:'工部：工程营造、屯田水利'}]}]},{text:'科举',important:true,children:[{text:'废九品中正制，分科取士（科举制雏形）；设明经、秀才两科'},{text:'创立进士科（科举制形成），标志科举制正式确立'}]}]},
-      {text:'科举制变迁',children:[{text:'商朝：世卿世禄制（嫡长子继承制）'},{text:'秦朝：军功爵制度，奖励军功'},{text:'汉朝：察举制、征辟制'},{text:'魏晋南北朝：九品中正制'},{text:'隋朝：隋文帝设明经、秀才；隋炀帝开进士科'},{text:'唐朝：唐太宗设明经、进士；武则天增加武举和殿试；唐玄宗以诗赋为主要考试内容'},{text:'宋朝：锁院制、糊名制、誊写制'},{text:'明朝：八股取士'},{text:'清朝：1905年光绪清末新政废除科举制'}]},
-      {text:'隋炀帝杨广',children:[{text:'三征高句丽',important:true,children:[{text:'极大动摇隋朝统治根基，是隋朝速亡的关键诱因'},{text:'第一次：隋军指挥失当，惨败而归，死伤惨重'},{text:'第二次：战事僵持；杨玄感国内叛乱，炀帝仓促撤军'},{text:'第三次：国内农民起义四起；高句丽求和，炀帝收兵'}]},{text:'开凿大运河',important:true,children:[{text:'始建于春秋（邗沟），完成于隋朝，繁荣于唐宋，取直于元代，疏通于明清'},{text:'春秋：吴王夫差开挖邗沟，连接长江与淮河；是大运河“第一锹”的开挖者'},{text:'隋朝：以洛阳为中心，北至涿郡，南至余杭'},{text:'四段：永济渠、通济渠、邗沟、江南河'},{text:'五大水系：海河、黄河、淮河、长江、钱塘江'},{text:'元朝：以“截弯取直”方式开凿京杭大运河；开凿济州河、会通河、通惠河，奠定今日走向；元后不再经过洛阳'},{text:'世界里程最长、工程最大；南起余杭（今杭州），北到涿郡（今北京）'},{text:'京杭大运河主要水源：微山湖'},{text:'明清：继续维护与完善'}]},{text:'杨广相关典故：罄竹难书'}]},
-      {text:'拓展：赵州桥',children:[{text:'由隋朝工匠李春设计建造'},{text:'当今世界上现存最早、保存最完整的古代单孔敞肩石拱桥'}]}
-    ]}
-  ];
-  const navMeta={
-    donghan:'中兴、文化与乱世前夜',
-    sanguo:'三分天下与建安风骨',
-    xijin:'短暂统一与五胡内迁',
-    dongjin:'衣冠南渡与淝水鏖兵',
-    nanbeichao:'民族融合与政权更迭',
-    suichao:'一统、科举与大运河'
-  };
-  const curatedCards=[
-    {section:'东汉',q:'“永平求法”发生在哪位皇帝在位期间？其历史意义是什么？',a:'汉明帝派遣使臣西行求访佛法，将佛教传入中国。',point:'永平求法'},
-    {section:'东汉',q:'白马寺位于何处？在中国佛教史上有什么地位？',a:'位于洛阳；是佛教传入中国后兴建的第一座官办寺院，被视为中国佛教的发源地。',point:'白马寺'},
-    {section:'东汉',q:'东汉改进造纸术的人是谁？',a:'蔡伦。',point:'蔡伦改进造纸术'},
-    {section:'东汉',q:'“投笔从戎”“不入虎穴，焉得虎子”与哪位东汉人物相关？',a:'班超。',point:'班超出使西域'},
-    {section:'东汉',q:'黄巾起义由谁领导？其口号是什么？',a:'张角领导；口号是“苍天已死，黄天当立，岁在甲子，天下大吉”。',point:'黄巾起义'},
-    {section:'三国',q:'官渡之战的交战双方是谁？此战的历史影响是什么？',a:'曹操与袁绍交战；曹操火烧乌巢粮仓大破袁绍，奠定了统一北方的基础。',point:'官渡之战'},
-    {section:'三国',q:'赤壁之战的交战双方是谁？此战奠定了什么局面？',a:'曹操与孙刘联军交战；孙刘联军以少胜多，奠定了三国鼎立的基础。',point:'赤壁之战'},
-    {section:'三国',q:'夷陵之战后，三国的版图出现了什么变化？',a:'刘备战败后，三国版图基本定型。',point:'夷陵之战'},
-    {section:'三国',q:'三国灭亡的顺序是什么？三国最终如何结束？',a:'灭亡顺序为蜀、魏、吴；司马炎篡魏建立西晋，后西晋灭吴，三国结束。',point:'三国归晋'},
-    {section:'三国',q:'“三曹”分别是谁？',a:'曹操、曹丕、曹植。',point:'建安文学'},
-    {section:'西晋',q:'西晋的建立者、都城分别是什么？',a:'晋武帝司马炎建立西晋，定都洛阳。',point:'建立'},
-    {section:'西晋',q:'西晋灭亡直接对应哪一事件？',a:'永嘉之乱。匈奴俘获晋愍帝，西晋灭亡。',point:'永嘉之乱'},
-    {section:'西晋',q:'“五胡”包括哪五个少数民族？',a:'匈奴、鲜卑、羯、氐、羌。',point:'五胡乱华'},
-    {section:'东晋',q:'“王与马，共天下”中的“马”指谁？',a:'东晋元帝司马睿。',point:'衣冠南渡'},
-    {section:'东晋',q:'淝水之战的双方及结果是什么？',a:'东晋谢安、谢玄一方与前秦苻坚一方交战，东晋以少胜多。',point:'淝水之战'},
-    {section:'东晋',q:'“草木皆兵”“风声鹤唳”“投鞭断流”都与哪场战役相关？',a:'淝水之战。',point:'淝水之战'},
-    {section:'南北朝',q:'北魏孝文帝改革中，迁都到哪里？',a:'洛阳。',point:'北魏孝文帝改革'},
-    {section:'南北朝',q:'北魏孝文帝改革的主要汉化措施有哪些？',a:'学汉语、穿汉服、改汉姓、与汉人通婚；并采用汉族官制律令、学习汉族礼法。',point:'北魏孝文帝改革'},
-    {section:'南北朝',q:'南京为何被称为“六朝古都”？',a:'东吴、东晋、宋、齐、梁、陈六个政权均曾以建康（今南京）为都。',point:'六朝古都'},
-    {section:'隋朝',q:'隋朝的建立者和都城分别是什么？',a:'隋文帝杨坚建立隋朝，定都大兴（今西安）。',point:'隋朝建立'},
-    {section:'隋朝',q:'三省六部制中，中书省、门下省、尚书省各负责什么？',a:'中书省负责起草，门下省负责审核，尚书省负责执行。',point:'三省六部制'},
-    {section:'隋朝',q:'隋朝科举制正式确立的标志是什么？',a:'隋炀帝创立进士科，标志着科举制正式确立。',point:'科举制'},
-    {section:'隋朝',q:'隋炀帝三征高句丽产生什么影响？',a:'极大动摇了隋朝统治根基，是隋朝迅速灭亡的关键诱因。',point:'三征高句丽'},
-    {section:'隋朝',q:'隋朝大运河以哪里为中心？南北两端分别到哪里？',a:'以洛阳为中心，北至涿郡，南至余杭。',point:'开凿大运河'},
-    {section:'隋朝',q:'隋朝大运河由哪四段构成？',a:'永济渠、通济渠、邗沟、江南河。',point:'开凿大运河'},
-    {section:'隋朝',q:'赵州桥由谁设计建造？其结构特点是什么？',a:'由隋朝工匠李春设计建造，是现存最早、保存最完整的古代单孔敞肩石拱桥。',point:'赵州桥'}
-  ];
-  let state={modules:structuredClone(seedModules),marks:{},note:'',edit:false,selected:null,card:0,flipped:false,activeModule:'donghan'};
+  {
+    id: "nansong",
+    icon: "宋",
+    title: "南宋",
+    desc: "岳飞抗金、宋金和议与南宋灭亡",
+    color: "#1766a8",
+    children: [
+      {
+        text: "建立",
+        important: true,
+        children: [
+          {
+            text: "宋高宗赵构继位，建立南宋，定都临安（杭州）"
+          }
+        ]
+      },
+      {
+        text: "岳飞抗金",
+        important: true,
+        children: [
+          {
+            text: "岳飞 VS 金完颜宗弼；郾城大捷、朱仙镇大捷，进军开封附近"
+          },
+          {
+            text: "宋高宗连发十二道金牌召回岳飞，秦桧以“莫须有”构陷；岳飞遇害后宋孝宗为其平反，追封鄂王"
+          },
+          {
+            text: "岳飞相关典故：直捣黄龙、冻死不拆屋饿死不掳掠、撼山易撼岳家军难；《满江红》有“三十功名尘与土，八千里路云和月”"
+          }
+        ]
+      },
+      {
+        text: "宋金和议与灭亡",
+        children: [
+          {
+            text: "绍兴和议：宋金第一个和平协议，宋向金俯首称臣，宋金对峙形成"
+          },
+          {
+            text: "隆兴和议：宋孝宗时期宋金第二个和平协议"
+          },
+          {
+            text: "崖山海战：南宋与蒙古决战；陆秀夫背小皇帝赵昺跳海，南宋灭亡，元朝统一全国"
+          }
+        ]
+      },
+      {
+        text: "南宋人物",
+        children: [
+          {
+            text: "辛弃疾，字幼安，豪放派词人，被誉为“词中之龙”；现存词作数量多"
+          },
+          {
+            text: "李清照，号易安居士，婉约派代表词人，著《词论》"
+          },
+          {
+            text: "文天祥：《过零丁洋》《正气歌》，“人生自古谁无死，留取丹心照汗青”"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "songjindui",
+    icon: "表",
+    title: "宋辽夏金政权",
+    desc: "建立时间、民族与都城对照",
+    color: "#5b7d9b",
+    children: [
+      {
+        text: "政权对照",
+        important: true,
+        children: [
+          {
+            text: "辽：907年，耶律阿保机建立，契丹族，都城上京（今内蒙古赤峰一带）"
+          },
+          {
+            text: "北宋：960年，赵匡胤建立，汉族，都城汴京（今河南开封）"
+          },
+          {
+            text: "西夏：1038年，元昊建立，党项族，都城兴庆（今宁夏银川）"
+          },
+          {
+            text: "金：1115年，完颜阿骨打建立，女真族，都城会宁（今黑龙江哈尔滨），后迁中都（今北京）等"
+          },
+          {
+            text: "南宋：1127年，赵构建立，汉族，都城临安（今浙江杭州）"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "yuan",
+    icon: "元",
+    title: "元朝",
+    desc: "行省制、台湾西藏治理与元末起义",
+    color: "#8a5a3b",
+    children: [
+      {
+        text: "建立与统一",
+        important: true,
+        children: [
+          {
+            text: "成吉思汗铁木真建立蒙古汗国；窝阔台灭金；忽必烈定国号元，建立元朝，定都大都（北京）"
+          },
+          {
+            text: "元朝是中国历史上首次由少数民族建立的大一统王朝；泉州港（刺桐城）是宋元时期重要港口"
+          }
+        ]
+      },
+      {
+        text: "行省制度",
+        important: true,
+        children: [
+          {
+            text: "中央设中书省为全国最高行政机构；地方设行中书省，简称行省，开省级制度先河"
+          },
+          {
+            text: "设澎湖巡检司，管理澎湖和台湾，是中央政权最早管理台湾地区的行政机构"
+          },
+          {
+            text: "设宣政院掌管全国佛教并管理西藏地区"
+          }
+        ]
+      },
+      {
+        text: "文化与社会",
+        children: [
+          {
+            text: "忽必烈时期马可·波罗来华，著《马可·波罗行纪》"
+          },
+          {
+            text: "四等人制：蒙古人、色目人、汉人、南人"
+          },
+          {
+            text: "黄道婆推广黎族先进棉纺技术；郭守敬编《授时历》"
+          },
+          {
+            text: "红巾军起义后，朱元璋派徐达攻入大都，元朝灭亡"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "ming",
+    icon: "明",
+    title: "明朝",
+    desc: "洪武、永乐、仁宣与明朝灭亡",
+    color: "#1766a8",
+    children: [
+      {
+        text: "洪武之治",
+        important: true,
+        children: [
+          {
+            text: "明太祖朱元璋建立明朝，定都应天（南京）"
+          },
+          {
+            text: "废丞相、设殿阁大学士；废行中书省、设承宣布政使司（民政财政）、提刑按察使司（司法）、都指挥使司（军事）"
+          },
+          {
+            text: "设厂卫，朱元璋设锦衣卫；洪武四大案为胡惟庸案、空印案、郭桓案、蓝玉案"
+          },
+          {
+            text: "八股取士：题目出自四书五经，解释以朱熹《四书集注》为标准"
+          }
+        ]
+      },
+      {
+        text: "永乐盛世",
+        important: true,
+        children: [
+          {
+            text: "靖难之役：朱棣击败朱允炆即位；迁都北京，修筑紫禁城，设内阁"
+          },
+          {
+            text: "明成祖设东厂；五次亲征漠北，南下平定安南；组建五军营、三千营、神机营"
+          },
+          {
+            text: "解缙主持编纂《永乐大典》；郑和七下西洋，最远到达非洲东海岸和红海沿岸"
+          },
+          {
+            text: "仁宣之治：明仁宗、明宣宗时期；大学士拥有票拟权，皇帝负责批红"
+          }
+        ]
+      },
+      {
+        text: "由盛转衰与灭亡",
+        children: [
+          {
+            text: "土木堡之变：明英宗朱祁镇北伐败于瓦剌，明朝由盛转衰；夺门之变后朱祁镇复位"
+          },
+          {
+            text: "戚继光抗倭；张居正万历新政实行一条鞭法，将实物税折为货币税"
+          },
+          {
+            text: "萨尔浒之战明军大败，后金势力崛起；李自成起义攻入北京，崇祯帝自缢，明朝灭亡"
+          }
+        ]
+      },
+      {
+        text: "西学东渐",
+        children: [
+          {
+            text: "利玛窦进献《坤舆万国全图》；徐光启与西洋教士合作译《泰西水法》"
+          },
+          {
+            text: "徐光启《农政全书》与《齐民要术》《王祯农书》并称古代三大农书"
+          },
+          {
+            text: "番薯、玉米、花生、马铃薯、辣椒、西红柿等美洲作物传入"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "qing",
+    icon: "清",
+    title: "清朝与近代转折",
+    desc: "康雍乾盛世、闭关锁国与帝制终结",
+    color: "#2b7891",
+    children: [
+      {
+        text: "清朝建立",
+        important: true,
+        children: [
+          {
+            text: "努尔哈赤建立后金；皇太极改国号为清，定都盛京（沈阳）；顺治迁都北京"
+          },
+          {
+            text: "山海关大战中吴三桂引清军入关；郑成功驱逐荷兰殖民者，收复台湾"
+          }
+        ]
+      },
+      {
+        text: "康雍乾盛世",
+        important: true,
+        children: [
+          {
+            text: "康熙平定三藩、统一台湾、雅克萨之战后签订《尼布楚条约》；册封达赖，管理西藏"
+          },
+          {
+            text: "雍正设军机处，君主专制达到顶峰；摊丁入亩、改土归流、设置驻藏大臣、伊犁将军"
+          },
+          {
+            text: "乾隆时期《四库全书》；土尔扈特部回归祖国；康雍乾时期文字狱严重"
+          },
+          {
+            text: "八旗制度：上三旗为正黄、镶黄、正白，下五旗为正红、镶红、镶白、正蓝、镶蓝"
+          }
+        ]
+      },
+      {
+        text: "晚清与帝制终结",
+        important: true,
+        children: [
+          {
+            text: "林则徐虎门销烟；鸦片战争战败签订《南京条约》，中国开始沦为半殖民地半封建社会"
+          },
+          {
+            text: "第二次鸦片战争火烧圆明园；洋务运动兴办军工、新式学堂；同治时期平定太平天国、捻军"
+          },
+          {
+            text: "光绪支持戊戌变法，甲午战争惨败；宣统帝溥仪于1912年颁布退位诏书，清朝灭亡，封建帝制终结"
+          }
+        ]
+      }
+    ]
+  }
+];
+  const navMeta={"nansong":"岳飞抗金、宋金和议与南宋灭亡","songjindui":"建立时间、民族与都城对照","yuan":"行省制、台湾西藏治理与元末起义","ming":"洪武、永乐、仁宣与明朝灭亡","qing":"康雍乾盛世、闭关锁国与帝制终结"};
+  const curatedCards=[{"section":"南宋","q":"南宋的建立者、都城和建立时间是什么？","a":"宋高宗赵构于1127年建立南宋，定都临安（杭州）。","point":"建立"},{"section":"南宋","q":"岳飞抗金的代表战役有哪些？","a":"郾城大捷和朱仙镇大捷是岳飞抗金的代表战役。","point":"岳飞抗金"},{"section":"南宋","q":"绍兴和议和隆兴和议分别是什么性质的协议？","a":"绍兴和议是宋金第一个和平协议，隆兴和议是宋金第二个和平协议。","point":"宋金和议"},{"section":"南宋","q":"崖山海战的结果是什么？","a":"陆秀夫背小皇帝赵昺跳海，南宋灭亡，元朝统一全国。","point":"崖山海战"},{"section":"元朝","q":"元朝的建立者、都城和历史地位是什么？","a":"忽必烈定国号为元，定都大都；元朝是中国历史上首次由少数民族建立的大一统王朝。","point":"建立与统一"},{"section":"元朝","q":"元朝管理台湾和西藏分别设置了什么机构？","a":"设置澎湖巡检司管理澎湖、台湾；设置宣政院管理西藏地区。","point":"行省制度"},{"section":"明朝","q":"明太祖在地方行政上设立哪三司？分别负责什么？","a":"承宣布政使司负责民政和财政，提刑按察使司负责司法，都指挥使司负责军事。","point":"洪武之治"},{"section":"明朝","q":"郑和下西洋最远到达哪里？","a":"最远到达非洲东海岸和红海沿岸。","point":"郑和七下西洋"},{"section":"明朝","q":"张居正万历新政中的一条鞭法有什么变化？","a":"把实物税转化为货币税，便于统一征收。","point":"万历新政"},{"section":"清朝","q":"雍正时期哪项机构的设置使君主专制达到顶峰？","a":"设置军机处，使君主专制达到顶峰。","point":"康雍乾盛世"},{"section":"清朝","q":"鸦片战争后签订的第一个不平等条约是什么？历史影响是什么？","a":"签订《南京条约》；中国开始沦为半殖民地半封建社会。","point":"鸦片战争"},{"section":"清朝","q":"清朝何时因何事灭亡？","a":"1912年宣统帝溥仪颁布退位诏书，清朝灭亡，封建帝制终结。","point":"帝制终结"}];
+  let state={modules:structuredClone(seedModules),marks:{},note:'',edit:false,selected:null,card:0,flipped:false,activeModule:'nansong'};
   try{const saved=JSON.parse(localStorage.getItem(STORAGE));if(saved?.modules) state={...state,...saved,edit:false,selected:null}}catch(e){}
   const $=s=>document.querySelector(s), modulesEl=$('#modules'), navEl=$('#navList');
   function uid(){return 'n_'+Math.random().toString(36).slice(2,10)}
@@ -134,13 +335,13 @@
   function renderCards(){const cards=curatedCards;if(state.card>=cards.length)state.card=0;const host=$('#cards');if(!cards.length){host.innerHTML='<div class="empty">暂无可复习的闪卡。</div>';return}const c=cards[state.card];host.innerHTML=`<h2>精准闪卡</h2><div class="card-wrap"><div class="flashcard${state.flipped?' flipped':''}" id="flashcard"><div class="card-face"><div class="card-label">问题 · ${escapeHtml(c.section)}</div><div class="card-content">${escapeHtml(c.q)}</div><div class="card-hint">先在心中作答，再点击翻面核对</div></div><div class="card-face back"><div class="card-label">标准答案</div><div class="card-content">${escapeHtml(c.a)}</div><div class="card-source">对应考点：${escapeHtml(c.point)}</div><div class="card-hint">点击返回问题</div></div></div></div><div class="card-nav"><button id="prevCard">← 上一张</button><span>${state.card+1} / ${cards.length}</span><button id="nextCard">下一张 →</button></div>`;$('#flashcard').onclick=()=>{state.flipped=!state.flipped;$('#flashcard').classList.toggle('flipped',state.flipped)};$('#prevCard').onclick=()=>{state.card=(state.card-1+cards.length)%cards.length;state.flipped=false;renderCards()};$('#nextCard').onclick=()=>{state.card=(state.card+1)%cards.length;state.flipped=false;renderCards()}}
   function doSearch(q){q=q.trim().toLowerCase();$('#clearSearch').style.display=q?'block':'none';if(!q){render();return}const matches=[];allNodes().forEach(({n})=>{if(n.text.toLowerCase().includes(q)){matches.push(n._id);let f=find(n._id);for(let p=f.p;p;){p._collapsed=false;const found=find(p._id);p=found?.p}}});render();matches.forEach(id=>document.querySelector(`[data-id="${id}"]`)?.classList.add('search-hit'));document.querySelector('.search-hit')?.scrollIntoView({behavior:'smooth',block:'center'})}
   function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),1800)}
-  $('#search').oninput=e=>doSearch(e.target.value);$('#clearSearch').onclick=()=>{$('#search').value='';doSearch('')};$('#editToggle').onclick=()=>{state.edit=!state.edit;render();toast(state.edit?'编辑模式已开启':'编辑已完成并保存')};$('#foldAll').onclick=()=>{const fold=!state.modules.every(m=>m._closed);state.modules.forEach(m=>m._closed=fold);render();$('#foldAll').textContent=fold?'› 展开':'⌄ 折叠'};$('#exportData').onclick=()=>{const data={title:'历史常识·第三节',exportedAt:new Date().toLocaleString('zh-CN'),modules:state.modules,marks:state.marks,note:state.note};const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='历史常识_第三节_学习笔记.json';a.click();URL.revokeObjectURL(url);toast('学习数据已导出')};$('#noteText').value=state.note;$('#noteText').oninput=e=>{state.note=e.target.value;persist()};document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab,.panel').forEach(e=>e.classList.remove('active'));t.classList.add('active');$('#'+t.dataset.tab).classList.add('active')});
+  $('#search').oninput=e=>doSearch(e.target.value);$('#clearSearch').onclick=()=>{$('#search').value='';doSearch('')};$('#editToggle').onclick=()=>{state.edit=!state.edit;render();toast(state.edit?'编辑模式已开启':'编辑已完成并保存')};$('#foldAll').onclick=()=>{const fold=!state.modules.every(m=>m._closed);state.modules.forEach(m=>m._closed=fold);render();$('#foldAll').textContent=fold?'› 展开':'⌄ 折叠'};$('#exportData').onclick=()=>{const data={title:'历史常识：南宋至清末',exportedAt:new Date().toLocaleString('zh-CN'),modules:state.modules,marks:state.marks,note:state.note};const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='历史常识_第五节_学习笔记.json';a.click();URL.revokeObjectURL(url);toast('学习数据已导出')};$('#noteText').value=state.note;$('#noteText').oninput=e=>{state.note=e.target.value;persist()};document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab,.panel').forEach(e=>e.classList.remove('active'));t.classList.add('active');$('#'+t.dataset.tab).classList.add('active')});
   render();renderDetail();renderCards();
   let sharedIndex=null;let sharedIndexPromise=fetch('knowledge-index.json').then(r=>r.ok?r.json():null).then(x=>sharedIndex=x).catch(()=>null);
-  function showSharedSearch(q){let host=document.querySelector('.search'),panel=document.querySelector('#crossSearchResults');if(!panel){panel=document.createElement('div');panel.id='crossSearchResults';panel.style.cssText='position:absolute;top:42px;left:0;right:0;z-index:30;display:none;max-height:360px;overflow:auto;padding:5px;border:1px solid #b9d0e9;border-radius:9px;background:#fff;box-shadow:0 12px 28px #123c6633;color:#173a61';host.append(panel)}panel.innerHTML='';if(!q){panel.style.display='none';return}let rows=[];(sharedIndex?.maps||[]).forEach(m=>(m.nodes||[]).forEach(n=>{if((n.text+' '+n.path).toLowerCase().includes(q.toLowerCase()))rows.push({m,n})}));if(!rows.length){panel.innerHTML='<div style="padding:10px;color:#71839a;font-size:12px">未找到匹配的知识点</div>';panel.style.display='block';return}rows.slice(0,30).forEach(({m,n})=>{let b=document.createElement('button');b.type='button';b.style.cssText='display:block;width:100%;padding:8px 9px;border:0;border-radius:6px;background:transparent;color:#173a61;text-align:left;cursor:pointer';b.innerHTML=`<strong style="display:block;font-size:13px">${escapeHtml(n.text)}</strong><small style="display:block;margin-top:2px;color:#71839a;font-size:11px">${escapeHtml(m.title)} · ${escapeHtml(n.path)}</small>`;b.onclick=()=>{if(m.id==='history-section-3'){panel.style.display='none';document.querySelector('#search').value=n.text;doSearch(n.text)}else location.href=m.path+'?q='+encodeURIComponent(n.text)};panel.append(b)});panel.style.display='block'}
+  function showSharedSearch(q){let host=document.querySelector('.search'),panel=document.querySelector('#crossSearchResults');if(!panel){panel=document.createElement('div');panel.id='crossSearchResults';panel.style.cssText='position:absolute;top:42px;left:0;right:0;z-index:30;display:none;max-height:360px;overflow:auto;padding:5px;border:1px solid #b9d0e9;border-radius:9px;background:#fff;box-shadow:0 12px 28px #123c6633;color:#173a61';host.append(panel)}panel.innerHTML='';if(!q){panel.style.display='none';return}let rows=[];(sharedIndex?.maps||[]).forEach(m=>(m.nodes||[]).forEach(n=>{if((n.text+' '+n.path).toLowerCase().includes(q.toLowerCase()))rows.push({m,n})}));if(!rows.length){panel.innerHTML='<div style="padding:10px;color:#71839a;font-size:12px">未找到匹配的知识点</div>';panel.style.display='block';return}rows.slice(0,30).forEach(({m,n})=>{let b=document.createElement('button');b.type='button';b.style.cssText='display:block;width:100%;padding:8px 9px;border:0;border-radius:6px;background:transparent;color:#173a61;text-align:left;cursor:pointer';b.innerHTML=`<strong style="display:block;font-size:13px">${escapeHtml(n.text)}</strong><small style="display:block;margin-top:2px;color:#71839a;font-size:11px">${escapeHtml(m.title)} · ${escapeHtml(n.path)}</small>`;b.onclick=()=>{if(m.id==='history-section-5'){panel.style.display='none';document.querySelector('#search').value=n.text;doSearch(n.text)}else location.href=m.path+'?q='+encodeURIComponent(n.text)};panel.append(b)});panel.style.display='block'}
   function runGlobalSearch(q){doSearch(q);showSharedSearch(q);if(q)sharedIndexPromise.then(()=>showSharedSearch(q))}
   document.querySelector('#search').oninput=e=>runGlobalSearch(e.target.value);document.querySelector('#clearSearch').onclick=()=>{document.querySelector('#search').value='';runGlobalSearch('')};
   const initialQ=new URLSearchParams(location.search).get('q');if(initialQ){document.querySelector('#search').value=initialQ;setTimeout(()=>runGlobalSearch(initialQ),0)}
-  const panelState=JSON.parse(localStorage.getItem('history-panels-v1')||'{}');const panelStyle=document.createElement('style');panelStyle.textContent='.left-hidden .layout{grid-template-columns:minmax(0,1fr) var(--assist)}.left-hidden .left{display:none}.right-hidden .layout{grid-template-columns:var(--side) minmax(0,1fr)}.right-hidden .assistant{display:none}@media(max-width:980px){.left-hidden .layout,.right-hidden .layout{grid-template-columns:1fr}}';document.head.append(panelStyle);function applyPanels(){document.body.classList.toggle('left-hidden',panelState.left===false);document.body.classList.toggle('right-hidden',panelState.right===false)}function togglePanel(side){panelState[side]=panelState[side]===false?true:false;localStorage.setItem('history-panels-v1',JSON.stringify(panelState));applyPanels()}function addPanelToggle(id,label,side){let b=document.createElement('button');b.id=id;b.textContent=label;b.title=label;b.onclick=()=>togglePanel(side);document.querySelector('.header-actions').append(b)}document.getElementById('toggleLeft').onclick=()=>togglePanel('left');document.getElementById('toggleRight').onclick=()=>togglePanel('right');applyPanels();
+  const panelState=JSON.parse(localStorage.getItem('history-section-5-panels-v1')||'{}');const panelStyle=document.createElement('style');panelStyle.textContent='.left-hidden .layout{grid-template-columns:minmax(0,1fr) var(--assist)}.left-hidden .left{display:none}.right-hidden .layout{grid-template-columns:var(--side) minmax(0,1fr)}.right-hidden .assistant{display:none}@media(max-width:980px){.left-hidden .layout,.right-hidden .layout{grid-template-columns:1fr}}';document.head.append(panelStyle);function applyPanels(){document.body.classList.toggle('left-hidden',panelState.left===false);document.body.classList.toggle('right-hidden',panelState.right===false)}function togglePanel(side){panelState[side]=panelState[side]===false?true:false;localStorage.setItem('history-section-5-panels-v1',JSON.stringify(panelState));applyPanels()}function addPanelToggle(id,label,side){let b=document.createElement('button');b.id=id;b.textContent=label;b.title=label;b.onclick=()=>togglePanel(side);document.querySelector('.header-actions').append(b)}document.getElementById('toggleLeft').onclick=()=>togglePanel('left');document.getElementById('toggleRight').onclick=()=>togglePanel('right');applyPanels();
   </script>
 </body></html>

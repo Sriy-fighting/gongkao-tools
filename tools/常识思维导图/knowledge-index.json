@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-22T08:53:11.024Z",
+  "generatedAt": "2026-08-22T09:12:37.122Z",
   "maps": [
     {
       "id": "science-section-1",
@@ -2131,6 +2131,387 @@
       ]
     },
     {
+      "id": "history-section-2",
+      "title": "历史常识：秦汉",
+      "subtitle": "秦朝建立、西汉盛世与汉武帝时期",
+      "path": "../常识思维导图/历史常识_第二节_学习增强版.html",
+      "icon": "秦",
+      "color": "#b05f26",
+      "file": "tools/常识思维导图/历史常识_第二节_学习增强版.html",
+      "key": "const seedModules=",
+      "order": 3,
+      "nodes": [
+        {
+          "id": "history-section-2-0",
+          "text": "秦朝事件记",
+          "path": "秦朝 › 秦朝事件记",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": true
+        },
+        {
+          "id": "history-section-2-1",
+          "text": "秦朝建立→焚书坑儒→沙丘之变→大泽乡起义→巨鹿之战→秦朝灭亡",
+          "path": "秦朝 › 秦朝事件记 › 秦朝建立→焚书坑儒→沙丘之变→大泽乡起义→巨鹿之战→秦朝灭亡",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-2",
+          "text": "建立与制度",
+          "path": "秦朝 › 建立与制度",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": true
+        },
+        {
+          "id": "history-section-2-3",
+          "text": "秦始皇建立中国历史上第一个统一的封建王朝，定都咸阳",
+          "path": "秦朝 › 建立与制度 › 秦始皇建立中国历史上第一个统一的封建王朝，定都咸阳",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-4",
+          "text": "皇帝称号由秦始皇首创；自称“朕”，命令称“制”“诏”，印章称“玺”",
+          "path": "秦朝 › 建立与制度 › 皇帝称号由秦始皇首创；自称“朕”，命令称“制”“诏”，印章称“玺”",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-5",
+          "text": "三公九卿：丞相（行政）、太尉（军事）、御史大夫（监察）；中央设九卿",
+          "path": "秦朝 › 建立与制度 › 三公九卿：丞相（行政）、太尉（军事）、御史大夫（监察）；中央设九卿",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-6",
+          "text": "地方废分封、推行郡县制；标志政治由宗法分封制转向皇帝和职业官僚管理的帝国模式",
+          "path": "秦朝 › 建立与制度 › 地方废分封、推行郡县制；标志政治由宗法分封制转向皇帝和职业官僚管理的帝国模式",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-7",
+          "text": "统一措施",
+          "path": "秦朝 › 统一措施",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": true
+        },
+        {
+          "id": "history-section-2-8",
+          "text": "统一货币：圆形方孔半两钱",
+          "path": "秦朝 › 统一措施 › 统一货币：圆形方孔半两钱",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-9",
+          "text": "统一度量衡：度为长度、量为容积、衡为重量",
+          "path": "秦朝 › 统一措施 › 统一度量衡：度为长度、量为容积、衡为重量",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-10",
+          "text": "书同文（小篆）、车同轨",
+          "path": "秦朝 › 统一措施 › 书同文（小篆）、车同轨",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-11",
+          "text": "焚书坑儒：李斯主持；医药、占卜、种植等书籍保留",
+          "path": "秦朝 › 统一措施 › 焚书坑儒：李斯主持；医药、占卜、种植等书籍保留",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-12",
+          "text": "军事与工程",
+          "path": "秦朝 › 军事与工程",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-13",
+          "text": "北击匈奴：蒙恬连接秦、赵、燕旧长城；唐、元、清未修筑长城",
+          "path": "秦朝 › 军事与工程 › 北击匈奴：蒙恬连接秦、赵、燕旧长城；唐、元、清未修筑长城",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-14",
+          "text": "南征百越：设置南海郡（广东）、象郡（海南）、桂林郡（广西）",
+          "path": "秦朝 › 军事与工程 › 南征百越：设置南海郡（广东）、象郡（海南）、桂林郡（广西）",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-15",
+          "text": "开凿灵渠，沟通湘江与漓江；秦三大水利工程为都江堰、郑国渠、灵渠",
+          "path": "秦朝 › 军事与工程 › 开凿灵渠，沟通湘江与漓江；秦三大水利工程为都江堰、郑国渠、灵渠",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-16",
+          "text": "直道用于防范匈奴；驰道便利交通且中央道路为皇帝专用；五尺道标志中央政权开始系统经营西南边疆",
+          "path": "秦朝 › 军事与工程 › 直道用于防范匈奴；驰道便利交通且中央道路为皇帝专用；五尺道标志中央政权开始系统经营西南边疆",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-17",
+          "text": "秦末事件",
+          "path": "秦朝 › 秦末事件",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": true
+        },
+        {
+          "id": "history-section-2-18",
+          "text": "沙丘之变：赵高、李斯杀害公子扶苏，拥立秦二世；赵高典故“指鹿为马”",
+          "path": "秦朝 › 秦末事件 › 沙丘之变：赵高、李斯杀害公子扶苏，拥立秦二世；赵高典故“指鹿为马”",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-19",
+          "text": "大泽乡起义：陈胜、吴广领导，中国历史上第一次农民起义；口号“王侯将相，宁有种乎”",
+          "path": "秦朝 › 秦末事件 › 大泽乡起义：陈胜、吴广领导，中国历史上第一次农民起义；口号“王侯将相，宁有种乎”",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-20",
+          "text": "巨鹿之战：项羽破釜沉舟，大破章邯、王离率领的秦军",
+          "path": "秦朝 › 秦末事件 › 巨鹿之战：项羽破釜沉舟，大破章邯、王离率领的秦军",
+          "moduleId": "qin",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-21",
+          "text": "入关与鸿门宴",
+          "path": "楚汉争霸 › 入关与鸿门宴",
+          "moduleId": "chuhan",
+          "mapId": "history-section-2",
+          "important": true
+        },
+        {
+          "id": "history-section-2-22",
+          "text": "刘邦先入关中，秋毫无犯、约法三章；“先入关中者为王”",
+          "path": "楚汉争霸 › 入关与鸿门宴 › 刘邦先入关中，秋毫无犯、约法三章；“先入关中者为王”",
+          "moduleId": "chuhan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-23",
+          "text": "项羽、范增、项庄 VS 刘邦、张良、樊哙；典故“项庄舞剑，意在沛公”",
+          "path": "楚汉争霸 › 入关与鸿门宴 › 项羽、范增、项庄 VS 刘邦、张良、樊哙；典故“项庄舞剑，意在沛公”",
+          "moduleId": "chuhan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-24",
+          "text": "战争与典故",
+          "path": "楚汉争霸 › 战争与典故",
+          "moduleId": "chuhan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-25",
+          "text": "明修栈道，暗度陈仓；筑坛拜将",
+          "path": "楚汉争霸 › 战争与典故 › 明修栈道，暗度陈仓；筑坛拜将",
+          "moduleId": "chuhan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-26",
+          "text": "韩信：背水一战、一饭千金、胯下之辱",
+          "path": "楚汉争霸 › 战争与典故 › 韩信：背水一战、一饭千金、胯下之辱",
+          "moduleId": "chuhan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-27",
+          "text": "彭城之战：项羽胜刘邦",
+          "path": "楚汉争霸 › 战争与典故 › 彭城之战：项羽胜刘邦",
+          "moduleId": "chuhan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-28",
+          "text": "鸿沟合议：以鸿沟为界，楚河汉界由此而来",
+          "path": "楚汉争霸 › 战争与典故 › 鸿沟合议：以鸿沟为界，楚河汉界由此而来",
+          "moduleId": "chuhan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-29",
+          "text": "垓下之战：刘邦胜；四面楚歌、十面埋伏、霸王别姬、乌江自刎",
+          "path": "楚汉争霸 › 战争与典故 › 垓下之战：刘邦胜；四面楚歌、十面埋伏、霸王别姬、乌江自刎",
+          "moduleId": "chuhan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-30",
+          "text": "建立与文景之治",
+          "path": "西汉 › 建立与文景之治",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": true
+        },
+        {
+          "id": "history-section-2-31",
+          "text": "汉高祖刘邦建立西汉，定都长安；推崇黄老之术，实行休养生息、无为而治、郡国并行制",
+          "path": "西汉 › 建立与文景之治 › 汉高祖刘邦建立西汉，定都长安；推崇黄老之术，实行休养生息、无为而治、郡国并行制",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-32",
+          "text": "白登之围后，刘邦开启对匈奴和亲政策；白马之盟提出“非刘氏而王者，天下共击之”",
+          "path": "西汉 › 建立与文景之治 › 白登之围后，刘邦开启对匈奴和亲政策；白马之盟提出“非刘氏而王者，天下共击之”",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-33",
+          "text": "汉文帝刘恒、汉景帝刘启实行轻徭薄赋、与民休息，形成文景之治；汉景帝时期发生七国之乱，周亚夫平叛",
+          "path": "西汉 › 建立与文景之治 › 汉文帝刘恒、汉景帝刘启实行轻徭薄赋、与民休息，形成文景之治；汉景帝时期发生七国之乱，周亚夫平叛",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-34",
+          "text": "汉武盛世",
+          "path": "西汉 › 汉武盛世",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": true
+        },
+        {
+          "id": "history-section-2-35",
+          "text": "政治：中外朝制度、推恩令、察举制；设置刺史监察地方",
+          "path": "西汉 › 汉武盛世 › 政治：中外朝制度、推恩令、察举制；设置刺史监察地方",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-36",
+          "text": "经济：统一铸五铢钱；桑弘羊主持盐铁专卖、均输平准，财政权集中中央",
+          "path": "西汉 › 汉武盛世 › 经济：统一铸五铢钱；桑弘羊主持盐铁专卖、均输平准，财政权集中中央",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-37",
+          "text": "思想文化：董仲舒提出罢黜百家、独尊儒术和天人三策；设太学、五经博士；司马迁《史记》是第一部纪传体通史",
+          "path": "西汉 › 汉武盛世 › 思想文化：董仲舒提出罢黜百家、独尊儒术和天人三策；设太学、五经博士；司马迁《史记》是第一部纪传体通史",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-38",
+          "text": "军事：卫青、霍去病抗击匈奴；霍去病封狼居胥；设置河西四郡：武威、张掖、酒泉、敦煌",
+          "path": "西汉 › 汉武盛世 › 军事：卫青、霍去病抗击匈奴；霍去病封狼居胥；设置河西四郡：武威、张掖、酒泉、敦煌",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-39",
+          "text": "张骞出使西域，又称凿空之旅，开辟丝绸之路；传入葡萄、石榴、苜蓿、胡豆、胡麻、胡瓜、胡桃、大蒜等，传出丝织品、金属工具、铸铁和凿井技术",
+          "path": "西汉 › 汉武盛世 › 张骞出使西域，又称凿空之旅，开辟丝绸之路；传入葡萄、石榴、苜蓿、胡豆、胡麻、胡瓜、胡桃、大蒜等，传出丝织品、金属工具、铸铁和凿井技术",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-40",
+          "text": "昭宣中兴与衰亡",
+          "path": "西汉 › 昭宣中兴与衰亡",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-41",
+          "text": "巫蛊之祸导致皇后卫子夫、太子刘据自杀；汉武帝晚年发布轮台诏，停止对外扩张、与民休息",
+          "path": "西汉 › 昭宣中兴与衰亡 › 巫蛊之祸导致皇后卫子夫、太子刘据自杀；汉武帝晚年发布轮台诏，停止对外扩张、与民休息",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-42",
+          "text": "汉昭帝、汉宣帝时期形成昭宣中兴",
+          "path": "西汉 › 昭宣中兴与衰亡 › 汉昭帝、汉宣帝时期形成昭宣中兴",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-43",
+          "text": "汉宣帝设西域都护府管辖新疆，首任西域都护为郑吉",
+          "path": "西汉 › 昭宣中兴与衰亡 › 汉宣帝设西域都护府管辖新疆，首任西域都护为郑吉",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-44",
+          "text": "王昭君出塞发生在汉元帝时期；西施沉鱼、王昭君落雁、貂蝉闭月、杨玉环羞花合称四大美女",
+          "path": "西汉 › 昭宣中兴与衰亡 › 王昭君出塞发生在汉元帝时期；西施沉鱼、王昭君落雁、貂蝉闭月、杨玉环羞花合称四大美女",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        },
+        {
+          "id": "history-section-2-45",
+          "text": "绿林、赤眉起义与昆阳之战后，西汉走向灭亡，王莽篡汉",
+          "path": "西汉 › 昭宣中兴与衰亡 › 绿林、赤眉起义与昆阳之战后，西汉走向灭亡，王莽篡汉",
+          "moduleId": "xihan",
+          "mapId": "history-section-2",
+          "important": false
+        }
+      ]
+    },
+    {
       "id": "history-section-3",
       "title": "历史常识：东汉至隋朝",
       "subtitle": "东汉、三国、两晋南北朝与隋朝历史脉络",
@@ -2139,7 +2520,7 @@
       "color": "#a34d37",
       "file": "tools/常识思维导图/历史常识_第三节_学习增强版.html",
       "key": "const seedModules=",
-      "order": 3,
+      "order": 4,
       "nodes": [
         {
           "id": "history-section-3-0",
@@ -3475,6 +3856,1016 @@
           "path": "隋朝 › 拓展：赵州桥 › 当今世界上现存最早、保存最完整的古代单孔敞肩石拱桥",
           "moduleId": "suichao",
           "mapId": "history-section-3",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "history-section-4",
+      "title": "历史常识：唐宋",
+      "subtitle": "唐朝盛衰、五代十国与北宋制度变革",
+      "path": "../常识思维导图/历史常识_第四节_学习增强版.html",
+      "icon": "唐",
+      "color": "#9b4d28",
+      "file": "tools/常识思维导图/历史常识_第四节_学习增强版.html",
+      "key": "const seedModules=",
+      "order": 5,
+      "nodes": [
+        {
+          "id": "history-section-4-0",
+          "text": "建立与贞观之治",
+          "path": "唐朝 › 建立与贞观之治",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": true
+        },
+        {
+          "id": "history-section-4-1",
+          "text": "唐高祖李渊建立唐朝，定都长安；李世民不是开国皇帝",
+          "path": "唐朝 › 建立与贞观之治 › 唐高祖李渊建立唐朝，定都长安；李世民不是开国皇帝",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-2",
+          "text": "玄武门之变：李世民击败李建成、李元吉，李渊退为太上皇",
+          "path": "唐朝 › 建立与贞观之治 › 玄武门之变：李世民击败李建成、李元吉，李渊退为太上皇",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-3",
+          "text": "唐太宗李世民开创贞观之治，为开元盛世奠定基础；凌烟阁绘二十四功臣图，阎立本绘制",
+          "path": "唐朝 › 建立与贞观之治 › 唐太宗李世民开创贞观之治，为开元盛世奠定基础；凌烟阁绘二十四功臣图，阎立本绘制",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-4",
+          "text": "魏征典故：水能载舟亦能覆舟、兼听则明偏信则暗、以人为镜",
+          "path": "唐朝 › 建立与贞观之治 › 魏征典故：水能载舟亦能覆舟、兼听则明偏信则暗、以人为镜",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-5",
+          "text": "文化与外交",
+          "path": "唐朝 › 文化与外交",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-6",
+          "text": "玄奘西行到天竺，著《大唐西域记》",
+          "path": "唐朝 › 文化与外交 › 玄奘西行到天竺，著《大唐西域记》",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-7",
+          "text": "唐太宗、李靖灭东突厥；唐高宗时期薛仁贵抗击突厥",
+          "path": "唐朝 › 文化与外交 › 唐太宗、李靖灭东突厥；唐高宗时期薛仁贵抗击突厥",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-8",
+          "text": "文成公主下嫁松赞干布；《步辇图》由阎立本绘制，记录唐太宗会见吐蕃使臣",
+          "path": "唐朝 › 文化与外交 › 文成公主下嫁松赞干布；《步辇图》由阎立本绘制，记录唐太宗会见吐蕃使臣",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-9",
+          "text": "唐代称号与制度",
+          "path": "唐朝 › 唐代称号与制度",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": true
+        },
+        {
+          "id": "history-section-4-10",
+          "text": "庙号：皇帝死后供奉太庙的名号，常带“祖”“宗”",
+          "path": "唐朝 › 唐代称号与制度 › 庙号：皇帝死后供奉太庙的名号，常带“祖”“宗”",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-11",
+          "text": "谥号：评价君臣一生的褒贬文字；帝王如汉武帝，大臣如岳飞谥武穆、诸葛亮谥忠武",
+          "path": "唐朝 › 唐代称号与制度 › 谥号：评价君臣一生的褒贬文字；帝王如汉武帝，大臣如岳飞谥武穆、诸葛亮谥忠武",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-12",
+          "text": "年号：皇帝在世时纪年的名号；汉武帝开始使用年号，第一个年号为建元",
+          "path": "唐朝 › 唐代称号与制度 › 年号：皇帝在世时纪年的名号；汉武帝开始使用年号，第一个年号为建元",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-13",
+          "text": "唐高宗永徽之治：修成《唐律疏议》，现存最早的一部内容完备的法典",
+          "path": "唐朝 › 唐代称号与制度 › 唐高宗永徽之治：修成《唐律疏议》，现存最早的一部内容完备的法典",
+          "moduleId": "tang",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-14",
+          "text": "武周政权",
+          "path": "武周与开元 › 武周政权",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": true
+        },
+        {
+          "id": "history-section-4-15",
+          "text": "武则天建立武周，定都洛阳；是中国历史上唯一的正统女皇帝",
+          "path": "武周与开元 › 武周政权 › 武则天建立武周，定都洛阳；是中国历史上唯一的正统女皇帝",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-16",
+          "text": "武则天首创殿试、武举；“政启开元，治宏贞观”",
+          "path": "武周与开元 › 武周政权 › 武则天首创殿试、武举；“政启开元，治宏贞观”",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-17",
+          "text": "典故：请君入瓮、桃李满天下、唾面自干",
+          "path": "武周与开元 › 武周政权 › 典故：请君入瓮、桃李满天下、唾面自干",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-18",
+          "text": "开元盛世",
+          "path": "武周与开元 › 开元盛世",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": true
+        },
+        {
+          "id": "history-section-4-19",
+          "text": "唐玄宗李隆基时期唐朝进入全盛，是当时世界上最强盛的国家之一",
+          "path": "武周与开元 › 开元盛世 › 唐玄宗李隆基时期唐朝进入全盛，是当时世界上最强盛的国家之一",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-20",
+          "text": "鉴真东渡日本，传播佛教律宗和唐朝文化",
+          "path": "武周与开元 › 开元盛世 › 鉴真东渡日本，传播佛教律宗和唐朝文化",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-21",
+          "text": "农业技术改进，发明曲辕犁和筒车",
+          "path": "武周与开元 › 开元盛世 › 农业技术改进，发明曲辕犁和筒车",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-22",
+          "text": "安史之乱与唐亡",
+          "path": "武周与开元 › 安史之乱与唐亡",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": true
+        },
+        {
+          "id": "history-section-4-23",
+          "text": "安禄山、史思明发动安史之乱，又称天宝之乱，唐朝由盛转衰",
+          "path": "武周与开元 › 安史之乱与唐亡 › 安禄山、史思明发动安史之乱，又称天宝之乱，唐朝由盛转衰",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-24",
+          "text": "马嵬坡之变：唐玄宗被迫处死杨国忠并令杨玉环自尽；相关作品有《长恨歌》《长生殿》《梧桐雨》",
+          "path": "武周与开元 › 安史之乱与唐亡 › 马嵬坡之变：唐玄宗被迫处死杨国忠并令杨玉环自尽；相关作品有《长恨歌》《长生殿》《梧桐雨》",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-25",
+          "text": "黄巢、王仙芝起义历时久、波及广，直接打击唐朝统治；朱温禅让夺帝位，建立后梁，唐朝灭亡",
+          "path": "武周与开元 › 安史之乱与唐亡 › 黄巢、王仙芝起义历时久、波及广，直接打击唐朝统治；朱温禅让夺帝位，建立后梁，唐朝灭亡",
+          "moduleId": "wuzhou",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-26",
+          "text": "五代",
+          "path": "五代十国 › 五代",
+          "moduleId": "wudai",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-27",
+          "text": "后梁、后唐、后晋、后汉、后周；只有后唐定都洛阳，其余定都开封",
+          "path": "五代十国 › 五代 › 后梁、后唐、后晋、后汉、后周；只有后唐定都洛阳，其余定都开封",
+          "moduleId": "wudai",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-28",
+          "text": "十国",
+          "path": "五代十国 › 十国",
+          "moduleId": "wudai",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-29",
+          "text": "前蜀、后蜀、南吴、南唐、吴越、闽国、南楚、南汉、南平、北汉",
+          "path": "五代十国 › 十国 › 前蜀、后蜀、南吴、南唐、吴越、闽国、南楚、南汉、南平、北汉",
+          "moduleId": "wudai",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-30",
+          "text": "南唐后主李煜：代表作《虞美人》《相见欢》；南唐画家顾闳中《韩熙载夜宴图》",
+          "path": "五代十国 › 十国 › 南唐后主李煜：代表作《虞美人》《相见欢》；南唐画家顾闳中《韩熙载夜宴图》",
+          "moduleId": "wudai",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-31",
+          "text": "燕云十六州",
+          "path": "五代十国 › 燕云十六州",
+          "moduleId": "wudai",
+          "mapId": "history-section-4",
+          "important": true
+        },
+        {
+          "id": "history-section-4-32",
+          "text": "后唐石敬瑭割让燕云十六州给契丹，引契丹军南下，后唐灭亡",
+          "path": "五代十国 › 燕云十六州 › 后唐石敬瑭割让燕云十六州给契丹，引契丹军南下，后唐灭亡",
+          "moduleId": "wudai",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-33",
+          "text": "建立与中央制度",
+          "path": "北宋建立与制度 › 建立与中央制度",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": true
+        },
+        {
+          "id": "history-section-4-34",
+          "text": "后周赵匡胤发动陈桥驿兵变、黄袍加身，建立北宋，定都汴京（开封）",
+          "path": "北宋建立与制度 › 建立与中央制度 › 后周赵匡胤发动陈桥驿兵变、黄袍加身，建立北宋，定都汴京（开封）",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-35",
+          "text": "杯酒释兵权：赵普献策，解除节度使兵权",
+          "path": "北宋建立与制度 › 建立与中央制度 › 杯酒释兵权：赵普献策，解除节度使兵权",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-36",
+          "text": "二府三司：中书门下掌行政，枢密院掌军事，三司掌财政；最高行政机构为政事堂",
+          "path": "北宋建立与制度 › 建立与中央制度 › 二府三司：中书门下掌行政，枢密院掌军事，三司掌财政；最高行政机构为政事堂",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-37",
+          "text": "统一与对外关系",
+          "path": "北宋建立与制度 › 统一与对外关系",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-38",
+          "text": "宋太宗灭南唐，吴越和平纳土归宋，是五代十国中唯一未经战乱完成统一的割据政权",
+          "path": "北宋建立与制度 › 统一与对外关系 › 宋太宗灭南唐，吴越和平纳土归宋，是五代十国中唯一未经战乱完成统一的割据政权",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-39",
+          "text": "宋太宗高梁河之战、雍熙北伐均对辽失利",
+          "path": "北宋建立与制度 › 统一与对外关系 › 宋太宗高梁河之战、雍熙北伐均对辽失利",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-40",
+          "text": "辽耶律阿保机建辽；宋真宗与辽订澶渊之盟，宋向辽输送岁币",
+          "path": "北宋建立与制度 › 统一与对外关系 › 辽耶律阿保机建辽；宋真宗与辽订澶渊之盟，宋向辽输送岁币",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-41",
+          "text": "宋仁宗时期党项族李元昊建立西夏，宋夏订立和约",
+          "path": "北宋建立与制度 › 统一与对外关系 › 宋仁宗时期党项族李元昊建立西夏，宋夏订立和约",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-42",
+          "text": "经济与农业",
+          "path": "北宋建立与制度 › 经济与农业",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-43",
+          "text": "广州设置市舶司管理海运",
+          "path": "北宋建立与制度 › 经济与农业 › 广州设置市舶司管理海运",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-44",
+          "text": "宋真宗时期发行交子，流通于成都，是世界上最早的纸币",
+          "path": "北宋建立与制度 › 经济与农业 › 宋真宗时期发行交子，流通于成都，是世界上最早的纸币",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-45",
+          "text": "从越南引入占城稻",
+          "path": "北宋建立与制度 › 经济与农业 › 从越南引入占城稻",
+          "moduleId": "beisong",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-46",
+          "text": "庆历新政",
+          "path": "北宋改革与文化 › 庆历新政",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-47",
+          "text": "宋仁宗支持范仲淹，旨在澄清吏治、富国强兵、厉行法治；范仲淹任参知政事",
+          "path": "北宋改革与文化 › 庆历新政 › 宋仁宗支持范仲淹，旨在澄清吏治、富国强兵、厉行法治；范仲淹任参知政事",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-48",
+          "text": "王安石变法",
+          "path": "北宋改革与文化 › 王安石变法",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": true
+        },
+        {
+          "id": "history-section-4-49",
+          "text": "宋神宗支持王安石；原因是三冗两积：冗官、冗兵、冗费，积贫、积弱",
+          "path": "北宋改革与文化 › 王安石变法 › 宋神宗支持王安石；原因是三冗两积：冗官、冗兵、冗费，积贫、积弱",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-50",
+          "text": "经济措施：青苗法、募役法、农田水利法、方田均税法、市易法、均输法",
+          "path": "北宋改革与文化 › 王安石变法 › 经济措施：青苗法、募役法、农田水利法、方田均税法、市易法、均输法",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-51",
+          "text": "军事措施：保甲法、保马法、将兵法、设军器监",
+          "path": "北宋改革与文化 › 王安石变法 › 军事措施：保甲法、保马法、将兵法、设军器监",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-52",
+          "text": "文化措施：改革科举、整顿太学、唯才用人",
+          "path": "北宋改革与文化 › 王安石变法 › 文化措施：改革科举、整顿太学、唯才用人",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-53",
+          "text": "史学与文字狱",
+          "path": "北宋改革与文化 › 史学与文字狱",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-54",
+          "text": "司马光《资治通鉴》是第一部编年体通史；开篇为三家分晋",
+          "path": "北宋改革与文化 › 史学与文字狱 › 司马光《资治通鉴》是第一部编年体通史；开篇为三家分晋",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-55",
+          "text": "第一部编年体史书为《春秋》，第一部纪传体通史为《史记》，第一部纪传体断代史为《汉书》",
+          "path": "北宋改革与文化 › 史学与文字狱 › 第一部编年体史书为《春秋》，第一部纪传体通史为《史记》，第一部纪传体断代史为《汉书》",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-56",
+          "text": "乌台诗案：苏轼被御史台审讯；苏轼在黄州写《黄州寒食帖》",
+          "path": "北宋改革与文化 › 史学与文字狱 › 乌台诗案：苏轼被御史台审讯；苏轼在黄州写《黄州寒食帖》",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-57",
+          "text": "北宋灭亡",
+          "path": "北宋改革与文化 › 北宋灭亡",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": true
+        },
+        {
+          "id": "history-section-4-58",
+          "text": "女真完颜阿骨打建立金，定都会宁；靖康之耻中金军掳走宋徽宗、宋钦宗，北宋灭亡",
+          "path": "北宋改革与文化 › 北宋灭亡 › 女真完颜阿骨打建立金，定都会宁；靖康之耻中金军掳走宋徽宗、宋钦宗，北宋灭亡",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-59",
+          "text": "宋徽宗赵佶擅长瘦金体，著《大观茶论》；王希孟《千里江山图》、张择端《清明上河图》",
+          "path": "北宋改革与文化 › 北宋灭亡 › 宋徽宗赵佶擅长瘦金体，著《大观茶论》；王希孟《千里江山图》、张择端《清明上河图》",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        },
+        {
+          "id": "history-section-4-60",
+          "text": "唐陆羽《茶经》是现存最早最完整的茶学专著，被尊为茶圣、茶仙；北宋蔡襄《茶录》继其后有重要影响",
+          "path": "北宋改革与文化 › 北宋灭亡 › 唐陆羽《茶经》是现存最早最完整的茶学专著，被尊为茶圣、茶仙；北宋蔡襄《茶录》继其后有重要影响",
+          "moduleId": "songreform",
+          "mapId": "history-section-4",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "history-section-5",
+      "title": "历史常识：南宋至清末",
+      "subtitle": "南宋、元明清政权与近代转折",
+      "path": "../常识思维导图/历史常识_第五节_学习增强版.html",
+      "icon": "明",
+      "color": "#1766a8",
+      "file": "tools/常识思维导图/历史常识_第五节_学习增强版.html",
+      "key": "const seedModules=",
+      "order": 6,
+      "nodes": [
+        {
+          "id": "history-section-5-0",
+          "text": "建立",
+          "path": "南宋 › 建立",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": true
+        },
+        {
+          "id": "history-section-5-1",
+          "text": "宋高宗赵构继位，建立南宋，定都临安（杭州）",
+          "path": "南宋 › 建立 › 宋高宗赵构继位，建立南宋，定都临安（杭州）",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-2",
+          "text": "岳飞抗金",
+          "path": "南宋 › 岳飞抗金",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": true
+        },
+        {
+          "id": "history-section-5-3",
+          "text": "岳飞 VS 金完颜宗弼；郾城大捷、朱仙镇大捷，进军开封附近",
+          "path": "南宋 › 岳飞抗金 › 岳飞 VS 金完颜宗弼；郾城大捷、朱仙镇大捷，进军开封附近",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-4",
+          "text": "宋高宗连发十二道金牌召回岳飞，秦桧以“莫须有”构陷；岳飞遇害后宋孝宗为其平反，追封鄂王",
+          "path": "南宋 › 岳飞抗金 › 宋高宗连发十二道金牌召回岳飞，秦桧以“莫须有”构陷；岳飞遇害后宋孝宗为其平反，追封鄂王",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-5",
+          "text": "岳飞相关典故：直捣黄龙、冻死不拆屋饿死不掳掠、撼山易撼岳家军难；《满江红》有“三十功名尘与土，八千里路云和月”",
+          "path": "南宋 › 岳飞抗金 › 岳飞相关典故：直捣黄龙、冻死不拆屋饿死不掳掠、撼山易撼岳家军难；《满江红》有“三十功名尘与土，八千里路云和月”",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-6",
+          "text": "宋金和议与灭亡",
+          "path": "南宋 › 宋金和议与灭亡",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-7",
+          "text": "绍兴和议：宋金第一个和平协议，宋向金俯首称臣，宋金对峙形成",
+          "path": "南宋 › 宋金和议与灭亡 › 绍兴和议：宋金第一个和平协议，宋向金俯首称臣，宋金对峙形成",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-8",
+          "text": "隆兴和议：宋孝宗时期宋金第二个和平协议",
+          "path": "南宋 › 宋金和议与灭亡 › 隆兴和议：宋孝宗时期宋金第二个和平协议",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-9",
+          "text": "崖山海战：南宋与蒙古决战；陆秀夫背小皇帝赵昺跳海，南宋灭亡，元朝统一全国",
+          "path": "南宋 › 宋金和议与灭亡 › 崖山海战：南宋与蒙古决战；陆秀夫背小皇帝赵昺跳海，南宋灭亡，元朝统一全国",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-10",
+          "text": "南宋人物",
+          "path": "南宋 › 南宋人物",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-11",
+          "text": "辛弃疾，字幼安，豪放派词人，被誉为“词中之龙”；现存词作数量多",
+          "path": "南宋 › 南宋人物 › 辛弃疾，字幼安，豪放派词人，被誉为“词中之龙”；现存词作数量多",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-12",
+          "text": "李清照，号易安居士，婉约派代表词人，著《词论》",
+          "path": "南宋 › 南宋人物 › 李清照，号易安居士，婉约派代表词人，著《词论》",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-13",
+          "text": "文天祥：《过零丁洋》《正气歌》，“人生自古谁无死，留取丹心照汗青”",
+          "path": "南宋 › 南宋人物 › 文天祥：《过零丁洋》《正气歌》，“人生自古谁无死，留取丹心照汗青”",
+          "moduleId": "nansong",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-14",
+          "text": "政权对照",
+          "path": "宋辽夏金政权 › 政权对照",
+          "moduleId": "songjindui",
+          "mapId": "history-section-5",
+          "important": true
+        },
+        {
+          "id": "history-section-5-15",
+          "text": "辽：907年，耶律阿保机建立，契丹族，都城上京（今内蒙古赤峰一带）",
+          "path": "宋辽夏金政权 › 政权对照 › 辽：907年，耶律阿保机建立，契丹族，都城上京（今内蒙古赤峰一带）",
+          "moduleId": "songjindui",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-16",
+          "text": "北宋：960年，赵匡胤建立，汉族，都城汴京（今河南开封）",
+          "path": "宋辽夏金政权 › 政权对照 › 北宋：960年，赵匡胤建立，汉族，都城汴京（今河南开封）",
+          "moduleId": "songjindui",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-17",
+          "text": "西夏：1038年，元昊建立，党项族，都城兴庆（今宁夏银川）",
+          "path": "宋辽夏金政权 › 政权对照 › 西夏：1038年，元昊建立，党项族，都城兴庆（今宁夏银川）",
+          "moduleId": "songjindui",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-18",
+          "text": "金：1115年，完颜阿骨打建立，女真族，都城会宁（今黑龙江哈尔滨），后迁中都（今北京）等",
+          "path": "宋辽夏金政权 › 政权对照 › 金：1115年，完颜阿骨打建立，女真族，都城会宁（今黑龙江哈尔滨），后迁中都（今北京）等",
+          "moduleId": "songjindui",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-19",
+          "text": "南宋：1127年，赵构建立，汉族，都城临安（今浙江杭州）",
+          "path": "宋辽夏金政权 › 政权对照 › 南宋：1127年，赵构建立，汉族，都城临安（今浙江杭州）",
+          "moduleId": "songjindui",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-20",
+          "text": "建立与统一",
+          "path": "元朝 › 建立与统一",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": true
+        },
+        {
+          "id": "history-section-5-21",
+          "text": "成吉思汗铁木真建立蒙古汗国；窝阔台灭金；忽必烈定国号元，建立元朝，定都大都（北京）",
+          "path": "元朝 › 建立与统一 › 成吉思汗铁木真建立蒙古汗国；窝阔台灭金；忽必烈定国号元，建立元朝，定都大都（北京）",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-22",
+          "text": "元朝是中国历史上首次由少数民族建立的大一统王朝；泉州港（刺桐城）是宋元时期重要港口",
+          "path": "元朝 › 建立与统一 › 元朝是中国历史上首次由少数民族建立的大一统王朝；泉州港（刺桐城）是宋元时期重要港口",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-23",
+          "text": "行省制度",
+          "path": "元朝 › 行省制度",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": true
+        },
+        {
+          "id": "history-section-5-24",
+          "text": "中央设中书省为全国最高行政机构；地方设行中书省，简称行省，开省级制度先河",
+          "path": "元朝 › 行省制度 › 中央设中书省为全国最高行政机构；地方设行中书省，简称行省，开省级制度先河",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-25",
+          "text": "设澎湖巡检司，管理澎湖和台湾，是中央政权最早管理台湾地区的行政机构",
+          "path": "元朝 › 行省制度 › 设澎湖巡检司，管理澎湖和台湾，是中央政权最早管理台湾地区的行政机构",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-26",
+          "text": "设宣政院掌管全国佛教并管理西藏地区",
+          "path": "元朝 › 行省制度 › 设宣政院掌管全国佛教并管理西藏地区",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-27",
+          "text": "文化与社会",
+          "path": "元朝 › 文化与社会",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-28",
+          "text": "忽必烈时期马可·波罗来华，著《马可·波罗行纪》",
+          "path": "元朝 › 文化与社会 › 忽必烈时期马可·波罗来华，著《马可·波罗行纪》",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-29",
+          "text": "四等人制：蒙古人、色目人、汉人、南人",
+          "path": "元朝 › 文化与社会 › 四等人制：蒙古人、色目人、汉人、南人",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-30",
+          "text": "黄道婆推广黎族先进棉纺技术；郭守敬编《授时历》",
+          "path": "元朝 › 文化与社会 › 黄道婆推广黎族先进棉纺技术；郭守敬编《授时历》",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-31",
+          "text": "红巾军起义后，朱元璋派徐达攻入大都，元朝灭亡",
+          "path": "元朝 › 文化与社会 › 红巾军起义后，朱元璋派徐达攻入大都，元朝灭亡",
+          "moduleId": "yuan",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-32",
+          "text": "洪武之治",
+          "path": "明朝 › 洪武之治",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": true
+        },
+        {
+          "id": "history-section-5-33",
+          "text": "明太祖朱元璋建立明朝，定都应天（南京）",
+          "path": "明朝 › 洪武之治 › 明太祖朱元璋建立明朝，定都应天（南京）",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-34",
+          "text": "废丞相、设殿阁大学士；废行中书省、设承宣布政使司（民政财政）、提刑按察使司（司法）、都指挥使司（军事）",
+          "path": "明朝 › 洪武之治 › 废丞相、设殿阁大学士；废行中书省、设承宣布政使司（民政财政）、提刑按察使司（司法）、都指挥使司（军事）",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-35",
+          "text": "设厂卫，朱元璋设锦衣卫；洪武四大案为胡惟庸案、空印案、郭桓案、蓝玉案",
+          "path": "明朝 › 洪武之治 › 设厂卫，朱元璋设锦衣卫；洪武四大案为胡惟庸案、空印案、郭桓案、蓝玉案",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-36",
+          "text": "八股取士：题目出自四书五经，解释以朱熹《四书集注》为标准",
+          "path": "明朝 › 洪武之治 › 八股取士：题目出自四书五经，解释以朱熹《四书集注》为标准",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-37",
+          "text": "永乐盛世",
+          "path": "明朝 › 永乐盛世",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": true
+        },
+        {
+          "id": "history-section-5-38",
+          "text": "靖难之役：朱棣击败朱允炆即位；迁都北京，修筑紫禁城，设内阁",
+          "path": "明朝 › 永乐盛世 › 靖难之役：朱棣击败朱允炆即位；迁都北京，修筑紫禁城，设内阁",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-39",
+          "text": "明成祖设东厂；五次亲征漠北，南下平定安南；组建五军营、三千营、神机营",
+          "path": "明朝 › 永乐盛世 › 明成祖设东厂；五次亲征漠北，南下平定安南；组建五军营、三千营、神机营",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-40",
+          "text": "解缙主持编纂《永乐大典》；郑和七下西洋，最远到达非洲东海岸和红海沿岸",
+          "path": "明朝 › 永乐盛世 › 解缙主持编纂《永乐大典》；郑和七下西洋，最远到达非洲东海岸和红海沿岸",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-41",
+          "text": "仁宣之治：明仁宗、明宣宗时期；大学士拥有票拟权，皇帝负责批红",
+          "path": "明朝 › 永乐盛世 › 仁宣之治：明仁宗、明宣宗时期；大学士拥有票拟权，皇帝负责批红",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-42",
+          "text": "由盛转衰与灭亡",
+          "path": "明朝 › 由盛转衰与灭亡",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-43",
+          "text": "土木堡之变：明英宗朱祁镇北伐败于瓦剌，明朝由盛转衰；夺门之变后朱祁镇复位",
+          "path": "明朝 › 由盛转衰与灭亡 › 土木堡之变：明英宗朱祁镇北伐败于瓦剌，明朝由盛转衰；夺门之变后朱祁镇复位",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-44",
+          "text": "戚继光抗倭；张居正万历新政实行一条鞭法，将实物税折为货币税",
+          "path": "明朝 › 由盛转衰与灭亡 › 戚继光抗倭；张居正万历新政实行一条鞭法，将实物税折为货币税",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-45",
+          "text": "萨尔浒之战明军大败，后金势力崛起；李自成起义攻入北京，崇祯帝自缢，明朝灭亡",
+          "path": "明朝 › 由盛转衰与灭亡 › 萨尔浒之战明军大败，后金势力崛起；李自成起义攻入北京，崇祯帝自缢，明朝灭亡",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-46",
+          "text": "西学东渐",
+          "path": "明朝 › 西学东渐",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-47",
+          "text": "利玛窦进献《坤舆万国全图》；徐光启与西洋教士合作译《泰西水法》",
+          "path": "明朝 › 西学东渐 › 利玛窦进献《坤舆万国全图》；徐光启与西洋教士合作译《泰西水法》",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-48",
+          "text": "徐光启《农政全书》与《齐民要术》《王祯农书》并称古代三大农书",
+          "path": "明朝 › 西学东渐 › 徐光启《农政全书》与《齐民要术》《王祯农书》并称古代三大农书",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-49",
+          "text": "番薯、玉米、花生、马铃薯、辣椒、西红柿等美洲作物传入",
+          "path": "明朝 › 西学东渐 › 番薯、玉米、花生、马铃薯、辣椒、西红柿等美洲作物传入",
+          "moduleId": "ming",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-50",
+          "text": "清朝建立",
+          "path": "清朝与近代转折 › 清朝建立",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": true
+        },
+        {
+          "id": "history-section-5-51",
+          "text": "努尔哈赤建立后金；皇太极改国号为清，定都盛京（沈阳）；顺治迁都北京",
+          "path": "清朝与近代转折 › 清朝建立 › 努尔哈赤建立后金；皇太极改国号为清，定都盛京（沈阳）；顺治迁都北京",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-52",
+          "text": "山海关大战中吴三桂引清军入关；郑成功驱逐荷兰殖民者，收复台湾",
+          "path": "清朝与近代转折 › 清朝建立 › 山海关大战中吴三桂引清军入关；郑成功驱逐荷兰殖民者，收复台湾",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-53",
+          "text": "康雍乾盛世",
+          "path": "清朝与近代转折 › 康雍乾盛世",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": true
+        },
+        {
+          "id": "history-section-5-54",
+          "text": "康熙平定三藩、统一台湾、雅克萨之战后签订《尼布楚条约》；册封达赖，管理西藏",
+          "path": "清朝与近代转折 › 康雍乾盛世 › 康熙平定三藩、统一台湾、雅克萨之战后签订《尼布楚条约》；册封达赖，管理西藏",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-55",
+          "text": "雍正设军机处，君主专制达到顶峰；摊丁入亩、改土归流、设置驻藏大臣、伊犁将军",
+          "path": "清朝与近代转折 › 康雍乾盛世 › 雍正设军机处，君主专制达到顶峰；摊丁入亩、改土归流、设置驻藏大臣、伊犁将军",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-56",
+          "text": "乾隆时期《四库全书》；土尔扈特部回归祖国；康雍乾时期文字狱严重",
+          "path": "清朝与近代转折 › 康雍乾盛世 › 乾隆时期《四库全书》；土尔扈特部回归祖国；康雍乾时期文字狱严重",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-57",
+          "text": "八旗制度：上三旗为正黄、镶黄、正白，下五旗为正红、镶红、镶白、正蓝、镶蓝",
+          "path": "清朝与近代转折 › 康雍乾盛世 › 八旗制度：上三旗为正黄、镶黄、正白，下五旗为正红、镶红、镶白、正蓝、镶蓝",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-58",
+          "text": "晚清与帝制终结",
+          "path": "清朝与近代转折 › 晚清与帝制终结",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": true
+        },
+        {
+          "id": "history-section-5-59",
+          "text": "林则徐虎门销烟；鸦片战争战败签订《南京条约》，中国开始沦为半殖民地半封建社会",
+          "path": "清朝与近代转折 › 晚清与帝制终结 › 林则徐虎门销烟；鸦片战争战败签订《南京条约》，中国开始沦为半殖民地半封建社会",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-60",
+          "text": "第二次鸦片战争火烧圆明园；洋务运动兴办军工、新式学堂；同治时期平定太平天国、捻军",
+          "path": "清朝与近代转折 › 晚清与帝制终结 › 第二次鸦片战争火烧圆明园；洋务运动兴办军工、新式学堂；同治时期平定太平天国、捻军",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
+          "important": false
+        },
+        {
+          "id": "history-section-5-61",
+          "text": "光绪支持戊戌变法，甲午战争惨败；宣统帝溥仪于1912年颁布退位诏书，清朝灭亡，封建帝制终结",
+          "path": "清朝与近代转折 › 晚清与帝制终结 › 光绪支持戊戌变法，甲午战争惨败；宣统帝溥仪于1912年颁布退位诏书，清朝灭亡，封建帝制终结",
+          "moduleId": "qing",
+          "mapId": "history-section-5",
           "important": false
         }
       ]
