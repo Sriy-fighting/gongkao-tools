@@ -171,6 +171,26 @@
     return idx >= 0 && taskOptions[idx] ? taskOptions[idx].ref : null;
   }
 
+  function enterImmersive() {
+    var overlay = document.getElementById('focus-immersive');
+    if (!overlay) return;
+    overlay.hidden = false;
+    overlay.classList.add('open');
+    if (overlay.requestFullscreen) {
+      try { var request = overlay.requestFullscreen(); if (request && request.catch) request.catch(function () {}); } catch (e) {}
+    }
+  }
+
+  function exitImmersive() {
+    var overlay = document.getElementById('focus-immersive');
+    if (!overlay) return;
+    overlay.classList.remove('open');
+    overlay.hidden = true;
+    if (document.fullscreenElement && document.exitFullscreen) {
+      try { document.exitFullscreen(); } catch (e) {}
+    }
+  }
+
   function openCompletion() {
     if (!state.active) return;
     if (state.active.running) { state.active.elapsedBeforeMs = elapsed(state.active); state.active.running = false; state.active.startedAt = 0; save(); refreshTick(); }
@@ -197,19 +217,21 @@
     if (minutes >= 5) state.stamps++;
     state.active = null; updateUnlocked(); calculateStreak(); save();
     if (note) note.value = ''; if (mark) mark.checked = false;
-    closeCompletion(); renderTasks(); render();
+    closeCompletion(); exitImmersive(); renderTasks(); render();
   }
 
   function init() {
     load(); renderTasks(); render(); refreshTick();
-    document.getElementById('journey-start').addEventListener('click', startOrPause);
+    document.getElementById('journey-start').addEventListener('click', function () { startOrPause(); if (state.active && state.active.running) enterImmersive(); });
     document.getElementById('journey-finish').addEventListener('click', openCompletion);
     document.querySelectorAll('.journey-duration button').forEach(function (button) { button.addEventListener('click', function () { if (state.active) return; document.getElementById('journey-custom-minutes').value = button.dataset.minutes; render(); }); });
     document.getElementById('journey-custom-minutes').addEventListener('change', function () { if (!state.active) { this.value = selectedMinutes(); render(); } });
     document.addEventListener('visibilitychange', function () { if (!document.hidden) { recoverActive(); render(); } });
+    document.addEventListener('keydown', function () { var overlay = document.getElementById('focus-immersive'); if (overlay && !overlay.hidden) exitImmersive(); });
+    document.addEventListener('fullscreenchange', function () { var overlay = document.getElementById('focus-immersive'); if (overlay && document.fullscreenElement !== overlay && overlay.classList.contains('open')) { overlay.classList.remove('open'); overlay.hidden = true; } });
     window.addEventListener('beforeunload', save);
   }
 
-  window.Journey = { closeCompletion: closeCompletion, confirmCompletion: confirmCompletion, refresh: function () { renderTasks(); render(); } };
+  window.Journey = { closeCompletion: closeCompletion, confirmCompletion: confirmCompletion, enterImmersive: enterImmersive, exitImmersive: exitImmersive, refresh: function () { renderTasks(); render(); } };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

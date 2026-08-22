@@ -4128,6 +4128,17 @@ body {
 .countdown-progress-fill { background: #087f74; }
 .countdown-milestones-title { margin: 18px 0 10px; }
 .countdown-milestone { padding: 10px 12px; background: var(--surface-hover); }
+.countdown-milestone { width: 100%; display: flex; align-items: center; gap: 9px; border: 1px solid transparent; border-radius: 7px; color: inherit; text-align: left; cursor: pointer; }
+.countdown-milestone:hover { border-color: var(--primary); background: var(--primary-light); }
+.countdown-milestone:focus-visible { outline: 3px solid rgba(32,103,188,.28); outline-offset: 2px; }
+.countdown-milestone .ms-check { flex: 0 0 20px; display: grid; place-items: center; width: 20px; height: 20px; border: 2px solid currentColor; border-radius: 50%; font-size: 12px; }
+.countdown-milestone.done .ms-check { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+.focus-immersive { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; overflow: hidden; background: #0c1712; }
+.focus-immersive[hidden] { display: none; }
+.focus-immersive img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.focus-immersive-shade { position: absolute; inset: 0; background: rgba(3, 12, 8, .16); }
+.focus-immersive-hint { position: relative; z-index: 1; margin-top: auto; margin-bottom: 30px; padding: 10px 16px; border: 1px solid rgba(255,255,255,.42); border-radius: 7px; background: rgba(0,0,0,.34); color: #fff; font-size: 14px; letter-spacing: .5px; }
 
 .tool-cards {
   grid-area: tools;

@@ -555,10 +555,10 @@
     // Do not inherit the old text-button state, which could leave a narrow map column.
     doc.body.classList.remove('left-hidden', 'right-hidden');
     var style = doc.createElement('style'); style.id = 'portal-map-panel-style';
-    style.textContent = '#toggleLeft,#toggleRight{display:none!important}.layout{grid-template-columns:var(--side) minmax(0,1fr) var(--right,var(--assist))!important;min-width:0}.layout main{min-width:0!important;width:auto!important;overflow:visible!important}.layout .module{width:100%!important;min-width:0!important}.portal-map-left-hidden .layout{grid-template-columns:minmax(0,1fr) var(--right,var(--assist))!important}.portal-map-left-hidden .left{display:none!important}.portal-map-right-hidden .layout{grid-template-columns:var(--side) minmax(0,1fr)!important}.portal-map-right-hidden .right,.portal-map-right-hidden .assistant{display:none!important}.portal-map-left-hidden.portal-map-right-hidden .layout{grid-template-columns:minmax(0,1fr)!important}.portal-map-toggle{position:fixed;z-index:60;top:50%;display:grid;place-items:center;width:30px;height:52px;padding:0;border:1px solid #b8cde1;border-radius:7px;background:#fff;color:#1766b3;box-shadow:0 4px 13px #133b5c2b;font-size:22px;line-height:1}.portal-map-toggle.left{left:8px}.portal-map-toggle.right{right:8px}@media(max-width:980px){.portal-map-toggle{display:none!important}.layout{grid-template-columns:var(--side) minmax(0,1fr)!important}}@media(max-width:680px){.layout{display:block!important}.layout .left,.layout .right,.layout .assistant{display:none!important}}';
+    style.textContent = '#toggleLeft,#toggleRight{display:none!important}.layout{grid-template-columns:var(--side) minmax(0,1fr) var(--right,var(--assist))!important;min-width:0}.layout main{min-width:0!important;width:auto!important;overflow:visible!important}.layout .module{width:100%!important;min-width:0!important}.portal-map-left-hidden .layout{grid-template-columns:minmax(0,1fr) var(--right,var(--assist))!important}.portal-map-left-hidden .left{display:none!important}.portal-map-right-hidden .layout{grid-template-columns:var(--side) minmax(0,1fr)!important}.portal-map-right-hidden .right,.portal-map-right-hidden .assistant{display:none!important}.portal-map-left-hidden.portal-map-right-hidden .layout{grid-template-columns:minmax(0,1fr)!important}.portal-map-toggle{position:fixed;z-index:60;top:50%;display:grid;place-items:center;width:30px;height:52px;padding:0;border:1px solid #b8cde1;border-radius:7px;background:#fff;color:#1766b3;box-shadow:0 4px 13px #133b5c2b;font-size:22px;line-height:1}.portal-map-toggle-left{left:8px}.portal-map-toggle-right{right:8px}@media(max-width:980px){.portal-map-toggle{display:none!important}.layout{grid-template-columns:var(--side) minmax(0,1fr)!important}}@media(max-width:680px){.layout{display:block!important}.layout .left,.layout .right,.layout .assistant{display:none!important}}';
     doc.head.appendChild(style);
     var left = doc.createElement('button'), right = doc.createElement('button');
-    left.type = right.type = 'button'; left.className = 'portal-map-toggle left'; right.className = 'portal-map-toggle right';
+    left.type = right.type = 'button'; left.className = 'portal-map-toggle portal-map-toggle-left'; right.className = 'portal-map-toggle portal-map-toggle-right';
     left.setAttribute('aria-label', '收起章节导航'); right.setAttribute('aria-label', '收起学习面板');
     function refresh() {
       var leftHidden = doc.body.classList.contains('portal-map-left-hidden'), rightHidden = doc.body.classList.contains('portal-map-right-hidden');
@@ -923,15 +923,24 @@
     var pct = Math.min(100, Math.round(passedDays / totalDays * 100));
     var done = 0;
     var mh = '';
-    cdState.milestones.forEach(function(ms) {
-      var md = new Date(ms.date + 'T00:00:00'), isDone = md <= now;
+    cdState.milestones.forEach(function(ms, idx) {
+      var md = new Date(ms.date + 'T00:00:00'), isDone = ms.completed === true || (ms.completed !== false && md <= now);
       if (isDone) done++;
-      mh += '<div class="countdown-milestone ' + (isDone ? 'done' : 'upcoming') + '"><div class="ms-check">' + (isDone ? '✓' : '') + '</div><span class="ms-name">' + (ms.name||'') + '</span><span class="ms-date">' + (ms.date||'') + '</span></div>';
+      mh += '<button type="button" class="countdown-milestone ' + (isDone ? 'done' : 'upcoming') + '" onclick="window.toggleCountdownMilestone(' + idx + ')" aria-pressed="' + (isDone ? 'true' : 'false') + '" title="点击切换完成状态"><span class="ms-check" aria-hidden="true">' + (isDone ? '✓' : '') + '</span><span class="ms-name">' + (ms.name||'') + '</span><span class="ms-date">' + (ms.date||'') + '</span></button>';
     });
     section.innerHTML = '<div class="countdown-header"><div class="countdown-title">' + cdState.name + '</div><button class="countdown-edit-btn" onclick="window.openCountdownConfig()">编辑</button></div>' +
       '<div class="countdown-big-number">' + (diffDays > 0 ? diffDays : 0) + '</div><div class="countdown-big-unit">' + (diffDays > 0 ? '天' : '已到期') + '</div>' +
       '<div class="countdown-progress"><div class="countdown-progress-fill" style="width:' + pct + '%"></div></div>' +
       '<div class="countdown-milestones-title">里程碑 (' + done + '/' + cdState.milestones.length + ')</div><div class="countdown-milestones">' + mh + '</div>';
+  }
+
+  function toggleCountdownMilestone(index) {
+    var ms = cdState.milestones[index];
+    if (!ms) return;
+    var now = new Date();
+    var currentlyDone = ms.completed === true || (ms.completed !== false && ms.date && new Date(ms.date + 'T00:00:00') <= now);
+    ms.completed = !currentlyDone;
+    saveCountdownConfig();
   }
 
   function saveCountdownConfig() { try { localStorage.setItem('gk-countdown', JSON.stringify(cdState)); if (window.SyncStore) window.SyncStore.writeData('gk-countdown', cdState); } catch(e) {} renderCountdown(); }
@@ -3393,6 +3402,7 @@
   window.accountSignIn = accountSignIn; window.accountSignUp = accountSignUp;
   window.accountSignOut = accountSignOut; window.accountManualSync = accountManualSync;
   window.saveCountdownConfigModal = saveCountdownConfigModal; window.closeCountdownConfigModal = closeCountdownConfigModal;
+  window.toggleCountdownMilestone = toggleCountdownMilestone;
   window.planPrevMonth = planPrevMonth; window.planNextMonth = planNextMonth;
   window.planSelectWeek = planSelectWeek;
   window.planJumpToday = planJumpToday; window.planChangeSelectedDate = planChangeSelectedDate;
