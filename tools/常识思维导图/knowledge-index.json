@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-22T10:18:43.794Z",
+  "generatedAt": "2026-08-22T16:00:05.245Z",
   "maps": [
     {
       "id": "science-section-1",
@@ -8282,6 +8282,2264 @@
           "path": "博物馆与重要文物 › 西北、东北与边疆馆藏 › 宁夏回族自治区博物馆：手抄描金《古兰经》为研究回族历史、宗教和艺术的重要实物；鎏金铜牛为西夏青铜器",
           "moduleId": "museums",
           "mapId": "humanities-section-4",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "science-section-3",
+      "title": "科技常识：热学与化学",
+      "subtitle": "物态变化、内能、化学基础、酸碱盐与常见物质",
+      "path": "../常识思维导图/科技常识_第3节_学习增强版.html",
+      "icon": "热",
+      "color": "#2783c9",
+      "file": "tools/常识思维导图/科技常识_第3节_学习增强版.html",
+      "key": "const seed=",
+      "order": 3,
+      "nodes": [
+        {
+          "id": "science-section-3-0",
+          "text": "物质三态变化",
+          "path": "三态变化与热学 › 物质三态变化",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-1",
+          "text": "六种物态变化与吸放热",
+          "path": "三态变化与热学 › 物质三态变化 › 六种物态变化与吸放热",
+          "mapId": "science-section-3",
+          "important": true
+        },
+        {
+          "id": "science-section-3-2",
+          "text": "固态→液态：熔化，吸热；如冰化成水、火山喷发（熔化→凝固）",
+          "path": "三态变化与热学 › 物质三态变化 › 六种物态变化与吸放热 › 固态→液态：熔化，吸热；如冰化成水、火山喷发（熔化→凝固）",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-3",
+          "text": "液态→固态：凝固，放热；如水结冰、钢水浇铸",
+          "path": "三态变化与热学 › 物质三态变化 › 六种物态变化与吸放热 › 液态→固态：凝固，放热；如水结冰、钢水浇铸",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-4",
+          "text": "液态→气态：汽化，吸热；如水烧开、酒精挥发、游泳上岸发冷",
+          "path": "三态变化与热学 › 物质三态变化 › 六种物态变化与吸放热 › 液态→气态：汽化，吸热；如水烧开、酒精挥发、游泳上岸发冷",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-5",
+          "text": "气态→液态：液化，放热；如雾、白气、小液滴、冰棒冒白气、饮料罐出汗",
+          "path": "三态变化与热学 › 物质三态变化 › 六种物态变化与吸放热 › 气态→液态：液化，放热；如雾、白气、小液滴、冰棒冒白气、饮料罐出汗",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-6",
+          "text": "固态→气态：升华，吸热；如樟脑丸变小、灯丝变细、干冰人工降雨、碘加热",
+          "path": "三态变化与热学 › 物质三态变化 › 六种物态变化与吸放热 › 固态→气态：升华，吸热；如樟脑丸变小、灯丝变细、干冰人工降雨、碘加热",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-7",
+          "text": "气态→固态：凝华，放热；如霜、窗花、雾凇、雪的形成",
+          "path": "三态变化与热学 › 物质三态变化 › 六种物态变化与吸放热 › 气态→固态：凝华，放热；如霜、窗花、雾凇、雪的形成",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-8",
+          "text": "水的反常膨胀",
+          "path": "三态变化与热学 › 物质三态变化 › 水的反常膨胀",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-9",
+          "text": "水在 0℃～4℃热缩冷胀，4℃时体积最小、密度最大",
+          "path": "三态变化与热学 › 物质三态变化 › 水的反常膨胀 › 水在 0℃～4℃热缩冷胀，4℃时体积最小、密度最大",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-10",
+          "text": "冬天河水从上到下结冰，水底仍可保持约 4℃，有利于水生生物生存",
+          "path": "三态变化与热学 › 物质三态变化 › 水的反常膨胀 › 冬天河水从上到下结冰，水底仍可保持约 4℃，有利于水生生物生存",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-11",
+          "text": "易错辨析",
+          "path": "三态变化与热学 › 物质三态变化 › 易错辨析",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-12",
+          "text": "水蒸气是无色、无味、看不见的气体；“白气”是水蒸气液化形成的小水珠悬浮在空中",
+          "path": "三态变化与热学 › 物质三态变化 › 易错辨析 › 水蒸气是无色、无味、看不见的气体；“白气”是水蒸气液化形成的小水珠悬浮在空中",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-13",
+          "text": "生活实例",
+          "path": "三态变化与热学 › 物质三态变化 › 生活实例",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-14",
+          "text": "烧开一壶水：沸腾（液化/汽化图示中的汽化）",
+          "path": "三态变化与热学 › 物质三态变化 › 生活实例 › 烧开一壶水：沸腾（液化/汽化图示中的汽化）",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-15",
+          "text": "夏天冰棍周围“白气”、早晨露水、秋冬玻璃窗上的水雾：液化",
+          "path": "三态变化与热学 › 物质三态变化 › 生活实例 › 夏天冰棍周围“白气”、早晨露水、秋冬玻璃窗上的水雾：液化",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-16",
+          "text": "从冰箱取出的饮料罐外壁出汗：空气中的水蒸气液化",
+          "path": "三态变化与热学 › 物质三态变化 › 生活实例 › 从冰箱取出的饮料罐外壁出汗：空气中的水蒸气液化",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-17",
+          "text": "用电热水器烧水时冒“白气”：水蒸气液化",
+          "path": "三态变化与热学 › 物质三态变化 › 生活实例 › 用电热水器烧水时冒“白气”：水蒸气液化",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-18",
+          "text": "高温加热碘、衣柜樟脑丸变小、灯丝变细：升华",
+          "path": "三态变化与热学 › 物质三态变化 › 生活实例 › 高温加热碘、衣柜樟脑丸变小、灯丝变细：升华",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-19",
+          "text": "冬天玻璃内表面冰花、屋顶霜、南方雾凇、干冰人工降雨：凝华或升华吸热",
+          "path": "三态变化与热学 › 物质三态变化 › 生活实例 › 冬天玻璃内表面冰花、屋顶霜、南方雾凇、干冰人工降雨：凝华或升华吸热",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-20",
+          "text": "干冰使水蒸气凝结成小水滴，形成舞台烟雾；干冰升华吸热可人工降雨",
+          "path": "三态变化与热学 › 物质三态变化 › 生活实例 › 干冰使水蒸气凝结成小水滴，形成舞台烟雾；干冰升华吸热可人工降雨",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-21",
+          "text": "汽化：蒸发与沸腾",
+          "path": "三态变化与热学 › 汽化：蒸发与沸腾",
+          "mapId": "science-section-3",
+          "important": true
+        },
+        {
+          "id": "science-section-3-22",
+          "text": "蒸发",
+          "path": "三态变化与热学 › 汽化：蒸发与沸腾 › 蒸发",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-23",
+          "text": "只在液体表面发生，任何温度都能进行的缓慢汽化",
+          "path": "三态变化与热学 › 汽化：蒸发与沸腾 › 蒸发 › 只在液体表面发生，任何温度都能进行的缓慢汽化",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-24",
+          "text": "温度越高、表面积越大、空气流速越快，蒸发越快",
+          "path": "三态变化与热学 › 汽化：蒸发与沸腾 › 蒸发 › 温度越高、表面积越大、空气流速越快，蒸发越快",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-25",
+          "text": "沸腾",
+          "path": "三态变化与热学 › 汽化：蒸发与沸腾 › 沸腾",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-26",
+          "text": "一定温度下，液体内部和表面同时发生的剧烈汽化",
+          "path": "三态变化与热学 › 汽化：蒸发与沸腾 › 沸腾 › 一定温度下，液体内部和表面同时发生的剧烈汽化",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-27",
+          "text": "沸腾条件：温度达到沸点且持续吸热；停止加热，沸腾立即停止",
+          "path": "三态变化与热学 › 汽化：蒸发与沸腾 › 沸腾 › 沸腾条件：温度达到沸点且持续吸热；停止加热，沸腾立即停止",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-28",
+          "text": "液面上方气压越低，沸点越低；高压锅通过增大气压提高沸点",
+          "path": "三态变化与热学 › 汽化：蒸发与沸腾 › 沸腾 › 液面上方气压越低，沸点越低；高压锅通过增大气压提高沸点",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-29",
+          "text": "晶体与非晶体",
+          "path": "三态变化与热学 › 晶体与非晶体",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-30",
+          "text": "晶体",
+          "path": "三态变化与热学 › 晶体与非晶体 › 晶体",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-31",
+          "text": "有固定熔点；熔化过程中持续吸热但温度始终保持在熔点不变，直至完全转为液态",
+          "path": "三态变化与热学 › 晶体与非晶体 › 晶体 › 有固定熔点；熔化过程中持续吸热但温度始终保持在熔点不变，直至完全转为液态",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-32",
+          "text": "代表：冰、金属、食盐、海波",
+          "path": "三态变化与热学 › 晶体与非晶体 › 晶体 › 代表：冰、金属、食盐、海波",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-33",
+          "text": "非晶体",
+          "path": "三态变化与热学 › 晶体与非晶体 › 非晶体",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-34",
+          "text": "无固定熔点；熔化过程中温度持续升高",
+          "path": "三态变化与热学 › 晶体与非晶体 › 非晶体 › 无固定熔点；熔化过程中温度持续升高",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-35",
+          "text": "代表：松香、石蜡、玻璃、沥青、蜡",
+          "path": "三态变化与热学 › 晶体与非晶体 › 非晶体 › 代表：松香、石蜡、玻璃、沥青、蜡",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-36",
+          "text": "内能与热量",
+          "path": "三态变化与热学 › 内能与热量",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-37",
+          "text": "内能：物体内所有分子无规则运动的动能与分子势能之和；温度、质量、状态等会影响内能",
+          "path": "三态变化与热学 › 内能与热量 › 内能：物体内所有分子无规则运动的动能与分子势能之和；温度、质量、状态等会影响内能",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-38",
+          "text": "热量：物质升高或降低单位温度所吸收或放出的热量；Q=cmΔT（Q 为热量，c 为比热容，m 为质量，ΔT 为温度变化量）",
+          "path": "三态变化与热学 › 内能与热量 › 热量：物质升高或降低单位温度所吸收或放出的热量；Q=cmΔT（Q 为热量，c 为比热容，m 为质量，ΔT 为温度变化量）",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-39",
+          "text": "改变内能的方式：做功和热传递",
+          "path": "三态变化与热学 › 内能与热量 › 改变内能的方式：做功和热传递",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-40",
+          "text": "热量自发从高温物体传给低温物体，直到温度相等",
+          "path": "三态变化与热学 › 内能与热量 › 热量自发从高温物体传给低温物体，直到温度相等",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-41",
+          "text": "外界对物体做功，内能增加；物体对外做功，内能减少",
+          "path": "三态变化与热学 › 内能与热量 › 外界对物体做功，内能增加；物体对外做功，内能减少",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-42",
+          "text": "比热容",
+          "path": "三态变化与热学 › 比热容",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-43",
+          "text": "水的比热容在常见固体、液体中最大",
+          "path": "三态变化与热学 › 比热容 › 水的比热容在常见固体、液体中最大",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-44",
+          "text": "吸收或放出相同热量时，水的温度变化比沙石、泥土小，沿海地区冬暖夏凉",
+          "path": "三态变化与热学 › 比热容 › 吸收或放出相同热量时，水的温度变化比沙石、泥土小，沿海地区冬暖夏凉",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-45",
+          "text": "汽车用水给发动机降温；暖气片通热水；海陆风由海陆比热容差异形成",
+          "path": "三态变化与热学 › 比热容 › 汽车用水给发动机降温；暖气片通热水；海陆风由海陆比热容差异形成",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-46",
+          "text": "海陆风（昼夜顺序）",
+          "path": "三态变化与热学 › 比热容 › 海陆风（昼夜顺序）",
+          "mapId": "science-section-3",
+          "important": true
+        },
+        {
+          "id": "science-section-3-47",
+          "text": "白天：陆地升温快、气压低；海洋升温慢、气压高；风从海洋吹向陆地，为海风",
+          "path": "三态变化与热学 › 比热容 › 海陆风（昼夜顺序） › 白天：陆地升温快、气压低；海洋升温慢、气压高；风从海洋吹向陆地，为海风",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-48",
+          "text": "夜晚：陆地降温快、气压高；海洋降温慢、气压低；风从陆地吹向海洋，为陆风",
+          "path": "三态变化与热学 › 比热容 › 海陆风（昼夜顺序） › 夜晚：陆地降温快、气压高；海洋降温慢、气压低；风从陆地吹向海洋，为陆风",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-49",
+          "text": "热传递三种方式",
+          "path": "三态变化与热学 › 热传递三种方式",
+          "mapId": "science-section-3",
+          "important": true
+        },
+        {
+          "id": "science-section-3-50",
+          "text": "热传导",
+          "path": "三态变化与热学 › 热传递三种方式 › 热传导",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-51",
+          "text": "热量通过物体直接接触传递，主要发生在固体；例：金属勺一端加热，另一端变热",
+          "path": "三态变化与热学 › 热传递三种方式 › 热传导 › 热量通过物体直接接触传递，主要发生在固体；例：金属勺一端加热，另一端变热",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-52",
+          "text": "热对流",
+          "path": "三态变化与热学 › 热传递三种方式 › 热对流",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-53",
+          "text": "液体或气体受热上升、遇冷下降形成循环，只发生在液体和气体；例：烧水、暖气加热空气",
+          "path": "三态变化与热学 › 热传递三种方式 › 热对流 › 液体或气体受热上升、遇冷下降形成循环，只发生在液体和气体；例：烧水、暖气加热空气",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-54",
+          "text": "热辐射",
+          "path": "三态变化与热学 › 热传递三种方式 › 热辐射",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-55",
+          "text": "热源通过电磁波向外传递热量，不需要介质，可在真空中传播；例：太阳辐射、烤火取暖",
+          "path": "三态变化与热学 › 热传递三种方式 › 热辐射 › 热源通过电磁波向外传递热量，不需要介质，可在真空中传播；例：太阳辐射、烤火取暖",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-56",
+          "text": "热力学三大定律",
+          "path": "三态变化与热学 › 热力学三大定律",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-57",
+          "text": "第一定律（能量守恒）：能量转化与转移总量保持不变",
+          "path": "三态变化与热学 › 热力学三大定律 › 第一定律（能量守恒）：能量转化与转移总量保持不变",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-58",
+          "text": "第二定律（克劳修斯/开尔文表述）：热量只能自发地从高温物体传给低温物体；方向不可逆；永动机不可能制成",
+          "path": "三态变化与热学 › 热力学三大定律 › 第二定律（克劳修斯/开尔文表述）：热量只能自发地从高温物体传给低温物体；方向不可逆；永动机不可能制成",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-59",
+          "text": "第三定律：绝对零度（−273.15℃）是热力学最低温度，无法通过有限步骤达到；越接近绝对零度，分子热运动越弱",
+          "path": "三态变化与热学 › 热力学三大定律 › 第三定律：绝对零度（−273.15℃）是热力学最低温度，无法通过有限步骤达到；越接近绝对零度，分子热运动越弱",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-60",
+          "text": "化学基本概念",
+          "path": "化学基础与有机物 › 化学基本概念",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-61",
+          "text": "核电荷数=质子数=核外电子数=质子序数（中性原子）",
+          "path": "化学基础与有机物 › 化学基本概念 › 核电荷数=质子数=核外电子数=质子序数（中性原子）",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-62",
+          "text": "元素：核电荷数（质子数）相同的一类原子总称",
+          "path": "化学基础与有机物 › 化学基本概念 › 元素：核电荷数（质子数）相同的一类原子总称",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-63",
+          "text": "分子：保持物质化学性质的最小粒子；可分为单原子、双原子、多原子分子",
+          "path": "化学基础与有机物 › 化学基本概念 › 分子：保持物质化学性质的最小粒子；可分为单原子、双原子、多原子分子",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-64",
+          "text": "原子：化学变化中的最小粒子，不是构成物质的最小微粒",
+          "path": "化学基础与有机物 › 化学基本概念 › 原子：化学变化中的最小粒子，不是构成物质的最小微粒",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-65",
+          "text": "离子：带电的原子或原子团",
+          "path": "化学基础与有机物 › 化学基本概念 › 离子：带电的原子或原子团",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-66",
+          "text": "纯净物与混合物",
+          "path": "化学基础与有机物 › 化学基本概念 › 纯净物与混合物",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-67",
+          "text": "纯净物：只由一种物质组成，可快速判断为只能写出一个化学式",
+          "path": "化学基础与有机物 › 化学基本概念 › 纯净物与混合物 › 纯净物：只由一种物质组成，可快速判断为只能写出一个化学式",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-68",
+          "text": "单质：由同种元素组成；金属单质如 Fe、Cu、Zn、Mg，非金属单质如 O₂、H₂、N₂、C、S，稀有气体如 He、Ne、Ar",
+          "path": "化学基础与有机物 › 化学基本概念 › 纯净物与混合物 › 单质：由同种元素组成；金属单质如 Fe、Cu、Zn、Mg，非金属单质如 O₂、H₂、N₂、C、S，稀有气体如 He、Ne、Ar",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-69",
+          "text": "化合物：由两种及以上元素组成的纯净物；氧化物是由两种元素组成且其中一种是氧元素的化合物",
+          "path": "化学基础与有机物 › 化学基本概念 › 纯净物与混合物 › 化合物：由两种及以上元素组成的纯净物；氧化物是由两种元素组成且其中一种是氧元素的化合物",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-70",
+          "text": "混合物：多种物质混合，可写出多个化学式；空气约含氮气 78%、氧气 21%、稀有气体 0.94%、二氧化碳 0.03%及其他 0.03%",
+          "path": "化学基础与有机物 › 化学基本概念 › 纯净物与混合物 › 混合物：多种物质混合，可写出多个化学式；空气约含氮气 78%、氧气 21%、稀有气体 0.94%、二氧化碳 0.03%及其他 0.03%",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-71",
+          "text": "常见有机物",
+          "path": "化学基础与有机物 › 常见有机物",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-72",
+          "text": "有机化合物：含有碳元素的化合物，但碳的氧化物、碳酸盐、碳酸、碳酸氢盐等含碳化合物属于无机物",
+          "path": "化学基础与有机物 › 常见有机物 › 有机化合物：含有碳元素的化合物，但碳的氧化物、碳酸盐、碳酸、碳酸氢盐等含碳化合物属于无机物",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-73",
+          "text": "烃",
+          "path": "化学基础与有机物 › 常见有机物 › 烃",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-74",
+          "text": "仅含碳、氢两种元素；不溶于水，易溶于有机溶剂",
+          "path": "化学基础与有机物 › 常见有机物 › 烃 › 仅含碳、氢两种元素；不溶于水，易溶于有机溶剂",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-75",
+          "text": "甲烷 CH₄：最简单有机物；天然气、可燃冰主要成分；温室气体",
+          "path": "化学基础与有机物 › 常见有机物 › 烃 › 甲烷 CH₄：最简单有机物；天然气、可燃冰主要成分；温室气体",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-76",
+          "text": "乙烯 C₂H₄：水果催熟剂；最简单烯烃",
+          "path": "化学基础与有机物 › 常见有机物 › 烃 › 乙烯 C₂H₄：水果催熟剂；最简单烯烃",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-77",
+          "text": "乙炔 C₂H₂：最简单炔烃；氧炔焰温度极高，用于焊接和切割金属",
+          "path": "化学基础与有机物 › 常见有机物 › 烃 › 乙炔 C₂H₂：最简单炔烃；氧炔焰温度极高，用于焊接和切割金属",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-78",
+          "text": "甲醛 CH₂O：又名蚁醛，无色易溶于水；福尔马林（35%～40%水溶液）防腐，有刺激性气味",
+          "path": "化学基础与有机物 › 常见有机物 › 甲醛 CH₂O：又名蚁醛，无色易溶于水；福尔马林（35%～40%水溶液）防腐，有刺激性气味",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-79",
+          "text": "甲醇 CH₃OH：无色有毒，饮用少量可致失明，大量可致死；工业酒精含有甲醇，严禁饮用",
+          "path": "化学基础与有机物 › 常见有机物 › 甲醇 CH₃OH：无色有毒，饮用少量可致失明，大量可致死；工业酒精含有甲醇，严禁饮用",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-80",
+          "text": "乙醇 C₂H₅OH：酒精；医用 75% 酒精消毒，95% 酒精擦紫外线灯",
+          "path": "化学基础与有机物 › 常见有机物 › 乙醇 C₂H₅OH：酒精；医用 75% 酒精消毒，95% 酒精擦紫外线灯",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-81",
+          "text": "氯乙烯 C₂H₃Cl：常温下为无色气体，沸点约 −12.5℃；用于生产聚氯乙烯、麻醉剂、杀虫剂、乙基氯化剂",
+          "path": "化学基础与有机物 › 常见有机物 › 氯乙烯 C₂H₃Cl：常温下为无色气体，沸点约 −12.5℃；用于生产聚氯乙烯、麻醉剂、杀虫剂、乙基氯化剂",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-82",
+          "text": "尿素 CO(NH₂)₂：含氮量最高的氮肥；人体蛋白质代谢终产物，经尿液排出",
+          "path": "化学基础与有机物 › 常见有机物 › 尿素 CO(NH₂)₂：含氮量最高的氮肥；人体蛋白质代谢终产物，经尿液排出",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-83",
+          "text": "糖类：由碳、氢、氧三种元素组成；自然界存在最广、分布最广的有机化合物；是人体最主要供能物质",
+          "path": "化学基础与有机物 › 常见有机物 › 糖类：由碳、氢、氧三种元素组成；自然界存在最广、分布最广的有机化合物；是人体最主要供能物质",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-84",
+          "text": "蛋白质：生命的物质基础，基本单位是氨基酸；必含 C、H、O、N，可能含 S、P",
+          "path": "化学基础与有机物 › 常见有机物 › 蛋白质：生命的物质基础，基本单位是氨基酸；必含 C、H、O、N，可能含 S、P",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-85",
+          "text": "塑料与橡胶纤维",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-86",
+          "text": "塑料包括天然橡胶和合成橡胶；橡胶具有高弹性、耐磨性、耐腐蚀性，广泛用于轮胎、橡胶制品、密封材料",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 塑料包括天然橡胶和合成橡胶；橡胶具有高弹性、耐磨性、耐腐蚀性，广泛用于轮胎、橡胶制品、密封材料",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-87",
+          "text": "塑料回收标志",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 塑料回收标志",
+          "mapId": "science-section-3",
+          "important": true
+        },
+        {
+          "id": "science-section-3-88",
+          "text": "1 PET/PETE 聚对苯二甲酸乙二醇酯：矿泉水瓶、碳酸饮料瓶；适合冷饮暖饮，不适合热饮",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 塑料回收标志 › 1 PET/PETE 聚对苯二甲酸乙二醇酯：矿泉水瓶、碳酸饮料瓶；适合冷饮暖饮，不适合热饮",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-89",
+          "text": "2 HDPE 高密度聚乙烯：沐浴露瓶、清洁用品；短期盛放食物，清洁后可重复使用",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 塑料回收标志 › 2 HDPE 高密度聚乙烯：沐浴露瓶、清洁用品；短期盛放食物，清洁后可重复使用",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-90",
+          "text": "3 PVC 聚氯乙烯：人造革、雨衣、电线外皮；不能用于食品包装",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 塑料回收标志 › 3 PVC 聚氯乙烯：人造革、雨衣、电线外皮；不能用于食品包装",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-91",
+          "text": "4 LDPE 低密度聚乙烯：保鲜膜、保鲜袋、牙膏管；可装食物但耐热不强",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 塑料回收标志 › 4 LDPE 低密度聚乙烯：保鲜膜、保鲜袋、牙膏管；可装食物但耐热不强",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-92",
+          "text": "5 PP 聚丙烯：微波炉专用碗、水杯、保鲜盒；六类中唯一可用于微波炉加热的塑料",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 塑料回收标志 › 5 PP 聚丙烯：微波炉专用碗、水杯、保鲜盒；六类中唯一可用于微波炉加热的塑料",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-93",
+          "text": "6 PS 聚苯乙烯：一次性快餐盒、方便面碗、杯盖；可装食物但不能微波加热",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 塑料回收标志 › 6 PS 聚苯乙烯：一次性快餐盒、方便面碗、杯盖；可装食物但不能微波加热",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-94",
+          "text": "热塑性与热固性",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 热塑性与热固性",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-95",
+          "text": "热塑性：聚乙烯 PE、聚丙烯 PP、聚氯乙烯 PVC（不用于食品）、聚苯乙烯 PS（泡沫）",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 热塑性与热固性 › 热塑性：聚乙烯 PE、聚丙烯 PP、聚氯乙烯 PVC（不用于食品）、聚苯乙烯 PS（泡沫）",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-96",
+          "text": "热固性：酚醛树脂 PF、环氧树脂 EP、不饱和聚酯树脂等",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 热塑性与热固性 › 热固性：酚醛树脂 PF、环氧树脂 EP、不饱和聚酯树脂等",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-97",
+          "text": "纤维",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 纤维",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-98",
+          "text": "天然纤维：植物纤维棉麻；动物纤维毛、丝；化学纤维有人造纤维、合成纤维等",
+          "path": "化学基础与有机物 › 塑料与橡胶纤维 › 纤维 › 天然纤维：植物纤维棉麻；动物纤维毛、丝；化学纤维有人造纤维、合成纤维等",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-99",
+          "text": "常见气体",
+          "path": "无机物、酸碱与盐 › 常见气体",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-100",
+          "text": "一氧化碳 CO：无色无味；剧毒气体，易与血红蛋白结合，难溶于水；煤气主要成分，密闭空间燃烧不充分易产生；有可燃性和还原性（用于冶炼金属）",
+          "path": "无机物、酸碱与盐 › 常见气体 › 一氧化碳 CO：无色无味；剧毒气体，易与血红蛋白结合，难溶于水；煤气主要成分，密闭空间燃烧不充分易产生；有可燃性和还原性（用于冶炼金属）",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-101",
+          "text": "二氧化碳 CO₂：无色无味温室气体，不供给呼吸、不支持燃烧；固体俗称干冰，升华吸热用于人工降雨；温室气体还包括水汽、甲烷、氮氧化物等",
+          "path": "无机物、酸碱与盐 › 常见气体 › 二氧化碳 CO₂：无色无味温室气体，不供给呼吸、不支持燃烧；固体俗称干冰，升华吸热用于人工降雨；温室气体还包括水汽、甲烷、氮氧化物等",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-102",
+          "text": "氯气 Cl₂：黄绿色气体，常温常压下为黄绿色气体；与水反应生成次氯酸，用于消毒、漂白；可用浸有氢氧化钠溶液的毛巾防护",
+          "path": "无机物、酸碱与盐 › 常见气体 › 氯气 Cl₂：黄绿色气体，常温常压下为黄绿色气体；与水反应生成次氯酸，用于消毒、漂白；可用浸有氢氧化钠溶液的毛巾防护",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-103",
+          "text": "一氧化氮 NO：无色气体，微溶于水，溶于硫酸亚铁、硫酸铜；二氧化氮 NO₂：有刺激性气味的红棕色气体，是光化学烟雾和酸雨的重要来源，易溶于水生成硝酸和 NO",
+          "path": "无机物、酸碱与盐 › 常见气体 › 一氧化氮 NO：无色气体，微溶于水，溶于硫酸亚铁、硫酸铜；二氧化氮 NO₂：有刺激性气味的红棕色气体，是光化学烟雾和酸雨的重要来源，易溶于水生成硝酸和 NO",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-104",
+          "text": "水 H₂O",
+          "path": "无机物、酸碱与盐 › 水 H₂O",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-105",
+          "text": "软水：不含或含较少可溶性钙、镁化合物；硬水：含较多可溶性钙、镁化合物",
+          "path": "无机物、酸碱与盐 › 水 H₂O › 软水：不含或含较少可溶性钙、镁化合物；硬水：含较多可溶性钙、镁化合物",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-106",
+          "text": "鉴别：取水样加肥皂水搅拌，泡沫多、浮渣少为软水；泡沫少、浮渣多为硬水",
+          "path": "无机物、酸碱与盐 › 水 H₂O › 鉴别：取水样加肥皂水搅拌，泡沫多、浮渣少为软水；泡沫少、浮渣多为硬水",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-107",
+          "text": "硬水软化：煮沸（生活中）或蒸馏；除水垢可用白醋、柠檬、小苏打",
+          "path": "无机物、酸碱与盐 › 水 H₂O › 硬水软化：煮沸（生活中）或蒸馏；除水垢可用白醋、柠檬、小苏打",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-108",
+          "text": "碳的同素异形体",
+          "path": "无机物、酸碱与盐 › 碳的同素异形体",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-109",
+          "text": "金刚石：天然存在最硬物质，钻石原石；不导电，可用于切割玻璃、钻石工具",
+          "path": "无机物、酸碱与盐 › 碳的同素异形体 › 金刚石：天然存在最硬物质，钻石原石；不导电，可用于切割玻璃、钻石工具",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-110",
+          "text": "石墨：灰黑色不透明固体，质软、耐高温、化学性质稳定、耐腐蚀；电极、铅笔芯、润滑材料；高温高压可制人造金刚石",
+          "path": "无机物、酸碱与盐 › 碳的同素异形体 › 石墨：灰黑色不透明固体，质软、耐高温、化学性质稳定、耐腐蚀；电极、铅笔芯、润滑材料；高温高压可制人造金刚石",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-111",
+          "text": "石墨烯：由碳原子构成的单层二维蜂窝状晶格材料；目前已知最薄、强度最高；导电导热性好",
+          "path": "无机物、酸碱与盐 › 碳的同素异形体 › 石墨烯：由碳原子构成的单层二维蜂窝状晶格材料；目前已知最薄、强度最高；导电导热性好",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-112",
+          "text": "C₆₀：由 60 个碳原子构成，形似足球，俗称“足球烯”",
+          "path": "无机物、酸碱与盐 › 碳的同素异形体 › C₆₀：由 60 个碳原子构成，形似足球，俗称“足球烯”",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-113",
+          "text": "其他重要无机物",
+          "path": "无机物、酸碱与盐 › 其他重要无机物",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-114",
+          "text": "磷 P：存在于人体所有细胞，是维持骨骼和牙齿的必要物质；参与化学反应；白磷低温着火、红磷用于烟雾弹/安全火柴原料，白磷是最易燃的非金属单质",
+          "path": "无机物、酸碱与盐 › 其他重要无机物 › 磷 P：存在于人体所有细胞，是维持骨骼和牙齿的必要物质；参与化学反应；白磷低温着火、红磷用于烟雾弹/安全火柴原料，白磷是最易燃的非金属单质",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-115",
+          "text": "生石灰 CaO：与水反应生成熟石灰 Ca(OH)₂，放热；食品干燥剂；熟石灰改良酸性土壤、建筑材料、配制波尔多液",
+          "path": "无机物、酸碱与盐 › 其他重要无机物 › 生石灰 CaO：与水反应生成熟石灰 Ca(OH)₂，放热；食品干燥剂；熟石灰改良酸性土壤、建筑材料、配制波尔多液",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-116",
+          "text": "硅 Si：玻璃、水晶、沙子、石英、光纤主要成分为二氧化硅 SiO₂；半导体用于太阳能电池板、集成电路",
+          "path": "无机物、酸碱与盐 › 其他重要无机物 › 硅 Si：玻璃、水晶、沙子、石英、光纤主要成分为二氧化硅 SiO₂；半导体用于太阳能电池板、集成电路",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-117",
+          "text": "过氧化氢 H₂O₂：俗称双氧水，无色液体、强化性；用于消毒杀菌；分解生成水和氧气，是常见消毒剂",
+          "path": "无机物、酸碱与盐 › 其他重要无机物 › 过氧化氢 H₂O₂：俗称双氧水，无色液体、强化性；用于消毒杀菌；分解生成水和氧气，是常见消毒剂",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-118",
+          "text": "酸",
+          "path": "无机物、酸碱与盐 › 酸",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-119",
+          "text": "酸：水溶液中电离出的阳离子全部是氢离子；pH<7，pH越小酸性越强",
+          "path": "无机物、酸碱与盐 › 酸 › 酸：水溶液中电离出的阳离子全部是氢离子；pH<7，pH越小酸性越强",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-120",
+          "text": "指示剂变色",
+          "path": "无机物、酸碱与盐 › 酸 › 指示剂变色",
+          "mapId": "science-section-3",
+          "important": true
+        },
+        {
+          "id": "science-section-3-121",
+          "text": "紫色石蕊：酸性变红，中性紫色，碱性变蓝",
+          "path": "无机物、酸碱与盐 › 酸 › 指示剂变色 › 紫色石蕊：酸性变红，中性紫色，碱性变蓝",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-122",
+          "text": "无色酚酞：酸性和中性无色，碱性变红",
+          "path": "无机物、酸碱与盐 › 酸 › 指示剂变色 › 无色酚酞：酸性和中性无色，碱性变红",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-123",
+          "text": "甲基橙：酸性红色，碱性黄色",
+          "path": "无机物、酸碱与盐 › 酸 › 指示剂变色 › 甲基橙：酸性红色，碱性黄色",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-124",
+          "text": "盐酸 HCl：无色刺激性气体，浓盐酸易挥发；胃酸主要成分；可用于金属除锈、制氯化物；与 AgNO₃ 反应生成白色沉淀",
+          "path": "无机物、酸碱与盐 › 酸 › 盐酸 HCl：无色刺激性气体，浓盐酸易挥发；胃酸主要成分；可用于金属除锈、制氯化物；与 AgNO₃ 反应生成白色沉淀",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-125",
+          "text": "硫酸 H₂SO₄：无色油状液体；浓硫酸具有吸水性、脱水性、强氧化性；稀释时应将酸慢慢加入水；含硫酸根可用 BaCl₂ 检验",
+          "path": "无机物、酸碱与盐 › 酸 › 硫酸 H₂SO₄：无色油状液体；浓硫酸具有吸水性、脱水性、强氧化性；稀释时应将酸慢慢加入水；含硫酸根可用 BaCl₂ 检验",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-126",
+          "text": "硝酸 HNO₃：无色液体，浓硝酸易挥发、发烟、见光分解、棕色瓶保存；强氧化性，与金属反应通常不产生氢气",
+          "path": "无机物、酸碱与盐 › 酸 › 硝酸 HNO₃：无色液体，浓硝酸易挥发、发烟、见光分解、棕色瓶保存；强氧化性，与金属反应通常不产生氢气",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-127",
+          "text": "草酸 H₂C₂O₄：中强酸，存在于植物、动物和真菌；菠菜焯水可去草酸，减少结石；草酸与钙反应生成草酸钙沉淀",
+          "path": "无机物、酸碱与盐 › 酸 › 草酸 H₂C₂O₄：中强酸，存在于植物、动物和真菌；菠菜焯水可去草酸，减少结石；草酸与钙反应生成草酸钙沉淀",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-128",
+          "text": "醋酸（乙酸）CH₃COOH：弱酸，常温无色有刺激性气味；食醋主要成分；蒸汽兰为醋酸铅试纸变色；乙酸氧化为乙酸",
+          "path": "无机物、酸碱与盐 › 酸 › 醋酸（乙酸）CH₃COOH：弱酸，常温无色有刺激性气味；食醋主要成分；蒸汽兰为醋酸铅试纸变色；乙酸氧化为乙酸",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-129",
+          "text": "甲酸（蚁酸）HCOOH：又名蚁酸，弱电解质；被蚂蚁、蜜蜂叮咬可用肥皂水（碱性）中和",
+          "path": "无机物、酸碱与盐 › 酸 › 甲酸（蚁酸）HCOOH：又名蚁酸，弱电解质；被蚂蚁、蜜蜂叮咬可用肥皂水（碱性）中和",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-130",
+          "text": "碱",
+          "path": "无机物、酸碱与盐 › 碱",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-131",
+          "text": "碱：水溶液中电离出的阴离子全部是氢氧根离子；pH>7，pH越大碱性越强",
+          "path": "无机物、酸碱与盐 › 碱 › 碱：水溶液中电离出的阴离子全部是氢氧根离子；pH>7，pH越大碱性越强",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-132",
+          "text": "氢氧化钠 NaOH：苛性钠、烧碱、火碱；强碱性、强腐蚀性，易潮解；常作固体干燥剂",
+          "path": "无机物、酸碱与盐 › 碱 › 氢氧化钠 NaOH：苛性钠、烧碱、火碱；强碱性、强腐蚀性，易潮解；常作固体干燥剂",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-133",
+          "text": "熟石灰 Ca(OH)₂：白色粉末，微溶于水，水溶液为石灰水；腐蚀性，改良酸性土壤、建筑材料、配制波尔多液",
+          "path": "无机物、酸碱与盐 › 碱 › 熟石灰 Ca(OH)₂：白色粉末，微溶于水，水溶液为石灰水；腐蚀性，改良酸性土壤、建筑材料、配制波尔多液",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-134",
+          "text": "氢氧化钾 KOH：强碱，性质与 NaOH 相似",
+          "path": "无机物、酸碱与盐 › 碱 › 氢氧化钾 KOH：强碱，性质与 NaOH 相似",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-135",
+          "text": "盐与化肥",
+          "path": "无机物、酸碱与盐 › 盐与化肥",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-136",
+          "text": "石灰石 CaCO₃：主要成分；煅烧 CaCO₃→CaO+CO₂↑；石灰、石灰水、石灰浆、混凝土和水泥等重要原料",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 石灰石 CaCO₃：主要成分；煅烧 CaCO₃→CaO+CO₂↑；石灰、石灰水、石灰浆、混凝土和水泥等重要原料",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-137",
+          "text": "氯化钠 NaCl：食盐主要成分；医用 0.9% 生理盐水；生活上用于腌制食品",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 氯化钠 NaCl：食盐主要成分；医用 0.9% 生理盐水；生活上用于腌制食品",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-138",
+          "text": "碳酸钠 Na₂CO₃（纯碱、苏打）：白色粉末、易溶于水，水溶液呈强碱性；玻璃、造纸、纺织、洗涤、食品工业；潮湿空气吸水结块",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 碳酸钠 Na₂CO₃（纯碱、苏打）：白色粉末、易溶于水，水溶液呈强碱性；玻璃、造纸、纺织、洗涤、食品工业；潮湿空气吸水结块",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-139",
+          "text": "碳酸氢钠 NaHCO₃（小苏打）：白色结晶粉末、无臭易溶；发酵粉、羊毛专用洗涤剂、治疗胃酸过多、清理油污；与醋酸反应生成 CO₂",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 碳酸氢钠 NaHCO₃（小苏打）：白色结晶粉末、无臭易溶；发酵粉、羊毛专用洗涤剂、治疗胃酸过多、清理油污；与醋酸反应生成 CO₂",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-140",
+          "text": "次氯酸钠 NaClO：强氧化性、腐蚀性、可致人体灼伤；84 消毒液成分，显碱性；不能与洁厕灵（HCl）混用，会产生氯气",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 次氯酸钠 NaClO：强氧化性、腐蚀性、可致人体灼伤；84 消毒液成分，显碱性；不能与洁厕灵（HCl）混用，会产生氯气",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-141",
+          "text": "碳酸镁 MgCO₃：可作耐火材料、保温材料、干燥剂；运动员运动前抓一把碳酸镁吸收手汗，增大手掌与器械摩擦力",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 碳酸镁 MgCO₃：可作耐火材料、保温材料、干燥剂；运动员运动前抓一把碳酸镁吸收手汗，增大手掌与器械摩擦力",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-142",
+          "text": "碳酸钾 K₂CO₃：草木灰主要成分，溶液呈碱性；可作木材防腐剂、干燥剂；与酸混用会释放 CO₂，导致氮肥、磷肥、钾肥效果折损",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 碳酸钾 K₂CO₃：草木灰主要成分，溶液呈碱性；可作木材防腐剂、干燥剂；与酸混用会释放 CO₂，导致氮肥、磷肥、钾肥效果折损",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-143",
+          "text": "硫酸钡 BaSO₄：俗称钡白，可制油漆、涂料等；医疗“钡餐”用于胃肠道检查；硫酸钡不溶且无毒",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 硫酸钡 BaSO₄：俗称钡白，可制油漆、涂料等；医疗“钡餐”用于胃肠道检查；硫酸钡不溶且无毒",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-144",
+          "text": "硝酸钾 KNO₃：俗称硝石，火药点燃后产生氮气、CO₂；钾肥和氮肥复合肥",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 硝酸钾 KNO₃：俗称硝石，火药点燃后产生氮气、CO₂；钾肥和氮肥复合肥",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-145",
+          "text": "亚硝酸盐：常见食品添加剂、防腐剂和护色剂，可抑制肉毒杆菌并保持肉类粉红色；过量添加或长期大量食用会增加健康风险；隔夜菜和腌制菜不宜多吃",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 亚硝酸盐：常见食品添加剂、防腐剂和护色剂，可抑制肉毒杆菌并保持肉类粉红色；过量添加或长期大量食用会增加健康风险；隔夜菜和腌制菜不宜多吃",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-146",
+          "text": "化肥肥效与缺素",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 化肥肥效与缺素",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-147",
+          "text": "氮肥：促进植物叶片生长、叶色浓绿；缺氮植株矮小、细弱，叶片黄化",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 化肥肥效与缺素 › 氮肥：促进植物叶片生长、叶色浓绿；缺氮植株矮小、细弱，叶片黄化",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-148",
+          "text": "磷肥：增强抗寒抗旱、促进开花结实；缺磷根系发育不良、开花结实少",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 化肥肥效与缺素 › 磷肥：增强抗寒抗旱、促进开花结实；缺磷根系发育不良、开花结实少",
+          "mapId": "science-section-3",
+          "important": false
+        },
+        {
+          "id": "science-section-3-149",
+          "text": "钾肥：增强抗病虫害和抗倒伏能力；缺钾叶尖叶缘焦枯",
+          "path": "无机物、酸碱与盐 › 盐与化肥 › 化肥肥效与缺素 › 钾肥：增强抗病虫害和抗倒伏能力；缺钾叶尖叶缘焦枯",
+          "mapId": "science-section-3",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "science-section-4",
+      "title": "科技常识：金属、细胞与营养",
+      "subtitle": "常见金属、细胞结构、细胞分类与六大营养物质",
+      "path": "../常识思维导图/科技常识_第4节_学习增强版.html",
+      "icon": "生",
+      "color": "#2f8f83",
+      "file": "tools/常识思维导图/科技常识_第4节_学习增强版.html",
+      "key": "const seed=",
+      "order": 4,
+      "nodes": [
+        {
+          "id": "science-section-4-0",
+          "text": "金属分类",
+          "path": "常见金属与元素 › 金属分类",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-1",
+          "text": "有色金属：除掉铁以外的金属；黑色金属：铁、铬、锰",
+          "path": "常见金属与元素 › 金属分类 › 有色金属：除掉铁以外的金属；黑色金属：铁、铬、锰",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-2",
+          "text": "纯铁银白色、延展性和导电导热性好；生铁含碳约 2%～4.3%，钢铁碳含量约 0.03%～2.1%",
+          "path": "常见金属与元素 › 金属分类 › 纯铁银白色、延展性和导电导热性好；生铁含碳约 2%～4.3%，钢铁碳含量约 0.03%～2.1%",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-3",
+          "text": "铁锈蚀需水和氧气；防锈方法：刷漆、涂油、电镀、牺牲阳极法；炼铁常用焦炭还原",
+          "path": "常见金属与元素 › 金属分类 › 铁锈蚀需水和氧气；防锈方法：刷漆、涂油、电镀、牺牲阳极法；炼铁常用焦炭还原",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-4",
+          "text": "常见金属考点",
+          "path": "常见金属与元素 › 常见金属考点",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-5",
+          "text": "铜 Cu：紫红色，有良好导电、导热性；黄铜为铜锌合金，青铜为铜锡合金；孔雀石主要成分 Cu₂(OH)₂CO₃",
+          "path": "常见金属与元素 › 常见金属考点 › 铜 Cu：紫红色，有良好导电、导热性；黄铜为铜锌合金，青铜为铜锡合金；孔雀石主要成分 Cu₂(OH)₂CO₃",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-6",
+          "text": "铝 Al：氧化物薄膜使其耐腐蚀；铝热反应可焊接铁轨、冶炼难熔金属；铝合金密度小、耐腐蚀、抗冲击",
+          "path": "常见金属与元素 › 常见金属考点 › 铝 Al：氧化物薄膜使其耐腐蚀；铝热反应可焊接铁轨、冶炼难熔金属；铝合金密度小、耐腐蚀、抗冲击",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-7",
+          "text": "金 Au：密度高、延展性好、抗腐蚀，常以单质存在；可被氯、氟、王水及氧化物腐蚀",
+          "path": "常见金属与元素 › 常见金属考点 › 金 Au：密度高、延展性好、抗腐蚀，常以单质存在；可被氯、氟、王水及氧化物腐蚀",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-8",
+          "text": "银 Ag：导电导热性最好、反光率高；银器易变黑为硫化银",
+          "path": "常见金属与元素 › 常见金属考点 › 银 Ag：导电导热性最好、反光率高；银器易变黑为硫化银",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-9",
+          "text": "汞 Hg：常温常压下唯一液态金属；水银温度计，汞蒸气有毒；朱砂为硫化汞",
+          "path": "常见金属与元素 › 常见金属考点 › 汞 Hg：常温常压下唯一液态金属；水银温度计，汞蒸气有毒；朱砂为硫化汞",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-10",
+          "text": "钛 Ti：质轻耐腐蚀、熔点高、强度高，用于飞机、航天和人造骨骼；钛铁矿是钛主要矿物",
+          "path": "常见金属与元素 › 常见金属考点 › 钛 Ti：质轻耐腐蚀、熔点高、强度高，用于飞机、航天和人造骨骼；钛铁矿是钛主要矿物",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-11",
+          "text": "锌 Zn：与酸反应生成氢气；镀锌（白铁皮）防止钢铁生锈；是干电池外壳材料",
+          "path": "常见金属与元素 › 常见金属考点 › 锌 Zn：与酸反应生成氢气；镀锌（白铁皮）防止钢铁生锈；是干电池外壳材料",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-12",
+          "text": "钙 Ca：缺钙易患佝偻病、骨质疏松；用于冶炼钢铁、抽取稀有金属",
+          "path": "常见金属与元素 › 常见金属考点 › 钙 Ca：缺钙易患佝偻病、骨质疏松；用于冶炼钢铁、抽取稀有金属",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-13",
+          "text": "钨 W：熔点最高（约 3410℃），灯丝和高温合金；铬 Cr：硬度最高的金属之一，用于电镀；锡 Sn：熔点低（231.9℃），用于焊接；铅 Pb：密度大、有毒，用于防辐射；锂 Li：密度最小金属，用于手机、电动汽车锂电池；铂 Pt：耐腐蚀，催化剂；铀 U：放射性核燃料；镭 Ra：放射性强、发现镭射线；铯 Cs：熔点低（28.4℃），光电效应强，用于铯原子钟",
+          "path": "常见金属与元素 › 常见金属考点 › 钨 W：熔点最高（约 3410℃），灯丝和高温合金；铬 Cr：硬度最高的金属之一，用于电镀；锡 Sn：熔点低（231.9℃），用于焊接；铅 Pb：密度大、有毒，用于防辐射；锂 Li：密度最小金属，用于手机、电动汽车锂电池；铂 Pt：耐腐蚀，催化剂；铀 U：放射性核燃料；镭 Ra：放射性强、发现镭射线；铯 Cs：熔点低（28.4℃），光电效应强，用于铯原子钟",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-14",
+          "text": "金属元素之最",
+          "path": "常见金属与元素 › 金属元素之最",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-15",
+          "text": "地壳中含量最多金属元素：铝；地壳中含量最多的元素依次为氧、硅、铝、铁",
+          "path": "常见金属与元素 › 金属元素之最 › 地壳中含量最多金属元素：铝；地壳中含量最多的元素依次为氧、硅、铝、铁",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-16",
+          "text": "人体中含量最多的金属元素：钙；人体中含量最多的元素：氧、碳、氢、氮",
+          "path": "常见金属与元素 › 金属元素之最 › 人体中含量最多的金属元素：钙；人体中含量最多的元素：氧、碳、氢、氮",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-17",
+          "text": "目前世界年产量最多的金属：铁；导电、导热性能最好的金属：银",
+          "path": "常见金属与元素 › 金属元素之最 › 目前世界年产量最多的金属：铁；导电、导热性能最好的金属：银",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-18",
+          "text": "生命系统结构层次",
+          "path": "细胞结构与功能 › 生命系统结构层次",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-19",
+          "text": "从小到大：细胞→组织→器官→系统→个体→种群→群落→生态系统→生物圈",
+          "path": "细胞结构与功能 › 生命系统结构层次 › 从小到大：细胞→组织→器官→系统→个体→种群→群落→生态系统→生物圈",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-20",
+          "text": "细胞是生物体结构和功能的基本单位",
+          "path": "细胞结构与功能 › 生命系统结构层次 › 细胞是生物体结构和功能的基本单位",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-21",
+          "text": "细胞学说",
+          "path": "细胞结构与功能 › 细胞学说",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-22",
+          "text": "施莱登、施旺提出细胞学说；19世纪自然科学三大发现：细胞学说、能量守恒与转化定律、生物进化论（达尔文）",
+          "path": "细胞结构与功能 › 细胞学说 › 施莱登、施旺提出细胞学说；19世纪自然科学三大发现：细胞学说、能量守恒与转化定律、生物进化论（达尔文）",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-23",
+          "text": "一切动物都由细胞发育而来，并由细胞和细胞产物构成；细胞是一个相对独立的单位，既有自己的生命，又对其他细胞共同组成的整体生命起作用；新细胞可以从老细胞中产生",
+          "path": "细胞结构与功能 › 细胞学说 › 一切动物都由细胞发育而来，并由细胞和细胞产物构成；细胞是一个相对独立的单位，既有自己的生命，又对其他细胞共同组成的整体生命起作用；新细胞可以从老细胞中产生",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-24",
+          "text": "动物细胞与植物细胞",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-25",
+          "text": "共同结构",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞 › 共同结构",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-26",
+          "text": "细胞膜：控制物质进出，参与细胞识别和信号传递",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞 › 共同结构 › 细胞膜：控制物质进出，参与细胞识别和信号传递",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-27",
+          "text": "细胞质：代谢活动主要场所，包含各种细胞器",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞 › 共同结构 › 细胞质：代谢活动主要场所，包含各种细胞器",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-28",
+          "text": "细胞核：储存遗传物质，调控分裂和生长",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞 › 共同结构 › 细胞核：储存遗传物质，调控分裂和生长",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-29",
+          "text": "线粒体：动力车间，有氧呼吸，产生 ATP",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞 › 共同结构 › 线粒体：动力车间，有氧呼吸，产生 ATP",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-30",
+          "text": "核糖体：合成蛋白质；内质网：蛋白质加工、脂质合成；高尔基体：加工、分类、运输蛋白质；液泡：储存物质、维持细胞紧张度",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞 › 共同结构 › 核糖体：合成蛋白质；内质网：蛋白质加工、脂质合成；高尔基体：加工、分类、运输蛋白质；液泡：储存物质、维持细胞紧张度",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-31",
+          "text": "植物细胞特有",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞 › 植物细胞特有",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-32",
+          "text": "细胞壁：支持和保护；叶绿体：养料制造车间、光合作用场所；大液泡：储存物质、维持细胞紧张度",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞 › 植物细胞特有 › 细胞壁：支持和保护；叶绿体：养料制造车间、光合作用场所；大液泡：储存物质、维持细胞紧张度",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-33",
+          "text": "动物细胞特有",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞 › 动物细胞特有",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-34",
+          "text": "中心体：与细胞有丝分裂相关；低等植物也可有中心体",
+          "path": "细胞结构与功能 › 动物细胞与植物细胞 › 动物细胞特有 › 中心体：与细胞有丝分裂相关；低等植物也可有中心体",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-35",
+          "text": "细胞器与代谢",
+          "path": "细胞结构与功能 › 细胞器与代谢",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-36",
+          "text": "叶绿体吸收红光、蓝紫光，是光合作用场所；光合作用：二氧化碳+水→有机物+氧气",
+          "path": "细胞结构与功能 › 细胞器与代谢 › 叶绿体吸收红光、蓝紫光，是光合作用场所；光合作用：二氧化碳+水→有机物+氧气",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-37",
+          "text": "线粒体进行有氧呼吸，释放能量生成 ATP；呼吸作用：有机物+氧气→二氧化碳+水+能量",
+          "path": "细胞结构与功能 › 细胞器与代谢 › 线粒体进行有氧呼吸，释放能量生成 ATP；呼吸作用：有机物+氧气→二氧化碳+水+能量",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-38",
+          "text": "细胞器膜结构：双层膜有线粒体、叶绿体；单层膜有高尔基体、内质网、液泡；无膜结构有核糖体、中心体",
+          "path": "细胞结构与功能 › 细胞器与代谢 › 细胞器膜结构：双层膜有线粒体、叶绿体；单层膜有高尔基体、内质网、液泡；无膜结构有核糖体、中心体",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-39",
+          "text": "细胞死亡",
+          "path": "细胞结构与功能 › 细胞死亡",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-40",
+          "text": "细胞凋亡：程序性细胞死亡，由基因控制；对机体有利，维持内环境稳定、清除无用或潜在危险细胞",
+          "path": "细胞结构与功能 › 细胞死亡 › 细胞凋亡：程序性细胞死亡，由基因控制；对机体有利，维持内环境稳定、清除无用或潜在危险细胞",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-41",
+          "text": "细胞坏死：强烈病理性刺激（如缺氧、中毒、感染、物理化学损伤）导致，对机体有害，破坏组织结构和功能",
+          "path": "细胞结构与功能 › 细胞死亡 › 细胞坏死：强烈病理性刺激（如缺氧、中毒、感染、物理化学损伤）导致，对机体有害，破坏组织结构和功能",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-42",
+          "text": "原核生物与真核生物",
+          "path": "细胞结构与功能 › 原核生物与真核生物",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-43",
+          "text": "原核生物：无成形细胞核，遗传物质 DNA 直接存在于细胞质“拟核”区域；如细菌（大肠杆菌、金黄色葡萄球菌、乳酸菌、根瘤菌）和蓝藻",
+          "path": "细胞结构与功能 › 原核生物与真核生物 › 原核生物：无成形细胞核，遗传物质 DNA 直接存在于细胞质“拟核”区域；如细菌（大肠杆菌、金黄色葡萄球菌、乳酸菌、根瘤菌）和蓝藻",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-44",
+          "text": "真核生物：有真正细胞核，DNA 被核膜包裹；如动物、植物、真菌（酵母菌、霉菌）",
+          "path": "细胞结构与功能 › 原核生物与真核生物 › 真核生物：有真正细胞核，DNA 被核膜包裹；如动物、植物、真菌（酵母菌、霉菌）",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-45",
+          "text": "病毒：无细胞结构，不能独立完成生命活动，寄生在活细胞内；抗生素主要用于细菌感染，对病毒无效",
+          "path": "细胞结构与功能 › 原核生物与真核生物 › 病毒：无细胞结构，不能独立完成生命活动，寄生在活细胞内；抗生素主要用于细菌感染，对病毒无效",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-46",
+          "text": "基本分类",
+          "path": "六大营养物质 › 基本分类",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-47",
+          "text": "六大营养素：糖类、油脂、蛋白质、水、无机盐、维生素",
+          "path": "六大营养物质 › 基本分类 › 六大营养素：糖类、油脂、蛋白质、水、无机盐、维生素",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-48",
+          "text": "三大供能物质：糖类、油脂、蛋白质",
+          "path": "六大营养物质 › 基本分类 › 三大供能物质：糖类、油脂、蛋白质",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-49",
+          "text": "供能顺序：糖→脂肪→蛋白质；供能量顺序：脂肪＞蛋白质＞糖；消化顺序：糖→蛋白质→脂肪",
+          "path": "六大营养物质 › 基本分类 › 供能顺序：糖→脂肪→蛋白质；供能量顺序：脂肪＞蛋白质＞糖；消化顺序：糖→蛋白质→脂肪",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-50",
+          "text": "三大供能物质",
+          "path": "六大营养物质 › 三大供能物质",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-51",
+          "text": "糖类（碳水化合物）",
+          "path": "六大营养物质 › 三大供能物质 › 糖类（碳水化合物）",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-52",
+          "text": "由 C、H、O 组成；人体最主要供能物质",
+          "path": "六大营养物质 › 三大供能物质 › 糖类（碳水化合物） › 由 C、H、O 组成；人体最主要供能物质",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-53",
+          "text": "单糖：葡萄糖、果糖、半乳糖；二糖：蔗糖、麦芽糖、乳糖；多糖：淀粉、纤维素、糖原",
+          "path": "六大营养物质 › 三大供能物质 › 糖类（碳水化合物） › 单糖：葡萄糖、果糖、半乳糖；二糖：蔗糖、麦芽糖、乳糖；多糖：淀粉、纤维素、糖原",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-54",
+          "text": "纤维素人体不能消化吸收，可促进肠道蠕动、预防便秘",
+          "path": "六大营养物质 › 三大供能物质 › 糖类（碳水化合物） › 纤维素人体不能消化吸收，可促进肠道蠕动、预防便秘",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-55",
+          "text": "油脂",
+          "path": "六大营养物质 › 三大供能物质 › 油脂",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-56",
+          "text": "常温下植物油为液态，动物油脂为固态；包括油（植物）和脂肪（动物）",
+          "path": "六大营养物质 › 三大供能物质 › 油脂 › 常温下植物油为液态，动物油脂为固态；包括油（植物）和脂肪（动物）",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-57",
+          "text": "脂肪是储能物质，兼有保温和保护作用",
+          "path": "六大营养物质 › 三大供能物质 › 油脂 › 脂肪是储能物质，兼有保温和保护作用",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-58",
+          "text": "蛋白质",
+          "path": "六大营养物质 › 三大供能物质 › 蛋白质",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-59",
+          "text": "含氮元素，基本组成单位是氨基酸；是生命活动的物质基础",
+          "path": "六大营养物质 › 三大供能物质 › 蛋白质 › 含氮元素，基本组成单位是氨基酸；是生命活动的物质基础",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-60",
+          "text": "功能：血红蛋白运输氧气；酶是蛋白质，催化生物化学反应；抗体是蛋白质；胰岛素是人体唯一能降低血糖的激素",
+          "path": "六大营养物质 › 三大供能物质 › 蛋白质 › 功能：血红蛋白运输氧气；酶是蛋白质，催化生物化学反应；抗体是蛋白质；胰岛素是人体唯一能降低血糖的激素",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-61",
+          "text": "变性因素：高温、紫外线、X 射线、剧烈振荡、搅拌；化学因素有强酸、强碱、重金属盐、乙醇、丙酮、甲醛",
+          "path": "六大营养物质 › 三大供能物质 › 蛋白质 › 变性因素：高温、紫外线、X 射线、剧烈振荡、搅拌；化学因素有强酸、强碱、重金属盐、乙醇、丙酮、甲醛",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-62",
+          "text": "无机盐",
+          "path": "六大营养物质 › 无机盐",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-63",
+          "text": "概念：除 C、H、O、N 以外的元素；调节新陈代谢、构成人体组织、参与生理活动、传递生命信息",
+          "path": "六大营养物质 › 无机盐 › 概念：除 C、H、O、N 以外的元素；调节新陈代谢、构成人体组织、参与生理活动、传递生命信息",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-64",
+          "text": "常量元素（>0.01%）：O 缺氧贫血、组织坏死；C 构成有机物；H 构成水和有机物；N 构成蛋白质和核酸；Ca 构成骨骼牙齿、参与凝血；P 构成骨骼牙齿、ATP、细胞膜；K 维持渗透压、神经传导、肌肉收缩；S 构成氨基酸和维生素；Na 维持细胞外液渗透压、神经传导、水盐平衡；Cl 维持体液平衡、胃酸；Mg 参与激活酶、神经肌肉调节、骨骼成分",
+          "path": "六大营养物质 › 无机盐 › 常量元素（>0.01%）：O 缺氧贫血、组织坏死；C 构成有机物；H 构成水和有机物；N 构成蛋白质和核酸；Ca 构成骨骼牙齿、参与凝血；P 构成骨骼牙齿、ATP、细胞膜；K 维持渗透压、神经传导、肌肉收缩；S 构成氨基酸和维生素；Na 维持细胞外液渗透压、神经传导、水盐平衡；Cl 维持体液平衡、胃酸；Mg 参与激活酶、神经肌肉调节、骨骼成分",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-65",
+          "text": "微量元素（<0.01%）：Fe 参与血红蛋白，缺铁贫血；Zn 生长发育、伤口愈合，缺锌发育迟缓/异食癖；Cu 造血和骨骼，缺铜贫血/毛发褪色；I 合成甲状腺激素，缺碘甲状腺肿大/克汀病；Se 抗癌防癌，缺硒克山病/大骨节病；F 防龋齿，过量氟斑牙；Cr 调节血糖，缺铬可能增加糖尿病风险；Mn 参与骨形成和抗氧化，过量生长缓慢；Co 是维生素 B12 核心组分",
+          "path": "六大营养物质 › 无机盐 › 微量元素（<0.01%）：Fe 参与血红蛋白，缺铁贫血；Zn 生长发育、伤口愈合，缺锌发育迟缓/异食癖；Cu 造血和骨骼，缺铜贫血/毛发褪色；I 合成甲状腺激素，缺碘甲状腺肿大/克汀病；Se 抗癌防癌，缺硒克山病/大骨节病；F 防龋齿，过量氟斑牙；Cr 调节血糖，缺铬可能增加糖尿病风险；Mn 参与骨形成和抗氧化，过量生长缓慢；Co 是维生素 B12 核心组分",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-66",
+          "text": "水与维生素",
+          "path": "六大营养物质 › 水与维生素",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-67",
+          "text": "水约占人体体重 70%；是生化反应介质、血液和组织液运输工具、关节润滑剂、体温调节剂",
+          "path": "六大营养物质 › 水与维生素 › 水约占人体体重 70%；是生化反应介质、血液和组织液运输工具、关节润滑剂、体温调节剂",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-68",
+          "text": "脂溶性维生素（可储存于脂肪）",
+          "path": "六大营养物质 › 水与维生素 › 脂溶性维生素（可储存于脂肪）",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-69",
+          "text": "A（视黄醇）：维持视觉、皮肤与上皮组织；缺乏夜盲症、干眼症；补充胡萝卜、绿叶蔬菜、动物肝脏",
+          "path": "六大营养物质 › 水与维生素 › 脂溶性维生素（可储存于脂肪） › A（视黄醇）：维持视觉、皮肤与上皮组织；缺乏夜盲症、干眼症；补充胡萝卜、绿叶蔬菜、动物肝脏",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-70",
+          "text": "D（钙化醇）：促进钙磷吸收、维持骨骼健康；缺乏佝偻病/骨质疏松；补充鱼肝油、蛋黄、牛奶，适当光照",
+          "path": "六大营养物质 › 水与维生素 › 脂溶性维生素（可储存于脂肪） › D（钙化醇）：促进钙磷吸收、维持骨骼健康；缺乏佝偻病/骨质疏松；补充鱼肝油、蛋黄、牛奶，适当光照",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-71",
+          "text": "E（生育酚）：抗氧化、保护细胞膜、与生殖功能相关；补充坚果",
+          "path": "六大营养物质 › 水与维生素 › 脂溶性维生素（可储存于脂肪） › E（生育酚）：抗氧化、保护细胞膜、与生殖功能相关；补充坚果",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-72",
+          "text": "K₁、K₂：合成凝血因子、维持正常凝血；缺乏出血性疾病；补充绿叶菜、肉类、奶类",
+          "path": "六大营养物质 › 水与维生素 › 脂溶性维生素（可储存于脂肪） › K₁、K₂：合成凝血因子、维持正常凝血；缺乏出血性疾病；补充绿叶菜、肉类、奶类",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-73",
+          "text": "水溶性维生素",
+          "path": "六大营养物质 › 水与维生素 › 水溶性维生素",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-74",
+          "text": "B₁（硫胺素）：参与能量代谢、维持神经系统；缺乏脚气病；补充谷物、豆类、坚果、动物内脏、酵母等",
+          "path": "六大营养物质 › 水与维生素 › 水溶性维生素 › B₁（硫胺素）：参与能量代谢、维持神经系统；缺乏脚气病；补充谷物、豆类、坚果、动物内脏、酵母等",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-75",
+          "text": "B₂（核黄素）：参与能量代谢、促进生长发育、维护皮肤和黏膜；缺乏口角炎、眼睛疲劳、阴囊炎；补充动物肝、肾、心、蛋、奶、绿叶菜、豆类等",
+          "path": "六大营养物质 › 水与维生素 › 水溶性维生素 › B₂（核黄素）：参与能量代谢、促进生长发育、维护皮肤和黏膜；缺乏口角炎、眼睛疲劳、阴囊炎；补充动物肝、肾、心、蛋、奶、绿叶菜、豆类等",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-76",
+          "text": "B₉（叶酸）：参与核酸合成和细胞分裂生长；缺乏巨幼细胞贫血、胎儿神经管畸形；补充动物肝脏、深绿色叶菜、豆类、坚果",
+          "path": "六大营养物质 › 水与维生素 › 水溶性维生素 › B₉（叶酸）：参与核酸合成和细胞分裂生长；缺乏巨幼细胞贫血、胎儿神经管畸形；补充动物肝脏、深绿色叶菜、豆类、坚果",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-77",
+          "text": "B₁₂（钴胺素）：参与核酸合成、维持神经系统健康；缺乏巨幼细胞性贫血、神经系统损害；植物性食物几乎不含，补充肉、蛋、奶、海鲜",
+          "path": "六大营养物质 › 水与维生素 › 水溶性维生素 › B₁₂（钴胺素）：参与核酸合成、维持神经系统健康；缺乏巨幼细胞性贫血、神经系统损害；植物性食物几乎不含，补充肉、蛋、奶、海鲜",
+          "mapId": "science-section-4",
+          "important": false
+        },
+        {
+          "id": "science-section-4-78",
+          "text": "C（抗坏血酸）：抗氧化、促进胶原蛋白合成、增强免疫力、促进铁吸收；缺乏坏血病；补充柑橘类水果",
+          "path": "六大营养物质 › 水与维生素 › 水溶性维生素 › C（抗坏血酸）：抗氧化、促进胶原蛋白合成、增强免疫力、促进铁吸收；缺乏坏血病；补充柑橘类水果",
+          "mapId": "science-section-4",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "science-section-5",
+      "title": "科技常识：生态与生物进化",
+      "subtitle": "生态系统、植物进化、动物分类与生物适应",
+      "path": "../常识思维导图/科技常识_第5节_学习增强版.html",
+      "icon": "生",
+      "color": "#3b8b65",
+      "file": "tools/常识思维导图/科技常识_第5节_学习增强版.html",
+      "key": "const seed=",
+      "order": 5,
+      "nodes": [
+        {
+          "id": "science-section-5-0",
+          "text": "生物圈定义与范围",
+          "path": "生态系统 › 生物圈定义与范围",
+          "mapId": "science-section-5",
+          "important": true
+        },
+        {
+          "id": "science-section-5-1",
+          "text": "生物圈：地球上所有生物与其环境的总和，是最大的生态系统、最大的生命系统",
+          "path": "生态系统 › 生物圈定义与范围 › 生物圈：地球上所有生物与其环境的总和，是最大的生态系统、最大的生命系统",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-2",
+          "text": "范围：大气圈底部、水圈大部、岩石圈表面",
+          "path": "生态系统 › 生物圈定义与范围 › 范围：大气圈底部、水圈大部、岩石圈表面",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-3",
+          "text": "最大的生态系统：生物圈；最复杂生态系统：热带雨林；人类主要生存环境：城市、农田等人工生态系统",
+          "path": "生态系统 › 生物圈定义与范围 › 最大的生态系统：生物圈；最复杂生态系统：热带雨林；人类主要生存环境：城市、农田等人工生态系统",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-4",
+          "text": "生态系统四大组成",
+          "path": "生态系统 › 生态系统四大组成",
+          "mapId": "science-section-5",
+          "important": true
+        },
+        {
+          "id": "science-section-5-5",
+          "text": "非生物的物质和能量：阳光、水、空气、无机盐、温度、有机质、岩石等，是生态系统的基础；阳光是多数生态系统直接能量来源",
+          "path": "生态系统 › 生态系统四大组成 › 非生物的物质和能量：阳光、水、空气、无机盐、温度、有机质、岩石等，是生态系统的基础；阳光是多数生态系统直接能量来源",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-6",
+          "text": "生产者：主要是绿色植物，也包括化能合成细菌与光合细菌，均为自养生物；是生态系统基石、不可缺少",
+          "path": "生态系统 › 生态系统四大组成 › 生产者：主要是绿色植物，也包括化能合成细菌与光合细菌，均为自养生物；是生态系统基石、不可缺少",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-7",
+          "text": "消费者：以动植物为食的异养生物，包括几乎所有动物和部分微生物；加快物质循环",
+          "path": "生态系统 › 生态系统四大组成 › 消费者：以动植物为食的异养生物，包括几乎所有动物和部分微生物；加快物质循环",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-8",
+          "text": "分解者：以腐生细菌和真菌为主，分解动植物遗体；是生态系统不可缺少的成分",
+          "path": "生态系统 › 生态系统四大组成 › 分解者：以腐生细菌和真菌为主，分解动植物遗体；是生态系统不可缺少的成分",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-9",
+          "text": "生产者为植物，分解者为细菌和真菌，消费者为动物",
+          "path": "生态系统 › 生态系统四大组成 › 生产者为植物，分解者为细菌和真菌，消费者为动物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-10",
+          "text": "生态系统分类",
+          "path": "生态系统 › 生态系统分类",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-11",
+          "text": "自然生态系统：水生、陆生、大气生态系统",
+          "path": "生态系统 › 生态系统分类 › 自然生态系统：水生、陆生、大气生态系统",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-12",
+          "text": "人工生态系统：城市、农业、人工林、果园",
+          "path": "生态系统 › 生态系统分类 › 人工生态系统：城市、农业、人工林、果园",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-13",
+          "text": "营养结构与物质循环",
+          "path": "生态系统 › 营养结构与物质循环",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-14",
+          "text": "食物链：生产者→初级消费者→次级消费者→三级消费者→分解者",
+          "path": "生态系统 › 营养结构与物质循环 › 食物链：生产者→初级消费者→次级消费者→三级消费者→分解者",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-15",
+          "text": "多条食物链交错形成食物网",
+          "path": "生态系统 › 营养结构与物质循环 › 多条食物链交错形成食物网",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-16",
+          "text": "营养级：第一营养级为生产者，第二营养级为初级消费者，依次递推",
+          "path": "生态系统 › 营养结构与物质循环 › 营养级：第一营养级为生产者，第二营养级为初级消费者，依次递推",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-17",
+          "text": "能量流动：单向流动，逐级递减；营养级间传递效率约 10%～20%",
+          "path": "生态系统 › 营养结构与物质循环 › 能量流动：单向流动，逐级递减；营养级间传递效率约 10%～20%",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-18",
+          "text": "生物富集：营养级越高，毒素越大，DDT 等难分解物质会在高营养级富集",
+          "path": "生态系统 › 营养结构与物质循环 › 生物富集：营养级越高，毒素越大，DDT 等难分解物质会在高营养级富集",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-19",
+          "text": "生态系统中物质循环、能量流动和信息传递共同维持系统稳定",
+          "path": "生态系统 › 营养结构与物质循环 › 生态系统中物质循环、能量流动和信息传递共同维持系统稳定",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-20",
+          "text": "植物进化总顺序",
+          "path": "植物进化顺序 › 植物进化总顺序",
+          "mapId": "science-section-5",
+          "important": true
+        },
+        {
+          "id": "science-section-5-21",
+          "text": "藻类植物→苔藓植物→蕨类植物→裸子植物→被子植物",
+          "path": "植物进化顺序 › 植物进化总顺序 › 藻类植物→苔藓植物→蕨类植物→裸子植物→被子植物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-22",
+          "text": "生命演化两大分支：单细胞藻类演化为植物界，单细胞动物演化为动物界；生物进化历程由简单到复杂、水生到陆生、低等到高等",
+          "path": "植物进化顺序 › 植物进化总顺序 › 生命演化两大分支：单细胞藻类演化为植物界，单细胞动物演化为动物界；生物进化历程由简单到复杂、水生到陆生、低等到高等",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-23",
+          "text": "孢子植物（不依靠种子繁殖）",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖）",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-24",
+          "text": "藻类植物",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 藻类植物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-25",
+          "text": "没有根、茎、叶分化；单细胞、群体或多细胞叶状体；含叶绿素、能光合作用、自养",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 藻类植物 › 没有根、茎、叶分化；单细胞、群体或多细胞叶状体；含叶绿素、能光合作用、自养",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-26",
+          "text": "代表：衣藻、海带、紫菜、石莼等；为地球提供大部分氧气",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 藻类植物 › 代表：衣藻、海带、紫菜、石莼等；为地球提供大部分氧气",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-27",
+          "text": "蓝藻是最原始、最古老的光合自养原核植物；有根状、茎状、叶状构造但无真正器官",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 藻类植物 › 蓝藻是最原始、最古老的光合自养原核植物；有根状、茎状、叶状构造但无真正器官",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-28",
+          "text": "苔藓植物",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 苔藓植物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-29",
+          "text": "有茎和叶分化，但茎无导管、叶无叶脉，根很简单称假根（只固定植物）",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 苔藓植物 › 有茎和叶分化，但茎无导管、叶无叶脉，根很简单称假根（只固定植物）",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-30",
+          "text": "含叶绿素能光合作用；代表葫芦藓、黑藓、地钱、大灰藓",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 苔藓植物 › 含叶绿素能光合作用；代表葫芦藓、黑藓、地钱、大灰藓",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-31",
+          "text": "可监测空气污染，是空气污染物（尤其二氧化硫）敏感的指示植物；源图“没有二氧化硫”表述疑似漏字，按生物学常识校订为“对二氧化硫敏感”",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 苔藓植物 › 可监测空气污染，是空气污染物（尤其二氧化硫）敏感的指示植物；源图“没有二氧化硫”表述疑似漏字，按生物学常识校订为“对二氧化硫敏感”",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-32",
+          "text": "蕨类植物",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 蕨类植物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-33",
+          "text": "有根、茎、叶分化和维管系统；孢子繁殖；有明显世代交替",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 蕨类植物 › 有根、茎、叶分化和维管系统；孢子繁殖；有明显世代交替",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-34",
+          "text": "代表肾蕨、铁线蕨、鹿角蕨、满江红；是原始维管植物和最高级孢子植物；古代蕨类形成煤",
+          "path": "植物进化顺序 › 孢子植物（不依靠种子繁殖） › 蕨类植物 › 代表肾蕨、铁线蕨、鹿角蕨、满江红；是原始维管植物和最高级孢子植物；古代蕨类形成煤",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-35",
+          "text": "种子植物（依靠种子繁殖）",
+          "path": "植物进化顺序 › 种子植物（依靠种子繁殖）",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-36",
+          "text": "裸子植物",
+          "path": "植物进化顺序 › 种子植物（依靠种子繁殖） › 裸子植物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-37",
+          "text": "有发达根、茎、叶和种子；种子裸露无果皮包被；无花和果实",
+          "path": "植物进化顺序 › 种子植物（依靠种子繁殖） › 裸子植物 › 有发达根、茎、叶和种子；种子裸露无果皮包被；无花和果实",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-38",
+          "text": "代表苏铁、银杏（公孙树/白果树）、松、杉、柏；是原始的种子植物",
+          "path": "植物进化顺序 › 种子植物（依靠种子繁殖） › 裸子植物 › 代表苏铁、银杏（公孙树/白果树）、松、杉、柏；是原始的种子植物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-39",
+          "text": "被子植物",
+          "path": "植物进化顺序 › 种子植物（依靠种子繁殖） › 被子植物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-40",
+          "text": "具有根、茎、叶、花、果实、种子六种器官；种子包在果皮内，不裸露",
+          "path": "植物进化顺序 › 种子植物（依靠种子繁殖） › 被子植物 › 具有根、茎、叶、花、果实、种子六种器官；种子包在果皮内，不裸露",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-41",
+          "text": "代表桃、苹果、玉米、水稻、竹子等；又叫显花植物，是最高等、分布最广、适应性最强的植物类群",
+          "path": "植物进化顺序 › 种子植物（依靠种子繁殖） › 被子植物 › 代表桃、苹果、玉米、水稻、竹子等；又叫显花植物，是最高等、分布最广、适应性最强的植物类群",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-42",
+          "text": "种子分类",
+          "path": "植物进化顺序 › 种子植物（依靠种子繁殖） › 种子分类",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-43",
+          "text": "裸子植物种子无果皮包被（如银杏、松、柳杉）；被子植物种子有果皮包被",
+          "path": "植物进化顺序 › 种子植物（依靠种子繁殖） › 种子分类 › 裸子植物种子无果皮包被（如银杏、松、柳杉）；被子植物种子有果皮包被",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-44",
+          "text": "被子植物按子叶数分为单子叶植物（玉米、水稻、百合）和双子叶植物（豆类、花生等）",
+          "path": "植物进化顺序 › 种子植物（依靠种子繁殖） › 种子分类 › 被子植物按子叶数分为单子叶植物（玉米、水稻、百合）和双子叶植物（豆类、花生等）",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-45",
+          "text": "无脊椎动物进化顺序",
+          "path": "动物分类进化 › 无脊椎动物进化顺序",
+          "mapId": "science-section-5",
+          "important": true
+        },
+        {
+          "id": "science-section-5-46",
+          "text": "刺胞动物（腔肠动物）",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 刺胞动物（腔肠动物）",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-47",
+          "text": "身体辐射对称，体表有刺细胞；有口无肛门，消化腔只有一个开口",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 刺胞动物（腔肠动物） › 身体辐射对称，体表有刺细胞；有口无肛门，消化腔只有一个开口",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-48",
+          "text": "代表水螅、水母、海葵、海蜇、珊瑚虫",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 刺胞动物（腔肠动物） › 代表水螅、水母、海葵、海蜇、珊瑚虫",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-49",
+          "text": "扁形动物",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 扁形动物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-50",
+          "text": "两侧对称、背腹扁平；有口无肛门，消化系统不完全",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 扁形动物 › 两侧对称、背腹扁平；有口无肛门，消化系统不完全",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-51",
+          "text": "代表涡虫、血吸虫、猪肉绦虫",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 扁形动物 › 代表涡虫、血吸虫、猪肉绦虫",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-52",
+          "text": "线形动物",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 线形动物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-53",
+          "text": "身体细长呈圆柱形，体表角质层；有口有肛门",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 线形动物 › 身体细长呈圆柱形，体表角质层；有口有肛门",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-54",
+          "text": "代表蛔虫、蛲虫、线虫",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 线形动物 › 代表蛔虫、蛲虫、线虫",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-55",
+          "text": "环节动物",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 环节动物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-56",
+          "text": "身体呈圆筒形，由许多相似体节组成；靠刚毛或疣足运动",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 环节动物 › 身体呈圆筒形，由许多相似体节组成；靠刚毛或疣足运动",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-57",
+          "text": "代表蚯蚓、沙蚕、蚂蟥",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 环节动物 › 代表蚯蚓、沙蚕、蚂蟥",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-58",
+          "text": "节肢动物",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 节肢动物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-59",
+          "text": "体表有坚韧外骨骼，身体和附肢分节；六条腿的是昆虫",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 节肢动物 › 体表有坚韧外骨骼，身体和附肢分节；六条腿的是昆虫",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-60",
+          "text": "代表蝗虫、蜜蜂、蝴蝶、蜘蛛、蝎子、虾、蟹；是动物界种类最多的类群",
+          "path": "动物分类进化 › 无脊椎动物进化顺序 › 节肢动物 › 代表蝗虫、蜜蜂、蝴蝶、蜘蛛、蝎子、虾、蟹；是动物界种类最多的类群",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-61",
+          "text": "昆虫发育",
+          "path": "动物分类进化 › 昆虫发育",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-62",
+          "text": "完全变态发育：卵→幼虫→蛹→成虫；四个时期形态结构和生活习性差异大；代表蚊、蝇、菜粉蝶、蜜蜂、蚕、跳蚤、虱",
+          "path": "动物分类进化 › 昆虫发育 › 完全变态发育：卵→幼虫→蛹→成虫；四个时期形态结构和生活习性差异大；代表蚊、蝇、菜粉蝶、蜜蜂、蚕、跳蚤、虱",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-63",
+          "text": "不完全变态发育：卵→若虫→成虫；无蛹期；代表蝗虫、蟋蟀、螳螂、蜻蜓、蚊螨等",
+          "path": "动物分类进化 › 昆虫发育 › 不完全变态发育：卵→若虫→成虫；无蛹期；代表蝗虫、蟋蟀、螳螂、蜻蜓、蚊螨等",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-64",
+          "text": "脊椎动物进化顺序",
+          "path": "动物分类进化 › 脊椎动物进化顺序",
+          "mapId": "science-section-5",
+          "important": true
+        },
+        {
+          "id": "science-section-5-65",
+          "text": "鱼类",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 鱼类",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-66",
+          "text": "水生，用鳃呼吸，有鳞片，靠鳍游泳",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 鱼类 › 水生，用鳃呼吸，有鳞片，靠鳍游泳",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-67",
+          "text": "代表金鱼、鲨鱼、带鱼、海马；游泳最快的鱼是旗鱼",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 鱼类 › 代表金鱼、鲨鱼、带鱼、海马；游泳最快的鱼是旗鱼",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-68",
+          "text": "两栖动物",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 两栖动物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-69",
+          "text": "幼体蝌蚪完全水生，成体可水陆两栖；体温不恒定，体外受精",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 两栖动物 › 幼体蝌蚪完全水生，成体可水陆两栖；体温不恒定，体外受精",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-70",
+          "text": "代表青蛙、蟾蜍、大鲵（娃娃鱼）、蝾螈",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 两栖动物 › 代表青蛙、蟾蜍、大鲵（娃娃鱼）、蝾螈",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-71",
+          "text": "爬行动物",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 爬行动物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-72",
+          "text": "用肺呼吸；鳞片和皮肤防止水分蒸发；卵生",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 爬行动物 › 用肺呼吸；鳞片和皮肤防止水分蒸发；卵生",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-73",
+          "text": "代表蛇、蜥蜴、龟、鳄鱼、壁虎",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 爬行动物 › 代表蛇、蜥蜴、龟、鳄鱼、壁虎",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-74",
+          "text": "鸟类",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 鸟类",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-75",
+          "text": "体表羽毛，前肢特化为翼，骨骼轻而坚固（多中空、有气腔）；卵生",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 鸟类 › 体表羽毛，前肢特化为翼，骨骼轻而坚固（多中空、有气腔）；卵生",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-76",
+          "text": "代表鸡、鹰、企鹅、鸵鸟、蜂鸟",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 鸟类 › 代表鸡、鹰、企鹅、鸵鸟、蜂鸟",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-77",
+          "text": "哺乳动物",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 哺乳动物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-78",
+          "text": "体表被毛，绝大多数胎生；雌性有乳腺分泌乳汁哺育幼崽",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 哺乳动物 › 体表被毛，绝大多数胎生；雌性有乳腺分泌乳汁哺育幼崽",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-79",
+          "text": "代表人、狗、猫、鲸、蝙蝠、袋鼠；跑得最快的动物猎豹，最大的动物蓝鲸，最大的陆地动物非洲象",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 哺乳动物 › 代表人、狗、猫、鲸、蝙蝠、袋鼠；跑得最快的动物猎豹，最大的动物蓝鲸，最大的陆地动物非洲象",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-80",
+          "text": "恒温（温血）动物：鸟类、哺乳类；其他脊椎动物为变温（冷血）动物，不能自主调节体温",
+          "path": "动物分类进化 › 脊椎动物进化顺序 › 恒温（温血）动物：鸟类、哺乳类；其他脊椎动物为变温（冷血）动物，不能自主调节体温",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-81",
+          "text": "软体动物与棘皮动物",
+          "path": "动物分类进化 › 软体动物与棘皮动物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-82",
+          "text": "软体动物：身体柔软，多数有贝壳保护；代表蜗牛、蛤、牡蛎、蛏、鱿鱼、章鱼等",
+          "path": "动物分类进化 › 软体动物与棘皮动物 › 软体动物：身体柔软，多数有贝壳保护；代表蜗牛、蛤、牡蛎、蛏、鱿鱼、章鱼等",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-83",
+          "text": "棘皮动物：全部海生，背面棘状突起；代表海星、海胆、海参、海百合",
+          "path": "动物分类进化 › 软体动物与棘皮动物 › 棘皮动物：全部海生，背面棘状突起；代表海星、海胆、海参、海百合",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-84",
+          "text": "拟态、保护色与警戒色",
+          "path": "动物分类进化 › 拟态、保护色与警戒色",
+          "mapId": "science-section-5",
+          "important": true
+        },
+        {
+          "id": "science-section-5-85",
+          "text": "拟态：模仿其他生物或物体，外形、花纹、姿态复制其他事物",
+          "path": "动物分类进化 › 拟态、保护色与警戒色 › 拟态：模仿其他生物或物体，外形、花纹、姿态复制其他事物",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-86",
+          "text": "保护色：融入环境，藏起来，仅体色匹配环境，外形不变",
+          "path": "动物分类进化 › 拟态、保护色与警戒色 › 保护色：融入环境，藏起来，仅体色匹配环境，外形不变",
+          "mapId": "science-section-5",
+          "important": false
+        },
+        {
+          "id": "science-section-5-87",
+          "text": "警戒色：亮出自己警告天敌，色彩艳丽，自身有毒或有刺",
+          "path": "动物分类进化 › 拟态、保护色与警戒色 › 警戒色：亮出自己警告天敌，色彩艳丽，自身有毒或有刺",
+          "mapId": "science-section-5",
           "important": false
         }
       ]
