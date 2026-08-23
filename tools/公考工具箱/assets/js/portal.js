@@ -22,7 +22,7 @@
   var TOOL_ORDER_STORAGE_KEY = 'gk-tool-order';
   var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'wusi', 'review', 'knowledge', 'plan'];
   var TOOL_NAMES_STORAGE_KEY = 'gk-tool-names-v1';
-  var KNOWLEDGE_INDEX_URL = '../常识思维导图/knowledge-index.json';
+  var KNOWLEDGE_INDEX_URL = '../思维导图/knowledge-index.json';
   var KNOWLEDGE_ORDER_STORAGE_KEY = 'gk-knowledge-order-v1';
   var KNOWLEDGE_LIBRARY_STORAGE_KEY = 'gk-knowledge-library-v1';
   var KNOWLEDGE_FOLDER_STORAGE_KEY = 'gk-knowledge-folders-v1';
@@ -672,7 +672,7 @@
   }
 
   function initKnowledgeLibrary() {
-    var fallback = { maps: [{ id: 'science-section-1', title: '科技常识：波、电磁波与光学', subtitle: '声音、波动、电磁波、光学现象与成像', path: '../常识思维导图/科技常识_第一节_学习增强版.html', icon: '科', color: '#2783c9', order: 1, nodes: [] }, { id: 'science-section-2', title: '科技常识：力学、电学与能量', subtitle: '牛顿定律、常见力、电学现象、能量守恒与核能', path: '../常识思维导图/科技常识_第二节_学习增强版.html', icon: '力', color: '#2778b8', order: 2, nodes: [] }, { id: 'history-section-2', title: '历史常识：秦汉', subtitle: '秦朝建立、西汉盛世与汉武帝时期', path: '../常识思维导图/历史常识_第二节_学习增强版.html', icon: '秦', color: '#b05f26', order: 3, nodes: [] }, { id: 'history-section-3', title: '历史常识：东汉至隋朝', subtitle: '东汉、三国、两晋南北朝与隋朝历史脉络', path: '../常识思维导图/历史常识_第三节_学习增强版.html', icon: '史', color: '#a34d37', order: 4, nodes: [] }, { id: 'history-section-4', title: '历史常识：唐宋', subtitle: '唐朝盛衰、五代十国与北宋制度变革', path: '../常识思维导图/历史常识_第四节_学习增强版.html', icon: '唐', color: '#9b4d28', order: 5, nodes: [] }, { id: 'history-section-5', title: '历史常识：南宋至清末', subtitle: '南宋、元明清政权与近代转折', path: '../常识思维导图/历史常识_第五节_学习增强版.html', icon: '明', color: '#1766a8', order: 6, nodes: [] }] };
+    var fallback = { maps: [{ id: 'science-section-1', title: '科技常识：波、电磁波与光学', subtitle: '声音、波动、电磁波、光学现象与成像', path: '../思维导图/科技常识_第一节_学习增强版.html', icon: '科', color: '#2783c9', order: 1, nodes: [] }, { id: 'science-section-2', title: '科技常识：力学、电学与能量', subtitle: '牛顿定律、常见力、电学现象、能量守恒与核能', path: '../思维导图/科技常识_第二节_学习增强版.html', icon: '力', color: '#2778b8', order: 2, nodes: [] }, { id: 'history-section-1', title: '历史常识：夏商周与春秋战国', subtitle: '夏商周、春秋五霸、战国变法与秦的统一', path: '../思维导图/历史常识_第一节_学习增强版.html', icon: '夏', color: '#a8592b', order: 2.5, nodes: [] }, { id: 'history-section-2', title: '历史常识：秦汉', subtitle: '秦朝建立、西汉盛世与汉武帝时期', path: '../思维导图/历史常识_第二节_学习增强版.html', icon: '秦', color: '#b05f26', order: 3, nodes: [] }, { id: 'history-section-3', title: '历史常识：东汉至隋朝', subtitle: '东汉、三国、两晋南北朝与隋朝历史脉络', path: '../思维导图/历史常识_第三节_学习增强版.html', icon: '史', color: '#a34d37', order: 4, nodes: [] }, { id: 'history-section-4', title: '历史常识：唐宋', subtitle: '唐朝盛衰、五代十国与北宋制度变革', path: '../思维导图/历史常识_第四节_学习增强版.html', icon: '唐', color: '#9b4d28', order: 5, nodes: [] }, { id: 'history-section-5', title: '历史常识：南宋至清末', subtitle: '南宋、元明清政权与近代转折', path: '../思维导图/历史常识_第五节_学习增强版.html', icon: '明', color: '#1766a8', order: 6, nodes: [] }] };
     function finish(data) { knowledgeMaps = Array.isArray(data && data.maps) && data.maps.length ? data.maps : fallback.maps; try { var local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); if (Array.isArray(local)) knowledgeMaps = knowledgeMaps.concat(local.filter(function (m) { return !knowledgeMaps.some(function (base) { return base.id === m.id; }); })); } catch (e) {} loadKnowledgeFolders(); saveKnowledgeFolders(); applyKnowledgeOrder(); knowledgeLoaded = true; renderKnowledgeLibrary(); if (knowledgeSearchQuery) renderKnowledgeSearch(knowledgeSearchQuery); }
     fetch(KNOWLEDGE_INDEX_URL).then(function (response) { if (!response.ok) throw new Error('index'); return response.json(); }).then(finish).catch(function () { finish({ maps: [] }); });
   }
@@ -926,12 +926,11 @@
     cdState.milestones.forEach(function(ms, idx) {
       var md = new Date(ms.date + 'T00:00:00'), isDone = ms.completed === true || (ms.completed !== false && md <= now);
       if (isDone) done++;
-      mh += '<button type="button" class="countdown-milestone ' + (isDone ? 'done' : 'upcoming') + '" onclick="window.toggleCountdownMilestone(' + idx + ')" aria-pressed="' + (isDone ? 'true' : 'false') + '" title="点击切换完成状态"><span class="ms-check" aria-hidden="true">' + (isDone ? '✓' : '') + '</span><span class="ms-name">' + (ms.name||'') + '</span><span class="ms-date">' + (ms.date||'') + '</span></button>';
+      mh += '<button type="button" class="countdown-milestone ' + (isDone ? 'done' : 'upcoming') + '" onclick="window.toggleCountdownMilestone(' + idx + ')" aria-pressed="' + (isDone ? 'true' : 'false') + '" title="点击切换完成状态"><span class="ms-check" aria-hidden="true">' + (isDone ? '✓' : '') + '</span><span class="ms-name">' + esc(ms.name || '未命名里程碑') + '</span><span class="ms-date">' + esc(ms.date || '未设置日期') + '</span></button>';
     });
-    section.innerHTML = '<div class="countdown-header"><div><div class="countdown-title">距离 ' + esc(cdState.name) + '</div><div class="countdown-target-date">目标日期：' + esc(cdState.date) + '</div></div><button type="button" class="countdown-edit-btn" onclick="window.openCountdownConfig()">编辑倒计时</button></div>' +
-      '<div class="countdown-big-number">' + (diffDays > 0 ? diffDays : 0) + '</div><div class="countdown-big-unit">' + (diffDays > 0 ? '天后考试' : '考试日已到') + '</div>' +
-      '<div class="countdown-progress"><div class="countdown-progress-fill" style="width:' + pct + '%"></div></div>' +
-      '<div class="countdown-milestones-title">里程碑 (' + done + '/' + cdState.milestones.length + ')</div><div class="countdown-milestones">' + mh + '</div>';
+    section.innerHTML = '<div class="countdown-header"><div class="countdown-context"><span class="countdown-kicker">考试倒计时</span><div class="countdown-title">' + esc(cdState.name) + '</div><div class="countdown-target-date">目标日期：' + esc(cdState.date) + '</div></div><button type="button" class="countdown-edit-btn" onclick="window.openCountdownConfig()">编辑</button></div>' +
+      '<div class="countdown-hero"><div><span class="countdown-day-label">剩余时间</span><div class="countdown-day-line"><strong class="countdown-big-number">' + (diffDays > 0 ? diffDays : 0) + '</strong><span class="countdown-day-unit">天</span></div><span class="countdown-big-unit">' + (diffDays > 0 ? '距考试日' : '考试日已到') + '</span></div><div class="countdown-progress-wrap"><span>时间进度</span><div class="countdown-progress" role="progressbar" aria-label="倒计时进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + pct + '"><div class="countdown-progress-fill" style="width:' + pct + '%"></div></div><b>' + pct + '%</b></div></div>' +
+      '<div class="countdown-milestones-heading"><span>里程碑</span><b>' + done + ' / ' + cdState.milestones.length + '</b></div><div class="countdown-milestones">' + mh + '</div>';
   }
 
   function toggleCountdownMilestone(index) {

@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-22T16:00:05.245Z",
+  "generatedAt": "2026-08-23T04:59:39.234Z",
   "maps": [
     {
       "id": "science-section-1",
       "title": "科技常识：波、电磁波与光学",
       "subtitle": "声音、波动、电磁波、光学现象与成像",
-      "path": "../常识思维导图/科技常识_第一节_学习增强版.html",
+      "path": "../思维导图/科技常识_第一节_学习增强版.html",
       "icon": "科",
       "color": "#2783c9",
-      "file": "tools/常识思维导图/科技常识_第一节_学习增强版.html",
+      "file": "tools/思维导图/科技常识_第一节_学习增强版.html",
       "key": "const seed=",
       "order": 1,
       "nodes": [
@@ -979,7 +979,7 @@
       "id": "science-section-2",
       "title": "科技常识：力学、电学与能量",
       "subtitle": "牛顿定律、常见力、电学现象、能量守恒与核能",
-      "path": "../常识思维导图/科技常识_第二节_学习增强版.html",
+      "path": "../思维导图/科技常识_第二节_学习增强版.html",
       "icon": "力",
       "color": "#2778b8",
       "order": 2,
@@ -2131,13 +2131,1402 @@
       ]
     },
     {
+      "id": "history-section-1",
+      "title": "历史常识：夏商周与春秋战国",
+      "subtitle": "夏商周、春秋五霸、战国变法与秦的统一",
+      "path": "../思维导图/历史常识_第一节_学习增强版.html",
+      "icon": "夏",
+      "color": "#a8592b",
+      "file": "tools/思维导图/历史常识_第一节_学习增强版.html",
+      "key": "const seedModules =",
+      "order": 2.5,
+      "nodes": [
+        {
+          "id": "history-section-1-0",
+          "text": "朝代歌",
+          "path": "夏朝 › 朝代歌",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-1",
+          "text": "三皇五帝始，尧舜禹相传",
+          "path": "夏朝 › 朝代歌 › 三皇五帝始，尧舜禹相传",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-2",
+          "text": "夏商与西周，东周分两段",
+          "path": "夏朝 › 朝代歌 › 夏商与西周，东周分两段",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-3",
+          "text": "春秋和战国，一统秦两汉",
+          "path": "夏朝 › 朝代歌 › 春秋和战国，一统秦两汉",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-4",
+          "text": "三分魏蜀吴，二晋前后延",
+          "path": "夏朝 › 朝代歌 › 三分魏蜀吴，二晋前后延",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-5",
+          "text": "南北朝并立，隋唐五代传",
+          "path": "夏朝 › 朝代歌 › 南北朝并立，隋唐五代传",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-6",
+          "text": "宋元明清后，皇朝至此完",
+          "path": "夏朝 › 朝代歌 › 宋元明清后，皇朝至此完",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-7",
+          "text": "夏朝事件记",
+          "path": "夏朝 › 夏朝事件记",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-8",
+          "text": "禹建立夏朝",
+          "path": "夏朝 › 夏朝事件记 › 禹建立夏朝",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-9",
+          "text": "启继禹位",
+          "path": "夏朝 › 夏朝事件记 › 启继禹位",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-10",
+          "text": "太康失国",
+          "path": "夏朝 › 夏朝事件记 › 太康失国",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-11",
+          "text": "少康中兴",
+          "path": "夏朝 › 夏朝事件记 › 少康中兴",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-12",
+          "text": "商汤以鸣条之战灭夏",
+          "path": "夏朝 › 夏朝事件记 › 商汤以鸣条之战灭夏",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-13",
+          "text": "建立与制度",
+          "path": "夏朝 › 建立与制度",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-14",
+          "text": "禹建立中国最早的奴隶制国家夏朝，也是中国第一个王朝",
+          "path": "夏朝 › 建立与制度 › 禹建立中国最早的奴隶制国家夏朝，也是中国第一个王朝",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-15",
+          "text": "世袭制代替禅让制：禹死后启继位",
+          "path": "夏朝 › 建立与制度 › 世袭制代替禅让制：禹死后启继位",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-16",
+          "text": "家天下代替公天下",
+          "path": "夏朝 › 建立与制度 › 家天下代替公天下",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-17",
+          "text": "社会性质：奴隶制社会",
+          "path": "夏朝 › 建立与制度 › 社会性质：奴隶制社会",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-18",
+          "text": "君主与传说",
+          "path": "夏朝 › 君主与传说",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-19",
+          "text": "大禹：三过家门而不入",
+          "path": "夏朝 › 君主与传说 › 大禹：三过家门而不入",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-20",
+          "text": "大禹：划分九州，铸造九鼎",
+          "path": "夏朝 › 君主与传说 › 大禹：划分九州，铸造九鼎",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-21",
+          "text": "少康中兴：夏朝一度复兴",
+          "path": "夏朝 › 君主与传说 › 少康中兴：夏朝一度复兴",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-22",
+          "text": "少康与杜康制酒为传说性说法，应与史实区分",
+          "path": "夏朝 › 君主与传说 › 少康与杜康制酒为传说性说法，应与史实区分",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-23",
+          "text": "传说少康之子黑塔制醋",
+          "path": "夏朝 › 君主与传说 › 传说少康之子黑塔制醋",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-24",
+          "text": "夏桀宠爱妹喜",
+          "path": "夏朝 › 君主与传说 › 夏桀宠爱妹喜",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-25",
+          "text": "都城与文化",
+          "path": "夏朝 › 都城与文化",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-26",
+          "text": "夏朝都城阳城：今河南郑州登封一带，河南简称豫",
+          "path": "夏朝 › 都城与文化 › 夏朝都城阳城：今河南郑州登封一带，河南简称豫",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-27",
+          "text": "二里头文化遗址位于河南省洛阳市偃师区",
+          "path": "夏朝 › 都城与文化 › 二里头文化遗址位于河南省洛阳市偃师区",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-28",
+          "text": "二里头遗址被认为是夏朝中晚期都城遗址",
+          "path": "夏朝 › 都城与文化 › 二里头遗址被认为是夏朝中晚期都城遗址",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-29",
+          "text": "二里头遗址是中国目前已知最早的宫殿遗址",
+          "path": "夏朝 › 都城与文化 › 二里头遗址是中国目前已知最早的宫殿遗址",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-30",
+          "text": "夏绿松石龙形器被称为华夏第一龙、中华第一龙等",
+          "path": "夏朝 › 都城与文化 › 夏绿松石龙形器被称为华夏第一龙、中华第一龙等",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-31",
+          "text": "灭亡：鸣条之战",
+          "path": "夏朝 › 灭亡：鸣条之战",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-32",
+          "text": "鸣条之战是夏朝灭国之战，夏桀战败",
+          "path": "夏朝 › 灭亡：鸣条之战 › 鸣条之战是夏朝灭国之战，夏桀战败",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-33",
+          "text": "夏桀相关典故：时日曷丧，予及汝皆亡",
+          "path": "夏朝 › 灭亡：鸣条之战 › 夏桀相关典故：时日曷丧，予及汝皆亡",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-34",
+          "text": "商汤灭夏后建立商朝，中国第二个王朝",
+          "path": "夏朝 › 灭亡：鸣条之战 › 商汤灭夏后建立商朝，中国第二个王朝",
+          "moduleId": "xia",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-35",
+          "text": "商朝事件记",
+          "path": "商朝 › 商朝事件记",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-36",
+          "text": "商汤建立商朝",
+          "path": "商朝 › 商朝事件记 › 商汤建立商朝",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-37",
+          "text": "九世之乱",
+          "path": "商朝 › 商朝事件记 › 九世之乱",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-38",
+          "text": "盘庚迁殷",
+          "path": "商朝 › 商朝事件记 › 盘庚迁殷",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-39",
+          "text": "武丁中兴",
+          "path": "商朝 › 商朝事件记 › 武丁中兴",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-40",
+          "text": "商朝在牧野之战后灭亡",
+          "path": "商朝 › 商朝事件记 › 商朝在牧野之战后灭亡",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-41",
+          "text": "地位与都城",
+          "path": "商朝 › 地位与都城",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-42",
+          "text": "商朝是中国历史上第二个王朝，也是第一个有同时期文字记载的王朝",
+          "path": "商朝 › 地位与都城 › 商朝是中国历史上第二个王朝，也是第一个有同时期文字记载的王朝",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-43",
+          "text": "商汤建都于亳，今河南郑州一带",
+          "path": "商朝 › 地位与都城 › 商汤建都于亳，今河南郑州一带",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-44",
+          "text": "盘庚迁都于殷，今河南安阳，商朝也称殷商",
+          "path": "商朝 › 地位与都城 › 盘庚迁都于殷，今河南安阳，商朝也称殷商",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-45",
+          "text": "君主与人物",
+          "path": "商朝 › 君主与人物",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-46",
+          "text": "商汤：开国君主",
+          "path": "商朝 › 君主与人物 › 商汤：开国君主",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-47",
+          "text": "伊尹：被称为商元圣、厨祖；有以鼎调羹、调和五味以治天下之说",
+          "path": "商朝 › 君主与人物 › 伊尹：被称为商元圣、厨祖；有以鼎调羹、调和五味以治天下之说",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-48",
+          "text": "盘庚：迁殷",
+          "path": "商朝 › 君主与人物 › 盘庚：迁殷",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-49",
+          "text": "武丁：传说举于版筑之间；其妻妇好是有甲骨文可考的女性军事统帅",
+          "path": "商朝 › 君主与人物 › 武丁：传说举于版筑之间；其妻妇好是有甲骨文可考的女性军事统帅",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-50",
+          "text": "纣王：宠爱妲己；酒池肉林、倒曳九牛、拆梁易柱、炮烙之刑等为相关叙事",
+          "path": "商朝 › 君主与人物 › 纣王：宠爱妲己；酒池肉林、倒曳九牛、拆梁易柱、炮烙之刑等为相关叙事",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-51",
+          "text": "政治与殷墟",
+          "path": "商朝 › 政治与殷墟",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-52",
+          "text": "政治制度：内外服制度，神权与王权合一",
+          "path": "商朝 › 政治与殷墟 › 政治制度：内外服制度，神权与王权合一",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-53",
+          "text": "河南安阳殷墟是第一个有文献可考、并有甲骨文和青铜器证实的都城遗址",
+          "path": "商朝 › 政治与殷墟 › 河南安阳殷墟是第一个有文献可考、并有甲骨文和青铜器证实的都城遗址",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-54",
+          "text": "青铜器与甲骨文",
+          "path": "商朝 › 青铜器与甲骨文",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-55",
+          "text": "青铜是铜、锡、铅的合金",
+          "path": "商朝 › 青铜器与甲骨文 › 青铜是铜、锡、铅的合金",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-56",
+          "text": "司母戊鼎是现存最大、最重的青铜礼器",
+          "path": "商朝 › 青铜器与甲骨文 › 司母戊鼎是现存最大、最重的青铜礼器",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-57",
+          "text": "妇好鸮尊是商代代表性青铜器",
+          "path": "商朝 › 青铜器与甲骨文 › 妇好鸮尊是商代代表性青铜器",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-58",
+          "text": "甲骨文是中国发现年代最早的成熟文字系统",
+          "path": "商朝 › 青铜器与甲骨文 › 甲骨文是中国发现年代最早的成熟文字系统",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-59",
+          "text": "甲骨文又称甲骨卜辞、契文、殷墟文字、龟甲兽骨文",
+          "path": "商朝 › 青铜器与甲骨文 › 甲骨文又称甲骨卜辞、契文、殷墟文字、龟甲兽骨文",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-60",
+          "text": "甲骨文之父：王懿荣",
+          "path": "商朝 › 青铜器与甲骨文 › 甲骨文之父：王懿荣",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-61",
+          "text": "刘鹗《铁云藏龟》被视为中国第一部甲骨文著录书",
+          "path": "商朝 › 青铜器与甲骨文 › 刘鹗《铁云藏龟》被视为中国第一部甲骨文著录书",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-62",
+          "text": "治世与战争",
+          "path": "商朝 › 治世与战争",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-63",
+          "text": "武丁盛世：武丁为盘庚之侄，传说傅说辅佐武丁",
+          "path": "商朝 › 治世与战争 › 武丁盛世：武丁为盘庚之侄，传说傅说辅佐武丁",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-64",
+          "text": "鸣条之战：商朝立国之战，商汤灭夏",
+          "path": "商朝 › 治世与战争 › 鸣条之战：商朝立国之战，商汤灭夏",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-65",
+          "text": "牧野之战：商朝灭国之战，周武王姬发对商纣王帝辛，以少胜多",
+          "path": "商朝 › 治世与战争 › 牧野之战：商朝灭国之战，周武王姬发对商纣王帝辛，以少胜多",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-66",
+          "text": "牧野之战相关典故：临阵倒戈",
+          "path": "商朝 › 治世与战争 › 牧野之战相关典故：临阵倒戈",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-67",
+          "text": "牧野之战相关叙事：酒池肉林、倒曳九牛、拆梁易柱、炮烙之刑、牝鸡司晨、暴殄天物",
+          "path": "商朝 › 治世与战争 › 牧野之战相关叙事：酒池肉林、倒曳九牛、拆梁易柱、炮烙之刑、牝鸡司晨、暴殄天物",
+          "moduleId": "shang",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-68",
+          "text": "西周事件记",
+          "path": "西周 › 西周事件记",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-69",
+          "text": "周朝建立",
+          "path": "西周 › 西周事件记 › 周朝建立",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-70",
+          "text": "周公东征",
+          "path": "西周 › 西周事件记 › 周公东征",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-71",
+          "text": "成康之治",
+          "path": "西周 › 西周事件记 › 成康之治",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-72",
+          "text": "国人暴动",
+          "path": "西周 › 西周事件记 › 国人暴动",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-73",
+          "text": "共和行政",
+          "path": "西周 › 西周事件记 › 共和行政",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-74",
+          "text": "宣王中兴",
+          "path": "西周 › 西周事件记 › 宣王中兴",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-75",
+          "text": "烽火戏诸侯",
+          "path": "西周 › 西周事件记 › 烽火戏诸侯",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-76",
+          "text": "犬戎之祸",
+          "path": "西周 › 西周事件记 › 犬戎之祸",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-77",
+          "text": "都城与东迁",
+          "path": "西周 › 都城与东迁",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-78",
+          "text": "周武王灭商后建都镐京，今陕西西安",
+          "path": "西周 › 都城与东迁 › 周武王灭商后建都镐京，今陕西西安",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-79",
+          "text": "西都：镐京，又称宗周，古称长安，今西安",
+          "path": "西周 › 都城与东迁 › 西都：镐京，又称宗周，古称长安，今西安",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-80",
+          "text": "东都：洛阳，又称成周",
+          "path": "西周 › 都城与东迁 › 东都：洛阳，又称成周",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-81",
+          "text": "平王东迁：都城由镐京迁到洛邑，是西周与东周的分界线",
+          "path": "西周 › 都城与东迁 › 平王东迁：都城由镐京迁到洛邑，是西周与东周的分界线",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-82",
+          "text": "君主与名臣",
+          "path": "西周 › 君主与名臣",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-83",
+          "text": "周武王姬发：开国君主，其父为周文王姬昌",
+          "path": "西周 › 君主与名臣 › 周武王姬发：开国君主，其父为周文王姬昌",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-84",
+          "text": "周成王、周康王：成康之治",
+          "path": "西周 › 君主与名臣 › 周成王、周康王：成康之治",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-85",
+          "text": "周厉王：国人暴动",
+          "path": "西周 › 君主与名臣 › 周厉王：国人暴动",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-86",
+          "text": "周幽王：西周末代君主，宠爱褒姒，烽火戏诸侯",
+          "path": "西周 › 君主与名臣 › 周幽王：西周末代君主，宠爱褒姒，烽火戏诸侯",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-87",
+          "text": "姜子牙辅佐武王伐纣，受封齐地",
+          "path": "西周 › 君主与名臣 › 姜子牙辅佐武王伐纣，受封齐地",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-88",
+          "text": "周公：制礼乐、营成周洛阳，并在成王时摄政",
+          "path": "西周 › 君主与名臣 › 周公：制礼乐、营成周洛阳，并在成王时摄政",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-89",
+          "text": "政治制度",
+          "path": "西周 › 政治制度",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-90",
+          "text": "分封制：周王室把疆域土地和臣民分封给诸侯",
+          "path": "西周 › 政治制度 › 分封制：周王室把疆域土地和臣民分封给诸侯",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-91",
+          "text": "贵族等级：天子、诸侯、卿大夫、士",
+          "path": "西周 › 政治制度 › 贵族等级：天子、诸侯、卿大夫、士",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-92",
+          "text": "宗法制：嫡长子继承制",
+          "path": "西周 › 政治制度 › 宗法制：嫡长子继承制",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-93",
+          "text": "井田制：公田由庶民共同耕种，私田分配给庶民自耕",
+          "path": "西周 › 政治制度 › 井田制：公田由庶民共同耕种，私田分配给庶民自耕",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-94",
+          "text": "礼乐制度强调等级秩序；君君、臣臣、父父、子子为儒家所表述的伦理秩序",
+          "path": "西周 › 政治制度 › 礼乐制度强调等级秩序；君君、臣臣、父父、子子为儒家所表述的伦理秩序",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-95",
+          "text": "战争、动乱与治世",
+          "path": "西周 › 战争、动乱与治世",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-96",
+          "text": "牧野之战：武王伐纣，攻克镐京；是史上记载的第一次以少胜多战役",
+          "path": "西周 › 战争、动乱与治世 › 牧野之战：武王伐纣，攻克镐京；是史上记载的第一次以少胜多战役",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-97",
+          "text": "周公东征：平定三监之乱；周公吐哺天下归心，体现爱才",
+          "path": "西周 › 战争、动乱与治世 › 周公东征：平定三监之乱；周公吐哺天下归心，体现爱才",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-98",
+          "text": "国人暴动：周厉王推行专利政策，引起国人暴动",
+          "path": "西周 › 战争、动乱与治世 › 国人暴动：周厉王推行专利政策，引起国人暴动",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-99",
+          "text": "共和行政：周厉王出逃后，周定公与召穆公共同辅政",
+          "path": "西周 › 战争、动乱与治世 › 共和行政：周厉王出逃后，周定公与召穆公共同辅政",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-100",
+          "text": "烽火戏诸侯：周幽王为博褒姒一笑；西周亡于犬戎之祸",
+          "path": "西周 › 战争、动乱与治世 › 烽火戏诸侯：周幽王为博褒姒一笑；西周亡于犬戎之祸",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-101",
+          "text": "成康之治：周成王、周康王时期",
+          "path": "西周 › 战争、动乱与治世 › 成康之治：周成王、周康王时期",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-102",
+          "text": "宣王中兴：周宣王时期",
+          "path": "西周 › 战争、动乱与治世 › 宣王中兴：周宣王时期",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-103",
+          "text": "谥号",
+          "path": "西周 › 谥号",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-104",
+          "text": "谥号起源于周朝，是后人对死者的评价",
+          "path": "西周 › 谥号 › 谥号起源于周朝，是后人对死者的评价",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-105",
+          "text": "上谥：美谥、表扬类，如文、武、康",
+          "path": "西周 › 谥号 › 上谥：美谥、表扬类，如文、武、康",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-106",
+          "text": "平谥：同情类，如怀、哀、闵",
+          "path": "西周 › 谥号 › 平谥：同情类，如怀、哀、闵",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-107",
+          "text": "下谥：批评类，如厉、幽、灵",
+          "path": "西周 › 谥号 › 下谥：批评类，如厉、幽、灵",
+          "moduleId": "zhou",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-108",
+          "text": "春秋事件记",
+          "path": "东周：春秋 › 春秋事件记",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-109",
+          "text": "平王东迁",
+          "path": "东周：春秋 › 春秋事件记 › 平王东迁",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-110",
+          "text": "诸侯称霸",
+          "path": "东周：春秋 › 春秋事件记 › 诸侯称霸",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-111",
+          "text": "三家分晋",
+          "path": "东周：春秋 › 春秋事件记 › 三家分晋",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-112",
+          "text": "春秋格局",
+          "path": "东周：春秋 › 春秋格局",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-113",
+          "text": "平王东迁后，东周开始；都城由镐京迁到洛邑",
+          "path": "东周：春秋 › 春秋格局 › 平王东迁后，东周开始；都城由镐京迁到洛邑",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-114",
+          "text": "春秋五霸说法一：齐桓公、晋文公、秦穆公、楚庄王、宋襄公",
+          "path": "东周：春秋 › 春秋格局 › 春秋五霸说法一：齐桓公、晋文公、秦穆公、楚庄王、宋襄公",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-115",
+          "text": "春秋五霸说法二：齐桓公、晋文公、楚庄王、吴王阖闾、越王勾践",
+          "path": "东周：春秋 › 春秋格局 › 春秋五霸说法二：齐桓公、晋文公、楚庄王、吴王阖闾、越王勾践",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-116",
+          "text": "齐桓公与管仲",
+          "path": "东周：春秋 › 齐桓公与管仲",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-117",
+          "text": "齐桓公姜小白：春秋首霸，九合诸侯、尊王攘夷",
+          "path": "东周：春秋 › 齐桓公与管仲 › 齐桓公姜小白：春秋首霸，九合诸侯、尊王攘夷",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-118",
+          "text": "管仲名夷吾，相地而衰征",
+          "path": "东周：春秋 › 齐桓公与管仲 › 管仲名夷吾，相地而衰征",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-119",
+          "text": "管鲍之交：管仲与鲍叔牙",
+          "path": "东周：春秋 › 齐桓公与管仲 › 管鲍之交：管仲与鲍叔牙",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-120",
+          "text": "食盐由官府统一收购、统一售卖；规范近海渔业并征收渔税",
+          "path": "东周：春秋 › 齐桓公与管仲 › 食盐由官府统一收购、统一售卖；规范近海渔业并征收渔税",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-121",
+          "text": "相关典故：九合诸侯、一匡天下、尊王攘夷、老马识途、管王会盟、风马牛不相及",
+          "path": "东周：春秋 › 齐桓公与管仲 › 相关典故：九合诸侯、一匡天下、尊王攘夷、老马识途、管王会盟、风马牛不相及",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-122",
+          "text": "宋晋楚秦吴越",
+          "path": "东周：春秋 › 宋晋楚秦吴越",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-123",
+          "text": "宋襄公子兹甫：泓水之战楚宋交战；宋襄之仁为贬义",
+          "path": "东周：春秋 › 宋晋楚秦吴越 › 宋襄公子兹甫：泓水之战楚宋交战；宋襄之仁为贬义",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-124",
+          "text": "晋文公重耳：城濮之战对楚成王；退避三舍，一舍三十里",
+          "path": "东周：春秋 › 宋晋楚秦吴越 › 晋文公重耳：城濮之战对楚成王；退避三舍，一舍三十里",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-125",
+          "text": "晋文公典故：割股奉君，介子推与寒食节",
+          "path": "东周：春秋 › 宋晋楚秦吴越 › 晋文公典故：割股奉君，介子推与寒食节",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-126",
+          "text": "楚庄王：一鸣惊人、问鼎中原、饮马黄河、止戈为武；孙叔敖是楚国水利名臣",
+          "path": "东周：春秋 › 宋晋楚秦吴越 › 楚庄王：一鸣惊人、问鼎中原、饮马黄河、止戈为武；孙叔敖是楚国水利名臣",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-127",
+          "text": "秦穆公：百里奚被称为五羖大夫；秦晋之好与扶立重耳相关",
+          "path": "东周：春秋 › 宋晋楚秦吴越 › 秦穆公：百里奚被称为五羖大夫；秦晋之好与扶立重耳相关",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-128",
+          "text": "吴王阖闾：孙武为兵圣孙子，伍子胥辅佐",
+          "path": "东周：春秋 › 宋晋楚秦吴越 › 吴王阖闾：孙武为兵圣孙子，伍子胥辅佐",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-129",
+          "text": "越王勾践：卧薪尝胆、鸟尽弓藏、兔死狗烹；范蠡又称陶朱公，文种为大臣",
+          "path": "东周：春秋 › 宋晋楚秦吴越 › 越王勾践：卧薪尝胆、鸟尽弓藏、兔死狗烹；范蠡又称陶朱公，文种为大臣",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-130",
+          "text": "向战国过渡",
+          "path": "东周：春秋 › 向战国过渡",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-131",
+          "text": "三家分晋：赵、魏、韩三家瓜分晋国",
+          "path": "东周：春秋 › 向战国过渡 › 三家分晋：赵、魏、韩三家瓜分晋国",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-132",
+          "text": "田氏代齐：齐国成为春秋后期最早出现的封建大国之一",
+          "path": "东周：春秋 › 向战国过渡 › 田氏代齐：齐国成为春秋后期最早出现的封建大国之一",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-133",
+          "text": "铁犁牛耕最早出现于春秋后期；其使用是农业生产力提高的重要标志",
+          "path": "东周：春秋 › 向战国过渡 › 铁犁牛耕最早出现于春秋后期；其使用是农业生产力提高的重要标志",
+          "moduleId": "spring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-134",
+          "text": "战国事件记",
+          "path": "东周：战国 › 战国事件记",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-135",
+          "text": "李悝变法",
+          "path": "东周：战国 › 战国事件记 › 李悝变法",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-136",
+          "text": "商鞅变法",
+          "path": "东周：战国 › 战国事件记 › 商鞅变法",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-137",
+          "text": "合纵连横",
+          "path": "东周：战国 › 战国事件记 › 合纵连横",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-138",
+          "text": "胡服骑射",
+          "path": "东周：战国 › 战国事件记 › 胡服骑射",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-139",
+          "text": "远交近攻",
+          "path": "东周：战国 › 战国事件记 › 远交近攻",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-140",
+          "text": "长平之战",
+          "path": "东周：战国 › 战国事件记 › 长平之战",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-141",
+          "text": "秦灭六国",
+          "path": "东周：战国 › 战国事件记 › 秦灭六国",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-142",
+          "text": "七雄与李悝变法",
+          "path": "东周：战国 › 七雄与李悝变法",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-143",
+          "text": "战国七雄：齐、楚、燕、韩、赵、魏、秦",
+          "path": "东周：战国 › 七雄与李悝变法 › 战国七雄：齐、楚、燕、韩、赵、魏、秦",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-144",
+          "text": "魏文侯任用李悝为相，推行尽地力与平籴法",
+          "path": "东周：战国 › 七雄与李悝变法 › 魏文侯任用李悝为相，推行尽地力与平籴法",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-145",
+          "text": "李悝被称为法家始祖，《法经》被视为中国第一部较为系统的成文法典",
+          "path": "东周：战国 › 七雄与李悝变法 › 李悝被称为法家始祖，《法经》被视为中国第一部较为系统的成文法典",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-146",
+          "text": "商鞅变法",
+          "path": "东周：战国 › 商鞅变法",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-147",
+          "text": "秦孝公任用商鞅变法",
+          "path": "东周：战国 › 商鞅变法 › 秦孝公任用商鞅变法",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-148",
+          "text": "第一次变法：强化法制、连坐法、轻罪重刑；废除世卿世禄制，奖励军功",
+          "path": "东周：战国 › 商鞅变法 › 第一次变法：强化法制、连坐法、轻罪重刑；废除世卿世禄制，奖励军功",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-149",
+          "text": "第一次变法：重农抑商，奖励耕织；推行个体小家庭制度",
+          "path": "东周：战国 › 商鞅变法 › 第一次变法：重农抑商，奖励耕织；推行个体小家庭制度",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-150",
+          "text": "第二次变法：废井田、开阡陌，确立土地私有并允许买卖",
+          "path": "东周：战国 › 商鞅变法 › 第二次变法：废井田、开阡陌，确立土地私有并允许买卖",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-151",
+          "text": "第二次变法：推行县制，设置县一级官僚机构",
+          "path": "东周：战国 › 商鞅变法 › 第二次变法：推行县制，设置县一级官僚机构",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-152",
+          "text": "第二次变法：迁都咸阳，统一度量衡并颁布标准器",
+          "path": "东周：战国 › 商鞅变法 › 第二次变法：迁都咸阳，统一度量衡并颁布标准器",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-153",
+          "text": "资料将《法经》列入商鞅变法，实际《法经》相传为李悝所作，应归入李悝变法",
+          "path": "东周：战国 › 商鞅变法 › 资料将《法经》列入商鞅变法，实际《法经》相传为李悝所作，应归入李悝变法",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-154",
+          "text": "资料中的焚书、禁止游宦之民属秦始皇时期措施，非商鞅变法，应从本节商鞅措施中排除",
+          "path": "东周：战国 › 商鞅变法 › 资料中的焚书、禁止游宦之民属秦始皇时期措施，非商鞅变法，应从本节商鞅措施中排除",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-155",
+          "text": "相关典故：徒木立信、作法自毙、舌战群儒",
+          "path": "东周：战国 › 商鞅变法 › 相关典故：徒木立信、作法自毙、舌战群儒",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-156",
+          "text": "纵横与赵国改革",
+          "path": "东周：战国 › 纵横与赵国改革",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-157",
+          "text": "合纵：苏秦合纵六国抗秦",
+          "path": "东周：战国 › 纵横与赵国改革 › 合纵：苏秦合纵六国抗秦",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-158",
+          "text": "连横：张仪为秦国推行连横",
+          "path": "东周：战国 › 纵横与赵国改革 › 连横：张仪为秦国推行连横",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-159",
+          "text": "远交近攻：范雎为秦国提出",
+          "path": "东周：战国 › 纵横与赵国改革 › 远交近攻：范雎为秦国提出",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-160",
+          "text": "胡服骑射：赵武灵王采用胡人服饰，训练骑马射箭",
+          "path": "东周：战国 › 纵横与赵国改革 › 胡服骑射：赵武灵王采用胡人服饰，训练骑马射箭",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-161",
+          "text": "重要战役",
+          "path": "东周：战国 › 重要战役",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-162",
+          "text": "桂陵之战：魏赵交战，齐国围魏救赵",
+          "path": "东周：战国 › 重要战役 › 桂陵之战：魏赵交战，齐国围魏救赵",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-163",
+          "text": "马陵之战：魏韩交战，齐国援韩；相关典故为减灶之计",
+          "path": "东周：战国 › 重要战役 › 马陵之战：魏韩交战，齐国援韩；相关典故为减灶之计",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-164",
+          "text": "长平之战：秦赵交战，是中国古代军事史上规模大、伤亡重的歼灭战之一",
+          "path": "东周：战国 › 重要战役 › 长平之战：秦赵交战，是中国古代军事史上规模大、伤亡重的歼灭战之一",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-165",
+          "text": "长平之战人物：秦将白起，赵将廉颇、赵括；相关典故纸上谈兵",
+          "path": "东周：战国 › 重要战役 › 长平之战人物：秦将白起，赵将廉颇、赵括；相关典故纸上谈兵",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-166",
+          "text": "秦统一与水利",
+          "path": "东周：战国 › 秦统一与水利",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-167",
+          "text": "秦灭六国顺序：韩、赵、魏、楚、燕、齐",
+          "path": "东周：战国 › 秦统一与水利 › 秦灭六国顺序：韩、赵、魏、楚、燕、齐",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": true
+        },
+        {
+          "id": "history-section-1-168",
+          "text": "秦建立中国历史上第一个君主专制中央集权国家",
+          "path": "东周：战国 › 秦统一与水利 › 秦建立中国历史上第一个君主专制中央集权国家",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-169",
+          "text": "荆轲刺秦：图穷匕见",
+          "path": "东周：战国 › 秦统一与水利 › 荆轲刺秦：图穷匕见",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-170",
+          "text": "都江堰：秦昭襄王时李冰主持，位于四川，治理岷江水患",
+          "path": "东周：战国 › 秦统一与水利 › 都江堰：秦昭襄王时李冰主持，位于四川，治理岷江水患",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        },
+        {
+          "id": "history-section-1-171",
+          "text": "郑国渠：秦王嬴政时由郑国主持修建；郑国原为韩国间谍，意在疲秦",
+          "path": "东周：战国 › 秦统一与水利 › 郑国渠：秦王嬴政时由郑国主持修建；郑国原为韩国间谍，意在疲秦",
+          "moduleId": "warring",
+          "mapId": "history-section-1",
+          "important": false
+        }
+      ]
+    },
+    {
       "id": "history-section-2",
       "title": "历史常识：秦汉",
       "subtitle": "秦朝建立、西汉盛世与汉武帝时期",
-      "path": "../常识思维导图/历史常识_第二节_学习增强版.html",
+      "path": "../思维导图/历史常识_第二节_学习增强版.html",
       "icon": "秦",
       "color": "#b05f26",
-      "file": "tools/常识思维导图/历史常识_第二节_学习增强版.html",
+      "file": "tools/思维导图/历史常识_第二节_学习增强版.html",
       "key": "const seedModules=",
       "order": 3,
       "nodes": [
@@ -2643,10 +4032,10 @@
       "id": "history-section-3",
       "title": "历史常识：东汉至隋朝",
       "subtitle": "东汉、三国、两晋南北朝与隋朝历史脉络",
-      "path": "../常识思维导图/历史常识_第三节_学习增强版.html",
+      "path": "../思维导图/历史常识_第三节_学习增强版.html",
       "icon": "史",
       "color": "#a34d37",
-      "file": "tools/常识思维导图/历史常识_第三节_学习增强版.html",
+      "file": "tools/思维导图/历史常识_第三节_学习增强版.html",
       "key": "const seedModules=",
       "order": 4,
       "nodes": [
@@ -4016,10 +5405,10 @@
       "id": "history-section-4",
       "title": "历史常识：唐宋",
       "subtitle": "唐朝盛衰、五代十国与北宋制度变革",
-      "path": "../常识思维导图/历史常识_第四节_学习增强版.html",
+      "path": "../思维导图/历史常识_第四节_学习增强版.html",
       "icon": "唐",
       "color": "#9b4d28",
-      "file": "tools/常识思维导图/历史常识_第四节_学习增强版.html",
+      "file": "tools/思维导图/历史常识_第四节_学习增强版.html",
       "key": "const seedModules=",
       "order": 5,
       "nodes": [
@@ -4725,10 +6114,10 @@
       "id": "history-section-5",
       "title": "历史常识：南宋至清末",
       "subtitle": "南宋、元明清政权与近代转折",
-      "path": "../常识思维导图/历史常识_第五节_学习增强版.html",
+      "path": "../思维导图/历史常识_第五节_学习增强版.html",
       "icon": "明",
       "color": "#1766a8",
-      "file": "tools/常识思维导图/历史常识_第五节_学习增强版.html",
+      "file": "tools/思维导图/历史常识_第五节_学习增强版.html",
       "key": "const seedModules=",
       "order": 6,
       "nodes": [
@@ -5410,7 +6799,7 @@
       "id": "humanities-section-1",
       "title": "人文常识：诸子百家与节气",
       "subtitle": "诸子百家与二十四节气",
-      "path": "../常识思维导图/人文常识_第一节_学习增强版.html",
+      "path": "../思维导图/人文常识_第一节_学习增强版.html",
       "icon": "文",
       "color": "#a4563b",
       "key": "const seed=",
@@ -6094,7 +7483,7 @@
       "id": "humanities-section-2",
       "title": "人文常识：科技、医学与制度",
       "subtitle": "四大发明、医学、农工科技、水利与古代选官",
-      "path": "../常识思维导图/人文常识_第二节_学习增强版.html",
+      "path": "../思维导图/人文常识_第二节_学习增强版.html",
       "icon": "技",
       "color": "#307e8d",
       "key": "const seed=",
@@ -6930,7 +8319,7 @@
       "id": "humanities-section-3",
       "title": "人文常识：文字、书画与戏曲",
       "subtitle": "汉字演变、书法、绘画、中国十大名画与戏曲",
-      "path": "../常识思维导图/人文常识_第三节_学习增强版.html",
+      "path": "../思维导图/人文常识_第三节_学习增强版.html",
       "icon": "艺",
       "color": "#76539f",
       "key": "const seed=",
@@ -7574,7 +8963,7 @@
       "id": "humanities-section-4",
       "title": "人文常识：文化遗址与文物",
       "subtitle": "史前文明、考古遗址、青铜文化与重要文物",
-      "path": "../常识思维导图/人文常识_第四节_学习增强版.html",
+      "path": "../思维导图/人文常识_第四节_学习增强版.html",
       "icon": "遗",
       "color": "#8a5a36",
       "key": "const seed=",
@@ -8290,10 +9679,10 @@
       "id": "science-section-3",
       "title": "科技常识：热学与化学",
       "subtitle": "物态变化、内能、化学基础、酸碱盐与常见物质",
-      "path": "../常识思维导图/科技常识_第3节_学习增强版.html",
+      "path": "../思维导图/科技常识_第3节_学习增强版.html",
       "icon": "热",
       "color": "#2783c9",
-      "file": "tools/常识思维导图/科技常识_第3节_学习增强版.html",
+      "file": "tools/思维导图/科技常识_第3节_学习增强版.html",
       "key": "const seed=",
       "order": 3,
       "nodes": [
@@ -9353,10 +10742,10 @@
       "id": "science-section-4",
       "title": "科技常识：金属、细胞与营养",
       "subtitle": "常见金属、细胞结构、细胞分类与六大营养物质",
-      "path": "../常识思维导图/科技常识_第4节_学习增强版.html",
+      "path": "../思维导图/科技常识_第4节_学习增强版.html",
       "icon": "生",
       "color": "#2f8f83",
-      "file": "tools/常识思维导图/科技常识_第4节_学习增强版.html",
+      "file": "tools/思维导图/科技常识_第4节_学习增强版.html",
       "key": "const seed=",
       "order": 4,
       "nodes": [
@@ -9919,10 +11308,10 @@
       "id": "science-section-5",
       "title": "科技常识：生态与生物进化",
       "subtitle": "生态系统、植物进化、动物分类与生物适应",
-      "path": "../常识思维导图/科技常识_第5节_学习增强版.html",
+      "path": "../思维导图/科技常识_第5节_学习增强版.html",
       "icon": "生",
       "color": "#3b8b65",
-      "file": "tools/常识思维导图/科技常识_第5节_学习增强版.html",
+      "file": "tools/思维导图/科技常识_第5节_学习增强版.html",
       "key": "const seed=",
       "order": 5,
       "nodes": [

@@ -4190,7 +4190,7 @@ body {
 [data-theme="dark"] .tool-card:nth-child(5) .tool-card-icon { background: #4a272d; color: #f09a9d; }
 [data-theme="dark"] .dashboard-footer { background: rgba(16, 38, 53, 0.72); }
 
-/* 常识思维导图 */
+/* 思维导图 */
 .knowledge-view {
   height: 100%;
   overflow-y: auto;
@@ -4692,6 +4692,94 @@ input, textarea { cursor:text; }
 .tool-names-secondary:hover { border-color: var(--primary); color: var(--text-primary); }
 .tool-names-primary { border: 1px solid var(--primary); background: var(--primary); color: #fff; }
 .tool-names-primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
+
+/* Dashboard countdown: fixed visual regions prevent the summary from covering milestones. */
+@media (min-width: 1181px) {
+  .dashboard-view { grid-template-rows: auto max-content auto auto; }
+}
+
+@media (max-width: 1180px) {
+  .dashboard-view { grid-template-rows: auto auto max-content auto auto; }
+}
+
+.countdown-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
+  min-height: 420px;
+  height: auto;
+  overflow: visible;
+  padding: 20px;
+}
+
+.countdown-header {
+  position: static;
+  z-index: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 0;
+  background: transparent;
+}
+
+.countdown-context { min-width: 0; }
+.countdown-kicker { display: block; margin-bottom: 3px; color: var(--ca-cinnabar); font-size: 11px; font-weight: 800; }
+.countdown-title { color: var(--ca-ink); font-size: 17px; font-weight: 800; line-height: 1.4; overflow-wrap: anywhere; }
+.countdown-target-date { margin-top: 3px; color: var(--ca-muted); font-size: 12px; }
+.countdown-edit-btn { flex: 0 0 auto; min-width: 0; min-height: 34px; padding: 0 10px; border-color: var(--ca-line); background: var(--ca-paper); color: var(--ca-ink); font-size: 12px; font-weight: 800; }
+.countdown-edit-btn:hover { border-color: var(--ca-gold); background: #fff4d8; color: var(--ca-ink); }
+
+.countdown-hero {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid #eadfc7;
+  border-radius: 7px;
+  background: #fbf7ed;
+}
+
+.countdown-day-label { display: block; color: var(--ca-muted); font-size: 11px; font-weight: 700; }
+.countdown-day-line { display: flex; align-items: baseline; gap: 5px; }
+.countdown-big-number { margin: 1px 0 0; color: var(--ca-cinnabar); font-size: clamp(54px, 5vw, 68px); font-variant-numeric: tabular-nums; line-height: .95; }
+.countdown-day-unit { color: var(--ca-cinnabar); font-size: 15px; font-weight: 800; }
+.countdown-big-unit { display: block; margin: 4px 0 0; color: var(--ca-muted); font-size: 11px; font-weight: 700; }
+.countdown-progress-wrap { flex: 0 0 92px; display: grid; gap: 5px; color: var(--ca-muted); font-size: 11px; font-weight: 700; text-align: right; }
+.countdown-progress { width: 100%; height: 7px; margin: 0; background: #e1e9e1; }
+.countdown-progress-fill { background: var(--ca-celadon); }
+.countdown-progress-wrap b { color: var(--ca-celadon); font-size: 12px; }
+
+.countdown-milestones-heading { display: flex; align-items: center; justify-content: space-between; margin: 16px 0 8px; color: var(--ca-ink); font-size: 12px; font-weight: 800; }
+.countdown-milestones-heading b { color: var(--ca-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.countdown-milestones { display: grid; gap: 6px; margin: 0; overflow: visible; }
+.countdown-milestone { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; align-items: center; gap: 9px; min-height: 42px; padding: 8px 10px; border-color: var(--ca-line); border-radius: 6px; background: #f5f8f5; color: var(--ca-ink); }
+.countdown-milestone:hover { border-color: var(--ca-gold); background: #fff8e8; }
+.countdown-milestone.done { opacity: 1; color: var(--ca-muted); }
+.countdown-milestone .ms-check { width: 20px; height: 20px; border-color: var(--ca-celadon); color: var(--ca-celadon); }
+.countdown-milestone.done .ms-check { border-color: var(--ca-celadon); background: var(--ca-celadon); color: #fff; }
+.countdown-milestone .ms-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; font-weight: 700; }
+.countdown-milestone .ms-date { color: #607b91; font-size: 11px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+[data-theme="dark"] .countdown-section { background: #17343a; }
+[data-theme="dark"] .countdown-title, [data-theme="dark"] .countdown-milestones-heading, [data-theme="dark"] .countdown-milestone { color: #f1f5eb; }
+[data-theme="dark"] .countdown-edit-btn { border-color: rgba(227, 239, 230, .2); background: #102b33; color: #f1f5eb; }
+[data-theme="dark"] .countdown-hero { border-color: rgba(227, 239, 230, .13); background: #102b33; }
+[data-theme="dark"] .countdown-milestone { border-color: rgba(227, 239, 230, .13); background: #102b33; }
+
+@media (min-width: 1181px) {
+  .countdown-section { height: auto; min-height: 420px; overflow: visible; }
+}
+
+@media (max-width: 760px) {
+  .countdown-section { min-height: 0; padding: 18px; }
+  .countdown-hero { padding: 12px; }
+  .countdown-progress-wrap { flex-basis: 76px; }
+  .countdown-big-number { font-size: 56px; }
+}
 
 @media (max-width: 520px) {
   .tool-names-grid { grid-template-columns: minmax(0, 1fr); }
