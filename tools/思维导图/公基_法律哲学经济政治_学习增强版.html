@@ -17,21 +17,32 @@
     :root{--accent:#3e7b69}
     header{background:#2d6555;box-shadow:0 2px 10px #173c3038}.brand small{color:#d7eee5}.search input{border-color:#ffffff73}.search input::placeholder{color:#dcefe8}.left a:hover{background:#e8f3ee;color:#285a4b}.nav-icon{background:#dcefe7;color:#276351}.eyebrow{color:#2f735f}.tab.active{border-color:#2f735f;color:#285e4e}.stat b{color:#2f735f}.bar span{background:#5f9b86}.source-group{margin:16px 0 24px}.source-group h3{font-size:13px;color:#396d5d;margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid #dce7e2}
   </style>
+  <style>
+    :root{--side:228px;--right:304px;--ink:#173a61;--muted:#61758b;--line:#d9e5ef;--paper:#f3f7fb;--accent:#2f735f}
+    body{background:var(--paper);color:var(--ink);font-size:14px}
+    header{min-height:66px;padding:10px 20px;gap:14px;background:#2d6555}
+    .brand{display:flex;align-items:center;gap:9px;min-width:242px}.brand-mark{width:34px;height:34px;display:grid;place-items:center;border-radius:9px;background:#dcefe7;color:#245d4d;font-size:17px;font-weight:800}.brand h1{margin:0;font-size:16px;line-height:1.25}.brand small{display:block;font-size:11px}.search{max-width:450px}.search:before{content:"⌕";position:absolute;z-index:1;left:10px;top:7px;color:#dcefe8;font-size:17px;line-height:1}.search input{padding:9px 34px 9px 30px}.actions{gap:6px}.actions button{padding:7px 8px}
+    .layout{grid-template-columns:var(--side) minmax(0,1fr) var(--right);min-height:calc(100vh - 66px)}
+    .left{top:66px;height:calc(100vh - 66px);padding:17px 12px;border-right:1px solid var(--line);background:#fff}.left h2{margin:0 8px 10px;font-size:12px;color:#5d7288}.left nav{gap:3px}.left a{padding:8px;border-radius:7px}.nav-icon{width:25px;height:25px;border-radius:6px}.progress{margin:21px 8px 0;padding-top:14px;border-top:1px solid #e3ebf1}.progress-top{display:flex;justify-content:space-between;align-items:center;color:#52697e;font-size:12px}.progress-top b{color:#2f735f}.legend{display:grid;gap:7px;margin:19px 8px 0;padding-top:14px;border-top:1px solid #e3ebf1;color:#66798b;font-size:11px}.legend b{color:#52697e;font-size:12px}.legend span{display:flex;align-items:center;gap:6px}.dot{width:8px;height:8px;border-radius:50%;background:#dfaf2e}.dot.green{background:#5f9b86}.dot.red{background:#df8277}
+    main{padding:24px 26px 70px}.intro{margin:0 3px 18px;align-items:flex-end}.intro h2{margin:4px 0 6px;font-size:25px;line-height:1.2}.source{max-width:235px;text-align:right;font-size:12px}.eyebrow{font-weight:800;letter-spacing:.7px}
+    .module{margin:16px 0;border-color:#d9e5ef;border-radius:14px;box-shadow:0 5px 14px #153b6110}.module-head{padding:14px 16px;gap:12px;background:linear-gradient(90deg,var(--tint),#fff 65%)}.module-icon{width:32px;height:32px;border-radius:9px;font-size:17px}.module-title{font-size:17px}.module-body{padding:15px 14px 20px}.tree ul{border-color:#b8cde1}.tree ul>li:before{border-color:#b8cde1}.node-row{gap:5px}.expander{width:22px;height:25px;border-radius:5px}.node{padding:6px 8px;border-radius:7px;color:#1d4f7d;background:#f5faff;border-color:#c9ddec}.node.level-1{padding:7px 11px;color:#fff;background:var(--module);border-color:var(--module)}.node.level-2{background:#e7f3ff;border-left:4px solid var(--module);color:#1d4f7d}.node.level-3{background:#f4f9fd;border-left:3px solid #b7d6f4;color:#44566a}.node.important{color:#704d00;background:linear-gradient(110deg,#fff7d8,#ffe7a0);border-color:#f2bc30}.node.selected{outline-color:#2f88e6}.node mark{background:#b7efc6;color:#12613c}.module.empty-search{padding:22px;text-align:center}
+    .right{position:sticky;top:66px;height:calc(100vh - 66px);overflow:hidden;border-left:1px solid var(--line);background:#fff;display:flex;flex-direction:column}.right .tabs{display:flex;gap:2px;padding:11px 10px 0;border-bottom:1px solid var(--line)}.right .tab{flex:1;padding:8px 4px;border:0;border-bottom:3px solid transparent;background:transparent;color:#62758c;font-size:12px}.right .tab.active{font-weight:800;color:#2f735f;border-color:#2f735f}.right .panel{display:none;overflow:auto;padding:15px}.right .panel.active{display:block}.right h2{font-size:14px;margin:0 0 12px}.empty{padding:16px;border:1px dashed #cbd9e8;border-radius:9px;background:#fbfdff;text-align:center;color:#71839a}.detail-title{word-break:break-word}.path{border-radius:7px;background:#f4f8fc}.tag-row{margin:10px 0}.tag{background:#e8f3ee;color:#276351}.detail-actions{margin:13px 0}.detail-actions button,.card-nav button,.flip-card{border-color:#b9d0e9;border-radius:7px;color:#29639b}.child-list{color:#40536a}.note{min-height:290px;border-radius:9px}.save-note{color:#72839a}.card{min-height:223px;border-color:#c6ddef;border-radius:12px;background:linear-gradient(150deg,#f2f8ff,#fff)}.card-label{color:#5783b5}.card-content{font-weight:700}.card-source{color:#937420}.flip-card{margin:17px auto 0}.card-nav button{padding:6px 12px}.stats{gap:8px}.stat{padding:11px;border-radius:9px}.section-progress{margin-top:15px}.progress-row{color:#50657a}.source-panel{display:none;margin-top:26px;padding-top:3px}.source-panel.open{display:block}.source-panel h2{margin:0 0 8px;font-size:18px}.source-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.source-grid a{border-radius:8px}.source-grid span{padding:8px;font-size:12px}.source-group{margin:18px 0 26px}.source-group h3{font-size:14px}.toast{border-radius:8px;background:#173a61}.left-hidden .layout{grid-template-columns:minmax(0,1fr) var(--right)}.left-hidden .left{display:none}.right-hidden .layout{grid-template-columns:var(--side) minmax(0,1fr)}.right-hidden .right{display:none}
+    @media(max-width:1080px){:root{--side:210px;--right:284px}main{padding-left:19px;padding-right:19px}.source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:900px){.layout{grid-template-columns:218px minmax(0,1fr)}.right{display:none}.left-hidden .layout,.right-hidden .layout{grid-template-columns:1fr}}@media(max-width:680px){header{padding:10px 12px;gap:8px}.brand{min-width:0}.brand small{display:none}.brand h1{font-size:15px}.search{order:3;flex-basis:100%;max-width:none}.layout{display:block}.left{display:none}main{padding:17px 12px 42px}.intro h2{font-size:21px}.source{display:none}.module-head{padding:11px}.module-body{padding:10px 7px}.tree ul{margin-left:10px;padding-left:12px}.tree ul>li:before{left:-13px;width:11px}.node{font-size:13px}.source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.actions{margin-left:auto}.actions button{padding:6px 7px;font-size:12px}}
+  </style>
 </head>
 <body>
   <header>
-    <div class="brand"><strong>思维导图</strong><small>公基 · 法律、哲学、经济与政治</small></div>
+    <div class="brand"><div class="brand-mark">基</div><div><h1>公基：法律、哲学、经济与政治</h1><small>法律、哲学、经济与政治生活｜学习增强版</small></div></div>
     <label class="search"><input id="search" type="search" autocomplete="off" placeholder="搜索法律制度、哲学原理、经济概念、政治术语"><button id="clearSearch" class="clear-search" type="button" aria-label="清除搜索">x</button></label>
-    <div class="actions"><button id="foldAll" type="button">折叠</button><button id="exportData" type="button">导出进度</button></div>
+    <div class="actions"><button id="foldAll" type="button">折叠</button><button id="exportData" type="button">导出</button><button id="toggleLeft" type="button" title="显示或隐藏章节导航">导航</button><button id="toggleRight" type="button" title="显示或隐藏学习面板">面板</button></div>
   </header>
   <div class="layout">
-    <aside class="left"><h2>章节</h2><nav id="chapterNav"></nav><p class="source-count">30 页知识原图已保留在本页。法律时限、处罚与权利规则请以现行法为准。</p></aside>
+    <aside class="left"><h2>章节导航</h2><nav id="chapterNav"></nav><section class="progress"><div class="progress-top"><span>学习进度</span><b id="progressPercent">0%</b></div><div class="bar"><span id="progressBar"></span></div></section><section class="legend"><b>标记图例</b><span><i class="dot gold"></i>重点考点</span><span><i class="dot green"></i>已掌握</span><span><i class="dot red"></i>待复习</span></section></aside>
     <main>
-      <section class="intro"><div><div class="eyebrow">公基综合</div><h1>法律、哲学、经济与政治</h1><p>法理宪法、民刑行政、马克思主义哲学、经济基础与政治生活</p></div><p class="source-meta">依据《思维导图》30 页知识资料整理<br>涉及现行法的内容仅作学习索引</p></section>
+      <section class="intro"><div><div class="eyebrow">公基综合</div><h2>法律、哲学、经济与政治</h2><p>法理宪法、民刑行政、马克思主义哲学、经济基础与政治生活</p></div><p class="source">依据《思维导图》30 页知识资料整理<br>涉及现行法的内容仅作学习索引</p></section>
       <div id="modules"></div>
-      <section class="source-panel" id="sourcePanel"><h2>来源原图对照</h2><p>按页保留，供复核每一组知识点。</p><div class="source-grid" id="sourceGrid"></div></section>
     </main>
-    <aside class="assistant"><div class="tabs"><button class="tab active" data-tab="detail">节点</button><button class="tab" data-tab="study">复习</button><button class="tab" data-tab="source">原图</button></div><section class="panel active" id="detail"></section><section class="panel" id="study"></section><section class="panel" id="source"></section></aside>
+    <aside class="right"><div class="tabs"><button class="tab active" data-tab="detail">详情</button><button class="tab" data-tab="notePanel">笔记</button><button class="tab" data-tab="cards">闪卡</button><button class="tab" data-tab="stats">统计</button></div><section class="panel active" data-primary-panel id="detail"></section><section class="panel" data-primary-panel id="notePanel"></section><section class="panel" data-primary-panel id="cards"></section><section class="panel" data-primary-panel id="stats"></section><section class="panel" id="study" hidden></section></aside>
   </div>
   <div class="toast" id="toast" role="status"></div>
   <script>
@@ -181,23 +192,15 @@
     {s:'公民政治生活',q:'公民参与民主决策的直接方式有哪些？',a:'社情民意反映制度、专家咨询制度、重大事项社会公示制度、社会听证制度。',p:'政治生活 > 公民政治生活 > 公民政治参与'},
     {s:'国际社会',q:'我国外交政策的宗旨、基本立场和基本准则是什么？',a:'宗旨是维护世界和平、促进共同发展；基本立场是独立自主；基本准则是和平共处五项原则。',p:'政治生活 > 当代国际社会 > 外交政策与人类命运共同体'}
   ];
-  const sourcePages = [
-    {group:'法律',file:'02_法理学.png',label:'第 2 页：法理学'},{group:'法律',file:'03_宪法_国家基本制度.png',label:'第 3 页：宪法与国家基本制度'},{group:'法律',file:'04_宪法_权利义务.png',label:'第 4 页：宪法权利与义务'},{group:'法律',file:'05_宪法_中央国家机构.png',label:'第 5 页：中央国家机构'},{group:'法律',file:'06_行政法_行政行为.png',label:'第 6 页：行政行为、处罚与强制'},{group:'法律',file:'07_行政法_救济.png',label:'第 7 页：行政复议与行政诉讼'},{group:'法律',file:'08_刑法_犯罪论_一.png',label:'第 8 页：犯罪论一'},{group:'法律',file:'09_刑法_犯罪论_二.png',label:'第 9 页：犯罪论二'},{group:'法律',file:'10_刑法_刑罚.png',label:'第 10 页：刑罚'},{group:'法律',file:'11_刑法_主要罪名.png',label:'第 11 页：主要罪名'},{group:'法律',file:'12_民法典_总则.png',label:'第 12 页：民法典总则'},{group:'法律',file:'13_民法典_合同.png',label:'第 13 页：合同'},{group:'法律',file:'14_民法典_侵权责任.png',label:'第 14 页：侵权责任'},{group:'法律',file:'15_民法典_物权.png',label:'第 15 页：物权'},{group:'法律',file:'16_民法典_婚姻家庭.png',label:'第 16 页：婚姻家庭'},{group:'法律',file:'17_民法典_继承.png',label:'第 17 页：继承'},
-    {group:'马克思主义哲学',file:'18_马哲_物质意识.png',label:'第 18 页：物质与意识'},{group:'马克思主义哲学',file:'19_马哲_联系发展.png',label:'第 19 页：联系与发展'},{group:'马克思主义哲学',file:'20_马哲_规律.png',label:'第 20 页：三大规律'},{group:'马克思主义哲学',file:'21_马哲_认识论.png',label:'第 21 页：认识论'},{group:'马克思主义哲学',file:'22_历史唯物主义.png',label:'第 22 页：历史唯物主义与人生价值'},{group:'马克思主义哲学',file:'23_文化和文明.png',label:'第 23 页：文化和文明'},
-    {group:'经济基础',file:'24_经济_商品货币.png',label:'第 24 页：商品、货币与价值规律'},{group:'经济基础',file:'25_经济_生产消费.png',label:'第 25 页：生产、消费、劳动与企业'},{group:'经济基础',file:'26_经济_市场经济体制.png',label:'第 26 页：社会主义市场经济体制'},{group:'经济基础',file:'27_经济_分配社保.png',label:'第 27 页：收入分配与社会保障'},
-    {group:'政治生活',file:'28_政治_党的领导.png',label:'第 28 页：坚持中国共产党的领导'},{group:'政治生活',file:'29_政治_人民当家作主.png',label:'第 29 页：人民当家作主'},{group:'政治生活',file:'30_政治_公民政治生活.png',label:'第 30 页：公民政治生活'},{group:'政治生活',file:'31_政治_当代国际社会.png',label:'第 31 页：当代国际社会'}
-  ];
-  function sourceLink(page) { const dir = '公基_综合_原图/'; return `<a href="${dir}${page.file}" target="_blank" rel="noopener"><img src="${dir}${page.file}" alt="${page.label}"><span>${page.label}</span></a>`; }
-  function renderSourceLinks() { const groups = []; sourcePages.forEach((page) => { let group = groups.find((item) => item.name === page.group); if (!group) { group = {name:page.group,pages:[]}; groups.push(group); } group.pages.push(page); }); return groups.map((group) => `<section class="source-group"><h3>${group.name}</h3><div class="source-grid">${group.pages.map(sourceLink).join('')}</div></section>`).join(''); }
   const STORAGE = 'mindmap-public-basics-foundations-v1';
   const $ = (selector) => document.querySelector(selector);
   const clone = (value) => JSON.parse(JSON.stringify(value));
   function walk(nodes, fn, parent = null, module = null) { nodes.forEach((node) => { fn(node, parent, module); if (node.children) walk(node.children, fn, node, module); }); }
   function assignIds(modules) { let index = 0; modules.forEach((module) => walk(module.children, (node) => { node.id = `public-basics-foundations-${index++}`; }, null, module)); }
   const modules = clone(seedModules); assignIds(modules);
-  const state = {marks:{},note:'',selected:null,expanded:{},closed:{},activeTab:'detail',card:0,flipped:false,sourceOpen:false};
+  const state = {marks:{},note:'',selected:null,expanded:{},closed:{},activeTab:'detail',card:0,flipped:false};
   try { Object.assign(state, JSON.parse(localStorage.getItem(STORAGE) || '{}')); } catch (error) {}
-  function persist() { localStorage.setItem(STORAGE, JSON.stringify({marks:state.marks,note:state.note,expanded:state.expanded,closed:state.closed,activeTab:state.activeTab,card:state.card,sourceOpen:state.sourceOpen})); }
+  function persist() { localStorage.setItem(STORAGE, JSON.stringify({marks:state.marks,note:state.note,expanded:state.expanded,closed:state.closed,activeTab:state.activeTab,card:state.card})); }
   function allNodes() { const list = []; modules.forEach((module) => walk(module.children, (node, parent) => list.push({node,parent,module}), null, module)); return list; }
   function find(id) { return allNodes().find((item) => item.node.id === id); }
   function pathFor(id) { const found = find(id); if (!found) return []; const trail = []; function seek(nodes, path) { for (const node of nodes) { const next = path.concat(node.text); if (node.id === id) { trail.push(...next); return true; } if (node.children && seek(node.children, next)) return true; } return false; } seek(found.module.children, []); return [found.module.title].concat(trail); }
@@ -211,8 +214,7 @@
   function mark(id, value) { if (value === 'none' || state.marks[id] === value) delete state.marks[id]; else state.marks[id] = value; persist(); render(); renderDetail(); renderStudy(); }
   function renderDetail() { const host = $('#detail'); const found = find(state.selected); if (!found) { host.innerHTML = '<h2>节点详情</h2><div class="path">选择任一知识点</div>'; return; } const {node} = found; const current = state.marks[node.id]; host.innerHTML = `<h2>节点详情</h2><div class="detail-title">${escapeHtml(node.text)}</div><div class="path">${pathFor(node.id).map(escapeHtml).join(' &gt; ')}</div><div class="tag-row">${node.important ? '<span class="tag gold">重点</span>' : ''}${current === 'mastered' ? '<span class="tag">已掌握</span>' : ''}${current === 'review' ? '<span class="tag red">待复习</span>' : ''}</div><div class="detail-actions"><button data-mark="mastered">已掌握</button><button data-mark="review">待复习</button><button data-mark="none">清除标记</button><button data-mark="important">${node.important ? '取消重点' : '设为重点'}</button></div>${node.children?.length ? `<h2 style="margin-top:18px">子知识点</h2><ul class="child-list">${node.children.map((child) => `<li>${escapeHtml(child.text)}</li>`).join('')}</ul>` : ''}`; host.querySelectorAll('[data-mark]').forEach((button) => { button.onclick = () => { if (button.dataset.mark === 'important') { node.important = !node.important; render(); renderDetail(); return; } mark(node.id, button.dataset.mark); }; }); }
   function renderStudy() { const host = $('#study'); const list = allNodes(); const mastered = Object.values(state.marks).filter((value) => value === 'mastered').length; const review = Object.values(state.marks).filter((value) => value === 'review').length; const card = flashcards[state.card % flashcards.length]; host.innerHTML = `<h2>学习进度</h2><div class="stats"><div class="stat"><b>${list.length}</b><span>知识点</span></div><div class="stat"><b>${mastered}</b><span>已掌握</span></div><div class="stat"><b>${review}</b><span>待复习</span></div><div class="stat"><b>${Math.round(mastered / list.length * 100)}%</b><span>掌握率</span></div></div><div class="section-progress">${modules.map((module) => { const nodes = []; walk(module.children, (node) => nodes.push(node)); const done = nodes.filter((node) => state.marks[node.id] === 'mastered').length; return `<div class="progress-row"><span>${module.icon} ${module.title}</span><span>${done}/${nodes.length}</span></div><div class="bar"><span style="width:${Math.round(done / nodes.length * 100)}%"></span></div>`; }).join('')}</div><h2 style="margin-top:20px">精准闪卡</h2><div class="card"><div class="card-label">${escapeHtml(card.s)}</div><div class="card-content">${escapeHtml(state.flipped ? card.a : card.q)}</div>${state.flipped ? `<div class="card-source">对应考点：${escapeHtml(card.p)}</div>` : ''}<button class="flip-card" id="flipCard">${state.flipped ? '查看问题' : '查看答案'}</button></div><div class="card-nav"><button id="prevCard" type="button">上一张</button><span>${state.card + 1} / ${flashcards.length}</span><button id="nextCard" type="button">下一张</button></div><h2 style="margin-top:22px">个人笔记</h2><textarea class="note" id="note" placeholder=""></textarea><div class="save-note">自动保存到本机</div>`; $('#note').value = state.note; $('#note').oninput = (event) => { state.note = event.target.value; persist(); }; $('#flipCard').onclick = () => { state.flipped = !state.flipped; renderStudy(); }; $('#prevCard').onclick = () => { state.card = (state.card - 1 + flashcards.length) % flashcards.length; state.flipped = false; persist(); renderStudy(); }; $('#nextCard').onclick = () => { state.card = (state.card + 1) % flashcards.length; state.flipped = false; persist(); renderStudy(); }; }
-  function renderSource() { const host = $('#source'); host.innerHTML = `<h2>来源原图</h2>${renderSourceLinks()}`; const grid = $('#sourceGrid'); grid.innerHTML = renderSourceLinks(); $('#sourcePanel').classList.toggle('open', state.sourceOpen); }
-  function activateTab(name) { state.activeTab = name; state.sourceOpen = name === 'source'; persist(); document.querySelectorAll('.tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.tab === name)); document.querySelectorAll('.panel').forEach((panel) => panel.classList.toggle('active', panel.id === name)); renderSource(); }
+  function activateTab(name) { state.activeTab = name; persist(); document.querySelectorAll('.tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.tab === name)); document.querySelectorAll('.panel').forEach((panel) => panel.classList.toggle('active', panel.id === name)); }
   function toast(text) { const node = $('#toast'); node.textContent = text; node.classList.add('show'); clearTimeout(toast.timer); toast.timer = setTimeout(() => node.classList.remove('show'), 1600); }
   function expandMatches() { const query = $('#search').value.trim().toLowerCase(); if (!query) return; allNodes().filter(({node}) => node.text.toLowerCase().includes(query)).forEach(({node,parent,module}) => { state.closed[module.id] = false; let current = parent; while (current) { state.expanded[current.id] = true; current = find(current.id).parent; } }); }
   $('#search').oninput = () => { expandMatches(); render(); $('#clearSearch').style.display = $('#search').value ? 'block' : 'none'; };
@@ -220,7 +222,84 @@
   $('#foldAll').onclick = () => { const shouldClose = modules.some((module) => state.closed[module.id] !== true); modules.forEach((module) => { state.closed[module.id] = shouldClose; }); persist(); render(); $('#foldAll').textContent = shouldClose ? '展开' : '折叠'; };
   $('#exportData').onclick = () => { const payload = {title:'公基：法律、哲学、经济与政治',exportedAt:new Date().toLocaleString('zh-CN'),marks:state.marks,note:state.note}; const url = URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'})); const link = document.createElement('a'); link.href = url; link.download = '公基_法律哲学经济政治_学习进度.json'; link.click(); URL.revokeObjectURL(url); toast('学习进度已导出'); };
   document.querySelectorAll('.tab').forEach((tab) => { tab.onclick = () => activateTab(tab.dataset.tab); });
-  render(); renderDetail(); renderStudy(); renderSource(); activateTab(state.activeTab);
+  render(); renderDetail(); renderStudy(); activateTab(state.activeTab);
+  </script>
+  <script>
+  (() => {
+    const PANEL_STORAGE = 'mindmap-public-basics-foundations-panels-v1';
+    const panelState = {left:true,right:true};
+    try { Object.assign(panelState, JSON.parse(localStorage.getItem(PANEL_STORAGE) || '{}')); } catch (error) {}
+
+    function renderSidebarProgress() {
+      const total = allNodes().length;
+      const mastered = Object.values(state.marks).filter((value) => value === 'mastered').length;
+      $('#progressPercent').textContent = `${total ? Math.round(mastered / total * 100) : 0}%`;
+      $('#progressBar').style.width = `${total ? Math.round(mastered / total * 100) : 0}%`;
+    }
+
+    function renderNotePanel() {
+      const host = $('#notePanel');
+      host.innerHTML = '<h2>全局学习笔记</h2><textarea id="noteTextarea" class="note" placeholder="记录易混概念和错题线索…"></textarea><p class="save-note">自动保存在浏览器本地。</p>';
+      const note = $('#noteTextarea');
+      note.value = state.note;
+      note.oninput = (event) => { state.note = event.target.value; persist(); };
+    }
+
+    function renderCardsPanel() {
+      const host = $('#cards');
+      const card = flashcards[state.card % flashcards.length];
+      host.innerHTML = `<h2>精准闪卡</h2><div class="card"><div class="card-label">${escapeHtml(card.s)}</div><div class="card-content">${escapeHtml(state.flipped ? card.a : card.q)}</div>${state.flipped ? `<div class="card-source">对应考点：${escapeHtml(card.p)}</div>` : '<div class="save-note">先在心中作答，再查看答案</div>'}<button class="flip-card" id="flipCard" type="button">${state.flipped ? '查看问题' : '查看答案'}</button></div><div class="card-nav"><button id="previousCard" type="button">上一张</button><span>${state.card + 1} / ${flashcards.length}</span><button id="nextCard" type="button">下一张</button></div>`;
+      $('#flipCard').onclick = () => { state.flipped = !state.flipped; renderCardsPanel(); };
+      $('#previousCard').onclick = () => { state.card = (state.card - 1 + flashcards.length) % flashcards.length; state.flipped = false; persist(); renderCardsPanel(); };
+      $('#nextCard').onclick = () => { state.card = (state.card + 1) % flashcards.length; state.flipped = false; persist(); renderCardsPanel(); };
+    }
+
+    function renderStatsPanel() {
+      const host = $('#stats');
+      const nodes = allNodes();
+      const mastered = Object.values(state.marks).filter((value) => value === 'mastered').length;
+      const review = Object.values(state.marks).filter((value) => value === 'review').length;
+      const rate = nodes.length ? Math.round(mastered / nodes.length * 100) : 0;
+      host.innerHTML = `<h2>学习统计</h2><div class="stats"><div class="stat"><b>${nodes.length}</b><span>总知识点</span></div><div class="stat"><b>${mastered}</b><span>已掌握</span></div><div class="stat"><b>${nodes.filter(({node}) => node.important).length}</b><span>重点考点</span></div><div class="stat"><b>${review}</b><span>待复习</span></div></div><div class="section-progress"><h2>章节进度</h2>${modules.map((module) => { const moduleNodes = []; walk(module.children, (node) => moduleNodes.push(node)); const done = moduleNodes.filter((node) => state.marks[node.id] === 'mastered').length; const percent = moduleNodes.length ? Math.round(done / moduleNodes.length * 100) : 0; return `<div class="progress-row"><span>${escapeHtml(module.title)}</span><span>${done}/${moduleNodes.length}</span></div><div class="bar"><span style="width:${percent}%"></span></div>`; }).join('')}<p class="save-note">当前掌握率：${rate}%</p></div>`;
+    }
+
+    function renderLearningPanels() {
+      renderNotePanel();
+      renderCardsPanel();
+      renderStatsPanel();
+      renderSidebarProgress();
+    }
+
+    function activatePrimaryTab(name) {
+      const tab = document.querySelector(`.right .tab[data-tab="${name}"]`);
+      const panel = document.querySelector(`.right [data-primary-panel]#${name}`);
+      if (!tab || !panel) name = 'detail';
+      state.activeTab = name;
+      persist();
+      document.querySelectorAll('.right .tab').forEach((item) => item.classList.toggle('active', item.dataset.tab === name));
+      document.querySelectorAll('.right [data-primary-panel]').forEach((item) => item.classList.toggle('active', item.id === name));
+    }
+
+    function applyPanels() {
+      document.body.classList.toggle('left-hidden', panelState.left === false);
+      document.body.classList.toggle('right-hidden', panelState.right === false);
+    }
+
+    const originalRenderNav = renderNav;
+    renderNav = function renderNavWithProgress() { originalRenderNav(); renderSidebarProgress(); };
+    const originalMark = mark;
+    mark = function markWithPanels(id, value) { originalMark(id, value); renderLearningPanels(); };
+
+    $('#toggleLeft').onclick = () => { panelState.left = panelState.left === false; localStorage.setItem(PANEL_STORAGE, JSON.stringify(panelState)); applyPanels(); };
+    $('#toggleRight').onclick = () => { panelState.right = panelState.right === false; localStorage.setItem(PANEL_STORAGE, JSON.stringify(panelState)); applyPanels(); };
+    document.querySelectorAll('.right .tab').forEach((tab) => { tab.onclick = () => { renderLearningPanels(); activatePrimaryTab(tab.dataset.tab); }; });
+
+    applyPanels();
+    render();
+    renderDetail();
+    renderLearningPanels();
+    activatePrimaryTab(['detail','notePanel','cards','stats'].includes(state.activeTab) ? state.activeTab : 'detail');
+  })();
   </script>
 </body>
 </html>
