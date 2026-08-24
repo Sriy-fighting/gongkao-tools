@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-23T04:59:39.234Z",
+  "generatedAt": "2026-08-24T16:12:25.375Z",
   "maps": [
     {
       "id": "science-section-1",
@@ -11929,6 +11929,2164 @@
           "text": "警戒色：亮出自己警告天敌，色彩艳丽，自身有毒或有刺",
           "path": "动物分类进化 › 拟态、保护色与警戒色 › 警戒色：亮出自己警告天敌，色彩艳丽，自身有毒或有刺",
           "mapId": "science-section-5",
+          "important": false
+        }
+      ]
+    },
+    {
+      "id": "public-basics-foundations",
+      "title": "公基：法律、哲学、经济与政治",
+      "subtitle": "法理宪法、民刑行政、马克思主义哲学、经济与政治生活",
+      "path": "../思维导图/公基_法律哲学经济政治_学习增强版.html",
+      "icon": "基",
+      "color": "#3e7b69",
+      "file": "tools/思维导图/公基_法律哲学经济政治_学习增强版.html",
+      "key": "const seedModules =",
+      "folder": "公基",
+      "order": 11,
+      "nodes": [
+        {
+          "id": "public-basics-foundations-0",
+          "text": "法理学（来源第 2 页）",
+          "path": "法理学（来源第 2 页）",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": true
+        },
+        {
+          "id": "public-basics-foundations-1",
+          "text": "法的定义与特征",
+          "path": "法理学（来源第 2 页） › 法的定义与特征",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-2",
+          "text": "法由国家制定或认可，并以国家强制力保证实施；反映特定物质生活条件决定的统治阶级意志",
+          "path": "法理学（来源第 2 页） › 法的定义与特征 › 法由国家制定或认可，并以国家强制力保证实施；反映特定物质生活条件决定的统治阶级意志",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-3",
+          "text": "法以权利义务为基础，是确认、保护和发展社会关系及社会秩序的行为规范体系",
+          "path": "法理学（来源第 2 页） › 法的定义与特征 › 法以权利义务为基础，是确认、保护和发展社会关系及社会秩序的行为规范体系",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-4",
+          "text": "特征：规范性、国家意志性、普遍性、权利义务性、国家强制性、正当程序性、法律许可性",
+          "path": "法理学（来源第 2 页） › 法的定义与特征 › 特征：规范性、国家意志性、普遍性、权利义务性、国家强制性、正当程序性、法律许可性",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-5",
+          "text": "法的作用与价值",
+          "path": "法理学（来源第 2 页） › 法的作用与价值",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-6",
+          "text": "规范作用：指引本人、评价他人合法与否、预测相互间行为、强制违法犯罪行为、教育一般人",
+          "path": "法理学（来源第 2 页） › 法的作用与价值 › 规范作用：指引本人、评价他人合法与否、预测相互间行为、强制违法犯罪行为、教育一般人",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-7",
+          "text": "社会作用：维护社会秩序、协调社会关系等",
+          "path": "法理学（来源第 2 页） › 法的作用与价值 › 社会作用：维护社会秩序、协调社会关系等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-8",
+          "text": "主要价值：秩序、自由、平等、人权、正义、效率",
+          "path": "法理学（来源第 2 页） › 法的作用与价值 › 主要价值：秩序、自由、平等、人权、正义、效率",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-9",
+          "text": "价值冲突解决：价值位阶、个案平衡、比例原则",
+          "path": "法理学（来源第 2 页） › 法的作用与价值 › 价值冲突解决：价值位阶、个案平衡、比例原则",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-10",
+          "text": "法的渊源",
+          "path": "法理学（来源第 2 页） › 法的渊源",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-11",
+          "text": "宪法：修改提案可由全国人大常委会或五分之一以上全国人大代表提出；修正案由全国人大以全体代表三分之二以上多数通过",
+          "path": "法理学（来源第 2 页） › 法的渊源 › 宪法：修改提案可由全国人大常委会或五分之一以上全国人大代表提出；修正案由全国人大以全体代表三分之二以上多数通过",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-12",
+          "text": "法律：基本法律由全国人大制定；非基本法律由全国人大常委会制定",
+          "path": "法理学（来源第 2 页） › 法的渊源 › 法律：基本法律由全国人大制定；非基本法律由全国人大常委会制定",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-13",
+          "text": "法律绝对保留：犯罪和刑罚、剥夺公民政治权利、限制人身自由的强制措施和处罚、司法制度等",
+          "path": "法理学（来源第 2 页） › 法的渊源 › 法律绝对保留：犯罪和刑罚、剥夺公民政治权利、限制人身自由的强制措施和处罚、司法制度等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-14",
+          "text": "行政法规由国务院制定；监察法规由国家监察委员会制定",
+          "path": "法理学（来源第 2 页） › 法的渊源 › 行政法规由国务院制定；监察法规由国家监察委员会制定",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-15",
+          "text": "地方性法规由省级人大及其常委会、设区的市人大及其常委会制定；另有自治法规、经济特区法规",
+          "path": "法理学（来源第 2 页） › 法的渊源 › 地方性法规由省级人大及其常委会、设区的市人大及其常委会制定；另有自治法规、经济特区法规",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-16",
+          "text": "规章：部门规章由国务院下属各部委制定；地方政府规章由省级政府、设区的市政府制定",
+          "path": "法理学（来源第 2 页） › 法的渊源 › 规章：部门规章由国务院下属各部委制定；地方政府规章由省级政府、设区的市政府制定",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-17",
+          "text": "其他正式渊源：国际条约和国际惯例等；非正式渊源：正义标准、理性原则、政策、道德、乡规民约、外国法、权威著作等",
+          "path": "法理学（来源第 2 页） › 法的渊源 › 其他正式渊源：国际条约和国际惯例等；非正式渊源：正义标准、理性原则、政策、道德、乡规民约、外国法、权威著作等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-18",
+          "text": "宪法（来源第 3-5 页）",
+          "path": "宪法（来源第 3-5 页）",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": true
+        },
+        {
+          "id": "public-basics-foundations-19",
+          "text": "宪法概述与国家基本制度",
+          "path": "宪法（来源第 3-5 页） › 宪法概述与国家基本制度",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-20",
+          "text": "宪法是国家根本法，规定国家最根本、最重要的问题；具有最高法律效力，制定和修改程序更严格",
+          "path": "宪法（来源第 3-5 页） › 宪法概述与国家基本制度 › 宪法是国家根本法，规定国家最根本、最重要的问题；具有最高法律效力，制定和修改程序更严格",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-21",
+          "text": "宪法是公民权利的保障书，也是民主制度法律化的基本形式",
+          "path": "宪法（来源第 3-5 页） › 宪法概述与国家基本制度 › 宪法是公民权利的保障书，也是民主制度法律化的基本形式",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-22",
+          "text": "国体：人民民主专政的社会主义国家；社会主义制度是根本制度",
+          "path": "宪法（来源第 3-5 页） › 宪法概述与国家基本制度 › 国体：人民民主专政的社会主义国家；社会主义制度是根本制度",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-23",
+          "text": "基本经济制度：公有制为主体、多种所有制经济共同发展；公有制经济是社会主义市场经济主体，国有经济是国民经济主导力量",
+          "path": "宪法（来源第 3-5 页） › 宪法概述与国家基本制度 › 基本经济制度：公有制为主体、多种所有制经济共同发展；公有制经济是社会主义市场经济主体，国有经济是国民经济主导力量",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-24",
+          "text": "自然资源归属：矿藏、水流、城市土地属国家；宅基地和自留地、自留山属集体；森林、山岭、草原、荒地、滩涂可依法归国家或集体；农村和城市郊区土地除法律规定国有外属集体",
+          "path": "宪法（来源第 3-5 页） › 宪法概述与国家基本制度 › 自然资源归属：矿藏、水流、城市土地属国家；宅基地和自留地、自留山属集体；森林、山岭、草原、荒地、滩涂可依法归国家或集体；农村和城市郊区土地除法律规定国有外属集体",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-25",
+          "text": "根本政治制度：人民代表大会制度",
+          "path": "宪法（来源第 3-5 页） › 宪法概述与国家基本制度 › 根本政治制度：人民代表大会制度",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-26",
+          "text": "基层群众自治制度：村委会、居委会实行自我管理、自我服务、自我教育、自我监督；基层政府与其关系为指导、支持和帮助",
+          "path": "宪法（来源第 3-5 页） › 宪法概述与国家基本制度 › 基层群众自治制度：村委会、居委会实行自我管理、自我服务、自我教育、自我监督；基层政府与其关系为指导、支持和帮助",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-27",
+          "text": "中国共产党领导的多党合作和政治协商制度：人民政协履行政治协商、民主监督、参政议政职能",
+          "path": "宪法（来源第 3-5 页） › 宪法概述与国家基本制度 › 中国共产党领导的多党合作和政治协商制度：人民政协履行政治协商、民主监督、参政议政职能",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-28",
+          "text": "民族区域自治制度：自治地方为自治区、自治州、自治县；可依法制定自治条例和单行条例并行使自治权",
+          "path": "宪法（来源第 3-5 页） › 宪法概述与国家基本制度 › 民族区域自治制度：自治地方为自治区、自治州、自治县；可依法制定自治条例和单行条例并行使自治权",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-29",
+          "text": "公民基本权利和义务",
+          "path": "宪法（来源第 3-5 页） › 公民基本权利和义务",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-30",
+          "text": "平等权：公民在法律面前一律平等，禁止歧视，允许合理差别",
+          "path": "宪法（来源第 3-5 页） › 公民基本权利和义务 › 平等权：公民在法律面前一律平等，禁止歧视，允许合理差别",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-31",
+          "text": "政治权利和自由：年满十八周岁、未被剥夺政治权利的中国公民有选举权和被选举权；政治自由包括言论、出版、集会、结社、游行、示威",
+          "path": "宪法（来源第 3-5 页） › 公民基本权利和义务 › 政治权利和自由：年满十八周岁、未被剥夺政治权利的中国公民有选举权和被选举权；政治自由包括言论、出版、集会、结社、游行、示威",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-32",
+          "text": "人身自由：非经人民检察院批准或决定、人民法院决定，并由公安机关执行，不受逮捕；人格尊严不受侵犯",
+          "path": "宪法（来源第 3-5 页） › 公民基本权利和义务 › 人身自由：非经人民检察院批准或决定、人民法院决定，并由公安机关执行，不受逮捕；人格尊严不受侵犯",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-33",
+          "text": "住宅不受侵犯：刑事侦查、监察调查中的搜查须依法进行",
+          "path": "宪法（来源第 3-5 页） › 公民基本权利和义务 › 住宅不受侵犯：刑事侦查、监察调查中的搜查须依法进行",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-34",
+          "text": "通信自由和通信秘密受保护；国家安全或追查刑事犯罪需要时可依法检查",
+          "path": "宪法（来源第 3-5 页） › 公民基本权利和义务 › 通信自由和通信秘密受保护；国家安全或追查刑事犯罪需要时可依法检查",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-35",
+          "text": "监督权和取得赔偿权：对国家机关和工作人员有批评建议、申诉控告检举权；违法失职行为可依法请求赔偿",
+          "path": "宪法（来源第 3-5 页） › 公民基本权利和义务 › 监督权和取得赔偿权：对国家机关和工作人员有批评建议、申诉控告检举权；违法失职行为可依法请求赔偿",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-36",
+          "text": "社会经济文化教育权利：劳动既是权利也是义务；劳动者有休息权；年老、疾病或丧失劳动能力时有物质帮助权；受教育既是权利也是义务；财产权受法律保护",
+          "path": "宪法（来源第 3-5 页） › 公民基本权利和义务 › 社会经济文化教育权利：劳动既是权利也是义务；劳动者有休息权；年老、疾病或丧失劳动能力时有物质帮助权；受教育既是权利也是义务；财产权受法律保护",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-37",
+          "text": "基本义务：维护国家统一和民族团结，遵守宪法法律，维护国家安全、荣誉和利益，保卫祖国、依法服兵役和参加民兵组织，依法纳税等",
+          "path": "宪法（来源第 3-5 页） › 公民基本权利和义务 › 基本义务：维护国家统一和民族团结，遵守宪法法律，维护国家安全、荣誉和利益，保卫祖国、依法服兵役和参加民兵组织，依法纳税等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-38",
+          "text": "中央国家机构",
+          "path": "宪法（来源第 3-5 页） › 中央国家机构",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-39",
+          "text": "全国人民代表大会：最高国家权力机关；行使修改宪法、制定和修改基本法律、决定重大事项等职权",
+          "path": "宪法（来源第 3-5 页） › 中央国家机构 › 全国人民代表大会：最高国家权力机关；行使修改宪法、制定和修改基本法律、决定重大事项等职权",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-40",
+          "text": "全国人大常委会：全国人大的常设机关；解释宪法、监督宪法实施，并行使宪法和法律规定的其他职权",
+          "path": "宪法（来源第 3-5 页） › 中央国家机构 › 全国人大常委会：全国人大的常设机关；解释宪法、监督宪法实施，并行使宪法和法律规定的其他职权",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-41",
+          "text": "国家主席：由全国人大选举；依照全国人大或其常委会决定公布法律、发布特赦令、宣布进入紧急状态、宣布战争状态等",
+          "path": "宪法（来源第 3-5 页） › 中央国家机构 › 国家主席：由全国人大选举；依照全国人大或其常委会决定公布法律、发布特赦令、宣布进入紧急状态、宣布战争状态等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-42",
+          "text": "国务院：最高国家权力机关的执行机关、最高国家行政机关，实行总理负责制",
+          "path": "宪法（来源第 3-5 页） › 中央国家机构 › 国务院：最高国家权力机关的执行机关、最高国家行政机关，实行总理负责制",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-43",
+          "text": "中央军事委员会：领导全国武装力量，实行主席负责制",
+          "path": "宪法（来源第 3-5 页） › 中央国家机构 › 中央军事委员会：领导全国武装力量，实行主席负责制",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-44",
+          "text": "国家监察委员会：最高监察机关，领导地方各级监察委员会，对全国人大及其常委会负责",
+          "path": "宪法（来源第 3-5 页） › 中央国家机构 › 国家监察委员会：最高监察机关，领导地方各级监察委员会，对全国人大及其常委会负责",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-45",
+          "text": "最高人民法院是最高审判机关；最高人民检察院是最高检察机关、法律监督机关",
+          "path": "宪法（来源第 3-5 页） › 中央国家机构 › 最高人民法院是最高审判机关；最高人民检察院是最高检察机关、法律监督机关",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-46",
+          "text": "行政法（来源第 6-7 页）",
+          "path": "行政法（来源第 6-7 页）",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-47",
+          "text": "行政行为、处罚、强制",
+          "path": "行政法（来源第 6-7 页） › 行政行为、处罚、强制",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-48",
+          "text": "行政行为分类：抽象行政行为针对不特定管理对象；具体行政行为针对特定公民、法人或其他组织的具体事项",
+          "path": "行政法（来源第 6-7 页） › 行政行为、处罚、强制 › 行政行为分类：抽象行政行为针对不特定管理对象；具体行政行为针对特定公民、法人或其他组织的具体事项",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-49",
+          "text": "行政处罚种类：警告、通报批评、罚款、没收违法所得或非法财物、暂扣或吊销许可证件、降低资质等级、限制开展生产经营活动、责令停产停业、责令关闭、限制从业、行政拘留等",
+          "path": "行政法（来源第 6-7 页） › 行政行为、处罚、强制 › 行政处罚种类：警告、通报批评、罚款、没收违法所得或非法财物、暂扣或吊销许可证件、降低资质等级、限制开展生产经营活动、责令停产停业、责令关闭、限制从业、行政拘留等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-50",
+          "text": "行政处罚设定权：法律可设各种处罚；行政法规除限制人身自由外可设；地方性法规可设限制人身自由、吊销营业执照外的处罚；规章限于警告、通报批评或一定数额罚款",
+          "path": "行政法（来源第 6-7 页） › 行政行为、处罚、强制 › 行政处罚设定权：法律可设各种处罚；行政法规除限制人身自由外可设；地方性法规可设限制人身自由、吊销营业执照外的处罚；规章限于警告、通报批评或一定数额罚款",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-51",
+          "text": "不予处罚：无责任能力者、情节轻微并及时改正且未造成危害后果、初次违法且危害后果轻微并及时改正等；超过时效一般不再处罚（具体期限以现行法为准）",
+          "path": "行政法（来源第 6-7 页） › 行政行为、处罚、强制 › 不予处罚：无责任能力者、情节轻微并及时改正且未造成危害后果、初次违法且危害后果轻微并及时改正等；超过时效一般不再处罚（具体期限以现行法为准）",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-52",
+          "text": "处罚程序：简易程序适用于警告或小额罚款；一般程序依法调查取证；较重处罚应有听证程序；执行中收缴罚款与收缴罚款相分离",
+          "path": "行政法（来源第 6-7 页） › 行政行为、处罚、强制 › 处罚程序：简易程序适用于警告或小额罚款；一般程序依法调查取证；较重处罚应有听证程序；执行中收缴罚款与收缴罚款相分离",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-53",
+          "text": "行政强制措施：限制人身自由、查封场所或设施、扣押财物、冻结存款汇款等；不得以行政强制措施代替行政强制执行",
+          "path": "行政法（来源第 6-7 页） › 行政行为、处罚、强制 › 行政强制措施：限制人身自由、查封场所或设施、扣押财物、冻结存款汇款等；不得以行政强制措施代替行政强制执行",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-54",
+          "text": "行政强制执行：间接强制包括代履行和加处罚款或滞纳金；直接强制包括划拨、汇款、拍卖或依法处理查封扣押物、排除妨碍和恢复原状",
+          "path": "行政法（来源第 6-7 页） › 行政行为、处罚、强制 › 行政强制执行：间接强制包括代履行和加处罚款或滞纳金；直接强制包括划拨、汇款、拍卖或依法处理查封扣押物、排除妨碍和恢复原状",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-55",
+          "text": "强制执行程序：可依法达成分阶段履行协议；除紧急情况外不得在夜间或法定节假日实施；不得对居民生活采取停止供水、供电、供热、供燃气等方式迫使履行",
+          "path": "行政法（来源第 6-7 页） › 行政行为、处罚、强制 › 强制执行程序：可依法达成分阶段履行协议；除紧急情况外不得在夜间或法定节假日实施；不得对居民生活采取停止供水、供电、供热、供燃气等方式迫使履行",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-56",
+          "text": "行政复议与行政诉讼",
+          "path": "行政法（来源第 6-7 页） › 行政复议与行政诉讼",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-57",
+          "text": "行政复议审查合法性与适当性；国防外交等国家行为、行政法规规章及普遍约束力决定命令、内部人事奖惩任免、终局裁决等通常不属于复议范围",
+          "path": "行政法（来源第 6-7 页） › 行政复议与行政诉讼 › 行政复议审查合法性与适当性；国防外交等国家行为、行政法规规章及普遍约束力决定命令、内部人事奖惩任免、终局裁决等通常不属于复议范围",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-58",
+          "text": "行政复议可以书面申请，书面申请有困难可口头申请；申请人可委托一至二名代理人；申请期限、审理期限以现行法为准",
+          "path": "行政法（来源第 6-7 页） › 行政复议与行政诉讼 › 行政复议可以书面申请，书面申请有困难可口头申请；申请人可委托一至二名代理人；申请期限、审理期限以现行法为准",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-59",
+          "text": "复议机关一般按被申请人层级确定：县级以上地方政府工作部门向本级政府；海关、金融、外汇、税务、国安等向上一级主管部门；省级以下垂直领导部门向上一级主管部门等",
+          "path": "行政法（来源第 6-7 页） › 行政复议与行政诉讼 › 复议机关一般按被申请人层级确定：县级以上地方政府工作部门向本级政府；海关、金融、外汇、税务、国安等向上一级主管部门；省级以下垂直领导部门向上一级主管部门等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-60",
+          "text": "行政诉讼审查合法性；部分国家行为、抽象行政行为、内部人事行为、终局裁决等不受理",
+          "path": "行政法（来源第 6-7 页） › 行政复议与行政诉讼 › 行政诉讼审查合法性；部分国家行为、抽象行政行为、内部人事行为、终局裁决等不受理",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-61",
+          "text": "行政诉讼起诉期限、级别管辖和地域管辖依现行行政诉讼法确定；一般由被告所在地或相关行为地法院管辖",
+          "path": "行政法（来源第 6-7 页） › 行政复议与行政诉讼 › 行政诉讼起诉期限、级别管辖和地域管辖依现行行政诉讼法确定；一般由被告所在地或相关行为地法院管辖",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-62",
+          "text": "刑法（来源第 8-11 页）",
+          "path": "刑法（来源第 8-11 页）",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-63",
+          "text": "犯罪论：构成与主体",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：构成与主体",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-64",
+          "text": "犯罪构成包括主体、主观方面、客体、客观方面；客体是刑法所保护而为犯罪行为侵害的社会利益",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：构成与主体 › 犯罪构成包括主体、主观方面、客体、客观方面；客体是刑法所保护而为犯罪行为侵害的社会利益",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-65",
+          "text": "刑事责任年龄：未满十二周岁一般不负刑责；十二至十四周岁、十四至十六周岁及十六周岁以上的责任范围依现行刑法区分；未成年人处罚与死刑适用有特别限制",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：构成与主体 › 刑事责任年龄：未满十二周岁一般不负刑责；十二至十四周岁、十四至十六周岁及十六周岁以上的责任范围依现行刑法区分；未成年人处罚与死刑适用有特别限制",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-66",
+          "text": "刑事责任能力：不能辨认或不能控制行为的精神障碍者造成危害结果，经法定程序确认后不负刑责；限制责任能力者可从轻或减轻；醉酒、间歇性精神障碍等规则依现行刑法",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：构成与主体 › 刑事责任能力：不能辨认或不能控制行为的精神障碍者造成危害结果，经法定程序确认后不负刑责；限制责任能力者可从轻或减轻；醉酒、间歇性精神障碍等规则依现行刑法",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-67",
+          "text": "故意分直接故意（明知且希望）和间接故意（明知且放任）；过失分疏忽大意（应当预见而未预见）和过于自信（已预见但轻信能够避免）",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：构成与主体 › 故意分直接故意（明知且希望）和间接故意（明知且放任）；过失分疏忽大意（应当预见而未预见）和过于自信（已预见但轻信能够避免）",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-68",
+          "text": "客观方面的危害行为包括作为（不应为而为）和不作为（应为而不为）",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：构成与主体 › 客观方面的危害行为包括作为（不应为而为）和不作为（应为而不为）",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-69",
+          "text": "犯罪论：阻却事由、停止形态与共同犯罪",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：阻却事由、停止形态与共同犯罪",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-70",
+          "text": "正当防卫：针对正在进行的不法侵害；防卫行为应相当，明显超过必要限度造成重大损害的应负刑责但可减轻或免除；对严重危及人身安全的暴力犯罪可适用特殊防卫",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：阻却事由、停止形态与共同犯罪 › 正当防卫：针对正在进行的不法侵害；防卫行为应相当，明显超过必要限度造成重大损害的应负刑责但可减轻或免除；对严重危及人身安全的暴力犯罪可适用特殊防卫",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-71",
+          "text": "紧急避险：为使国家、公共利益、本人或他人权利免受正在发生的危险，不得已采取的损害较小利益的行为；避险过当依现行刑法处理",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：阻却事由、停止形态与共同犯罪 › 紧急避险：为使国家、公共利益、本人或他人权利免受正在发生的危险，不得已采取的损害较小利益的行为；避险过当依现行刑法处理",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-72",
+          "text": "犯罪预备：着手前因意志以外原因；未遂：着手后因意志以外原因；中止：自动放弃或自动有效防止结果发生",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：阻却事由、停止形态与共同犯罪 › 犯罪预备：着手前因意志以外原因；未遂：着手后因意志以外原因；中止：自动放弃或自动有效防止结果发生",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-73",
+          "text": "共同犯罪：二人以上共同故意犯罪；主犯、从犯、胁从犯、教唆犯依其作用承担相应责任",
+          "path": "刑法（来源第 8-11 页） › 犯罪论：阻却事由、停止形态与共同犯罪 › 共同犯罪：二人以上共同故意犯罪；主犯、从犯、胁从犯、教唆犯依其作用承担相应责任",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-74",
+          "text": "刑罚与具体运用",
+          "path": "刑法（来源第 8-11 页） › 刑罚与具体运用",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-75",
+          "text": "主刑：管制、拘役、有期徒刑、无期徒刑、死刑；附加刑：罚金、没收财产、剥夺政治权利、驱逐出境",
+          "path": "刑法（来源第 8-11 页） › 刑罚与具体运用 › 主刑：管制、拘役、有期徒刑、无期徒刑、死刑；附加刑：罚金、没收财产、剥夺政治权利、驱逐出境",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-76",
+          "text": "累犯：一般累犯与特殊累犯；构成条件和法律后果依现行刑法，累犯应从重处罚且通常不适用缓刑、假释",
+          "path": "刑法（来源第 8-11 页） › 刑罚与具体运用 › 累犯：一般累犯与特殊累犯；构成条件和法律后果依现行刑法，累犯应从重处罚且通常不适用缓刑、假释",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-77",
+          "text": "坦白：如实供述自己罪行；立功：揭发他人犯罪或提供重要线索等；有重大立功表现可依法减轻或免除处罚",
+          "path": "刑法（来源第 8-11 页） › 刑罚与具体运用 › 坦白：如实供述自己罪行；立功：揭发他人犯罪或提供重要线索等；有重大立功表现可依法减轻或免除处罚",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-78",
+          "text": "自首：自动投案并如实供述自己罪行；特别自首适用对象和处理以现行刑法为准",
+          "path": "刑法（来源第 8-11 页） › 刑罚与具体运用 › 自首：自动投案并如实供述自己罪行；特别自首适用对象和处理以现行刑法为准",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-79",
+          "text": "缓刑适用于被判拘役、三年以下有期徒刑且符合条件的犯罪人；未成年人、孕妇、已满七十五周岁者有从宽规则；累犯和犯罪集团首要分子不适用缓刑",
+          "path": "刑法（来源第 8-11 页） › 刑罚与具体运用 › 缓刑适用于被判拘役、三年以下有期徒刑且符合条件的犯罪人；未成年人、孕妇、已满七十五周岁者有从宽规则；累犯和犯罪集团首要分子不适用缓刑",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-80",
+          "text": "主要罪名辨析",
+          "path": "刑法（来源第 8-11 页） › 主要罪名辨析",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-81",
+          "text": "危害国家安全罪：间谍罪强调参加间谍组织、接受任务或为敌人指示轰击目标；为境外窃取、刺探、收买、非法提供国家秘密、情报罪要求明知",
+          "path": "刑法（来源第 8-11 页） › 主要罪名辨析 › 危害国家安全罪：间谍罪强调参加间谍组织、接受任务或为敌人指示轰击目标；为境外窃取、刺探、收买、非法提供国家秘密、情报罪要求明知",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-82",
+          "text": "危害公共安全罪：交通肇事罪为过失危害公共交通安全；危险驾驶罪为故意；妨害安全驾驶罪、重大责任事故罪及强令组织他人违章冒险作业罪的对象分别聚焦公共安全或生产作业安全",
+          "path": "刑法（来源第 8-11 页） › 主要罪名辨析 › 危害公共安全罪：交通肇事罪为过失危害公共交通安全；危险驾驶罪为故意；妨害安全驾驶罪、重大责任事故罪及强令组织他人违章冒险作业罪的对象分别聚焦公共安全或生产作业安全",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-83",
+          "text": "破坏社会主义市场经济秩序罪：集资诈骗、贷款诈骗、信用卡诈骗、保险诈骗、非法经营等应抓住非法占有目的和具体手段",
+          "path": "刑法（来源第 8-11 页） › 主要罪名辨析 › 破坏社会主义市场经济秩序罪：集资诈骗、贷款诈骗、信用卡诈骗、保险诈骗、非法经营等应抓住非法占有目的和具体手段",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-84",
+          "text": "侵犯公民人身权利、民主权利罪：拐卖妇女儿童以出卖为目的；拐骗儿童为拐骗不满十四周岁未成年人、脱离家庭或监护人",
+          "path": "刑法（来源第 8-11 页） › 主要罪名辨析 › 侵犯公民人身权利、民主权利罪：拐卖妇女儿童以出卖为目的；拐骗儿童为拐骗不满十四周岁未成年人、脱离家庭或监护人",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-85",
+          "text": "侵犯财产罪：抢劫以暴力胁迫等压制反抗；抢夺为公开夺取；盗窃为秘密窃取；诈骗为虚构事实、隐瞒真相；侵占为将代为保管、遗忘或埋藏物非法据为己有",
+          "path": "刑法（来源第 8-11 页） › 主要罪名辨析 › 侵犯财产罪：抢劫以暴力胁迫等压制反抗；抢夺为公开夺取；盗窃为秘密窃取；诈骗为虚构事实、隐瞒真相；侵占为将代为保管、遗忘或埋藏物非法据为己有",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-86",
+          "text": "贪污贿赂罪：贪污由国家工作人员利用职务便利侵吞窃取骗取公共财物；挪用公款强调非法占用；受贿为索取或非法收受财物并为他人谋利",
+          "path": "刑法（来源第 8-11 页） › 主要罪名辨析 › 贪污贿赂罪：贪污由国家工作人员利用职务便利侵吞窃取骗取公共财物；挪用公款强调非法占用；受贿为索取或非法收受财物并为他人谋利",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-87",
+          "text": "渎职罪：徇私枉法、滥用职权、玩忽职守等",
+          "path": "刑法（来源第 8-11 页） › 主要罪名辨析 › 渎职罪：徇私枉法、滥用职权、玩忽职守等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-88",
+          "text": "民法典（来源第 12-17 页）",
+          "path": "民法典（来源第 12-17 页）",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-89",
+          "text": "总则：民事主体、能力与监护",
+          "path": "民法典（来源第 12-17 页） › 总则：民事主体、能力与监护",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-90",
+          "text": "基本原则：平等、自愿、公平、诚信、守法与公序良俗、绿色原则",
+          "path": "民法典（来源第 12-17 页） › 总则：民事主体、能力与监护 › 基本原则：平等、自愿、公平、诚信、守法与公序良俗、绿色原则",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-91",
+          "text": "自然人的民事权利能力始于出生、终于死亡；胎儿在遗产继承、接受赠与等利益保护上视为具有权利能力，但胎儿娩出时为死体的，其权利能力自始不存在",
+          "path": "民法典（来源第 12-17 页） › 总则：民事主体、能力与监护 › 自然人的民事权利能力始于出生、终于死亡；胎儿在遗产继承、接受赠与等利益保护上视为具有权利能力，但胎儿娩出时为死体的，其权利能力自始不存在",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-92",
+          "text": "无民事行为能力人：不满八周岁未成年人、不能辨认自己行为的成年人；限制民事行为能力人：八周岁以上未成年人、不能完全辨认自己行为的成年人；成年人及以劳动收入为主要生活来源的十六周岁以上未成年人规则依民法典",
+          "path": "民法典（来源第 12-17 页） › 总则：民事主体、能力与监护 › 无民事行为能力人：不满八周岁未成年人、不能辨认自己行为的成年人；限制民事行为能力人：八周岁以上未成年人、不能完全辨认自己行为的成年人；成年人及以劳动收入为主要生活来源的十六周岁以上未成年人规则依民法典",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-93",
+          "text": "监护类型包括法定、协议、指定、遗嘱、意定监护；监护人须按照最有利于被监护人原则履职，除为被监护人利益外不得处分其财产",
+          "path": "民法典（来源第 12-17 页） › 总则：民事主体、能力与监护 › 监护类型包括法定、协议、指定、遗嘱、意定监护；监护人须按照最有利于被监护人原则履职，除为被监护人利益外不得处分其财产",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-94",
+          "text": "诉讼时效一般为三年",
+          "path": "民法典（来源第 12-17 页） › 总则：民事主体、能力与监护 › 诉讼时效一般为三年",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-95",
+          "text": "合同",
+          "path": "民法典（来源第 12-17 页） › 合同",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-96",
+          "text": "合同有效要件：行为人有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定和公序良俗",
+          "path": "民法典（来源第 12-17 页） › 合同 › 合同有效要件：行为人有相应民事行为能力、意思表示真实、不违反法律行政法规强制性规定和公序良俗",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-97",
+          "text": "合同无效：无民事行为能力人实施、恶意串通损害他人合法权益、虚假意思表示、违反法律行政法规强制性规定、违背公序良俗等；无效后返还",
+          "path": "民法典（来源第 12-17 页） › 合同 › 合同无效：无民事行为能力人实施、恶意串通损害他人合法权益、虚假意思表示、违反法律行政法规强制性规定、违背公序良俗等；无效后返还",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-98",
+          "text": "可撤销事由：欺诈、胁迫、重大误解、显失公平；合同被撤销后无效，未撤销前有效",
+          "path": "民法典（来源第 12-17 页） › 合同 › 可撤销事由：欺诈、胁迫、重大误解、显失公平；合同被撤销后无效，未撤销前有效",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-99",
+          "text": "效力待定：限制民事行为能力人超越能力实施、无权代理等；追认后有效，未追认按法定后果处理",
+          "path": "民法典（来源第 12-17 页） › 合同 › 效力待定：限制民事行为能力人超越能力实施、无权代理等；追认后有效，未追认按法定后果处理",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-100",
+          "text": "违约责任：继续履行、采取补救措施、赔偿损失、违约金、定金；违约金与定金通常不能并用；违约与侵权竞合时受损害方可选择请求承担违约责任或侵权责任",
+          "path": "民法典（来源第 12-17 页） › 合同 › 违约责任：继续履行、采取补救措施、赔偿损失、违约金、定金；违约金与定金通常不能并用；违约与侵权竞合时受损害方可选择请求承担违约责任或侵权责任",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-101",
+          "text": "侵权责任",
+          "path": "民法典（来源第 12-17 页） › 侵权责任",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-102",
+          "text": "不当得利：一方受益、他方受损、二者有因果关系且无法律依据，应返还不当利益及孳息；无因管理的必要费用可请求补偿",
+          "path": "民法典（来源第 12-17 页） › 侵权责任 › 不当得利：一方受益、他方受损、二者有因果关系且无法律依据，应返还不当利益及孳息；无因管理的必要费用可请求补偿",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-103",
+          "text": "免责事由：受害人故意、第三人原因、不可抗力、正当防卫、紧急避险、自甘风险、自愿救助、依法自助等",
+          "path": "民法典（来源第 12-17 页） › 侵权责任 › 免责事由：受害人故意、第三人原因、不可抗力、正当防卫、紧急避险、自甘风险、自愿救助、依法自助等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-104",
+          "text": "共同侵权、共同危险、分别侵权的连带或按份责任依行为及因果关系确定",
+          "path": "民法典（来源第 12-17 页） › 侵权责任 › 共同侵权、共同危险、分别侵权的连带或按份责任依行为及因果关系确定",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-105",
+          "text": "监护人责任、用人单位责任、教育机构责任、公共场所管理人或群众性活动组织者责任均有相应规则",
+          "path": "民法典（来源第 12-17 页） › 侵权责任 › 监护人责任、用人单位责任、教育机构责任、公共场所管理人或群众性活动组织者责任均有相应规则",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-106",
+          "text": "网络侵权：接到通知后未及时采取必要措施的，可能就扩大部分承担连带责任；知道或应当知道侵权而未采取措施的，可能承担连带责任",
+          "path": "民法典（来源第 12-17 页） › 侵权责任 › 网络侵权：接到通知后未及时采取必要措施的，可能就扩大部分承担连带责任；知道或应当知道侵权而未采取措施的，可能承担连带责任",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-107",
+          "text": "产品责任、工程施工致害、高空抛物坠物、动物侵权均按民法典相应规则确定责任",
+          "path": "民法典（来源第 12-17 页） › 侵权责任 › 产品责任、工程施工致害、高空抛物坠物、动物侵权均按民法典相应规则确定责任",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-108",
+          "text": "物权",
+          "path": "民法典（来源第 12-17 页） › 物权",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-109",
+          "text": "所有权权能：占有、使用、收益和处分",
+          "path": "民法典（来源第 12-17 页） › 物权 › 所有权权能：占有、使用、收益和处分",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-110",
+          "text": "用益物权：土地承包经营权、建设用地使用权、宅基地使用权、地役权、居住权",
+          "path": "民法典（来源第 12-17 页） › 物权 › 用益物权：土地承包经营权、建设用地使用权、宅基地使用权、地役权、居住权",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-111",
+          "text": "居住权以书面合同设立、一般无偿；登记时设立；不得转让、继承，设立居住权的住宅一般不得出租（另有约定除外）",
+          "path": "民法典（来源第 12-17 页） › 物权 › 居住权以书面合同设立、一般无偿；登记时设立；不得转让、继承，设立居住权的住宅一般不得出租（另有约定除外）",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-112",
+          "text": "担保物权包括抵押权、质押权、留置权；法律规定的财产不得抵押；留置权使债权人对合法占有的债务人动产享有优先受偿权",
+          "path": "民法典（来源第 12-17 页） › 物权 › 担保物权包括抵押权、质押权、留置权；法律规定的财产不得抵押；留置权使债权人对合法占有的债务人动产享有优先受偿权",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-113",
+          "text": "物权变动：不动产物权登记，动产物权交付",
+          "path": "民法典（来源第 12-17 页） › 物权 › 物权变动：不动产物权登记，动产物权交付",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-114",
+          "text": "婚姻家庭",
+          "path": "民法典（来源第 12-17 页） › 婚姻家庭",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-115",
+          "text": "婚姻无效：主体不合格、重婚、禁止结婚的亲属关系；可撤销婚姻包括受胁迫和一方隐瞒重大疾病等法定情形",
+          "path": "民法典（来源第 12-17 页） › 婚姻家庭 › 婚姻无效：主体不合格、重婚、禁止结婚的亲属关系；可撤销婚姻包括受胁迫和一方隐瞒重大疾病等法定情形",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-116",
+          "text": "约定财产制应采用书面形式；法定夫妻共同财产包括工资奖金劳务报酬、生产经营投资收益、知识产权收益、继承或受赠财产（特定除外）",
+          "path": "民法典（来源第 12-17 页） › 婚姻家庭 › 约定财产制应采用书面形式；法定夫妻共同财产包括工资奖金劳务报酬、生产经营投资收益、知识产权收益、继承或受赠财产（特定除外）",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-117",
+          "text": "夫妻个人财产包括一方婚前财产、因人身损害获得的赔偿或补偿、遗嘱或赠与中确定只归一方的财产、一方专用生活用品等",
+          "path": "民法典（来源第 12-17 页） › 婚姻家庭 › 夫妻个人财产包括一方婚前财产、因人身损害获得的赔偿或补偿、遗嘱或赠与中确定只归一方的财产、一方专用生活用品等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-118",
+          "text": "夫妻共同债务：共同签名或共同意思表示、为家庭日常生活需要所负债务等；超出日常生活需要且未共同意思表示的，由债权人承担相应举证责任",
+          "path": "民法典（来源第 12-17 页） › 婚姻家庭 › 夫妻共同债务：共同签名或共同意思表示、为家庭日常生活需要所负债务等；超出日常生活需要且未共同意思表示的，由债权人承担相应举证责任",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-119",
+          "text": "协议离婚：登记机关收到申请后有离婚冷静期；期满后双方应亲自申请发给离婚证，具体期限以现行法为准；诉讼离婚适用重婚、家暴、恶习屡教不改、因感情不和分居满二年等法定事由",
+          "path": "民法典（来源第 12-17 页） › 婚姻家庭 › 协议离婚：登记机关收到申请后有离婚冷静期；期满后双方应亲自申请发给离婚证，具体期限以现行法为准；诉讼离婚适用重婚、家暴、恶习屡教不改、因感情不和分居满二年等法定事由",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-120",
+          "text": "继承",
+          "path": "民法典（来源第 12-17 页） › 继承",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-121",
+          "text": "遗产是自然人死亡时遗留的个人合法财产",
+          "path": "民法典（来源第 12-17 页） › 继承 › 遗产是自然人死亡时遗留的个人合法财产",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-122",
+          "text": "丧失继承权情形包括故意杀害被继承人、为争夺遗产杀害其他继承人、遗弃或虐待被继承人情节严重、伪造篡改隐匿销毁遗嘱情节严重、以欺诈胁迫手段妨碍遗嘱自由且情节严重等",
+          "path": "民法典（来源第 12-17 页） › 继承 › 丧失继承权情形包括故意杀害被继承人、为争夺遗产杀害其他继承人、遗弃或虐待被继承人情节严重、伪造篡改隐匿销毁遗嘱情节严重、以欺诈胁迫手段妨碍遗嘱自由且情节严重等",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-123",
+          "text": "继承方式效力：遗赠扶养协议优先于遗嘱或遗赠，遗嘱或遗赠优先于法定继承",
+          "path": "民法典（来源第 12-17 页） › 继承 › 继承方式效力：遗赠扶养协议优先于遗嘱或遗赠，遗嘱或遗赠优先于法定继承",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-124",
+          "text": "法定继承第一顺序：配偶、子女、父母、尽主要赡养义务的丧偶儿媳和丧偶女婿；第二顺序：兄弟姐妹、祖父母、外祖父母",
+          "path": "民法典（来源第 12-17 页） › 继承 › 法定继承第一顺序：配偶、子女、父母、尽主要赡养义务的丧偶儿媳和丧偶女婿；第二顺序：兄弟姐妹、祖父母、外祖父母",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-125",
+          "text": "遗嘱形式：自书、代书、打印、录音录像、口头、公证；数份内容相抵触的遗嘱以最后遗嘱为准",
+          "path": "民法典（来源第 12-17 页） › 继承 › 遗嘱形式：自书、代书、打印、录音录像、口头、公证；数份内容相抵触的遗嘱以最后遗嘱为准",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-126",
+          "text": "遗赠扶养协议：扶养人承担生养死葬义务，享有受遗赠权利；无人继承又无人受遗赠的遗产依法归国家或集体所有制组织所有",
+          "path": "民法典（来源第 12-17 页） › 继承 › 遗赠扶养协议：扶养人承担生养死葬义务，享有受遗赠权利；无人继承又无人受遗赠的遗产依法归国家或集体所有制组织所有",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-127",
+          "text": "继承人以所得遗产实际价值为限清偿被继承人依法应缴税款和债务；放弃继承的，对相关税款和债务可不负清偿责任",
+          "path": "民法典（来源第 12-17 页） › 继承 › 继承人以所得遗产实际价值为限清偿被继承人依法应缴税款和债务；放弃继承的，对相关税款和债务可不负清偿责任",
+          "moduleId": "law",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-128",
+          "text": "辩证唯物论（来源第 18 页）",
+          "path": "辩证唯物论（来源第 18 页）",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": true
+        },
+        {
+          "id": "public-basics-foundations-129",
+          "text": "物质",
+          "path": "辩证唯物论（来源第 18 页） › 物质",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-130",
+          "text": "物质是标志客观实在的哲学范畴；唯一特性和根本属性是客观实在性",
+          "path": "辩证唯物论（来源第 18 页） › 物质 › 物质是标志客观实在的哲学范畴；唯一特性和根本属性是客观实在性",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-131",
+          "text": "物质的存在形式是运动：物质是运动的物质，运动是物质的存在方式和根本属性；物质是运动承担者",
+          "path": "辩证唯物论（来源第 18 页） › 物质 › 物质的存在形式是运动：物质是运动的物质，运动是物质的存在方式和根本属性；物质是运动承担者",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-132",
+          "text": "运动无条件、永恒、绝对；静止有条件、暂时、相对；物质世界是绝对运动和相对静止的统一",
+          "path": "辩证唯物论（来源第 18 页） › 物质 › 运动无条件、永恒、绝对；静止有条件、暂时、相对；物质世界是绝对运动和相对静止的统一",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-133",
+          "text": "规律是事物运动中本身固有、本质、必然、稳定的联系，具有客观性、普遍性、可知性和可利用性",
+          "path": "辩证唯物论（来源第 18 页） › 物质 › 规律是事物运动中本身固有、本质、必然、稳定的联系，具有客观性、普遍性、可知性和可利用性",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-134",
+          "text": "意识",
+          "path": "辩证唯物论（来源第 18 页） › 意识",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-135",
+          "text": "从起源看，意识是物质世界长期发展的产物；从生理基础看，意识是人脑机能；从内容看，意识是客观存在的反映，内容客观、形式主观",
+          "path": "辩证唯物论（来源第 18 页） › 意识 › 从起源看，意识是物质世界长期发展的产物；从生理基础看，意识是人脑机能；从内容看，意识是客观存在的反映，内容客观、形式主观",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-136",
+          "text": "意识活动具有目的性、计划性、自觉选择性和主动创造性",
+          "path": "辩证唯物论（来源第 18 页） › 意识 › 意识活动具有目的性、计划性、自觉选择性和主动创造性",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-137",
+          "text": "意识能认识世界并能改造世界，对改造客观世界有指导作用，对人体生理活动有调节和控制作用",
+          "path": "辩证唯物论（来源第 18 页） › 意识 › 意识能认识世界并能改造世界，对改造客观世界有指导作用，对人体生理活动有调节和控制作用",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-138",
+          "text": "发挥意识能动作用以实践为根本途径，以尊重客观规律为前提，必须依赖一定物质条件和手段",
+          "path": "辩证唯物论（来源第 18 页） › 意识 › 发挥意识能动作用以实践为根本途径，以尊重客观规律为前提，必须依赖一定物质条件和手段",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-139",
+          "text": "物质与意识的辩证关系",
+          "path": "辩证唯物论（来源第 18 页） › 物质与意识的辩证关系",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-140",
+          "text": "物质决定意识；意识对物质具有能动反作用，正确意识促进、错误意识阻碍",
+          "path": "辩证唯物论（来源第 18 页） › 物质与意识的辩证关系 › 物质决定意识；意识对物质具有能动反作用，正确意识促进、错误意识阻碍",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-141",
+          "text": "方法论：一切从实际出发，实事求是，重视和发挥主观能动性",
+          "path": "辩证唯物论（来源第 18 页） › 物质与意识的辩证关系 › 方法论：一切从实际出发，实事求是，重视和发挥主观能动性",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-142",
+          "text": "唯物辩证法（来源第 19-20 页）",
+          "path": "唯物辩证法（来源第 19-20 页）",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": true
+        },
+        {
+          "id": "public-basics-foundations-143",
+          "text": "联系与发展",
+          "path": "唯物辩证法（来源第 19-20 页） › 联系与发展",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-144",
+          "text": "联系具有普遍性、客观性、多样性、条件性；方法论是用普遍联系观点看问题，立足整体、统筹全局，重视部分作用",
+          "path": "唯物辩证法（来源第 19-20 页） › 联系与发展 › 联系具有普遍性、客观性、多样性、条件性；方法论是用普遍联系观点看问题，立足整体、统筹全局，重视部分作用",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-145",
+          "text": "发展具有普遍性；实质是事物前进和上升、新事物产生和旧事物灭亡；前途光明、道路曲折，要用发展观点看问题",
+          "path": "唯物辩证法（来源第 19-20 页） › 联系与发展 › 发展具有普遍性；实质是事物前进和上升、新事物产生和旧事物灭亡；前途光明、道路曲折，要用发展观点看问题",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-146",
+          "text": "对立统一规律",
+          "path": "唯物辩证法（来源第 19-20 页） › 对立统一规律",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-147",
+          "text": "矛盾双方具有同一性和斗争性；对立统一推动事物运动、变化和发展，是发展根源和动力",
+          "path": "唯物辩证法（来源第 19-20 页） › 对立统一规律 › 矛盾双方具有同一性和斗争性；对立统一推动事物运动、变化和发展，是发展根源和动力",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-148",
+          "text": "矛盾普遍性与特殊性：具体问题具体分析是正确认识事物和解决矛盾的关键；二者在一定条件下相互转化",
+          "path": "唯物辩证法（来源第 19-20 页） › 对立统一规律 › 矛盾普遍性与特殊性：具体问题具体分析是正确认识事物和解决矛盾的关键；二者在一定条件下相互转化",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-149",
+          "text": "内因是事物变化发展的根本原因，外因通过内因起作用；主要矛盾与矛盾主要方面决定问题的重点和性质",
+          "path": "唯物辩证法（来源第 19-20 页） › 对立统一规律 › 内因是事物变化发展的根本原因，外因通过内因起作用；主要矛盾与矛盾主要方面决定问题的重点和性质",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-150",
+          "text": "质量互变规律",
+          "path": "唯物辩证法（来源第 19-20 页） › 质量互变规律",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-151",
+          "text": "量变是数量增减或场所变更的渐进、不显著变化；质变是根本性质变化、显著变化",
+          "path": "唯物辩证法（来源第 19-20 页） › 质量互变规律 › 量变是数量增减或场所变更的渐进、不显著变化；质变是根本性质变化、显著变化",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-152",
+          "text": "发展从量变开始，量变是质变必要准备，质变是量变必然结果；质变为新的量变开辟道路",
+          "path": "唯物辩证法（来源第 19-20 页） › 质量互变规律 › 发展从量变开始，量变是质变必要准备，质变是量变必然结果；质变为新的量变开辟道路",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-153",
+          "text": "方法论：重视量的积累，抓住时机促成质变，掌握事物的度",
+          "path": "唯物辩证法（来源第 19-20 页） › 质量互变规律 › 方法论：重视量的积累，抓住时机促成质变，掌握事物的度",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-154",
+          "text": "否定之否定规律",
+          "path": "唯物辩证法（来源第 19-20 页） › 否定之否定规律",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-155",
+          "text": "辩证否定是事物自身的否定，是自己否定自己、自己发展自己；是发展的环节和联系的环节，实质是扬弃",
+          "path": "唯物辩证法（来源第 19-20 页） › 否定之否定规律 › 辩证否定是事物自身的否定，是自己否定自己、自己发展自己；是发展的环节和联系的环节，实质是扬弃",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-156",
+          "text": "认识论（来源第 21 页）",
+          "path": "认识论（来源第 21 页）",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-157",
+          "text": "实践",
+          "path": "认识论（来源第 21 页） › 实践",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-158",
+          "text": "实践是人们改造客观世界的物质性活动，是主观见之于客观的活动，是沟通主客观的桥梁",
+          "path": "认识论（来源第 21 页） › 实践 › 实践是人们改造客观世界的物质性活动，是主观见之于客观的活动，是沟通主客观的桥梁",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-159",
+          "text": "特点：客观物质性、直接现实性、自觉能动性、社会历史性；形式包括生产实践、变革社会实践、科学实验活动",
+          "path": "认识论（来源第 21 页） › 实践 › 特点：客观物质性、直接现实性、自觉能动性、社会历史性；形式包括生产实践、变革社会实践、科学实验活动",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-160",
+          "text": "认识与实践的关系",
+          "path": "认识论（来源第 21 页） › 认识与实践的关系",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-161",
+          "text": "认识是主体在实践基础上对客体的能动反映；感性认识包括感觉、知觉、表象，理性认识包括概念、判断、推理",
+          "path": "认识论（来源第 21 页） › 认识与实践的关系 › 认识是主体在实践基础上对客体的能动反映；感性认识包括感觉、知觉、表象，理性认识包括概念、判断、推理",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-162",
+          "text": "实践是认识的唯一来源、发展动力、目的，也是检验认识正确与否的唯一标准；认识对实践有反作用，正确促进、错误阻碍",
+          "path": "认识论（来源第 21 页） › 认识与实践的关系 › 实践是认识的唯一来源、发展动力、目的，也是检验认识正确与否的唯一标准；认识对实践有反作用，正确促进、错误阻碍",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-163",
+          "text": "真理与认识过程",
+          "path": "认识论（来源第 21 页） › 真理与认识过程",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-164",
+          "text": "真理是主客观相符合的哲学范畴，是人们对客观事物及规律的正确反映；具有客观性、具体性、条件性",
+          "path": "认识论（来源第 21 页） › 真理与认识过程 › 真理是主客观相符合的哲学范畴，是人们对客观事物及规律的正确反映；具有客观性、具体性、条件性",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-165",
+          "text": "认识具有反复性、无限性、上升性：从实践到认识、再从认识到实践，循环往复并呈波浪式前进或螺旋式上升",
+          "path": "认识论（来源第 21 页） › 真理与认识过程 › 认识具有反复性、无限性、上升性：从实践到认识、再从认识到实践，循环往复并呈波浪式前进或螺旋式上升",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-166",
+          "text": "历史唯物主义与人生价值（来源第 22 页）",
+          "path": "历史唯物主义与人生价值（来源第 22 页）",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-167",
+          "text": "社会存在与社会意识",
+          "path": "历史唯物主义与人生价值（来源第 22 页） › 社会存在与社会意识",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-168",
+          "text": "社会存在是社会生活物质方面，主要包括地理环境、人口因素和生产方式；物质资料生产方式是社会存在和发展基础",
+          "path": "历史唯物主义与人生价值（来源第 22 页） › 社会存在与社会意识 › 社会存在是社会生活物质方面，主要包括地理环境、人口因素和生产方式；物质资料生产方式是社会存在和发展基础",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-169",
+          "text": "社会意识是社会生活精神方面，具有相对独立性；社会存在决定社会意识，社会意识对社会存在有能动反作用",
+          "path": "历史唯物主义与人生价值（来源第 22 页） › 社会存在与社会意识 › 社会意识是社会生活精神方面，具有相对独立性；社会存在决定社会意识，社会意识对社会存在有能动反作用",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-170",
+          "text": "社会基本矛盾和群众史观",
+          "path": "历史唯物主义与人生价值（来源第 22 页） › 社会基本矛盾和群众史观",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-171",
+          "text": "社会基本矛盾是推动社会发展的根本动力；生产力决定生产关系，经济基础决定上层建筑，并存在反作用",
+          "path": "历史唯物主义与人生价值（来源第 22 页） › 社会基本矛盾和群众史观 › 社会基本矛盾是推动社会发展的根本动力；生产力决定生产关系，经济基础决定上层建筑，并存在反作用",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-172",
+          "text": "人民群众是社会历史主体，是历史创造者；坚持群众观点和群众路线，一切为了群众、一切依靠群众，从群众中来、到群众中去",
+          "path": "历史唯物主义与人生价值（来源第 22 页） › 社会基本矛盾和群众史观 › 人民群众是社会历史主体，是历史创造者；坚持群众观点和群众路线，一切为了群众、一切依靠群众，从群众中来、到群众中去",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-173",
+          "text": "人生价值",
+          "path": "历史唯物主义与人生价值（来源第 22 页） › 人生价值",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-174",
+          "text": "正确价值观对社会和人生有积极导向；价值判断以主体需要满足程度为基础，价值选择以价值判断为基础",
+          "path": "历史唯物主义与人生价值（来源第 22 页） › 人生价值 › 正确价值观对社会和人生有积极导向；价值判断以主体需要满足程度为基础，价值选择以价值判断为基础",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-175",
+          "text": "人的真正价值在于对社会的贡献；人既是价值创造者又是价值享受者；劳动和奉献是实现人生价值的必由之路",
+          "path": "历史唯物主义与人生价值（来源第 22 页） › 人生价值 › 人的真正价值在于对社会的贡献；人既是价值创造者又是价值享受者；劳动和奉献是实现人生价值的必由之路",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-176",
+          "text": "文化和文明（来源第 23 页）",
+          "path": "文化和文明（来源第 23 页）",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-177",
+          "text": "文化、传统文化和中华文化",
+          "path": "文化和文明（来源第 23 页） › 文化、传统文化和中华文化",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-178",
+          "text": "文化是人类社会特有的精神现象，能在认识世界、改造世界过程中转化为物质力量；传统文化维系民族生存发展的精神纽带",
+          "path": "文化和文明（来源第 23 页） › 文化、传统文化和中华文化 › 文化是人类社会特有的精神现象，能在认识世界、改造世界过程中转化为物质力量；传统文化维系民族生存发展的精神纽带",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-179",
+          "text": "中华文化源远流长、博大精深，包容性使其吸收借鉴其他民族优秀文化",
+          "path": "文化和文明（来源第 23 页） › 文化、传统文化和中华文化 › 中华文化源远流长、博大精深，包容性使其吸收借鉴其他民族优秀文化",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-180",
+          "text": "文化与经济政治、文化创新",
+          "path": "文化和文明（来源第 23 页） › 文化与经济政治、文化创新",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-181",
+          "text": "经济政治决定文化，文化反作用于经济政治；文化与经济政治相互交融，是综合国力竞争的重要因素",
+          "path": "文化和文明（来源第 23 页） › 文化与经济政治、文化创新 › 经济政治决定文化，文化反作用于经济政治；文化与经济政治相互交融，是综合国力竞争的重要因素",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-182",
+          "text": "社会实践是文化创新的源泉和动力，立足社会实践是文化创作基本要求和根本途径，人民群众是主体",
+          "path": "文化和文明（来源第 23 页） › 文化与经济政治、文化创新 › 社会实践是文化创新的源泉和动力，立足社会实践是文化创作基本要求和根本途径，人民群众是主体",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-183",
+          "text": "文化发展",
+          "path": "文化和文明（来源第 23 页） › 文化发展",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-184",
+          "text": "创造性转化：改造传统文化中有借鉴意义的内容和陈旧表达形式；创新性发展：补充、拓展和完善优秀传统文化",
+          "path": "文化和文明（来源第 23 页） › 文化发展 › 创造性转化：改造传统文化中有借鉴意义的内容和陈旧表达形式；创新性发展：补充、拓展和完善优秀传统文化",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-185",
+          "text": "文化自信来自道路、理论、制度和文化，体现对中华文化发展前途、中国特色社会主义文化发展道路及强国目标的信心",
+          "path": "文化和文明（来源第 23 页） › 文化发展 › 文化自信来自道路、理论、制度和文化，体现对中华文化发展前途、中国特色社会主义文化发展道路及强国目标的信心",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-186",
+          "text": "社会主义精神文明建设以加强思想道德建设为中心环节；尊重文化多样性既要认同本民族文化，也要尊重其他民族文化",
+          "path": "文化和文明（来源第 23 页） › 文化发展 › 社会主义精神文明建设以加强思想道德建设为中心环节；尊重文化多样性既要认同本民族文化，也要尊重其他民族文化",
+          "moduleId": "philosophy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-187",
+          "text": "商品、货币与价值规律（来源第 24 页）",
+          "path": "商品、货币与价值规律（来源第 24 页）",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": true
+        },
+        {
+          "id": "public-basics-foundations-188",
+          "text": "商品与价值",
+          "path": "商品、货币与价值规律（来源第 24 页） › 商品与价值",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-189",
+          "text": "商品是用来交换的劳动产品；具有使用价值（满足人类需要的属性）和价值（凝结在商品中的无差别的人类劳动）",
+          "path": "商品、货币与价值规律（来源第 24 页） › 商品与价值 › 商品是用来交换的劳动产品；具有使用价值（满足人类需要的属性）和价值（凝结在商品中的无差别的人类劳动）",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-190",
+          "text": "商品价值量由社会必要劳动时间决定，与之成正比；个别劳动时间不能决定商品价值量",
+          "path": "商品、货币与价值规律（来源第 24 页） › 商品与价值 › 商品价值量由社会必要劳动时间决定，与之成正比；个别劳动时间不能决定商品价值量",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-191",
+          "text": "价值规律基本内容：商品价值量由生产商品的社会必要劳动时间决定，商品交换以价值量为基础实行等价交换；价格围绕价值上下波动",
+          "path": "商品、货币与价值规律（来源第 24 页） › 商品与价值 › 价值规律基本内容：商品价值量由生产商品的社会必要劳动时间决定，商品交换以价值量为基础实行等价交换；价格围绕价值上下波动",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-192",
+          "text": "货币与汇率",
+          "path": "商品、货币与价值规律（来源第 24 页） › 货币与汇率",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-193",
+          "text": "货币是从商品中分离出来固定充当一般等价物的商品，本质是一般等价物；具有价值尺度、流通手段、贮藏手段、支付手段、世界货币等职能",
+          "path": "商品、货币与价值规律（来源第 24 页） › 货币与汇率 › 货币是从商品中分离出来固定充当一般等价物的商品，本质是一般等价物；具有价值尺度、流通手段、贮藏手段、支付手段、世界货币等职能",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-194",
+          "text": "纸币发行量以流通中实际所需货币量为基础；纸币贬值率和通货膨胀率的口径应结合教材公式理解",
+          "path": "商品、货币与价值规律（来源第 24 页） › 货币与汇率 › 纸币发行量以流通中实际所需货币量为基础；纸币贬值率和通货膨胀率的口径应结合教材公式理解",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-195",
+          "text": "数字人民币是中国人民银行发行的法定货币数字化形态",
+          "path": "商品、货币与价值规律（来源第 24 页） › 货币与汇率 › 数字人民币是中国人民银行发行的法定货币数字化形态",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-196",
+          "text": "汇率是两种货币之间兑换比率；本币升值购买力提升、有利于买入，本币贬值购买力下降；人民币国际化可降低汇率波动风险和外贸风险",
+          "path": "商品、货币与价值规律（来源第 24 页） › 货币与汇率 › 汇率是两种货币之间兑换比率；本币升值购买力提升、有利于买入，本币贬值购买力下降；人民币国际化可降低汇率波动风险和外贸风险",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-197",
+          "text": "生产、消费、劳动与企业（来源第 25 页）",
+          "path": "生产、消费、劳动与企业（来源第 25 页）",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-198",
+          "text": "市场供求与生产消费",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 市场供求与生产消费",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-199",
+          "text": "市场需求受价格（反比）、收入、相关商品价格（替代品、互补品）、消费者偏好和预期等影响；生活必需品受价格变动影响较小，高档耐用品影响较大",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 市场供求与生产消费 › 市场需求受价格（反比）、收入、相关商品价格（替代品、互补品）、消费者偏好和预期等影响；生活必需品受价格变动影响较小，高档耐用品影响较大",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-200",
+          "text": "市场供给受产品价格、生产成本、生产技术变化、政府租税或补贴政策等影响",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 市场供求与生产消费 › 市场供给受产品价格、生产成本、生产技术变化、政府租税或补贴政策等影响",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-201",
+          "text": "生产决定消费对象、方式、质量和水平，并为消费创造动力；消费是生产目的、对生产有重要反作用，调节生产、为生产创造新的劳动力",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 市场供求与生产消费 › 生产决定消费对象、方式、质量和水平，并为消费创造动力；消费是生产目的、对生产有重要反作用，调节生产、为生产创造新的劳动力",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-202",
+          "text": "企业与融资",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 企业与融资",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-203",
+          "text": "企业类型：有限责任公司资本不必划为等额股份，以出资证明书为股东凭证；股份有限公司资本必须划为等额股份，以股票为凭证，上市公司股票可流通",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 企业与融资 › 企业类型：有限责任公司资本不必划为等额股份，以出资证明书为股东凭证；股份有限公司资本必须划为等额股份，以股票为凭证，上市公司股票可流通",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-204",
+          "text": "企业经营成功需要制定正确经营战略、提高自主创新能力、诚信经营和承担社会责任等",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 企业与融资 › 企业经营成功需要制定正确经营战略、提高自主创新能力、诚信经营和承担社会责任等",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-205",
+          "text": "直接融资包括股票、债券；股票高收益与高风险并存，债券安全性较大但预期收益较低；间接融资主要为银行贷款",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 企业与融资 › 直接融资包括股票、债券；股票高收益与高风险并存，债券安全性较大但预期收益较低；间接融资主要为银行贷款",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-206",
+          "text": "劳动者就业",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 劳动者就业",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-207",
+          "text": "方针：劳动者自主就业、市场调节就业、政府促进就业和鼓励创业",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 劳动者就业 › 方针：劳动者自主就业、市场调节就业、政府促进就业和鼓励创业",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-208",
+          "text": "国家发展经济、发展社会生产力并提供就业岗位；企业应承担社会责任、合理用工、保护劳动者合法权益；劳动者提高职业技能和综合素质",
+          "path": "生产、消费、劳动与企业（来源第 25 页） › 劳动者就业 › 国家发展经济、发展社会生产力并提供就业岗位；企业应承担社会责任、合理用工、保护劳动者合法权益；劳动者提高职业技能和综合素质",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-209",
+          "text": "社会主义市场经济体制（来源第 26 页）",
+          "path": "社会主义市场经济体制（来源第 26 页）",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-210",
+          "text": "市场机制与政府作用",
+          "path": "社会主义市场经济体制（来源第 26 页） › 市场机制与政府作用",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-211",
+          "text": "市场机制主要通过价格、供求、竞争调节；优点是反映供求变化、传递信息，局限包括自发性、盲目性、滞后性",
+          "path": "社会主义市场经济体制（来源第 26 页） › 市场机制与政府作用 › 市场机制主要通过价格、供求、竞争调节；优点是反映供求变化、传递信息，局限包括自发性、盲目性、滞后性",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-212",
+          "text": "建设现代市场体系：完善市场、建立公开透明的市场规则、完善主要由市场决定价格机制",
+          "path": "社会主义市场经济体制（来源第 26 页） › 市场机制与政府作用 › 建设现代市场体系：完善市场、建立公开透明的市场规则、完善主要由市场决定价格机制",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-213",
+          "text": "社会主义市场经济根本目标是促进全体人民实现共同富裕；政府宏观调控目标是促进增长、增加就业、稳定物价、保持国际收支平衡",
+          "path": "社会主义市场经济体制（来源第 26 页） › 市场机制与政府作用 › 社会主义市场经济根本目标是促进全体人民实现共同富裕；政府宏观调控目标是促进增长、增加就业、稳定物价、保持国际收支平衡",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-214",
+          "text": "宏观调控手段：经济手段（财政、货币政策）、法律手段（经济立法和司法）、行政手段（行政命令、指示、规定和条例）",
+          "path": "社会主义市场经济体制（来源第 26 页） › 市场机制与政府作用 › 宏观调控手段：经济手段（财政、货币政策）、法律手段（经济立法和司法）、行政手段（行政命令、指示、规定和条例）",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-215",
+          "text": "财政、货币与热点",
+          "path": "社会主义市场经济体制（来源第 26 页） › 财政、货币与热点",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-216",
+          "text": "财政作用：促进社会公平、改善民生，促进资源合理配置，促进国民经济平稳运行；财政收入有税、利、债、费，支出有购买性和转移性支出",
+          "path": "社会主义市场经济体制（来源第 26 页） › 财政、货币与热点 › 财政作用：促进社会公平、改善民生，促进资源合理配置，促进国民经济平稳运行；财政收入有税、利、债、费，支出有购买性和转移性支出",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-217",
+          "text": "扩张性财政政策是多支少收（两增一减），紧缩性财政政策是少支多收（两减一增）",
+          "path": "社会主义市场经济体制（来源第 26 页） › 财政、货币与热点 › 扩张性财政政策是多支少收（两增一减），紧缩性财政政策是少支多收（两减一增）",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-218",
+          "text": "货币政策工具包括利率、公开市场业务、再贴现率、存款准备金率；扩张性货币政策一般为三降一低，紧缩性为三升一高",
+          "path": "社会主义市场经济体制（来源第 26 页） › 财政、货币与热点 › 货币政策工具包括利率、公开市场业务、再贴现率、存款准备金率；扩张性货币政策一般为三降一低，紧缩性为三升一高",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-219",
+          "text": "社会总供给包括国内和进口商品劳务，社会总需求包括内需（投资消费）和外需（出口）；供给侧结构性改革强调提高供给质量",
+          "path": "社会主义市场经济体制（来源第 26 页） › 财政、货币与热点 › 社会总供给包括国内和进口商品劳务，社会总需求包括内需（投资消费）和外需（出口）；供给侧结构性改革强调提高供给质量",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-220",
+          "text": "超长期特别国债为特定战略需求发行的债务融资工具，期限和用途依政策规定",
+          "path": "社会主义市场经济体制（来源第 26 页） › 财政、货币与热点 › 超长期特别国债为特定战略需求发行的债务融资工具，期限和用途依政策规定",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-221",
+          "text": "收入分配与社会保障（来源第 27 页）",
+          "path": "收入分配与社会保障（来源第 27 页）",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-222",
+          "text": "基本经济制度",
+          "path": "收入分配与社会保障（来源第 27 页） › 基本经济制度",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-223",
+          "text": "公有制经济居主体地位，公有资产在社会总资产中占优势；国有经济控制国民经济命脉，对经济发展起主导作用",
+          "path": "收入分配与社会保障（来源第 27 页） › 基本经济制度 › 公有制经济居主体地位，公有资产在社会总资产中占优势；国有经济控制国民经济命脉，对经济发展起主导作用",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-224",
+          "text": "非公有制经济是社会主义市场经济重要组成部分；坚持两个毫不动摇：巩固发展公有制，鼓励支持引导非公有制经济发展",
+          "path": "收入分配与社会保障（来源第 27 页） › 基本经济制度 › 非公有制经济是社会主义市场经济重要组成部分；坚持两个毫不动摇：巩固发展公有制，鼓励支持引导非公有制经济发展",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-225",
+          "text": "分配制度",
+          "path": "收入分配与社会保障（来源第 27 页） › 分配制度",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-226",
+          "text": "按劳分配为主体、多种分配方式并存；公有制经济中的工资奖金津贴、农村种地收入等属于按劳分配",
+          "path": "收入分配与社会保障（来源第 27 页） › 分配制度 › 按劳分配为主体、多种分配方式并存；公有制经济中的工资奖金津贴、农村种地收入等属于按劳分配",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-227",
+          "text": "按生产要素分配包括资本、土地、管理、劳动、技术、数据等要素：如储蓄利息、股息、租金、管理收入、工资奖金津贴、技术使用或转让收入、数据投入或使用收入",
+          "path": "收入分配与社会保障（来源第 27 页） › 分配制度 › 按生产要素分配包括资本、土地、管理、劳动、技术、数据等要素：如储蓄利息、股息、租金、管理收入、工资奖金津贴、技术使用或转让收入、数据投入或使用收入",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-228",
+          "text": "初次分配由生产部门按生产要素进行；再分配主要由政府通过税收、社会保障、转移支付调节；第三次分配为公益慈善",
+          "path": "收入分配与社会保障（来源第 27 页） › 分配制度 › 初次分配由生产部门按生产要素进行；再分配主要由政府通过税收、社会保障、转移支付调节；第三次分配为公益慈善",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-229",
+          "text": "社会保障体系",
+          "path": "收入分配与社会保障（来源第 27 页） › 社会保障体系",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-230",
+          "text": "主要形式：社会保险、社会救助、社会福利、社会优抚",
+          "path": "收入分配与社会保障（来源第 27 页） › 社会保障体系 › 主要形式：社会保险、社会救助、社会福利、社会优抚",
+          "moduleId": "economy",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-231",
+          "text": "坚持中国共产党的领导（来源第 28 页）",
+          "path": "坚持中国共产党的领导（来源第 28 页）",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": true
+        },
+        {
+          "id": "public-basics-foundations-232",
+          "text": "党的先进性",
+          "path": "坚持中国共产党的领导（来源第 28 页） › 党的先进性",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-233",
+          "text": "始终坚持以人民为中心：根本宗旨全心全意为人民服务，根本立场人民立场，初心使命为中国人民谋幸福、为中华民族谋复兴",
+          "path": "坚持中国共产党的领导（来源第 28 页） › 党的先进性 › 始终坚持以人民为中心：根本宗旨全心全意为人民服务，根本立场人民立场，初心使命为中国人民谋幸福、为中华民族谋复兴",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-234",
+          "text": "党的最大政治优势是密切联系群众，最大危险是脱离群众；执政理念为立党为公、执政为民",
+          "path": "坚持中国共产党的领导（来源第 28 页） › 党的先进性 › 党的最大政治优势是密切联系群众，最大危险是脱离群众；执政理念为立党为公、执政为民",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-235",
+          "text": "始终走在时代前列：坚持解放思想、实事求是、与时俱进、求真务实，发挥党员先锋模范作用",
+          "path": "坚持中国共产党的领导（来源第 28 页） › 党的先进性 › 始终走在时代前列：坚持解放思想、实事求是、与时俱进、求真务实，发挥党员先锋模范作用",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-236",
+          "text": "党的全面领导",
+          "path": "坚持中国共产党的领导（来源第 28 页） › 党的全面领导",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-237",
+          "text": "中国共产党领导是中国特色社会主义最本质特征和最大优势；党的领导是党和国家根本所在、命脉所在，是全国各族人民利益所系、命运所系",
+          "path": "坚持中国共产党的领导（来源第 28 页） › 党的全面领导 › 中国共产党领导是中国特色社会主义最本质特征和最大优势；党的领导是党和国家根本所在、命脉所在，是全国各族人民利益所系、命运所系",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-238",
+          "text": "领导方式：政治领导（政治目标、路线、方针、政策），思想领导，组织领导",
+          "path": "坚持中国共产党的领导（来源第 28 页） › 党的全面领导 › 领导方式：政治领导（政治目标、路线、方针、政策），思想领导，组织领导",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-239",
+          "text": "党的领导是全面、系统、整体的；坚持全面从严治党，以党的政治建设为统领，加强思想、组织、作风、纪律建设并把制度建设贯穿其中，深入推进反腐败斗争",
+          "path": "坚持中国共产党的领导（来源第 28 页） › 党的全面领导 › 党的领导是全面、系统、整体的；坚持全面从严治党，以党的政治建设为统领，加强思想、组织、作风、纪律建设并把制度建设贯穿其中，深入推进反腐败斗争",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-240",
+          "text": "执政方式：科学执政、民主执政、依法执政；依法执政是基本方式",
+          "path": "坚持中国共产党的领导（来源第 28 页） › 党的全面领导 › 执政方式：科学执政、民主执政、依法执政；依法执政是基本方式",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-241",
+          "text": "人民当家作主（来源第 29 页）",
+          "path": "人民当家作主（来源第 29 页）",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-242",
+          "text": "人民民主专政与人民代表大会制度",
+          "path": "人民当家作主（来源第 29 页） › 人民民主专政与人民代表大会制度",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-243",
+          "text": "社会主义民主特点：最广泛、最真实、最管用；人民民主专政本质是人民当家作主，对广大人民实行民主、对极少数敌人实行专政",
+          "path": "人民当家作主（来源第 29 页） › 人民民主专政与人民代表大会制度 › 社会主义民主特点：最广泛、最真实、最管用；人民民主专政本质是人民当家作主，对广大人民实行民主、对极少数敌人实行专政",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-244",
+          "text": "国家职能：对内维护国家稳定、促进社会发展；对外防御外来侵略、保卫国家安全",
+          "path": "人民当家作主（来源第 29 页） › 人民民主专政与人民代表大会制度 › 国家职能：对内维护国家稳定、促进社会发展；对外防御外来侵略、保卫国家安全",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-245",
+          "text": "人民代表大会是国家权力机关，行使立法、决定、任免、监督等职权；人大代表享有审议、表决、提案、质询等权利；人民代表大会制度是根本政治制度",
+          "path": "人民当家作主（来源第 29 页） › 人民民主专政与人民代表大会制度 › 人民代表大会是国家权力机关，行使立法、决定、任免、监督等职权；人大代表享有审议、表决、提案、质询等权利；人民代表大会制度是根本政治制度",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-246",
+          "text": "多党合作和政治协商",
+          "path": "人民当家作主（来源第 29 页） › 多党合作和政治协商",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-247",
+          "text": "中国共产党领导的多党合作和政治协商制度基本内容：党的领导是首要前提和根本保证；中国共产党是执政党，各民主党派是参政党；宪法是根本活动准则",
+          "path": "人民当家作主（来源第 29 页） › 多党合作和政治协商 › 中国共产党领导的多党合作和政治协商制度基本内容：党的领导是首要前提和根本保证；中国共产党是执政党，各民主党派是参政党；宪法是根本活动准则",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-248",
+          "text": "人民政协是爱国统一战线组织和多党合作政治协商重要机构，履行政治协商、民主监督、参政议政职能",
+          "path": "人民当家作主（来源第 29 页） › 多党合作和政治协商 › 人民政协是爱国统一战线组织和多党合作政治协商重要机构，履行政治协商、民主监督、参政议政职能",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-249",
+          "text": "公民政治生活（来源第 30 页）",
+          "path": "公民政治生活（来源第 30 页）",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-250",
+          "text": "政治权利、义务与基本原则",
+          "path": "公民政治生活（来源第 30 页） › 政治权利、义务与基本原则",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-251",
+          "text": "选举权和被选举权是公民基本民主权利，是参与管理国家和社会的基础和标志；政治自由包括言论、出版、集会、结社、游行、示威；监督权包括批评建议、检举、申诉、控告",
+          "path": "公民政治生活（来源第 30 页） › 政治权利、义务与基本原则 › 选举权和被选举权是公民基本民主权利，是参与管理国家和社会的基础和标志；政治自由包括言论、出版、集会、结社、游行、示威；监督权包括批评建议、检举、申诉、控告",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-252",
+          "text": "政治义务：维护国家统一和民族团结，维护国家安全荣誉利益，服兵役和参加民兵组织，遵守宪法法律",
+          "path": "公民政治生活（来源第 30 页） › 政治权利、义务与基本原则 › 政治义务：维护国家统一和民族团结，维护国家安全荣誉利益，服兵役和参加民兵组织，遵守宪法法律",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-253",
+          "text": "基本原则：坚持公民在法律面前一律平等，坚持权利与义务统一，坚持个人利益与国家利益相结合",
+          "path": "公民政治生活（来源第 30 页） › 政治权利、义务与基本原则 › 基本原则：坚持公民在法律面前一律平等，坚持权利与义务统一，坚持个人利益与国家利益相结合",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-254",
+          "text": "公民政治参与",
+          "path": "公民政治生活（来源第 30 页） › 公民政治参与",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-255",
+          "text": "民主选举：直接选举、间接选举，等额选举、差额选举",
+          "path": "公民政治生活（来源第 30 页） › 公民政治参与 › 民主选举：直接选举、间接选举，等额选举、差额选举",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-256",
+          "text": "民主决策：间接方式是通过民主选举选出代表进入决策机关；直接方式包括社情民意反映、专家咨询、重大事项社会公示、社会听证制度",
+          "path": "公民政治生活（来源第 30 页） › 公民政治参与 › 民主决策：间接方式是通过民主选举选出代表进入决策机关；直接方式包括社情民意反映、专家咨询、重大事项社会公示、社会听证制度",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-257",
+          "text": "民主监督：信访举报、人大代表联系群众、舆论监督、监督听证会、民主评议、网上评议政府等",
+          "path": "公民政治生活（来源第 30 页） › 公民政治参与 › 民主监督：信访举报、人大代表联系群众、舆论监督、监督听证会、民主评议、网上评议政府等",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-258",
+          "text": "基层民主管理：村民委员会和居民委员会属于基层群众性自治组织；村民或居民依法通过选举、决策、管理、监督参与公共事务和公益事业",
+          "path": "公民政治生活（来源第 30 页） › 公民政治参与 › 基层民主管理：村民委员会和居民委员会属于基层群众性自治组织；村民或居民依法通过选举、决策、管理、监督参与公共事务和公益事业",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-259",
+          "text": "当代国际社会（来源第 31 页）",
+          "path": "当代国际社会（来源第 31 页）",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-260",
+          "text": "国际关系与国际形势",
+          "path": "当代国际社会（来源第 31 页） › 国际关系与国际形势",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-261",
+          "text": "国际关系是国家之间、国际组织之间及国家与国际组织之间的关系，内容包括政治、经济、文化、军事等，基本形式是竞争、合作、冲突",
+          "path": "当代国际社会（来源第 31 页） › 国际关系与国际形势 › 国际关系是国家之间、国际组织之间及国家与国际组织之间的关系，内容包括政治、经济、文化、军事等，基本形式是竞争、合作、冲突",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-262",
+          "text": "国家利益是国际关系决定性因素，是主权国家对外活动出发点和落脚点；共同利益是国家合作基础",
+          "path": "当代国际社会（来源第 31 页） › 国际关系与国际形势 › 国家利益是国际关系决定性因素，是主权国家对外活动出发点和落脚点；共同利益是国家合作基础",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-263",
+          "text": "当今时代主题是和平与发展；国际竞争实质是以经济和科技实力为基础的综合国力较量",
+          "path": "当代国际社会（来源第 31 页） › 国际关系与国际形势 › 当今时代主题是和平与发展；国际竞争实质是以经济和科技实力为基础的综合国力较量",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-264",
+          "text": "外交政策与人类命运共同体",
+          "path": "当代国际社会（来源第 31 页） › 外交政策与人类命运共同体",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-265",
+          "text": "我国外交政策宗旨是维护世界和平、促进共同发展；基本目标是维护我国主权安全发展利益、促进世界和平发展；基本立场为独立自主，基本准则为和平共处五项原则",
+          "path": "当代国际社会（来源第 31 页） › 外交政策与人类命运共同体 › 我国外交政策宗旨是维护世界和平、促进共同发展；基本目标是维护我国主权安全发展利益、促进世界和平发展；基本立场为独立自主，基本准则为和平共处五项原则",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-266",
+          "text": "推动构建人类命运共同体：政治上相互尊重平等协商，安全上对话协商化解争端，经济上共商共建共享，文化上尊重文明多样性，生态上坚持环境友好、应对气候变化",
+          "path": "当代国际社会（来源第 31 页） › 外交政策与人类命运共同体 › 推动构建人类命运共同体：政治上相互尊重平等协商，安全上对话协商化解争端，经济上共商共建共享，文化上尊重文明多样性，生态上坚持环境友好、应对气候变化",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
+          "important": false
+        },
+        {
+          "id": "public-basics-foundations-267",
+          "text": "四个全球倡议：全球发展倡议坚持发展优先、以人民为中心、普惠包容、创新驱动、人与自然和谐共生、行动导向；全球安全倡议强调共同综合合作可持续安全；全球文明倡议倡导文明多样性、共同价值、文明传承创新和人文交流；全球治理倡议奉行主权平等、遵守国际法治、践行多边主义",
+          "path": "当代国际社会（来源第 31 页） › 外交政策与人类命运共同体 › 四个全球倡议：全球发展倡议坚持发展优先、以人民为中心、普惠包容、创新驱动、人与自然和谐共生、行动导向；全球安全倡议强调共同综合合作可持续安全；全球文明倡议倡导文明多样性、共同价值、文明传承创新和人文交流；全球治理倡议奉行主权平等、遵守国际法治、践行多边主义",
+          "moduleId": "politics",
+          "mapId": "public-basics-foundations",
           "important": false
         }
       ]

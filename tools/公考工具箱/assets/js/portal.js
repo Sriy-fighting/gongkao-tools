@@ -609,7 +609,7 @@
     var saved = {};
     try { saved = JSON.parse(localStorage.getItem(KNOWLEDGE_FOLDER_STORAGE_KEY) || '{}'); } catch (e) {}
     knowledgeFolders = saved && typeof saved === 'object' ? saved : {};
-    knowledgeMaps.forEach(function (map) { if (KNOWLEDGE_FOLDERS.indexOf(knowledgeFolders[map.id]) === -1) knowledgeFolders[map.id] = '常识'; });
+    knowledgeMaps.forEach(function (map) { if (KNOWLEDGE_FOLDERS.indexOf(knowledgeFolders[map.id]) === -1) knowledgeFolders[map.id] = KNOWLEDGE_FOLDERS.indexOf(map.folder) > -1 ? map.folder : '常识'; });
   }
 
   function saveKnowledgeFolders() {
