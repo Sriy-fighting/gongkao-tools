@@ -210,6 +210,28 @@
     .tool-btn { width: 30px; height: 30px; font-size: 14px; }
     .timer-display { font-size: 13px; min-width: 44px; }
     .progress-bar { width: 40px; }
+    .toolbar {
+      height: auto;
+      min-height: 56px;
+      padding: 6px;
+      align-content: flex-start;
+      flex-wrap: wrap;
+      overflow: visible;
+    }
+    .toolbar-group { min-width: 0; flex-wrap: wrap; }
+    .toolbar-group+.toolbar-group { padding-left: 6px; margin-left: 6px; }
+    .toolbar-group:nth-child(4),
+    .toolbar-group:nth-child(5),
+    .toolbar-group:nth-child(6) {
+      flex: 1 1 100%;
+      padding-left: 0;
+      margin-left: 0;
+      border-left: 0;
+    }
+    .target-wrap, .timer-wrap { width: 100%; flex-wrap: wrap; }
+    .target-wrap select, .timer-wrap select { max-width: 100%; }
+    .stats { min-width: 0; flex-wrap: wrap; }
+    .paper-wrapper { padding-top: 220px; }
   }
 </style>
 </head>

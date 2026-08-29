@@ -12,7 +12,13 @@
     knowledge: { name: '思维导图', path: null }
   };
 
-  var currentView = 'dashboard';
+  // ReviewApp may replace the hash before DOMContentLoaded. Preserve the
+  // user's original entry point so the root URL still opens the dashboard.
+  var initialLocationHash = window.location.hash;
+
+  // Leave the initial view unset so the first explicit route also initializes
+  // the dashboard title and visibility state.
+  var currentView = '';
   var els = {};
   var syncInfo = { hasConfig: false, syncKey: '', isLoggedIn: false, email: '' };
 
@@ -144,8 +150,10 @@
     startPeriodicSync();
     loadAllData();
     setGreeting();
-    // The site root is the Journey dashboard; review links can still route via hashchange.
-    navigateTo('dashboard');
+    // Open deep-linked review questions immediately on the first load. The initial
+    // hash does not emit a hashchange event after this script is attached.
+    if (initialLocationHash.indexOf('#q=') === 0) navigateTo('review');
+    else navigateTo('dashboard');
     window.addEventListener('hashchange', function () {
       if (window.location.hash.indexOf('#q=') === 0 && currentView !== 'review') navigateTo('review');
     });
@@ -2218,6 +2226,9 @@
       localStorage.setItem(PLAN_STORAGE_KEY, JSON.stringify(planData));
       if (window.SyncStore) window.SyncStore.writeData(PLAN_STORAGE_KEY, planData);
     } catch (e) {}
+    // Journey owns the task selector on the dashboard. Keep it in sync after
+    // every plan mutation, including quick-add and task edits.
+    if (window.Journey && window.Journey.refresh) window.Journey.refresh();
   }
 
   function planPrevMonth() {

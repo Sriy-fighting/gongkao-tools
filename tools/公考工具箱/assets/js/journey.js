@@ -194,6 +194,9 @@
   function openCompletion() {
     if (!state.active) return;
     if (state.active.running) { state.active.elapsedBeforeMs = elapsed(state.active); state.active.running = false; state.active.startedAt = 0; save(); refreshTick(); }
+    // The modal is shown over the dashboard, so render the paused state before
+    // opening it instead of leaving the underlying controls saying "进行中".
+    render();
     var minutes = Math.floor(elapsed(state.active) / 60000);
     var summary = document.getElementById('journey-complete-summary');
     if (summary) summary.textContent = '本次共专注 ' + minutes + ' 分钟。' + (minutes >= 5 ? '一枚行程印记将在保存后入册。' : '满 5 分钟可获得行程印记。');
