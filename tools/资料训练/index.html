@@ -7,10 +7,34 @@
 <style>
 :root{--ink:#12313a;--paper:#f6f3ea;--card:#fffdf8;--line:#d7ded5;--jade:#287c74;--jade-soft:#e7f1ed;--gold:#d5a942;--gold-soft:#fff6dc;--red:#bd5145;--green:#23845f;--muted:#6b7a78}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--paper);color:var(--ink);font:14px/1.55 system-ui,"Microsoft YaHei",sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #8cc9c0;outline-offset:2px}.speed-topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;min-height:68px;padding:0 clamp(16px,5vw,64px);border-bottom:1px solid var(--line);background:rgba(255,253,247,.96);backdrop-filter:blur(12px)}.speed-topbar p{margin:0;font-family:"STKaiti","KaiTi",serif;font-size:21px;font-weight:800}.speed-topbar span{display:block;color:var(--muted);font-size:12px}.topbar-bank{margin-left:auto;min-height:36px;padding:0 13px;border:1px solid #c8ab67;border-radius:6px;background:var(--gold-soft);color:#795d20;font-weight:800}.topbar-bank:hover{background:#ffefbb}.container{width:min(1280px,100%);margin:0 auto;padding:32px clamp(16px,5vw,64px) 52px}.setup-workspace{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(390px,.9fr);min-height:calc(100vh - 68px);gap:28px;align-items:stretch}.speed-intro{position:relative;min-height:560px;overflow:hidden;border:1px solid #d6b86280;border-radius:8px;background:#133640 url("../公考工具箱/assets/images/changan/tool-speed-route.webp") center/cover no-repeat;box-shadow:0 18px 36px #17302f1f}.speed-intro:after{position:absolute;inset:0;background:#071f26a6;content:""}.speed-intro>div{position:absolute;z-index:1;right:0;bottom:0;left:0;padding:34px;color:#fff7e4}.speed-intro p,.panel-eyebrow{margin:0 0 9px;color:#efc96e;font-size:12px;font-weight:800}.speed-intro h1{max-width:560px;margin:0;color:#fff9ed;font-family:"STKaiti","KaiTi",serif;font-size:32px;line-height:1.3}.speed-intro span{display:block;margin-top:12px;color:#fff7e4c7;font-size:14px}.speed-config{align-self:center;padding:30px;border:1px solid var(--line);border-radius:8px;background:var(--card);box-shadow:0 12px 28px #1c363612}.speed-config h1{margin:0 0 25px;font-family:"STKaiti","KaiTi",serif;font-size:30px}.setting-item{margin-bottom:21px}.label{display:block;margin-bottom:9px;color:var(--muted);font-size:12px;font-weight:800}.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mode-btn{min-height:46px;padding:10px;border:1px solid var(--line);border-radius:6px;background:#f5f6f0;color:#526562;text-align:left;font-weight:700}.mode-btn:last-child{grid-column:1/-1}.mode-btn.active{border-color:var(--jade);background:var(--jade-soft);color:#175b55}.select-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:12px;border:1px solid #dfe5dc;border-radius:7px;background:#f4f6f1}.num-chip{min-height:36px;padding:7px;border:1px solid #d5ddd4;border-radius:5px;background:var(--card);color:#657673;font-weight:800;text-align:center}.num-chip.active{border-color:var(--jade);background:var(--jade);color:#fff}.setting-row{display:flex;align-items:center;gap:12px}.limit-input{width:105px;padding:8px 9px;border:1px solid #cdd8cd;border-radius:6px;background:var(--card);color:var(--ink);font-size:18px}.bank-summary{margin:0 0 18px;padding:11px 12px;border:1px solid #e5e8df;border-radius:7px;background:#fafbf7;color:#60716d;font-size:12px}.bank-summary strong{color:var(--jade);font-size:18px;margin-right:4px}.btn-start{width:100%;min-height:48px;border:0;border-radius:6px;background:var(--gold);color:#1b3033;font-weight:800}.btn-start:hover{background:#e6c267}.setup-hint{margin:11px 0 0;color:#72807d;font-size:12px}.play-workspace{display:grid;place-content:center;min-height:calc(100vh - 68px);max-width:900px;margin:auto}.play-workspace>*{width:min(100%,760px)}.play-status{display:flex;justify-content:space-between;margin-bottom:13px;color:#58706c;font-size:13px;font-weight:750}.play-status span:first-child{color:var(--jade)}.timer-track{height:7px;margin-bottom:44px;border-radius:6px;background:#dce5dc;overflow:hidden}.timer-bar{height:100%;background:var(--jade);transition:width 50ms linear,background .18s}.timer-bar.danger{background:var(--red)}.q-text{margin:0 0 30px;text-align:center;font-family:"STKaiti","KaiTi",serif;font-size:76px;font-weight:800;line-height:1.15}.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.choice{min-height:70px;padding:14px 18px;border:1px solid #cbd7cf;border-radius:7px;background:var(--card);color:var(--ink);text-align:left;transition:transform .15s,background .15s,border-color .15s}.choice:hover:not(:disabled){transform:translateY(-2px);border-color:var(--jade);background:#f2f8f5}.choice-key{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:10px;border-radius:50%;background:#edf2ed;color:#54706b;font-weight:800}.choice.correct{border-color:var(--green);background:#e5f5ec;color:#14603f}.choice.correct .choice-key{background:var(--green);color:#fff}.choice.wrong{border-color:var(--red);background:#fff0ed;color:#9b3e33}.choice.wrong .choice-key{background:var(--red);color:#fff}.choice:disabled{cursor:default}.feedback{min-height:30px;margin-top:18px;text-align:center;font-weight:800}.feedback.ok{color:var(--green)}.feedback.bad{color:var(--red)}.play-actions{display:flex;justify-content:center;gap:10px;margin-top:28px}.btn-secondary{min-height:40px;padding:0 18px;border:1px solid #cbd7cf;border-radius:6px;background:#f6f7f2;color:var(--ink);font-weight:700}.btn-secondary:hover{background:#e8eee8}.shake{animation:shake .4s}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}60%{transform:translateX(8px)}}.modal-overlay{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:20px;background:#081a1fcc;backdrop-filter:blur(6px)}.modal-overlay.open{display:flex}.bank-modal{width:min(960px,100%);max-height:min(90vh,820px);display:flex;flex-direction:column;border:1px solid #e6ca7f66;border-radius:8px;background:#102f37;color:#f3f5eb;box-shadow:0 18px 48px #0005}.modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #e8ddb33d}.modal-head h2{margin:0;color:#f0c96c;font-family:"STKaiti","KaiTi",serif;font-size:23px}.modal-close{width:34px;height:34px;border:1px solid #ffffff36;border-radius:5px;background:transparent;color:#fff;font-size:20px}.modal-body{padding:18px 20px;overflow:auto}.bank-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:14px}.bank-toolbar select,.bank-toolbar input{min-height:38px;padding:7px 9px;border:1px solid #d5e3d833;border-radius:5px;background:#173d45;color:#f3f5eb}.bank-toolbar input{min-width:200px;flex:1}.bank-btn{min-height:38px;padding:0 12px;border:1px solid #e9d99e55;border-radius:5px;background:#173d45;color:#f3f5eb;font-weight:700}.bank-btn.primary{border-color:var(--gold);background:var(--gold);color:#172d32}.bank-btn:hover{background:#245460}.bank-btn.primary:hover{background:#e6c267}.bank-count{margin-left:auto;color:#b9c9be;font-size:12px}.bank-list{display:grid;gap:8px}.bank-row{display:grid;grid-template-columns:90px minmax(0,1.35fr) minmax(120px,.8fr) minmax(120px,.8fr) auto;gap:8px;align-items:center;padding:9px;border:1px solid #d5e3d81c;border-radius:6px;background:#173d45}.bank-row input,.bank-row select{width:100%;min-height:34px;padding:6px 7px;border:1px solid #d5e3d833;border-radius:4px;background:#102f37;color:#f3f5eb}.bank-row .row-actions{display:flex;gap:5px}.bank-row .row-actions button{width:33px;height:33px;padding:0}.bank-empty{padding:25px;text-align:center;color:#b8c8bf;border:1px dashed #d5e3d833;border-radius:6px}.bank-help{margin:12px 0 0;color:#b8c8bf;font-size:12px}.bank-help code{color:#f0c96c}.toast{position:fixed;z-index:80;left:50%;bottom:22px;transform:translate(-50%,80px);padding:9px 13px;border-radius:6px;background:#173a61;color:#fff;opacity:0;transition:.25s}.toast.show{transform:translate(-50%,0);opacity:1}@media(max-width:820px){.setup-workspace{grid-template-columns:1fr;padding-top:18px}.speed-intro{min-height:290px}.speed-intro>div{padding:23px}.speed-intro h1{font-size:29px}.speed-config{padding:23px}.q-text{font-size:56px}.choice-grid{grid-template-columns:1fr}.bank-row{grid-template-columns:1fr 1fr}.bank-row .row-actions{justify-content:flex-end}.bank-count{margin-left:0;width:100%}}@media(max-width:520px){.speed-topbar{padding:0 14px}.topbar-bank{padding:0 9px}.container{padding:18px 14px 36px}.play-workspace{padding-top:32px}.q-text{font-size:48px}.choice{min-height:62px}.bank-modal{max-height:94vh}.modal-body{padding:14px}.bank-toolbar input{min-width:130px}.bank-row{grid-template-columns:1fr}.bank-row .row-actions{justify-content:flex-start}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important}}
 </style>
+<style>
+html[data-theme="dark"] { color-scheme: dark; --paper:#0b1d24; --card:rgba(16,39,45,.82); --ink:#edf3ee; --line:rgba(190,215,207,.2); --muted:#91aaa4; --jade:#77c8b5; --jade-soft:rgba(119,200,181,.16); --gold:#e4bd70; --gold-soft:rgba(228,189,112,.15); }
+html[data-theme="dark"] body { background:linear-gradient(rgba(7,24,30,.76),rgba(7,24,30,.9)),url("../公考工具箱/assets/images/changan/tool-speed-route.webp") center/cover fixed; color:var(--ink); }
+html[data-theme="dark"] .speed-topbar { background:rgba(10,31,38,.84); border-color:var(--line); color:var(--ink); }
+html[data-theme="dark"] .speed-config, html[data-theme="dark"] .choice, html[data-theme="dark"] .section, html[data-theme="dark"] .bank-modal { background:rgba(16,39,45,.82); border-color:var(--line); color:var(--ink); backdrop-filter:blur(12px); }
+html[data-theme="dark"] .mode-btn, html[data-theme="dark"] .select-grid, html[data-theme="dark"] .num-chip, html[data-theme="dark"] .bank-summary, html[data-theme="dark"] .btn-secondary { background:rgba(12,34,41,.82); border-color:var(--line); color:var(--ink); }
+</style>
+<style>
+.play-workspace[hidden] { display: none !important; }
+</style>
+<style>
+.timer-track{position:relative}
+.timer-track::before{content:"";position:absolute;inset:-34px auto auto 0;width:28px;height:28px;border:3px solid color-mix(in srgb,var(--jade) 24%,transparent);border-top-color:var(--jade);border-radius:50%;opacity:0;transform:scale(.8);transition:opacity .2s,transform .2s}
+.play-workspace.is-running .timer-track::before{opacity:1;transform:scale(1);animation:speed-ring 1.1s linear infinite}
+.q-text.question-in,.choice-grid.question-in{animation:speed-question-in .34s cubic-bezier(.2,.8,.2,1) both}
+.choice-grid.question-in{animation-delay:.05s}
+.speed-progress-overview{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:3px 10px;margin:0 0 14px;padding:10px 12px;border:1px solid var(--line);border-radius:7px;background:color-mix(in srgb,var(--card) 78%,transparent)}
+.speed-progress-overview strong{grid-row:span 2;color:var(--jade);font-size:24px;font-variant-numeric:tabular-nums}.speed-progress-overview span{color:var(--muted);font-size:11px}.speed-progress-overview i{display:block;height:4px;border-radius:4px;background:var(--line);overflow:hidden}.speed-progress-overview i::after{content:"";display:block;width:var(--speed-progress,0%);height:100%;background:var(--gold);transition:width .35s ease}
+.bank-type-badge{display:inline-flex;align-items:center;justify-content:center;min-height:20px;padding:0 6px;border-radius:999px;background:var(--jade-soft);color:var(--jade);font-size:10px;font-weight:800}.bank-row[data-type="pct"] .bank-type-badge{background:var(--gold-soft);color:#9a741e}.bank-row[data-type="rev"] .bank-type-badge{background:#e8e5f5;color:#685aa3}
+.bank-row{grid-template-columns:70px 90px minmax(0,1.35fr) minmax(120px,.8fr) minmax(120px,.8fr) auto}
+@media(max-width:820px){.bank-row{grid-template-columns:1fr 1fr}.bank-row .bank-type-badge{grid-column:1/-1;justify-self:start}}
+@keyframes speed-ring{to{transform:rotate(360deg)}}@keyframes speed-question-in{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+html[data-theme="dark"] .speed-progress-overview{background:rgba(12,34,41,.62);border-color:var(--line)}
+</style>
 </head>
 <body>
 <header class="speed-topbar"><div><p>数理驿道</p><span>题库训练 · 由公式转成可练习的题目</span></div><button class="topbar-bank" id="open-bank" type="button">题库管理</button></header>
-<main class="container setup-workspace" id="setup-view"><aside class="speed-intro" aria-hidden="true"><div><p>长安题途 / 数理驿道</p><h1>在一题之间，练出稳定的速度</h1><span>从题库抽题，四选一作答；错题会回到本轮队列。</span></div></aside><section class="speed-config" aria-labelledby="setup-title"><p class="panel-eyebrow">训练设置</p><h1 id="setup-title">准备启程</h1><div class="setting-item"><span class="label">练习模式</span><div class="mode-grid" id="mode-grid"><button class="mode-btn active" data-mode="std" type="button">标准乘法</button><button class="mode-btn" data-mode="pct" type="button">百化分</button><button class="mode-btn" data-mode="rev" type="button">逆向因数（拆解合数）</button></div></div><div class="setting-item" id="num-selector"><span class="label">选择乘数（可多选）</span><div class="select-grid" id="num-grid"></div></div><div class="setting-item"><span class="label">本轮题数</span><div class="setting-row"><input class="limit-input" id="question-count" type="number" min="1" max="120" value="20"><span class="setup-hint">从当前模式题库随机抽取</span></div></div><div class="setting-item"><span class="label">单题限时（秒）</span><input class="limit-input" id="limit-input" type="number" min="0.5" max="60" step="0.5" value="2"></div><p class="bank-summary"><strong id="bank-total">0</strong>道题可用 · 可在右上角题库管理中添加、编辑和删除</p><button class="btn-start" id="start-btn" type="button">开始训练</button><p class="setup-hint">训练过程中使用 A / B / C / D 键也可选择答案。</p></section></main>
+<main class="container setup-workspace" id="setup-view"><aside class="speed-intro" aria-hidden="true"><div><p>长安题途 / 数理驿道</p><h1>在一题之间，练出稳定的速度</h1><span>从题库抽题，四选一作答；错题会回到本轮队列。</span></div></aside><section class="speed-config" aria-labelledby="setup-title"><p class="panel-eyebrow">训练设置</p><h1 id="setup-title">准备启程</h1><div class="setting-item"><span class="label">练习模式</span><div class="mode-grid" id="mode-grid"><button class="mode-btn active" data-mode="std" type="button">标准乘法</button><button class="mode-btn" data-mode="pct" type="button">百化分</button><button class="mode-btn" data-mode="rev" type="button">逆向因数（拆解合数）</button></div></div><div class="setting-item" id="num-selector"><span class="label">选择乘数（可多选）</span><div class="select-grid" id="num-grid"></div></div><div class="setting-item"><span class="label">本轮题数</span><div class="setting-row"><input class="limit-input" id="question-count" type="number" min="1" max="120" value="20"><span class="setup-hint">从当前模式题库随机抽取</span></div></div><div class="setting-item"><span class="label">单题限时（秒）</span><input class="limit-input" id="limit-input" type="number" min="0.5" max="60" step="0.5" value="2"></div><div class="speed-progress-overview" id="speed-progress-overview"><strong id="speed-progress-value">0%</strong><span>本轮准备度</span><i aria-hidden="true"></i></div><p class="bank-summary"><strong id="bank-total">0</strong>道题可用 · 可在右上角题库管理中添加、编辑和删除</p><button class="btn-start" id="start-btn" type="button">开始训练</button><p class="setup-hint">训练过程中使用 A / B / C / D 键也可选择答案。</p></section></main>
 <main class="container play-workspace" id="play-view" hidden><div class="play-status"><span id="play-mode-label">标准乘法</span><span>剩余 <strong id="count-num">0</strong> 题</span></div><div class="timer-track"><div class="timer-bar" id="timer-bar"></div></div><h1 class="q-text" id="q-text">--</h1><div class="choice-grid" id="choice-grid" role="group" aria-label="答案选项"></div><div class="feedback" id="feedback" role="status" aria-live="polite"></div><div class="play-actions"><button class="btn-secondary" id="quit-btn" type="button">退出训练</button></div></main>
 <div class="modal-overlay" id="bank-modal" role="dialog" aria-modal="true" aria-labelledby="bank-title"><section class="bank-modal"><header class="modal-head"><h2 id="bank-title">数理驿道题库</h2><button class="modal-close" id="close-bank" type="button" aria-label="关闭题库管理">×</button></header><div class="modal-body"><div class="bank-toolbar"><select id="bank-filter" aria-label="筛选题型"><option value="all">全部题型</option><option value="std">标准乘法</option><option value="pct">百化分</option><option value="rev">逆向因数</option></select><input id="bank-search" type="search" placeholder="搜索题干或答案" aria-label="搜索题库"><button class="bank-btn primary" id="add-question" type="button">添加题目</button><button class="bank-btn" id="restore-bank" type="button">恢复内置题库</button><span class="bank-count" id="bank-count"></span></div><div class="bank-list" id="bank-list"></div><p class="bank-help">每行依次编辑：题型、题干、正确答案、干扰项。干扰项用 <code>|</code> 分隔，留空会自动生成。</p></div></section></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
@@ -72,6 +96,71 @@
   };
   new MutationObserver(repair).observe(host, { childList: true, subtree: true });
   repair();
+})();
+</script>
+<script>
+(() => {
+  const start = document.getElementById('start-btn');
+  if (!start) return;
+  const originalStart = start.onclick;
+  start.onclick = (event) => {
+    const summary = document.getElementById('bank-total');
+    if (summary && summary.textContent.trim() === '0') {
+      document.getElementById('setup-view').hidden = false;
+      document.getElementById('play-view').hidden = true;
+      return;
+    }
+    if (typeof originalStart === 'function') originalStart.call(start, event);
+  };
+})();
+</script>
+<script>
+(() => {
+  const play = document.getElementById('play-view');
+  const qText = document.getElementById('q-text');
+  const bar = document.getElementById('timer-bar');
+  const progress = document.getElementById('speed-progress-overview');
+  const progressValue = document.getElementById('speed-progress-value');
+  const countInput = document.getElementById('question-count');
+  const bankTotal = document.getElementById('bank-total');
+  const updateProgress = () => {
+    if (!progress || !progressValue) return;
+    const requested = Math.max(1, Number(countInput?.value) || 20);
+    const available = Math.max(0, Number(bankTotal?.textContent) || 0);
+    const pct = Math.min(100, Math.round(available / requested * 100));
+    progressValue.textContent = pct + '%';
+    progress.style.setProperty('--speed-progress', pct + '%');
+  };
+  [countInput, document.getElementById('mode-grid'), document.getElementById('num-grid')].forEach((el) => el?.addEventListener('input', updateProgress));
+  document.addEventListener('click', updateProgress, true);
+  updateProgress();
+  if (play && window.MutationObserver) {
+    new MutationObserver(() => {
+      const running = !play.hidden && bar && !bar.classList.contains('danger');
+      play.classList.toggle('is-running', running);
+    }).observe(play, { attributes: true, attributeFilter: ['hidden'] });
+  }
+  if (qText && window.MutationObserver) {
+    new MutationObserver(() => {
+      qText.classList.remove('question-in');
+      void qText.offsetWidth;
+      qText.classList.add('question-in');
+      document.getElementById('choice-grid')?.classList.add('question-in');
+    }).observe(qText, { childList: true, characterData: true, subtree: true });
+  }
+  const bankList = document.getElementById('bank-list');
+  if (bankList && window.MutationObserver) {
+    new MutationObserver(() => bankList.querySelectorAll('.bank-row').forEach((row) => {
+      const type = row.querySelector('select')?.value || 'std';
+      row.dataset.type = type;
+      if (!row.querySelector('.bank-type-badge')) {
+        const badge = document.createElement('span');
+        badge.className = 'bank-type-badge';
+        badge.textContent = type === 'pct' ? '百化分' : type === 'rev' ? '逆向' : '乘法';
+        row.insertBefore(badge, row.firstElementChild);
+      }
+    })).observe(bankList, { childList: true, subtree: true });
+  }
 })();
 </script>
 <script src="../公考工具箱/assets/js/sync.js"></script>

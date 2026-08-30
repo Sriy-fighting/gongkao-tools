@@ -306,6 +306,16 @@
     $("libraryMeta").textContent = all.length + " 道题 · " + new Set(all.map((q) => q.season)).size + " 个季度 · " + syncLabel;
     renderInsights(all);
     renderBackupStatus();
+    renderQuickFilters();
+  }
+
+  function renderQuickFilters() {
+    const box = reviewRoot.querySelector('.review-filter-box');
+    if (!box) return;
+    let bar = box.querySelector('.review-quick-filters');
+    if (!bar) { bar = document.createElement('div'); bar.className = 'review-quick-filters'; box.insertBefore(bar, box.querySelector('.review-filter-grid')); }
+    const items = [['all','全部'],['due','今日到期'],['new','待开始'],['weak','模糊 / 不会'],['done','已复习']];
+    bar.innerHTML = items.map(([id,label]) => '<button type="button" class="review-quick-pill ' + ((id === 'all' && !state.quick) || state.quick === id ? 'active' : '') + '" data-quick="' + id + '">' + label + '</button>').join('');
   }
 
   function historyOf(q) {
@@ -334,23 +344,27 @@
       els.list.innerHTML = '<li class="empty-list">没有符合条件的题目<br>试试清除筛选</li>';
       return;
     }
-    els.list.innerHTML = state.filtered.map((q) =>
+    els.list.innerHTML = state.filtered.map((q, index) =>
       '<li><button data-id="' + escapeHtml(q.id) + '" class="' + (q.id === state.currentId ? "active" : "") + '" aria-current="' + (q.id === state.currentId ? "true" : "false") + '">' +
         '<span class="q-index">' + escapeHtml(q.number) + "</span>" +
         '<span class="q-list-copy"><b>' + escapeHtml(q.subject) + " · " + escapeHtml(masteryLabel(q.mastery)) + "</b><span>" + escapeHtml(q.stem) + "</span></span>" +
         '<span class="status-dot ' + (q.match.status !== "verified" || q.answerStatus !== "verified" ? "pending" : q.mastery === "know" ? "know" : "") + '" aria-label="' + escapeHtml(statusLabel(q.match.status) + "，" + answerStatusLabel(q.answerStatus)) + '"></span>' +
       "</button></li>"
     ).join("");
+    els.list.querySelectorAll('li').forEach((item, index) => { item.style.setProperty('--stagger', (index * 35) + 'ms'); });
   }
 
   function renderQuestion(q) {
     if (!q) {
       $("crumbText").textContent = "没有符合条件的题目";
-      els.question.innerHTML = '<div class="empty-list">请调整筛选条件或导入资料。</div>';
+      els.question.innerHTML = '<div class="review-empty-visual"><img src="assets/images/changan/empty-review-desk.webp" alt="" loading="lazy"><strong>还没有可复盘的题目</strong><span>请调整筛选条件或导入资料。</span></div>';
       els.review.innerHTML = "";
       return;
     }
     const revealed = state.revealed.has(q.id);
+    els.question.classList.remove('is-changing');
+    els.review.classList.remove('is-changing');
+    requestAnimationFrame(() => { els.question.classList.add('is-changing'); els.review.classList.add('is-changing'); });
     const selected = state.selected[q.id];
     $("crumbText").textContent = q.season + " / " + q.subject + " / 第 " + q.number + " 题";
     const options = q.options.map((opt) => {
@@ -636,6 +650,14 @@
       closeMenu();
       renderAll(false);
     }
+  });
+  reviewRoot.addEventListener('click', (event) => {
+    const pill = event.target.closest('[data-quick]');
+    if (!pill) return;
+    const value = pill.dataset.quick;
+    clearFilters(false);
+    state.quick = value === 'all' ? null : value;
+    renderAll(false);
   });
   $("prevBtn").onclick = () => navigate(-1);
   $("nextBtn").onclick = () => navigate(1);

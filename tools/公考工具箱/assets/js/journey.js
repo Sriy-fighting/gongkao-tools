@@ -95,8 +95,9 @@
     var previous = select.value;
     select.textContent = '';
     var none = document.createElement('option'); none.value = ''; none.textContent = '不关联任务，自由专注'; select.appendChild(none);
-    taskOptions.forEach(function (task, index) {
-      var option = document.createElement('option'); option.value = String(index);
+    taskOptions.forEach(function (task) {
+      var option = document.createElement('option');
+      option.value = String(task.ref && task.ref.taskId || '');
       option.textContent = (task.done ? '✓ ' : '') + task.text + (task.subject ? ' · ' + task.subject : '');
       select.appendChild(option);
     });
@@ -109,7 +110,7 @@
     container.textContent = '';
     STAGES.forEach(function (stage) {
       var stop = document.createElement('div');
-      stop.className = 'journey-stop' + (state.totalMinutes >= stage.minutes ? ' reached' : '');
+      stop.className = 'journey-stop' + (state.totalMinutes >= stage.minutes ? ' reached' : '') + (state.active && state.active.running && state.totalMinutes < stage.minutes && state.totalMinutes >= Math.max(0, stage.minutes - 300) ? ' in-progress' : '');
       var icon = document.createElement('span'); icon.className = 'journey-stop-icon'; icon.textContent = state.totalMinutes >= stage.minutes ? '◆' : '○';
       var label = document.createElement('span'); label.textContent = stage.name;
       stop.title = stage.name + '：' + stage.story + '（' + stage.minutes + ' 分钟）';
@@ -126,17 +127,26 @@
     var finish = document.getElementById('journey-finish');
     var custom = document.getElementById('journey-custom-minutes');
     var stage = currentStage();
-    if (clock) clock.textContent = format(remaining);
+    if (clock) { clock.textContent = format(remaining); clock.classList.toggle('is-running', !!(active && active.running)); }
     if (start) start.textContent = active ? (active.running ? '暂停专注' : '继续专注') : '开始专注';
     if (finish) finish.disabled = !active;
     if (custom && !active) custom.value = selectedMinutes();
     var stageEl = document.getElementById('journey-stage'); if (stageEl) stageEl.textContent = stage.name;
-    var total = document.getElementById('journey-total'); if (total) total.textContent = '已行 ' + state.totalMinutes + ' 分钟';
-    var streak = document.getElementById('journey-streak'); if (streak) streak.textContent = '连续 ' + state.streak + ' 天';
-    var stamps = document.getElementById('journey-stamps'); if (stamps) stamps.textContent = state.stamps + ' 枚行程印记';
+    var total = document.getElementById('journey-total'); if (total) setMetric(total, state.totalMinutes, '已行 ', ' 分钟');
+    var streak = document.getElementById('journey-streak'); if (streak) setMetric(streak, state.streak, '连续 ', ' 天');
+    var stamps = document.getElementById('journey-stamps'); if (stamps) setMetric(stamps, state.stamps, '', ' 枚行程印记');
     var hint = document.getElementById('journey-hint'); if (hint) hint.textContent = active ? (active.running ? '专注进行中，暂停也会安全保存。' : '行程已暂停，随时可以继续。') : stage.story;
     document.querySelectorAll('.journey-duration button').forEach(function (button) { button.classList.toggle('active', parseInt(button.dataset.minutes, 10) === selectedMinutes()); });
     renderMap();
+    document.body.classList.toggle('journey-focus-active', !!(active && active.running));
+  }
+
+  function setMetric(el, value, prefix, suffix) {
+    var target = Number(value) || 0, previous = Number(el.dataset.metric || 0); el.dataset.metric = target;
+    if (previous === target) { el.textContent = prefix + target + suffix; return; }
+    var started = performance.now();
+    function tick(now) { var p = Math.min(1, (now - started) / 420), eased = 1 - Math.pow(1 - p, 3); el.textContent = prefix + Math.round(previous + (target - previous) * eased) + suffix; if (p < 1) requestAnimationFrame(tick); }
+    requestAnimationFrame(tick);
   }
 
   function selectedMinutes() {
@@ -167,8 +177,12 @@
 
   function selectedTaskRef() {
     var select = document.getElementById('journey-task');
-    var idx = select && select.value !== '' ? parseInt(select.value, 10) : -1;
-    return idx >= 0 && taskOptions[idx] ? taskOptions[idx].ref : null;
+    var taskId = select && select.value !== '' ? select.value : '';
+    if (!taskId) return null;
+    for (var i = 0; i < taskOptions.length; i++) {
+      if (taskOptions[i].ref && String(taskOptions[i].ref.taskId || '') === taskId) return taskOptions[i].ref;
+    }
+    return null;
   }
 
   function enterImmersive() {

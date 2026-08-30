@@ -169,6 +169,7 @@
             padding: 30px; display: flex; flex-direction: column; justify-content: space-between;
             min-height: 180px;
         }
+        .module.score-high{box-shadow:inset 0 -4px 0 #d5a942}.module.score-high::after{content:'高分完成';align-self:flex-start;margin-top:8px;padding:3px 9px;border:1px solid #d5a942;border-radius:999px;color:#9a741e;font-size:.72rem;font-weight:800;animation:stamp-in .45s cubic-bezier(.2,.8,.2,1) both}@keyframes stamp-in{from{opacity:0;transform:scale(1.5) rotate(-8deg)}to{opacity:1;transform:scale(1) rotate(-2deg)}}
 
         .mod-header { display: flex; justify-content: space-between; }
         .mod-title { font-size: 1.5rem; font-weight: 800; }
@@ -192,10 +193,21 @@
             text-align: right; animation: fadeIn 0.5s;
         }
         .score-huge { font-size: 8rem; font-weight: 900; color: var(--accent); line-height: 1; }
+        .score-huge.score-rise{animation:score-rise .65s cubic-bezier(.2,.8,.2,1) both}@keyframes score-rise{from{opacity:0;transform:translateY(18px) scale(.86)}to{opacity:1;transform:none}}.score-distribution{display:flex;align-items:flex-end;gap:10px;height:120px;margin-top:24px;padding:0 8px;border-bottom:1px solid currentColor}.score-bar{flex:1;min-width:20px;background:var(--accent);opacity:.78;transform-origin:bottom;animation:bar-grow .55s cubic-bezier(.2,.8,.2,1) both}.score-bar span{display:block;transform:translateY(-18px);font:700 .72rem var(--font-mono);text-align:center}@keyframes bar-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes exam-arrive { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
         body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M4 3l17 10-8 2-4 8z' fill='%234f46e5' stroke='%230f172a' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E") 3 3,auto}button{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M9 2v12M13 2v12M17 2v12M6 10h14v7c0 5-3 8-7 8s-7-3-7-8z' fill='%23eef2ff' stroke='%234f46e5' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 13 3,pointer}input{cursor:text}
         @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
+    /* Shared portal theme: scene remains visible through translucent work panels. */
+    html[data-theme="dark"] {
+      --bg:#0b1d24; --ink:#edf3ee; --accent:#77c8b5; --border:1px solid rgba(190,215,207,.2);
+      --border-thick:2px solid rgba(231,201,118,.62);
+    }
+    html[data-theme="dark"] body { background:linear-gradient(rgba(7,24,30,.76),rgba(7,24,30,.9)),url("../公考工具箱/assets/images/changan/tool-exam-gate.webp") center/cover fixed; }
+    html[data-theme="dark"] header, html[data-theme="dark"] .config-panel { background:rgba(10,31,38,.84); border-color:rgba(190,215,207,.2); color:var(--ink); }
+    html[data-theme="dark"] .module, html[data-theme="dark"] .editor-modal { background:rgba(16,39,45,.78); border-color:rgba(190,215,207,.2); color:var(--ink); backdrop-filter:blur(12px); }
+    html[data-theme="dark"] .editor-module-row { background:rgba(12,34,41,.78); border-color:rgba(190,215,207,.2); }
+    html[data-theme="dark"] input, html[data-theme="dark"] textarea { color:var(--ink); }
     </style>
 </head>
 <body>
@@ -404,12 +416,15 @@ function resetTimer() { pauseTimer(); sec=0; document.getElementById('timer').in
 
 function calcScore() {
     var total = 0;
+    var scores = [];
     config.modules.forEach(function(m) {
         var val = Number(document.getElementById(m.id).value) || 0;
-        total += val * m.weight;
+        total += val * m.weight; scores.push({m:m,val:val});
     });
     document.getElementById('result-panel').style.display = 'block';
-    document.getElementById('final-score').innerText = total.toFixed(1);
+    var scoreEl=document.getElementById('final-score'); scoreEl.innerText = total.toFixed(1); scoreEl.classList.remove('score-rise'); void scoreEl.offsetWidth; scoreEl.classList.add('score-rise');
+    scores.forEach(function(s){var el=document.getElementById(s.m.id); if(el&&s.val>=s.m.count*.8) el.closest('.module').classList.add('score-high');});
+    var info=document.getElementById('stat-info'); if(info){var old=info.parentNode.querySelector('.score-distribution'); if(old) old.remove(); var chart=document.createElement('div'); chart.className='score-distribution'; scores.forEach(function(s,i){var bar=document.createElement('div');bar.className='score-bar';bar.style.height=Math.max(8,Math.min(100,s.val/Math.max(1,s.m.count)*100))+'%';bar.style.animationDelay=(i*.08)+'s';bar.innerHTML='<span>'+s.m.name+'</span>';chart.appendChild(bar);}); info.parentNode.insertBefore(chart,info);}
     window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'});
 }
 

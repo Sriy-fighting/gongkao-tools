@@ -2,12 +2,12 @@
   'use strict';
 
   var TOOLS = {
-    dashboard: { name: '首页', path: null },
-    exam:      { name: '套卷分数计算',   path: '../公考助手/index.html' },
-    essay:     { name: '申论方格纸', path: '../申论方格纸/index.html' },
-    speed:     { name: '资料速算',   path: '../资料训练/index.html?v=20260823-question-bank' },
-    curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html' },
-    wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html' },
+    dashboard: { name: '行旅台', path: null },
+    exam:      { name: '套卷分数计算',   path: '../公考助手/index.html?v=20260831-ui-final1' },
+    essay:     { name: '申论方格纸', path: '../申论方格纸/index.html?v=20260831-ui-final1' },
+    speed:     { name: '资料速算',   path: '../资料训练/index.html?v=20260831-ui-final1' },
+    curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html?v=20260831-ui-final1' },
+    wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html?v=20260831-ui-final1' },
     review:    { name: '复盘台', path: null },
     knowledge: { name: '思维导图', path: null }
   };
@@ -30,7 +30,8 @@
   var TOOL_NAMES_STORAGE_KEY = 'gk-tool-names-v1';
   var KNOWLEDGE_INDEX_URL = '../思维导图/knowledge-index.json';
   var KNOWLEDGE_ORDER_STORAGE_KEY = 'gk-knowledge-order-v1';
-  var KNOWLEDGE_LIBRARY_STORAGE_KEY = 'gk-knowledge-library-v1';
+  // v2 intentionally invalidates maps imported before the knowledge library reset.
+  var KNOWLEDGE_LIBRARY_STORAGE_KEY = 'gk-knowledge-library-v2';
   var KNOWLEDGE_FOLDER_STORAGE_KEY = 'gk-knowledge-folders-v1';
   var KNOWLEDGE_FOLDERS = ['政治理论', '常识', '公基'];
   var knowledgeMaps = [];
@@ -66,6 +67,94 @@
   // Keep transient plan UI state while data mutations rebuild the plan view.
   var planPackOpenState = { week: false, month: false };
   var planLastSavedAt = 0;
+  var countUpObserver;
+
+  function animateView(view) {
+    var roots = [els.dashboard, els.planView, els.recitationView, els.reviewView, els.knowledgeView, els.toolContainer];
+    roots.forEach(function (root) {
+      if (!root) return;
+      root.classList.remove('view-enter', 'view-exit');
+    });
+    var target = view === 'dashboard' ? els.dashboard : view === 'plan' ? els.planView : view === 'wusi' ? els.recitationView : view === 'review' ? els.reviewView : view === 'knowledge' ? els.knowledgeView : els.toolContainer;
+    if (!target) return;
+    target.classList.add('view-enter');
+    target.addEventListener('animationend', function () { target.classList.remove('view-enter'); }, { once: true });
+  }
+
+  function countUpElement(element, nextText) {
+    if (!element || element.dataset.countAnimating === 'true') return;
+    var next = String(nextText == null ? element.textContent : nextText);
+    var match = next.match(/(\d[\d,.]*)/);
+    if (!match) return;
+    var target = parseInt(match[1].replace(/[,\.]/g, ''), 10);
+    if (!isFinite(target)) return;
+    var currentMatch = String(element.textContent || '').match(/(\d[\d,.]*)/);
+    var current = currentMatch ? parseInt(currentMatch[1].replace(/[,\.]/g, ''), 10) : 0;
+    if (current === target) return;
+    var prefix = next.slice(0, match.index), suffix = next.slice(match.index + match[1].length);
+    var start = performance.now(), duration = 520;
+    element.dataset.countAnimating = 'true';
+    function frame(now) {
+      var p = Math.min(1, (now - start) / duration), eased = 1 - Math.pow(1 - p, 3);
+      element.textContent = prefix + Math.round(current + (target - current) * eased).toLocaleString('zh-CN') + suffix;
+      if (p < 1) requestAnimationFrame(frame); else { element.dataset.countAnimating = 'false'; element.dataset.countValue = String(target); }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function initPortalMotion() {
+    var selectors = '#journey-total,#journey-streak,#journey-stamps,.countdown-big-number,[data-count-up]';
+    if (typeof MutationObserver === 'undefined') return;
+    function observeElement(el) {
+      if (!el || el.dataset.countObserved === 'true') return;
+      el.dataset.countObserved = 'true'; el.dataset.countValue = '';
+      countUpObserver.observe(el, { childList: true, characterData: true, subtree: true });
+    }
+    countUpObserver = new MutationObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.target.dataset.countAnimating === 'true') return;
+        if (entry.target.dataset.metric != null) return;
+        countUpElement(entry.target, entry.target.textContent);
+      });
+    });
+    document.querySelectorAll(selectors).forEach(observeElement);
+    var dashboard = document.getElementById('dashboard-view');
+    if (dashboard) {
+      var additions = new MutationObserver(function () { dashboard.querySelectorAll(selectors).forEach(observeElement); });
+      additions.observe(dashboard, { childList: true, subtree: true });
+    }
+    var modalObserver = new MutationObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var overlay = entry.target;
+        if (!overlay.classList.contains('open') && !overlay.classList.contains('closing') && overlay.dataset.wasOpen === 'true') {
+          overlay.classList.add('closing');
+          setTimeout(function () { overlay.classList.remove('closing'); overlay.dataset.wasOpen = 'false'; }, 220);
+        }
+        if (overlay.classList.contains('open')) overlay.dataset.wasOpen = 'true';
+      });
+    });
+    document.querySelectorAll('.sync-overlay,.link-manager-overlay,.countdown-config-overlay,.plan-modal-overlay').forEach(function (overlay) {
+      modalObserver.observe(overlay, { attributes: true, attributeFilter: ['class'] });
+    });
+    document.addEventListener('click', function (event) {
+      var button = event.target.closest && event.target.closest('button');
+      if (!button || button.disabled) return;
+      button.classList.add('is-pressed');
+      setTimeout(function () { button.classList.remove('is-pressed'); }, 180);
+      if (button.hasAttribute('data-loading')) {
+        button.classList.add('is-loading');
+        button.setAttribute('aria-busy', 'true');
+        setTimeout(function () {
+          button.classList.remove('is-loading');
+          button.removeAttribute('aria-busy');
+          if (button.id === 'journey-start' && button.textContent.indexOf('暂停') === -1) {
+            button.classList.add('is-success');
+            setTimeout(function () { button.classList.remove('is-success'); }, 700);
+          }
+        }, 420);
+      }
+    }, true);
+  }
 
   function init() {
     document.title = '长安题途 · 公考备考助手';
@@ -103,6 +192,7 @@
     els.knowledgeImportInput = document.getElementById('knowledge-import-input');
     els.toolFrameToolbar = document.getElementById('tool-frame-toolbar');
     els.toolFrameBack = document.getElementById('tool-frame-back');
+    initPortalMotion();
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
@@ -141,7 +231,10 @@
     if (els.globalKnowledgeSearch) els.globalKnowledgeSearch.addEventListener('input', function () { renderKnowledgeSearch(els.globalKnowledgeSearch.value); });
     if (els.clearGlobalKnowledgeSearch) els.clearGlobalKnowledgeSearch.addEventListener('click', function () { els.globalKnowledgeSearch.value = ''; renderKnowledgeSearch(''); els.globalKnowledgeSearch.focus(); });
     if (els.knowledgeImportInput) els.knowledgeImportInput.addEventListener('change', handleKnowledgeImport);
-    if (els.toolFrame) els.toolFrame.addEventListener('load', enhanceEmbeddedKnowledgeMap);
+    if (els.toolFrame) els.toolFrame.addEventListener('load', function () {
+      enhanceEmbeddedKnowledgeMap();
+      enhanceEmbeddedToolFrame();
+    });
     document.addEventListener('click', function (event) {
       if (els.globalKnowledgeResults && els.portalSearch && !els.portalSearch.contains(event.target)) renderKnowledgeSearch('');
     });
@@ -212,6 +305,10 @@
     toolNames = loadToolNames();
     applyToolNames();
     renderPlan();
+    // The dashboard task selector is owned by Journey. Refresh it after local
+    // or cloud plan data has been loaded so newly available tasks appear
+    // immediately after sign-in or sync.
+    if (window.Journey && window.Journey.refresh) window.Journey.refresh();
     applySavedToolOrder();
     els.navItems = document.querySelectorAll('.nav-item');
     refreshNavMoveControls();
@@ -470,8 +567,13 @@
 
   function navigateTo(view) {
     if (view === currentView) return;
+    document.body.dataset.activeView = view;
     var tool = TOOLS[view];
     if (!tool && view !== 'plan') return;
+    // Update the active view before assigning an iframe URL. The iframe can
+    // finish loading synchronously (or from cache), and the theme enhancer
+    // needs the new view to choose the correct scene and overrides.
+    currentView = view;
     if (timerState.running) saveTimerState();
     els.navItems.forEach(function (el) { el.classList.remove('active'); });
     var activeNav = document.querySelector('.nav-item[data-view="' + view + '"]');
@@ -536,7 +638,9 @@
       els.pageTitle.textContent = tool.name;
       els.toolFrame.src = tool.path;
     }
-    currentView = view;
+    animateView(view);
+    // currentView is assigned above so iframe load handlers always see the
+    // destination view. Keep this function's state stable after rendering.
   }
 
   function openKnowledgeChapter(path, title) {
@@ -554,6 +658,7 @@
     els.toolFrame.src = path;
     els.navItems.forEach(function (el) { el.classList.toggle('active', el.dataset.view === 'knowledge'); });
     currentView = 'knowledge-chapter';
+    document.body.dataset.activeView = 'knowledge';
   }
 
   function enhanceEmbeddedKnowledgeMap() {
@@ -646,7 +751,7 @@
     els.knowledgeGrid.innerHTML = '';
     var mapsInFolder = knowledgeMaps.filter(function (map) { return knowledgeFolders[map.id] === knowledgeFolder; });
     if (!mapsInFolder.length) {
-      els.knowledgeGrid.innerHTML = '<div class="knowledge-folder-empty"><strong>' + knowledgeEsc(knowledgeFolder) + '</strong><span>暂时没有思维导图。导入后可将内容移动到这里。</span></div>';
+      els.knowledgeGrid.innerHTML = '<div class="knowledge-folder-empty"><img src="assets/images/changan/empty-knowledge-scroll.webp" alt="" loading="lazy"><strong>' + knowledgeEsc(knowledgeFolder) + '</strong><span>暂时没有思维导图。导入后可将内容移动到这里。</span></div>';
       return;
     }
     mapsInFolder.forEach(function (map, index) {
@@ -665,6 +770,60 @@
     });
   }
 
+  // Embedded tools use their own document, so mirror the portal theme and
+  // apply the same translucent scene surface used by native portal views.
+  function enhanceEmbeddedToolFrame() {
+    var frame = els.toolFrame;
+    var doc;
+    try { doc = frame && frame.contentDocument; } catch (e) { return; }
+    if (!doc) return;
+    var theme = document.documentElement.getAttribute('data-theme') || 'light';
+    doc.documentElement.setAttribute('data-theme', theme);
+    var view = currentView || 'dashboard';
+    var scenes = {
+      exam: '../公考工具箱/assets/images/changan/tool-exam-gate.webp',
+      essay: '../公考工具箱/assets/images/changan/tool-essay-pavilion.webp',
+      speed: '../公考工具箱/assets/images/changan/tool-speed-route.webp',
+      curve: '../公考工具箱/assets/images/changan/tool-review-lantern.webp',
+      knowledge: '../公考工具箱/assets/images/changan/tool-knowledge-map.webp'
+    };
+    var scene = scenes[view] || scenes.knowledge;
+    var style = doc.getElementById('portal-tool-theme-style');
+    if (!style) {
+      style = doc.createElement('style');
+      style.id = 'portal-tool-theme-style';
+      (doc.head || doc.documentElement).appendChild(style);
+    }
+    style.textContent = [
+      ':root{--portal-scene:url("' + scene + '");--portal-ink:#17343b;--portal-paper:rgba(248,250,246,.78);--portal-line:rgba(217,226,223,.8);}',
+      'html,body{min-height:100%;}',
+      'body{background:linear-gradient(rgba(246,248,244,.76),rgba(246,248,244,.9)),var(--portal-scene) center/cover fixed!important;color:var(--portal-ink)!important;}',
+      'main,.container,.paper-wrapper,.setup-workspace,.play-workspace{background:transparent!important;}',
+      '.container,.setup-workspace,.play-workspace{width:100%!important;max-width:1540px!important;margin-left:auto!important;margin-right:auto!important;}',
+      'header,.toolbar,.speed-topbar,.config-panel,.module,.section,.speed-config,.paper,.segment,.recall,.cloze,.bank-modal,.editor-modal{background:var(--portal-paper)!important;border-color:var(--portal-line)!important;backdrop-filter:blur(12px);}',
+      '.grid-container,.choice-grid,.setting-item,.select-grid,.bank-summary,.play-status,.timer-track{background:transparent!important;}',
+      'input,select,textarea,.mode-btn,.num-chip,.choice,.btn-secondary,.bank-row,.bank-toolbar input,.bank-toolbar select{background:rgba(255,255,255,.42)!important;border-color:var(--portal-line)!important;color:var(--portal-ink)!important;}',
+      'html[data-theme="dark"]{--portal-ink:#edf3ee;--portal-paper:rgba(16,39,45,.78);--portal-line:rgba(192,214,207,.2);}',
+      'html[data-theme="dark"]{color-scheme:dark;}',
+      'html[data-theme="dark"] body{background:linear-gradient(rgba(8,24,30,.72),rgba(8,24,30,.88)),var(--portal-scene) center/cover fixed!important;color:var(--portal-ink)!important;}',
+      'html[data-theme="dark"] header,html[data-theme="dark"] .dark-theme header,html[data-theme="dark"] .speed-topbar,html[data-theme="dark"] .toolbar,html[data-theme="dark"] .header-main,html[data-theme="dark"] .config-panel,html[data-theme="dark"] .editor-header,html[data-theme="dark"] .editor-body,html[data-theme="dark"] .editor-footer{background:rgba(10,31,38,.82)!important;border-color:var(--portal-line)!important;color:#edf3ee!important;}',
+      'html[data-theme="dark"] .editor-module-row{background:rgba(12,34,41,.78)!important;border-color:var(--portal-line)!important;}',
+      'html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea,html[data-theme="dark"] .mode-btn,html[data-theme="dark"] .num-chip,html[data-theme="dark"] .choice,html[data-theme="dark"] .btn-secondary,html[data-theme="dark"] .bank-row,html[data-theme="dark"] .bank-toolbar input,html[data-theme="dark"] .bank-toolbar select{background:rgba(12,34,41,.62)!important;border-color:var(--portal-line)!important;color:#edf3ee!important;}',
+      'html[data-theme="dark"] .tool-btn,html[data-theme="dark"] .text-btn,html[data-theme="dark"] .template-item,html[data-theme="dark"] .btn-export,html[data-theme="dark"] .week-nav-btn,html[data-theme="dark"] .btn-delete,html[data-theme="dark"] .btn-cancel-edit,html[data-theme="dark"] .btn-edit-item{background:rgba(12,34,41,.62)!important;border-color:var(--portal-line)!important;color:#edf3ee!important;}',
+      'html[data-theme="dark"] .tool-btn:hover,html[data-theme="dark"] .text-btn:hover,html[data-theme="dark"] .template-item:hover,html[data-theme="dark"] .btn-export:hover,html[data-theme="dark"] .week-nav-btn:hover,html[data-theme="dark"] .btn-delete:hover,html[data-theme="dark"] .btn-cancel-edit:hover,html[data-theme="dark"] .btn-edit-item:hover{background:rgba(119,200,181,.16)!important;color:#edf3ee!important;}',
+      'html[data-theme="dark"] .editor-close,html[data-theme="dark"] .del-btn,html[data-theme="dark"] .editor-del-btn,html[data-theme="dark"] .editor-add-btn,html[data-theme="dark"] .test-btn,html[data-theme="dark"] .add-reminder-btn,html[data-theme="dark"] .edit-btn{background:transparent!important;border-color:var(--portal-line)!important;color:#edf3ee!important;}',
+      'html[data-theme="dark"] .editor-add-btn:hover,html[data-theme="dark"] .test-btn:hover,html[data-theme="dark"] .add-reminder-btn:hover,html[data-theme="dark"] .edit-btn:hover{background:rgba(119,200,181,.16)!important;color:#edf3ee!important;}',
+      'html[data-theme="dark"] .modal-overlay,html[data-theme="dark"] .editor-overlay{background:rgba(3,14,19,.78)!important;}',
+      'html[data-theme="dark"] button{color:#edf3ee;}',
+      'html[data-theme="dark"] .toolbar{height:auto;min-height:56px;flex-wrap:wrap;justify-content:flex-start;padding-top:8px;padding-bottom:8px;overflow:visible;}',
+      'html[data-theme="dark"] .toolbar-group{min-width:0;flex-wrap:wrap;}',
+      'html[data-theme="dark"] .config-panel{flex-wrap:wrap;overflow-x:visible;}',
+      'html[data-theme="dark"] #reminders-container{min-width:0;flex-wrap:wrap!important;}',
+      '@media(max-width:1100px){.toolbar{height:auto!important;min-height:56px;flex-wrap:wrap!important;justify-content:flex-start!important;padding:8px 12px!important;overflow:visible!important}.toolbar-group{min-width:0;flex-wrap:wrap}.paper-wrapper{padding-top:104px!important}.config-panel{flex-wrap:wrap!important;overflow-x:visible!important}#reminders-container{min-width:0;flex-wrap:wrap!important;}}',
+      '@media(max-width:680px){body{background-attachment:scroll!important;}}'
+    ].join('');
+  }
+
   function flattenKnowledgeMatches(query) {
     var q = String(query || '').trim().toLowerCase(); if (!q) return [];
     var result = [];
@@ -680,8 +839,8 @@
   }
 
   function initKnowledgeLibrary() {
-    var fallback = { maps: [{ id: 'science-section-1', title: '科技常识：波、电磁波与光学', subtitle: '声音、波动、电磁波、光学现象与成像', path: '../思维导图/科技常识_第一节_学习增强版.html', icon: '科', color: '#2783c9', order: 1, nodes: [] }, { id: 'science-section-2', title: '科技常识：力学、电学与能量', subtitle: '牛顿定律、常见力、电学现象、能量守恒与核能', path: '../思维导图/科技常识_第二节_学习增强版.html', icon: '力', color: '#2778b8', order: 2, nodes: [] }, { id: 'history-section-1', title: '历史常识：夏商周与春秋战国', subtitle: '夏商周、春秋五霸、战国变法与秦的统一', path: '../思维导图/历史常识_第一节_学习增强版.html', icon: '夏', color: '#a8592b', order: 2.5, nodes: [] }, { id: 'history-section-2', title: '历史常识：秦汉', subtitle: '秦朝建立、西汉盛世与汉武帝时期', path: '../思维导图/历史常识_第二节_学习增强版.html', icon: '秦', color: '#b05f26', order: 3, nodes: [] }, { id: 'history-section-3', title: '历史常识：东汉至隋朝', subtitle: '东汉、三国、两晋南北朝与隋朝历史脉络', path: '../思维导图/历史常识_第三节_学习增强版.html', icon: '史', color: '#a34d37', order: 4, nodes: [] }, { id: 'history-section-4', title: '历史常识：唐宋', subtitle: '唐朝盛衰、五代十国与北宋制度变革', path: '../思维导图/历史常识_第四节_学习增强版.html', icon: '唐', color: '#9b4d28', order: 5, nodes: [] }, { id: 'history-section-5', title: '历史常识：南宋至清末', subtitle: '南宋、元明清政权与近代转折', path: '../思维导图/历史常识_第五节_学习增强版.html', icon: '明', color: '#1766a8', order: 6, nodes: [] }] };
-    function finish(data) { knowledgeMaps = Array.isArray(data && data.maps) && data.maps.length ? data.maps : fallback.maps; try { var local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); if (Array.isArray(local)) knowledgeMaps = knowledgeMaps.concat(local.filter(function (m) { return !knowledgeMaps.some(function (base) { return base.id === m.id; }); })); } catch (e) {} loadKnowledgeFolders(); saveKnowledgeFolders(); applyKnowledgeOrder(); knowledgeLoaded = true; renderKnowledgeLibrary(); if (knowledgeSearchQuery) renderKnowledgeSearch(knowledgeSearchQuery); }
+    // The empty index is authoritative after a reset; do not resurrect deleted maps.
+    function finish(data) { knowledgeMaps = Array.isArray(data && data.maps) ? data.maps : []; try { localStorage.removeItem('gk-knowledge-library-v1'); var local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); if (Array.isArray(local)) knowledgeMaps = knowledgeMaps.concat(local.filter(function (m) { return !knowledgeMaps.some(function (base) { return base.id === m.id; }); })); } catch (e) {} loadKnowledgeFolders(); saveKnowledgeFolders(); applyKnowledgeOrder(); knowledgeLoaded = true; renderKnowledgeLibrary(); if (knowledgeSearchQuery) renderKnowledgeSearch(knowledgeSearchQuery); }
     fetch(KNOWLEDGE_INDEX_URL).then(function (response) { if (!response.ok) throw new Error('index'); return response.json(); }).then(finish).catch(function () { finish({ maps: [] }); });
   }
 
@@ -729,6 +888,7 @@
     try { localStorage.setItem('gk-theme', next); } catch(e) {}
     if (window.SyncStore) window.SyncStore.writeData('gk-theme', next);
     updateThemeIcon(next);
+    enhanceEmbeddedToolFrame();
   }
 
   function updateThemeIcon(theme) {
@@ -919,7 +1079,7 @@
     var section = document.getElementById('countdown-section');
     if (!section) return;
     if (!cdState.name || !cdState.date) {
-      section.innerHTML = '<div class="countdown-empty"><p>还没有设置考试目标</p><button onclick="window.openCountdownConfig()">设置考试</button></div>';
+      section.innerHTML = '<div class="countdown-empty"><img class="countdown-empty-visual" src="assets/images/changan/empty-exam-target.webp" alt="" loading="lazy"><div class="countdown-empty-copy"><p>还没有设置考试目标</p><button onclick="window.openCountdownConfig()">设置考试</button></div></div>';
       return;
     }
     var targetDate = new Date(cdState.date + 'T00:00:00');
@@ -1164,6 +1324,16 @@
     return { email: email ? email.value.trim() : '', password: password ? password.value : '' };
   }
 
+  function goHomeAfterAuth() {
+    // Auth may happen while a review deep-link hash is active. Clear it before
+    // navigating so the hashchange handler cannot send the user back to review.
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    closeAccountModal();
+    navigateTo('dashboard');
+  }
+
   function accountSignIn() {
     var c = getAccountCredentials();
     if (!c.email || !c.password) { setAccountMessage('请输入邮箱和密码'); return; }
@@ -1171,6 +1341,7 @@
     window.SyncStore.signIn(c.email, c.password).then(function () {
       setAccountMessage('登录成功，已同步本地数据');
       loadAllData();
+      goHomeAfterAuth();
     }).catch(function (err) { setAccountMessage(err && err.message ? err.message : '登录失败'); });
   }
 
@@ -1180,7 +1351,7 @@
     setAccountMessage('正在注册...');
     window.SyncStore.signUp(c.email, c.password).then(function () {
       var info = window.SyncStore.getAuthInfo();
-      if (info.isLoggedIn) { setAccountMessage('注册成功，已同步本地数据'); loadAllData(); }
+      if (info.isLoggedIn) { setAccountMessage('注册成功，已同步本地数据'); loadAllData(); goHomeAfterAuth(); }
       else { setAccountMessage('注册成功，请先到邮箱确认后再登录'); }
     }).catch(function (err) { setAccountMessage(err && err.message ? err.message : '注册失败'); });
   }
@@ -2809,8 +2980,8 @@
       var label = ['日','一','二','三','四','五','六'][parseLocalDate(date).getDay()];
       html += '<button class="plan-itinerary-day' + (date === selectedDate ? ' is-selected' : '') + '" onclick="planChangeSelectedDate(' + jsSingleArg(date) + ')"><span>周' + label + '</span><strong>' + parseLocalDate(date).getDate() + '</strong><em>' + (tasks.length ? done + '/' + tasks.length : '空') + '</em></button>';
     }
-    html += '</div><details class="plan-week-pack"><summary>本周行囊 <span>' + (weekPlan.items ? weekPlan.items.length : 0) + ' 项</span></summary>' + renderPlanItemEditor('week', active.key, '本周要完成的事', '添加一项本周任务...') + '<div class="plan-week-card-actions"><button class="plan-primary-btn" onclick="savePlanWeekGoal(' + jsSingleArg(active.key) + ')">保存本周行囊</button></div></details></section>';
-    html += '<details class="plan-week-pack plan-month-pack"><summary>本月行囊 <span>' + ((month.goalItems || []).length + (month.focusItems || []).length) + ' 项</span></summary><div class="plan-month-pack-grid">' + renderPlanItemEditor('goal', '', '本月想做到什么？', '添加一个本月目标...') + renderPlanItemEditor('focus', '', '本月优先投入', '添加一个本月重点...') + '</div><div class="plan-week-card-actions"><button class="plan-primary-btn" onclick="savePlanMonthPanel()">保存本月行囊</button></div></details>';
+    html += '</div><details class="plan-week-pack"><summary>本周行囊 <span>' + (weekPlan.items ? weekPlan.items.length : 0) + ' 项</span></summary>' + renderPlanItemEditor('week', active.key, '本周要完成的事', '添加一项本周任务...') + '<div class="plan-week-card-actions"><button class="plan-primary-btn" onclick="savePlanWeekGoal(' + jsSingleArg(active.key) + ')">保存本周行囊</button></div></details>';
+    html += '<details class="plan-week-pack plan-month-pack"><summary>本月行囊 <span>' + ((month.goalItems || []).length + (month.focusItems || []).length) + ' 项</span></summary><div class="plan-month-pack-grid">' + renderPlanItemEditor('goal', '', '本月想做到什么？', '添加一个本月目标...') + renderPlanItemEditor('focus', '', '本月优先投入', '添加一个本月重点...') + '</div><div class="plan-week-card-actions"><button class="plan-primary-btn" onclick="savePlanMonthPanel()">保存本月行囊</button></div></details></section>';
     return html;
   }
 

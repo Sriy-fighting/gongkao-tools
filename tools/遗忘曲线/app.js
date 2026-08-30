@@ -343,10 +343,30 @@ function renderHeaderDate() {
    ========================================================= */
 function renderStatsBar(entries) {
   const stats = calculateStats(entries);
-  document.getElementById('statTotal').textContent = stats.totalEntries;
-  document.getElementById('statToday').textContent = stats.reviewsToday;
-  document.getElementById('statRate').textContent = stats.completionRate + '%';
-  document.getElementById('statStreak').textContent = stats.streak;
+  animateNumber(document.getElementById('statTotal'), stats.totalEntries);
+  animateNumber(document.getElementById('statToday'), stats.reviewsToday);
+  animateNumber(document.getElementById('statRate'), stats.completionRate, '%');
+  animateNumber(document.getElementById('statStreak'), stats.streak);
+}
+
+function animateNumber(el, value, suffix) {
+  if (!el) return;
+  const target = Number(value) || 0, start = Number.parseInt(el.textContent, 10) || 0;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = target + (suffix || ''); return; }
+  const begin = performance.now(), duration = 520;
+  function tick(now) { const p = Math.min(1, (now - begin) / duration), eased = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(start + (target - start) * eased) + (suffix || ''); if (p < 1) requestAnimationFrame(tick); }
+  requestAnimationFrame(tick);
+}
+
+function renderMemoryCurve(entries) {
+  const host = document.getElementById('memoryCurve'); if (!host) return;
+  const w = 760, h = 150, pad = 34;
+  const points = INTERVALS.map((d, i) => { const x = pad + i * ((w - pad * 2) / (INTERVALS.length - 1)); const y = 20 + (1 - Math.exp(-d / 8)) * 100; return [x, y]; });
+  const path = points.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+  const area = path + ' L ' + points[points.length - 1][0] + ' ' + (h - 12) + ' L ' + points[0][0] + ' ' + (h - 12) + ' Z';
+  const today = getToday();
+  const dueSet = new Set(); entries.forEach(e => getDueIntervals(e, today).forEach(d => dueSet.add(d.interval)));
+  host.innerHTML = '<svg viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="none"><path class="curve-area" d="'+area+'"/><path class="curve-path" d="'+path+'"/>' + points.map((p, i) => { const d = INTERVALS[i]; return '<circle class="curve-node '+(dueSet.has(d)?'due':'')+'" style="animation-delay:'+(i*.12)+'s" cx="'+p[0]+'" cy="'+p[1]+'" r="5"><title>第'+d+'天'+(dueSet.has(d)?' · 待复习':'')+'</title></circle><text class="curve-label" x="'+p[0]+'" y="'+(h-2)+'" text-anchor="middle">'+d+'天</text>'; }).join('') + '</svg>';
 }
 
 /* =========================================================
@@ -485,6 +505,7 @@ function renderAll() {
   renderReviewSection(entries);
   renderWeeklyPreview(entries);
   renderHistorySection(entries);
+  renderMemoryCurve(entries);
 }
 
 /* =========================================================

@@ -243,9 +243,8 @@
       '<div class="rec-shell">' +
         '<header class="rec-head">' +
           '<div class="rec-title-block">' +
-            '<p class="rec-kicker">五四讲话背诵 · 7 天计划</p>' +
-            '<h2>五段精背 + 金句库模考</h2>' +
-            '<p class="rec-sub">理想 · 担当 · 奋斗 · 本领 · 品德</p>' +
+            '<p class="rec-kicker">五四讲话</p>' +
+            '<h2>背诵练习</h2>' +
           '</div>' +
           '<div class="rec-head-right">' +
             '<div class="rec-progress">' +
@@ -317,32 +316,17 @@
     return (
       '<p class="rec-eyebrow">第 ' + (day + 1) + ' 天 · ' + fmtDate(date) + '</p>' +
       '<h3 class="rec-title">' + esc(seg.title) + '</h3>' +
-      '<p class="rec-goal">' + esc(seg.goal) + '</p>' +
       '<section class="rec-card">' +
-        '<div class="rec-card-head"><h4>今天背什么</h4><span>' + themeLabel(seg.id) + '主题</span></div>' +
+        '<div class="rec-card-head"><h4>正文</h4></div>' +
         modebar +
-        '<div class="rec-meaning">' +
-          '<div><strong>这段在说什么</strong><p>' + esc(seg.meaning) + '</p></div>' +
-          '<div><strong>在申论/面试中的作用</strong><p>' + esc(seg.role) + '</p></div>' +
-        '</div>' +
+        '<div class="rec-audio" data-rec-audio><button type="button" class="rec-audio-btn" data-audio-toggle aria-pressed="false"><span aria-hidden="true">▶</span> 跟读</button><div class="rec-wave" aria-hidden="true">' + Array.from({length: 18}, function (_, i) { return '<i style="--wave-delay:' + (i * 45) + 'ms"></i>'; }).join('') + '</div><span class="rec-audio-label">逐句朗读</span></div>' +
         '<div class="rec-text ' + mode + '">' + renderText(seg) + '</div>' +
-        '<div class="rec-anchors">' + seg.anchors.map(function (a) { return '<span>' + esc(a) + '</span>'; }).join('') + '</div>' +
-        '<details class="rec-tip"><summary>记忆提示</summary><p>' + esc(seg.tip) + '</p></details>' +
       '</section>' +
       '<section class="rec-card">' +
         '<div class="rec-card-head"><h4>挖空自测</h4><button type="button" class="rec-link" data-reveal-cloze>' + (clozeOpen ? '收起原句' : '显示原句') + '</button></div>' +
         '<div class="rec-cloze-list' + (clozeOpen ? ' open' : '') + '">' + renderCloze(seg) + '</div>' +
       '</section>' +
-      '<section class="rec-card">' +
-        '<div class="rec-card-head"><h4>遮挡复述</h4><span>先背，再展开核对</span></div>' +
-        '<div class="rec-recall-item">' +
-          '<p class="rec-recall-hint"><strong>首句：</strong>' + esc(splitSentences(seg.text[0])[0] || seg.text[0]) + '</p>' +
-          '<p class="rec-recall-keywords"><strong>关键词：</strong>' + seg.anchors.slice(0, 6).map(esc).join(' / ') + '</p>' +
-          '<button type="button" class="rec-link" data-recall-toggle>展开核对</button>' +
-          '<div class="rec-recall-full">' + seg.text.map(esc).join('') + '</div>' +
-        '</div>' +
-        statusButtons(seg) +
-      '</section>' +
+      '<section class="rec-card rec-status-card"><div class="rec-card-head"><h4>背诵结果</h4></div>' + statusButtons(seg) + '</section>' +
       doneButton(day)
     );
   }
@@ -353,15 +337,15 @@
     }
     if (mode === 'skeleton') {
       return seg.text.map(function (p) {
-        var leads = splitSentences(p).map(function (sentence) {
+        var leads = splitSentences(p).map(function (sentence, idx) {
           var hit = seg.anchors.find(function (a) { return sentence.indexOf(a) !== -1; }) || sentence.slice(0, Math.min(14, sentence.length));
-          return '<span class="rec-lead">' + esc(hit) + '</span>…';
+          return '<span class="rec-skeleton-word" style="--rec-delay:' + (idx * 70) + 'ms"><span class="rec-lead">' + esc(hit) + '</span>…</span>';
         });
         return '<p>' + leads.join('　') + '</p>';
       }).join('');
     }
     var first = splitSentences(seg.text[0])[0] || seg.text[0];
-    return '<p><strong class="rec-lead">' + esc(first) + '</strong> ……</p>' +
+    return '<p><strong class="rec-lead rec-type" style="--rec-chars:' + first.length + '">' + esc(first) + '</strong> ……</p>' +
       '<p class="rec-keywords">关键词：' + seg.anchors.slice(0, 6).map(esc).join('　/　') + '</p>';
   }
 
@@ -596,12 +580,12 @@
 
   function doneButton(day) {
     var done = state.done.indexOf(day) !== -1;
-    return '<div class="rec-footer-actions"><button type="button" class="rec-btn rec-btn-primary rec-done" data-done-day>' +
+    return '<div class="rec-footer-actions">' + (done ? '<div class="rec-complete-stamp" role="status">本日已完成</div>' : '') + '<button type="button" class="rec-btn rec-btn-primary rec-done" data-done-day>' +
       (done ? '已完成本日训练' : '完成今日训练') + '</button></div>';
   }
 
   function onClick(e) {
-    var el = e.target.closest('[data-rec-tab],[data-day],[data-mode],[data-seg-status],[data-reveal-cloze],[data-recall-toggle],[data-done-day],[data-quote-status],[data-quote-theme],[data-quote-tag],[data-quote-status-filter],[data-drill-start],[data-drill-show],[data-drill-rate],[data-mock-submit],[data-mock-rate],[data-mock-retry],[data-practice-weak],[data-reset-rec],[data-goto-today]');
+    var el = e.target.closest('[data-rec-tab],[data-day],[data-mode],[data-audio-toggle],[data-seg-status],[data-reveal-cloze],[data-recall-toggle],[data-done-day],[data-quote-status],[data-quote-theme],[data-quote-tag],[data-quote-status-filter],[data-drill-start],[data-drill-show],[data-drill-rate],[data-mock-submit],[data-mock-rate],[data-mock-retry],[data-practice-weak],[data-reset-rec],[data-goto-today]');
     if (!el) return;
     var tag = el.tagName.toLowerCase();
     if (tag === 'button' && el.disabled) return;
@@ -621,6 +605,27 @@
     if (el.dataset.mode) {
       mode = el.dataset.mode;
       render();
+      return;
+    }
+    if (el.dataset.audioToggle !== undefined) {
+      var audioBox = el.closest('[data-rec-audio]');
+      if (window.speechSynthesis && audioBox) {
+        if (audioBox.classList.contains('is-playing')) {
+          window.speechSynthesis.cancel();
+          audioBox.classList.remove('is-playing');
+          el.setAttribute('aria-pressed', 'false');
+          el.querySelector('span').textContent = '▶';
+        } else {
+          var segNow = SEGMENTS[state.day];
+          var utter = new SpeechSynthesisUtterance(segNow ? segNow.text.join(' ') : '');
+          utter.lang = 'zh-CN'; utter.rate = .92;
+          audioBox.classList.add('is-playing');
+          el.setAttribute('aria-pressed', 'true');
+          el.querySelector('span').textContent = '■';
+          utter.onend = function () { audioBox.classList.remove('is-playing'); el.setAttribute('aria-pressed', 'false'); el.querySelector('span').textContent = '▶'; };
+          window.speechSynthesis.cancel(); window.speechSynthesis.speak(utter);
+        }
+      } else { toast('当前浏览器不支持朗读'); }
       return;
     }
     if (el.dataset.segStatus) {
@@ -772,6 +777,7 @@
     state.day = Math.min(6, day + 1);
     save();
     render();
+    toast('第 ' + dayNumber + ' 天训练完成');
   }
 
   window.RecitationApp = {

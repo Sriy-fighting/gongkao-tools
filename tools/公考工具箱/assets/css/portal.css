@@ -2927,6 +2927,8 @@ html, body { height: 100%; font-family: var(--font); background: var(--bg); colo
 .journey-stop-icon { width: 21px; height: 21px; display: grid; place-items: center; border-radius: 50%; background: var(--surface); font-size: 18px; line-height: 1; }
 .journey-stop.reached { color: #a16207; font-weight: 700; }
 .journey-stop.reached .journey-stop-icon { color: #d97706; }
+.journey-stop.in-progress .journey-stop-icon{border-color:#2a8f80;color:#2a8f80;animation:journey-pulse 1.4s ease-in-out infinite}.journey-focus-active .plan-journey-rail{box-shadow:0 0 0 1px rgba(42,143,128,.2),0 14px 30px rgba(42,143,128,.14)}
+@keyframes journey-pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(42,143,128,.35)}50%{transform:scale(1.12);box-shadow:0 0 0 7px rgba(42,143,128,0)}}
 .journey-summary { justify-content: center; gap: 13px; color: var(--text-secondary); font-size: 12px; flex-wrap: wrap; }
 .journey-summary span + span { border-left: 1px solid var(--border); padding-left: 13px; }
 .journey-focus-grid { display: grid; grid-template-columns: minmax(180px, 1fr) auto; align-items: end; gap: 14px; margin-top: 21px; }
@@ -3869,6 +3871,230 @@ textarea:focus-visible,
   .plan-modal-footer > div button { flex: 1; }
 }
 
+/* Unified interaction layer: navigation, cards and empty states share one
+   motion language while keeping the translucent scene surfaces intact. */
+:root { --sidebar-width: 270px; }
+.sidebar { width: var(--sidebar-width); }
+.sidebar-nav { padding: 18px 14px; gap: 7px; }
+.nav-item { min-height: 46px; padding: 11px 14px; gap: 12px; white-space: nowrap; overflow: visible; }
+.nav-item svg { width: 19px; height: 19px; }
+.nav-item.active { box-shadow: inset 3px 0 0 #d2aa50, 0 0 0 1px rgba(239,202,114,.18); animation: nav-glow 2.8s ease-in-out infinite; }
+.nav-move-actions { opacity: 0; transition: opacity .18s ease; }
+.nav-item:hover .nav-move-actions, .nav-item:focus-within .nav-move-actions { opacity: 1; }
+.countdown-empty { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 4vw, 46px); min-height: 190px; padding: 22px 26px; text-align: left; }
+.countdown-empty-visual { width: min(220px, 36vw); height: 132px; object-fit: cover; border-radius: 8px; opacity: .92; box-shadow: 0 12px 24px rgba(23,55,60,.14); animation: empty-float 5s ease-in-out infinite; }
+.countdown-empty-copy { display: grid; justify-items: start; gap: 4px; }
+.countdown-empty-copy p { margin: 0; }
+.tool-card[data-view], .knowledge-card, #review-view .review-question-list li { animation: surface-in .45s ease both; }
+.tool-card[data-view]:nth-child(2), .knowledge-card:nth-child(2) { animation-delay: .04s; }
+.tool-card[data-view]:nth-child(3), .knowledge-card:nth-child(3) { animation-delay: .08s; }
+.tool-card[data-view]:nth-child(4), .knowledge-card:nth-child(4) { animation-delay: .12s; }
+@keyframes surface-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes empty-float { 0%,100% { transform: translateY(0) rotate(-.4deg); } 50% { transform: translateY(-7px) rotate(.4deg); } }
+@keyframes nav-glow { 0%,100% { box-shadow: inset 3px 0 0 #d2aa50, 0 0 0 1px rgba(239,202,114,.12); } 50% { box-shadow: inset 3px 0 0 #f0c969, 0 0 14px rgba(210,170,80,.14); } }
+@media (max-width: 760px) { .sidebar { width: min(286px, 86vw); } .countdown-empty { gap: 14px; padding: 18px 14px; } .countdown-empty-visual { width: 42%; height: 112px; } }
+@media (max-width: 460px) { .countdown-empty { display: grid; justify-items: center; text-align: center; } .countdown-empty-copy { justify-items: center; } .countdown-empty-visual { width: min(260px, 80vw); } }
+
+/* Knowledge map library feedback: empty state and drag/search responses stay
+   lightweight while making the next action obvious. */
+.knowledge-folder-empty img { width: min(220px, 70vw); height: 112px; object-fit: cover; margin: 0 auto 4px; border-radius: 8px; opacity: .9; box-shadow: 0 10px 22px rgba(23,55,60,.12); animation: empty-float 5s ease-in-out infinite; }
+.portal-search-results.is-open .portal-search-result { animation: search-result-in .25s ease both; }
+.portal-search-results.is-open .portal-search-result:nth-child(2) { animation-delay: .04s; }
+.portal-search-results.is-open .portal-search-result:nth-child(3) { animation-delay: .08s; }
+.knowledge-card.is-over { position: relative; border-style: dashed; }
+.knowledge-card.is-over::after { content: "放置于此"; position: absolute; inset: 0; display: grid; place-items: center; border: 2px dashed var(--ca-gold); border-radius: inherit; background: color-mix(in srgb, var(--ca-gold) 10%, transparent); color: var(--ca-gold); font-size: 12px; font-weight: 800; pointer-events: none; }
+@keyframes search-result-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Unified portal motion contract: scene fades in while content rises 12px. */
+.view-enter { animation: portal-view-enter 460ms cubic-bezier(.22,.8,.24,1) both; }
+@keyframes portal-view-enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Modal entrance / exit language. Existing .open toggles remain backwards compatible. */
+.sync-overlay.open, .link-manager-overlay.open, .countdown-config-overlay.open, .plan-modal-overlay.open { animation: portal-overlay-in 220ms ease both; }
+.sync-overlay.closing, .link-manager-overlay.closing, .countdown-config-overlay.closing, .plan-modal-overlay.closing { display: flex; animation: portal-overlay-out 220ms ease both; pointer-events: none; }
+.sync-modal, .link-manager-modal, .countdown-config-modal, .plan-modal { animation: portal-modal-in 260ms cubic-bezier(.22,.8,.24,1) both; }
+@keyframes portal-overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes portal-overlay-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes portal-modal-in { from { opacity: 0; transform: translateY(10px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+/* Buttons expose pressed, loading and success feedback without changing markup. */
+button.is-pressed { transform: translateY(1px) scale(.97) !important; filter: brightness(.96); }
+button.is-loading, button[aria-busy="true"] { position: relative; pointer-events: none; color: transparent !important; }
+button.is-loading::after, button[aria-busy="true"]::after { position: absolute; width: 15px; height: 15px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; content: ""; animation: portal-spin .7s linear infinite; color: var(--primary); }
+button.is-success { background: var(--success, #287c74) !important; border-color: var(--success, #287c74) !important; color: #fff !important; }
+@keyframes portal-spin { to { transform: rotate(360deg); } }
+
+/* Homepage journey feedback: route and stops light up in sequence. */
+.journey-stop.reached { animation: journey-stop-reach 420ms cubic-bezier(.22,.8,.24,1) both; animation-delay: var(--stop-delay, 0ms); }
+.journey-stop.reached .journey-stop-icon { animation: journey-stop-pulse 1.8s ease-in-out infinite; }
+@keyframes journey-stop-reach { from { opacity: .25; transform: translateY(8px) scale(.88); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes journey-stop-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(229,185,86,.18); } 50% { box-shadow: 0 0 0 6px rgba(229,185,86,0); } }
+.journey-route::after { transform-origin: left center; animation: journey-route-grow 1.1s ease both; }
+@keyframes journey-route-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Starting focus uses the same scene image with a restrained breathing scale. */
+.focus-immersive.open img { animation: focus-scene-breathe 12s ease-in-out infinite; }
+@keyframes focus-scene-breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.035); } }
+
+/* Numeric surfaces are tabular and briefly highlighted as they count up. */
+#journey-total, #journey-streak, #journey-stamps, .countdown-big-number, [data-count-up] { font-variant-numeric: tabular-nums; }
+
+/* Ensure portal-owned controls never fall back to hard-coded light fills in dark mode. */
+[data-theme="dark"] .journey-focus-panel,
+[data-theme="dark"] .journey-duration,
+[data-theme="dark"] .journey-duration input,
+[data-theme="dark"] .journey-task,
+[data-theme="dark"] .countdown-config-modal,
+[data-theme="dark"] .countdown-config-field input,
+[data-theme="dark"] .sync-modal,
+[data-theme="dark"] .link-manager-modal,
+[data-theme="dark"] .link-manager-add-row input,
+[data-theme="dark"] .tool-names-dialog,
+[data-theme="dark"] .tool-name-field input { background-color: var(--surface, #102b33); color: var(--text-primary, #edf3ee); border-color: var(--border, rgba(229,239,227,.18)); }
+[data-theme="dark"] .journey-focus-panel select,
+[data-theme="dark"] .journey-duration button,
+[data-theme="dark"] .sync-footer button,
+[data-theme="dark"] .countdown-config-footer button { color: var(--text-primary, #edf3ee); }
+
+@media (prefers-reduced-motion: reduce) {
+  .view-enter, .sync-overlay.open, .link-manager-overlay.open, .countdown-config-overlay.open, .plan-modal-overlay.open,
+  .sync-modal, .link-manager-modal, .countdown-config-modal, .plan-modal,
+  .journey-stop.reached, .journey-stop.reached .journey-stop-icon, .journey-route::after, .focus-immersive.open img { animation: none !important; }
+}
+
+/* =========================================================
+   Unified home module standard
+   One grid, one card rhythm, one image treatment.
+   ========================================================= */
+:root {
+  --home-ink: #17343b;
+  --home-ink-soft: #49636a;
+  --home-paper: #f6f7f2;
+  --home-line: #d9e2df;
+  --home-gold: #d7ad52;
+}
+
+[data-theme="dark"] {
+  --home-paper: #10262d;
+  --home-line: #29454b;
+  --home-ink-soft: #b7cbc9;
+}
+
+.dashboard-view {
+  width: min(1320px, 100%);
+  padding: 28px clamp(18px, 3vw, 34px) 42px;
+  gap: 20px;
+}
+
+.tool-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.tool-card[data-view] {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 214px;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(215, 173, 82, 0.26);
+  border-radius: 8px;
+  background: var(--home-ink);
+  color: #fffaf0;
+  box-shadow: 0 5px 16px rgba(18, 49, 55, 0.08);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.tool-card[data-view]::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  content: "";
+  opacity: 0.7;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.tool-card[data-view]::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9, 34, 40, 0.3) 0%, rgba(9, 34, 40, 0.74) 58%, rgba(7, 27, 32, 0.96) 100%);
+  content: "";
+}
+
+.tool-card[data-view="plan"]::before { background-image: url("../images/changan/tool-weekly-journey.webp"); }
+.tool-card[data-view="exam"]::before { background-image: url("../images/changan/tool-exam-gate.webp"); }
+.tool-card[data-view="essay"]::before { background-image: url("../images/changan/tool-essay-pavilion.webp"); }
+.tool-card[data-view="speed"]::before { background-image: url("../images/changan/tool-speed-route.webp"); }
+.tool-card[data-view="curve"]::before { background-image: url("../images/changan/tool-review-lantern.webp"); }
+.tool-card[data-view="wusi"]::before { background-image: url("../images/changan/tool-wusi-lecture.webp"); }
+.tool-card[data-view="review"]::before { background-image: url("../images/changan/tool-review-desk.webp"); }
+.tool-card[data-view="knowledge"]::before { background-image: url("../images/changan/tool-knowledge-map.webp"); }
+
+.tool-card[data-view] > * { position: relative; z-index: 1; }
+.tool-card[data-view] .tool-card-icon {
+  width: 42px;
+  height: 42px;
+  margin: 18px 18px 26px;
+  border: 1px solid rgba(255, 245, 214, 0.26);
+  border-radius: 7px;
+  background: rgba(255, 250, 236, 0.16);
+  color: #f3d27d;
+}
+.tool-card[data-view] .tool-card-title {
+  margin: 0 18px 6px;
+  color: #fffaf0;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+.tool-card[data-view] .tool-card-desc {
+  max-width: 30rem;
+  margin: 0 18px;
+  color: rgba(255, 249, 237, 0.78);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.tool-card[data-view] .tool-card-hint {
+  margin: auto 18px 18px;
+  color: #efca72;
+  font-size: 12px;
+  font-weight: 800;
+}
+.tool-card[data-view]:hover,
+.tool-card[data-view]:focus-visible {
+  border-color: rgba(239, 202, 114, 0.82);
+  box-shadow: 0 12px 25px rgba(18, 49, 55, 0.16);
+  transform: translateY(-3px);
+}
+.tool-card[data-view]:hover::before,
+.tool-card[data-view]:focus-visible::before { opacity: 0.86; transform: scale(1.04); }
+
+[data-theme="dark"] .tool-card[data-view] { border-color: rgba(231, 201, 118, 0.22); box-shadow: none; }
+
+@media (max-width: 1180px) {
+  .tool-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .tool-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tool-card[data-view] { min-height: 188px; }
+  .tool-card[data-view] .tool-card-icon { margin: 14px 14px 20px; }
+  .tool-card[data-view] .tool-card-title,
+  .tool-card[data-view] .tool-card-desc { margin-right: 14px; margin-left: 14px; }
+  .tool-card[data-view] .tool-card-hint { margin-right: 14px; margin-bottom: 14px; margin-left: 14px; }
+}
+
+@media (max-width: 460px) {
+  .tool-cards { grid-template-columns: 1fr; }
+}
+
 /* Tool cards use scene imagery as a quiet recognition layer. */
 .tool-card[data-view="exam"], .tool-card[data-view="speed"], .tool-card[data-view="curve"] { position:relative; isolation:isolate; overflow:hidden; color:#fff8e7; background-color:#15343c; }
 .tool-card[data-view="exam"]::before, .tool-card[data-view="speed"]::before, .tool-card[data-view="curve"]::before { position:absolute; z-index:-2; inset:0; background-position:center; background-size:cover; content:""; opacity:.38; transition:transform 240ms cubic-bezier(.2,.8,.2,1),opacity 240ms cubic-bezier(.2,.8,.2,1); }
@@ -3903,7 +4129,7 @@ textarea:focus-visible,
 .plan-week-pack summary { display:flex; justify-content:space-between; padding:17px 0; color:var(--ca-ink); font-weight:800; cursor:pointer; list-style:none; }
 .plan-week-pack summary::-webkit-details-marker { display:none; }.plan-week-pack summary span { color:#8b6e2d; font-size:12px; }
 .plan-week-pack[open] summary { border-bottom:1px solid var(--ca-line); }.plan-week-pack .plan-item-editor { margin-top:16px; }
-.plan-month-pack { margin-top:10px; }.plan-month-pack-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }.plan-month-pack .plan-item-editor { margin-top:16px; }
+.plan-month-pack { margin-top:10px; padding-top:0; }.plan-month-pack-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }.plan-month-pack .plan-item-editor { margin-top:16px; }
 @keyframes plan-enter { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
 @media (max-width:760px) { .plan-itinerary { padding:18px; }.plan-itinerary h2 { font-size:22px; }.plan-itinerary-head { display:block; }.plan-itinerary-stat { margin-top:6px; }.plan-itinerary-days { gap:5px; }.plan-itinerary-day { min-height:84px; padding:8px 4px; }.plan-itinerary-day strong { font-size:18px; }.plan-itinerary-day em { font-size:10px; }.plan-month-pack-grid { grid-template-columns:1fr; } }
 [data-theme="dark"] .plan-itinerary { border-color:rgba(229,239,227,.13); background:#17343a; box-shadow:none; }
@@ -4287,6 +4513,10 @@ body {
   border-bottom: 1px solid var(--ca-line);
   background: var(--ca-paper-strong);
 }
+/* The toolbar is intentionally hidden for embedded modules.  Keep the
+   native hidden attribute authoritative so it cannot reserve a 48px blank
+   strip above the iframe content. */
+.tool-frame-toolbar[hidden] { display: none !important; }
 .tool-frame-toolbar button {
   padding: 7px 10px;
   border: 1px solid var(--ca-line);
@@ -4449,6 +4679,13 @@ body { background: var(--ca-paper); color: var(--ca-ink); }
 [data-theme="dark"] .countdown-section, [data-theme="dark"] .tool-card { border-color: rgba(229, 239, 227, .12); background: #17343a; box-shadow: none; }
 [data-theme="dark"] .tool-card-title { color: #f1f5eb; }
 [data-theme="dark"] .dashboard-footer { border-color: rgba(229, 239, 227, .12); background: #17343a; }
+[data-theme="dark"] .journey-field select,
+[data-theme="dark"] .journey-duration input {
+  border-color: rgba(229, 239, 227, .2);
+  background: rgba(12, 34, 41, .72);
+  color: #edf3ee;
+  color-scheme: dark;
+}
 
 /* Study-plan command deck */
 .plan-view { padding: 0; background: transparent; }
@@ -4786,3 +5023,258 @@ input, textarea { cursor:text; }
   .tool-names-dialog-head, .tool-names-dialog-actions { padding: 14px 16px; }
   .tool-names-dialog-body { padding: 16px; }
 }
+
+/* Final home card contract: keep this block last so legacy theme layers cannot
+   produce different sizes, overlays, or image treatments between modules. */
+.dashboard-view { width: min(1320px, 100%); padding: 28px clamp(18px, 3vw, 34px) 42px; }
+.tool-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 4px; }
+.tool-card[data-view] {
+  position: relative; isolation: isolate; display: flex; min-height: 214px; flex-direction: column;
+  overflow: hidden; padding: 0; border: 1px solid rgba(215, 173, 82, .26); border-radius: 8px;
+  background: #17343b; color: #fffaf0; box-shadow: 0 5px 16px rgba(18, 49, 55, .08);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.tool-card[data-view]::before {
+  position: absolute; z-index: 0; inset: 0; background-position: center; background-size: cover;
+  content: ""; opacity: .7; transition: transform 220ms ease, opacity 220ms ease;
+}
+.tool-card[data-view]::after {
+  position: absolute; z-index: 0; inset: 0;
+  background: linear-gradient(180deg, rgba(9, 34, 40, .3) 0%, rgba(9, 34, 40, .74) 58%, rgba(7, 27, 32, .96) 100%);
+  content: "";
+}
+.tool-card[data-view="plan"]::before { background-image: url("../images/changan/tool-weekly-journey.webp"); }
+.tool-card[data-view="exam"]::before { background-image: url("../images/changan/tool-exam-gate.webp"); }
+.tool-card[data-view="essay"]::before { background-image: url("../images/changan/tool-essay-pavilion.webp"); }
+.tool-card[data-view="speed"]::before { background-image: url("../images/changan/tool-speed-route.webp"); }
+.tool-card[data-view="curve"]::before { background-image: url("../images/changan/tool-review-lantern.webp"); }
+.tool-card[data-view="wusi"]::before { background-image: url("../images/changan/tool-wusi-lecture.webp"); }
+.tool-card[data-view="review"]::before { background-image: url("../images/changan/tool-review-desk.webp"); }
+.tool-card[data-view="knowledge"]::before { background-image: url("../images/changan/tool-knowledge-map.webp"); }
+.tool-card[data-view] > * { position: relative; z-index: 1; }
+.tool-card[data-view] .tool-card-icon { width: 42px; height: 42px; margin: 18px 18px 26px; border: 1px solid rgba(255, 245, 214, .26); border-radius: 7px; background: rgba(255, 250, 236, .16); color: #f3d27d; }
+.tool-card[data-view] .tool-card-title { margin: 0 18px 6px; color: #fffaf0; font-size: 17px; font-weight: 800; line-height: 1.35; }
+.tool-card[data-view] .tool-card-desc { max-width: 30rem; margin: 0 18px; color: rgba(255, 249, 237, .78); font-size: 13px; line-height: 1.55; }
+.tool-card[data-view] .tool-card-hint { margin: auto 18px 18px; color: #efca72; font-size: 12px; font-weight: 800; }
+.tool-card[data-view]:hover, .tool-card[data-view]:focus-visible { border-color: rgba(239, 202, 114, .82); box-shadow: 0 12px 25px rgba(18, 49, 55, .16); transform: translateY(-3px); }
+.tool-card[data-view]:hover::before, .tool-card[data-view]:focus-visible::before { opacity: .86; transform: scale(1.04); }
+[data-theme="dark"] .tool-card[data-view] { border-color: rgba(231, 201, 118, .22); box-shadow: none; }
+@media (max-width: 1180px) { .tool-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .tool-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tool-card[data-view] { min-height: 188px; }
+  .tool-card[data-view] .tool-card-icon { margin: 14px 14px 20px; }
+  .tool-card[data-view] .tool-card-title, .tool-card[data-view] .tool-card-desc { margin-right: 14px; margin-left: 14px; }
+  .tool-card[data-view] .tool-card-hint { margin-right: 14px; margin-bottom: 14px; margin-left: 14px; }
+}
+@media (max-width: 460px) { .tool-cards { grid-template-columns: 1fr; } }
+
+/* Module surface contract: every view sits on its own scene while panels stay
+   translucent so the portal never switches to an unrelated solid canvas. */
+body[data-active-view="exam"] .content-area,
+body[data-active-view="essay"] .content-area,
+body[data-active-view="speed"] .content-area,
+body[data-active-view="curve"] .content-area,
+body[data-active-view="wusi"] .content-area,
+body[data-active-view="review"] .content-area,
+body[data-active-view="knowledge"] .content-area,
+body[data-active-view="plan"] .content-area {
+  background-color: transparent;
+  background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/changan-hero-master.webp");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+body[data-active-view="exam"] .content-area { background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/tool-exam-gate.webp"); }
+body[data-active-view="essay"] .content-area { background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/tool-essay-pavilion.webp"); }
+body[data-active-view="speed"] .content-area { background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/tool-speed-route.webp"); }
+body[data-active-view="curve"] .content-area { background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/tool-review-lantern.webp"); }
+body[data-active-view="wusi"] .content-area { background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/tool-wusi-lecture.webp"); }
+body[data-active-view="review"] .content-area { background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/tool-review-desk.webp"); }
+body[data-active-view="knowledge"] .content-area { background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/tool-knowledge-map.webp"); }
+body[data-active-view="plan"] .content-area { background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/tool-weekly-journey.webp"); }
+
+body[data-active-view="plan"] .plan-daily-panel,
+body[data-active-view="plan"] .plan-rhythm-panel,
+body[data-active-view="plan"] .plan-planning-panel,
+body[data-active-view="plan"] .plan-journey-rail,
+body[data-active-view="review"] #review-view .review-overview,
+body[data-active-view="review"] #review-view .review-sidebar,
+body[data-active-view="review"] #review-view .review-main,
+body[data-active-view="knowledge"] .knowledge-card,
+body[data-active-view="knowledge"] .knowledge-folder-tabs,
+body[data-active-view="knowledge"] .knowledge-folder-empty {
+  background: rgba(255, 253, 248, .76);
+  backdrop-filter: blur(12px);
+}
+
+[data-theme="dark"] body[data-active-view] .content-area {
+  background-image: linear-gradient(rgba(7, 24, 30, .76), rgba(7, 24, 30, .9)), url("../images/changan/changan-hero-master.webp");
+}
+[data-theme="dark"] body[data-active-view="exam"] .content-area { background-image: linear-gradient(rgba(7, 24, 30, .76), rgba(7, 24, 30, .9)), url("../images/changan/tool-exam-gate.webp"); }
+[data-theme="dark"] body[data-active-view="essay"] .content-area { background-image: linear-gradient(rgba(7, 24, 30, .76), rgba(7, 24, 30, .9)), url("../images/changan/tool-essay-pavilion.webp"); }
+[data-theme="dark"] body[data-active-view="speed"] .content-area { background-image: linear-gradient(rgba(7, 24, 30, .76), rgba(7, 24, 30, .9)), url("../images/changan/tool-speed-route.webp"); }
+[data-theme="dark"] body[data-active-view="curve"] .content-area { background-image: linear-gradient(rgba(7, 24, 30, .76), rgba(7, 24, 30, .9)), url("../images/changan/tool-review-lantern.webp"); }
+[data-theme="dark"] body[data-active-view="wusi"] .content-area { background-image: linear-gradient(rgba(7, 24, 30, .76), rgba(7, 24, 30, .9)), url("../images/changan/tool-wusi-lecture.webp"); }
+[data-theme="dark"] body[data-active-view="review"] .content-area { background-image: linear-gradient(rgba(7, 24, 30, .76), rgba(7, 24, 30, .9)), url("../images/changan/tool-review-desk.webp"); }
+[data-theme="dark"] body[data-active-view="knowledge"] .content-area { background-image: linear-gradient(rgba(7, 24, 30, .76), rgba(7, 24, 30, .9)), url("../images/changan/tool-knowledge-map.webp"); }
+[data-theme="dark"] body[data-active-view="plan"] .content-area { background-image: linear-gradient(rgba(7, 24, 30, .76), rgba(7, 24, 30, .9)), url("../images/changan/tool-weekly-journey.webp"); }
+[data-theme="dark"] body[data-active-view] .plan-daily-panel,
+[data-theme="dark"] body[data-active-view] .plan-rhythm-panel,
+[data-theme="dark"] body[data-active-view] .plan-planning-panel,
+[data-theme="dark"] body[data-active-view] .plan-journey-rail,
+[data-theme="dark"] body[data-active-view] #review-view .review-overview,
+[data-theme="dark"] body[data-active-view] #review-view .review-sidebar,
+[data-theme="dark"] body[data-active-view] #review-view .review-main,
+[data-theme="dark"] body[data-active-view] .knowledge-card,
+[data-theme="dark"] body[data-active-view] .knowledge-folder-tabs,
+[data-theme="dark"] body[data-active-view] .knowledge-folder-empty { background: rgba(16, 39, 45, .78); }
+
+body[data-active-view="wusi"] #recitation-view .rec-card,
+body[data-active-view="wusi"] #recitation-view .rec-day-nav,
+body[data-active-view="wusi"] #recitation-view .rec-meaning,
+body[data-active-view="wusi"] #recitation-view .rec-cloze,
+body[data-active-view="wusi"] #recitation-view .rec-recall-item,
+body[data-active-view="wusi"] #recitation-view .rec-chain-card,
+body[data-active-view="wusi"] #recitation-view .rec-drill-card,
+body[data-active-view="wusi"] #recitation-view .rec-mock-list,
+body[data-active-view="wusi"] #recitation-view .rec-quote-grid {
+  background: rgba(255, 253, 248, .76);
+  backdrop-filter: blur(12px);
+}
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-card,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-day-nav,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-meaning,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-cloze,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-recall-item,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-chain-card,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-drill-card,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-mock-list,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-quote-grid { background: rgba(16, 39, 45, .78); }
+
+@media (max-width: 760px) { body[data-active-view] .content-area { background-attachment: scroll; } }
+
+/* Final surface normalization: secondary panels use the same translucent paper
+   token as the primary module cards in both themes. Accent buttons and status
+   indicators keep their semantic colors. */
+:root {
+  --scene-panel-light: rgba(255, 253, 248, .76);
+  --scene-panel-dark: rgba(16, 39, 45, .78);
+  --scene-control-light: rgba(255, 255, 255, .42);
+  --scene-control-dark: rgba(12, 34, 41, .62);
+}
+body[data-active-view="wusi"] #recitation-view .rec-day-nav button,
+body[data-active-view="wusi"] #recitation-view .rec-modebar button,
+body[data-active-view="review"] #review-view .review-filter-box,
+body[data-active-view="review"] #review-view .review-search,
+body[data-active-view="review"] #review-view select,
+body[data-active-view="knowledge"] #knowledge-view input,
+body[data-active-view="knowledge"] #knowledge-view select,
+body[data-active-view="plan"] .plan-command-deck,
+body[data-active-view="plan"] .plan-command-content,
+body[data-active-view="plan"] .plan-quick-panel,
+body[data-active-view="plan"] .plan-list-panel,
+body[data-active-view="plan"] .plan-section-head,
+body[data-active-view="plan"] .plan-item-editor,
+body[data-active-view="plan"] .plan-itinerary,
+body[data-active-view="plan"] .plan-itinerary-day,
+body[data-active-view="plan"] .plan-week-pack {
+  background: var(--scene-panel-light);
+  backdrop-filter: blur(12px);
+}
+body[data-active-view="plan"] .plan-command-stage { background: transparent; }
+body[data-active-view="plan"] .plan-command-deck,
+body[data-active-view="plan"] .plan-command-content { color: var(--ca-ink); }
+body[data-active-view="plan"] .plan-command-deck h1,
+body[data-active-view="plan"] .plan-command-copy,
+body[data-active-view="plan"] .plan-command-deck .plan-kicker,
+body[data-active-view="plan"] .plan-command-stats .plan-stat-value,
+body[data-active-view="plan"] .plan-command-stats .plan-stat-label { color: var(--ca-ink); }
+body[data-active-view="plan"] .plan-command-secondary { color: var(--ca-ink); border-color: var(--ca-line); background: var(--scene-control-light); }
+body[data-active-view="plan"] .plan-input,
+body[data-active-view="plan"] .plan-select,
+body[data-active-view="plan"] .plan-period-picker { background: var(--scene-control-light); }
+body[data-active-view="review"] #review-view .option:not(.selected):not(.correct):not(.wrong) { background: var(--scene-control-light); }
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-day-nav button,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-modebar button,
+[data-theme="dark"] body[data-active-view="review"] #review-view .review-filter-box,
+[data-theme="dark"] body[data-active-view="review"] #review-view .review-search,
+[data-theme="dark"] body[data-active-view="review"] #review-view select,
+[data-theme="dark"] body[data-active-view="knowledge"] #knowledge-view input,
+[data-theme="dark"] body[data-active-view="knowledge"] #knowledge-view select,
+[data-theme="dark"] body[data-active-view="plan"] .plan-command-deck,
+[data-theme="dark"] body[data-active-view="plan"] .plan-command-content,
+[data-theme="dark"] body[data-active-view="plan"] .plan-quick-panel,
+[data-theme="dark"] body[data-active-view="plan"] .plan-list-panel,
+[data-theme="dark"] body[data-active-view="plan"] .plan-section-head,
+[data-theme="dark"] body[data-active-view="plan"] .plan-item-editor,
+[data-theme="dark"] body[data-active-view="plan"] .plan-itinerary,
+[data-theme="dark"] body[data-active-view="plan"] .plan-itinerary-day,
+[data-theme="dark"] body[data-active-view="plan"] .plan-week-pack {
+  background: var(--scene-panel-dark);
+}
+[data-theme="dark"] body[data-active-view="plan"] .plan-command-deck,
+[data-theme="dark"] body[data-active-view="plan"] .plan-command-content { color: #edf3ee; }
+[data-theme="dark"] body[data-active-view="plan"] .plan-command-deck h1,
+[data-theme="dark"] body[data-active-view="plan"] .plan-command-copy,
+[data-theme="dark"] body[data-active-view="plan"] .plan-command-deck .plan-kicker,
+[data-theme="dark"] body[data-active-view="plan"] .plan-command-stats .plan-stat-value,
+[data-theme="dark"] body[data-active-view="plan"] .plan-command-stats .plan-stat-label { color: #edf3ee; }
+[data-theme="dark"] body[data-active-view="plan"] .plan-command-secondary { color: #edf3ee; background: var(--scene-control-dark); }
+[data-theme="dark"] body[data-active-view="plan"] .plan-week-switch {
+  border-color: rgba(229, 239, 227, .18);
+  background: var(--scene-control-dark);
+  color: #edf3ee;
+}
+[data-theme="dark"] body[data-active-view="plan"] .plan-week-switch.is-active {
+  border-color: var(--ca-celadon);
+  background: var(--ca-celadon);
+  color: #fff;
+}
+[data-theme="dark"] body[data-active-view="plan"] .plan-input,
+[data-theme="dark"] body[data-active-view="plan"] .plan-select,
+[data-theme="dark"] body[data-active-view="plan"] .plan-period-picker { background: var(--scene-control-dark); color: #edf3ee; }
+[data-theme="dark"] body[data-active-view="review"] #review-view .option:not(.selected):not(.correct):not(.wrong) { background: var(--scene-control-dark); }
+
+/* Give wide screens useful reading area across every native module. */
+body[data-active-view="knowledge"] .knowledge-shell,
+body[data-active-view="review"] #review-view .review-overview,
+body[data-active-view="review"] #review-view .review-workspace,
+body[data-active-view="plan"] .plan-shell { max-width: 1540px; }
+body[data-active-view="knowledge"] .knowledge-view { padding-right: 20px; padding-left: 20px; }
+body[data-active-view="review"] #review-view { padding-right: 20px; padding-left: 20px; }
+body[data-active-view="plan"] .plan-shell { padding-right: 20px; padding-left: 20px; }
+/* The review workspace is information-dense; let it use the full portal
+   content width on desktop instead of leaving a second layer of side gutters. */
+@media (min-width: 761px) {
+  body[data-active-view="review"] #review-view { padding-right: 10px; padding-left: 10px; }
+  body[data-active-view="review"] #review-view .review-overview,
+  body[data-active-view="review"] #review-view .review-workspace { width: 100%; max-width: none; }
+}
+@media (max-width: 760px) {
+  body[data-active-view="knowledge"] .knowledge-shell,
+  body[data-active-view="review"] #review-view .review-overview,
+  body[data-active-view="review"] #review-view .review-workspace,
+  body[data-active-view="plan"] .plan-shell { max-width: 100%; }
+}
+
+/* Final interaction contract. Keep this block last so legacy theme layers
+   cannot reintroduce narrow labels or a different motion language. */
+:root { --sidebar-width: 270px; }
+.sidebar { width: var(--sidebar-width); }
+.sidebar-nav { padding: 18px 14px; gap: 7px; }
+.nav-item { min-height: 46px; padding: 11px 14px; gap: 12px; white-space: nowrap; overflow: visible; }
+.nav-item svg { width: 19px; height: 19px; }
+.nav-item.active { box-shadow: inset 3px 0 0 #d2aa50, 0 0 0 1px rgba(239,202,114,.18); animation: nav-glow 2.8s ease-in-out infinite; }
+.nav-move-actions { opacity: 0; transition: opacity .18s ease; }
+.nav-item:hover .nav-move-actions, .nav-item:focus-within .nav-move-actions { opacity: 1; }
+.countdown-empty { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 4vw, 46px); min-height: 190px; padding: 22px 26px; text-align: left; }
+.countdown-empty-visual { width: min(220px, 36vw); height: 132px; object-fit: cover; border-radius: 8px; opacity: .92; box-shadow: 0 12px 24px rgba(23,55,60,.14); animation: empty-float 5s ease-in-out infinite; }
+.countdown-empty-copy { display: grid; justify-items: start; gap: 4px; }
+.countdown-empty-copy p { margin: 0; }
+.tool-card[data-view], .knowledge-card, #review-view .review-question-list li { animation: surface-in .45s ease both; }
+@keyframes surface-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes empty-float { 0%,100% { transform: translateY(0) rotate(-.4deg); } 50% { transform: translateY(-7px) rotate(.4deg); } }
+@keyframes nav-glow { 0%,100% { box-shadow: inset 3px 0 0 #d2aa50, 0 0 0 1px rgba(239,202,114,.12); } 50% { box-shadow: inset 3px 0 0 #f0c969, 0 0 14px rgba(210,170,80,.14); } }
+@media (max-width: 760px) { .sidebar { width: min(286px, 86vw); } .countdown-empty { gap: 14px; padding: 18px 14px; } .countdown-empty-visual { width: 42%; height: 112px; } }
+@media (max-width: 460px) { .countdown-empty { display: grid; justify-items: center; text-align: center; } .countdown-empty-copy { justify-items: center; } .countdown-empty-visual { width: min(260px, 80vw); } }

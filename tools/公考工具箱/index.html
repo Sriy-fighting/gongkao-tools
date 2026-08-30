@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sriy的考公助手</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23175cd3'/%3E%3Cpath d='M21 44V20h12c6 0 10 3 10 8 0 4-2 6-5 7l7 9H34l-6-8h-1v8H21zm6-13h5c3 0 5-1 5-4s-2-4-5-4h-5v8z' fill='white'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/portal.css?v=20260823-countdown-redesign">
-<link rel="stylesheet" href="assets/css/recitation.css?v=1">
-<link rel="stylesheet" href="assets/css/review.css?v=20260819-review-ui-v3">
+<link rel="stylesheet" href="assets/css/recitation.css?v=20260831-ui-final1">
+<link rel="stylesheet" href="assets/css/review.css?v=20260831-ui-final1">
+<link rel="stylesheet" href="assets/css/portal.css?v=20260831-ui-final1">
 </head>
 <body>
 <a class="skip-link" href="#dashboard-view">跳到主要内容</a>
@@ -19,7 +19,7 @@
     </div>
     <nav class="sidebar-nav">
       <button class="nav-item active" data-view="dashboard">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>首页
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>行旅台
       </button>
       <button class="nav-item" data-view="exam">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>套卷分数计算
@@ -75,7 +75,7 @@
     <header class="header">
       <div class="header-left">
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="菜单"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-        <span class="page-title" id="page-title">首页</span>
+        <span class="page-title" id="page-title">行旅台</span>
       </div>
       <div class="header-actions has-portal-search">
         <div class="portal-search" id="portal-search" role="search">
@@ -120,7 +120,7 @@
                 <label class="journey-field" for="journey-task">关联今天要做的事<select id="journey-task" aria-label="关联今天要做的事"></select></label>
                 <div class="journey-duration" role="group" aria-label="专注时长"><button type="button" data-minutes="25">25 分</button><button type="button" data-minutes="45">45 分</button><button type="button" data-minutes="60">60 分</button><label>自定义<input id="journey-custom-minutes" type="number" min="5" max="180" value="25" inputmode="numeric">分</label></div>
                 <div class="journey-clock" id="journey-clock" role="timer" aria-live="off">25:00</div>
-                <div class="journey-controls"><button type="button" class="journey-primary" id="journey-start">开始专注</button><button type="button" class="journey-secondary" id="journey-finish" disabled>结束并记录</button></div>
+                <div class="journey-controls"><button type="button" class="journey-primary" id="journey-start" data-loading>开始专注</button><button type="button" class="journey-secondary" id="journey-finish" disabled data-loading>结束并记录</button></div>
               </div>
             </div>
           </div>
@@ -141,48 +141,48 @@
           <div class="tool-card" data-view="plan">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/><line x1="12" y1="18" x2="16" y2="18"/></svg></div>
             <div class="tool-card-title">行程计划</div>
-            <div class="tool-card-desc">月度计划、每周目标、每日任务分解，进度追踪与专注计时</div>
+            <div class="tool-card-desc">拆解任务，专注计时，按天推进</div>
             <div class="tool-card-hint">点击进入 →</div>
           </div><div class="tool-card" data-view="exam">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
             <div class="tool-card-title">套卷分数计算</div>
-            <div class="tool-card-desc">模拟考场环境，计时提醒，自定义科目与评分，适用于各类考试</div>
+            <div class="tool-card-desc">录入各科得分，快速算总分</div>
             <div class="tool-card-hint">点击进入 →</div>
           </div>
           <div class="tool-card" data-view="essay">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></div>
             <div class="tool-card-title">申论方格纸</div>
-            <div class="tool-card-desc">方格纸写作，字数统计，计时器，模板插入，排版编辑</div>
+            <div class="tool-card-desc">方格写作，字数统计，计时编辑</div>
             <div class="tool-card-hint">点击进入 →</div>
           </div>
           <div class="tool-card" data-view="speed">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
             <div class="tool-card-title">资料速算</div>
-            <div class="tool-card-desc">乘法百化分速算训练，练习与复习双模式，错题自动重做</div>
+            <div class="tool-card-desc">百化分训练，错题再练</div>
             <div class="tool-card-hint">点击进入 →</div>
           </div>
           <div class="tool-card" data-view="curve">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/><line x1="12" y1="18" x2="16" y2="18"/></svg></div>
             <div class="tool-card-title">遗忘曲线</div>
-            <div class="tool-card-desc">艾宾浩斯复习 + 月/周/日学习计划，自动排期，目标管理与进度追踪</div>
+            <div class="tool-card-desc">按记忆节点安排复习</div>
             <div class="tool-card-hint">点击进入 →</div>
           </div>
           <div class="tool-card" data-view="wusi">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
             <div class="tool-card-title">五四讲话背诵</div>
-            <div class="tool-card-desc">七天任务、理解提示、挖空自测与通勤磨耳朵音频</div>
+            <div class="tool-card-desc">七天背诵，挖空自测，音频跟读</div>
             <div class="tool-card-hint">点击进入 →</div>
           </div>
           <div class="tool-card" data-view="review">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17"/><path d="M9 6h7M9 10h7M9 14h5"/></svg></div>
             <div class="tool-card-title">复盘台</div>
-            <div class="tool-card-desc">政治理论、常识与公基逐题复习，错题统计和间隔复习</div>
+            <div class="tool-card-desc">错题归档，逐题复习，间隔提醒</div>
             <div class="tool-card-hint">点击进入 →</div>
           </div>
           <div class="tool-card" data-view="knowledge">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16"/><path d="M8 7h8M8 11h6M8 15h4"/></svg></div>
             <div class="tool-card-title">思维导图</div>
-            <div class="tool-card-desc">按章节进入科技与历史知识图谱，配套精准闪卡、笔记和学习进度</div>
+            <div class="tool-card-desc">章节知识图谱，闪卡与笔记</div>
             <div class="tool-card-hint">选择学习章节 →</div>
           </div>
         </div>
@@ -535,10 +535,10 @@
 </div>
 
 <script src="assets/js/sync.js?v=20260819-review-stability"></script>
-<script src="assets/js/portal.js?v=20260829-home-dashboard"></script>
-<script src="assets/js/journey.js?v=20260714-draft-editor"></script>
-<script src="assets/js/recitation.js?v=1"></script>
+<script src="assets/js/portal.js?v=20260831-auth-home-task-ref2"></script>
+<script src="assets/js/journey.js?v=20260831-task-ref"></script>
+<script src="assets/js/recitation.js?v=20260831-ui-final1"></script>
 <script src="reviews/review-data.js?v=20260819-season28-text-v2"></script>
-<script src="assets/js/review-app.js?v=20260819-review-ui-v4"></script>
+<script src="assets/js/review-app.js?v=20260831-ui-final1"></script>
 </body>
 </html>
