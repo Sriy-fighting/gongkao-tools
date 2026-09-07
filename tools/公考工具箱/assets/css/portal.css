@@ -5371,3 +5371,31 @@ body[data-active-view="plan"] .plan-shell { padding-right: 20px; padding-left: 2
       "links";
   }
 }
+
+/* Final countdown layout: let all milestones stay inside the grid row so
+   the tool cards below cannot cover the right rail. */
+@media (min-width: 1181px) {
+  .dashboard-view {
+    grid-template-rows: auto auto auto auto auto;
+  }
+}
+
+.dashboard-view > .countdown-section {
+  align-self: start;
+  height: max-content;
+  min-height: 420px;
+  overflow: visible;
+}
+
+/* Keep a completed target with several milestones compact without clipping
+   its final rows or colliding with the following tool-card row. */
+.dashboard-view > .countdown-section .countdown-milestones {
+  grid-auto-rows: minmax(42px, auto);
+}
+
+@media (max-width: 1180px) {
+  .dashboard-view > .countdown-section {
+    height: auto;
+    min-height: 0;
+  }
+}

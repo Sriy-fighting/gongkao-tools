@@ -12,10 +12,6 @@
     knowledge: { name: '思维导图', path: null }
   };
 
-  // ReviewApp may replace the hash before DOMContentLoaded. Preserve the
-  // user's original entry point so the root URL still opens the dashboard.
-  var initialLocationHash = window.location.hash;
-
   // Leave the initial view unset so the first explicit route also initializes
   // the dashboard title and visibility state.
   var currentView = '';
@@ -243,10 +239,13 @@
     startPeriodicSync();
     loadAllData();
     setGreeting();
-    // Open deep-linked review questions immediately on the first load. The initial
-    // hash does not emit a hashchange event after this script is attached.
-    if (initialLocationHash.indexOf('#q=') === 0) navigateTo('review');
-    else navigateTo('dashboard');
+    // The portal opens on the journey dashboard. A question hash can be left
+    // behind by an earlier review session, so clear it on entry instead of
+    // reopening the previous review screen automatically.
+    if (window.location.hash && window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    navigateTo('dashboard');
     window.addEventListener('hashchange', function () {
       if (window.location.hash.indexOf('#q=') === 0 && currentView !== 'review') navigateTo('review');
     });
@@ -562,6 +561,7 @@
     var activeNav = document.querySelector('.nav-item[data-view="' + view + '"]');
     if (activeNav) activeNav.classList.add('active');
     if (view === 'dashboard') {
+      if (els.dashboard) els.dashboard.scrollTop = 0;
       els.dashboard.style.display = '';
       if (els.planView) els.planView.style.display = 'none';
       if (els.recitationView) els.recitationView.style.display = 'none';
