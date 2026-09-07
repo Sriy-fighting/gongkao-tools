@@ -5332,3 +5332,42 @@ body[data-active-view="plan"] .plan-shell { padding-right: 20px; padding-left: 2
 @keyframes nav-glow { 0%,100% { box-shadow: inset 3px 0 0 #d2aa50, 0 0 0 1px rgba(239,202,114,.12); } 50% { box-shadow: inset 3px 0 0 #f0c969, 0 0 14px rgba(210,170,80,.14); } }
 @media (max-width: 760px) { .sidebar { width: min(286px, 86vw); } .countdown-empty { gap: 14px; padding: 18px 14px; } .countdown-empty-visual { width: 42%; height: 112px; } }
 @media (max-width: 460px) { .countdown-empty { display: grid; justify-items: center; text-align: center; } .countdown-empty-copy { justify-items: center; } .countdown-empty-visual { width: min(260px, 80vw); } }
+
+/* Final dashboard layout contract. Keep every homepage module in the same
+   grid so priority cannot fall into an implicit column or row. */
+.dashboard-view {
+  grid-template-columns: minmax(0, 1fr) minmax(290px, 348px);
+  grid-template-rows: auto auto minmax(398px, auto) auto auto;
+  grid-template-areas:
+    "greeting greeting"
+    "priority priority"
+    "journey countdown"
+    "tools tools"
+    "links links";
+  align-items: stretch;
+}
+
+.dashboard-view > .dashboard-greeting,
+.dashboard-view > .today-priority-section,
+.dashboard-view > .journey-section,
+.dashboard-view > .countdown-section,
+.dashboard-view > .dashboard-footer,
+.dashboard-view > .tool-cards {
+  min-width: 0;
+  width: auto;
+  max-width: none;
+}
+
+@media (max-width: 1180px) {
+  .dashboard-view {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas:
+      "greeting"
+      "priority"
+      "journey"
+      "countdown"
+      "tools"
+      "links";
+  }
+}
