@@ -44,6 +44,7 @@ window.SyncStore = (function () {
 
   var TABLE = "user_data";
   var LEGACY_SYNC_KEY = "gk-sync-key";
+  var LOCAL_STAMP_PREFIX = "gk-sync-stamp:";
   var SUPABASE_JS_URL = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
   var client = null;
   var session = null;
@@ -75,12 +76,34 @@ window.SyncStore = (function () {
     catch (e) { return null; }
   }
 
+  function getValueTimestamp(value) {
+    if (!value || typeof value !== "object" || Array.isArray(value)) return 0;
+    return Date.parse(value.updatedAt || value.updated_at || value.modifiedAt || "") || 0;
+  }
+
+  function stampKey(key) { return LOCAL_STAMP_PREFIX + key; }
+
+  function getLocalTimestamp(key, value) {
+    var embedded = getValueTimestamp(value);
+    if (embedded) return embedded;
+    try { return Date.parse(localStorage.getItem(stampKey(key)) || "") || 0; }
+    catch (e) { return 0; }
+  }
+
+  function setLocalTimestamp(key, value) {
+    var timestamp = getValueTimestamp(value) || Date.parse(value || "") || Date.now();
+    try { localStorage.setItem(stampKey(key), new Date(timestamp).toISOString()); } catch (e) {}
+  }
+
   function isBusinessKey(key) {
     if (!key) return false;
     if (key === LEGACY_SYNC_KEY) return false;
+    if (key.indexOf(LOCAL_STAMP_PREFIX) === 0) return false;
     return key.indexOf("gk-") === 0 ||
       key.indexOf("exam-") === 0 ||
       key.indexOf("essay-") === 0 ||
+      key.indexOf("wusi-") === 0 ||
+      key.indexOf("sl-") === 0 ||
       key === "ebbinghaus_entries";
   }
 
@@ -228,28 +251,39 @@ window.SyncStore = (function () {
         .maybeSingle();
     }).then(function (res) {
       if (!res || res.error || !res.data) {
-        if (typeof callback === "function") callback(null);
+        if (typeof callback === "function") callback(null, { source: "cloud", exists: false });
         return;
       }
-      if (typeof callback === "function") callback(res.data.data_value);
+      if (typeof callback === "function") callback(res.data.data_value, {
+        source: "cloud",
+        exists: true,
+        updatedAt: res.data.updated_at || ""
+      });
     }).catch(function () {
-      if (typeof callback === "function") callback(null);
+      if (typeof callback === "function") callback(null, { source: "cloud", exists: false, error: true });
     });
   }
 
   function readData(key, callback) {
     var localData = getLocalValue(key);
     if (!isConfigured()) {
-      if (typeof callback === "function") setTimeout(function () { callback(localData); }, 0);
+      if (typeof callback === "function") setTimeout(function () {
+        callback(localData, { source: "local", exists: localData !== null });
+      }, 0);
       return localData;
     }
-    fetchFromCloud(key, function (cloudData) {
+    fetchFromCloud(key, function (cloudData, meta) {
       if (cloudData !== null) {
         // The caller decides whether the remote snapshot is newer. Writing it
         // here first can erase a newer local review library before that check.
-        if (typeof callback === "function") callback(cloudData);
+        if (typeof callback === "function") callback(cloudData, meta);
       } else if (typeof callback === "function") {
-        callback(localData);
+        callback(localData, {
+          source: "local",
+          exists: localData !== null,
+          cloudMissing: true,
+          cloudMeta: meta || null
+        });
       }
     });
     return localData;
@@ -257,6 +291,7 @@ window.SyncStore = (function () {
 
   function writeData(key, value) {
     setLocalValue(key, value);
+    setLocalTimestamp(key, value);
     if (!isConfigured()) return;
     pendingWrites[key] = value;
     if (writeTimers[key]) clearTimeout(writeTimers[key]);
@@ -269,7 +304,7 @@ window.SyncStore = (function () {
   }
 
   function upsertCloudValue(key, value) {
-    ensureClient().then(function (sb) {
+    return ensureClient().then(function (sb) {
       if (!sb || !session) return;
       return sb.from(TABLE).upsert({
         user_id: session.user.id,
@@ -300,6 +335,10 @@ window.SyncStore = (function () {
 
   function deleteData(key) {
     try { localStorage.removeItem(key); } catch (e) {}
+    try { localStorage.removeItem(stampKey(key)); } catch (e) {}
+    if (writeTimers[key]) clearTimeout(writeTimers[key]);
+    delete writeTimers[key];
+    delete pendingWrites[key];
     ensureClient().then(function (sb) {
       if (!sb || !session) return;
       return sb.from(TABLE)
@@ -318,25 +357,41 @@ window.SyncStore = (function () {
     }).then(function (res) {
       if (!res || res.error) return [];
       var cloudRows = res.data || [];
-      var cloudMap = {};
-      cloudRows.forEach(function (row) { cloudMap[row.data_key] = row.data_value; });
       var localData = getAllLocalBusinessData();
       var localKeys = Object.keys(localData);
       var writes = [];
+      var uploaded = 0;
+      var downloaded = 0;
 
       cloudRows.forEach(function (row) {
         if (!Object.prototype.hasOwnProperty.call(localData, row.data_key)) {
           setLocalValue(row.data_key, row.data_value);
+          setLocalTimestamp(row.data_key, row.updated_at || row.data_value);
+          downloaded += 1;
+          return;
         }
+        var localAt = getLocalTimestamp(row.data_key, localData[row.data_key]);
+        var cloudAt = Date.parse(row.updated_at || "") || 0;
+        if (cloudAt > 0 && cloudAt > localAt) {
+          setLocalValue(row.data_key, row.data_value);
+          setLocalTimestamp(row.data_key, row.updated_at || row.data_value);
+          downloaded += 1;
+          return;
+        }
+        writes.push(upsertCloudValue(row.data_key, localData[row.data_key]));
+        uploaded += 1;
       });
 
       localKeys.forEach(function (key) {
-        writes.push(upsertCloudValue(key, localData[key]));
+        if (!cloudRows.some(function (row) { return row.data_key === key; })) {
+          writes.push(upsertCloudValue(key, localData[key]));
+          uploaded += 1;
+        }
       });
 
       return Promise.all(writes).then(function () {
-        if (typeof callback === "function") callback({ uploaded: localKeys.length, downloaded: cloudRows.length });
-        return { uploaded: localKeys.length, downloaded: cloudRows.length };
+        if (typeof callback === "function") callback({ uploaded: uploaded, downloaded: downloaded });
+        return { uploaded: uploaded, downloaded: downloaded };
       });
     }).catch(function () {
       if (typeof callback === "function") callback({ uploaded: 0, downloaded: 0 });

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sriy的考公助手</title>
+<title>长安题途 · 公考备考助手</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23175cd3'/%3E%3Cpath d='M21 44V20h12c6 0 10 3 10 8 0 4-2 6-5 7l7 9H34l-6-8h-1v8H21zm6-13h5c3 0 5-1 5-4s-2-4-5-4h-5v8z' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/recitation.css?v=20260831-ui-final1">
 <link rel="stylesheet" href="assets/css/review.css?v=20260831-ui-final1">
@@ -14,8 +14,8 @@
 <div class="app-layout">
   <aside class="sidebar" role="navigation">
     <div class="sidebar-brand">
-      <div class="sidebar-brand-icon">S</div>
-      <span class="sidebar-brand-text">Sriy的考公助手</span>
+      <div class="sidebar-brand-icon">长</div>
+      <span class="sidebar-brand-text">长安题途</span>
     </div>
     <nav class="sidebar-nav">
       <button class="nav-item active" data-view="dashboard">
@@ -105,6 +105,17 @@
           <span class="greeting-date" id="greeting-date"></span>
         </div>
 
+        <section class="today-priority-section" id="today-priority" aria-labelledby="today-priority-title">
+          <div class="today-priority-head">
+            <div>
+              <p class="today-priority-kicker">今日先行</p>
+              <h3 id="today-priority-title">今天先做什么</h3>
+            </div>
+            <span class="today-priority-meta" id="today-priority-meta"></span>
+          </div>
+          <div id="today-priority-content"></div>
+        </section>
+
         <!-- Today Journey: focus timer and map are one flow -->
         <section class="journey-section" aria-labelledby="journey-title">
           <div class="journey-content">
@@ -170,7 +181,7 @@
           <div class="tool-card" data-view="wusi">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
             <div class="tool-card-title">五四讲话背诵</div>
-            <div class="tool-card-desc">七天背诵，挖空自测，音频跟读</div>
+            <div class="tool-card-desc">七天重点训练，挖空自测，音频跟读</div>
             <div class="tool-card-hint">点击进入 →</div>
           </div>
           <div class="tool-card" data-view="review">
@@ -529,7 +540,7 @@
 <!-- Focus completion -->
 <div class="plan-modal-overlay" id="journey-complete-modal" role="dialog" aria-modal="true" aria-labelledby="journey-complete-title">
   <div class="plan-modal" onclick="event.stopPropagation()"><div class="plan-modal-header"><h3 id="journey-complete-title">记录这段行程</h3><button class="plan-modal-close" onclick="Journey.closeCompletion()" aria-label="关闭">&times;</button></div>
-    <div class="plan-modal-body"><p id="journey-complete-summary"></p><div class="plan-modal-field"><label>复盘（可选）</label><textarea id="journey-reflection" maxlength="300" rows="3" placeholder="这段专注有什么收获？"></textarea></div><label class="journey-done-check"><input id="journey-mark-done" type="checkbox"> 同时标记关联任务完成</label></div>
+    <div class="plan-modal-body"><p id="journey-complete-summary"></p><div class="plan-modal-field"><label>复盘（可选）</label><textarea id="journey-reflection" maxlength="300" rows="3" placeholder="这段专注有什么收获？"></textarea></div><label class="journey-done-check"><input id="journey-mark-done" type="checkbox"> 同时标记关联任务完成</label><label class="journey-done-check" id="journey-move-today-wrap" hidden><input id="journey-move-today" type="checkbox"> 将逾期任务纳入今天</label></div>
     <div class="plan-modal-footer"><button class="plan-modal-btn-secondary" onclick="Journey.closeCompletion()">取消</button><button class="plan-modal-btn-primary" onclick="Journey.confirmCompletion()">保存行程</button></div>
   </div>
 </div>

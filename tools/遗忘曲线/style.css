@@ -235,6 +235,7 @@ body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wi
 .review-content .rc-meta .tag{
   color:var(--primary);
 }
+.review-content .rc-meta .next-review-label{color:var(--text-secondary);font-variant-numeric:tabular-nums}
 .rc-badge{
   font-size:.7rem;
   font-weight:500;
@@ -791,6 +792,17 @@ html[data-theme="dark"] header{background:rgba(10,31,38,.9);border-color:var(--b
   .week-nav-btn{flex:1}
   .toast{width:calc(100% - 32px);white-space:normal}
 }
+.btn-edit-item{
+  font-size:.76rem;
+  padding:4px 12px;
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  background:transparent;
+  color:var(--text-secondary);
+  cursor:pointer;
+  transition:all .15s;
+}
+.btn-edit-item:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light)}
 
 /* Dense two-column workspace: the secondary rail stays useful while the main
    review queue grows independently. */

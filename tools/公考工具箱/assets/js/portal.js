@@ -256,26 +256,8 @@
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
-    if (window.SyncStore && syncInfo.hasConfig) {
-      window.SyncStore.fetchAllKeys(function (rows) {
-        if (rows && rows.length > 0) {
-          rows.forEach(function (row) {
-            if (row.data_value != null) {
-              try {
-                if (row.data_key === 'gk-review-library-v1') {
-                  var localReview = JSON.parse(localStorage.getItem(row.data_key) || 'null');
-                  var cloudReview = typeof row.data_value === 'string' ? JSON.parse(row.data_value) : row.data_value;
-                  var localAt = Date.parse(localReview && localReview.updatedAt || '') || 0;
-                  var cloudAt = Date.parse(cloudReview && cloudReview.updatedAt || row.updated_at || '') || 0;
-                  if (localReview && localAt >= cloudAt) return;
-                }
-                localStorage.setItem(row.data_key, typeof row.data_value === 'string' ? row.data_value : JSON.stringify(row.data_value));
-              } catch(e) {}
-            }
-          });
-        }
-        loadFromLocal();
-      });
+    if (window.SyncStore && syncInfo.hasConfig && window.SyncStore.mergeLocalWithCloud) {
+      window.SyncStore.mergeLocalWithCloud(function () { loadFromLocal(); });
     } else { loadFromLocal(); }
   }
 
@@ -305,6 +287,7 @@
     toolNames = loadToolNames();
     applyToolNames();
     renderPlan();
+    renderTodayPriority();
     // The dashboard task selector is owned by Journey. Refresh it after local
     // or cloud plan data has been loaded so newly available tasks appear
     // immediately after sign-in or sync.
@@ -855,7 +838,7 @@
 
   function handleKnowledgeImport(event) {
     var file = event.target.files && event.target.files[0]; if (!file) return;
-    var reader = new FileReader(); reader.onload = function () { try { var html = String(reader.result || ''); var titleMatch = html.match(/<title[^>]*>([^<]+)</i); var title = titleMatch ? titleMatch[1].replace(/\s*[|｜].*$/, '').trim() : file.name.replace(/\.(html?|json)$/i, ''); var id = 'imported-' + Date.now(); var map = { id: id, title: title, subtitle: '新导入思维导图', path: '', content: html, icon: title.slice(0, 1) || '图', color: '#2783c9', order: null, nodes: extractImportedNodes(html, id) }; var local = []; try { local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); } catch (e) {} local.push(map); localStorage.setItem(KNOWLEDGE_LIBRARY_STORAGE_KEY, JSON.stringify(local)); knowledgeMaps.push(map); knowledgeFolders[id] = knowledgeFolder; saveKnowledgeFolders(); knowledgeMaps.sort(function (a, b) { return knowledgeSortValue(a) - knowledgeSortValue(b) || String(a.title).localeCompare(String(b.title), 'zh-CN'); }); saveKnowledgeOrder(); renderKnowledgeLibrary(); showSyncToast('已导入思维导图，并放入“' + knowledgeFolder + '”文件夹'); } catch (e) { showSyncToast('导入失败：文件格式错误'); } }; reader.readAsText(file); event.target.value = '';
+    var reader = new FileReader(); reader.onload = function () { try { var html = String(reader.result || ''); var titleMatch = html.match(/<title[^>]*>([^<]+)</i); var title = titleMatch ? titleMatch[1].replace(/\s*[|｜].*$/, '').trim() : file.name.replace(/\.(html?|json)$/i, ''); var id = 'imported-' + Date.now(); var map = { id: id, title: title, subtitle: '新导入思维导图', path: '', content: html, icon: title.slice(0, 1) || '图', color: '#2783c9', order: null, nodes: extractImportedNodes(html, id) }; var local = []; try { local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); } catch (e) {} local.push(map); localStorage.setItem(KNOWLEDGE_LIBRARY_STORAGE_KEY, JSON.stringify(local)); if (window.SyncStore && window.SyncStore.writeData) window.SyncStore.writeData(KNOWLEDGE_LIBRARY_STORAGE_KEY, local); knowledgeMaps.push(map); knowledgeFolders[id] = knowledgeFolder; saveKnowledgeFolders(); knowledgeMaps.sort(function (a, b) { return knowledgeSortValue(a) - knowledgeSortValue(b) || String(a.title).localeCompare(String(b.title), 'zh-CN'); }); saveKnowledgeOrder(); renderKnowledgeLibrary(); showSyncToast('已导入思维导图，并放入“' + knowledgeFolder + '”文件夹'); } catch (e) { showSyncToast('导入失败：文件格式错误'); } }; reader.readAsText(file); event.target.value = '';
   }
 
   function setGreeting() {
@@ -2224,6 +2207,8 @@
     var subject = PLAN_SUBJECTS.indexOf(legacySubject) >= 0 ? legacySubject : '其他';
     var mins = parseInt(task.estimateMin, 10);
     if (!isFinite(mins) || mins < 0) mins = 0;
+    var focusMinutes = parseInt(task.focusMinutes, 10);
+    if (!isFinite(focusMinutes) || focusMinutes < 0) focusMinutes = 0;
     var startTime = normalizePlanTime(task.startTime || task.start || '');
     var endTime = normalizePlanTime(task.endTime || task.end || '');
     if (startTime && endTime && timeToMinutes(endTime) <= timeToMinutes(startTime)) endTime = '';
@@ -2239,6 +2224,7 @@
       startTime: startTime,
       endTime: endTime,
       estimateMin: mins,
+      focusMinutes: focusMinutes,
       done: !!task.done,
       createdAt: task.createdAt || new Date().toISOString(),
       completedAt: task.done ? (task.completedAt || new Date().toISOString()) : ''
@@ -2400,6 +2386,7 @@
     // Journey owns the task selector on the dashboard. Keep it in sync after
     // every plan mutation, including quick-add and task edits.
     if (window.Journey && window.Journey.refresh) window.Journey.refresh();
+    renderTodayPriority();
   }
 
   function planPrevMonth() {
@@ -2592,11 +2579,24 @@
     return null;
   }
 
+  function planMoveTaskToToday(taskId) {
+    var task = findPlanTask(taskId);
+    if (!task) return;
+    task.date = getTodayStr();
+    task.periods = getPlanTaskPeriodIds(task);
+    task.period = task.periods[0] || task.period || inferDayPartFromTime(task.startTime) || 'morning';
+    savePlan();
+    renderPlan();
+    showSyncToast('任务已纳入今天');
+  }
+
+  // Keep the selected-date action for older saved pages and embedded callers.
   function planMoveTaskToSelectedDate(taskId) {
     var task = findPlanTask(taskId);
     if (!task) return;
     task.date = getPlanSelectedDate();
-    task.period = task.period || inferDayPartFromTime(task.startTime) || 'morning';
+    task.periods = getPlanTaskPeriodIds(task);
+    task.period = task.periods[0] || task.period || inferDayPartFromTime(task.startTime) || 'morning';
     savePlan();
     renderPlan();
     showSyncToast('任务已纳入当前日期');
@@ -3171,7 +3171,7 @@
 
   function renderPlanTaskRow(task) {
     var commandTimeSlot = formatTaskTimeSlot(task);
-    var commandIsOverdue = task.date < getPlanSelectedDate() && !task.done;
+    var commandIsOverdue = task.date < getTodayStr() && !task.done;
     return [
       '<div class="plan-task-row' + (task.done ? ' is-done' : '') + '">',
         '<label class="plan-task-checkbox"><input type="checkbox" ' + (task.done ? 'checked' : '') + ' onchange="planToggleTask(' + jsSingleArg(task.id) + ')"><span class="plan-task-box"></span></label>',
@@ -3181,51 +3181,29 @@
             '<span class="plan-pill subject">' + esc(task.subject) + '</span>',
             '<span class="plan-pill time">' + esc(getPlanTaskPeriodLabel(task)) + '</span>',
             commandTimeSlot ? '<span class="plan-pill">' + esc(commandTimeSlot) + '</span>' : '',
+            commandIsOverdue ? '<span class="plan-pill overdue-date">原计划 ' + esc(formatDateShort(task.date)) + '</span>' : '',
             '<span class="plan-pill">' + esc(formatMinutes(task.estimateMin)) + '</span>',
             task.focusMinutes ? '<span class="plan-pill focus">已专注 ' + esc(formatMinutes(task.focusMinutes)) + '</span>' : '',
             task.done && task.completedAt ? '<span class="plan-pill">完成于 ' + esc(formatCompletedAt(task.completedAt)) + '</span>' : '',
           '</div>',
         '</div>',
         '<div class="plan-task-actions-v2">',
-          commandIsOverdue ? '<button class="plan-task-reschedule" onclick="planMoveTaskToSelectedDate(' + jsSingleArg(task.id) + ')">纳入今日</button>' : '',
+          commandIsOverdue ? '<button class="plan-task-reschedule" onclick="planMoveTaskToToday(' + jsSingleArg(task.id) + ')">纳入今日</button>' : '',
           '<button class="plan-task-btn" onclick="planEditTask(' + jsSingleArg(task.id) + ')" title="编辑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button>',
           '<button class="plan-task-btn plan-task-btn-danger" onclick="planDeleteTask(' + jsSingleArg(task.id) + ')" title="删除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/></svg></button>',
         '</div>',
       '</div>'
     ].join('');
 
-    var timeSlot = formatTaskTimeSlot(task);
-    return [
-      '<div class="plan-task-row' + (task.done ? ' is-done' : '') + '">',
-        '<label class="plan-task-checkbox">',
-          '<input type="checkbox" ' + (task.done ? 'checked' : '') + ' onchange="planToggleTask(' + jsSingleArg(task.id) + ')">',
-          '<span class="plan-task-box"></span>',
-        '</label>',
-        '<div class="plan-task-main">',
-          '<div class="plan-task-title">' + esc(task.title) + '</div>',
-          '<div class="plan-task-meta">',
-            '<span class="plan-pill subject">' + esc(task.subject) + '</span>',
-            '<span class="plan-pill time">' + esc(getPlanTaskPeriodLabel(task)) + '</span>',
-            timeSlot ? '<span class="plan-pill">' + esc(timeSlot) + '</span>' : '',
-            '<span class="plan-pill">' + esc(formatDateShort(task.date)) + '</span>',
-            '<span class="plan-pill">' + esc(formatMinutes(task.estimateMin)) + '</span>',
-            task.done && task.completedAt ? '<span class="plan-pill">完成于 ' + esc(formatCompletedAt(task.completedAt)) + '</span>' : '',
-          '</div>',
-        '</div>',
-        '<div class="plan-task-actions-v2">',
-          '<button class="plan-task-btn" onclick="planEditTask(' + jsSingleArg(task.id) + ')" title="编辑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button>',
-          '<button class="plan-task-btn plan-task-btn-danger" onclick="planDeleteTask(' + jsSingleArg(task.id) + ')" title="删除"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>',
-        '</div>',
-      '</div>'
-    ].join('');
   }
 
   function getTasksForSection(type) {
     var selectedDate = getPlanSelectedDate();
+    var today = getTodayStr();
     var list = [];
     for (var i = 0; i < planData.tasks.length; i++) {
       var task = planData.tasks[i];
-      if (type === 'overdue' && !task.done && task.date < selectedDate) list.push(task);
+      if (type === 'overdue' && !task.done && task.date < today) list.push(task);
       else if (type === 'day' && task.date === selectedDate) list.push(task);
     }
     list.sort(sortPlanTasks);
@@ -3423,50 +3401,10 @@
     stopPeriodicSync();
     planSyncInterval = setInterval(function () {
       if (!window.SyncStore || !syncInfo.hasConfig) return;
-      window.SyncStore.fetchAllKeys(function (rows) {
-        if (!rows || rows.length === 0) return;
-        var changed = false;
-        var toolNamesChanged = false;
-        for (var _ri = 0; _ri < rows.length; _ri++) {
-          var _row = rows[_ri];
-          if (_row.data_value == null || !_row.data_key) continue;
-          // A just-saved local plan may reach the cloud slightly after this
-          // poll. Never let an older cloud snapshot erase the user's input.
-          if (_row.data_key === PLAN_STORAGE_KEY && planLastSavedAt && _row.updated_at) {
-            var _cloudUpdatedAt = new Date(_row.updated_at).getTime();
-            if (isFinite(_cloudUpdatedAt) && _cloudUpdatedAt < planLastSavedAt) continue;
-          }
-          var _oldVal = localStorage.getItem(_row.data_key);
-          var _newVal = typeof _row.data_value === 'string' ? _row.data_value : JSON.stringify(_row.data_value);
-          if (_row.data_key === 'gk-review-library-v1') {
-            // Never let an older cloud review snapshot replace newer local
-            // answers, mastery, notes, or review history during polling.
-            try {
-              var _localReview = _oldVal ? JSON.parse(_oldVal) : null;
-              var _cloudReview = typeof _row.data_value === 'string' ? JSON.parse(_row.data_value) : _row.data_value;
-              var _localReviewAt = Date.parse(_localReview && _localReview.updatedAt || '') || 0;
-              var _cloudReviewAt = Date.parse(_cloudReview && _cloudReview.updatedAt || _row.updated_at || '') || 0;
-              if (_localReviewAt >= _cloudReviewAt && _localReviewAt > 0) continue;
-              if (_localReviewAt === _cloudReviewAt && _oldVal) continue;
-            } catch (e) {}
-          }
-          if (_oldVal !== _newVal) {
-            try { localStorage.setItem(_row.data_key, _newVal); } catch(e) {}
-            changed = true;
-            if (_row.data_key === TOOL_NAMES_STORAGE_KEY) toolNamesChanged = true;
-          }
-        }
-        if (!changed) return;
-        if (toolNamesChanged) {
-          toolNames = loadToolNames();
-          applyToolNames();
-        }
-        // Reload study plan data from localStorage
-        try {
-          var _planV2 = JSON.parse(localStorage.getItem(PLAN_STORAGE_KEY));
-          if (_planV2 && Array.isArray(_planV2.tasks)) planData = normalizePlanData(_planV2);
-        } catch(e) {}
-        if (els.planView && els.planView.style.display !== 'none') renderPlan();
+      if (!window.SyncStore.mergeLocalWithCloud) return;
+      window.SyncStore.mergeLocalWithCloud(function (result) {
+        if (!result || !result.downloaded) return;
+        loadFromLocal();
         updateSyncTime();
       });
     }, 30000);
@@ -3495,7 +3433,7 @@
     for (var i = 0; i < localStorage.length; i++) {
       var k = localStorage.key(i);
       if (k && k.indexOf("gk-") === 0) {
-        if (k === "gk-sync-key") continue;
+        if (k === "gk-sync-key" || k.indexOf("gk-sync-stamp:") === 0) continue;
         try { data[k] = JSON.parse(localStorage.getItem(k)); }
         catch(e) { data[k] = localStorage.getItem(k); }
       }
@@ -3551,21 +3489,47 @@
     var result = [];
     for (var i = 0; i < planData.tasks.length; i++) {
       var task = planData.tasks[i];
-      if (task.date !== date) continue;
-      result.push({ ref: { taskId: task.id }, text: task.title, done: !!task.done, subject: task.subject || '', focusMinutes: Math.max(0, parseInt(task.focusMinutes, 10) || 0) });
+      var overdue = !task.done && task.date < date;
+      if (!overdue && task.date !== date) continue;
+      result.push({ ref: { taskId: task.id }, text: task.title, done: !!task.done, subject: task.subject || '', date: task.date, overdue: overdue, focusMinutes: Math.max(0, parseInt(task.focusMinutes, 10) || 0) });
     }
+    result.sort(function (a, b) { return (a.overdue ? 0 : 1) - (b.overdue ? 0 : 1) || String(a.date).localeCompare(String(b.date)) || String(a.text).localeCompare(String(b.text), 'zh-CN'); });
     return result;
   }
 
-  function addJourneyFocusV2(ref, minutes, markDone) {
+  function addJourneyFocusV2(ref, minutes, markDone, moveToToday) {
     if (!ref || !ref.taskId) return false;
     var task = findPlanTask(ref.taskId);
     if (!task) return false;
+    if (moveToToday && !task.done && task.date < getTodayStr()) task.date = getTodayStr();
     task.focusMinutes = Math.max(0, parseInt(task.focusMinutes, 10) || 0) + Math.max(0, Math.floor(minutes || 0));
     if (markDone) { task.done = true; task.completedAt = new Date().toISOString(); }
     savePlan();
     renderPlan();
     return true;
+  }
+
+  function renderTodayPriority() {
+    var host = document.getElementById('today-priority-content');
+    var meta = document.getElementById('today-priority-meta');
+    if (!host) return;
+    var today = getTodayStr();
+    var overdue = planData.tasks.filter(function (task) { return !task.done && task.date < today; }).sort(sortPlanTasks);
+    var todayTasks = planData.tasks.filter(function (task) { return !task.done && task.date === today; }).sort(sortPlanTasks);
+    var recommended = overdue[0] || todayTasks[0] || null;
+    if (meta) meta.textContent = overdue.length + ' 项逾期 · ' + todayTasks.length + ' 项今日';
+    if (!recommended) {
+      host.innerHTML = '<div class="today-priority-empty"><span>今天还没有未完成任务</span><button type="button" class="today-priority-action" data-priority-plan>去安排今天</button></div>';
+    } else {
+      var label = overdue.indexOf(recommended) !== -1 ? '优先处理逾期任务' : '今天的第一项';
+      host.innerHTML = '<div class="today-priority-main"><div class="today-priority-copy"><span class="today-priority-label">' + esc(label) + '</span><strong>' + esc(recommended.title) + '</strong><span>' + esc(recommended.subject || '其他') + (recommended.date !== today ? ' · 原计划 ' + esc(formatDateShort(recommended.date)) : ' · 今天') + '</span></div><button type="button" class="today-priority-action" data-priority-start="' + esc(recommended.id) + '">开始专注</button></div>';
+    }
+    var planButton = host.querySelector('[data-priority-plan]');
+    if (planButton) planButton.addEventListener('click', function () { var nav = document.querySelector('.nav-item[data-view="plan"]'); if (nav) nav.click(); });
+    var startButton = host.querySelector('[data-priority-start]');
+    if (startButton) startButton.addEventListener('click', function () {
+      if (window.Journey && window.Journey.startForTask) window.Journey.startForTask(startButton.dataset.priorityStart);
+    });
   }
 
   function markRecitationDayDone(dayNumber) {
@@ -3622,6 +3586,7 @@
   window.planUpdatePlanItem = planUpdatePlanItem; window.planDeletePlanItem = planDeletePlanItem;
   window.planToggleTask = planToggleTask;
   window.planMoveTaskToSelectedDate = planMoveTaskToSelectedDate;
+  window.planMoveTaskToToday = planMoveTaskToToday;
   window.planEditTask = planEditTask; window.savePlanTaskModal = savePlanTaskModal;
   window.closePlanTaskModal = closePlanTaskModal; window.planDeleteTask = planDeleteTask;
   window.closePlanConfirmModal = closePlanConfirmModal;
@@ -3631,6 +3596,7 @@
   window.showPlanConfirm = showPlanConfirm;
   window.PortalPlan = {
     getTodayTasks: getTodayTasksForJourneyV2,
+    getTask: findPlanTask,
     addFocus: addJourneyFocusV2,
     markRecitationDayDone: markRecitationDayDone,
     refresh: renderPlan

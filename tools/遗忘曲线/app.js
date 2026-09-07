@@ -2,6 +2,7 @@
    Constants & State
    ========================================================= */
 const STORAGE_KEY = 'ebbinghaus_entries';
+const LOCAL_UPDATED_KEY = STORAGE_KEY + ':updatedAt';
 const INTERVALS = [1, 2, 4, 7, 15, 30];
 let _undoData = null;
 let _weeklyOffset = 0;
@@ -11,27 +12,73 @@ let _weeklyOffset = 0;
    ========================================================= */
 function loadEntries() {
   try {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    data.forEach(migrateEntry);
-    return data;
+    const raw = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (!Array.isArray(raw)) return [];
+    return raw.filter(entry => entry && entry.id && entry.content && entry.createdAt).map(migrateEntry);
   } catch { return []; }
 }
 
 /* Async cloud sync: tries to pull from Supabase on init */
 function cloudSync() {
-  if (window.SyncStore && window.SyncStore.isConfigured()) {
-    window.SyncStore.readData(STORAGE_KEY, function(cloudData) {
-      if (cloudData && Array.isArray(cloudData) && cloudData.length > 0) {
-        cloudData.forEach(migrateEntry);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(cloudData));
-        renderAll();
-      }
-    });
-  }
+  if (!window.SyncStore || !window.SyncStore.readData || !window.SyncStore.isConfigured()) return;
+  const localEntries = loadEntries();
+  const hasLocalSnapshot = localStorage.getItem(STORAGE_KEY) !== null;
+  window.SyncStore.readData(STORAGE_KEY, function(cloudData, meta) {
+    if (!meta || meta.source !== 'cloud' || !meta.exists || !Array.isArray(cloudData)) {
+      if (hasLocalSnapshot) saveEntries(localEntries);
+      return;
+    }
+    const cloudEntries = cloudData.filter(entry => entry && entry.id && entry.content && entry.createdAt).map(migrateEntry);
+    const localAt = getLocalUpdatedAt();
+    const cloudAt = Date.parse(meta.updatedAt || '') || 0;
+    if (!hasLocalSnapshot) {
+      replaceEntries(cloudEntries, meta.updatedAt);
+      return;
+    }
+    if (localAt && cloudAt && cloudAt > localAt) {
+      replaceEntries(cloudEntries, meta.updatedAt);
+      return;
+    }
+    if (!localEntries.length) {
+      saveEntries(localEntries);
+      return;
+    }
+    // A legacy local snapshot has no timestamp. Preserve its progress and
+    // upload the merged result instead of allowing a cloud snapshot to erase it.
+    const merged = mergeEntries(localEntries, cloudEntries);
+    if (JSON.stringify(merged) !== JSON.stringify(localEntries) || !localAt) saveEntries(merged);
+  });
 }
 function saveEntries(entries) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-  if (window.SyncStore) window.SyncStore.writeData(STORAGE_KEY, entries);
+  const normalized = entries.map(migrateEntry);
+  const now = new Date().toISOString();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+  localStorage.setItem(LOCAL_UPDATED_KEY, now);
+  if (window.SyncStore && window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, normalized);
+}
+function replaceEntries(entries, timestamp) {
+  const normalized = entries.map(migrateEntry);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+  if (timestamp) localStorage.setItem(LOCAL_UPDATED_KEY, timestamp);
+  renderAll();
+}
+function getLocalUpdatedAt() {
+  try { return Date.parse(localStorage.getItem(LOCAL_UPDATED_KEY) || '') || 0; } catch { return 0; }
+}
+function mergeEntries(localEntries, cloudEntries) {
+  const localMap = new Map(localEntries.map(entry => [entry.id, entry]));
+  const merged = cloudEntries.map(entry => {
+    const local = localMap.get(entry.id);
+    if (!local) return entry;
+    // Progress is user-owned state. Content/tag from the local snapshot wins
+    // when both copies exist, while new cloud records are still downloaded.
+    return Object.assign({}, entry, local, {
+      completedIntervals: Array.isArray(local.completedIntervals) ? local.completedIntervals : entry.completedIntervals,
+      reviewHistory: local.reviewHistory || entry.reviewHistory || {}
+    });
+  });
+  localEntries.forEach(entry => { if (!merged.some(item => item.id === entry.id)) merged.push(entry); });
+  return merged;
 }
 function generateId() {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
@@ -41,7 +88,11 @@ function generateId() {
    Migration
    ========================================================= */
 function migrateEntry(entry) {
-  if (!entry.reviewHistory) entry.reviewHistory = {};
+  if (!Array.isArray(entry.completedIntervals)) entry.completedIntervals = [];
+  entry.completedIntervals = INTERVALS.filter(interval => entry.completedIntervals.includes(interval));
+  if (!entry.reviewHistory || typeof entry.reviewHistory !== 'object') entry.reviewHistory = {};
+  entry.content = String(entry.content || '').trim();
+  entry.tag = String(entry.tag || '').trim();
   return entry;
 }
 
@@ -108,7 +159,7 @@ function createEntry(content, tag) {
 function completeReview(entryId) {
   const entries = loadEntries();
   const entry = entries.find(e => e.id === entryId);
-  if (!entry) return;
+  if (!entry) return false;
   const today = getToday();
   const start = parseDate(entry.createdAt);
   for (const interval of INTERVALS) {
@@ -116,21 +167,25 @@ function completeReview(entryId) {
     const dueDate = new Date(start);
     dueDate.setDate(dueDate.getDate() + interval);
     if (dueDate <= today) {
+      const snapshot = JSON.stringify(entries);
       entry.completedIntervals.push(interval);
       entry.completedIntervals.sort((a, b) => a - b);
       entry.reviewHistory[interval] = formatISODate(today);
-      _undoData = { action: 'complete', snapshot: JSON.stringify(entries) };
-      break;
+      _undoData = { action: 'complete', snapshot: snapshot };
+      saveEntries(entries);
+      return true;
     }
   }
-  saveEntries(entries);
+  return false;
 }
 
 function deleteEntry(entryId) {
   const entries = loadEntries();
   const filtered = entries.filter(e => e.id !== entryId);
+  if (filtered.length === entries.length) return false;
   _undoData = { action: 'delete', snapshot: JSON.stringify(entries) };
   saveEntries(filtered);
+  return true;
 }
 
 function editEntry(entryId, content, tag) {
@@ -140,6 +195,18 @@ function editEntry(entryId, content, tag) {
   entry.content = content.trim();
   entry.tag = tag.trim() || '';
   saveEntries(entries);
+  return true;
+}
+
+function getNextReview(entry) {
+  const start = parseDate(entry.createdAt);
+  for (const interval of INTERVALS) {
+    if (entry.completedIntervals.includes(interval)) continue;
+    const dueDate = new Date(start);
+    dueDate.setDate(dueDate.getDate() + interval);
+    return { interval: interval, date: formatISODate(dueDate) };
+  }
+  return null;
 }
 
 /* =========================================================
@@ -269,11 +336,11 @@ function showToast(msg) {
   _toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2500);
 }
 
-function showUndoToast() {
+function showUndoToast(message) {
   const toast = document.getElementById('undoToast');
   const msgEl = document.getElementById('toastMsg');
   const btn = document.getElementById('undoBtn');
-  msgEl.textContent = '已标记完成';
+  msgEl.textContent = message || (_undoData && _undoData.action === 'delete' ? '已删除学习记录' : '已标记完成');
   btn.style.display = '';
   toast.classList.add('show');
   clearTimeout(_toastTimer);
@@ -318,12 +385,13 @@ function buildTimeline(entry) {
    ========================================================= */
 function buildProgressDots(entry) {
   const completed = entry.completedIntervals;
+  const nextInterval = INTERVALS.find(interval => !completed.includes(interval));
   let html = '<span class="progress-dots">';
   for (let i = 0; i < INTERVALS.length; i++) {
     const interval = INTERVALS[i];
     let cls = 'dot';
     if (completed.includes(interval)) cls += ' done';
-    else if (i === completed.length) cls += ' current';
+    else if (interval === nextInterval) cls += ' current';
     html += '<span class="' + cls + '"></span>';
   }
   html += '</span>';
@@ -408,12 +476,13 @@ function renderReviewSection(entries) {
     html += '<div class="rc-text">' + escapeHtml(entry.content) + '</div>';
     html += '<div class="rc-meta"><span>' + formatDateShort(entry.createdAt) + ' 创建</span>';
     if (entry.tag) html += '<span class="tag">' + escapeHtml(entry.tag) + '</span>';
+    html += '<span class="next-review-label">当前第' + due[0].interval + '轮</span>';
     html += buildProgressDots(entry);
     html += '</div></div>';
     html += '<span class="rc-badge' + (isOverdue ? ' overdue' : '') + '">第' + due[0].interval + '轮</span>';
     html += '</div><div class="review-card-bottom">';
     html += '<div class="due-info">待复习: <strong>' + dueLabels + '</strong></div>';
-    html += '<button class="btn-review" data-id="' + entry.id + '">';
+    html += '<button class="btn-review" data-id="' + escapeHtml(entry.id) + '">';
     html += '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
     html += '标记完成</button></div></div>';
   }
@@ -475,11 +544,14 @@ function renderHistorySection(entries) {
     const firstLine = entry.content.split('\n')[0] || '(无内容)';
     const completed = entry.completedIntervals.length;
     const total = INTERVALS.length;
-    html += '<div class="history-item" data-id="' + entry.id + '">';
+    const next = getNextReview(entry);
+    html += '<div class="history-item" data-id="' + escapeHtml(entry.id) + '">';
     html += '<div class="history-header"><div class="hh-text">';
     html += '<div class="hh-title">' + escapeHtml(firstLine) + '</div>';
     html += '<div class="hh-meta">' + formatDateShort(entry.createdAt);
     if (entry.tag) html += ' · ' + escapeHtml(entry.tag);
+    if (next) html += ' · 下次第' + next.interval + '轮 ' + formatDateShort(next.date);
+    else html += ' · 已完成全部复习';
     html += '</div></div><div class="hh-right">';
     html += '<span class="hh-progress">' + completed + '/' + total + '</span>';
     html += '<svg class="hh-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
@@ -488,8 +560,8 @@ function renderHistorySection(entries) {
     html += '<div class="hb-content">' + escapeHtml(entry.content) + '</div>';
     html += '<div class="hb-timeline">' + buildTimeline(entry) + '</div>';
     html += '<div class="hb-actions">';
-    html += '<button class="btn-edit-item" data-id="' + entry.id + '">编辑</button>';
-    html += '<button class="btn-delete" data-id="' + entry.id + '">删除</button>';
+    html += '<button class="btn-edit-item" data-id="' + escapeHtml(entry.id) + '">编辑</button>';
+    html += '<button class="btn-delete" data-id="' + escapeHtml(entry.id) + '">删除</button>';
     html += '</div></div></div></div>';
   }
   list.innerHTML = html;
@@ -531,7 +603,10 @@ function setupReviewClicks() {
     const btn = e.target.closest('.btn-review');
     if (!btn) return;
     const id = btn.dataset.id;
-    completeReview(id);
+    if (!completeReview(id)) {
+      showToast('这项暂时没有到期复习');
+      return;
+    }
     renderAll();
     showUndoToast();
   });
@@ -553,9 +628,9 @@ function setupHistoryClicks() {
     const delBtn = e.target.closest('.btn-delete');
     if (delBtn && confirm('确定删除此学习记录？')) {
       const id = delBtn.dataset.id;
-      deleteEntry(id);
+      if (!deleteEntry(id)) return;
       renderAll();
-      showUndoToast();
+      showUndoToast('已删除学习记录');
       return;
     }
     const editBtn = e.target.closest('.btn-edit-item');
@@ -577,6 +652,8 @@ function setupHistoryClicks() {
 }
 
 function enterEditMode(entryId) {
+  const entry = loadEntries().find(item => item.id === entryId);
+  if (!entry) return;
   const items = document.querySelectorAll('.history-item');
   for (const item of items) {
     if (item.dataset.id !== entryId) continue;
@@ -592,7 +669,11 @@ function enterEditMode(entryId) {
         '<button class="btn-save-edit" data-id="' + entryId + '">保存</button>' +
         '<button class="btn-cancel-edit" data-id="' + entryId + '">取消</button>' +
         '</div></div>';
-      document.getElementById('edit-content-' + entryId).focus();
+      const content = document.getElementById('edit-content-' + entryId);
+      const tag = document.getElementById('edit-tag-' + entryId);
+      if (content) content.value = entry.content;
+      if (tag) tag.value = entry.tag || '';
+      if (content) content.focus();
     });
     break;
   }

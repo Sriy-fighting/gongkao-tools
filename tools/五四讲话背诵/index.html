@@ -99,6 +99,8 @@
     .recall-item .full { display:none; margin-top:7px; color:var(--ink); font-size:15px; }
     .recall-item.open .full { display:block; }
     .footer-actions { display:flex; gap:10px; justify-content:flex-end; padding-top:20px; border-top:1px solid var(--line); }
+    .resume-strip { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 18px; padding:10px 12px; border:1px solid color-mix(in srgb,var(--teal) 22%,var(--line)); border-left:3px solid var(--teal); border-radius:6px; background:var(--teal-soft); color:var(--muted); font-size:13px; }
+    .resume-strip .quiet-action { flex:0 0 auto; }
     .empty { color:var(--muted); font-size:15px; padding:12px 0; }
     .outline { margin:13px 0 0; padding:11px 0 0; border-top:1px solid var(--line); }
     .outline summary { color:var(--muted); }
@@ -106,7 +108,7 @@
     .plain-text article { padding:0 0 22px; margin:0 0 22px; border-bottom:1px solid var(--line); }
     .plain-text h3 { margin:0 0 8px; color:var(--red); }
     .plain-text p { margin:0 0 16px; font-size:21px; line-height:2.12; text-indent:2em; }
-    @media (max-width:780px) { .topbar { padding:17px 18px; } .timer { min-width:auto; } .shell { display:block; padding:18px 15px 38px; } .side { position:static; margin-bottom:24px; } .day-nav { grid-template-columns:1fr 1fr; gap:5px; } .day-nav .day-picker { grid-column:span 2; } .day-nav button { padding:8px 7px; justify-content:flex-start; font-size:12px; } .day-nav button em { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } .day-nav button::before { width:auto!important; flex:0 0 11px!important; } .day-list { grid-template-columns:repeat(2,minmax(0,1fr)); } .session { grid-template-columns:repeat(2,1fr); } .session div:nth-child(2) { border-right:0; } .session div:last-child { grid-column:span 2; border-top:1px solid var(--line); } .audio-box { grid-template-columns:1fr; gap:7px; } .audio-box audio { width:100%; } .meaning { grid-template-columns:1fr; } .meaning div { border-right:0; border-bottom:1px solid var(--line); } .meaning div:last-child { border:0; } .segment-top { display:block; } .status { justify-content:flex-start; margin-top:10px; } .text { font-size:17px; padding:14px 15px 6px; } .anchors, details { margin-left:15px; margin-right:15px; } .anchors { padding-left:0; padding-right:0; } .plain-text p { font-size:17px; } }
+    @media (max-width:780px) { .topbar { padding:17px 18px; } .timer { min-width:auto; } .shell { display:block; padding:18px 15px 38px; } .side { position:static; margin-bottom:24px; } .day-nav { grid-template-columns:1fr 1fr; gap:5px; } .day-nav .day-picker { grid-column:span 2; } .day-nav button { padding:8px 7px; justify-content:flex-start; font-size:12px; } .day-nav button em { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } .day-nav button::before { width:auto!important; flex:0 0 11px!important; } .day-list { grid-template-columns:repeat(2,minmax(0,1fr)); } .session { grid-template-columns:repeat(2,1fr); } .session div:nth-child(2) { border-right:0; } .session div:last-child { grid-column:span 2; border-top:1px solid var(--line); } .audio-box { grid-template-columns:1fr; gap:7px; } .audio-box audio { width:100%; } .meaning { grid-template-columns:1fr; } .meaning div { border-right:0; border-bottom:1px solid var(--line); } .meaning div:last-child { border:0; } .segment-top { display:block; } .status { justify-content:flex-start; margin-top:10px; } .text { font-size:17px; padding:14px 15px 6px; } .anchors, details { margin-left:15px; margin-right:15px; } .anchors { padding-left:0; padding-right:0; } .plain-text p { font-size:17px; } .resume-strip { align-items:flex-start; flex-direction:column; } .resume-strip .quiet-action { width:100%; } }
     @media (max-width:780px) {
       main { padding:22px 18px 30px; }
       .text { font-size:19px; line-height:2; padding:16px 17px 8px; }
@@ -130,6 +132,7 @@
       <main id="content"></main>
     </div>
   </div>
+  <script src="../公考工具箱/assets/js/sync.js?v=20260907-sync-stamps"></script>
   <script>
     const segments = [
       { id:'opening', title:'开篇：青年与时代', tagline:'时代定位：希望在青年，使命在青年', meaning:'青年处于民族发展的最好时期，同时面对建功立业的际遇与时代使命。', role:'总领全文：点明青年、民族复兴与五四精神的关系。', anchors:['最积极、最有生气','国家的希望','民族的未来','建功立业','天将降大任于斯人','五四精神','民族复兴','不辜负'], tip:'开篇按“青年地位 -> 当下际遇 -> 时代使命 -> 行动要求”推进。', text:['青年是整个社会力量中最积极、最有生气的力量，国家的希望在青年，民族的未来在青年。今天，新时代中国青年处在中华民族发展的最好时期，既面临着难得的建功立业的人生际遇，也面临着“天将降大任于斯人”的时代使命。新时代中国青年要继续发扬五四精神，以实现中华民族伟大复兴为己任，不辜负党的期望、人民期待、民族重托，不辜负我们这个伟大时代。'] },
@@ -159,11 +162,72 @@
       { title:'全文复述', fresh:[], goal:'只看主题与首句提示完成全文，再逐段核对。' }
     ];
     const STORAGE = 'wusi-speech-memorizer-v1';
-    let state = JSON.parse(localStorage.getItem(STORAGE) || '{"day":0,"done":[],"status":{},"timer":3600}');
-    let activeDay = Math.min(Math.max(state.day || 0, 0), 9);
+    function getTodayStr() {
+      const now = new Date();
+      return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    }
+    const DEFAULT_STATE = { day:0, done:[], status:{}, timer:3600, startDate:null, updatedAt:'' };
+    function normalizeState(raw) {
+      const next = Object.assign({}, DEFAULT_STATE, raw || {});
+      next.day = Math.min(Math.max(Number(next.day) || 0, 0), 9);
+      next.done = [...new Set(Array.isArray(next.done) ? next.done.map(Number).filter(index => index >= 0 && index <= 9) : [])];
+      next.status = next.status && typeof next.status === 'object' && !Array.isArray(next.status)
+        ? Object.assign({}, next.status)
+        : {};
+      next.timer = Math.min(Math.max(Number(next.timer) || 0, 0), 3600);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(next.startDate || '')) next.startDate = getTodayStr();
+      return next;
+    }
+    function readLocalState() {
+      try { return normalizeState(JSON.parse(localStorage.getItem(STORAGE) || 'null')); }
+      catch (_) { return normalizeState(null); }
+    }
+    let state = readLocalState();
+    let activeDay = 0;
     let mode = 'full'; let activeView = 'day'; let timerHandle = null;
     const byId = id => segments.find(s => s.id === id);
-    const save = () => localStorage.setItem(STORAGE, JSON.stringify(state));
+    function firstIncompleteDay() {
+      const done = new Set(state.done);
+      for (let index = 0; index < days.length; index += 1) if (!done.has(index)) return index;
+      return days.length - 1;
+    }
+    function resumeDay() { return firstIncompleteDay(); }
+    function save() {
+      state.updatedAt = new Date().toISOString();
+      try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch (_) {}
+      if (window.SyncStore && window.SyncStore.writeData) {
+        try { window.SyncStore.writeData(STORAGE, state); } catch (_) {}
+      }
+    }
+    function applyCloudState(cloud) {
+      const remote = normalizeState(cloud);
+      const local = state;
+      const localAt = Date.parse(local.updatedAt || '') || 0;
+      const remoteAt = Date.parse(remote.updatedAt || '') || 0;
+      if (!localStorage.getItem(STORAGE)) {
+        state = remote;
+      } else if (remoteAt > localAt) {
+        state = remote;
+      } else if (!localAt && !remoteAt) {
+        state.done = [...new Set([...local.done, ...remote.done])];
+        state.status = Object.assign({}, remote.status, local.status);
+        state.mock = local.mock || remote.mock;
+      } else {
+        save();
+        return;
+      }
+      activeDay = resumeDay();
+      state.day = activeDay;
+      try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch (_) {}
+      render();
+    }
+    function syncCloud() {
+      if (!window.SyncStore || !window.SyncStore.readData || !window.SyncStore.isConfigured()) return;
+      window.SyncStore.readData(STORAGE, function (cloud, meta) {
+        if (meta && meta.source === 'cloud' && meta.exists && cloud) applyCloudState(cloud);
+        else if (!localStorage.getItem(STORAGE)) save();
+      });
+    }
     const esc = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
     const sentenceParts = text => text.match(/[^。！？!?]+[。！？!?]?/g) || [text];
     const unique = ids => [...new Set(ids)];
@@ -180,9 +244,10 @@
     function renderNav() {
       const nav = document.getElementById('dayNav');
       const dayButtons = days.map((item,index) => `<button type="button" data-day="${index}" class="${index===activeDay && activeView==='day'?'active':''} ${state.done.includes(index)?'done':''}" aria-current="${index===activeDay && activeView==='day'?'page':'false'}"><span>第 ${index + 1} 天</span><em>${esc(item.title)}</em></button>`).join('');
-      nav.innerHTML = `<button type="button" data-view="day" class="start ${activeView==='day'?'active':''}"><span>今日学习</span><em>第 ${activeDay + 1} 天 · ${esc(days[activeDay].title)}</em></button><button type="button" data-view="full" class="${activeView==='full'?'active':''}"><span>全文</span><em>完整原文</em></button><details class="day-picker"><summary>切换训练日</summary><div class="day-list">${dayButtons}</div></details>`;
+      const resume = resumeDay();
+      nav.innerHTML = `<button type="button" data-view="day" class="start ${activeView==='day'?'active':''}"><span>从今天继续</span><em>第 ${resume + 1} 天 · ${esc(days[resume].title)}</em></button><button type="button" data-view="full" class="${activeView==='full'?'active':''}"><span>全文</span><em>完整原文</em></button><details class="day-picker"><summary>切换训练日</summary><div class="day-list">${dayButtons}</div></details>`;
       nav.querySelectorAll('[data-day]').forEach(button => button.addEventListener('click', () => { activeView = 'day'; activeDay = Number(button.dataset.day); state.day = activeDay; save(); render(); window.scrollTo({top:0,behavior:'smooth'}); }));
-      nav.querySelector('[data-view="day"]').addEventListener('click', () => { activeView = 'day'; activeDay = state.day; render(); window.scrollTo({top:0,behavior:'smooth'}); });
+      nav.querySelector('[data-view="day"]').addEventListener('click', () => { activeView = 'day'; activeDay = resumeDay(); state.day = activeDay; save(); render(); window.scrollTo({top:0,behavior:'smooth'}); });
       nav.querySelector('[data-view="full"]').addEventListener('click', () => { activeView = 'full'; mode = 'full'; render(); window.scrollTo({top:0,behavior:'smooth'}); });
     }
     function modeText(segment) {
@@ -226,7 +291,8 @@
       const map = segments.map((s,index) => `<button type="button" data-jump="${s.id}">${index + 1}. ${esc(s.title.replace(/^[一二三四五六七八九十]+、/,''))}</button>`).join('');
       const todayMap = fresh.map((s,index) => `<button type="button" data-jump="${s.id}">${index + 1}. ${esc(s.title.replace(/^[一二三四五六七八九十]+、/,''))}</button>`).join('');
       const dayText = isFinal ? '第 10 天 · 全文遮挡复述' : `第 ${activeDay + 1} 天 · 新学 ${fresh.length} 段`;
-      document.getElementById('content').innerHTML = `<p class="eyebrow">${dayText}</p><h2>${esc(day.title)}</h2><p class="day-goal">${esc(day.goal)}</p>
+      const resume = resumeDay();
+      document.getElementById('content').innerHTML = `<p class="eyebrow">${dayText}</p><h2>${esc(day.title)}</h2><p class="day-goal">${esc(day.goal)}</p><div class="resume-strip"><span>下一项未完成训练：第 ${resume + 1} 天 · ${esc(days[resume].title)}</span>${activeDay !== resume ? '<button type="button" id="resumeDay" class="quiet-action">从今天继续</button>' : ''}</div>
         <section class="session" aria-label="建议一小时安排"><div><b>08 分钟</b>旧段回忆</div><div><b>12 分钟</b>理解结构</div><div><b>25 分钟</b>分句背诵</div><div><b>10 分钟</b>挖空核对</div><div><b>05 分钟</b>遮挡复述</div></section>
         ${audioBlock(activeDay + 1)}
         ${!isFinal ? `<section><div class="section-head"><h3>今天背什么</h3><span>${fresh.length} 个主题</span></div><div class="map">${todayMap}</div></section>` : ''}
@@ -239,7 +305,9 @@
       document.querySelectorAll('.reveal').forEach(button => button.addEventListener('click', () => document.querySelectorAll('.cloze').forEach(item => item.classList.toggle('revealed'))));
       document.querySelectorAll('.recall-toggle').forEach(button => button.addEventListener('click', () => { const item=button.closest('.recall-item'); item.classList.toggle('open'); button.textContent = item.classList.contains('open') ? '收起原文' : '展开核对'; }));
       document.querySelectorAll('.modebar button').forEach(button => button.addEventListener('click', () => { mode=button.dataset.mode; render(); }));
-      document.getElementById('doneDay').addEventListener('click', () => { if (!state.done.includes(activeDay)) state.done.push(activeDay); state.day = Math.min(activeDay + 1, 9); state.timer = 3600; save(); activeDay = state.day; timerText(); render(); window.scrollTo({top:0,behavior:'smooth'}); });
+      const resumeButton = document.getElementById('resumeDay');
+      if (resumeButton) resumeButton.addEventListener('click', () => { activeDay = resumeDay(); state.day = activeDay; save(); render(); window.scrollTo({top:0,behavior:'smooth'}); });
+      document.getElementById('doneDay').addEventListener('click', () => { if (!state.done.includes(activeDay)) state.done.push(activeDay); state.day = resumeDay(); state.timer = 3600; save(); activeDay = state.day; timerText(); render(); window.scrollTo({top:0,behavior:'smooth'}); });
     }
     function recallItem(segment) { return `<div class="recall-item"><strong>${esc(segment.title)}</strong><span>首句：${esc(segment.text[0].match(/^[^。！？!?]+/)[0])}。</span><br><span>关键词：${segment.anchors.slice(0,5).map(esc).join(' / ')}</span><button type="button" class="quiet-action recall-toggle">展开核对</button><div class="full">${segment.text.map(esc).join('')}</div></div>`; }
     function learningContent(fresh) { return `<section><div class="section-head"><h3>新学正文</h3><span>先读完整，再逐步遮挡</span></div><div class="modebar" role="group" aria-label="正文显示方式"><button type="button" data-mode="full" class="${mode==='full'?'active':''}">完整原文</button><button type="button" data-mode="skeleton" class="${mode==='skeleton'?'active':''}">关键词骨架</button><button type="button" data-mode="prompt" class="${mode==='prompt'?'active':''}">首句提示</button></div>${fresh.map(segmentCard).join('')}</section><section><div class="section-head"><h3>挖空自测</h3><span>先口答，再揭示</span></div><div class="cloze-list">${fresh.map(cloze).join('')}</div><div class="cloze-actions"><button type="button" class="secondary reveal">显示 / 收起原句</button></div></section>`; }
@@ -262,8 +330,9 @@
     syncPortalTheme();
     function timerText() { const min=Math.floor(state.timer/60); const sec=state.timer%60; document.getElementById('timer').textContent=`${String(min).padStart(2,'0')}:${String(sec).padStart(2,'0')}`; }
     document.getElementById('timerToggle').addEventListener('click', () => { const button=document.getElementById('timerToggle'); if(timerHandle){ clearInterval(timerHandle); timerHandle=null; button.textContent='继续'; save(); return; } button.textContent='暂停'; timerHandle=setInterval(() => { if(state.timer<=0){clearInterval(timerHandle);timerHandle=null;button.textContent='完成';return;} state.timer--; timerText(); if(state.timer%10===0)save(); },1000); });
-    document.getElementById('resetProgress').addEventListener('click', () => { if(confirm('确定清除本机保存的学习进度、段落标记和计时吗？')) { state={day:0,done:[],status:{},timer:3600}; activeDay=0; save(); timerText(); render(); } });
-    timerText(); render();
+    document.getElementById('resetProgress').addEventListener('click', () => { if(confirm('确定清除本机保存的学习进度、段落标记和计时吗？')) { state=normalizeState({day:0,done:[],status:{},timer:3600,startDate:getTodayStr()}); activeDay=0; save(); timerText(); render(); } });
+    activeDay = resumeDay(); state.day = activeDay;
+    timerText(); render(); syncCloud();
   </script>
 </body>
 </html>

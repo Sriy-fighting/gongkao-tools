@@ -6,6 +6,7 @@
   // v2 intentionally starts with the rebuilt empty library after the season reset.
   // Keeping a new key prevents stale v1 snapshots from repopulating deleted questions.
   const STORAGE_KEY = "gk-review-library-v2";
+  const initialReviewHash = window.location.hash;
   const seed = window.REVIEW_SEED || { version: 1, libraryName: "复盘资料库", questions: [] };
   const SEED_REVISION = "20260820-season28-text-v2";
   const $ = (id) => reviewRoot.querySelector("#" + id);
@@ -30,11 +31,13 @@
     currentId: null,
     revealed: new Set(),
     selected: {},
-    quick: null,
+    quick: "priority",
     toastTimer: null,
     pendingImport: null,
     undoSnapshot: null,
     initialHashApplied: false,
+    deepLinkedId: null,
+    internalHash: "",
     storageError: false,
     cloudSyncInFlight: false,
     hasLocalSnapshot: false,
@@ -243,7 +246,7 @@
   }
 
   function quickLabel(value) {
-    return ({ due: "今日到期", new: "待开始", pending: "待核验", weak: "薄弱题", done: "已复习" })[value] || "快速筛选";
+    return ({ priority: "今日优先", due: "今日到期", new: "待开始", pending: "待核验", weak: "薄弱题", done: "已复习" })[value] || "快速筛选";
   }
 
   function formatDate(value) {
@@ -258,17 +261,27 @@
     return state.data.questions.find((q) => q.id === state.currentId);
   }
 
+  function priorityRank(q) {
+    if (isDue(q)) return 0;
+    if (["again", "fuzzy"].includes(q.mastery)) return 1;
+    if (isNew(q)) return 2;
+    return 3;
+  }
+
+  function compareQuestions(a, b) {
+    return a.season.localeCompare(b.season, "zh-CN") || Number(a.number) - Number(b.number) || String(a.id).localeCompare(String(b.id));
+  }
+
+  function shortSeasonLabel(value) {
+    const match = String(value || "").match(/第\s*(\d+)\s*季/);
+    return match ? "第" + match[1] + "季" : String(value || "未分类");
+  }
+
   function filterQuestions() {
     clearAccountAutofill();
     const query = els.search.value.trim().toLowerCase();
-    state.filtered = state.data.questions.filter((q) => {
+    const normalMatches = state.data.questions.filter((q) => {
       const haystack = [q.stem, q.subject, q.season, ...(q.tags || []), q.review.summary, q.review.analysis].join(" ").toLowerCase();
-      const quickMatch = !state.quick ||
-        (state.quick === "due" && isDue(q)) ||
-        (state.quick === "new" && isNew(q)) ||
-        (state.quick === "pending" && (q.match.status !== "verified" || q.answerStatus !== "verified")) ||
-        (state.quick === "weak" && ["again", "fuzzy"].includes(q.mastery)) ||
-        (state.quick === "done" && q.mastery !== "new");
       return (!query || haystack.includes(query)) &&
         (els.season.value === "all" || q.season === els.season.value) &&
         (els.subject.value === "all" || q.subject === els.subject.value) &&
@@ -276,9 +289,31 @@
         (els.status.value === "all" ||
           (els.status.value === "due" ? isDue(q) :
             els.status.value === "pending" ? (q.match.status !== "verified" || q.answerStatus !== "verified") :
-              q.match.status === els.status.value)) &&
-        quickMatch;
-    }).sort((a, b) => a.season.localeCompare(b.season, "zh-CN") || Number(a.number) - Number(b.number));
+              q.match.status === els.status.value));
+    });
+    if (state.quick === "priority") {
+      const selected = [];
+      const seen = new Set();
+      const add = (q) => { if (!seen.has(q.id)) { seen.add(q.id); selected.push(q); } };
+      normalMatches.filter(isDue).sort(compareQuestions).forEach(add);
+      normalMatches.filter((q) => ["again", "fuzzy"].includes(q.mastery)).sort(compareQuestions).forEach(add);
+      normalMatches.filter(isNew).sort(compareQuestions).slice(0, 10).forEach(add);
+      const deepLinked = state.deepLinkedId && normalMatches.find((q) => q.id === state.deepLinkedId);
+      if (deepLinked) {
+        const index = selected.indexOf(deepLinked);
+        if (index !== -1) selected.splice(index, 1);
+        selected.unshift(deepLinked);
+      }
+      state.filtered = selected;
+    } else {
+      state.filtered = normalMatches.filter((q) => !state.quick ||
+        (state.quick === "due" && isDue(q)) ||
+        (state.quick === "new" && isNew(q)) ||
+        (state.quick === "pending" && (q.match.status !== "verified" || q.answerStatus !== "verified")) ||
+        (state.quick === "weak" && ["again", "fuzzy"].includes(q.mastery)) ||
+        (state.quick === "done" && q.mastery !== "new"))
+        .sort(compareQuestions);
+    }
     if (!state.filtered.some((q) => q.id === state.currentId)) state.currentId = state.filtered[0]?.id || null;
   }
 
@@ -314,7 +349,7 @@
     if (!box) return;
     let bar = box.querySelector('.review-quick-filters');
     if (!bar) { bar = document.createElement('div'); bar.className = 'review-quick-filters'; box.insertBefore(bar, box.querySelector('.review-filter-grid')); }
-    const items = [['all','全部'],['due','今日到期'],['new','待开始'],['weak','模糊 / 不会'],['done','已复习']];
+    const items = [['priority','今日优先'],['all','全部'],['due','今日到期'],['new','待开始'],['weak','模糊 / 不会'],['done','已复习']];
     bar.innerHTML = items.map(([id,label]) => '<button type="button" class="review-quick-pill ' + ((id === 'all' && !state.quick) || state.quick === id ? 'active' : '') + '" data-quick="' + id + '">' + label + '</button>').join('');
   }
 
@@ -346,7 +381,7 @@
     }
     els.list.innerHTML = state.filtered.map((q, index) =>
       '<li><button data-id="' + escapeHtml(q.id) + '" class="' + (q.id === state.currentId ? "active" : "") + '" aria-current="' + (q.id === state.currentId ? "true" : "false") + '">' +
-        '<span class="q-index">' + escapeHtml(q.number) + "</span>" +
+        '<span class="q-index"><b>第' + escapeHtml(q.number) + '题</b><small>' + escapeHtml(shortSeasonLabel(q.season)) + "</small></span>" +
         '<span class="q-list-copy"><b>' + escapeHtml(q.subject) + " · " + escapeHtml(masteryLabel(q.mastery)) + "</b><span>" + escapeHtml(q.stem) + "</span></span>" +
         '<span class="status-dot ' + (q.match.status !== "verified" || q.answerStatus !== "verified" ? "pending" : q.mastery === "know" ? "know" : "") + '" aria-label="' + escapeHtml(statusLabel(q.match.status) + "，" + answerStatusLabel(q.answerStatus)) + '"></span>' +
       "</button></li>"
@@ -497,6 +532,7 @@
     els.mastery.value = "all";
     els.status.value = "all";
     state.quick = null;
+    state.deepLinkedId = null;
     if (render) renderAll(false);
   }
 
@@ -616,14 +652,34 @@
   function syncDeepLink() {
     if (!state.currentId) return;
     const hash = "#q=" + encodeURIComponent(state.currentId);
-    if (window.location.hash !== hash) history.replaceState(null, "", hash);
+    if (window.location.hash !== hash) {
+      state.internalHash = hash;
+      history.replaceState(null, "", hash);
+    }
   }
 
   function applyDeepLink() {
-    const params = new URLSearchParams(window.location.hash.slice(1));
-    const id = params.get("q");
-    if (id && state.data.questions.some((q) => q.id === id)) state.currentId = id;
-    state.initialHashApplied = true;
+    const readId = (hash) => new URLSearchParams(String(hash || "").slice(1)).get("q");
+    if (!state.initialHashApplied) {
+      const id = readId(initialReviewHash);
+      if (id && state.data.questions.some((q) => q.id === id)) {
+        state.currentId = id;
+        state.deepLinkedId = id;
+        state.quick = null;
+      }
+      state.initialHashApplied = true;
+      return;
+    }
+    if (state.internalHash && window.location.hash === state.internalHash) {
+      state.internalHash = "";
+      return;
+    }
+    const id = readId(window.location.hash);
+    if (id && state.data.questions.some((q) => q.id === id)) {
+      state.currentId = id;
+      state.deepLinkedId = id;
+      state.quick = null;
+    }
   }
 
   function openMenu() {
@@ -647,6 +703,7 @@
     const button = event.target.closest("[data-id]");
     if (button) {
       state.currentId = button.dataset.id;
+      state.deepLinkedId = null;
       closeMenu();
       renderAll(false);
     }
@@ -715,12 +772,9 @@
 
   applyDeepLink();
   window.addEventListener("hashchange", () => {
-    const params = new URLSearchParams(window.location.hash.slice(1));
-    const id = params.get("q");
-    if (id && state.data.questions.some((q) => q.id === id)) {
-      state.currentId = id;
-      renderAll(false);
-    }
+    const internal = state.internalHash === window.location.hash;
+    applyDeepLink();
+    if (!internal) renderAll(false);
   });
   window.ReviewApp = {
     refresh() {
