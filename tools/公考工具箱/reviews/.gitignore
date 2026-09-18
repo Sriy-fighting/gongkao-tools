@@ -1,0 +1,2 @@
+# 页面当前使用 JPG 裁剪证据；避免把重复的高分辨率 PNG 原图带入公开仓库。
+assets/sources/*.png
