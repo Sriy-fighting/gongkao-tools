@@ -1,0 +1,29 @@
+/* Shared Changan Ti Tu theme bridge for standalone tools. */
+:root {
+  --ca-bg: #f5f2ea;
+  --ca-surface: rgba(255, 253, 248, .86);
+  --ca-surface-raised: #fffdf8;
+  --ca-text: #142f38;
+  --ca-muted: #67777a;
+  --ca-line: rgba(38, 77, 78, .16);
+  --ca-primary: #2f756f;
+  --ca-primary-soft: rgba(47, 117, 111, .12);
+  --ca-accent: #c99b3d;
+  --ca-danger: #b94c43;
+}
+html[data-theme="dark"] {
+  --ca-bg: #102329;
+  --ca-surface: rgba(16, 39, 45, .84);
+  --ca-surface-raised: #17343a;
+  --ca-text: #edf3ee;
+  --ca-muted: #a9bbb4;
+  --ca-line: rgba(190, 215, 207, .2);
+  --ca-primary: #77c8b5;
+  --ca-primary-soft: rgba(119, 200, 181, .16);
+  --ca-accent: #e3bd70;
+  --ca-danger: #e18b7e;
+}
+html, body { background-color: transparent !important; color: var(--ca-text); }
+body { background-image: linear-gradient(rgba(246,248,244,.72), rgba(246,248,244,.88)), var(--tool-scene) !important; background-position: center; background-size: cover; background-attachment: fixed; }
+html[data-theme="dark"] body { background-image: linear-gradient(rgba(7,24,30,.76), rgba(7,24,30,.9)), var(--tool-scene) !important; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 2px solid var(--ca-accent) !important; outline-offset: 2px; }

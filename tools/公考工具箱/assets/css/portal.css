@@ -5152,6 +5152,90 @@ body[data-active-view="knowledge"] .content-area { background-image: linear-grad
 body[data-active-view="plan"] .content-area { background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/tool-weekly-journey.webp"); }
 body[data-active-view="knowledge50"] .content-area { background-image: linear-gradient(rgba(246, 248, 244, .72), rgba(246, 248, 244, .88)), url("../images/changan/tool-knowledge-map.webp"); }
 
+/* =========================================================
+   Final visual system contract
+   Keep this small layer last so every module shares the same
+   spacing, color semantics, transparency and focus treatment.
+   ========================================================= */
+:root {
+  --ca-bg: #f5f2ea;
+  --ca-surface: rgba(255, 253, 248, .84);
+  --ca-surface-raised: #fffdf8;
+  --ca-text: #142f38;
+  --ca-text-muted: #67777a;
+  --ca-border: rgba(38, 77, 78, .16);
+  --ca-primary: #2f756f;
+  --ca-primary-soft: rgba(47, 117, 111, .12);
+  --ca-accent: #c99b3d;
+  --ca-danger: #b94c43;
+  --ca-radius-sm: 4px;
+  --ca-radius-md: 6px;
+  --ca-radius-lg: 8px;
+}
+
+[data-theme="dark"] {
+  --ca-bg: #102329;
+  --ca-surface: rgba(16, 39, 45, .82);
+  --ca-surface-raised: #17343a;
+  --ca-text: #edf3ee;
+  --ca-text-muted: #a9bbb4;
+  --ca-border: rgba(190, 215, 207, .2);
+  --ca-primary: #77c8b5;
+  --ca-primary-soft: rgba(119, 200, 181, .16);
+  --ca-accent: #e3bd70;
+  --ca-danger: #e18b7e;
+}
+
+body { color: var(--ca-text); background: var(--ca-bg); }
+.content-area { background-color: transparent; }
+.header { border-color: var(--ca-border); }
+.tool-frame-wrap, .tool-frame { background: transparent; }
+.tool-frame-wrap { border-color: var(--ca-border); }
+
+.dashboard-view { width: min(1320px, 100%); padding: 28px clamp(18px, 3vw, 34px) 42px; }
+.dashboard-greeting h2 { color: var(--ca-text); }
+.greeting-date, .dashboard-greeting .greeting-subtitle { color: var(--ca-text-muted); }
+.journey-section { min-height: 340px; border-radius: var(--ca-radius-lg); box-shadow: 0 12px 30px rgba(18, 49, 55, .1); }
+.journey-content { min-height: 338px; padding: clamp(24px, 4vw, 34px); }
+
+/* Tool entries are utilities first; imagery stays subordinate to labels. */
+.tool-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.tool-card[data-view] {
+  min-height: 190px;
+  border: 1px solid var(--ca-border);
+  border-radius: var(--ca-radius-lg);
+  background: var(--ca-surface);
+  color: var(--ca-text);
+  box-shadow: 0 5px 16px rgba(18, 49, 55, .07);
+}
+.tool-card[data-view]::before { opacity: .18; }
+.tool-card[data-view]::after { background: linear-gradient(180deg, rgba(255,253,248,.78), rgba(255,253,248,.96)); }
+.tool-card[data-view] .tool-card-icon { margin: 16px 16px 20px; border-color: rgba(47,117,111,.22); background: var(--ca-primary-soft); color: var(--ca-primary); }
+.tool-card[data-view] .tool-card-title { margin: 0 16px 5px; color: var(--ca-text); font-size: 16px; }
+.tool-card[data-view] .tool-card-desc { margin: 0 16px; color: var(--ca-text-muted); }
+.tool-card[data-view] .tool-card-hint { margin: auto 16px 16px; color: var(--ca-primary); }
+.tool-card[data-view]:hover, .tool-card[data-view]:focus-visible { border-color: var(--ca-accent); box-shadow: 0 10px 22px rgba(18,49,55,.13); transform: translateY(-2px); }
+.tool-card[data-view]:hover::before, .tool-card[data-view]:focus-visible::before { opacity: .3; }
+[data-theme="dark"] .tool-card[data-view] { background: var(--ca-surface); color: var(--ca-text); box-shadow: none; }
+[data-theme="dark"] .tool-card[data-view]::after { background: linear-gradient(180deg, rgba(16,39,45,.78), rgba(16,39,45,.95)); }
+[data-theme="dark"] .tool-card[data-view] .tool-card-title { color: var(--ca-text); }
+[data-theme="dark"] .tool-card[data-view] .tool-card-desc { color: var(--ca-text-muted); }
+
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--ca-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1180px) { .tool-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .dashboard-view { padding-top: 20px; }
+  .journey-section { min-height: 280px; }
+  .journey-content { min-height: 278px; }
+  .tool-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tool-card[data-view] { min-height: 176px; }
+}
+@media (max-width: 460px) { .tool-cards { grid-template-columns: 1fr; } }
+
 body[data-active-view="plan"] .plan-daily-panel,
 body[data-active-view="plan"] .plan-rhythm-panel,
 body[data-active-view="plan"] .plan-planning-panel,
