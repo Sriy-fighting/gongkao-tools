@@ -1,0 +1,802 @@
+(() => {
+  "use strict";
+
+  const reviewRoot = document.getElementById("review-view");
+  if (!reviewRoot) return;
+  // v2 intentionally starts with the rebuilt empty library after the season reset.
+  // Keeping a new key prevents stale v1 snapshots from repopulating deleted questions.
+  const STORAGE_KEY = "gk-review-library-v2";
+  const initialReviewHash = window.location.hash;
+  const seed = window.REVIEW_SEED || { version: 1, libraryName: "复盘资料库", questions: [] };
+  const SEED_REVISION = "20260820-season28-text-v2";
+  const $ = (id) => reviewRoot.querySelector("#" + id);
+  const els = {
+    sidebar: $("reviewSidebar"),
+    backdrop: $("backdrop"),
+    list: $("questionList"),
+    question: $("questionPane"),
+    review: $("reviewPane"),
+    season: $("seasonFilter"),
+    subject: $("subjectFilter"),
+    mastery: $("masteryFilter"),
+    status: $("statusFilter"),
+    search: $("searchInput"),
+    editDialog: $("editDialog"),
+    importDialog: $("importDialog"),
+    toast: $("toast")
+  };
+  const state = {
+    data: loadData(),
+    filtered: [],
+    currentId: null,
+    revealed: new Set(),
+    selected: {},
+    quick: "priority",
+    toastTimer: null,
+    pendingImport: null,
+    undoSnapshot: null,
+    initialHashApplied: false,
+    deepLinkedId: null,
+    internalHash: "",
+    storageError: false,
+    cloudSyncInFlight: false,
+    hasLocalSnapshot: false,
+    initialRenderComplete: false
+  };
+
+  function hasStoredSnapshot() {
+    try { return Boolean(localStorage.getItem(STORAGE_KEY)); } catch (error) { return false; }
+  }
+
+  state.hasLocalSnapshot = hasStoredSnapshot();
+
+  function normalizeQuestion(q) {
+    const legacyReview = q.reviewState || {};
+    const legacyStep = Math.min(Number(legacyReview.step) || 0, 2);
+    const sourceRefs = Array.isArray(q.sourceRefs) ? q.sourceRefs.map((ref) => ({
+      ...ref,
+      asset: normalizeAssetPath(ref.asset)
+    })) : [];
+    return {
+      id: String(q.id || ((q.season || "未分类") + "-" + (q.subject || "常识") + "-" + (q.number ?? "?"))),
+      season: q.season || "未分类季度",
+      subject: q.subject || "常识",
+      number: q.number ?? "?",
+      stem: q.stem || "（题干待补充）",
+      options: Array.isArray(q.options) ? q.options : [],
+      answer: q.answer || "",
+      answerStatus: q.answerStatus || "pending",
+      review: { summary: "", analysis: "", pitfalls: [], memoryCue: "", ...(q.review || {}) },
+      tags: Array.isArray(q.tags) ? q.tags : [],
+      difficulty: q.difficulty || "medium",
+      match: { status: "pending", confidence: 0, evidence: [], ...(q.match || {}) },
+      sourceRefs,
+      mastery: q.mastery || "new",
+      reviewState: {
+        step: 0,
+        nextReviewAt: null,
+        history: [],
+        ...legacyReview,
+        steps: { again: 0, fuzzy: legacyStep, know: legacyStep, ...(legacyReview.steps || {}) }
+      },
+      note: q.note || ""
+    };
+  }
+
+  function normalizeAssetPath(value) {
+    const raw = String(value || "").replaceAll("\\", "/");
+    const normalized = raw.startsWith("assets/sources/") ? "reviews/" + raw : raw;
+    const safeLocalAsset = /^reviews\/assets\/sources\/(?!.*(?:\.\.|:))[^/?#\\]+\.(?:jpg|jpeg|png|webp)$/i;
+    return safeLocalAsset.test(normalized) ? normalized : "";
+  }
+
+  function mergeQuestions(base, incoming, preserveProgress = true) {
+    const map = new Map(base.map((q) => [q.id, normalizeQuestion(q)]));
+    incoming.forEach((item) => {
+      const next = normalizeQuestion(item);
+      const old = map.get(next.id);
+      if (old && preserveProgress) {
+        next.mastery = old.mastery;
+        next.reviewState = old.reviewState;
+        next.note = old.note || next.note;
+      }
+      map.set(next.id, next);
+    });
+    return [...map.values()];
+  }
+
+  function loadData() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (stored && Array.isArray(stored.questions)) {
+        const seedChanged = stored.seedRevision !== SEED_REVISION;
+        const questions = seedChanged
+          ? mergeQuestions(stored.questions, seed.questions || [], true)
+          : mergeQuestions(seed.questions || [], stored.questions, false);
+        const next = { ...stored, seedRevision: SEED_REVISION, dirty: Boolean(stored.dirty), questions };
+        if (seedChanged) {
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch (error) { /* saveData reports storage errors */ }
+        }
+        return next;
+      }
+    } catch (error) {
+      console.warn("Local data could not be read", error);
+    }
+    return { ...seed, seedRevision: SEED_REVISION, questions: (seed.questions || []).map(normalizeQuestion) };
+  }
+
+  function syncCloudData() {
+    if (!window.SyncStore || !window.SyncStore.readData || state.cloudSyncInFlight) return;
+    state.cloudSyncInFlight = true;
+    window.SyncStore.readData(STORAGE_KEY, (cloudData) => {
+      state.cloudSyncInFlight = false;
+      if (typeof cloudData === "string") {
+        try { cloudData = JSON.parse(cloudData); } catch (error) { cloudData = null; }
+      }
+      if (!cloudData || !Array.isArray(cloudData.questions)) return;
+      if (cloudData.seedRevision !== SEED_REVISION) {
+        if (state.hasLocalSnapshot) {
+          if (window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, state.data);
+          return;
+        }
+        state.data = {
+          ...cloudData,
+          seedRevision: SEED_REVISION,
+          questions: mergeQuestions(cloudData.questions, seed.questions || [], true)
+        };
+        state.hasLocalSnapshot = true;
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data)); } catch (error) { /* saveData reports storage errors */ }
+        if (window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, state.data);
+        renderAll(true);
+        return;
+      }
+      // A user may answer or edit while the remote request is in flight.
+      // Compare against the latest in-memory snapshot, never the request-time one.
+      const localData = state.data;
+      const localUpdated = Date.parse(localData.updatedAt || "") || 0;
+      const cloudUpdated = Date.parse(cloudData.updatedAt || "") || 0;
+      const localQuestions = Array.isArray(localData.questions) ? localData.questions : [];
+      const cloudQuestions = Array.isArray(cloudData.questions) ? cloudData.questions : [];
+      const sameSnapshot = localUpdated === cloudUpdated && localQuestions.length === cloudQuestions.length &&
+        JSON.stringify(localQuestions) === JSON.stringify(cloudQuestions);
+      if (sameSnapshot) return;
+      if (localUpdated > cloudUpdated || (localUpdated === cloudUpdated && state.hasLocalSnapshot)) {
+        if (window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, localData);
+        return;
+      }
+      state.data = {
+        ...cloudData,
+        questions: mergeQuestions(seed.questions || [], cloudQuestions, false)
+      };
+      state.hasLocalSnapshot = true;
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data)); } catch (error) { /* saveData reports storage errors */ }
+      renderAll(true);
+    });
+  }
+
+  function saveData() {
+    state.data.updatedAt = new Date().toISOString();
+    state.data.dirty = true;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data));
+      if (window.SyncStore && window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, state.data);
+      state.storageError = false;
+      renderBackupStatus();
+    } catch (error) {
+      state.storageError = true;
+      toast("本地保存失败，请立即导出 JSON 备份");
+      renderBackupStatus();
+    }
+  }
+
+  function markBackupComplete() {
+    const now = new Date().toISOString();
+    state.data.exportedAt = now;
+    state.data.backupAt = now;
+    state.data.updatedAt = now;
+    state.data.dirty = false;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data));
+      if (window.SyncStore && window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, state.data);
+      state.storageError = false;
+    } catch (error) {
+      state.storageError = true;
+      toast("备份已生成，但本地状态保存失败");
+    }
+    renderBackupStatus();
+  }
+
+  function formatBackupDate(value) {
+    if (!value) return "尚未备份";
+    return "上次备份 " + new Intl.DateTimeFormat("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }).format(new Date(value));
+  }
+
+  function renderBackupStatus() {
+    const target = $("backupStatus");
+    if (!target) return;
+    target.className = "backup-status" + (state.data.dirty || state.storageError ? " dirty" : " clean");
+    target.textContent = state.storageError ? "本地保存失败" : state.data.dirty ? "有未备份修改" : formatBackupDate(state.data.backupAt);
+    target.title = state.storageError ? "请立即导出 JSON 备份" : state.data.dirty ? "修改已保存在本机，建议导出备份" : formatBackupDate(state.data.backupAt);
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>'"]/g, (char) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+    })[char]);
+  }
+
+  function isDue(q) {
+    return Boolean(q.reviewState.nextReviewAt) && new Date(q.reviewState.nextReviewAt) <= new Date();
+  }
+
+  function isNew(q) {
+    return q.mastery === "new" && !q.reviewState.nextReviewAt;
+  }
+
+  function statusLabel(status) {
+    return ({ verified: "已确认", pending: "待核验", unmatched: "未匹配" })[status] || "待核验";
+  }
+
+  function masteryLabel(value) {
+    return ({ new: "未复习", again: "不会", fuzzy: "模糊", know: "会" })[value] || "未复习";
+  }
+
+  function answerStatusLabel(value) {
+    return ({ verified: "答案已确认", inferred: "答案由知识点推断", pending: "答案待核验" })[value] || "答案待核验";
+  }
+
+  function quickLabel(value) {
+    return ({ priority: "今日优先", due: "今日到期", new: "待开始", pending: "待核验", weak: "薄弱题", done: "已复习" })[value] || "快速筛选";
+  }
+
+  function formatDate(value) {
+    if (!value) return "尚未安排";
+    const date = new Date(value);
+    const today = new Date();
+    if (date.toDateString() === today.toDateString()) return "今天重做";
+    return new Intl.DateTimeFormat("zh-CN", { month: "short", day: "numeric" }).format(date);
+  }
+
+  function currentQuestion() {
+    return state.data.questions.find((q) => q.id === state.currentId);
+  }
+
+  function priorityRank(q) {
+    if (isDue(q)) return 0;
+    if (["again", "fuzzy"].includes(q.mastery)) return 1;
+    if (isNew(q)) return 2;
+    return 3;
+  }
+
+  function compareQuestions(a, b) {
+    return a.season.localeCompare(b.season, "zh-CN") || Number(a.number) - Number(b.number) || String(a.id).localeCompare(String(b.id));
+  }
+
+  function shortSeasonLabel(value) {
+    const match = String(value || "").match(/第\s*(\d+)\s*季/);
+    return match ? "第" + match[1] + "季" : String(value || "未分类");
+  }
+
+  function filterQuestions() {
+    clearAccountAutofill();
+    const query = els.search.value.trim().toLowerCase();
+    const normalMatches = state.data.questions.filter((q) => {
+      const haystack = [q.stem, q.subject, q.season, ...(q.tags || []), q.review.summary, q.review.analysis].join(" ").toLowerCase();
+      return (!query || haystack.includes(query)) &&
+        (els.season.value === "all" || q.season === els.season.value) &&
+        (els.subject.value === "all" || q.subject === els.subject.value) &&
+        (els.mastery.value === "all" || q.mastery === els.mastery.value) &&
+        (els.status.value === "all" ||
+          (els.status.value === "due" ? isDue(q) :
+            els.status.value === "pending" ? (q.match.status !== "verified" || q.answerStatus !== "verified") :
+              q.match.status === els.status.value));
+    });
+    if (state.quick === "priority") {
+      const selected = [];
+      const seen = new Set();
+      const add = (q) => { if (!seen.has(q.id)) { seen.add(q.id); selected.push(q); } };
+      normalMatches.filter(isDue).sort(compareQuestions).forEach(add);
+      normalMatches.filter((q) => ["again", "fuzzy"].includes(q.mastery)).sort(compareQuestions).forEach(add);
+      normalMatches.filter(isNew).sort(compareQuestions).slice(0, 10).forEach(add);
+      const deepLinked = state.deepLinkedId && normalMatches.find((q) => q.id === state.deepLinkedId);
+      if (deepLinked) {
+        const index = selected.indexOf(deepLinked);
+        if (index !== -1) selected.splice(index, 1);
+        selected.unshift(deepLinked);
+      }
+      state.filtered = selected;
+    } else {
+      state.filtered = normalMatches.filter((q) => !state.quick ||
+        (state.quick === "due" && isDue(q)) ||
+        (state.quick === "new" && isNew(q)) ||
+        (state.quick === "pending" && (q.match.status !== "verified" || q.answerStatus !== "verified")) ||
+        (state.quick === "weak" && ["again", "fuzzy"].includes(q.mastery)) ||
+        (state.quick === "done" && q.mastery !== "new"))
+        .sort(compareQuestions);
+    }
+    if (!state.filtered.some((q) => q.id === state.currentId)) state.currentId = state.filtered[0]?.id || null;
+  }
+
+  function populateSeasons() {
+    const current = els.season.value || "all";
+    const seasons = [...new Set(state.data.questions.map((q) => q.season))].sort((a, b) => b.localeCompare(a, "zh-CN"));
+    els.season.innerHTML = '<option value="all">全部季度</option>' + seasons.map((value) =>
+      '<option value="' + escapeHtml(value) + '">' + escapeHtml(value) + "</option>"
+    ).join("");
+    els.season.value = seasons.includes(current) ? current : "all";
+  }
+
+  function renderStats() {
+    const all = state.data.questions;
+    const done = all.filter((q) => q.mastery !== "new").length;
+    $("dueCount").textContent = all.filter(isDue).length;
+    $("newCount").textContent = all.filter(isNew).length;
+    $("pendingCount").textContent = all.filter((q) => q.match.status !== "verified" || q.answerStatus !== "verified").length;
+    $("weakCount").textContent = all.filter((q) => q.mastery === "again" || q.mastery === "fuzzy").length;
+    $("doneCount").textContent = done;
+    const progress = all.length ? Math.round(done / all.length * 100) : 0;
+    $("progressText").textContent = "资料库已复习 " + progress + "%";
+    $("progressFill").style.width = progress + "%";
+    const syncLabel = window.SyncStore && window.SyncStore.isConfigured && window.SyncStore.isConfigured() ? "本地 + 账号同步" : "仅保存在本机";
+    $("libraryMeta").textContent = all.length + " 道题 · " + new Set(all.map((q) => q.season)).size + " 个季度 · " + syncLabel;
+    renderInsights(all);
+    renderBackupStatus();
+    renderQuickFilters();
+  }
+
+  function renderQuickFilters() {
+    const box = reviewRoot.querySelector('.review-filter-box');
+    if (!box) return;
+    let bar = box.querySelector('.review-quick-filters');
+    if (!bar) { bar = document.createElement('div'); bar.className = 'review-quick-filters'; box.insertBefore(bar, box.querySelector('.review-filter-grid')); }
+    const items = [['priority','今日优先'],['all','全部'],['due','今日到期'],['new','待开始'],['weak','模糊 / 不会'],['done','已复习']];
+    bar.innerHTML = items.map(([id,label]) => '<button type="button" class="review-quick-pill ' + ((id === 'all' && !state.quick) || state.quick === id ? 'active' : '') + '" data-quick="' + id + '">' + label + '</button>').join('');
+  }
+
+  function historyOf(q) {
+    return Array.isArray(q.reviewState.history) ? q.reviewState.history : [];
+  }
+
+  function renderInsights(all) {
+    const attempts = all.flatMap((q) => historyOf(q).filter((item) => item.kind === "answer").map((item) => ({ ...item, q })));
+    const scored = attempts.filter((item) => item.answerStatus === "verified" && typeof item.correct === "boolean");
+    $("insightsMeta").textContent = scored.length ? `已完成 ${scored.length} 次有效作答 · 正确率 ${Math.round(scored.filter((item) => item.correct).length / scored.length * 100)}%` : "完成作答后会在这里形成统计";
+    const bySubject = ["政治理论", "常识", "公基"].map((subject) => {
+      const rows = scored.filter((item) => item.q.subject === subject);
+      const accuracy = rows.length ? Math.round(rows.filter((item) => item.correct).length / rows.length * 100) : null;
+      return `<div class="insight-row"><span>${escapeHtml(subject)}</span><strong>${accuracy === null ? "—" : accuracy + "%"}</strong><small>${rows.length} 次作答</small></div>`;
+    }).join("");
+    $("subjectStats").innerHTML = `<h3>科目正确率</h3>${bySubject}`;
+    const mistakes = new Map();
+    attempts.filter((item) => item.answerStatus === "verified" && item.correct === false).forEach((item) => (item.q.tags || []).forEach((tag) => mistakes.set(tag, (mistakes.get(tag) || 0) + 1)));
+    const topMistakes = [...mistakes.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
+    $("tagStats").innerHTML = `<h3>高频错题知识点</h3>${topMistakes.length ? topMistakes.map(([tag, count]) => `<div class="insight-row"><span># ${escapeHtml(tag)}</span><strong>${count} 次</strong></div>`).join("") : '<p class="hint">暂时还没有可统计的错题知识点。</p>'}`;
+  }
+
+  function renderList() {
+    $("resultCount").textContent = state.filtered.length + " 道题" + (state.quick ? " · " + quickLabel(state.quick) : "");
+    if (!state.filtered.length) {
+      els.list.innerHTML = '<li class="empty-list">没有符合条件的题目<br>试试清除筛选</li>';
+      return;
+    }
+    els.list.innerHTML = state.filtered.map((q, index) =>
+      '<li><button data-id="' + escapeHtml(q.id) + '" class="' + (q.id === state.currentId ? "active" : "") + '" aria-current="' + (q.id === state.currentId ? "true" : "false") + '">' +
+        '<span class="q-index"><b>第' + escapeHtml(q.number) + '题</b><small>' + escapeHtml(shortSeasonLabel(q.season)) + "</small></span>" +
+        '<span class="q-list-copy"><b>' + escapeHtml(q.subject) + " · " + escapeHtml(masteryLabel(q.mastery)) + "</b><span>" + escapeHtml(q.stem) + "</span></span>" +
+        '<span class="status-dot ' + (q.match.status !== "verified" || q.answerStatus !== "verified" ? "pending" : q.mastery === "know" ? "know" : "") + '" aria-label="' + escapeHtml(statusLabel(q.match.status) + "，" + answerStatusLabel(q.answerStatus)) + '"></span>' +
+      "</button></li>"
+    ).join("");
+    els.list.querySelectorAll('li').forEach((item, index) => { item.style.setProperty('--stagger', (index * 35) + 'ms'); });
+  }
+
+  function renderQuestion(q) {
+    if (!q) {
+      $("crumbText").textContent = "没有符合条件的题目";
+      els.question.innerHTML = '<div class="review-empty-visual"><img src="assets/images/changan/empty-review-desk.webp" alt="" loading="lazy"><strong>还没有可复盘的题目</strong><span>请调整筛选条件或导入资料。</span></div>';
+      els.review.innerHTML = "";
+      return;
+    }
+    const revealed = state.revealed.has(q.id);
+    els.question.classList.remove('is-changing');
+    els.review.classList.remove('is-changing');
+    requestAnimationFrame(() => { els.question.classList.add('is-changing'); els.review.classList.add('is-changing'); });
+    const selected = state.selected[q.id];
+    $("crumbText").textContent = q.season + " / " + q.subject + " / 第 " + q.number + " 题";
+    const options = q.options.map((opt) => {
+      let className = "option" + (selected === opt.key ? " selected" : "");
+      if (revealed && q.answerStatus === "verified" && opt.key === q.answer) className += " correct";
+      else if (revealed && q.answerStatus === "verified" && selected === opt.key && selected !== q.answer) className += " wrong";
+      const tabIndex = selected ? (selected === opt.key ? 0 : -1) : (opt.key === q.options[0]?.key ? 0 : -1);
+      return '<button class="' + className + '" data-option="' + escapeHtml(opt.key) + '" role="radio" aria-checked="' + (selected === opt.key) + '" tabindex="' + tabIndex + '" aria-label="选项 ' + escapeHtml(opt.key) + '：' + escapeHtml(opt.text) + '">' +
+        '<span class="option-key">' + escapeHtml(opt.key) + "</span><span>" + escapeHtml(opt.text) + "</span></button>";
+    }).join("");
+    els.question.innerHTML =
+      '<div class="pane-label"><span>QUESTION ' + escapeHtml(q.number) + '</span><span class="badges">' +
+        '<span class="badge ' + (q.answerStatus === "verified" ? "verified" : "pending") + '">' + escapeHtml(answerStatusLabel(q.answerStatus)) + "</span></span></div>" +
+      '<h2 class="question-title">' + escapeHtml(q.stem) + '</h2><div class="options" role="radiogroup" aria-label="选择答案">' + options + "</div>" +
+      '<div class="answer-actions"><button class="btn primary" id="revealBtn">' + (revealed ? "收起答案与复盘" : "查看答案与复盘") + '</button><button class="btn" id="editBtn">编辑复盘</button>' +
+      '</div><p class="hint">快捷键：← / → 切题，Enter 揭示答案</p>' +
+      '<div class="tags">' + q.tags.map((tag) => '<span class="tag"># ' + escapeHtml(tag) + "</span>").join("") + "</div>" +
+      (q.note ? '<div class="note"><strong>我的笔记</strong>' + escapeHtml(q.note) + "</div>" : "");
+
+    renderReview(q, revealed);
+    $("revealBtn").onclick = () => {
+      if (state.revealed.has(q.id)) {
+        state.revealed.delete(q.id);
+      } else {
+        state.revealed.add(q.id);
+        recordAnswerAttempt(q, selected);
+      }
+      renderAll(false);
+    };
+    $("editBtn").onclick = openEdit;
+    els.question.querySelectorAll("[data-option]").forEach((button) => {
+      button.onclick = () => {
+        if (!revealed) {
+          state.selected[q.id] = button.dataset.option;
+          renderAll(false);
+        }
+      };
+      button.onkeydown = (event) => {
+        if (!['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(event.key)) return;
+        event.preventDefault();
+        const options = [...els.question.querySelectorAll('[data-option]')];
+        const index = options.indexOf(button);
+        const next = options[(index + (event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1 : -1) + options.length) % options.length];
+        next.click();
+        next.focus();
+      };
+    });
+  }
+
+  function renderReview(q, revealed) {
+    if (!revealed) {
+      els.review.innerHTML = '<div class="review-placeholder"><div><div class="placeholder-mark">答</div><strong>先独立完成这道题</strong><p>作答后再揭示答案与详细复盘。</p></div></div>';
+      return;
+    }
+    const answerText = q.answerStatus === "pending" ? "暂无可确认答案" : (q.options.find((opt) => opt.key === q.answer)?.text || "答案尚待核验");
+    els.review.innerHTML =
+      '<div class="review-content"><div class="pane-label"><span>REVIEW</span><button class="btn ghost clear-filter" id="printBtn">打印本题</button></div>' +
+      '<div class="answer-line ' + (q.answerStatus === "verified" ? "verified" : "pending") + '"><span class="answer-key">' + escapeHtml(q.answerStatus === "pending" ? "?" : (q.answer || "?")) + '</span><span><small>' + escapeHtml(q.answerStatus === "verified" ? "正确答案" : answerStatusLabel(q.answerStatus)) + '</small><br><strong>' + escapeHtml(answerText) + "</strong></span></div>" +
+      "<h2>" + escapeHtml(q.review.summary || "复盘内容待补充") + "</h2>" +
+      '<div class="review-block"><h3>逐题复盘</h3><p>' + escapeHtml(q.review.analysis || "暂无详细解析。") + "</p></div>" +
+      '<div class="mastery-box"><p>这道题现在掌握得怎么样？选择后会自动安排复习。</p><div class="mastery-actions">' +
+        '<button class="btn again" data-mastery="again">不会</button><button class="btn fuzzy" data-mastery="fuzzy">模糊</button><button class="btn know" data-mastery="know">会</button>' +
+      '</div><p class="next-review">当前状态：' + escapeHtml(masteryLabel(q.mastery)) + " · 下次复习：" + escapeHtml(formatDate(q.reviewState.nextReviewAt)) + "</p></div></div>";
+    $("printBtn").onclick = () => window.print();
+    els.review.querySelectorAll("[data-mastery]").forEach((button) => button.onclick = () => markMastery(q, button.dataset.mastery));
+  }
+
+  function recordAnswerAttempt(q, selected) {
+    q.reviewState.history = historyOf(q);
+    q.reviewState.history.push({
+      kind: "answer",
+      at: new Date().toISOString(),
+      selectedAnswer: selected || null,
+      correct: q.answerStatus === "verified" && selected ? selected === q.answer : null,
+      answerStatus: q.answerStatus
+    });
+    saveData();
+  }
+
+  function markMastery(q, level) {
+    const intervals = { again: [0, 1, 3], fuzzy: [1, 3, 7], know: [3, 7, 21] };
+    const steps = q.reviewState.steps = { again: 0, fuzzy: 0, know: 0, ...(q.reviewState.steps || {}) };
+    const step = level === "again" && q.mastery !== "again" ? 0 : Math.min(Number(steps[level]) || 0, 2);
+    const days = intervals[level][step];
+    const now = new Date();
+    const next = new Date(now);
+    next.setDate(next.getDate() + days);
+    q.mastery = level;
+    if (level === "again") {
+      q.reviewState.steps = { again: Math.min(step + 1, 2), fuzzy: 0, know: 0 };
+    } else {
+      q.reviewState.steps[level] = Math.min(step + 1, 2);
+    }
+    q.reviewState.step = q.reviewState.steps[level];
+    q.reviewState.nextReviewAt = next.toISOString();
+    q.reviewState.history = Array.isArray(q.reviewState.history) ? q.reviewState.history : [];
+    q.reviewState.history.push({ kind: "mastery", at: now.toISOString(), mastery: level, intervalDays: days });
+    saveData();
+    toast("已标记“" + masteryLabel(level) + "”，下次复习：" + formatDate(next));
+    renderAll(false);
+  }
+
+  function renderAll(rebuildSeasons = true) {
+    if (rebuildSeasons) populateSeasons();
+    filterQuestions();
+    renderStats();
+    renderList();
+    renderQuestion(currentQuestion());
+    syncDeepLink();
+    const index = state.filtered.findIndex((q) => q.id === state.currentId);
+    $("prevBtn").disabled = index <= 0;
+    $("nextBtn").disabled = index < 0 || index >= state.filtered.length - 1;
+  }
+
+  function navigate(delta) {
+    const index = state.filtered.findIndex((q) => q.id === state.currentId);
+    const next = state.filtered[index + delta];
+    if (next) {
+      state.currentId = next.id;
+      closeMenu();
+      renderAll(false);
+      $("questionPane").focus();
+    }
+  }
+
+  function clearFilters(render = true) {
+    els.search.value = "";
+    els.season.value = "all";
+    els.subject.value = "all";
+    els.mastery.value = "all";
+    els.status.value = "all";
+    state.quick = null;
+    state.deepLinkedId = null;
+    if (render) renderAll(false);
+  }
+
+  function clearAccountAutofill() {
+    const value = String(els.search.value || "").trim();
+    // Account forms elsewhere on the portal can autofill this search field.
+    // An email is never a useful review query, so remove only this unmistakable artifact.
+    if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value)) {
+      els.search.value = "";
+      return true;
+    }
+    return false;
+  }
+
+  function openEdit() {
+    const q = currentQuestion();
+    if (!q) return;
+    $("editAnswer").value = q.answer;
+    $("editAnswerStatus").value = q.answerStatus;
+    $("editSummary").value = q.review.summary;
+    $("editAnalysis").value = q.review.analysis;
+    $("editTags").value = q.tags.join("，");
+    $("editNote").value = q.note;
+    els.editDialog.showModal();
+  }
+
+  function saveEdit(event) {
+    event.preventDefault();
+    const q = currentQuestion();
+    if (!q) return;
+    q.answer = $("editAnswer").value.trim().toUpperCase();
+    if (q.answer && !q.options.some((option) => option.key === q.answer)) {
+      toast("答案必须是现有选项中的 A、B、C 或 D");
+      return;
+    }
+    q.answerStatus = $("editAnswerStatus").value;
+    q.review.summary = $("editSummary").value.trim();
+    q.review.analysis = $("editAnalysis").value.trim();
+    q.tags = $("editTags").value.split(/[，,]/).map((value) => value.trim()).filter(Boolean);
+    q.note = $("editNote").value.trim();
+    saveData();
+    els.editDialog.close();
+    toast("修改已保存在本机");
+    renderAll(false);
+  }
+
+  function toast(message) {
+    clearTimeout(state.toastTimer);
+    els.toast.textContent = message;
+    els.toast.classList.add("show");
+    state.toastTimer = setTimeout(() => els.toast.classList.remove("show"), 3200);
+  }
+
+  function exportData() {
+    markBackupComplete();
+    const blob = new Blob([JSON.stringify(state.data, null, 2)], { type: "application/json;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "review-data-" + new Date().toISOString().slice(0, 10) + ".json";
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+    toast("JSON 备份已导出");
+  }
+
+  async function importData(file) {
+    try {
+      const incoming = JSON.parse(await file.text());
+      if (!incoming || !Array.isArray(incoming.questions)) throw new Error("缺少 questions 数组");
+      const normalized = incoming.questions.map(normalizeQuestion);
+      const oldMap = new Map(state.data.questions.map((q) => [q.id, q]));
+      const conflicts = normalized.filter((next) => {
+        const old = oldMap.get(next.id);
+        if (!old) return false;
+        return ["stem", "options", "answer", "answerStatus", "review", "tags", "match", "sourceRefs"].some((field) => JSON.stringify(old[field]) !== JSON.stringify(next[field]));
+      }).map((q) => ({ id: q.id, number: q.number, subject: q.subject }));
+      state.pendingImport = { incoming: normalized, duplicates: normalized.filter((q) => oldMap.has(q.id)).length, conflicts };
+      $("importSummary").textContent = `将导入 ${normalized.length} 题：新增 ${normalized.filter((q) => !oldMap.has(q.id)).length} 题，重复 ${state.pendingImport.duplicates} 题，待核验 ${normalized.filter((q) => q.match.status !== "verified" || q.answerStatus !== "verified").length} 题。`;
+      const conflictBox = $("importConflictBox");
+      conflictBox.hidden = !conflicts.length;
+      $("importConflicts").innerHTML = conflicts.slice(0, 12).map((item) => `<li>${escapeHtml(item.subject)} 第 ${escapeHtml(item.number)} 题：题干、答案或复盘内容有差异</li>`).join("") + (conflicts.length > 12 ? `<li>另有 ${conflicts.length - 12} 条冲突未展开</li>` : "");
+      els.importDialog.showModal();
+    } catch (error) {
+      toast("导入失败：" + error.message);
+    }
+  }
+
+  function confirmImport() {
+    if (!state.pendingImport) return;
+    state.undoSnapshot = JSON.parse(JSON.stringify(state.data));
+    state.data.questions = mergeQuestions(state.data.questions, state.pendingImport.incoming, true);
+    state.data.version = 1;
+    saveData();
+    clearFilters(false);
+    populateSeasons();
+    renderAll(false);
+    const count = state.pendingImport.incoming.length;
+    const duplicates = state.pendingImport.duplicates;
+    state.pendingImport = null;
+    els.importDialog.close();
+    $("undoText").textContent = `已导入 ${count} 题，合并重复 ${duplicates} 题`;
+    $("undoBar").hidden = false;
+    toast("资料已合并，可在短时间内撤销");
+  }
+
+  function undoImport() {
+    if (!state.undoSnapshot) return;
+    state.data = state.undoSnapshot;
+    state.undoSnapshot = null;
+    saveData();
+    $("undoBar").hidden = true;
+    clearFilters(false);
+    populateSeasons();
+    renderAll(false);
+    toast("已撤销本次导入");
+  }
+
+  function syncDeepLink() {
+    if (!state.currentId) return;
+    const hash = "#q=" + encodeURIComponent(state.currentId);
+    if (window.location.hash !== hash) {
+      state.internalHash = hash;
+      history.replaceState(null, "", hash);
+    }
+  }
+
+  function applyDeepLink() {
+    const readId = (hash) => new URLSearchParams(String(hash || "").slice(1)).get("q");
+    if (!state.initialHashApplied) {
+      const id = readId(initialReviewHash);
+      if (id && state.data.questions.some((q) => q.id === id)) {
+        state.currentId = id;
+        state.deepLinkedId = id;
+        state.quick = null;
+      }
+      state.initialHashApplied = true;
+      return;
+    }
+    if (state.internalHash && window.location.hash === state.internalHash) {
+      state.internalHash = "";
+      return;
+    }
+    const id = readId(window.location.hash);
+    if (id && state.data.questions.some((q) => q.id === id)) {
+      state.currentId = id;
+      state.deepLinkedId = id;
+      state.quick = null;
+    }
+  }
+
+  function openMenu() {
+    els.sidebar.classList.add("open");
+    els.backdrop.classList.add("show");
+  }
+
+  function closeMenu() {
+    els.sidebar.classList.remove("open");
+    els.backdrop.classList.remove("show");
+  }
+
+  [els.search, els.season, els.subject, els.mastery, els.status].forEach((control) => {
+    control.addEventListener(control === els.search ? "input" : "change", () => {
+      if (control === els.search) clearAccountAutofill();
+      state.quick = null;
+      renderAll(false);
+    });
+  });
+  els.list.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-id]");
+    if (button) {
+      state.currentId = button.dataset.id;
+      state.deepLinkedId = null;
+      closeMenu();
+      renderAll(false);
+    }
+  });
+  reviewRoot.addEventListener('click', (event) => {
+    const pill = event.target.closest('[data-quick]');
+    if (!pill) return;
+    const value = pill.dataset.quick;
+    clearFilters(false);
+    state.quick = value === 'all' ? null : value;
+    renderAll(false);
+  });
+  $("prevBtn").onclick = () => navigate(-1);
+  $("nextBtn").onclick = () => navigate(1);
+  $("clearFilterBtn").onclick = () => clearFilters(true);
+  $("menuBtn").onclick = openMenu;
+  els.backdrop.onclick = closeMenu;
+  $("importBtn").onclick = () => $("fileInput").click();
+  $("fileInput").onchange = (event) => {
+    if (event.target.files[0]) importData(event.target.files[0]);
+    event.target.value = "";
+  };
+  $("exportBtn").onclick = exportData;
+  $("resetBtn").onclick = () => {
+    if (confirm("恢复原始资料会清除本机的掌握度、笔记和修改，确定继续吗？")) {
+      localStorage.removeItem(STORAGE_KEY);
+      state.data = { ...seed, seedRevision: SEED_REVISION, questions: seed.questions.map(normalizeQuestion) };
+      state.data.dirty = false;
+      state.revealed.clear();
+      state.selected = {};
+      state.undoSnapshot = null;
+      $("undoBar").hidden = true;
+      clearFilters(false);
+      populateSeasons();
+      renderAll(false);
+      toast("已恢复原始资料");
+    }
+  };
+  $("saveEditBtn").onclick = saveEdit;
+  $("cancelImportBtn").onclick = () => els.importDialog.close();
+  $("cancelImportBtnBottom").onclick = () => els.importDialog.close();
+  $("confirmImportBtn").onclick = confirmImport;
+  $("undoImportBtn").onclick = undoImport;
+  document.addEventListener("keydown", (event) => {
+    if (reviewRoot.style.display === "none" || !reviewRoot.contains(event.target)) return;
+    if (event.target.matches("input,textarea,select,button,a,[role=radio]") || els.editDialog.open || els.importDialog.open) return;
+    if (event.key === "ArrowLeft") navigate(-1);
+    if (event.key === "ArrowRight") navigate(1);
+    if (event.key === "Enter") {
+      const q = currentQuestion();
+      if (q) {
+        state.revealed.has(q.id) ? state.revealed.delete(q.id) : state.revealed.add(q.id);
+        renderAll(false);
+      }
+    }
+  });
+  reviewRoot.querySelectorAll("[data-stat]").forEach((button) => {
+    button.onclick = () => {
+      clearFilters(false);
+      state.quick = button.dataset.stat;
+      renderAll(false);
+      const workspace = reviewRoot.querySelector(".review-workspace");
+      if (workspace) workspace.scrollIntoView();
+    };
+  });
+
+  applyDeepLink();
+  window.addEventListener("hashchange", () => {
+    const internal = state.internalHash === window.location.hash;
+    applyDeepLink();
+    if (!internal) renderAll(false);
+  });
+  window.ReviewApp = {
+    refresh() {
+      const nextData = loadData();
+      const nextQuestions = nextData.questions || [];
+      const currentQuestions = state.data.questions || [];
+      const unchanged = nextData.updatedAt === state.data.updatedAt && nextQuestions.length === currentQuestions.length;
+      state.data = nextData;
+      state.hasLocalSnapshot = hasStoredSnapshot();
+      applyDeepLink();
+      if (!state.initialRenderComplete || !unchanged) renderAll(true);
+      syncCloudData();
+    }
+  };
+  renderAll(true);
+  state.initialRenderComplete = true;
+  syncCloudData();
+  // Some password managers fill fields after DOMContentLoaded without firing input.
+  setTimeout(() => {
+    if (clearAccountAutofill()) renderAll(false);
+  }, 0);
+  setTimeout(() => {
+    if (clearAccountAutofill()) renderAll(false);
+  }, 300);
+})();
