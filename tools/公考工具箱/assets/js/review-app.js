@@ -392,7 +392,7 @@
   function renderQuestion(q) {
     if (!q) {
       $("crumbText").textContent = "没有符合条件的题目";
-      els.question.innerHTML = '<div class="review-empty-visual"><img src="assets/images/changan/empty-review-desk.webp" alt="" loading="lazy"><strong>还没有可复盘的题目</strong><span>请调整筛选条件或导入资料。</span></div>';
+      els.question.innerHTML = '<div class="review-empty-visual"><img src="../images/changan/empty-review-desk.webp" alt="" loading="lazy"><strong>还没有可复盘的题目</strong><span>请调整筛选条件或导入资料。</span></div>';
       els.review.innerHTML = "";
       return;
     }

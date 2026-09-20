@@ -410,6 +410,7 @@ window.SyncStore = (function () {
     getSyncKey: getSyncKey,
     setSyncKey: setSyncKey,
     isConfigured: isConfigured,
+    isBusinessKey: isBusinessKey,
     readData: readData,
     writeData: writeData,
     fetchAllKeys: fetchAllKeys,
