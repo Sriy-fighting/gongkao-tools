@@ -5492,3 +5492,64 @@ body[data-active-view="plan"] .plan-shell { padding-right: 20px; padding-left: 2
 /* 常识 50 天计划使用同一套长安题途主题色。 */
 .tool-card[data-view="knowledge50"]::before { background-image: url("../images/changan/tool-knowledge-map.webp"); }
 .tool-card[data-view="knowledge50"] .tool-card-icon { background: #f3e3e0; color: var(--ca-cinnabar); }
+
+/* Loading scene asset pack. Keep this block last so it owns the loading layer
+   without changing the portal's existing view and interaction animations. */
+.loading-overlay { position: fixed; inset: 0; z-index: 1000; overflow: hidden; isolation: isolate; display: grid; place-items: center; background: #07171c; color: #fff8e8; opacity: 1; visibility: visible; transition: opacity .5s ease, visibility 0s linear .5s; }
+.loading-overlay.is-leaving { opacity: 0; visibility: hidden; pointer-events: none; }
+.loading-overlay.is-hidden { display: none; }
+.loading-overlay-backdrop, .loading-overlay-texture, .loading-pack-mist, .loading-pack-palace, .loading-pack-particles, .loading-pack-beacons, .loading-pack-hud, .loading-aurora, .loading-scanline, .loading-path-light, .loading-foreground-lanterns, .loading-grid-lines { position: absolute; inset: 0; pointer-events: none; }
+.loading-overlay-backdrop { z-index: 0; background: url('../images/loading/pack-bg-desktop.jpg') center/cover no-repeat; transform: scale(1.02); animation: loading-scene-drift 18s ease-in-out infinite alternate; }
+.loading-overlay-texture { z-index: 1; opacity: .22; background: url('../images/loading/loading-texture.jpg') center/cover; mix-blend-mode: screen; }
+.loading-pack-mist { z-index: 2; opacity: .24; background: url('../images/loading/pack-mist.jpg') center/cover; mix-blend-mode: screen; animation: loading-mist-drift 14s ease-in-out infinite alternate; }
+.loading-pack-palace { z-index: 3; opacity: .36; background: url('../images/loading/pack-palace-overlay.png') center bottom/cover no-repeat; mix-blend-mode: screen; animation: loading-palace-breathe 7s ease-in-out infinite; }
+.loading-pack-particles { z-index: 4; opacity: .33; background: url('../images/loading/pack-particles.png') center/cover no-repeat; mix-blend-mode: screen; animation: loading-particles-drift 16s linear infinite; }
+.loading-pack-beacons { z-index: 5; opacity: .18; background: url('../images/loading/pack-beacons.png') center/cover no-repeat; mix-blend-mode: screen; animation: loading-beacons-pulse 5s ease-in-out infinite; }
+.loading-pack-hud { z-index: 6; opacity: .11; background: url('../images/loading/pack-map-hud.png') center/cover no-repeat; mix-blend-mode: screen; animation: loading-hud-pan 22s linear infinite; }
+.loading-aurora { z-index: 7; opacity: .12; filter: blur(28px); mix-blend-mode: screen; }
+.loading-aurora-a { background: radial-gradient(ellipse at 20% 34%, rgba(58,157,144,.72), transparent 45%); animation: loading-aurora-a 9s ease-in-out infinite alternate; }
+.loading-aurora-b { background: radial-gradient(ellipse at 84% 64%, rgba(229,174,78,.6), transparent 42%); animation: loading-aurora-b 11s ease-in-out infinite alternate; }
+.loading-scanline { z-index: 8; opacity: .07; background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,248,222,.28) 4px, transparent 5px); mix-blend-mode: screen; }
+.loading-path-light { z-index: 8; width: 45vw; height: 1px; inset: auto auto 17% 50%; background: linear-gradient(90deg, transparent, rgba(241,195,99,.75), transparent); filter: blur(1px); transform: translateX(-50%) rotate(-4deg); animation: loading-path-pulse 3.8s ease-in-out infinite; }
+.loading-path-light-b { bottom: 20%; opacity: .42; transform: translateX(-50%) rotate(4deg); animation-delay: -1.7s; }
+.loading-grid-lines { z-index: 8; opacity: .12; background: linear-gradient(rgba(220,195,125,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(220,195,125,.25) 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(transparent 5%, #000 40%, transparent 100%); }
+.loading-foreground-lanterns { z-index: 8; opacity: .35; }
+.loading-foreground-lanterns i { position: absolute; width: 10px; height: 18px; border: 1px solid rgba(241,195,99,.75); border-radius: 50%; background: rgba(240,174,63,.3); box-shadow: 0 0 18px rgba(240,174,63,.75); animation: loading-lantern-float 4s ease-in-out infinite; }
+.loading-foreground-lanterns i:nth-child(1) { left: 9%; bottom: 17%; } .loading-foreground-lanterns i:nth-child(2) { left: 20%; bottom: 26%; animation-delay: -.8s; } .loading-foreground-lanterns i:nth-child(3) { right: 21%; bottom: 23%; animation-delay: -1.4s; } .loading-foreground-lanterns i:nth-child(4) { right: 10%; bottom: 15%; animation-delay: -2.1s; } .loading-foreground-lanterns i:nth-child(5) { left: 49%; bottom: 20%; animation-delay: -2.7s; }
+.loading-overlay-content { position: relative; z-index: 8; display: grid; justify-items: center; width: min(560px, calc(100vw - 40px)); padding: 26px 24px; text-align: center; }
+.loading-emblem-wrap { position: relative; width: clamp(150px, 20vw, 220px); aspect-ratio: 1; display: grid; place-items: center; margin-bottom: 24px; }
+.loading-emblem, .loading-orbit-art { position: absolute; width: 100%; height: 100%; object-fit: contain; }
+.loading-emblem { z-index: 2; width: 72%; filter: drop-shadow(0 0 20px rgba(237,192,100,.22)); animation: loading-emblem-breathe 4.8s ease-in-out infinite; }
+.loading-orbit-art { z-index: 1; opacity: .48; mix-blend-mode: screen; animation: loading-orbit-spin 28s linear infinite; }
+.loading-kicker { margin: 0 0 10px; color: #f1c86d; font-size: 12px; font-weight: 800; letter-spacing: .2em; }
+.loading-overlay-content h1 { margin: 0; color: #fff7e1; font: 700 clamp(25px, 3.6vw, 39px)/1.2 'STKaiti','KaiTi',serif; letter-spacing: .04em; text-shadow: 0 3px 26px rgba(0,0,0,.45); }
+.loading-status { min-height: 22px; margin: 14px 0 17px; color: rgba(255,248,230,.72); font-size: 13px; }
+.loading-progress { width: min(300px, 72vw); height: 3px; overflow: hidden; background: rgba(255,248,230,.2); }
+.loading-progress span { display: block; width: 8%; height: 100%; background: linear-gradient(90deg, #d8a949, #f8e0a0); box-shadow: 0 0 14px rgba(240,193,91,.75); transition: width .18s ease; }
+.loading-skip { margin-top: 22px; padding: 7px 14px; border: 1px solid rgba(235,201,126,.36); background: rgba(9,29,33,.38); color: rgba(255,248,230,.78); font: 12px/1.2 inherit; cursor: pointer; opacity: .72; transition: opacity .2s ease, border-color .2s ease, color .2s ease; }
+.loading-skip:hover, .loading-skip:focus-visible { opacity: 1; border-color: #e9c56d; color: #fff6d9; }
+.loading-corner { position: absolute; z-index: 8; color: rgba(255,245,220,.52); font: 10px/1.2 var(--font-mono, monospace); letter-spacing: .12em; }
+.loading-corner-tl { top: 24px; left: 26px; } .loading-corner-br { right: 26px; bottom: 24px; }
+@keyframes loading-scene-drift { from { transform: scale(1.02) translate3d(0,0,0); } to { transform: scale(1.08) translate3d(-1%, -1%, 0); } }
+@keyframes loading-mist-drift { from { transform: translateX(-2%) scale(1.04); } to { transform: translateX(2%) scale(1.08); } }
+@keyframes loading-palace-breathe { 0%,100% { opacity: .28; } 50% { opacity: .46; } }
+@keyframes loading-particles-drift { from { transform: translate3d(-1%, 1%, 0) scale(1.02); } to { transform: translate3d(2%, -1%, 0) scale(1.08); } }
+@keyframes loading-beacons-pulse { 0%,100% { opacity: .12; } 50% { opacity: .28; } }
+@keyframes loading-hud-pan { from { transform: rotate(-2deg) scale(1.04); } to { transform: rotate(2deg) scale(1.09); } }
+@keyframes loading-aurora-a { from { transform: translate3d(-3%,0,0) scale(1); } to { transform: translate3d(4%,4%,0) scale(1.1); } }
+@keyframes loading-aurora-b { from { transform: translate3d(3%,3%,0) scale(1.04); } to { transform: translate3d(-4%,-2%,0) scale(1.1); } }
+@keyframes loading-path-pulse { 0%,100% { opacity: .2; transform: translateX(-50%) rotate(-4deg) scaleX(.78); } 50% { opacity: .85; transform: translateX(-50%) rotate(-4deg) scaleX(1.08); } }
+@keyframes loading-lantern-float { 0%,100% { transform: translateY(4px); opacity: .55; } 50% { transform: translateY(-8px); opacity: 1; } }
+@keyframes loading-emblem-breathe { 0%,100% { transform: scale(.96); } 50% { transform: scale(1.02); } }
+@keyframes loading-orbit-spin { to { transform: rotate(360deg); } }
+@media (max-width: 760px) {
+  .loading-overlay-backdrop { background-image: url('../images/loading/pack-bg-mobile.jpg'); }
+  .loading-overlay-texture { opacity: .14; }
+  .loading-pack-palace { opacity: .25; background-size: auto 68%; background-position: center bottom; }
+  .loading-pack-hud { opacity: .07; background-size: auto 64%; }
+  .loading-emblem-wrap { width: clamp(136px, 42vw, 190px); margin-bottom: 20px; }
+  .loading-overlay-content { padding: 20px 18px; }
+  .loading-overlay-content h1 { font-size: clamp(24px, 8vw, 32px); }
+  .loading-corner-tl { top: 18px; left: 18px; } .loading-corner-br { right: 18px; bottom: 18px; }
+}
+@media (prefers-reduced-motion: reduce) { .loading-overlay *, .loading-overlay::before, .loading-overlay::after { animation-duration: 1ms !important; transition-duration: 1ms !important; } }

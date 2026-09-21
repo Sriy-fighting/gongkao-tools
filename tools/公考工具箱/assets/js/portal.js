@@ -67,6 +67,40 @@
   var planLastSavedAt = 0;
   var countUpObserver;
 
+  function initLoadingOverlay() {
+    var overlay = document.getElementById('loading-overlay');
+    if (!overlay || overlay.dataset.loadingInitialized === 'true') return;
+    overlay.dataset.loadingInitialized = 'true';
+    var progress = document.getElementById('loading-progress-bar');
+    var progressText = document.getElementById('loading-progress-text');
+    var status = document.getElementById('loading-status');
+    var skip = document.getElementById('loading-skip');
+    var started = performance.now();
+    var duration = 1900;
+    var messages = ['整理今日行程', '校准知识地图', '准备出发'];
+    var finished = false;
+    function finish() {
+      if (finished) return;
+      finished = true;
+      overlay.classList.add('is-leaving');
+      overlay.setAttribute('aria-hidden', 'true');
+      setTimeout(function () { overlay.classList.add('is-hidden'); }, 520);
+    }
+    function tick(now) {
+      if (finished) return;
+      var ratio = Math.min(1, (now - started) / duration);
+      var value = Math.max(8, Math.round(ratio * 100));
+      if (progress) progress.style.width = value + '%';
+      if (progressText) progressText.textContent = String(value).padStart(2, '0') + '%';
+      if (status) status.innerHTML = messages[Math.min(messages.length - 1, Math.floor(ratio * messages.length))] + ' <span aria-hidden="true">·</span> ' + (ratio > .72 ? '即将抵达' : '准备出发');
+      if (ratio < 1) requestAnimationFrame(tick); else setTimeout(finish, 180);
+    }
+    if (skip) skip.addEventListener('click', finish);
+    requestAnimationFrame(tick);
+    window.addEventListener('load', function () { setTimeout(finish, 420); }, { once: true });
+    setTimeout(finish, 3300);
+  }
+
   function animateView(view) {
     var roots = [els.dashboard, els.planView, els.recitationView, els.reviewView, els.knowledgeView, els.toolContainer];
     roots.forEach(function (root) {
@@ -155,6 +189,7 @@
   }
 
   function init() {
+    initLoadingOverlay();
     document.title = '长安题途 · 公考备考助手';
     var brandText = document.querySelector('.sidebar-brand-text');
     var brandIcon = document.querySelector('.sidebar-brand-icon');
