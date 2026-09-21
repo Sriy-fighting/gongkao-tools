@@ -10,7 +10,7 @@
     wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html?v=20260831-ui-final1' },
     review:    { name: '复盘台', path: null },
     knowledge: { name: '思维导图', path: null },
-    knowledge50: { name: '常识50天', path: '../公考常识50天/index.html?v=20260918-knowledge50' }
+    knowledge50: { name: '常识50天', path: '../公考常识50天/index.html?v=20260922-readability' }
   };
 
   // Leave the initial view unset so the first explicit route also initializes

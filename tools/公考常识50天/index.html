@@ -24,6 +24,12 @@ html[data-theme="dark"] .step,html[data-theme="dark"] .cell,html[data-theme="dar
 html[data-theme="dark"] .btn,html[data-theme="dark"] .date-input{background:rgba(12,34,41,.72);border-color:var(--line);color:var(--ink)}
 html[data-theme="dark"] .btn:hover,html[data-theme="dark"] .cell:hover,html[data-theme="dark"] .chip:hover,html[data-theme="dark"] .day-head:hover{background:rgba(119,200,181,.14)}
 html[data-theme="dark"] .rv-tip,html[data-theme="dark"] .sweep-intro{background:rgba(119,200,181,.1);border-color:rgba(192,214,207,.28);color:var(--body)}
+html[data-theme="dark"] .law-block{background:rgba(12,34,41,.52);border-color:var(--line2)}
+html[data-theme="dark"] .law-map{background:rgba(7,24,30,.72);border-color:var(--line2)}
+html[data-theme="dark"] .law-review-card{background:rgba(12,34,41,.72);border-color:var(--line2)}
+html[data-theme="dark"] .today-task{background:rgba(12,34,41,.72);border-color:var(--line2)}
+html[data-theme="dark"] .day.focus .day-head{background:rgba(119,200,181,.14)}
+html[data-theme="dark"] .day.focus.done .day-head{background:rgba(119,200,181,.14)}
 html[data-theme="dark"] .prog .prog-bar{background:rgba(192,214,207,.2)}
 html[data-theme="dark"] body.masked .ans,html[data-theme="dark"] .ans.solo{background:rgba(192,214,207,.25)}
 </style>
@@ -85,9 +91,32 @@ h1,h2,h3{font-family:var(--serif); color:var(--ink); font-weight:700}
 .btn.ico{padding:7px 10px}
 .date-input{font-family:var(--sans); font-size:13px; padding:6px 8px; border:1px solid #c8b98f;
   border-radius:4px; background:var(--card); color:var(--ink)}
+.today-focus{padding:16px 20px; margin-bottom:22px; border-left:4px solid var(--seal)}
+.today-focus-top{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:13px}
+.today-focus-kicker{font-size:11px; color:var(--seal); letter-spacing:.18em; font-weight:700}
+.today-focus h2{font-size:22px; line-height:1.35; margin:2px 0 2px}
+.today-focus-date{font-size:12px; color:var(--muted); margin:0}
+.today-focus-status{font-size:12px; color:var(--muted); white-space:nowrap}
+.today-focus-status.done{color:var(--seal); font-weight:700}
+.today-focus-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px}
+.today-task{min-width:0; padding:11px 13px; border:1px solid var(--line2); background:rgba(253,250,241,.78)}
+.today-task-label{display:flex; justify-content:space-between; gap:8px; color:var(--muted); font-size:11px; margin-bottom:5px}
+.today-task-label b{color:var(--ink); font-size:13px}
+.today-task-value{color:var(--ink); font-family:var(--serif); font-size:14px; line-height:1.5; overflow-wrap:anywhere}
+.today-task-meta{font-size:11px; color:var(--muted); margin-top:4px; line-height:1.45}
+.guide{padding:0; overflow:hidden}
+.guide-summary{display:flex; align-items:center; gap:12px; padding:17px 28px; cursor:pointer; list-style:none; color:var(--ink); font-family:var(--serif); font-size:21px; font-weight:700}
+.guide-summary::-webkit-details-marker{display:none}
+.guide-summary::before{content:""; width:5px; height:20px; background:var(--seal); border-radius:1px}
+.guide-summary::after{content:"展开"; margin-left:auto; font-family:var(--sans); color:var(--muted); font-size:12px; font-weight:400}
+.guide[open] .guide-summary::after{content:"收起"}
+.guide-summary small{font-family:var(--sans); font-size:12.5px; color:var(--muted); font-weight:400}
+.guide-content{padding:0 28px 26px}
 
 /* ===== 区块通用 ===== */
 .section-frame{background:var(--card); border:1px solid var(--line); padding:26px 28px; margin-bottom:22px}
+.section-frame.today-focus{padding:16px 20px}
+.section-frame.guide{padding:0}
 .sec-title{font-size:21px; margin-bottom:18px; display:flex; align-items:baseline; gap:12px}
 .sec-title::before{content:""; width:5px; height:20px; background:var(--seal); align-self:center; border-radius:1px}
 .sec-title small{font-family:var(--sans); font-weight:400; font-size:12.5px; color:var(--muted)}
@@ -129,6 +158,9 @@ h1,h2,h3{font-family:var(--serif); color:var(--ink); font-weight:700}
 
 /* ===== 每日卡片 ===== */
 .day{background:var(--card); border:1px solid var(--line); margin-bottom:18px; scroll-margin-top:78px}
+.day.focus{border-color:var(--seal); box-shadow:0 3px 14px rgba(177,75,58,.12)}
+.day.focus .day-head{background:#f8eee5}
+.day.focus .focus-badge{display:inline-block}
 .day-head{display:flex; align-items:center; gap:16px; padding:16px 22px; border-bottom:1px solid var(--line2);
   cursor:pointer; user-select:none; background:#fcf8ee}
 .day-head:hover{background:#f8f1e0}
@@ -144,6 +176,7 @@ h1,h2,h3{font-family:var(--serif); color:var(--ink); font-weight:700}
 .day-head-main .meta{font-size:12px; color:var(--muted); display:flex; gap:12px; flex-wrap:wrap; margin-top:2px}
 .day-head-main .meta .ptag{margin-right:2px}
 .date-badge{font-family:var(--serif); font-size:13px; color:#9a8d74; white-space:nowrap}
+.focus-badge{display:none; color:var(--seal); font-size:11px; border:1px solid rgba(177,75,58,.4); border-radius:2px; padding:1px 5px}
 .chev{flex:none; color:#b3a583; transition:transform .2s; font-size:13px}
 .day.collapsed .chev{transform:rotate(-90deg)}
 .day.collapsed .day-body{display:none}
@@ -165,6 +198,19 @@ h1,h2,h3{font-family:var(--serif); color:var(--ink); font-weight:700}
 .p4{color:var(--c4); background:var(--c4-bg)}
 .sub-head{font-family:var(--serif); font-size:14px; color:var(--ink); margin:12px 0 5px; padding-left:9px;
   border-left:3px solid #c9b98f; font-weight:700}
+.law-block{margin:0 0 24px; padding:16px; border:1px solid var(--line2); background:rgba(247,243,232,.72)}
+.law-head{display:flex; align-items:center; gap:9px; flex-wrap:wrap; padding-bottom:9px; border-bottom:1px dashed var(--line);}
+.law-head h3{font-size:16.5px; font-weight:700}
+.law-head .sec-check{margin-left:auto}
+.law-tip{font-size:12.5px; color:var(--muted); margin:9px 0 12px; line-height:1.65}
+.law-map{position:relative; height:clamp(240px,55vh,520px); overflow:auto; padding:10px; text-align:center; background:#f3f0e7; border:1px solid var(--line2); display:flex; align-items:flex-start; justify-content:center}
+.law-map img{display:block; width:auto; height:100%; max-width:100%; object-fit:contain; margin:auto; cursor:zoom-in}
+.law-map img.zoomed{height:auto; max-width:none; min-width:100%; cursor:zoom-out}
+.law-review-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px}
+.law-review-card{border:1px solid var(--line2); background:var(--card); padding:6px; color:var(--body); text-decoration:none; font-size:11.5px; line-height:1.4}
+.law-review-card:hover{border-color:var(--seal); color:var(--ink)}
+.law-review-card img{display:block; width:100%; height:150px; object-fit:contain; background:#f3f0e7; margin-bottom:4px}
+.law-mark{display:inline-block; margin-left:5px; padding:1px 4px; border:1px solid rgba(177,75,58,.38); color:var(--seal); font-size:9px; line-height:1.25; border-radius:2px; vertical-align:1px}
 .items{list-style:none; counter-reset:it}
 .items li{position:relative; padding:4px 0 4px 34px; font-size:15px; line-height:1.95; counter-increment:it}
 .items li::before{content:counter(it); position:absolute; left:2px; top:6px; width:22px; text-align:center;
@@ -199,6 +245,7 @@ button,input,select{font-family:inherit}
   padding:11px 14px; margin-bottom:16px; line-height:1.75}
 .sweep-list{display:grid; grid-template-columns:repeat(2,1fr); gap:8px}
 .day.done .day-head{background:#f3ece0}
+.day.focus.done .day-head{background:#f8eee5}
 
 /* 自定义勾选 */
 .ck{position:relative; width:16px; height:16px; border:1.5px solid #b9a982; border-radius:2px; background:#fffdf7; flex:none; cursor:pointer}
@@ -220,6 +267,8 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
   .day-grid{grid-template-columns:1fr}
   .review-panel{border-left:0; padding-left:0; border-top:1px solid var(--line2); padding-top:16px}
   .sweep-list{grid-template-columns:1fr}
+  .law-review-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .today-focus-grid{grid-template-columns:1fr}
   .cal{grid-template-columns:repeat(5,1fr)}
   .hero h1{font-size:29px} .hero{padding:28px 18px 24px}
   .stat{min-width:96px; padding:0 14px}
@@ -233,7 +282,10 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
   .stat{min-width:30%; flex:1 1 30%; padding:0 6px; margin-bottom:10px}
   .stat b{font-size:24px}
   .section-frame{padding:18px 15px}
-  .day-head{padding:13px 14px; gap:10px}
+  .day-head{padding:13px 14px; gap:10px; align-items:flex-start}
+  .day-head-main{min-width:0}
+  .day-head-main .meta{gap:6px; line-height:1.45}
+  .day-check{font-size:11px; white-space:normal; text-align:center}
   .day-body{padding:15px 14px}
   .stamp{width:42px; height:42px}
   .day-head-main h2{font-size:16px}
@@ -241,6 +293,14 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
   .items li{font-size:14.5px; padding-left:29px}
   .items li::before{width:19px}
   .sec-head h3{font-size:15.5px}
+  .law-block{padding:12px}
+  .law-review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .section-frame.today-focus{padding:14px}
+  .today-focus-top{align-items:flex-start; flex-direction:column; gap:9px}
+  .today-focus h2{font-size:19px}
+  .guide-summary{padding:15px 18px; font-size:18px}
+  .guide-content{padding:0 15px 18px}
+  .law-review-card img{height:110px}
   .toolbar{margin:0 -12px 18px; padding:8px 12px}
 }
 @media print{
@@ -258,14 +318,15 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
   <header class="hero">
     <div class="kicker">行测常识判断 · 考点背诵</div>
     <h1><span class="seal">五十</span>公考常识背诵计划</h1>
-    <div class="sub">历 史 &nbsp;·&nbsp; 人 文 &nbsp;·&nbsp; 科 技 &nbsp;·&nbsp; 地 理 &nbsp;·&nbsp; 经 济</div>
-    <div class="tip">前 40 天分节学新，后 10 天模块总复习；复习按艾宾浩斯遗忘曲线自动排好，每天约 30 分钟</div>
+    <div class="sub">历 史 &nbsp;·&nbsp; 人 文 &nbsp;·&nbsp; 科 技 &nbsp;·&nbsp; 地 理 &nbsp;·&nbsp; 经 济 &nbsp;·&nbsp; 法 律</div>
+    <div class="tip">前 40 天分节学新，后 10 天模块总复习；每天同步完成一张法律思维导图，复习按艾宾浩斯遗忘曲线自动排好</div>
     <div class="stats">
       <div class="stat"><b>50<span style="font-size:15px"> 天</span></b><span>背诵周期</span></div>
       <div class="stat"><b>494</b><span>考点条目</span></div>
       <div class="stat"><b>81</b><span>知识小节</span></div>
+      <div class="stat"><b>43</b><span>法律图片</span></div>
       <div class="stat"><b>6</b><span>轮复习节点</span></div>
-      <div class="stat"><b>5</b><span>大模块</span></div>
+      <div class="stat"><b>6</b><span>大模块</span></div>
     </div>
   </header>
 
@@ -283,8 +344,28 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
     </div>
   </div>
 
-  <section class="section-frame">
-    <div class="sec-title">怎么用这份计划<small>目标是眼熟、会做题，不要求逐条默写</small></div>
+  <section class="section-frame today-focus" id="todayFocus">
+    <div class="today-focus-top">
+      <div>
+        <div class="today-focus-kicker">今日学习重点</div>
+        <h2 id="todayFocusTitle">第 1 天</h2>
+        <p class="today-focus-date" id="todayFocusDate">显示第一个未完成日 · 可在上方设置开始日期</p>
+      </div>
+      <div>
+        <div class="today-focus-status" id="todayFocusStatus">待完成</div>
+        <button class="btn primary" id="focusOpenBtn" type="button">打开今日卡片</button>
+      </div>
+    </div>
+    <div class="today-focus-grid">
+      <div class="today-task"><div class="today-task-label"><span>今日新学</span><b id="todayLearnCount">0 节</b></div><div class="today-task-value" id="todayLearnText">暂无</div><div class="today-task-meta" id="todayLearnMeta">完成当天安排的小节</div></div>
+      <div class="today-task"><div class="today-task-label"><span>到期复习</span><b id="todayReviewCount">0 节</b></div><div class="today-task-value" id="todayReviewText">暂无</div><div class="today-task-meta" id="todayReviewMeta">先复习，再学新</div></div>
+      <div class="today-task"><div class="today-task-label"><span>法律导图</span><b id="todayLawCount">1 张</b></div><div class="today-task-value" id="todayLawText">法律常识导图</div><div class="today-task-meta" id="todayLawMeta">完成后计入当天打卡</div></div>
+    </div>
+  </section>
+
+  <details class="guide section-frame">
+    <summary class="guide-summary">怎么用这份计划<small>目标是眼熟、会做题，不要求逐条默写</small></summary>
+    <div class="guide-content">
     <div class="steps">
       <div class="step"><span class="n">壹</span><h4>先复习，后学新</h4><p>每天先完成右侧「今日复习」里到期的小节，再学当天的新内容。复习节点已按遗忘曲线排好，照做即可。</p></div>
       <div class="step"><span class="n">贰</span><h4>新内容过三遍</h4><p>通读一遍 → 点「遮住答案自测」，看着题干回想关键词 → 睡前花五分钟再扫一遍当天内容。</p></div>
@@ -306,7 +387,8 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
         </table>
       </div>
     </div>
-  </section>
+    </div>
+  </details>
 
   <section class="section-frame">
     <div class="sec-title">50 天总览<small>点击任意格子跳到当天；红框为今天，打勾表示当天任务全部完成</small></div>
@@ -316,6 +398,7 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
       <span><i style="background:var(--c2)"></i>科技</span>
       <span><i style="background:var(--c3)"></i>地理</span>
       <span><i style="background:var(--c4)"></i>经济</span>
+      <span><i style="background:var(--seal)"></i>法律图片</span>
       <span class="lg-rev">虚线格为第 41–50 天模块总复习</span>
     </div>
     <div class="cal" id="calendar"></div>
@@ -324,7 +407,7 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
   <main id="days"></main>
 
   <footer>
-    本计划依据《公考常识背诵手册》全文 494 条考点编排 · 打卡记录仅保存在当前浏览器本地<br>
+    本计划依据《公考常识背诵手册》全文 494 条考点编排，并同步纳入 43 张法律常识导图 · 打卡记录仅保存在当前浏览器本地<br>
     遮住答案自测时，点一下空白处可临时查看该空答案
   </footer>
 </div>
@@ -336,6 +419,17 @@ const PSHORT=['历史','人文','科技','地理','经济'];
 const PCOLOR=['#b14b3a','#4d6178','#2f756b','#7a8a4d','#a87c2f'];
 const PCLS=['p0','p1','p2','p3','p4'];
 const SWEEP_SHORT={41:'历史（上）',42:'历史（下）',43:'人文（一）',44:'人文（二）',45:'人文（三）',46:'科技（上）',47:'科技（中）',48:'科技下·经济',49:'地理（上）',50:'地理下·收尾'};
+const LAW_IMAGE_COUNT=43;
+const LAW_IMAGE_BASE='../法律常识50天/images/day-';
+const LAW_REVIEW={
+  44:{title:'法律基础与宪法',start:1,end:7},
+  45:{title:'民法与刑法',start:8,end:14},
+  46:{title:'行政法与程序法',start:15,end:20},
+  47:{title:'经济法与社会法',start:21,end:27},
+  48:{title:'诉讼与救济',start:28,end:33},
+  49:{title:'高频易错回看',start:34,end:39},
+  50:{title:'全套导图收尾',start:40,end:43}
+};
 const PX='gk50:';
 const store={get(k,d){try{const v=localStorage.getItem(PX+k);return v===null?d:JSON.parse(v);}catch(e){return d;}},set(k,v){localStorage.setItem(PX+k,JSON.stringify(v));}};
 const checks=store.get('checks',{});
@@ -374,16 +468,40 @@ function chipHTML(gid,key,day){
 }
 function requiredKeys(d){
   const info=MODEL.schedule[d]; const keys=[];
+  keys.push(`law${d}`);
   (info.learn||[]).forEach(g=>keys.push('l'+g));
   (info.reviews||[]).forEach(r=>r.gids.forEach(g=>keys.push(`r${d}-${g}-${r.off}`)));
   if(info.sweep) info.sweep.gids.forEach(g=>keys.push(`s${d}-${g}`));
   return keys;
 }
 
+function lawImageSrc(d){
+  return `${LAW_IMAGE_BASE}${String(d).padStart(2,'0')}.jpg`;
+}
+function lawHTML(d){
+  let h='<section class="law-block">';
+  if(d<=LAW_IMAGE_COUNT){
+    h+=`<div class="law-head"><span class="ptag p0">法律</span><h3>法律常识导图 · 第 ${d} 张</h3>`;
+    h+=`<label class="sec-check"><span class="ck"><input type="checkbox" data-key="law${d}"></span>法律图已看</label></div>`;
+    h+='<p class="law-tip">先整体扫读，再回看陌生处；点击图片可放大。看完后勾选“法律图已看”，会计入当天完成。</p>';
+    h+=`<div class="law-map"><img src="${lawImageSrc(d)}" alt="第 ${d} 张法律常识思维导图" loading="lazy"></div>`;
+  }else{
+    const review=LAW_REVIEW[d];
+    h+=`<div class="law-head"><span class="ptag p0">法律复习</span><h3>${review.title}</h3>`;
+    h+=`<label class="sec-check"><span class="ck"><input type="checkbox" data-key="law${d}"></span>法律图已回看</label></div>`;
+    h+='<p class="law-tip">按模块快速回看下面的导图，卡壳处重新点开对应图片。点击缩略图可在新窗口查看原图。</p><div class="law-review-grid">';
+    for(let i=review.start;i<=review.end;i++){
+      h+=`<a class="law-review-card" href="${lawImageSrc(i)}" target="_blank" rel="noreferrer"><img src="${lawImageSrc(i)}" alt="法律常识第 ${i} 张导图" loading="lazy"><span>第 ${i} 张导图</span></a>`;
+    }
+    h+='</div>';
+  }
+  return h+'</section>';
+}
+
 /* ---- 每日卡片 ---- */
 function dayHTML(d){
   const info=MODEL.schedule[d]; const rev=!!info.sweep;
-  let h=`<article class="day ${rev?'rev':''}" id="day${d}" data-day="${d}">`;
+  let h=`<article class="day collapsed ${rev?'rev':''}" id="day${d}" data-day="${d}">`;
   h+='<div class="day-head">';
   h+=`<div class="stamp"><b>${d}</b><small>${rev?'复习':'新学'}</small></div>`;
   h+='<div class="day-head-main">';
@@ -397,12 +515,14 @@ function dayHTML(d){
   }
   const nn=(info.learn||[]).reduce((a,g)=>a+sec(g).count,0);
   const rn=(info.reviews||[]).reduce((a,r)=>a+r.gids.length,0);
-  let meta=`<span class="date-badge"></span>`;
+  let meta=`<span class="date-badge"></span><span class="focus-badge">今日</span>`;
   if(rev){ meta+=`<span>本轮扫 ${info.sweep.gids.length} 节</span>`+(rn?`<span>到期复习 ${rn} 节</span>`:''); }
   else{ meta+=`<span>新学 ${nn} 条 · ${info.learn.length} 节</span><span>复习 ${rn} 节</span>`; }
+  meta+='<span>法律图 1 张</span>';
   h+=`<div class="meta">${meta}</div></div>`;
   h+=`<label class="day-check" onclick="event.stopPropagation()"><span class="ck"><input type="checkbox" data-day="${d}"></span>今日打卡</label>`;
   h+='<span class="chev">▼</span></div><div class="day-body">';
+  h+=lawHTML(d);
   if(rev){
     const intro = d===50
       ? '最后一天：先把地理（下）遮住答案扫完，再把前九天卡壳、做过记号的考点全部回炉一遍。合上书能把五大模块的主线顺下来，这 50 天就算落地了。'
@@ -451,7 +571,7 @@ function cellHTML(d){
     const pi=sec(info.learn[0]).pi;
     label=`<span class="dot" style="background:${PCOLOR[pi]}"></span>${load} 条`;
   }
-  return `<button class="cell ${cls}" data-day="${d}" title="第${d}天"><span class="cn">${d}</span><span class="cl">${label}</span></button>`;
+  return `<button class="cell ${cls}" data-day="${d}" title="第${d}天"><span class="cn">${d}</span><span class="cl">${label}<span class="law-mark">法图</span></span></button>`;
 }
 
 /* ---- 渲染 ---- */
@@ -477,6 +597,60 @@ function refreshDays(){
   document.getElementById('progText').textContent=`已完成 ${done} / 50 天`;
   document.getElementById('progPct').textContent=Math.round(done/50*100)+'%';
   document.getElementById('progFill').style.width=(done/50*100)+'%';
+  if(window.__focusDay) renderTodayFocus(window.__focusDay);
+}
+function isDayComplete(d){
+  return requiredKeys(d).every(k=>!!checks[k]);
+}
+function firstIncompleteDay(){
+  for(let d=1;d<=50;d++) if(!isDayComplete(d)) return d;
+  return 50;
+}
+function summarizeNames(names, empty){
+  if(!names.length) return empty;
+  const shown=names.slice(0,3);
+  const extra=names.length-shown.length;
+  return shown.join('、')+(extra>0?` 等 ${extra} 节`:'');
+}
+function renderTodayFocus(d){
+  const info=MODEL.schedule[d]; if(!info) return;
+  const card=document.getElementById('day'+d);
+  const actual=window.__todayDay===d;
+  const completed=isDayComplete(d);
+  const learnNames=(info.learn||[]).map(g=>compact(sec(g).name));
+  const reviewGids=(info.reviews||[]).flatMap(r=>r.gids||[]);
+  const reviewNames=reviewGids.map(g=>compact(sec(g).name));
+  const learnCount=(info.learn||[]).reduce((a,g)=>a+sec(g).count,0);
+  const reviewCount=reviewGids.length;
+  const lawTitle=d<=LAW_IMAGE_COUNT?`第 ${d} 张法律常识导图`:(LAW_REVIEW[d]?.title||'法律常识复习');
+  document.getElementById('todayFocusTitle').textContent=`第 ${d} 天 · ${info.sweep?'总复习':'新学'}`;
+  document.getElementById('todayFocusDate').textContent=actual
+    ? `${card?.querySelector('.date-badge')?.textContent||''} · 今天的计划`
+    : (store.get('start','')?'当前日期不在计划周期内 · 显示第一个未完成日':'未设置开始日期 · 显示第一个未完成日');
+  const status=document.getElementById('todayFocusStatus');
+  status.textContent=completed?'本日已完成':'待完成'; status.classList.toggle('done',completed);
+  document.getElementById('todayLearnCount').textContent=info.sweep?'模块复习':`${learnNames.length} 节`;
+  document.getElementById('todayLearnText').textContent=info.sweep?(info.sweep.title||'总复习'):summarizeNames(learnNames,'暂无新学');
+  document.getElementById('todayLearnMeta').textContent=info.sweep?`本轮扫 ${info.sweep.gids.length} 节`:`共 ${learnCount} 条考点`;
+  document.getElementById('todayReviewCount').textContent=`${reviewCount} 节`;
+  document.getElementById('todayReviewText').textContent=summarizeNames(reviewNames,info.sweep?info.sweep.scope:'暂无到期复习');
+  document.getElementById('todayReviewMeta').textContent=reviewCount?`来自 ${new Set((info.reviews||[]).map(r=>r.rname)).size} 个复习节点`:'先完成当天新学';
+  document.getElementById('todayLawText').textContent=lawTitle;
+  document.getElementById('todayLawMeta').textContent=checks[`law${d}`]?'法律任务已完成':'完成后计入当天打卡';
+}
+function focusDay(d, shouldScroll=false){
+  d=Math.max(1,Math.min(50,+d||1));
+  document.querySelectorAll('.day').forEach(card=>{
+    const active=+card.dataset.day===d;
+    card.classList.toggle('collapsed',!active);
+    card.classList.toggle('focus',active);
+  });
+  window.__focusDay=d;
+  renderTodayFocus(d);
+  if(shouldScroll){
+    const card=document.getElementById('day'+d);
+    card?.scrollIntoView({behavior:'smooth',block:'start'});
+  }
 }
 document.addEventListener('change',e=>{
   const inp=e.target;
@@ -508,7 +682,11 @@ document.querySelectorAll('.day-head').forEach(h=>{
 });
 document.addEventListener('click',e=>{
   const a=e.target.closest('a.chip'); if(a){ const t=document.querySelector(a.getAttribute('href'));
-    if(t){ const card=t.closest('.day'); if(card) card.classList.remove('collapsed'); } }
+    if(t){ const card=t.closest('.day'); if(card) focusDay(card.dataset.day,false); } }
+});
+document.addEventListener('click',e=>{
+  const img=e.target.closest('.law-map > img');
+  if(img) img.classList.toggle('zoomed');
 });
 
 /* ---- 遮答案 ---- */
@@ -537,8 +715,9 @@ function renderDates(){
   document.querySelectorAll('.cell').forEach(c=>{
     const d=+c.dataset.day; c.classList.toggle('today',d===todayDay);
   });
-  document.getElementById('day'+todayDay)?.classList.remove('collapsed');
   window.__todayDay=todayDay;
+  const focus=todayDay||firstIncompleteDay();
+  focusDay(focus,false);
 }
 document.getElementById('startDate').addEventListener('change',e=>{
   if(e.target.value) store.set('start',e.target.value); else localStorage.removeItem(PX+'start');
@@ -546,17 +725,16 @@ document.getElementById('startDate').addEventListener('change',e=>{
 });
 const savedStart=store.get('start',''); if(savedStart) document.getElementById('startDate').value=savedStart;
 renderDates();
+document.getElementById('focusOpenBtn').addEventListener('click',()=>focusDay(window.__focusDay||firstIncompleteDay(),true));
 document.getElementById('todayBtn').addEventListener('click',()=>{
-  if(window.__todayDay){ const c=document.getElementById('day'+window.__todayDay);
-    c.classList.remove('collapsed'); c.scrollIntoView({behavior:'smooth'}); }
-  else document.getElementById('startDate').showPicker ? document.getElementById('startDate').showPicker() : document.getElementById('startDate').focus();
+  const target=window.__todayDay||window.__focusDay||firstIncompleteDay();
+  focusDay(target,true);
 });
 
 /* ---- 总览跳转 ---- */
 document.getElementById('calendar').addEventListener('click',e=>{
   const c=e.target.closest('.cell'); if(!c)return;
-  const card=document.getElementById('day'+c.dataset.day); card.classList.remove('collapsed');
-  card.scrollIntoView({behavior:'smooth'});
+  focusDay(c.dataset.day,true);
 });
 
 /* ---- 回到顶部 / 打印 / 重置 ---- */
@@ -608,8 +786,10 @@ syncChecks();
         tooltip:{formatter:p=>'第 '+p.value[0]+' 天复习'}}
     ]
   });
+  window.__curveChart=chart;
   window.addEventListener('resize',()=>chart.resize());
 })();
+document.querySelector('.guide')?.addEventListener('toggle',()=>window.__curveChart?.resize());
 </script>
 </body>
 </html>
