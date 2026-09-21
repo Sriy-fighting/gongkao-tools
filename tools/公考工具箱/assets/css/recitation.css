@@ -1228,3 +1228,30 @@ body[data-active-view="wusi"] #recitation-view .rec-mock-list { max-width: 980px
   body[data-active-view="wusi"] #recitation-view .rec-card { padding: 17px 15px; }
   body[data-active-view="wusi"] #recitation-view .rec-text { font-size: 17px; line-height: 2; }
 }
+
+/* Compact reading desk: more text, less surrounding chrome. */
+body[data-active-view="wusi"] #recitation-view .rec-shell {
+  width: min(1200px, calc(100% - 32px));
+  max-width: 1200px;
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+body[data-active-view="wusi"] #recitation-view .rec-head { margin-bottom: 16px; }
+body[data-active-view="wusi"] #recitation-view .rec-day-nav { margin-bottom: 14px; }
+body[data-active-view="wusi"] #recitation-view .rec-card { margin-top: 10px; padding: 18px 22px; }
+body[data-active-view="wusi"] #recitation-view .rec-text { font-size: 21px; line-height: 2; }
+body[data-active-view="wusi"] #recitation-view .rec-text p { margin-bottom: 13px; }
+body[data-active-view="wusi"] #recitation-view .rec-modebar button,
+body[data-active-view="wusi"] #recitation-view .rec-status-row button,
+body[data-active-view="wusi"] #recitation-view .rec-audio-btn { min-height: 36px; }
+body[data-active-view="wusi"] #recitation-view .rec-today-summary { margin-bottom: 12px; padding: 14px 17px; }
+body[data-active-view="wusi"] #recitation-view .rec-day-nav { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+body[data-active-view="wusi"] #recitation-view .rec-day-nav .rec-today-link { grid-column: span 5; }
+
+@media (max-width: 720px) {
+  body[data-active-view="wusi"] #recitation-view .rec-shell { width: auto; padding: 18px 14px 36px; }
+  body[data-active-view="wusi"] #recitation-view .rec-day-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body[data-active-view="wusi"] #recitation-view .rec-day-nav .rec-today-link { grid-column: span 2; }
+  body[data-active-view="wusi"] #recitation-view .rec-card { padding: 15px 14px; }
+  body[data-active-view="wusi"] #recitation-view .rec-text { font-size: 18px; line-height: 1.95; }
+}

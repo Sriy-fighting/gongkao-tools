@@ -2,6 +2,7 @@
   'use strict';
 
   var KEY = 'gk-recitation-v1';
+  var PLAN_DAYS = 5;
   var THEMES = [
     { id: 'ideal', label: '理想' },
     { id: 'responsibility', label: '担当' },
@@ -110,8 +111,8 @@
     var base = defaultState();
     var s = Object.assign(base, raw || {});
     if (!/^\d{4}-\d{2}-\d{2}$/.test(s.startDate || '')) s.startDate = null;
-    s.day = Math.min(Math.max(parseInt(s.day, 10) || 0, 0), 6);
-    s.done = Array.isArray(s.done) ? s.done.filter(function (i) { return i >= 0 && i <= 6; }) : [];
+    s.day = Math.min(Math.max(parseInt(s.day, 10) || 0, 0), PLAN_DAYS - 1);
+    s.done = Array.isArray(s.done) ? s.done.filter(function (i) { return i >= 0 && i < PLAN_DAYS; }) : [];
     s.segments = s.segments && typeof s.segments === 'object' ? s.segments : {};
     s.quotes = s.quotes && typeof s.quotes === 'object' ? s.quotes : {};
     s.mock = s.mock && typeof s.mock === 'object' ? s.mock : {};
@@ -160,7 +161,7 @@
   function todayIndex() {
     var today = getTodayStr();
     if (!state.startDate || today < state.startDate) return 0;
-    for (var i = 6; i >= 0; i--) {
+    for (var i = PLAN_DAYS - 1; i >= 0; i--) {
       if (dayDate(i) <= today) return i;
     }
     return 0;
@@ -225,7 +226,7 @@
       state.day = 0;
     }
     var tIdx = todayIndex();
-    if (state.day < tIdx) state.day = Math.min(6, tIdx);
+    if (state.day < tIdx) state.day = Math.min(PLAN_DAYS - 1, tIdx);
     save();
     var root = document.getElementById('recitation-view');
     if (!root) return;
@@ -238,7 +239,7 @@
     var root = document.getElementById('recitation-view');
     if (!root) return;
     var doneCount = state.done.length;
-    var pct = Math.round(doneCount / 7 * 100);
+    var pct = Math.round(doneCount / PLAN_DAYS * 100);
     root.innerHTML =
       '<div class="rec-shell">' +
         '<header class="rec-head">' +
@@ -248,7 +249,7 @@
           '</div>' +
           '<div class="rec-head-right">' +
             '<div class="rec-progress">' +
-              '<span>已完成 <b>' + doneCount + '</b> / 7 天</span>' +
+              '<span>已完成 <b>' + doneCount + '</b> / ' + PLAN_DAYS + ' 天</span>' +
               '<div class="rec-bar" aria-hidden="true"><i style="width:' + pct + '%"></i></div>' +
             '</div>' +
             '<div class="rec-tabs">' +
@@ -278,15 +279,13 @@
     var focus = state.day;
     var date = dayDate(focus);
     var done = state.done.indexOf(focus) !== -1;
-    var label = focus < 5 ? SEGMENTS[focus].short : (focus === 5 ? '五段串联' : '场景模考');
-    var title = focus < 5 ? SEGMENTS[focus].title : (focus === 5 ? '五段串联复述' : '金句库场景模考');
-    var detail = focus < 5
-      ? '<span>新学 1 段</span><span>理解与挖空自测</span><span>跟读训练</span>'
-      : (focus === 5 ? '<span>复习 5 段</span><span>逐段展开核对</span><span>标记薄弱段落</span>' : '<span>场景题 10 道</span><span>金句回忆</span><span>自评掌握度</span>');
+    var label = SEGMENTS[focus].short;
+    var title = SEGMENTS[focus].title;
+    var detail = '<span>新学 1 段</span><span>理解与挖空自测</span><span>跟读训练</span>';
     return '<section class="rec-today-summary" aria-label="今日训练摘要">' +
       '<div class="rec-today-summary-main"><div class="rec-today-label"><span>今日训练</span><b>' + fmtDate(date) + '</b></div>' +
       '<p class="rec-today-title">第 ' + (focus + 1) + ' 天 · ' + esc(label) + '</p>' +
-      '<p class="rec-today-goal">' + (focus < 5 ? esc(SEGMENTS[focus].goal) : (focus === 5 ? '按“理想→担当→奋斗→本领→品德”主线串联复述。' : '通过申论与面试场景，检验金句调用和主题判断。')) + '</p></div>' +
+      '<p class="rec-today-goal">' + esc(SEGMENTS[focus].goal) + '</p></div>' +
       '<div class="rec-today-meta"><div class="rec-today-chips">' + detail + '</div><span class="rec-today-status ' + (done ? 'is-done' : '') + '">' + (done ? '已完成' : '进行中') + '</span>' +
       '<button type="button" class="rec-btn rec-btn-primary rec-today-open" data-day="' + focus + '">打开今日训练</button></div>' +
       '<span class="rec-today-current" aria-hidden="true">' + esc(title) + '</span>' +
@@ -297,11 +296,11 @@
     var today = getTodayStr();
     var tIdx = todayIndex();
     var buttons = '';
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < PLAN_DAYS; i++) {
       var date = dayDate(i);
       var locked = date > today;
       var done = state.done.indexOf(i) !== -1;
-      var label = i < 5 ? SEGMENTS[i].short : (i === 5 ? '五段串联' : '场景模考');
+      var label = SEGMENTS[i].short;
       buttons +=
         '<button type="button" data-day="' + i + '" class="' + (i === state.day ? 'active' : '') + ' ' +
         (done ? 'done' : '') + ' ' + (locked ? 'locked' : '') + '" ' + (locked ? 'disabled' : '') + '>' +
@@ -310,7 +309,7 @@
           '<small>' + fmtDate(date) + (date === today ? ' · 今日' : '') + '</small>' +
         '</button>';
     }
-    return '<nav class="rec-day-nav" aria-label="7天训练计划">' + buttons +
+    return '<nav class="rec-day-nav" aria-label="5天训练计划">' + buttons +
       (state.day !== tIdx ? '<button type="button" data-goto-today class="rec-today-link">回到今日</button>' : '') +
       '</nav>';
   }
@@ -318,9 +317,7 @@
   function renderDayContent() {
     var day = state.day;
     var date = dayDate(day);
-    if (day < 5) return renderStudyDay(day, date);
-    if (day === 5) return renderChainDay(date);
-    return renderMockDay(date);
+    return renderStudyDay(Math.min(Math.max(day, 0), PLAN_DAYS - 1), date);
   }
 
   function renderStudyDay(day, date) {
@@ -399,41 +396,6 @@
       '<button type="button" data-seg-status="' + seg.id + '|mastered" class="' + (status === 'mastered' ? 'active mastered' : '') + '">已掌握</button>' +
       '<button type="button" data-seg-status="' + seg.id + '|weak" class="' + (status === 'weak' ? 'active weak' : '') + '">需复习</button>' +
       '</div>';
-  }
-
-  function renderChainDay(date) {
-    var cards = SEGMENTS.map(function (seg, i) {
-      var status = state.segments[seg.id] || '';
-      return '<article class="rec-chain-card">' +
-        '<div class="rec-chain-top"><span>' + (i + 1) + '</span><h4>' + esc(seg.title) + '</h4>' + statusButtons(seg) + '</div>' +
-        '<p class="rec-chain-hint"><strong>首句：</strong>' + esc(splitSentences(seg.text[0])[0] || seg.text[0]) + '</p>' +
-        '<p class="rec-chain-keywords"><strong>关键词：</strong>' + seg.anchors.slice(0, 6).map(esc).join(' / ') + '</p>' +
-        '<button type="button" class="rec-link" data-recall-toggle>展开核对</button>' +
-        '<div class="rec-recall-full">' + seg.text.map(esc).join('') + '</div>' +
-      '</article>';
-    }).join('');
-    return (
-      '<p class="rec-eyebrow">第 6 天 · ' + fmtDate(date) + '</p>' +
-      '<h3 class="rec-title">五段串联复述</h3>' +
-      '<p class="rec-goal">按“理想→担当→奋斗→本领→品德”主线连续复述，逐段展开核对，卡住的段落标为“需复习”。</p>' +
-      '<section class="rec-chain">' + cards + '</section>' +
-      doneButton(5)
-    );
-  }
-
-  function renderMockDay(date) {
-    var allRated = MOCK.every(function (q) {
-      return state.mock.current[q.id] && state.mock.current[q.id].rated;
-    });
-    var result = allRated ? computeResult() : null;
-    return (
-      '<p class="rec-eyebrow">第 7 天 · ' + fmtDate(date) + '</p>' +
-      '<h3 class="rec-title">金句库场景模考</h3>' +
-      '<p class="rec-goal">每道题先判断最适用主题，再回忆适用金句；提交后自评“完整想起 / 部分想起 / 未想起”。</p>' +
-      (result ? renderMockResult(result) : '') +
-      '<section class="rec-mock-list">' + MOCK.map(renderMockQuestion).join('') + '</section>' +
-      doneButton(6)
-    );
   }
 
   function renderMockQuestion(q) {
@@ -798,7 +760,7 @@
         try { window.PortalPlan.markRecitationDayDone(dayNumber); } catch (err) {}
       }
     }
-    state.day = Math.min(6, day + 1);
+    state.day = Math.min(PLAN_DAYS - 1, day + 1);
     save();
     render();
     toast('第 ' + dayNumber + ' 天训练完成');

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="纪念五四运动一百周年大会讲话节选：十天理解与背诵训练">
+  <meta name="description" content="纪念五四运动一百周年大会讲话节选：五天理解与背诵训练">
   <title>五四讲话背诵 · 长安题途</title>
   <link rel="stylesheet" href="../shared-theme.css">
   <style>
@@ -21,7 +21,7 @@
     .timer-label { display:block; font-size:12px; color:#d7e0d8; }
     #timer { font-size:25px; font-variant-numeric:tabular-nums; }
     .timer button { border:1px solid rgba(248,233,194,.4); background:transparent; color:#fff5db; padding:4px 10px; margin-left:8px; border-radius:4px; font-size:12px; }
-    .shell { max-width:1480px; margin:0 auto; padding:30px 28px 72px; display:grid; grid-template-columns:250px minmax(0,1fr); gap:36px; }
+    .shell { max-width:1480px; margin:0 auto; padding:22px 24px 48px; display:grid; grid-template-columns:250px minmax(0,1fr); gap:28px; }
     .side { position:sticky; top:16px; align-self:start; }
     .progress-label { display:flex; justify-content:space-between; font-family:system-ui,sans-serif; font-size:13px; color:var(--muted); margin-bottom:7px; }
     .progress { height:8px; background:color-mix(in srgb,var(--line) 72%,transparent); border-radius:10px; overflow:hidden; margin-bottom:18px; }
@@ -39,7 +39,7 @@
     .day-picker summary { color:var(--muted); padding:0 2px; }
     .day-list { display:grid; gap:4px; margin-top:7px; }
     .quiet-action { margin:18px 0 0; border:0; border-bottom:1px solid currentColor; padding:0; background:transparent; color:var(--muted); font-size:13px; }
-    main { min-width:0; background:var(--surface); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:32px 38px 42px; }
+    main { min-width:0; background:var(--surface); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:24px 30px 34px; }
     .eyebrow { color:var(--red); font-family:system-ui,sans-serif; font-size:13px; font-weight:700; letter-spacing:.08em; margin:0 0 2px; }
     h2 { margin:0; line-height:1.35; font-size:clamp(29px,4vw,44px); font-weight:600; }
     .day-goal { color:var(--muted); margin:8px 0 18px; }
@@ -73,7 +73,7 @@
     .meaning div { padding:13px 20px; font-size:15px; border-right:1px solid var(--line); }
     .meaning div:last-child { border:0; }
     .meaning strong { color:var(--teal); display:block; font-family:system-ui,sans-serif; font-size:11px; letter-spacing:.06em; }
-    .text { padding:20px 22px 10px; font-size:21px; line-height:2.12; }
+    .text { padding:18px 20px 8px; font-size:22px; line-height:2; }
     .text p { margin:0 0 13px; text-indent:2em; }
     .text.skeleton p { text-indent:0; }
     .text.skeleton .lead { color:var(--red); font-weight:600; }
@@ -108,7 +108,7 @@
     .plain-text { max-width:850px; }
     .plain-text article { padding:0 0 22px; margin:0 0 22px; border-bottom:1px solid var(--line); }
     .plain-text h3 { margin:0 0 8px; color:var(--red); }
-    .plain-text p { margin:0 0 16px; font-size:21px; line-height:2.12; text-indent:2em; }
+    .plain-text p { margin:0 0 14px; font-size:22px; line-height:2; text-indent:2em; }
     .reading-column { width:min(100%, 980px); margin:0 auto; }
     .today-summary { display:grid; grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(130px,1fr)); gap:10px; align-items:stretch; margin:0 0 24px; padding:14px; border:1px solid color-mix(in srgb,var(--teal) 36%,var(--line)); border-left:4px solid var(--teal); border-radius:8px; background:linear-gradient(135deg,var(--teal-soft),color-mix(in srgb,var(--surface) 88%,var(--gold-soft))); }
     .today-summary-main { min-width:0; }
@@ -180,14 +180,14 @@
 <body>
   <div class="app">
     <header class="topbar">
-      <div class="brand"><small>纪念五四运动100周年大会上的讲话（节选）</small><h1>十天理解与背诵</h1></div>
+      <div class="brand"><small>纪念五四运动100周年大会上的讲话（节选）</small><h1>五天理解与背诵</h1></div>
       <div class="timer"><span class="timer-label">今日训练计时</span><span id="timer">60:00</span><button id="timerToggle" type="button">开始</button></div>
     </header>
     <div class="shell">
       <aside class="side">
-        <div class="progress-label"><span>学习进度</span><span id="progressText">0 / 10 天</span></div>
+        <div class="progress-label"><span>学习进度</span><span id="progressText">0 / 5 天</span></div>
         <div class="progress" aria-label="学习进度"><span id="progressBar"></span></div>
-        <nav id="dayNav" class="day-nav" aria-label="十天学习计划"></nav>
+        <nav id="dayNav" class="day-nav" aria-label="五天学习计划"></nav>
         <button id="resetProgress" class="quiet-action" type="button">清除本机学习记录</button>
       </aside>
       <main id="content"></main>
@@ -222,6 +222,7 @@
       { title:'品德与价值观', fresh:['morality','values'], goal:'以“三结合、三面对、三德”收束全文。' },
       { title:'全文复述', fresh:[], goal:'只看主题与首句提示完成全文，再逐段核对。' }
     ];
+    days.length = 5;
     const STORAGE = 'wusi-speech-memorizer-v1';
     function getTodayStr() {
       const now = new Date();
@@ -230,8 +231,8 @@
     const DEFAULT_STATE = { day:0, done:[], status:{}, timer:3600, startDate:null, updatedAt:'' };
     function normalizeState(raw) {
       const next = Object.assign({}, DEFAULT_STATE, raw || {});
-      next.day = Math.min(Math.max(Number(next.day) || 0, 0), 9);
-      next.done = [...new Set(Array.isArray(next.done) ? next.done.map(Number).filter(index => index >= 0 && index <= 9) : [])];
+      next.day = Math.min(Math.max(Number(next.day) || 0, 0), 4);
+      next.done = [...new Set(Array.isArray(next.done) ? next.done.map(Number).filter(index => index >= 0 && index <= 4) : [])];
       next.status = next.status && typeof next.status === 'object' && !Array.isArray(next.status)
         ? Object.assign({}, next.status)
         : {};
@@ -299,8 +300,8 @@
     }
     function progress() {
       const count = state.done.length;
-      document.getElementById('progressText').textContent = `${count} / 10 天`;
-      document.getElementById('progressBar').style.width = `${count * 10}%`;
+      document.getElementById('progressText').textContent = `${count} / 5 天`;
+      document.getElementById('progressBar').style.width = `${count * 20}%`;
     }
     function renderNav() {
       const nav = document.getElementById('dayNav');
@@ -353,10 +354,10 @@
     function renderDay() {
       const day = days[activeDay];
       const fresh = day.fresh.map(byId); const review = getReview(activeDay).map(byId);
-      const isFinal = activeDay === 9;
+      const isFinal = false;
       const map = segments.map((s,index) => `<button type="button" data-jump="${s.id}">${index + 1}. ${esc(s.title.replace(/^[一二三四五六七八九十]+、/,''))}</button>`).join('');
       const todayMap = fresh.map((s,index) => `<button type="button" data-jump="${s.id}">${index + 1}. ${esc(s.title.replace(/^[一二三四五六七八九十]+、/,''))}</button>`).join('');
-      const dayText = isFinal ? '第 10 天 · 全文遮挡复述' : `第 ${activeDay + 1} 天 · 新学 ${fresh.length} 段`;
+      const dayText = `第 ${activeDay + 1} 天 · 新学 ${fresh.length} 段`;
       const resume = resumeDay();
       document.getElementById('content').innerHTML = `<div class="reading-column"><p class="eyebrow">${dayText}</p><h2>${esc(day.title)}</h2><p class="day-goal">${esc(day.goal)}</p>${todaySummary(day, fresh, review, isFinal)}<div class="resume-strip"><span>下一项未完成训练：第 ${resume + 1} 天 · ${esc(days[resume].title)}</span>${activeDay !== resume ? '<button type="button" id="resumeDay" class="quiet-action">从今天继续</button>' : ''}</div>
         <section class="session" aria-label="建议一小时安排"><div><b>08 分钟</b>旧段回忆</div><div><b>12 分钟</b>理解结构</div><div><b>25 分钟</b>分句背诵</div><div><b>10 分钟</b>挖空核对</div><div><b>05 分钟</b>遮挡复述</div></section>
