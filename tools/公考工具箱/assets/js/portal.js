@@ -76,7 +76,7 @@
     var status = document.getElementById('loading-status');
     var skip = document.getElementById('loading-skip');
     var started = performance.now();
-    var duration = 1900;
+    var duration = 6800;
     var messages = ['整理今日行程', '校准知识地图', '准备出发'];
     var finished = false;
     function finish() {
@@ -86,6 +86,16 @@
       overlay.setAttribute('aria-hidden', 'true');
       setTimeout(function () { overlay.classList.add('is-hidden'); }, 520);
     }
+    function ready() {
+      if (finished) return;
+      if (progress) progress.style.width = '100%';
+      if (progressText) progressText.textContent = '100%';
+      if (status) status.innerHTML = '今日行程已整理 <span aria-hidden="true">·</span> 可以出发';
+      if (skip) {
+        skip.classList.add('is-ready');
+        skip.setAttribute('aria-label', '进入长安题途网站');
+      }
+    }
     function tick(now) {
       if (finished) return;
       var ratio = Math.min(1, (now - started) / duration);
@@ -93,12 +103,10 @@
       if (progress) progress.style.width = value + '%';
       if (progressText) progressText.textContent = String(value).padStart(2, '0') + '%';
       if (status) status.innerHTML = messages[Math.min(messages.length - 1, Math.floor(ratio * messages.length))] + ' <span aria-hidden="true">·</span> ' + (ratio > .72 ? '即将抵达' : '准备出发');
-      if (ratio < 1) requestAnimationFrame(tick); else setTimeout(finish, 180);
+      if (ratio < 1) requestAnimationFrame(tick); else ready();
     }
     if (skip) skip.addEventListener('click', finish);
     requestAnimationFrame(tick);
-    window.addEventListener('load', function () { setTimeout(finish, 420); }, { once: true });
-    setTimeout(finish, 3300);
   }
 
   function animateView(view) {
