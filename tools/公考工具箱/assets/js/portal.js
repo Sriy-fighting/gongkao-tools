@@ -7,7 +7,7 @@
     essay:     { name: '申论方格纸', path: '../申论方格纸/index.html?v=20260831-ui-final1' },
     speed:     { name: '资料速算',   path: '../资料训练/index.html?v=20260831-ui-final1' },
     curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html?v=20260831-ui-final1' },
-    wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html?v=20260831-ui-final1' },
+    wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html?v=20260922-wusi-readable' },
     review:    { name: '复盘台', path: null },
     knowledge: { name: '思维导图', path: null },
     knowledge50: { name: '常识50天', path: '../公考常识50天/index.html?v=20260922-readability' }

@@ -271,7 +271,26 @@
     var notice = missing.length
       ? '<div class="rec-notice">前面还有未完成的训练日（第 ' + missing.join('、') + ' 天），可在下方计划中补做。</div>'
       : '';
-    return notice + renderDayNav() + renderDayContent();
+    return renderTodaySummary(tIdx) + notice + renderDayNav() + renderDayContent();
+  }
+
+  function renderTodaySummary(tIdx) {
+    var focus = state.day;
+    var date = dayDate(focus);
+    var done = state.done.indexOf(focus) !== -1;
+    var label = focus < 5 ? SEGMENTS[focus].short : (focus === 5 ? '五段串联' : '场景模考');
+    var title = focus < 5 ? SEGMENTS[focus].title : (focus === 5 ? '五段串联复述' : '金句库场景模考');
+    var detail = focus < 5
+      ? '<span>新学 1 段</span><span>理解与挖空自测</span><span>跟读训练</span>'
+      : (focus === 5 ? '<span>复习 5 段</span><span>逐段展开核对</span><span>标记薄弱段落</span>' : '<span>场景题 10 道</span><span>金句回忆</span><span>自评掌握度</span>');
+    return '<section class="rec-today-summary" aria-label="今日训练摘要">' +
+      '<div class="rec-today-summary-main"><div class="rec-today-label"><span>今日训练</span><b>' + fmtDate(date) + '</b></div>' +
+      '<p class="rec-today-title">第 ' + (focus + 1) + ' 天 · ' + esc(label) + '</p>' +
+      '<p class="rec-today-goal">' + (focus < 5 ? esc(SEGMENTS[focus].goal) : (focus === 5 ? '按“理想→担当→奋斗→本领→品德”主线串联复述。' : '通过申论与面试场景，检验金句调用和主题判断。')) + '</p></div>' +
+      '<div class="rec-today-meta"><div class="rec-today-chips">' + detail + '</div><span class="rec-today-status ' + (done ? 'is-done' : '') + '">' + (done ? '已完成' : '进行中') + '</span>' +
+      '<button type="button" class="rec-btn rec-btn-primary rec-today-open" data-day="' + focus + '">打开今日训练</button></div>' +
+      '<span class="rec-today-current" aria-hidden="true">' + esc(title) + '</span>' +
+      '</section>';
   }
 
   function renderDayNav() {
@@ -322,9 +341,14 @@
         '<div class="rec-audio" data-rec-audio><button type="button" class="rec-audio-btn" data-audio-toggle aria-pressed="false"><span aria-hidden="true">▶</span> 跟读</button><div class="rec-wave" aria-hidden="true">' + Array.from({length: 18}, function (_, i) { return '<i style="--wave-delay:' + (i * 45) + 'ms"></i>'; }).join('') + '</div><span class="rec-audio-label">逐句朗读</span></div>' +
         '<div class="rec-text ' + mode + '">' + renderText(seg) + '</div>' +
       '</section>' +
+      '<details class="rec-card rec-support rec-understanding"><summary><span>理解与记忆</span><small>释义、作用、关键词、记忆提示</small></summary>' +
+        '<div class="rec-meaning"><div><strong>核心释义</strong><p>' + esc(seg.meaning) + '</p></div><div><strong>段落作用</strong><p>' + esc(seg.role) + '</p></div></div>' +
+        '<div class="rec-anchors">' + seg.anchors.map(function (a) { return '<span>' + esc(a) + '</span>'; }).join('') + '</div>' +
+        '<details class="rec-tip"><summary>记忆提示</summary><p>' + esc(seg.tip) + '</p></details>' +
+      '</details>' +
       '<section class="rec-card">' +
         '<div class="rec-card-head"><h4>挖空自测</h4><button type="button" class="rec-link" data-reveal-cloze>' + (clozeOpen ? '收起原句' : '显示原句') + '</button></div>' +
-        '<div class="rec-cloze-list' + (clozeOpen ? ' open' : '') + '">' + renderCloze(seg) + '</div>' +
+        '<div class="rec-cloze-panel"><p class="rec-support-note">先独立回忆，再显示原句核对。</p><div class="rec-cloze-list' + (clozeOpen ? ' open' : '') + '">' + renderCloze(seg) + '</div></div>' +
       '</section>' +
       '<section class="rec-card rec-status-card"><div class="rec-card-head"><h4>背诵结果</h4></div>' + statusButtons(seg) + '</section>' +
       doneButton(day)

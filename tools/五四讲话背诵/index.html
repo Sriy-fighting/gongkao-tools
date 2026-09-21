@@ -109,11 +109,71 @@
     .plain-text article { padding:0 0 22px; margin:0 0 22px; border-bottom:1px solid var(--line); }
     .plain-text h3 { margin:0 0 8px; color:var(--red); }
     .plain-text p { margin:0 0 16px; font-size:21px; line-height:2.12; text-indent:2em; }
-    @media (max-width:780px) { .topbar { padding:17px 18px; } .timer { min-width:auto; } .shell { display:block; padding:18px 15px 38px; } .side { position:static; margin-bottom:24px; } .day-nav { grid-template-columns:1fr 1fr; gap:5px; } .day-nav .day-picker { grid-column:span 2; } .day-nav button { padding:8px 7px; justify-content:flex-start; font-size:12px; } .day-nav button em { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } .day-nav button::before { width:auto!important; flex:0 0 11px!important; } .day-list { grid-template-columns:repeat(2,minmax(0,1fr)); } .session { grid-template-columns:repeat(2,1fr); } .session div:nth-child(2) { border-right:0; } .session div:last-child { grid-column:span 2; border-top:1px solid var(--line); } .audio-box { grid-template-columns:1fr; gap:7px; } .audio-box audio { width:100%; } .meaning { grid-template-columns:1fr; } .meaning div { border-right:0; border-bottom:1px solid var(--line); } .meaning div:last-child { border:0; } .segment-top { display:block; } .status { justify-content:flex-start; margin-top:10px; } .text { font-size:17px; padding:14px 15px 6px; } .anchors, details { margin-left:15px; margin-right:15px; } .anchors { padding-left:0; padding-right:0; } .plain-text p { font-size:17px; } .resume-strip { align-items:flex-start; flex-direction:column; } .resume-strip .quiet-action { width:100%; } }
+    .reading-column { width:min(100%, 980px); margin:0 auto; }
+    .today-summary { display:grid; grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(130px,1fr)); gap:10px; align-items:stretch; margin:0 0 24px; padding:14px; border:1px solid color-mix(in srgb,var(--teal) 36%,var(--line)); border-left:4px solid var(--teal); border-radius:8px; background:linear-gradient(135deg,var(--teal-soft),color-mix(in srgb,var(--surface) 88%,var(--gold-soft))); }
+    .today-summary-main { min-width:0; }
+    .today-summary-kicker { margin:0 0 2px; color:var(--teal); font:700 11px/1.4 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+    .today-summary h3 { margin:0; font-size:20px; line-height:1.35; }
+    .today-summary-main p { margin:4px 0 0; color:var(--muted); font-size:13px; line-height:1.55; }
+    .today-summary-item { display:flex; min-width:0; flex-direction:column; justify-content:center; padding:8px 10px; border-left:1px solid color-mix(in srgb,var(--teal) 20%,var(--line)); }
+    .today-summary-item strong { color:var(--ink); font:700 18px/1.25 system-ui,sans-serif; }
+    .today-summary-item span { color:var(--muted); font:12px/1.4 system-ui,sans-serif; }
+    .today-summary-status { color:var(--teal)!important; }
+    .today-summary-links { display:flex; flex-wrap:wrap; gap:6px; grid-column:1/-1; padding-top:8px; border-top:1px solid color-mix(in srgb,var(--teal) 20%,var(--line)); }
+    .today-summary-links button { border:1px solid color-mix(in srgb,var(--teal) 35%,var(--line)); border-radius:999px; background:var(--surface); color:var(--teal); padding:5px 9px; font:12px/1.35 system-ui,sans-serif; }
+    .today-summary-links button:hover { background:var(--teal); color:#fff; }
+    .segment { max-width:920px; margin-left:auto; margin-right:auto; }
+    .segment-insights { margin:0; padding:0; border-top:1px solid var(--line); background:color-mix(in srgb,var(--surface) 78%,var(--paper)); }
+    .segment-insights summary { padding:10px 18px; font-weight:600; }
+    .segment-insights[open] summary { border-bottom:1px solid var(--line); }
+    .segment-insights .meaning { border-bottom:1px solid var(--line); }
+    .segment-insights .anchors { padding-top:12px; }
+    .segment-insights .tip { padding:0 18px 14px; margin:0; }
+    .cloze-panel { max-width:920px; margin:0 auto 22px; padding:0; border:1px solid var(--line); border-radius:7px; background:color-mix(in srgb,var(--surface) 92%,var(--paper)); overflow:hidden; }
+    .cloze-panel summary { padding:12px 15px; font-weight:600; }
+    .cloze-panel[open] summary { border-bottom:1px solid var(--line); background:var(--teal-soft); }
+    .cloze-panel .cloze-list { padding:14px 15px 0; }
+    .cloze-panel .cloze-actions { padding:0 15px 15px; margin-bottom:0; }
+    .plain-text { width:min(100%, 850px); margin:0 auto; }
     @media (max-width:780px) {
+      .topbar { padding:17px 18px; align-items:flex-start; }
+      .brand { min-width:0; }
+      .brand small { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+      .timer { min-width:auto; flex:0 0 auto; }
+      .shell { display:block; padding:18px 15px 38px; }
+      .side { position:static; margin-bottom:24px; }
       main { padding:22px 18px 30px; }
-      .text { font-size:19px; line-height:2; padding:16px 17px 8px; }
-      .plain-text p { font-size:19px; line-height:2; }
+      .day-nav { grid-template-columns:1fr 1fr; gap:5px; }
+      .day-nav .day-picker { grid-column:span 2; }
+      .day-nav button { padding:8px 7px; justify-content:flex-start; font-size:12px; }
+      .day-nav button em { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+      .day-nav button::before { width:auto!important; flex:0 0 11px!important; }
+      .day-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .today-summary { grid-template-columns:1fr 1fr; gap:7px; padding:12px; }
+      .today-summary-main { grid-column:1/-1; padding-bottom:5px; }
+      .today-summary-item { border-left:0; border-top:1px solid color-mix(in srgb,var(--teal) 20%,var(--line)); padding:8px 5px 2px; }
+      .today-summary-item strong { font-size:16px; }
+      .today-summary-links { padding-top:8px; }
+      .session { grid-template-columns:repeat(2,1fr); }
+      .session div:nth-child(2) { border-right:0; }
+      .session div:last-child { grid-column:span 2; border-top:1px solid var(--line); }
+      .audio-box { grid-template-columns:1fr; gap:7px; }
+      .audio-box audio { width:100%; }
+      .meaning { grid-template-columns:1fr; }
+      .meaning div { border-right:0; border-bottom:1px solid var(--line); }
+      .meaning div:last-child { border:0; }
+      .segment-top { display:block; }
+      .status { justify-content:flex-start; margin-top:10px; }
+      .text { font-size:18px; line-height:2; padding:16px 17px 8px; }
+      .anchors, details { margin-left:15px; margin-right:15px; }
+      .segment-insights { margin-left:0; margin-right:0; }
+      .segment-insights summary { padding-left:15px; padding-right:15px; }
+      .segment-insights .anchors { margin-left:0; margin-right:0; padding-left:15px; padding-right:15px; }
+      .segment-insights .tip { padding-left:15px; padding-right:15px; }
+      .cloze-panel { margin-left:0; margin-right:0; }
+      .plain-text p { font-size:18px; line-height:2; }
+      .resume-strip { align-items:flex-start; flex-direction:column; }
+      .resume-strip .quiet-action { width:100%; }
     }
   </style>
 </head>
@@ -266,10 +326,8 @@
       const status = state.status[segment.id] || '';
       return `<article class="segment" id="${segment.id}">
         <div class="segment-top"><div><h4>${esc(segment.title)}</h4><p class="tagline">${esc(segment.tagline)}</p></div><div class="status"><button type="button" class="${status==='mastered'?'mastered':''}" data-status="mastered" data-id="${segment.id}">已掌握</button><button type="button" class="${status==='weak'?'weak':''}" data-status="weak" data-id="${segment.id}">需复习</button></div></div>
-        <div class="meaning"><div><strong>这段在说什么</strong>${esc(segment.meaning)}</div><div><strong>在全文中的作用</strong>${esc(segment.role)}</div></div>
         <div class="text ${mode}">${modeText(segment)}</div>
-        <div class="anchors">${segment.anchors.map(anchor => `<span>${esc(anchor)}</span>`).join('')}</div>
-        <details><summary>记忆提示</summary><p class="tip">${esc(segment.tip)}</p></details>
+        <details class="segment-insights"><summary>理解与记忆 · 查看释义、作用和关键词</summary><div class="meaning"><div><strong>这段在说什么</strong>${esc(segment.meaning)}</div><div><strong>在全文中的作用</strong>${esc(segment.role)}</div></div><div class="anchors">${segment.anchors.map(anchor => `<span>${esc(anchor)}</span>`).join('')}</div><p class="tip">记忆提示：${esc(segment.tip)}</p></details>
       </article>`;
     }
     function clozeText(sentence, anchors) {
@@ -285,6 +343,13 @@
       return segment.text.flatMap(p => sentenceParts(p)).filter(item => item.trim()).slice(0,5).map(sentence => `<div class="cloze"><div>${clozeText(sentence, [...segment.anchors])}</div><div class="answer">原句：${esc(sentence)}</div></div>`).join('');
     }
     function audioBlock(dayNumber) { const file = `audio/day-${String(dayNumber).padStart(2,'0')}.wav`; return `<section class="audio-box" aria-label="第 ${dayNumber} 天磨耳朵音频"><div><strong>今日磨耳朵</strong><span>通勤路上播放本日原文</span></div><audio controls preload="none" src="${file}">浏览器不支持音频播放</audio><a href="${file}" download>下载音频</a></section>`; }
+    function todaySummary(day, fresh, review, isFinal) {
+      const status = state.done.includes(activeDay) ? '今日已完成' : '待完成';
+      const freshLabel = isFinal ? '全文复述' : `${fresh.length} 段`;
+      const reviewLabel = review.length ? `${review.length} 段` : '无';
+      const links = (isFinal ? segments : fresh).map((segment, index) => `<button type="button" data-jump="${segment.id}">${index + 1}. ${esc(segment.title.replace(/^[一二三四五六七八九十]+、/,''))}</button>`).join('');
+      return `<section class="today-summary" aria-label="今日训练摘要"><div class="today-summary-main"><p class="today-summary-kicker">今日训练 · 第 ${activeDay + 1} 天</p><h3>${esc(day.title)}</h3><p>${esc(day.goal)}</p></div><div class="today-summary-item"><strong>${freshLabel}</strong><span>${isFinal ? '复述任务' : '今日新学'}</span></div><div class="today-summary-item"><strong>${reviewLabel}</strong><span>到期复习</span></div><div class="today-summary-item"><strong class="today-summary-status">${status}</strong><span>训练状态</span></div>${links ? `<div class="today-summary-links">${links}</div>` : ''}</section>`;
+    }
     function renderDay() {
       const day = days[activeDay];
       const fresh = day.fresh.map(byId); const review = getReview(activeDay).map(byId);
@@ -293,14 +358,14 @@
       const todayMap = fresh.map((s,index) => `<button type="button" data-jump="${s.id}">${index + 1}. ${esc(s.title.replace(/^[一二三四五六七八九十]+、/,''))}</button>`).join('');
       const dayText = isFinal ? '第 10 天 · 全文遮挡复述' : `第 ${activeDay + 1} 天 · 新学 ${fresh.length} 段`;
       const resume = resumeDay();
-      document.getElementById('content').innerHTML = `<p class="eyebrow">${dayText}</p><h2>${esc(day.title)}</h2><p class="day-goal">${esc(day.goal)}</p><div class="resume-strip"><span>下一项未完成训练：第 ${resume + 1} 天 · ${esc(days[resume].title)}</span>${activeDay !== resume ? '<button type="button" id="resumeDay" class="quiet-action">从今天继续</button>' : ''}</div>
+      document.getElementById('content').innerHTML = `<div class="reading-column"><p class="eyebrow">${dayText}</p><h2>${esc(day.title)}</h2><p class="day-goal">${esc(day.goal)}</p>${todaySummary(day, fresh, review, isFinal)}<div class="resume-strip"><span>下一项未完成训练：第 ${resume + 1} 天 · ${esc(days[resume].title)}</span>${activeDay !== resume ? '<button type="button" id="resumeDay" class="quiet-action">从今天继续</button>' : ''}</div>
         <section class="session" aria-label="建议一小时安排"><div><b>08 分钟</b>旧段回忆</div><div><b>12 分钟</b>理解结构</div><div><b>25 分钟</b>分句背诵</div><div><b>10 分钟</b>挖空核对</div><div><b>05 分钟</b>遮挡复述</div></section>
         ${audioBlock(activeDay + 1)}
         ${!isFinal ? `<section><div class="section-head"><h3>今天背什么</h3><span>${fresh.length} 个主题</span></div><div class="map">${todayMap}</div></section>` : ''}
         <details class="outline"><summary>查看全文结构（13 段）</summary><div class="map">${map}</div></details>
         ${!isFinal && review.length ? `<section><div class="section-head"><h3>先回忆旧段</h3><span>间隔复习</span></div><div class="review-note">先不看正文，按“主题 -> 首句 -> 关键词”口头复述；卡住后再展开核对。</div><div class="recall-list">${review.map(recallItem).join('')}</div></section>` : ''}
         ${isFinal ? finalRecall() : learningContent(fresh)}
-        <div class="footer-actions"><button id="doneDay" type="button" class="primary">${state.done.includes(activeDay) ? '已完成本日训练' : '完成今日训练'}</button></div>`;
+        <div class="footer-actions"><button id="doneDay" type="button" class="primary">${state.done.includes(activeDay) ? '已完成本日训练' : '完成今日训练'}</button></div></div>`;
       document.querySelectorAll('[data-status]').forEach(button => button.addEventListener('click', () => { const id=button.dataset.id; state.status[id] = state.status[id] === button.dataset.status ? '' : button.dataset.status; save(); render(); }));
       document.querySelectorAll('[data-jump]').forEach(button => button.addEventListener('click', () => document.getElementById(button.dataset.jump)?.scrollIntoView({behavior:'smooth',block:'start'})));
       document.querySelectorAll('.reveal').forEach(button => button.addEventListener('click', () => document.querySelectorAll('.cloze').forEach(item => item.classList.toggle('revealed'))));
@@ -311,11 +376,11 @@
       document.getElementById('doneDay').addEventListener('click', () => { if (!state.done.includes(activeDay)) state.done.push(activeDay); state.day = resumeDay(); state.timer = 3600; save(); activeDay = state.day; timerText(); render(); window.scrollTo({top:0,behavior:'smooth'}); });
     }
     function recallItem(segment) { return `<div class="recall-item"><strong>${esc(segment.title)}</strong><span>首句：${esc(segment.text[0].match(/^[^。！？!?]+/)[0])}。</span><br><span>关键词：${segment.anchors.slice(0,5).map(esc).join(' / ')}</span><button type="button" class="quiet-action recall-toggle">展开核对</button><div class="full">${segment.text.map(esc).join('')}</div></div>`; }
-    function learningContent(fresh) { return `<section><div class="section-head"><h3>新学正文</h3><span>先读完整，再逐步遮挡</span></div><div class="modebar" role="group" aria-label="正文显示方式"><button type="button" data-mode="full" class="${mode==='full'?'active':''}">完整原文</button><button type="button" data-mode="skeleton" class="${mode==='skeleton'?'active':''}">关键词骨架</button><button type="button" data-mode="prompt" class="${mode==='prompt'?'active':''}">首句提示</button></div>${fresh.map(segmentCard).join('')}</section><section><div class="section-head"><h3>挖空自测</h3><span>先口答，再揭示</span></div><div class="cloze-list">${fresh.map(cloze).join('')}</div><div class="cloze-actions"><button type="button" class="secondary reveal">显示 / 收起原句</button></div></section>`; }
+    function learningContent(fresh) { return `<section><div class="section-head"><h3>新学正文</h3><span>先读完整，再逐步遮挡</span></div><div class="modebar" role="group" aria-label="正文显示方式"><button type="button" data-mode="full" class="${mode==='full'?'active':''}">完整原文</button><button type="button" data-mode="skeleton" class="${mode==='skeleton'?'active':''}">关键词骨架</button><button type="button" data-mode="prompt" class="${mode==='prompt'?'active':''}">首句提示</button></div>${fresh.map(segmentCard).join('')}</section><section><div class="section-head"><h3>挖空自测</h3><span>先口答，再揭示</span></div><details class="cloze-panel"><summary>打开挖空练习 · ${fresh.length} 个主题</summary><div class="cloze-list">${fresh.map(cloze).join('')}</div><div class="cloze-actions"><button type="button" class="secondary reveal">显示 / 收起原句</button></div></details></section>`; }
     function finalRecall() { return `<section><div class="section-head"><h3>全文遮挡复述</h3><span>只看线索，逐段核对</span></div><div class="review-note">从开篇开始连续复述。每一段完成后再展开原文核对；遗忘或错序的段落标为“需复习”。</div><div class="recall">${segments.map(recallItem).join('')}</div></section>`; }
     function plainTextCard(segment) { return `<article><h3>${esc(segment.title)}</h3>${segment.text.map(paragraph => `<p>${esc(paragraph)}</p>`).join('')}</article>`; }
     function renderFullText() {
-      document.getElementById('content').innerHTML = `<p class="eyebrow">讲话节选 · 全文共 ${segments.length} 段</p><h2>完整讲话原文</h2><p class="day-goal">按原稿顺序排布，仅保留正文，适合通读与逐句校对。</p><section class="plain-text"><div class="section-head"><h3>全文阅读</h3><span>原文模式</span></div>${segments.map(plainTextCard).join('')}</section>`;
+      document.getElementById('content').innerHTML = `<div class="reading-column"><p class="eyebrow">讲话节选 · 全文共 ${segments.length} 段</p><h2>完整讲话原文</h2><p class="day-goal">按原稿顺序排布，仅保留正文，适合通读与逐句校对。</p><section class="plain-text"><div class="section-head"><h3>全文阅读</h3><span>原文模式</span></div>${segments.map(plainTextCard).join('')}</section></div>`;
     }
     function render() { progress(); renderNav(); if (activeView === 'full') renderFullText(); else renderDay(); }
     function syncPortalTheme() {

@@ -5358,6 +5358,35 @@ body[data-active-view="review"] #review-view .option:not(.selected):not(.correct
 }
 [data-theme="dark"] body[data-active-view="plan"] .plan-command-deck,
 [data-theme="dark"] body[data-active-view="plan"] .plan-command-content { color: #edf3ee; }
+
+/* Keep the reading-desk additions legible above the portal scene skin. */
+body[data-active-view="wusi"] #recitation-view .rec-today-summary,
+body[data-active-view="wusi"] #recitation-view .rec-understanding,
+body[data-active-view="wusi"] #recitation-view .rec-cloze-panel {
+  background: var(--scene-panel-light);
+  border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
+  backdrop-filter: blur(12px);
+}
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-today-summary,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-understanding,
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-cloze-panel {
+  background: var(--scene-panel-dark);
+}
+body[data-active-view="wusi"] #recitation-view .rec-today-summary .rec-today-open,
+body[data-active-view="wusi"] #recitation-view .rec-today-summary .rec-today-chips span {
+  white-space: nowrap;
+}
+body[data-active-view="wusi"] #recitation-view .rec-understanding .rec-meaning { display: grid !important; }
+body[data-active-view="wusi"] #recitation-view .rec-understanding .rec-anchors { display: flex !important; }
+body[data-active-view="wusi"] #recitation-view .rec-understanding .rec-tip { display: block !important; }
+body[data-active-view="wusi"] #recitation-view .rec-goal,
+body[data-active-view="wusi"] #recitation-view .rec-chain-hint,
+body[data-active-view="wusi"] #recitation-view .rec-chain-keywords,
+body[data-active-view="wusi"] #recitation-view .rec-mock-type,
+body[data-active-view="wusi"] #recitation-view .rec-mock-head p,
+body[data-active-view="wusi"] #recitation-view .rec-weak-title,
+body[data-active-view="wusi"] #recitation-view .rec-weak-list { display: block !important; }
+body[data-active-view="wusi"] #recitation-view .rec-tabs [data-rec-tab="quotes"] { display: inline-flex !important; }
 [data-theme="dark"] body[data-active-view="plan"] .plan-command-deck h1,
 [data-theme="dark"] body[data-active-view="plan"] .plan-command-copy,
 [data-theme="dark"] body[data-active-view="plan"] .plan-command-deck .plan-kicker,
