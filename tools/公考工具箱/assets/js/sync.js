@@ -100,6 +100,8 @@ window.SyncStore = (function () {
     if (key === LEGACY_SYNC_KEY) return false;
     if (key.indexOf(LOCAL_STAMP_PREFIX) === 0) return false;
     return key.indexOf("gk-") === 0 ||
+      key.indexOf("gk50:") === 0 ||
+      key.indexOf("law50:") === 0 ||
       key.indexOf("exam-") === 0 ||
       key.indexOf("essay-") === 0 ||
       key.indexOf("wusi-") === 0 ||
@@ -350,12 +352,23 @@ window.SyncStore = (function () {
 
   function mergeLocalWithCloud(callback) {
     return ensureClient().then(function (sb) {
-      if (!sb || !session) return [];
+      // Local-only users still need the completion callback. The portal uses
+      // it to finish loading its in-memory state after the optional sync step.
+      if (!sb || !session) {
+        return { __syncSkipped: true };
+      }
       return sb.from(TABLE)
         .select("data_key,data_value,updated_at")
         .eq("user_id", session.user.id);
     }).then(function (res) {
-      if (!res || res.error) return [];
+      if (res && res.__syncSkipped) {
+        if (typeof callback === "function") callback({ uploaded: 0, downloaded: 0, skipped: true });
+        return null;
+      }
+      if (!res || res.error) {
+        if (typeof callback === "function") callback({ uploaded: 0, downloaded: 0, error: true });
+        return null;
+      }
       var cloudRows = res.data || [];
       var localData = getAllLocalBusinessData();
       var localKeys = Object.keys(localData);
@@ -371,6 +384,13 @@ window.SyncStore = (function () {
           return;
         }
         var localAt = getLocalTimestamp(row.data_key, localData[row.data_key]);
+        // Older releases did not write a per-key timestamp. Treat an
+        // existing legacy snapshot as a fresh local edit before comparing it
+        // with the cloud, so a first login cannot silently replace it.
+        if (!localAt) {
+          setLocalTimestamp(row.data_key, localData[row.data_key]);
+          localAt = getLocalTimestamp(row.data_key, localData[row.data_key]);
+        }
         var cloudAt = Date.parse(row.updated_at || "") || 0;
         if (cloudAt > 0 && cloudAt > localAt) {
           setLocalValue(row.data_key, row.data_value);
@@ -384,6 +404,7 @@ window.SyncStore = (function () {
 
       localKeys.forEach(function (key) {
         if (!cloudRows.some(function (row) { return row.data_key === key; })) {
+          if (!getLocalTimestamp(key, localData[key])) setLocalTimestamp(key, localData[key]);
           writes.push(upsertCloudValue(key, localData[key]));
           uploaded += 1;
         }

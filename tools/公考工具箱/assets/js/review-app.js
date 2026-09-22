@@ -3,9 +3,8 @@
 
   const reviewRoot = document.getElementById("review-view");
   if (!reviewRoot) return;
-  // v2 intentionally starts with the rebuilt empty library after the season reset.
-  // Keeping a new key prevents stale v1 snapshots from repopulating deleted questions.
   const STORAGE_KEY = "gk-review-library-v2";
+  const LEGACY_STORAGE_KEY = "gk-review-library-v1";
   const initialReviewHash = window.location.hash;
   const seed = window.REVIEW_SEED || { version: 1, libraryName: "复盘资料库", questions: [] };
   const SEED_REVISION = "20260820-season28-text-v2";
@@ -122,6 +121,24 @@
     } catch (error) {
       console.warn("Local data could not be read", error);
     }
+    // v2 changed the storage key during the season reset. Migrate the old
+    // snapshot instead of presenting a fresh empty library to returning users.
+    try {
+      const legacy = JSON.parse(localStorage.getItem(LEGACY_STORAGE_KEY));
+      if (legacy && Array.isArray(legacy.questions)) {
+        const migrated = {
+          ...legacy,
+          seedRevision: SEED_REVISION,
+          questions: mergeQuestions(seed.questions || [], legacy.questions, true),
+          updatedAt: legacy.updatedAt || new Date().toISOString(),
+          dirty: true
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+        return migrated;
+      }
+    } catch (error) {
+      console.warn("Legacy review data could not be migrated", error);
+    }
     return { ...seed, seedRevision: SEED_REVISION, questions: (seed.questions || []).map(normalizeQuestion) };
   }
 
@@ -133,7 +150,27 @@
       if (typeof cloudData === "string") {
         try { cloudData = JSON.parse(cloudData); } catch (error) { cloudData = null; }
       }
-      if (!cloudData || !Array.isArray(cloudData.questions)) return;
+      if (!cloudData || !Array.isArray(cloudData.questions)) {
+        // A v1-only account may have no local copy yet. Pull that legacy
+        // snapshot once so the key migration also works across devices.
+        if (!state.hasLocalSnapshot && window.SyncStore.readData) {
+          window.SyncStore.readData(LEGACY_STORAGE_KEY, (legacyData, legacyMeta) => {
+            if (!legacyMeta || legacyMeta.source !== "cloud" || !legacyMeta.exists || !legacyData || !Array.isArray(legacyData.questions)) return;
+            state.data = {
+              ...legacyData,
+              seedRevision: SEED_REVISION,
+              questions: mergeQuestions(seed.questions || [], legacyData.questions, true),
+              updatedAt: legacyData.updatedAt || new Date().toISOString(),
+              dirty: true
+            };
+            state.hasLocalSnapshot = true;
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data)); } catch (error) { /* saveData reports storage errors */ }
+            if (window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, state.data);
+            renderAll(true);
+          });
+        }
+        return;
+      }
       if (cloudData.seedRevision !== SEED_REVISION) {
         if (state.hasLocalSnapshot) {
           if (window.SyncStore.writeData) window.SyncStore.writeData(STORAGE_KEY, state.data);

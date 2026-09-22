@@ -3,14 +3,14 @@
 
   var TOOLS = {
     dashboard: { name: '行旅台', path: null },
-    exam:      { name: '套卷分数计算',   path: '../公考助手/index.html?v=20260831-ui-final1' },
-    essay:     { name: '申论方格纸', path: '../申论方格纸/index.html?v=20260831-ui-final1' },
-    speed:     { name: '资料速算',   path: '../资料训练/index.html?v=20260831-ui-final1' },
-    curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html?v=20260831-ui-final1' },
-    wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html?v=20260922-wusi-wide' },
+    exam:      { name: '套卷分数计算',   path: '../公考助手/index.html?v=20260922-storage-fix' },
+    essay:     { name: '申论方格纸', path: '../申论方格纸/index.html?v=20260922-storage-fix' },
+    speed:     { name: '资料速算',   path: '../资料训练/index.html?v=20260922-storage-fix' },
+    curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html?v=20260922-storage-fix' },
+    wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html?v=20260922-storage-fix' },
     review:    { name: '复盘台', path: null },
     knowledge: { name: '思维导图', path: null },
-    knowledge50: { name: '常识50天', path: '../公考常识50天/index.html?v=20260922-readability' }
+    knowledge50: { name: '常识50天', path: '../公考常识50天/index.html?v=20260922-storage-fix' }
   };
 
   // Leave the initial view unset so the first explicit route also initializes
@@ -300,9 +300,12 @@
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
-    if (window.SyncStore && syncInfo.hasConfig && window.SyncStore.mergeLocalWithCloud) {
+    // Render the local snapshot immediately. Account sync is optional and
+    // must never block the portal or make local data appear to be missing.
+    loadFromLocal();
+    if (window.SyncStore && window.SyncStore.mergeLocalWithCloud) {
       window.SyncStore.mergeLocalWithCloud(function () { loadFromLocal(); });
-    } else { loadFromLocal(); }
+    }
   }
 
   function loadFromLocal() {
@@ -3484,12 +3487,19 @@
   
 
   // --- Local Export/Import ---
+  function isExportableDataKey(key) {
+    if (!key || key === 'gk-sync-key' || key.indexOf('gk-sync-stamp:') === 0) return false;
+    if (window.SyncStore && window.SyncStore.isBusinessKey) return window.SyncStore.isBusinessKey(key);
+    return key.indexOf('gk-') === 0 || key.indexOf('gk50:') === 0 || key.indexOf('law50:') === 0 ||
+      key.indexOf('exam-') === 0 || key.indexOf('essay-') === 0 || key.indexOf('wusi-') === 0 ||
+      key.indexOf('sl-') === 0 || key === 'ebbinghaus_entries';
+  }
+
   function exportLocalData() {
     var data = {};
     for (var i = 0; i < localStorage.length; i++) {
       var k = localStorage.key(i);
-      if (k && k.indexOf("gk-") === 0) {
-        if (k === "gk-sync-key" || k.indexOf("gk-sync-stamp:") === 0) continue;
+      if (isExportableDataKey(k)) {
         try { data[k] = JSON.parse(localStorage.getItem(k)); }
         catch(e) { data[k] = localStorage.getItem(k); }
       }
@@ -3522,10 +3532,13 @@
         var data = JSON.parse(e.target.result);
         var count = 0;
         for (var k in data) {
-          if (data.hasOwnProperty(k) && k.indexOf("gk-") === 0) {
-            if (k === "gk-sync-key") continue;
+          if (data.hasOwnProperty(k) && isExportableDataKey(k)) {
             var val = typeof data[k] === 'string' ? data[k] : JSON.stringify(data[k]);
-            try { localStorage.setItem(k, val); count++; } catch(ex) {}
+            try {
+              localStorage.setItem(k, val);
+              if (window.SyncStore && window.SyncStore.writeData) window.SyncStore.writeData(k, data[k]);
+              count++;
+            } catch(ex) {}
           }
         }
         showSyncToast("已导入 " + count + " 项数据");
