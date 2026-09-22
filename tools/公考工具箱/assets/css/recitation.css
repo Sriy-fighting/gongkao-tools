@@ -1255,3 +1255,52 @@ body[data-active-view="wusi"] #recitation-view .rec-day-nav .rec-today-link { gr
   body[data-active-view="wusi"] #recitation-view .rec-card { padding: 15px 14px; }
   body[data-active-view="wusi"] #recitation-view .rec-text { font-size: 18px; line-height: 1.95; }
 }
+
+/* Keep the five-day rail and the reading surface on one shared alignment
+   line. The day cards are intentionally centered so the plan reads as a
+   compact navigation strip rather than five left-aligned text blocks. */
+body[data-active-view="wusi"] #recitation-view .rec-day-nav,
+body[data-active-view="wusi"] #recitation-view .rec-card,
+body[data-active-view="wusi"] #recitation-view .rec-chain,
+body[data-active-view="wusi"] #recitation-view .rec-mock-list {
+  width: 100%;
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+body[data-active-view="wusi"] #recitation-view .rec-day-nav > button {
+  display: flex;
+  flex-direction: column;
+  min-height: 88px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  position: relative;
+  text-align: center;
+}
+body[data-active-view="wusi"] #recitation-view .rec-day-nav > button span,
+body[data-active-view="wusi"] #recitation-view .rec-day-nav > button em,
+body[data-active-view="wusi"] #recitation-view .rec-day-nav > button small {
+  width: 100%;
+  text-align: center;
+}
+body[data-active-view="wusi"] #recitation-view .rec-day-nav > button.done::before {
+  float: none;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+body[data-active-view="wusi"] #recitation-view .rec-day-nav > button.done::after {
+  content: none;
+}
+body[data-active-view="wusi"] #recitation-view .rec-day-nav .rec-today-link {
+  min-height: 42px;
+}
+
+@media (max-width: 720px) {
+  body[data-active-view="wusi"] #recitation-view .rec-day-nav > button {
+    min-height: 80px;
+    padding: 10px 8px;
+  }
+}

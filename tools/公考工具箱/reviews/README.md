@@ -11,7 +11,7 @@
    node tools/公考工具箱/reviews/scripts/build-library.mjs
 
 4. 检查 match-report.json 的 validationErrors 和 duplicateConflicts，确认每道题都有匹配状态和来源证据。
-5. 浏览器打开公考工具箱，进入“复盘台”核验低置信度题目；定期点击“备份”导出学习进度 JSON。
+5. 浏览器打开公考工具箱，进入“政治常识复盘”核验低置信度题目；定期点击“备份”导出学习进度 JSON。
 
 构建脚本会扫描所有季度、按稳定题目 ID 去重、检查重复内容冲突和缺失证据，并生成 library.json、review-data.js、总 match-report.json。页面只加载生成的 review-data.js，所以 GitHub Pages 无需服务器。
 

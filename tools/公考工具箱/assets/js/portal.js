@@ -2,15 +2,14 @@
   'use strict';
 
   var TOOLS = {
-    dashboard: { name: '行旅台', path: null },
-    exam:      { name: '套卷分数计算',   path: '../公考助手/index.html?v=20260922-storage-fix' },
-    essay:     { name: '申论方格纸', path: '../申论方格纸/index.html?v=20260922-storage-fix' },
-    speed:     { name: '资料速算',   path: '../资料训练/index.html?v=20260922-storage-fix' },
-    curve:     { name: '遗忘曲线', path: '../遗忘曲线/index.html?v=20260922-storage-fix' },
-    wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html?v=20260922-storage-fix' },
-    review:    { name: '复盘台', path: null },
-    knowledge: { name: '思维导图', path: null },
-    knowledge50: { name: '常识50天', path: '../公考常识50天/index.html?v=20260922-storage-fix' }
+    dashboard: { name: '首页', path: null },
+    exam:      { name: '套卷分数计算',   path: '../公考助手/index.html?v=20260923-module-cleanup' },
+    essay:     { name: '申论方格纸', path: '../申论方格纸/index.html?v=20260923-module-cleanup' },
+    speed:     { name: '速算练习',   path: '../资料训练/index.html?v=20260923-module-cleanup' },
+    curve:     { name: '复习安排', path: '../遗忘曲线/index.html?v=20260923-module-cleanup' },
+    wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html?v=20260923-module-cleanup' },
+    review:    { name: '政治常识复盘', path: null },
+    knowledge50: { name: '常识50天', path: '../公考常识50天/index.html?v=20260923-law-lightbox' }
   };
 
   // Leave the initial view unset so the first explicit route also initializes
@@ -23,30 +22,25 @@
   var cdState = { name: '', date: '', milestones: [] };
   var links = [];
   var TOOL_ORDER_STORAGE_KEY = 'gk-tool-order';
-  var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'wusi', 'review', 'knowledge', 'plan', 'knowledge50'];
+  var DEFAULT_TOOL_ORDER = ['exam', 'essay', 'speed', 'curve', 'wusi', 'review', 'plan', 'knowledge50'];
   var TOOL_NAMES_STORAGE_KEY = 'gk-tool-names-v1';
-  var KNOWLEDGE_INDEX_URL = '../思维导图/knowledge-index.json';
-  var KNOWLEDGE_ORDER_STORAGE_KEY = 'gk-knowledge-order-v1';
-  // v2 intentionally invalidates maps imported before the knowledge library reset.
-  var KNOWLEDGE_LIBRARY_STORAGE_KEY = 'gk-knowledge-library-v2';
-  var KNOWLEDGE_FOLDER_STORAGE_KEY = 'gk-knowledge-folders-v1';
-  var KNOWLEDGE_FOLDERS = ['政治理论', '常识', '公基'];
-  var knowledgeMaps = [];
-  var knowledgeLoaded = false;
-  var knowledgeSearchQuery = '';
-  var knowledgeFolder = '常识';
-  var knowledgeFolders = {};
   var DEFAULT_TOOL_NAMES = {
-    dashboard: '行旅台',
-    plan: '行程计划',
+    dashboard: '首页',
+    plan: '学习计划',
     exam: '模考记分',
     essay: '申论写作',
+    speed: '速算练习',
+    curve: '复习安排',
+    wusi: '五四讲话背诵',
+    review: '政治常识复盘',
+    knowledge50: '常识50天'
+  };
+  var RENAMED_TOOL_NAMES = {
+    dashboard: '行旅台',
+    plan: '行程计划',
     speed: '数理驿道',
     curve: '复习灯台',
-    wusi: '五四讲话背诵',
-    review: '复盘台',
-    knowledge: '思维导图',
-    knowledge50: '常识50天'
+    review: '复盘台'
   };
   var toolNames = {};
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
@@ -77,7 +71,7 @@
     var skip = document.getElementById('loading-skip');
     var started = performance.now();
     var duration = 6800;
-    var messages = ['整理今日行程', '校准知识地图', '准备出发'];
+    var messages = ['整理学习计划', '同步学习进度', '准备出发'];
     var finished = false;
     function finish() {
       if (finished) return;
@@ -90,7 +84,7 @@
       if (finished) return;
       if (progress) progress.style.width = '100%';
       if (progressText) progressText.textContent = '100%';
-      if (status) status.innerHTML = '今日行程已整理 <span aria-hidden="true">·</span> 可以出发';
+      if (status) status.innerHTML = '学习计划已整理 <span aria-hidden="true">·</span> 可以开始';
       if (skip) {
         skip.classList.add('is-ready');
         skip.setAttribute('aria-label', '进入长安题途网站');
@@ -110,12 +104,12 @@
   }
 
   function animateView(view) {
-    var roots = [els.dashboard, els.planView, els.recitationView, els.reviewView, els.knowledgeView, els.toolContainer];
+    var roots = [els.dashboard, els.planView, els.recitationView, els.reviewView, els.toolContainer];
     roots.forEach(function (root) {
       if (!root) return;
       root.classList.remove('view-enter', 'view-exit');
     });
-    var target = view === 'dashboard' ? els.dashboard : view === 'plan' ? els.planView : view === 'wusi' ? els.recitationView : view === 'review' ? els.reviewView : view === 'knowledge' ? els.knowledgeView : els.toolContainer;
+    var target = view === 'dashboard' ? els.dashboard : view === 'plan' ? els.planView : view === 'wusi' ? els.recitationView : view === 'review' ? els.reviewView : els.toolContainer;
     if (!target) return;
     target.classList.add('view-enter');
     target.addEventListener('animationend', function () { target.classList.remove('view-enter'); }, { once: true });
@@ -223,16 +217,7 @@
     els.planView = document.getElementById('plan-view');
     els.recitationView = document.getElementById('recitation-view');
     els.reviewView = document.getElementById('review-view');
-    els.knowledgeView = document.getElementById('knowledge-view');
-    els.knowledgeGrid = document.getElementById('knowledge-grid');
-    els.knowledgeFolderTabs = document.getElementById('knowledge-folder-tabs');
-    els.globalKnowledgeSearch = document.getElementById('globalKnowledgeSearch');
-    els.clearGlobalKnowledgeSearch = document.getElementById('clearGlobalKnowledgeSearch');
-    els.globalKnowledgeResults = document.getElementById('globalKnowledgeResults');
-    els.portalSearch = document.getElementById('portal-search');
-    els.knowledgeImportInput = document.getElementById('knowledge-import-input');
     els.toolFrameToolbar = document.getElementById('tool-frame-toolbar');
-    els.toolFrameBack = document.getElementById('tool-frame-back');
     initPortalMotion();
     var savedTheme = localStorage.getItem('gk-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
@@ -268,18 +253,9 @@
     document.querySelectorAll('.tool-card').forEach(function (card) {
       card.addEventListener('click', function () { var v = card.dataset.view; if (v) navigateTo(v); });
     });
-    initKnowledgeLibrary();
-    if (els.globalKnowledgeSearch) els.globalKnowledgeSearch.addEventListener('input', function () { renderKnowledgeSearch(els.globalKnowledgeSearch.value); });
-    if (els.clearGlobalKnowledgeSearch) els.clearGlobalKnowledgeSearch.addEventListener('click', function () { els.globalKnowledgeSearch.value = ''; renderKnowledgeSearch(''); els.globalKnowledgeSearch.focus(); });
-    if (els.knowledgeImportInput) els.knowledgeImportInput.addEventListener('change', handleKnowledgeImport);
     if (els.toolFrame) els.toolFrame.addEventListener('load', function () {
-      enhanceEmbeddedKnowledgeMap();
       enhanceEmbeddedToolFrame();
     });
-    document.addEventListener('click', function (event) {
-      if (els.globalKnowledgeResults && els.portalSearch && !els.portalSearch.contains(event.target)) renderKnowledgeSearch('');
-    });
-    if (els.toolFrameBack) els.toolFrameBack.addEventListener('click', function () { navigateTo('knowledge'); });
     initPlan();
     startPeriodicSync();
     loadAllData();
@@ -353,6 +329,7 @@
       if (saved && typeof saved === 'object') {
         Object.keys(DEFAULT_TOOL_NAMES).forEach(function (view) {
           var value = typeof saved[view] === 'string' ? saved[view].replace(/\s+/g, ' ').trim() : '';
+          if (value && RENAMED_TOOL_NAMES[view] === value) value = DEFAULT_TOOL_NAMES[view];
           if (value) names[view] = value.slice(0, 18);
         });
       }
@@ -614,7 +591,6 @@
       if (els.planView) els.planView.style.display = 'none';
       if (els.recitationView) els.recitationView.style.display = 'none';
       if (els.reviewView) els.reviewView.style.display = 'none';
-      if (els.knowledgeView) els.knowledgeView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
       els.pageTitle.textContent = getToolName('dashboard');
@@ -624,7 +600,6 @@
       if (els.planView) els.planView.style.display = '';
       if (els.recitationView) els.recitationView.style.display = 'none';
       if (els.reviewView) els.reviewView.style.display = 'none';
-      if (els.knowledgeView) els.knowledgeView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
       els.pageTitle.textContent = getToolName('plan');
@@ -634,7 +609,6 @@
       if (els.planView) els.planView.style.display = 'none';
       if (els.recitationView) els.recitationView.style.display = '';
       if (els.reviewView) els.reviewView.style.display = 'none';
-      if (els.knowledgeView) els.knowledgeView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
       els.pageTitle.textContent = tool.name;
@@ -645,25 +619,14 @@
       if (els.recitationView) els.recitationView.style.display = 'none';
       els.toolContainer.classList.remove('active');
       if (els.reviewView) els.reviewView.style.display = '';
-      if (els.knowledgeView) els.knowledgeView.style.display = 'none';
       if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
       els.pageTitle.textContent = tool.name;
       if (window.ReviewApp && window.ReviewApp.refresh) window.ReviewApp.refresh();
-    } else if (view === 'knowledge') {
-      els.dashboard.style.display = 'none';
-      if (els.planView) els.planView.style.display = 'none';
-      if (els.recitationView) els.recitationView.style.display = 'none';
-      if (els.reviewView) els.reviewView.style.display = 'none';
-      if (els.knowledgeView) els.knowledgeView.style.display = '';
-      els.toolContainer.classList.remove('active');
-      if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
-      els.pageTitle.textContent = tool.name;
     } else {
       els.dashboard.style.display = 'none';
       if (els.planView) els.planView.style.display = 'none';
       if (els.recitationView) els.recitationView.style.display = 'none';
       if (els.reviewView) els.reviewView.style.display = 'none';
-      if (els.knowledgeView) els.knowledgeView.style.display = 'none';
       els.toolContainer.classList.add('active');
       if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
       els.pageTitle.textContent = tool.name;
@@ -672,133 +635,6 @@
     animateView(view);
     // currentView is assigned above so iframe load handlers always see the
     // destination view. Keep this function's state stable after rendering.
-  }
-
-  function openKnowledgeChapter(path, title) {
-    if (!path) return;
-    if (timerState.running) saveTimerState();
-    els.dashboard.style.display = 'none';
-    if (els.planView) els.planView.style.display = 'none';
-    if (els.recitationView) els.recitationView.style.display = 'none';
-    if (els.reviewView) els.reviewView.style.display = 'none';
-    if (els.knowledgeView) els.knowledgeView.style.display = 'none';
-    els.toolContainer.classList.add('active');
-    // Chapters open directly inside the portal frame; navigation stays in the portal sidebar.
-    if (els.toolFrameToolbar) els.toolFrameToolbar.hidden = true;
-    if (els.pageTitle) els.pageTitle.textContent = title || getToolName('knowledge');
-    els.toolFrame.src = path;
-    els.navItems.forEach(function (el) { el.classList.toggle('active', el.dataset.view === 'knowledge'); });
-    currentView = 'knowledge-chapter';
-    document.body.dataset.activeView = 'knowledge';
-  }
-
-  function enhanceEmbeddedKnowledgeMap() {
-    var doc;
-    try { doc = els.toolFrame && els.toolFrame.contentDocument; } catch (e) { return; }
-    if (!doc || !doc.getElementById('toggleLeft') || !doc.querySelector('.layout') || doc.getElementById('portal-map-panel-style')) return;
-    // Do not inherit the old text-button state, which could leave a narrow map column.
-    doc.body.classList.remove('left-hidden', 'right-hidden');
-    var style = doc.createElement('style'); style.id = 'portal-map-panel-style';
-    style.textContent = '#toggleLeft,#toggleRight{display:none!important}.layout{grid-template-columns:var(--side) minmax(0,1fr) var(--right,var(--assist))!important;min-width:0}.layout main{min-width:0!important;width:auto!important;overflow:visible!important}.layout .module{width:100%!important;min-width:0!important}.portal-map-left-hidden .layout{grid-template-columns:minmax(0,1fr) var(--right,var(--assist))!important}.portal-map-left-hidden .left{display:none!important}.portal-map-right-hidden .layout{grid-template-columns:var(--side) minmax(0,1fr)!important}.portal-map-right-hidden .right,.portal-map-right-hidden .assistant{display:none!important}.portal-map-left-hidden.portal-map-right-hidden .layout{grid-template-columns:minmax(0,1fr)!important}.portal-map-toggle{position:fixed;z-index:60;top:50%;display:grid;place-items:center;width:30px;height:52px;padding:0;border:1px solid #b8cde1;border-radius:7px;background:#fff;color:#1766b3;box-shadow:0 4px 13px #133b5c2b;font-size:22px;line-height:1}.portal-map-toggle-left{left:8px}.portal-map-toggle-right{right:8px}@media(max-width:980px){.portal-map-toggle{display:none!important}.layout{grid-template-columns:var(--side) minmax(0,1fr)!important}}@media(max-width:680px){.layout{display:block!important}.layout .left,.layout .right,.layout .assistant{display:none!important}}';
-    doc.head.appendChild(style);
-    var left = doc.createElement('button'), right = doc.createElement('button');
-    left.type = right.type = 'button'; left.className = 'portal-map-toggle portal-map-toggle-left'; right.className = 'portal-map-toggle portal-map-toggle-right';
-    left.setAttribute('aria-label', '收起章节导航'); right.setAttribute('aria-label', '收起学习面板');
-    function refresh() {
-      var leftHidden = doc.body.classList.contains('portal-map-left-hidden'), rightHidden = doc.body.classList.contains('portal-map-right-hidden');
-      left.textContent = leftHidden ? '›' : '‹'; right.textContent = rightHidden ? '‹' : '›';
-      left.setAttribute('aria-label', leftHidden ? '展开章节导航' : '收起章节导航'); right.setAttribute('aria-label', rightHidden ? '展开学习面板' : '收起学习面板');
-      left.title = left.getAttribute('aria-label'); right.title = right.getAttribute('aria-label');
-    }
-    left.addEventListener('click', function () { doc.body.classList.toggle('portal-map-left-hidden'); refresh(); });
-    right.addEventListener('click', function () { doc.body.classList.toggle('portal-map-right-hidden'); refresh(); });
-    doc.body.append(left, right); refresh();
-  }
-
-  function openKnowledgeMap(map, target) {
-    if (!map) return;
-    var path = map.path || ('data:text/html;charset=utf-8,' + encodeURIComponent(map.content || '<!doctype html><title>思维导图</title><p>导入文件为空</p>'));
-    if (target && map.path) {
-      path += (path.indexOf('?') === -1 ? '?' : '&') + 'q=' + encodeURIComponent(target.text || '') + '&target=' + encodeURIComponent(target.path || '');
-    }
-    openKnowledgeChapter(path, map.title);
-  }
-
-  function knowledgeSortValue(map) {
-    var title = String(map.title || '');
-    var match = title.match(/第\s*(\d+)\s*[章节节]/);
-    return map.order != null ? Number(map.order) : (match ? Number(match[1]) : 9999);
-  }
-
-  function getKnowledgeOrder() {
-    var saved = [];
-    try { saved = JSON.parse(localStorage.getItem(KNOWLEDGE_ORDER_STORAGE_KEY) || '[]'); } catch (e) {}
-    var ids = knowledgeMaps.map(function (m) { return m.id; });
-    var order = Array.isArray(saved) ? saved.filter(function (id) { return ids.indexOf(id) !== -1; }) : [];
-    knowledgeMaps.slice().sort(function (a, b) { return knowledgeSortValue(a) - knowledgeSortValue(b) || String(a.title).localeCompare(String(b.title), 'zh-CN'); }).forEach(function (m) { if (order.indexOf(m.id) === -1) order.push(m.id); });
-    return order;
-  }
-
-  function applyKnowledgeOrder() {
-    var order = getKnowledgeOrder();
-    knowledgeMaps.sort(function (a, b) { return order.indexOf(a.id) - order.indexOf(b.id); });
-  }
-
-  function saveKnowledgeOrder() {
-    var order = knowledgeMaps.map(function (m) { return m.id; });
-    try { localStorage.setItem(KNOWLEDGE_ORDER_STORAGE_KEY, JSON.stringify(order)); if (window.SyncStore) window.SyncStore.writeData(KNOWLEDGE_ORDER_STORAGE_KEY, order); } catch (e) {}
-  }
-
-  function loadKnowledgeFolders() {
-    var saved = {};
-    try { saved = JSON.parse(localStorage.getItem(KNOWLEDGE_FOLDER_STORAGE_KEY) || '{}'); } catch (e) {}
-    knowledgeFolders = saved && typeof saved === 'object' ? saved : {};
-    knowledgeMaps.forEach(function (map) { if (KNOWLEDGE_FOLDERS.indexOf(knowledgeFolders[map.id]) === -1) knowledgeFolders[map.id] = KNOWLEDGE_FOLDERS.indexOf(map.folder) > -1 ? map.folder : '常识'; });
-  }
-
-  function saveKnowledgeFolders() {
-    try { localStorage.setItem(KNOWLEDGE_FOLDER_STORAGE_KEY, JSON.stringify(knowledgeFolders)); if (window.SyncStore) window.SyncStore.writeData(KNOWLEDGE_FOLDER_STORAGE_KEY, knowledgeFolders); } catch (e) {}
-  }
-
-  function renderKnowledgeFolders() {
-    if (!els.knowledgeFolderTabs) return;
-    els.knowledgeFolderTabs.innerHTML = '';
-    KNOWLEDGE_FOLDERS.forEach(function (folder) {
-      var count = knowledgeMaps.filter(function (map) { return knowledgeFolders[map.id] === folder; }).length;
-      var button = document.createElement('button');
-      button.type = 'button'; button.className = 'knowledge-folder-tab' + (folder === knowledgeFolder ? ' active' : '');
-      button.setAttribute('role', 'tab'); button.setAttribute('aria-selected', folder === knowledgeFolder ? 'true' : 'false');
-      button.innerHTML = '<span>' + knowledgeEsc(folder) + '</span><small>' + count + '</small>';
-      button.addEventListener('click', function () { knowledgeFolder = folder; renderKnowledgeLibrary(); });
-      els.knowledgeFolderTabs.appendChild(button);
-    });
-  }
-
-  function knowledgeEsc(value) { return String(value || '').replace(/[&<>"']/g, function (c) { return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[c]; }); }
-
-  function renderKnowledgeLibrary() {
-    if (!els.knowledgeGrid) return;
-    renderKnowledgeFolders();
-    els.knowledgeGrid.innerHTML = '';
-    var mapsInFolder = knowledgeMaps.filter(function (map) { return knowledgeFolders[map.id] === knowledgeFolder; });
-    if (!mapsInFolder.length) {
-      els.knowledgeGrid.innerHTML = '<div class="knowledge-folder-empty"><img src="assets/images/changan/empty-knowledge-scroll.webp" alt="" loading="lazy"><strong>' + knowledgeEsc(knowledgeFolder) + '</strong><span>暂时没有思维导图。导入后可将内容移动到这里。</span></div>';
-      return;
-    }
-    mapsInFolder.forEach(function (map, index) {
-      var card = document.createElement('article');
-      card.className = 'knowledge-card'; card.draggable = true; card.dataset.mapId = map.id;
-      card.innerHTML = '<button class="knowledge-card-main" type="button"><span class="knowledge-card-mark" style="background:' + knowledgeEsc(map.color) + '22;color:' + knowledgeEsc(map.color) + '">' + knowledgeEsc(map.icon || '图') + '</span><span class="knowledge-card-body"><strong>' + knowledgeEsc(map.title) + '</strong><small>' + knowledgeEsc(map.subtitle || '') + '</small></span><span class="knowledge-card-arrow" aria-hidden="true">→</span></button><div class="knowledge-card-actions"><label class="knowledge-folder-move">移至 <select data-folder aria-label="移动 ' + knowledgeEsc(map.title) + ' 到文件夹"><option>政治理论</option><option>常识</option><option>公基</option></select></label><span class="knowledge-drag-label">拖拽调整顺序</span><button type="button" data-move="up" title="上移" aria-label="上移">↑</button><button type="button" data-move="down" title="下移" aria-label="下移">↓</button></div>';
-      card.querySelector('.knowledge-card-main').addEventListener('click', function () { openKnowledgeMap(map); });
-      var folderSelect = card.querySelector('[data-folder]'); folderSelect.value = knowledgeFolders[map.id]; folderSelect.addEventListener('click', function (event) { event.stopPropagation(); }); folderSelect.addEventListener('change', function () { knowledgeFolders[map.id] = folderSelect.value; saveKnowledgeFolders(); renderKnowledgeLibrary(); });
-      card.querySelectorAll('[data-move]').forEach(function (button) { button.addEventListener('click', function (event) { event.stopPropagation(); var from = mapsInFolder.indexOf(map), to = button.dataset.move === 'up' ? from - 1 : from + 1; if (to < 0 || to >= mapsInFolder.length) return; var other = mapsInFolder[to], fromGlobal = knowledgeMaps.indexOf(map), toGlobal = knowledgeMaps.indexOf(other); knowledgeMaps[fromGlobal] = other; knowledgeMaps[toGlobal] = map; saveKnowledgeOrder(); renderKnowledgeLibrary(); }); });
-      card.addEventListener('dragstart', function (event) { card.classList.add('is-dragging'); event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', map.id); });
-      card.addEventListener('dragend', function () { card.classList.remove('is-dragging'); document.querySelectorAll('.knowledge-card.is-over').forEach(function (el) { el.classList.remove('is-over'); }); });
-      card.addEventListener('dragover', function (event) { event.preventDefault(); card.classList.add('is-over'); });
-      card.addEventListener('dragleave', function () { card.classList.remove('is-over'); });
-      card.addEventListener('drop', function (event) { event.preventDefault(); card.classList.remove('is-over'); var fromId = event.dataTransfer.getData('text/plain'); var from = knowledgeMaps.findIndex(function (m) { return m.id === fromId; }), to = knowledgeMaps.indexOf(map); if (from < 0 || from === to || knowledgeFolders[fromId] !== knowledgeFolder) return; var moved = knowledgeMaps.splice(from, 1)[0]; knowledgeMaps.splice(to, 0, moved); saveKnowledgeOrder(); renderKnowledgeLibrary(); });
-      els.knowledgeGrid.appendChild(card);
-    });
   }
 
   // Embedded tools use their own document, so mirror the portal theme and
@@ -816,10 +652,9 @@
       essay: '../公考工具箱/assets/images/changan/tool-essay-pavilion.webp',
       speed: '../公考工具箱/assets/images/changan/tool-speed-route.webp',
       curve: '../公考工具箱/assets/images/changan/tool-review-lantern.webp',
-      knowledge50: '../公考工具箱/assets/images/changan/tool-knowledge-map.webp',
-      knowledge: '../公考工具箱/assets/images/changan/tool-knowledge-map.webp'
+      knowledge50: '../公考工具箱/assets/images/changan/tool-knowledge-map.webp'
     };
-    var scene = scenes[view] || scenes.knowledge;
+    var scene = scenes[view] || scenes.knowledge50;
     var style = doc.getElementById('portal-tool-theme-style');
     if (!style) {
       style = doc.createElement('style');
@@ -864,40 +699,6 @@
       '@media(max-width:1100px){.toolbar{height:auto!important;min-height:56px;flex-wrap:wrap!important;justify-content:flex-start!important;padding:8px 12px!important;overflow:visible!important}.toolbar-group{min-width:0;flex-wrap:wrap}.paper-wrapper{padding-top:104px!important}.config-panel{flex-wrap:wrap!important;overflow-x:visible!important}#reminders-container{min-width:0;flex-wrap:wrap!important;}}',
       '@media(max-width:680px){body{background-attachment:scroll!important;}}'
     ].join('');
-  }
-
-  function flattenKnowledgeMatches(query) {
-    var q = String(query || '').trim().toLowerCase(); if (!q) return [];
-    var result = [];
-    knowledgeMaps.forEach(function (map) { if (String(map.title).toLowerCase().indexOf(q) >= 0 || String(map.subtitle || '').toLowerCase().indexOf(q) >= 0) result.push({ map: map, text: map.title, path: map.subtitle || '思维导图' }); (map.nodes || []).forEach(function (node) { if (String(node.text).toLowerCase().indexOf(q) >= 0 || String(node.path).toLowerCase().indexOf(q) >= 0) result.push({ map: map, text: node.text, path: node.path }); }); });
-    return result.slice(0, 30);
-  }
-
-  function renderKnowledgeSearch(query) {
-    if (!els.globalKnowledgeResults) return;
-    var q = String(query || '').trim(); knowledgeSearchQuery = q; els.globalKnowledgeResults.innerHTML = ''; els.globalKnowledgeResults.classList.toggle('is-open', !!q); if (els.clearGlobalKnowledgeSearch) els.clearGlobalKnowledgeSearch.style.display = q ? 'block' : 'none'; if (!q) return;
-    var matches = flattenKnowledgeMatches(q); if (!matches.length) { els.globalKnowledgeResults.innerHTML = '<div class="portal-search-empty">未找到匹配的知识点</div>'; return; }
-    matches.forEach(function (item) { var button = document.createElement('button'); button.type = 'button'; button.className = 'portal-search-result'; button.innerHTML = '<strong>' + knowledgeEsc(item.text) + '</strong><small>' + knowledgeEsc(item.map.title) + ' · ' + knowledgeEsc(item.path) + '</small>'; button.addEventListener('click', function () { openKnowledgeMap(item.map, item); }); els.globalKnowledgeResults.appendChild(button); });
-  }
-
-  function initKnowledgeLibrary() {
-    // The empty index is authoritative after a reset; do not resurrect deleted maps.
-    function finish(data) { knowledgeMaps = Array.isArray(data && data.maps) ? data.maps : []; try { localStorage.removeItem('gk-knowledge-library-v1'); var local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); if (Array.isArray(local)) knowledgeMaps = knowledgeMaps.concat(local.filter(function (m) { return !knowledgeMaps.some(function (base) { return base.id === m.id; }); })); } catch (e) {} loadKnowledgeFolders(); saveKnowledgeFolders(); applyKnowledgeOrder(); knowledgeLoaded = true; renderKnowledgeLibrary(); if (knowledgeSearchQuery) renderKnowledgeSearch(knowledgeSearchQuery); }
-    fetch(KNOWLEDGE_INDEX_URL).then(function (response) { if (!response.ok) throw new Error('index'); return response.json(); }).then(finish).catch(function () { finish({ maps: [] }); });
-  }
-
-  function extractImportedNodes(html, mapId) {
-    var nodes = [], re = /text\s*:\s*(['"])((?:\\.|(?!\1)[\s\S])*?)\1/g, match;
-    while ((match = re.exec(html)) && nodes.length < 3000) {
-      var value = match[2].replace(/\\(['"])/g, '$1').replace(/\\n/g, ' ').trim();
-      if (value && value.length < 300) nodes.push({ id: mapId + '-' + nodes.length, text: value, path: value, mapId: mapId });
-    }
-    return nodes;
-  }
-
-  function handleKnowledgeImport(event) {
-    var file = event.target.files && event.target.files[0]; if (!file) return;
-    var reader = new FileReader(); reader.onload = function () { try { var html = String(reader.result || ''); var titleMatch = html.match(/<title[^>]*>([^<]+)</i); var title = titleMatch ? titleMatch[1].replace(/\s*[|｜].*$/, '').trim() : file.name.replace(/\.(html?|json)$/i, ''); var id = 'imported-' + Date.now(); var map = { id: id, title: title, subtitle: '新导入思维导图', path: '', content: html, icon: title.slice(0, 1) || '图', color: '#2783c9', order: null, nodes: extractImportedNodes(html, id) }; var local = []; try { local = JSON.parse(localStorage.getItem(KNOWLEDGE_LIBRARY_STORAGE_KEY) || '[]'); } catch (e) {} local.push(map); localStorage.setItem(KNOWLEDGE_LIBRARY_STORAGE_KEY, JSON.stringify(local)); if (window.SyncStore && window.SyncStore.writeData) window.SyncStore.writeData(KNOWLEDGE_LIBRARY_STORAGE_KEY, local); knowledgeMaps.push(map); knowledgeFolders[id] = knowledgeFolder; saveKnowledgeFolders(); knowledgeMaps.sort(function (a, b) { return knowledgeSortValue(a) - knowledgeSortValue(b) || String(a.title).localeCompare(String(b.title), 'zh-CN'); }); saveKnowledgeOrder(); renderKnowledgeLibrary(); showSyncToast('已导入思维导图，并放入“' + knowledgeFolder + '”文件夹'); } catch (e) { showSyncToast('导入失败：文件格式错误'); } }; reader.readAsText(file); event.target.value = '';
   }
 
   function setGreeting() {
@@ -3029,7 +2830,7 @@
     var stats = getWeekTaskStats(active);
     var month = ensureMonthPlan(planCurrentMonth);
     var weekPlan = ensureWeekPlan(month, active.key);
-    var html = '<section class="plan-itinerary"><div class="plan-itinerary-head"><div><p class="plan-section-overline">行程计划</p><h2>' + esc(active.label) + ' · ' + esc(formatDateShort(active.start)) + ' - ' + esc(formatDateShort(active.end)) + '</h2></div><div class="plan-itinerary-stat">' + stats.done + '/' + stats.total + ' 项完成 · ' + esc(formatMinutes(stats.minutes)) + '</div></div><div class="plan-week-switcher">';
+    var html = '<section class="plan-itinerary"><div class="plan-itinerary-head"><div><p class="plan-section-overline">学习计划</p><h2>' + esc(active.label) + ' · ' + esc(formatDateShort(active.start)) + ' - ' + esc(formatDateShort(active.end)) + '</h2></div><div class="plan-itinerary-stat">' + stats.done + '/' + stats.total + ' 项完成 · ' + esc(formatMinutes(stats.minutes)) + '</div></div><div class="plan-week-switcher">';
     for (var j = 0; j < weeks.length; j++) html += '<button class="plan-week-switch' + (weeks[j].key === active.key ? ' is-active' : '') + '" onclick="planSelectWeek(' + jsSingleArg(weeks[j].key) + ')">' + esc(weeks[j].label) + '</button>';
     html += '</div><div class="plan-itinerary-days">';
     for (var d = 0; d < 7; d++) {
@@ -3352,7 +3153,7 @@
       { name: '晨读驿', image: 'stage-chen-du-yi.webp' }, { name: '申论渡', image: 'stage-shen-lun-du.webp' },
       { name: '数理关', image: 'stage-shu-li-guan.webp' }, { name: '政治理论坊', image: 'stage-xing-ce-fang.webp' }, { name: '金榜台', image: 'stage-jin-bang-tai.webp' }
     ];
-    var html = '<section class="plan-journey-rail"><div class="plan-journey-rail-head"><div><p class="plan-section-overline">长安题途</p><h2>每一段专注，都在推进你的路</h2></div><button class="plan-ghost-btn" onclick="document.querySelector(\'.nav-item[data-view=dashboard]\').click()">回到今日行程</button></div><div class="plan-stage-rail">';
+    var html = '<section class="plan-journey-rail"><div class="plan-journey-rail-head"><div><p class="plan-section-overline">学习计划</p><h2>每一段专注，都在推进你的学习</h2></div><button class="plan-ghost-btn" onclick="document.querySelector(\'.nav-item[data-view=dashboard]\').click()">回到今日学习</button></div><div class="plan-stage-rail">';
     for (var i = 0; i < stages.length; i++) {
       var item = stages[i];
       html += '<div class="plan-stage-card' + (item.name === current.name ? ' is-current' : '') + '"><img src="assets/images/changan/' + item.image + '" alt="' + item.name + '" loading="lazy"><span>' + item.name + '</span></div>';

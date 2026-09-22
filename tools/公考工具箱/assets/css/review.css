@@ -1,4 +1,4 @@
-/* 复盘台局部样式：所有规则限定在 #review-view，避免污染门户 */
+/* 政治常识复盘局部样式：所有规则限定在 #review-view，避免污染门户 */
 #review-view {
   --review-line: var(--border, #d9e2e5);
   --review-line-strong: #b8cbd2;
