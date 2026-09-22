@@ -5387,6 +5387,56 @@ body[data-active-view="wusi"] #recitation-view .rec-mock-head p,
 body[data-active-view="wusi"] #recitation-view .rec-weak-title,
 body[data-active-view="wusi"] #recitation-view .rec-weak-list { display: block !important; }
 body[data-active-view="wusi"] #recitation-view .rec-tabs [data-rec-tab="quotes"] { display: inline-flex !important; }
+
+/* Wusi reading desk: use the available portal width instead of centering a
+   narrow book column inside a wide scene. */
+body[data-active-view="wusi"] #recitation-view .rec-shell {
+  width: min(1480px, calc(100% - 24px));
+  max-width: 1480px;
+  padding: 26px 12px 54px;
+}
+body[data-active-view="wusi"] #recitation-view .rec-head,
+body[data-active-view="wusi"] #recitation-view .rec-today-summary,
+body[data-active-view="wusi"] #recitation-view .rec-notice,
+body[data-active-view="wusi"] #recitation-view .rec-day-nav {
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+body[data-active-view="wusi"] #recitation-view .rec-title-block h2 { font-size: 34px; }
+body[data-active-view="wusi"] #recitation-view .rec-card,
+body[data-active-view="wusi"] #recitation-view .rec-chain,
+body[data-active-view="wusi"] #recitation-view .rec-mock-list {
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+}
+body[data-active-view="wusi"] #recitation-view .rec-card {
+  background: rgba(255, 253, 248, .92);
+  box-shadow: 0 10px 28px rgba(19, 48, 54, .08);
+}
+[data-theme="dark"] body[data-active-view="wusi"] #recitation-view .rec-card {
+  background: rgba(16, 39, 45, .92);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .16);
+}
+body[data-active-view="wusi"] #recitation-view .rec-text {
+  max-width: 1080px;
+  font-size: 21px;
+  line-height: 2.02;
+}
+body[data-active-view="wusi"] #recitation-view .rec-text p { margin-bottom: 14px; }
+body[data-active-view="wusi"] #recitation-view .rec-understanding,
+body[data-active-view="wusi"] #recitation-view .rec-cloze-panel { max-width: 1280px; }
+body[data-active-view="wusi"] #recitation-view .rec-modebar button,
+body[data-active-view="wusi"] #recitation-view .rec-audio-btn,
+body[data-active-view="wusi"] #recitation-view .rec-status-row button { min-height: 38px; }
+
+@media (max-width: 720px) {
+  body[data-active-view="wusi"] #recitation-view .rec-shell { width: auto; padding: 18px 12px 36px; }
+  body[data-active-view="wusi"] #recitation-view .rec-title-block h2 { font-size: 28px; }
+  body[data-active-view="wusi"] #recitation-view .rec-card { padding: 16px 15px; }
+  body[data-active-view="wusi"] #recitation-view .rec-text { font-size: 18px; line-height: 1.98; }
+}
 [data-theme="dark"] body[data-active-view="plan"] .plan-command-deck h1,
 [data-theme="dark"] body[data-active-view="plan"] .plan-command-copy,
 [data-theme="dark"] body[data-active-view="plan"] .plan-command-deck .plan-kicker,
