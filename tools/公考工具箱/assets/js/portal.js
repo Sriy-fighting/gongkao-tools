@@ -9,7 +9,7 @@
     curve:     { name: '复习安排', path: '../遗忘曲线/index.html?v=20260923-module-cleanup' },
     wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html?v=20260923-module-cleanup' },
     review:    { name: '政治常识复盘', path: null },
-    knowledge50: { name: '常识50天', path: '../公考常识50天/index.html?v=20260923-law-lightbox' }
+    knowledge50: { name: '常识50天', path: '../公考常识50天/index.html?v=20260924-custom-cloze' }
   };
 
   // Leave the initial view unset so the first explicit route also initializes

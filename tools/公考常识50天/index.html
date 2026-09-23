@@ -89,6 +89,7 @@ h1,h2,h3{font-family:var(--serif); color:var(--ink); font-weight:700}
 .btn.primary{background:var(--seal); border-color:var(--seal); color:#fbf6ea}
 .btn.primary:hover{background:var(--seal-d)}
 .btn.ico{padding:7px 10px}
+.btn.secondary{background:transparent}
 .date-input{font-family:var(--sans); font-size:13px; padding:6px 8px; border:1px solid #c8b98f;
   border-radius:4px; background:var(--card); color:var(--ink)}
 .today-focus{padding:16px 20px; margin-bottom:22px; border-left:4px solid var(--seal)}
@@ -155,6 +156,8 @@ h1,h2,h3{font-family:var(--serif); color:var(--ink); font-weight:700}
 .cell.done .cn::after{content:"✓"; color:var(--seal); font-size:11px; margin-left:4px; font-family:var(--sans)}
 .cell.today{border:2px solid var(--seal); padding:6px}
 .cell.today .cn{color:var(--seal)}
+.cell.has-custom:not(.done)::after{content:"补"; position:absolute; top:5px; right:6px; color:#8b6825; font-size:10px; font-weight:700}
+html[data-theme="dark"] .cell.has-custom:not(.done)::after{color:#e2ba62}
 
 /* ===== 每日卡片 ===== */
 .day{background:var(--card); border:1px solid var(--line); margin-bottom:18px; scroll-margin-top:78px}
@@ -241,6 +244,40 @@ body.masked .ans.peek{color:var(--seal); background:#f4ebd6; font-weight:600}
 .ans.solo{color:transparent; background:#e4d7b8; border-radius:3px; max-width:100%; text-align:center; cursor:pointer; padding:0 6px}
 button,input,select{font-family:inherit}
 .day-grid>div,.day-grid>aside{min-width:0}
+.custom-section{margin:22px 0 18px; padding:16px 18px; border:1px solid color-mix(in srgb,var(--gold) 48%,var(--line2)); background:color-mix(in srgb,var(--gold) 8%,var(--card))}
+.custom-section-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
+.custom-section-head h3{font-size:16px; color:var(--ink)}
+.custom-section-head p{margin-top:3px; color:var(--muted); font-size:12px}
+.custom-list{display:grid; gap:10px}
+.custom-item{min-width:0; padding:13px 14px; border:1px solid var(--line2); background:var(--card)}
+.custom-item-head{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px}
+.custom-item-head h4{min-width:0; flex:1; font-family:var(--serif); font-size:15px; color:var(--ink); overflow-wrap:anywhere}
+.custom-item-state{color:var(--muted); font-size:12px; white-space:nowrap}
+.custom-item-state.done{color:var(--seal); font-weight:700}
+.custom-item-text{color:var(--body); font-size:14px; line-height:1.9; overflow-wrap:anywhere; white-space:normal}
+.custom-item-actions{display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-top:10px; padding-top:9px; border-top:1px solid var(--line2)}
+.custom-item-actions button{min-height:34px; padding:5px 10px; border:1px solid var(--line); border-radius:4px; background:var(--card); color:var(--body); font:inherit; font-size:12px; cursor:pointer}
+.custom-item-actions button:hover{border-color:var(--gold); color:var(--ink)}
+.custom-item-actions .custom-done{display:flex; align-items:center; gap:7px; margin-right:auto; color:var(--ink); font-size:12px; cursor:pointer}
+.custom-empty{padding:12px; color:var(--muted); font-size:13px; text-align:center; border:1px dashed var(--line); background:rgba(255,255,255,.2)}
+.custom-editor{width:min(620px,calc(100% - 28px)); max-width:none; max-height:min(90vh,800px); margin:auto; padding:0; overflow:auto; border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--body); box-shadow:0 22px 70px rgba(28,42,39,.28)}
+.custom-editor::backdrop{background:rgba(17,31,34,.58); backdrop-filter:blur(3px)}
+.custom-editor-form{padding:22px}
+.custom-editor-head{display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:18px}
+.custom-editor-head h2{font-size:21px}
+.custom-editor-head p{margin-top:4px; color:var(--muted); font-size:12px}
+.custom-editor-close{width:36px; height:36px; border:1px solid var(--line); border-radius:5px; background:transparent; color:var(--muted); font-size:22px; cursor:pointer}
+.custom-field{display:grid; gap:6px; margin-bottom:14px}
+.custom-field label{color:var(--ink); font-size:13px; font-weight:700}
+.custom-field input,.custom-field select,.custom-field textarea{width:100%; min-width:0; border:1px solid var(--line); border-radius:4px; padding:9px 10px; background:var(--card); color:var(--body); font:inherit; font-size:14px}
+.custom-field textarea{min-height:180px; resize:vertical; line-height:1.7}
+.custom-field input:focus,.custom-field select:focus,.custom-field textarea:focus{outline:3px solid color-mix(in srgb,var(--gold) 28%,transparent); border-color:var(--gold)}
+.custom-field small{color:var(--muted); font-size:12px; line-height:1.5}
+.custom-editor-error{min-height:20px; margin:2px 0 10px; color:var(--seal); font-size:12px}
+.custom-editor-actions{display:flex; justify-content:flex-end; flex-wrap:wrap; gap:8px; padding-top:12px; border-top:1px solid var(--line2)}
+html[data-theme="dark"] .custom-section{background:rgba(119,200,181,.08); border-color:var(--line2)}
+html[data-theme="dark"] .custom-item-actions button,html[data-theme="dark"] .custom-editor-close{background:rgba(12,34,41,.72); border-color:var(--line); color:var(--body)}
+html[data-theme="dark"] .custom-field input,html[data-theme="dark"] .custom-field select,html[data-theme="dark"] .custom-field textarea{background:rgba(12,34,41,.72); border-color:var(--line); color:var(--ink)}
 
 /* 复习侧栏 */
 .review-panel{border-left:1px solid var(--line2); padding-left:20px}
@@ -325,6 +362,12 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
   .law-lightbox-head{padding:12px 14px 10px}
   .law-lightbox-head h2{font-size:17px}
   .law-lightbox-viewport{padding:12px}
+  .custom-section{padding:13px 11px}
+  .custom-section-head{align-items:flex-start; flex-direction:column}
+  .custom-item{padding:11px}
+  .custom-item-actions .custom-done{width:100%; min-height:36px}
+  .custom-editor-form{padding:17px 14px}
+  .custom-field textarea{min-height:150px}
 }
 @media print{
   .toolbar,.backtop,.sec-check,.day-check,.chev{display:none!important}
@@ -360,6 +403,7 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
         <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
       </div>
       <button class="btn primary" id="maskBtn">遮住答案自测</button>
+      <button class="btn" id="addCustomBtn" type="button">＋ 添加补充内容</button>
       <input type="date" class="date-input" id="startDate" title="设置第1天日期，自动标注星期与今天">
       <button class="btn" id="todayBtn">回到今天</button>
       <button class="btn ico" id="printBtn" title="打印">打印</button>
@@ -382,6 +426,7 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
     <div class="today-focus-grid">
       <div class="today-task"><div class="today-task-label"><span>今日新学</span><b id="todayLearnCount">0 节</b></div><div class="today-task-value" id="todayLearnText">暂无</div><div class="today-task-meta" id="todayLearnMeta">完成当天安排的小节</div></div>
       <div class="today-task"><div class="today-task-label"><span>到期复习</span><b id="todayReviewCount">0 节</b></div><div class="today-task-value" id="todayReviewText">暂无</div><div class="today-task-meta" id="todayReviewMeta">先复习，再学新</div></div>
+      <div class="today-task"><div class="today-task-label"><span>法律导图</span><b id="todayLawCount">0 张</b></div><div class="today-task-value" id="todayLawText">暂无</div><div class="today-task-meta" id="todayLawMeta">点击当天卡片查看</div></div>
     </div>
   </section>
 
@@ -428,11 +473,25 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
   <main id="days"></main>
 
   <footer>
-    本计划依据《公考常识背诵手册》全文 494 条考点编排，并同步纳入 43 张法律常识导图 · 打卡记录仅保存在当前浏览器本地<br>
+    本计划依据《公考常识背诵手册》全文 494 条考点编排，并同步纳入 43 张法律常识导图 · 数据保存在本机，登录工具箱账号后可同步<br>
     遮住答案自测时，点一下空白处可临时查看该空答案
   </footer>
 </div>
 <button class="backtop" id="backTop" aria-label="回到顶部">↑</button>
+
+<dialog class="custom-editor" id="customEditor" aria-labelledby="customEditorTitle">
+  <form class="custom-editor-form" id="customEditorForm" novalidate>
+    <div class="custom-editor-head">
+      <div><h2 id="customEditorTitle">添加补充内容</h2><p>补充内容会独立保存，并计入所选学习日的完成进度。</p></div>
+      <button class="custom-editor-close" type="button" data-close-custom-editor aria-label="关闭编辑器">×</button>
+    </div>
+    <div class="custom-field"><label for="customDay">所属学习日</label><select id="customDay" name="day"></select></div>
+    <div class="custom-field"><label for="customTitle">内容标题</label><input id="customTitle" name="title" type="text" maxlength="80" required placeholder="例如：补充记忆 · 汉代制度"></div>
+    <div class="custom-field"><label for="customText">背诵正文</label><textarea id="customText" name="text" maxlength="5000" required placeholder="输入需要背诵的内容；用【答案】标记需要遮挡的部分"></textarea><small>最多 5000 字。换行会保留；用【答案】包住关键词即可参与遮挡自测。</small></div>
+    <p class="custom-editor-error" id="customEditorError" role="alert" aria-live="polite"></p>
+    <div class="custom-editor-actions"><button class="btn secondary" type="button" data-close-custom-editor>取消</button><button class="btn primary" type="submit">保存内容</button></div>
+  </form>
+</dialog>
 
 <div class="law-lightbox" id="lawLightbox" hidden aria-hidden="true">
   <div class="law-lightbox-backdrop" data-law-close></div>
@@ -465,10 +524,93 @@ const LAW_BATCH_SIZE=3;
 const PX='gk50:';
 const store={get(k,d){try{const v=localStorage.getItem(PX+k);return v===null?d:JSON.parse(v);}catch(e){return d;}},set(k,v){localStorage.setItem(PX+k,JSON.stringify(v));if(window.SyncStore&&window.SyncStore.writeData)window.SyncStore.writeData(PX+k,v);}};
 let checks=store.get('checks',{});
+if(!checks||typeof checks!=='object'||Array.isArray(checks)) checks={};
+const CUSTOM_CONTENT_KEY='custom-content';
+const CUSTOM_TITLE_LIMIT=80;
+const CUSTOM_TEXT_LIMIT=5000;
+let customContent=loadCustomContent();
+let editingCustomId='';
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function fmt(t){return esc(t).replace(/【(.*?)】/g,'<span class="ans">$1</span>');}
 function compact(n){return n.replace(/^[一二三四五六七八九十百]+、/,'');}
 function sec(gid){return MODEL.sections[gid];}
+function normalizeCustomContent(value){
+  const source=value&&Array.isArray(value.items)?value.items:[];
+  const seen=new Set();
+  const items=source.map((item,index)=>{
+    if(!item||typeof item!=='object') return null;
+    const id=typeof item.id==='string'?item.id.trim():'';
+    const day=Number(item.day);
+    const title=typeof item.title==='string'?item.title.trim().slice(0,CUSTOM_TITLE_LIMIT):'';
+    const text=typeof item.text==='string'?item.text.slice(0,CUSTOM_TEXT_LIMIT):'';
+    if(!id||seen.has(id)||!Number.isInteger(day)||day<1||day>50||!title||!text.trim()) return null;
+    seen.add(id);
+    return {id,day,title,text,order:Number.isFinite(+item.order)?+item.order:index,
+      createdAt:typeof item.createdAt==='string'?item.createdAt:'',
+      updatedAt:typeof item.updatedAt==='string'?item.updatedAt:''};
+  }).filter(Boolean);
+  return {version:1,items};
+}
+function loadCustomContent(){return normalizeCustomContent(store.get(CUSTOM_CONTENT_KEY,{version:1,items:[]}));}
+function saveCustomContent(){
+  customContent=normalizeCustomContent(customContent);
+  store.set(CUSTOM_CONTENT_KEY,customContent);
+}
+function escAttr(s){return esc(String(s)).replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function customCompleteKey(id){return 'custom-'+id;}
+function customItemsForDay(day){
+  return customContent.items.filter(item=>item.day===+day)
+    .sort((a,b)=>a.order-b.order||a.createdAt.localeCompare(b.createdAt)||a.id.localeCompare(b.id));
+}
+function customRequiredKeys(day){return customItemsForDay(day).map(item=>customCompleteKey(item.id));}
+function customHTML(day){
+  const items=customItemsForDay(day);
+  if(!items.length) return '';
+  return '<section class="custom-section" aria-label="我的补充内容"><div class="custom-section-head"><div><h3>我的补充 <span class="sec-count">'+items.length+' 条</span></h3><p>你添加的自定义背诵内容与本日打卡联动。</p></div><button type="button" class="btn secondary" data-add-custom="'+day+'">＋ 添加到第 '+day+' 天</button></div><div class="custom-list">'+
+    items.map((item,index)=>'<article class="custom-item" data-custom-id="'+escAttr(item.id)+'"><div class="custom-item-head"><h4>'+esc(item.title)+'</h4><span class="custom-item-state '+(checks[customCompleteKey(item.id)]?'done':'')+'">'+(checks[customCompleteKey(item.id)]?'已掌握':'待完成')+'</span></div><div class="custom-item-text">'+fmt(item.text).replace(/\r?\n/g,'<br>')+'</div><div class="custom-item-actions"><label class="custom-done"><span class="ck"><input type="checkbox" data-key="'+escAttr(customCompleteKey(item.id))+'"></span>本条已掌握</label><button type="button" data-edit-custom="'+escAttr(item.id)+'">编辑</button><button type="button" data-move-custom="up" data-id="'+escAttr(item.id)+'" '+(index===0?'disabled':'')+'>上移</button><button type="button" data-move-custom="down" data-id="'+escAttr(item.id)+'" '+(index===items.length-1?'disabled':'')+'>下移</button><button type="button" data-delete-custom="'+escAttr(item.id)+'">删除</button></div></article>').join('')+
+    '</div></section>';
+}
+function renderCustomEditor(item){
+  const dialog=document.getElementById('customEditor');
+  const form=document.getElementById('customEditorForm');
+  const daySelect=document.getElementById('customDay');
+  editingCustomId=item?item.id:'';
+  document.getElementById('customEditorTitle').textContent=item?'编辑补充内容':'添加补充内容';
+  daySelect.innerHTML=Array.from({length:50},(_,i)=>'<option value="'+(i+1)+'">第 '+(i+1)+' 天</option>').join('');
+  daySelect.value=String(item?item.day:(window.__focusDay||firstIncompleteDay()));
+  form.elements.title.value=item?item.title:'';
+  form.elements.text.value=item?item.text:'';
+  document.getElementById('customEditorError').textContent='';
+  if(!dialog.open) dialog.showModal();
+  requestAnimationFrame(()=>form.elements.title.focus());
+}
+function resetCustomEditor(){
+  editingCustomId='';
+  document.getElementById('customEditorForm').reset();
+  document.getElementById('customEditorError').textContent='';
+  const dialog=document.getElementById('customEditor');
+  if(dialog.open) dialog.close();
+}
+function refreshCustomDays(){
+  const focus=window.__focusDay;
+  renderDays();
+  renderDates(false);
+  document.querySelectorAll('input[data-key]').forEach(inp=>{inp.checked=!!checks[inp.dataset.key];});
+  refreshDays();
+  document.querySelectorAll('.cell').forEach(cell=>cell.classList.toggle('has-custom',customItemsForDay(cell.dataset.day).length>0));
+  if(focus) focusDay(focus,false);
+}
+function renderDays(){
+  const root=document.getElementById('days');
+  const focus=window.__focusDay;
+  root.innerHTML=Array.from({length:50},(_,i)=>dayHTML(i+1)).join('');
+  document.querySelectorAll('.day').forEach(card=>{
+    const active=focus?+card.dataset.day===+focus:false;
+    card.classList.toggle('collapsed',!active);
+    card.classList.toggle('focus',active);
+  });
+  if(focus) renderTodayFocus(+focus);
+}
 const DAY_OF={};
 Object.keys(MODEL.schedule).forEach(d=>(MODEL.schedule[d].learn||[]).forEach(g=>DAY_OF[g]=+d));
 
@@ -503,6 +645,7 @@ function requiredKeys(d){
   (info.learn||[]).forEach(g=>keys.push('l'+g));
   (info.reviews||[]).forEach(r=>r.gids.forEach(g=>keys.push(`r${d}-${g}-${r.off}`)));
   if(info.sweep) info.sweep.gids.forEach(g=>keys.push(`s${d}-${g}`));
+  keys.push(...customRequiredKeys(d));
   return keys;
 }
 
@@ -540,13 +683,16 @@ function dayHTML(d){
   }
   const nn=(info.learn||[]).reduce((a,g)=>a+sec(g).count,0);
   const rn=(info.reviews||[]).reduce((a,r)=>a+r.gids.length,0);
+  const customCount=customItemsForDay(d).length;
   let meta=`<span class="date-badge"></span><span class="focus-badge">今日</span>`;
   if(rev){ meta+=`<span>本轮扫 ${info.sweep.gids.length} 节</span>`+(rn?`<span>到期复习 ${rn} 节</span>`:''); }
   else{ meta+=`<span>新学 ${nn} 条 · ${info.learn.length} 节</span><span>复习 ${rn} 节</span>`; }
+  if(customCount) meta+=`<span>自定义 ${customCount} 条</span>`;
   h+=`<div class="meta">${meta}</div></div>`;
   h+=`<label class="day-check" onclick="event.stopPropagation()"><span class="ck"><input type="checkbox" data-day="${d}"></span>今日打卡</label>`;
   h+='<span class="chev">▼</span></div><div class="day-body">';
   h+=lawHTML(d);
+  h+=customHTML(d);
   if(rev){
     const intro = d===50
       ? '最后一天：先把地理（下）遮住答案扫完，再把前九天卡壳、做过记号的考点全部回炉一遍。合上书能把五大模块的主线顺下来，这 50 天就算落地了。'
@@ -600,7 +746,7 @@ function cellHTML(d){
 
 /* ---- 渲染 ---- */
 document.getElementById('calendar').innerHTML=Array.from({length:50},(_,i)=>cellHTML(i+1)).join('');
-document.getElementById('days').innerHTML=Array.from({length:50},(_,i)=>dayHTML(i+1)).join('');
+renderDays();
 
 /* ---- 打卡逻辑 ---- */
 function syncChecks(){
@@ -615,7 +761,9 @@ function refreshDays(){
     const card=document.getElementById('day'+d);
     card.classList.toggle('done',ok);
     card.querySelector('input[data-day]').checked=ok;
-    document.querySelector(`.cell[data-day="${d}"]`).classList.toggle('done',ok);
+    const cell=document.querySelector(`.cell[data-day="${d}"]`);
+    cell.classList.toggle('done',ok);
+    cell.classList.toggle('has-custom',customItemsForDay(d).length>0);
     if(ok)done++;
   }
   document.getElementById('progText').textContent=`已完成 ${done} / 50 天`;
@@ -630,11 +778,11 @@ function firstIncompleteDay(){
   for(let d=1;d<=50;d++) if(!isDayComplete(d)) return d;
   return 50;
 }
-function summarizeNames(names, empty){
+function summarizeNames(names, empty, unit='节'){
   if(!names.length) return empty;
   const shown=names.slice(0,3);
   const extra=names.length-shown.length;
-  return shown.join('、')+(extra>0?` 等 ${extra} 节`:'');
+  return shown.join('、')+(extra>0?` 等 ${extra} ${unit}`:'');
 }
 function renderTodayFocus(d){
   const info=MODEL.schedule[d]; if(!info) return;
@@ -642,6 +790,8 @@ function renderTodayFocus(d){
   const actual=window.__todayDay===d;
   const completed=isDayComplete(d);
   const learnNames=(info.learn||[]).map(g=>compact(sec(g).name));
+  const customNames=customItemsForDay(d).map(item=>item.title);
+  const lawImages=lawImagesForDay(d);
   const reviewGids=(info.reviews||[]).flatMap(r=>r.gids||[]);
   const reviewNames=reviewGids.map(g=>compact(sec(g).name));
   const learnCount=(info.learn||[]).reduce((a,g)=>a+sec(g).count,0);
@@ -652,12 +802,23 @@ function renderTodayFocus(d){
     : (store.get('start','')?'当前日期不在计划周期内 · 显示第一个未完成日':'未设置开始日期 · 显示第一个未完成日');
   const status=document.getElementById('todayFocusStatus');
   status.textContent=completed?'本日已完成':'待完成'; status.classList.toggle('done',completed);
-  document.getElementById('todayLearnCount').textContent=info.sweep?'模块复习':`${learnNames.length} 节`;
-  document.getElementById('todayLearnText').textContent=info.sweep?(info.sweep.title||'总复习'):summarizeNames(learnNames,'暂无新学');
-  document.getElementById('todayLearnMeta').textContent=info.sweep?`本轮扫 ${info.sweep.gids.length} 节`:`共 ${learnCount} 条考点`;
+  document.getElementById('todayLearnCount').textContent=info.sweep
+    ? (customNames.length?`模块复习 · 补充 ${customNames.length} 条`:'模块复习')
+    : `${learnNames.length} 节${customNames.length?` · 补充 ${customNames.length} 条`:''}`;
+  const baseLearnText=info.sweep?(info.sweep.title||'总复习'):summarizeNames(learnNames,'暂无新学');
+  document.getElementById('todayLearnText').textContent=customNames.length
+    ? `${baseLearnText} · ${summarizeNames(customNames,'','条')}` : baseLearnText;
+  document.getElementById('todayLearnMeta').textContent=info.sweep
+    ? `本轮扫 ${info.sweep.gids.length} 节${customNames.length?' · 自定义内容计入打卡':''}`
+    : `共 ${learnCount} 条考点${customNames.length?' · 自定义内容计入打卡':''}`;
   document.getElementById('todayReviewCount').textContent=`${reviewCount} 节`;
   document.getElementById('todayReviewText').textContent=summarizeNames(reviewNames,info.sweep?info.sweep.scope:'暂无到期复习');
   document.getElementById('todayReviewMeta').textContent=reviewCount?`来自 ${new Set((info.reviews||[]).map(r=>r.rname)).size} 个复习节点`:'先完成当天新学';
+  document.getElementById('todayLawCount').textContent=`${lawImages.length} 张`;
+  document.getElementById('todayLawText').textContent=lawImages.length
+    ? `第 ${lawImages[0]}—${lawImages[lawImages.length-1]} 张`
+    : '本日无新增导图';
+  document.getElementById('todayLawMeta').textContent=lawImages.length?'打开当天卡片查看并放大':'导图任务安排在前 15 天';
 }
 function focusDay(d, shouldScroll=false){
   d=Math.max(1,Math.min(50,+d||1));
@@ -678,7 +839,8 @@ document.addEventListener('change',e=>{
   if(inp.matches('input[data-key]')){
     checks[inp.dataset.key]=inp.checked;
     if(!inp.checked) delete checks[inp.dataset.key];
-    store.set('checks',checks); refreshDays();
+    store.set('checks',checks);
+    if(inp.dataset.key.indexOf('custom-')===0) refreshCustomDays(); else refreshDays();
   }
   if(inp.matches('input[data-day]')){
     const d=inp.dataset.day; const val=inp.checked;
@@ -697,14 +859,63 @@ document.addEventListener('click',e=>{
   inp.dispatchEvent(new Event('change',{bubbles:true}));
 },true);
 
-/* ---- 折叠 / 锚点展开 ---- */
-document.querySelectorAll('.day-head').forEach(h=>{
-  h.addEventListener('click',e=>{ if(!e.target.closest('.day-check')) h.parentElement.classList.toggle('collapsed'); });
+/* ---- 折叠 / 自定义内容 / 锚点展开 ---- */
+document.addEventListener('click',e=>{
+  const head=e.target.closest('.day-head');
+  if(head && !e.target.closest('.day-check')) head.parentElement.classList.toggle('collapsed');
 });
 document.addEventListener('click',e=>{
   const a=e.target.closest('a.chip'); if(a){ const t=document.querySelector(a.getAttribute('href'));
     if(t){ const card=t.closest('.day'); if(card) focusDay(card.dataset.day,false); } }
 });
+document.addEventListener('click',e=>{
+  const add=e.target.closest('[data-add-custom]');
+  if(add){ renderCustomEditor({day:+add.dataset.addCustom,title:'',text:''}); return; }
+  const edit=e.target.closest('[data-edit-custom]');
+  if(edit){ const item=customContent.items.find(entry=>entry.id===edit.dataset.editCustom); if(item) renderCustomEditor(item); return; }
+  const move=e.target.closest('[data-move-custom]');
+  if(move && !move.disabled){
+    const item=customContent.items.find(entry=>entry.id===move.dataset.id); if(!item) return;
+    const siblings=customItemsForDay(item.day); const index=siblings.findIndex(entry=>entry.id===item.id); const target=index+(move.dataset.moveCustom==='up'?-1:1);
+    if(target<0||target>=siblings.length) return;
+    const other=siblings[target]; siblings.splice(index,1); siblings.splice(target,0,item);
+    siblings.forEach((entry,position)=>{entry.order=position; entry.updatedAt=new Date().toISOString();});
+    saveCustomContent(); refreshCustomDays(); focusDay(item.day,false); return;
+  }
+  const remove=e.target.closest('[data-delete-custom]');
+  if(remove){
+    const item=customContent.items.find(entry=>entry.id===remove.dataset.deleteCustom); if(!item) return;
+    if(!confirm('确定删除这条自定义背诵内容吗？')) return;
+    customContent.items=customContent.items.filter(entry=>entry.id!==item.id);
+    delete checks[customCompleteKey(item.id)];
+    saveCustomContent(); store.set('checks',checks); refreshCustomDays(); focusDay(item.day,false); return;
+  }
+});
+document.querySelectorAll('[data-close-custom-editor]').forEach(button=>button.addEventListener('click',resetCustomEditor));
+document.getElementById('customEditor').addEventListener('click',e=>{if(e.target===e.currentTarget) resetCustomEditor();});
+document.getElementById('customEditorForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const form=e.currentTarget; const day=Number(form.elements.day.value); const title=form.elements.title.value.trim(); const text=form.elements.text.value;
+  const error=document.getElementById('customEditorError');
+  if(!Number.isInteger(day)||day<1||day>50){error.textContent='请选择有效的学习日。'; return;}
+  if(!title){error.textContent='请填写内容标题。'; form.elements.title.focus(); return;}
+  if(title.length>CUSTOM_TITLE_LIMIT){error.textContent=`标题不能超过 ${CUSTOM_TITLE_LIMIT} 个字。`; return;}
+  if(!text.trim()){error.textContent='请填写背诵正文。'; form.elements.text.focus(); return;}
+  if(text.length>CUSTOM_TEXT_LIMIT){error.textContent=`正文不能超过 ${CUSTOM_TEXT_LIMIT} 个字。`; return;}
+  const now=new Date().toISOString();
+  if(editingCustomId){
+    const item=customContent.items.find(entry=>entry.id===editingCustomId);
+    if(item){
+      if(item.day!==day) item.order=customItemsForDay(day).length;
+      item.day=day; item.title=title; item.text=text; item.updatedAt=now;
+    }
+  }else{
+    const dayItems=customItemsForDay(day);
+    customContent.items.push({id:`custom-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,day,title,text,order:dayItems.length,createdAt:now,updatedAt:now});
+  }
+  saveCustomContent(); resetCustomEditor(); refreshCustomDays(); focusDay(day,true);
+});
+document.getElementById('addCustomBtn').addEventListener('click',()=>renderCustomEditor({day:window.__focusDay||firstIncompleteDay(),title:'',text:''}));
 /* ---- 法律导图灯箱 ---- */
 const lawLightbox=document.getElementById('lawLightbox');
 const lawLightboxImage=document.getElementById('lawLightboxImage');
@@ -803,7 +1014,7 @@ applyMask();
 /* ---- 日期 ---- */
 const WD=['日','一','二','三','四','五','六'];
 function fmtDate(dt){ return `${dt.getMonth()+1}月${dt.getDate()}日 周${WD[dt.getDay()]}`; }
-function renderDates(){
+function renderDates(resetFocus=true){
   const s=store.get('start',''); let todayDay=0;
   document.querySelectorAll('.day').forEach(card=>{
     const badge=card.querySelector('.date-badge');
@@ -817,7 +1028,7 @@ function renderDates(){
     const d=+c.dataset.day; c.classList.toggle('today',d===todayDay);
   });
   window.__todayDay=todayDay;
-  const focus=todayDay||firstIncompleteDay();
+  const focus=resetFocus?(todayDay||firstIncompleteDay()):(window.__focusDay||todayDay||firstIncompleteDay());
   focusDay(focus,false);
 }
 document.getElementById('startDate').addEventListener('change',e=>{
@@ -845,7 +1056,8 @@ bt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 document.getElementById('printBtn').addEventListener('click',()=>window.print());
 document.getElementById('resetBtn').addEventListener('click',()=>{
   if(confirm('确定清空全部打卡记录吗？（不影响背诵内容）')){
-    Object.keys(localStorage).filter(k=>k.startsWith(PX)).forEach(k=>{ localStorage.removeItem(k); if(window.SyncStore&&window.SyncStore.deleteData) window.SyncStore.deleteData(k); });
+    Object.keys(localStorage).filter(k=>k.startsWith(PX)&&k!==PX+CUSTOM_CONTENT_KEY).forEach(k=>{ localStorage.removeItem(k); if(window.SyncStore&&window.SyncStore.deleteData) window.SyncStore.deleteData(k); });
+    customContent=loadCustomContent(); checks={};
     location.reload();
   }
 });
@@ -855,6 +1067,8 @@ if(window.SyncStore){
   window.SyncStore.mergeLocalWithCloud(result=>{
     if(result&&result.downloaded){
       checks=store.get('checks',{});
+      if(!checks||typeof checks!=='object'||Array.isArray(checks)) checks={};
+      customContent=loadCustomContent();
       const remoteStart=store.get('start','');
       if(remoteStart) document.getElementById('startDate').value=remoteStart;
       applyMask(); renderDates(); syncChecks();
