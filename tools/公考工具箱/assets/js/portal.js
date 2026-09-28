@@ -56,6 +56,7 @@
   var planSelectedDate = '';
   var planEditContext = {};
   var planSyncInterval = null;
+  var planSyncReloadPending = false;
   // Keep transient plan UI state while data mutations rebuild the plan view.
   var planPackOpenState = { week: false, month: false };
   var planLastSavedAt = 0;
@@ -2579,7 +2580,7 @@
   }
 
   function capturePlanRenderState(root) {
-    var state = { quickDraft: null, quickFocusId: '', quickSelection: null };
+    var state = { quickDraft: null, quickFocusId: '', quickSelection: null, itemDrafts: {} };
     if (!root) return state;
     var quick = root.querySelector('.plan-quick-form');
     var title = quick && quick.querySelector('#plan-quick-title');
@@ -2601,6 +2602,19 @@
         };
       }
     }
+    // Plan renders rebuild #plan-app. Preserve every unsaved "行囊" input so
+    // a background sync or another plan update cannot erase text mid-entry.
+    root.querySelectorAll('.plan-item-add input[id], .plan-item-text-input').forEach(function (field) {
+      if (!field.id) return;
+      state.itemDrafts[field.id] = field.value;
+      if (document.activeElement === field) {
+        state.itemFocusId = field.id;
+        state.itemSelection = {
+          start: typeof field.selectionStart === 'number' ? field.selectionStart : null,
+          end: typeof field.selectionEnd === 'number' ? field.selectionEnd : null
+        };
+      }
+    });
     return state;
   }
 
@@ -2621,7 +2635,17 @@
         });
       })(packs[i], kind);
     }
-    if (!state || !state.quickDraft) return;
+    if (state && state.itemDrafts) {
+      for (var itemKey in state.itemDrafts) {
+        if (!state.itemDrafts.hasOwnProperty(itemKey)) continue;
+        var itemField = root.querySelector('#' + itemKey);
+        if (itemField) itemField.value = state.itemDrafts[itemKey];
+      }
+    }
+    if (!state || !state.quickDraft) {
+      if (state && state.itemFocusId) restorePlanFieldFocus(root, state);
+      return;
+    }
     for (var key in state.quickDraft) {
       if (!state.quickDraft.hasOwnProperty(key)) continue;
       var field = root.querySelector('#' + key);
@@ -2641,6 +2665,17 @@
           focused.setSelectionRange(state.quickSelection.start, state.quickSelection.end);
         }
       }
+    }
+    restorePlanFieldFocus(root, state);
+  }
+
+  function restorePlanFieldFocus(root, state) {
+    if (!state || !state.itemFocusId) return;
+    var focused = root.querySelector('#' + state.itemFocusId);
+    if (!focused) return;
+    focused.focus();
+    if (state.itemSelection && state.itemSelection.start !== null && typeof focused.setSelectionRange === 'function') {
+      focused.setSelectionRange(state.itemSelection.start, state.itemSelection.end);
     }
   }
 
@@ -2887,13 +2922,14 @@
       html += '<div class="plan-item-list">';
       for (var i = 0; i < items.length; i++) {
         var item = items[i];
+        var itemInputId = 'plan-item-text-' + scope + (weekKey ? '-' + weekKey : '') + '-' + item.id;
         html += [
           '<div class="plan-item-row' + (item.done ? ' is-done' : '') + '">',
             '<label class="plan-plan-check plan-item-check" title="完成">',
               '<input type="checkbox" ' + (item.done ? 'checked' : '') + ' onchange="planTogglePlanItem(' + jsSingleArg(scope) + ',' + jsSingleArg(weekKey || '') + ',' + jsSingleArg(item.id) + ')">',
               '<span class="plan-plan-checkmark"></span>',
             '</label>',
-            '<input class="plan-item-text-input" value="' + esc(item.text) + '" oninput="planUpdatePlanItem(' + jsSingleArg(scope) + ',' + jsSingleArg(weekKey || '') + ',' + jsSingleArg(item.id) + ',this.value)" onkeydown="if(event.key===&quot;Enter&quot;)this.blur()">',
+            '<input id="' + esc(itemInputId) + '" class="plan-item-text-input" value="' + esc(item.text) + '" oninput="planUpdatePlanItem(' + jsSingleArg(scope) + ',' + jsSingleArg(weekKey || '') + ',' + jsSingleArg(item.id) + ',this.value)" onkeydown="if(event.key===&quot;Enter&quot;)this.blur()">',
             '<button class="plan-task-btn plan-task-btn-danger" onclick="planDeletePlanItem(' + jsSingleArg(scope) + ',' + jsSingleArg(weekKey || '') + ',' + jsSingleArg(item.id) + ')" title="删除小点"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>',
           '</div>'
         ].join('');
@@ -3264,6 +3300,16 @@
       if (!window.SyncStore.mergeLocalWithCloud) return;
       window.SyncStore.mergeLocalWithCloud(function (result) {
         if (!result || !result.downloaded) return;
+        // Do not replace the plan DOM while the user is typing. The render
+        // snapshot preserves drafts for normal updates, but a cloud download
+        // may also replace the underlying plan data; defer it until blur so
+        // the current field remains authoritative during editing.
+        var active = document.activeElement;
+        if (active && els.planView && els.planView.contains(active) &&
+            (active.matches('input, textarea') || active.isContentEditable)) {
+          planSyncReloadPending = true;
+          return;
+        }
         loadFromLocal();
         updateSyncTime();
       });
@@ -3295,6 +3341,16 @@
       key.indexOf('exam-') === 0 || key.indexOf('essay-') === 0 || key.indexOf('wusi-') === 0 ||
       key.indexOf('sl-') === 0 || key === 'ebbinghaus_entries';
   }
+
+  document.addEventListener('focusout', function (event) {
+    if (!planSyncReloadPending) return;
+    if (event.target && els.planView && els.planView.contains(event.target) &&
+        (event.target.matches('input, textarea') || event.target.isContentEditable)) {
+      planSyncReloadPending = false;
+      loadFromLocal();
+      updateSyncTime();
+    }
+  });
 
   function exportLocalData() {
     var data = {};
