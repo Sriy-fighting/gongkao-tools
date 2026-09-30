@@ -198,7 +198,9 @@ html[data-theme="dark"] .cell.has-custom:not(.done)::after{color:#e2ba62}
 .sec-edit-actions button,.item-actions button{min-height:28px; padding:3px 8px; border:1px solid var(--line); border-radius:4px; background:transparent; color:var(--muted); font:inherit; font-size:11px; cursor:pointer}
 .sec-edit-actions button:hover,.item-actions button:hover{border-color:var(--gold); color:var(--ink); background:var(--card)}
 .sec-edit-actions .danger,.item-actions .danger{color:var(--seal)}
-.item-actions{display:flex; gap:5px; flex-wrap:wrap; margin-top:5px}
+.sec-edit-actions,.item-actions{display:none}
+body.content-editing .sec-edit-actions,body.content-editing .item-actions{display:flex}
+.item-actions{gap:5px; flex-wrap:wrap; margin-top:5px}
 .items li .item-main{min-width:0}
 .items li .item-actions{padding-left:0}
 .sec-check{margin-left:auto; font-size:12.5px; color:var(--muted); display:flex; align-items:center; gap:6px; cursor:pointer; white-space:nowrap}
@@ -262,7 +264,10 @@ button,input,select{font-family:inherit}
 .custom-item-state{color:var(--muted); font-size:12px; white-space:nowrap}
 .custom-item-state.done{color:var(--seal); font-weight:700}
 .custom-item-text{color:var(--body); font-size:14px; line-height:1.9; overflow-wrap:anywhere; white-space:normal}
-.custom-item-actions{display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-top:10px; padding-top:9px; border-top:1px solid var(--line2)}
+.custom-item-actions{display:flex; align-items:center; flex-wrap:wrap; gap:6px}
+.custom-item-actions button{display:none}
+body.content-editing .custom-item-actions{margin-top:10px; padding-top:9px; border-top:1px solid var(--line2)}
+body.content-editing .custom-item-actions button{display:inline-block}
 .custom-item-actions button{min-height:34px; padding:5px 10px; border:1px solid var(--line); border-radius:4px; background:var(--card); color:var(--body); font:inherit; font-size:12px; cursor:pointer}
 .custom-item-actions button:hover{border-color:var(--gold); color:var(--ink)}
 .custom-item-actions .custom-done{display:flex; align-items:center; gap:7px; margin-right:auto; color:var(--ink); font-size:12px; cursor:pointer}
@@ -428,6 +433,7 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
       </div>
       <button class="btn primary" id="maskBtn">遮住答案自测</button>
       <button class="btn" id="addCustomBtn" type="button">＋ 添加补充内容</button>
+      <button class="btn" id="doneEditBtn" type="button" hidden>完成编辑</button>
       <input type="date" class="date-input" id="startDate" title="设置第1天日期，自动标注星期与今天">
       <button class="btn" id="todayBtn">回到今天</button>
       <button class="btn ico" id="printBtn" title="打印">打印</button>
@@ -671,7 +677,7 @@ function customRequiredKeys(day){return customItemsForDay(day).map(item=>customC
 function customHTML(day){
   const items=customItemsForDay(day);
   if(!items.length) return '';
-  return '<section class="custom-section" aria-label="我的补充内容"><div class="custom-section-head"><div><h3>我的补充 <span class="sec-count">'+items.length+' 条</span></h3><p>你添加的自定义背诵内容与本日打卡联动。</p></div><button type="button" class="btn secondary" data-add-custom="'+day+'">＋ 添加到第 '+day+' 天</button></div><div class="custom-list">'+
+  return '<section class="custom-section" aria-label="我的补充内容"><div class="custom-section-head"><div><h3>我的补充 <span class="sec-count">'+items.length+' 条</span></h3><p>你添加的自定义背诵内容与本日打卡联动。</p></div></div><div class="custom-list">'+
     items.map((item,index)=>'<article class="custom-item" data-custom-id="'+escAttr(item.id)+'"><div class="custom-item-head"><h4>'+esc(item.title)+'</h4><span class="custom-item-state '+(checks[customCompleteKey(item.id)]?'done':'')+'">'+(checks[customCompleteKey(item.id)]?'已掌握':'待完成')+'</span></div><div class="custom-item-text">'+fmt(item.text).replace(/\r?\n/g,'<br>')+'</div><div class="custom-item-actions"><label class="custom-done"><span class="ck"><input type="checkbox" data-key="'+escAttr(customCompleteKey(item.id))+'"></span>本条已掌握</label><button type="button" data-edit-custom="'+escAttr(item.id)+'">编辑</button><button type="button" data-move-custom="up" data-id="'+escAttr(item.id)+'" '+(index===0?'disabled':'')+'>上移</button><button type="button" data-move-custom="down" data-id="'+escAttr(item.id)+'" '+(index===items.length-1?'disabled':'')+'>下移</button><button type="button" data-delete-custom="'+escAttr(item.id)+'">删除</button></div></article>').join('')+
     '</div></section>';
 }
@@ -754,7 +760,7 @@ function secHTML(gid){
   h+=`<section class="sec" id="sec${gid}"><div class="sec-head">`;
   h+=`<span class="ptag ${PCLS[s.pi]}">${PSHORT[s.pi]}</span><h3>${esc(s.name)}</h3>`;
   h+=`<span class="sec-count">${s.count} 条</span>`;
-  h+='<div class="sec-edit-actions"><button type="button" data-add-content="'+gid+'">＋ 添加考点</button>';
+  h+='<div class="sec-edit-actions">';
   if(contentEdits.sections[String(gid)]) h+='<button type="button" class="danger" data-restore-content="'+gid+'">恢复原始</button>';
   h+='</div>';
   h+=`<label class="sec-check"><span class="ck"><input type="checkbox" data-key="l${gid}"></span>自测过关</label></div>`;
@@ -1015,8 +1021,6 @@ document.addEventListener('click',e=>{
     if(t){ const card=t.closest('.day'); if(card) focusDay(card.dataset.day,false); } }
 });
 document.addEventListener('click',e=>{
-  const addPoint=e.target.closest('[data-add-content]');
-  if(addPoint){ renderContentEditor(+addPoint.dataset.addContent,null); return; }
   const editPoint=e.target.closest('[data-edit-content]');
   if(editPoint){
     const gid=+editPoint.dataset.editContent;
@@ -1045,8 +1049,6 @@ document.addEventListener('click',e=>{
     saveContentEdits(); invalidateSectionChecks(gid); refreshContentDays(); focusDay(window.__focusDay||firstIncompleteDay(),false);
     return;
   }
-  const add=e.target.closest('[data-add-custom]');
-  if(add){ renderCustomEditor({day:+add.dataset.addCustom,title:'',text:''}); return; }
   const edit=e.target.closest('[data-edit-custom]');
   if(edit){ const item=customContent.items.find(entry=>entry.id===edit.dataset.editCustom); if(item) renderCustomEditor(item); return; }
   const move=e.target.closest('[data-move-custom]');
@@ -1122,7 +1124,15 @@ document.getElementById('maskSelectionBtn').addEventListener('click',()=>{
   document.getElementById('customEditorError').textContent='';
   textarea.focus();
 });
-document.getElementById('addCustomBtn').addEventListener('click',()=>renderCustomEditor({day:window.__focusDay||firstIncompleteDay(),title:'',text:''}));
+document.getElementById('addCustomBtn').addEventListener('click',()=>{
+  document.body.classList.add('content-editing');
+  document.getElementById('doneEditBtn').hidden=false;
+  renderCustomEditor({day:window.__focusDay||firstIncompleteDay(),title:'',text:''});
+});
+document.getElementById('doneEditBtn').addEventListener('click',()=>{
+  document.body.classList.remove('content-editing');
+  document.getElementById('doneEditBtn').hidden=true;
+});
 /* ---- 法律导图灯箱 ---- */
 const lawLightbox=document.getElementById('lawLightbox');
 const lawLightboxImage=document.getElementById('lawLightboxImage');
