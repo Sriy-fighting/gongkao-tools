@@ -432,8 +432,8 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
         <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
       </div>
       <button class="btn primary" id="maskBtn">遮住答案自测</button>
-      <button class="btn" id="addCustomBtn" type="button">＋ 添加补充内容</button>
-      <button class="btn" id="doneEditBtn" type="button" hidden>完成编辑</button>
+      <button class="btn" id="editBtn" type="button">编辑</button>
+      <button class="btn" id="addCustomBtn" type="button" hidden>＋ 添加补充内容</button>
       <input type="date" class="date-input" id="startDate" title="设置第1天日期，自动标注星期与今天">
       <button class="btn" id="todayBtn">回到今天</button>
       <button class="btn ico" id="printBtn" title="打印">打印</button>
@@ -1124,14 +1124,18 @@ document.getElementById('maskSelectionBtn').addEventListener('click',()=>{
   document.getElementById('customEditorError').textContent='';
   textarea.focus();
 });
-document.getElementById('addCustomBtn').addEventListener('click',()=>{
-  document.body.classList.add('content-editing');
-  document.getElementById('doneEditBtn').hidden=false;
-  renderCustomEditor({day:window.__focusDay||firstIncompleteDay(),title:'',text:''});
+function setContentEditing(enabled){
+  document.body.classList.toggle('content-editing',enabled);
+  const editBtn=document.getElementById('editBtn');
+  const addCustomBtn=document.getElementById('addCustomBtn');
+  editBtn.textContent=enabled?'完成编辑':'编辑';
+  addCustomBtn.hidden=!enabled;
+}
+document.getElementById('editBtn').addEventListener('click',()=>{
+  setContentEditing(!document.body.classList.contains('content-editing'));
 });
-document.getElementById('doneEditBtn').addEventListener('click',()=>{
-  document.body.classList.remove('content-editing');
-  document.getElementById('doneEditBtn').hidden=true;
+document.getElementById('addCustomBtn').addEventListener('click',()=>{
+  renderCustomEditor({day:window.__focusDay||firstIncompleteDay(),title:'',text:''});
 });
 /* ---- 法律导图灯箱 ---- */
 const lawLightbox=document.getElementById('lawLightbox');
