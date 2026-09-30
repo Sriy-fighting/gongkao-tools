@@ -784,7 +784,7 @@ function reviewPanelHTML(info,d,isSweep=false){
   h+='<div class="review-panel-head"><div><span class="review-panel-kicker">'+(isSweep?'同时到期':'执行顺序')+'</span><h4>'+(isSweep?'额外到期复习':'今日到期复习')+'</h4></div>';
   h+='<div class="review-panel-total">'+total+'<small>节</small></div></div>';
   if(!reviews.length){
-    h+='<p class="review-empty">今天没有到期复习。先完成当天新学，睡前再用 5 分钟快速回想一遍。</p></aside>';
+    h+='<p class="review-empty">'+(isSweep?'今天没有额外到期复习。完成左侧模块扫读即可。':'今天没有到期复习。先完成当天新学，睡前再用 5 分钟快速回想一遍。')+'</p></aside>';
     return h;
   }
   h+='<p class="review-order">'+(isSweep?'这些内容不属于左侧总复习模块，单独完成即可。':'按下面顺序先复习，再开始今天的新学。每节先遮住答案自测，卡壳的做记号。')+'</p>';
