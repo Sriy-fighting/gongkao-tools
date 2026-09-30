@@ -292,12 +292,21 @@ html[data-theme="dark"] .custom-item-actions button,html[data-theme="dark"] .cus
 html[data-theme="dark"] .custom-field input,html[data-theme="dark"] .custom-field select,html[data-theme="dark"] .custom-field textarea{background:rgba(12,34,41,.72); border-color:var(--line); color:var(--ink)}
 html[data-theme="dark"] .sec-edit-actions button,html[data-theme="dark"] .item-actions button,html[data-theme="dark"] .editor-text-tools button{color:var(--body)}
 
-/* 复习侧栏 */
-.review-panel{border-left:1px solid var(--line2); padding-left:20px}
-.day.rev .review-panel{border-left:0; padding-left:0}
-.rv-group{margin-bottom:15px}
-.rv-group h5{font-family:var(--serif); font-size:13.5px; color:var(--ink); margin-bottom:7px; display:flex; gap:7px; align-items:baseline}
-.rv-group h5 em{font-style:normal; font-family:var(--sans); font-size:11px; color:var(--muted); font-weight:400}
+/* 复习清单：把“复习轮次”翻译成用户能直接执行的任务 */
+.review-panel{border-left:1px solid var(--line2); padding-left:20px; min-width:0}
+.day.rev .review-panel{border-left:1px solid var(--line2); padding-left:20px}
+.review-panel-head{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:5px}
+.review-panel-kicker{display:block; color:var(--seal); font-size:10px; letter-spacing:.14em; font-weight:700; margin-bottom:2px}
+.review-panel-head h4{font-family:var(--serif); color:var(--ink); font-size:18px; line-height:1.35}
+.review-panel-total{flex:none; color:var(--seal); font-family:var(--serif); font-size:23px; font-weight:900; line-height:1.1; text-align:right}
+.review-panel-total small{display:block; color:var(--muted); font-family:var(--sans); font-size:10px; font-weight:400; margin-top:2px}
+.review-order{font-size:11.5px; color:var(--muted); line-height:1.55; margin:0 0 13px}
+.review-empty{font-size:12px; color:var(--muted); padding:11px 12px; border:1px dashed var(--line2); background:rgba(253,250,241,.55); line-height:1.6}
+.rv-group{margin:0 0 14px; padding-top:11px; border-top:1px solid var(--line2)}
+.rv-group-head{display:flex; align-items:flex-start; gap:8px; margin-bottom:7px}
+.rv-index{flex:none; color:var(--seal); border:1px solid rgba(177,75,58,.32); border-radius:2px; padding:2px 5px; font-size:10px; line-height:1.2; white-space:nowrap}
+.rv-group h5{font-family:var(--serif); font-size:13.5px; color:var(--ink); line-height:1.35; margin:0}
+.rv-group h5 em{display:block; font-style:normal; font-family:var(--sans); font-size:11px; color:var(--muted); font-weight:400; margin-top:2px}
 .chip{display:flex; align-items:center; gap:7px; text-decoration:none; color:var(--body);
   border:1px solid var(--line2); background:#fdfaf1; border-radius:3px; padding:6px 9px; margin-bottom:6px;
   font-size:12.5px; line-height:1.4; cursor:pointer}
@@ -305,7 +314,7 @@ html[data-theme="dark"] .sec-edit-actions button,html[data-theme="dark"] .item-a
 .chip .cdot{flex:none; width:7px; height:7px; border-radius:50%}
 .chip .ctxt{flex:1; min-width:0}
 .chip .ctxt b{font-weight:600; color:var(--ink)}
-.chip .ctxt span{color:var(--muted); font-size:11px; margin-left:4px}
+.chip .ctxt span{display:block; color:var(--muted); font-size:11px; margin-top:1px}
 .chip .ck{flex:none}
 .rv-tip{font-size:12px; color:#9a8d74; background:#f6f0e0; border:1px dashed #d6c79f; border-radius:3px;
   padding:9px 11px; margin-bottom:14px; line-height:1.6}
@@ -333,7 +342,7 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
   .steps{grid-template-columns:repeat(2,1fr)}
   .curve-card{grid-template-columns:1fr}
   .day-grid{grid-template-columns:1fr}
-  .review-panel{border-left:0; padding-left:0; border-top:1px solid var(--line2); padding-top:16px}
+  .review-panel,.day.rev .review-panel{border-left:0; padding-left:0; border-top:1px solid var(--line2); padding-top:16px}
   .sweep-list{grid-template-columns:1fr}
   .law-map-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .today-focus-grid{grid-template-columns:1fr}
@@ -439,9 +448,9 @@ footer{text-align:center; color:#a3967c; font-size:12px; margin-top:30px; line-h
       </div>
     </div>
     <div class="today-focus-grid">
-      <div class="today-task"><div class="today-task-label"><span>今日新学</span><b id="todayLearnCount">0 节</b></div><div class="today-task-value" id="todayLearnText">暂无</div><div class="today-task-meta" id="todayLearnMeta">完成当天安排的小节</div></div>
-      <div class="today-task"><div class="today-task-label"><span>到期复习</span><b id="todayReviewCount">0 节</b></div><div class="today-task-value" id="todayReviewText">暂无</div><div class="today-task-meta" id="todayReviewMeta">先复习，再学新</div></div>
-      <div class="today-task"><div class="today-task-label"><span>法律导图</span><b id="todayLawCount">0 张</b></div><div class="today-task-value" id="todayLawText">暂无</div><div class="today-task-meta" id="todayLawMeta">点击当天卡片查看</div></div>
+      <div class="today-task"><div class="today-task-label"><span id="todayReviewLabel">先复习</span><b id="todayReviewCount">0 节</b></div><div class="today-task-value" id="todayReviewText">暂无</div><div class="today-task-meta" id="todayReviewMeta">先完成到期复习</div></div>
+      <div class="today-task"><div class="today-task-label"><span id="todayLearnLabel">再学新</span><b id="todayLearnCount">0 节</b></div><div class="today-task-value" id="todayLearnText">暂无</div><div class="today-task-meta" id="todayLearnMeta">完成当天安排的小节</div></div>
+      <div class="today-task"><div class="today-task-label"><span id="todayLawLabel">法律导图</span><b id="todayLawCount">0 张</b></div><div class="today-task-value" id="todayLawText">暂无</div><div class="today-task-meta" id="todayLawMeta">点击当天卡片查看</div></div>
     </div>
   </section>
 
@@ -762,11 +771,30 @@ function secHTML(gid){
   h+='</section>';
   return h;
 }
-function chipHTML(gid,key,day){
+function chipHTML(gid,key,day,showSource=true){
   const s=sec(gid);
   return `<a class="chip" href="#sec${gid}"><span class="cdot" style="background:${PCOLOR[s.pi]}"></span>`
-    +`<span class="ctxt"><b>${esc(compact(s.name))}</b><span>${PSHORT[s.pi]} · 第${day}天学</span></span>`
+    +`<span class="ctxt"><b>${esc(compact(s.name))}</b><span>${PSHORT[s.pi]}${showSource?` · 第${day}天学`:''}</span></span>`
     +`<span class="ck"><input type="checkbox" data-key="${key}"></span></a>`;
+}
+function reviewPanelHTML(info,d,isSweep=false){
+  const reviews=info.reviews||[];
+  const total=reviews.reduce((sum,r)=>sum+(r.gids||[]).length,0);
+  let h='<aside class="review-panel">';
+  h+='<div class="review-panel-head"><div><span class="review-panel-kicker">'+(isSweep?'同时到期':'执行顺序')+'</span><h4>'+(isSweep?'额外到期复习':'今日到期复习')+'</h4></div>';
+  h+='<div class="review-panel-total">'+total+'<small>节</small></div></div>';
+  if(!reviews.length){
+    h+='<p class="review-empty">今天没有到期复习。先完成当天新学，睡前再用 5 分钟快速回想一遍。</p></aside>';
+    return h;
+  }
+  h+='<p class="review-order">'+(isSweep?'这些内容不属于左侧总复习模块，单独完成即可。':'按下面顺序先复习，再开始今天的新学。每节先遮住答案自测，卡壳的做记号。')+'</p>';
+  reviews.forEach(r=>{
+    const count=(r.gids||[]).length;
+    h+='<div class="rv-group"><div class="rv-group-head"><span class="rv-index">学后 '+r.off+' 天</span><h5>复习第 '+r.src+' 天的内容<em>'+count+' 节 · 到期复习</em></h5></div>';
+    (r.gids||[]).forEach(g=>{ h+=chipHTML(g,`r${d}-${g}-${r.off}`,r.src,false); });
+    h+='</div>';
+  });
+  return h+'</aside>';
 }
 function requiredKeys(d){
   const info=MODEL.schedule[d]; const keys=[];
@@ -829,31 +857,12 @@ function dayHTML(d){
     h+='<div class="day-grid"><div><div class="sweep-list">';
     info.sweep.gids.forEach(g=>{ h+=chipHTML(g,`s${d}-${g}`,DAY_OF[g]); });
     h+='</div></div>';
-    if(info.reviews && info.reviews.length){
-      h+='<aside class="review-panel"><div class="rv-tip">以下小节今天恰好到达艾宾浩斯复习节点，自测一遍再走。</div>';
-      info.reviews.forEach(r=>{
-        h+=`<div class="rv-group"><h5>${r.rname}<em>${r.rdesc} · 第${r.src}天学</em></h5>`;
-        r.gids.forEach(g=>{ h+=chipHTML(g,`r${d}-${g}-${r.off}`,r.src); });
-        h+='</div>';
-      });
-      h+='</aside>';
-    } else h+='';
+    h+=reviewPanelHTML(info,d,true);
     h+='</div>';
   }else{
     h+='<div class="day-grid"><div>';
     info.learn.forEach(g=>{ h+=secHTML(g); });
-    h+='</div><aside class="review-panel">';
-    if(!info.reviews.length){
-      h+='<div class="rv-tip">第一天没有复习任务。学完后，睡前花 5 分钟把今天的内容再扫一遍。</div>';
-    }else{
-      h+='<div class="rv-tip">先复习、后学新：点开小节遮住答案回想，想不起来的做记号。</div>';
-      info.reviews.forEach(r=>{
-        h+=`<div class="rv-group"><h5>${r.rname}<em>${r.rdesc} · 第${r.src}天学</em></h5>`;
-        r.gids.forEach(g=>{ h+=chipHTML(g,`r${d}-${g}-${r.off}`,r.src); });
-        h+='</div>';
-      });
-    }
-    h+='</aside></div>';
+    h+='</div>'+reviewPanelHTML(info,d,false)+'</div>';
   }
   h+='</div></article>';
   return h;
@@ -923,26 +932,34 @@ function renderTodayFocus(d){
   const lawImages=lawImagesForDay(d);
   const reviewGids=(info.reviews||[]).flatMap(r=>r.gids||[]);
   const reviewNames=reviewGids.map(g=>compact(sec(g).name));
+  const reviewSources=[...new Set((info.reviews||[]).map(r=>r.src))];
+  const reviewRounds=[...new Set((info.reviews||[]).map(r=>r.off))];
   const learnCount=(info.learn||[]).reduce((a,g)=>a+sec(g).count,0);
   const reviewCount=reviewGids.length;
-  document.getElementById('todayFocusTitle').textContent=`第 ${d} 天 · ${info.sweep?'总复习':'新学'}`;
+  document.getElementById('todayFocusTitle').textContent=`第 ${d} 天 · 今日安排`;
   document.getElementById('todayFocusDate').textContent=actual
     ? `${card?.querySelector('.date-badge')?.textContent||''} · 今天的计划`
     : (store.get('start','')?'当前日期不在计划周期内 · 显示第一个未完成日':'未设置开始日期 · 显示第一个未完成日');
   const status=document.getElementById('todayFocusStatus');
   status.textContent=completed?'本日已完成':'待完成'; status.classList.toggle('done',completed);
+  document.getElementById('todayReviewLabel').textContent=info.sweep?'额外复习':'先复习';
+  document.getElementById('todayLearnLabel').textContent=info.sweep?'今日扫读':'再学新';
   document.getElementById('todayLearnCount').textContent=info.sweep
-    ? (customNames.length?`模块复习 · 补充 ${customNames.length} 条`:'模块复习')
+    ? `${info.sweep.gids.length} 节${customNames.length?` · 补充 ${customNames.length} 条`:''}`
     : `${learnNames.length} 节${customNames.length?` · 补充 ${customNames.length} 条`:''}`;
-  const baseLearnText=info.sweep?(info.sweep.title||'总复习'):summarizeNames(learnNames,'暂无新学');
+  const baseLearnText=info.sweep?((info.sweep.title||'总复习').replace(/^总复习·?/,'')||'总复习'):summarizeNames(learnNames,'暂无新学');
   document.getElementById('todayLearnText').textContent=customNames.length
     ? `${baseLearnText} · ${summarizeNames(customNames,'','条')}` : baseLearnText;
   document.getElementById('todayLearnMeta').textContent=info.sweep
-    ? `本轮扫 ${info.sweep.gids.length} 节${customNames.length?' · 自定义内容计入打卡':''}`
+    ? `按模块快速扫读${customNames.length?' · 自定义内容计入打卡':''}`
     : `共 ${learnCount} 条考点${customNames.length?' · 自定义内容计入打卡':''}`;
   document.getElementById('todayReviewCount').textContent=`${reviewCount} 节`;
-  document.getElementById('todayReviewText').textContent=summarizeNames(reviewNames,info.sweep?info.sweep.scope:'暂无到期复习');
-  document.getElementById('todayReviewMeta').textContent=reviewCount?`来自 ${new Set((info.reviews||[]).map(r=>r.rname)).size} 个复习节点`:'先完成当天新学';
+  document.getElementById('todayReviewText').textContent=reviewCount
+    ? (info.sweep?'另有到期复习：'+summarizeNames(reviewNames,''):`来自第 ${reviewSources.join('、')} 天 · ${summarizeNames(reviewNames,'')}`)
+    : (info.sweep?'没有额外到期复习':'今天没有到期复习');
+  document.getElementById('todayReviewMeta').textContent=reviewCount
+    ? `学后 ${reviewRounds.join('、')} 天节点 · 先完成再学新`
+    : (info.sweep?'只做左侧模块扫读':'先完成当天新学');
   document.getElementById('todayLawCount').textContent=`${lawImages.length} 张`;
   document.getElementById('todayLawText').textContent=lawImages.length
     ? `第 ${lawImages[0]}—${lawImages[lawImages.length-1]} 张`
