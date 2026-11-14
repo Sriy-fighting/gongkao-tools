@@ -9,7 +9,7 @@
     curve:     { name: '复习安排', path: '../遗忘曲线/index.html?v=20260923-module-cleanup' },
     wusi:      { name: '五四讲话背诵', path: '../五四讲话背诵/index.html?v=20260923-module-cleanup' },
     review:    { name: '政治常识复盘', path: null },
-    knowledge50: { name: '常识50天', path: '../公考常识50天/index.html?v=20260924-custom-cloze' }
+    knowledge50: { name: '常识30天', path: '../公考常识50天/index.html?v=20261115-30-day-plan' }
   };
 
   // Leave the initial view unset so the first explicit route also initializes
@@ -33,14 +33,15 @@
     curve: '复习安排',
     wusi: '五四讲话背诵',
     review: '政治常识复盘',
-    knowledge50: '常识50天'
+    knowledge50: '常识30天'
   };
   var RENAMED_TOOL_NAMES = {
     dashboard: '行旅台',
     plan: '行程计划',
     speed: '数理驿道',
     curve: '复习灯台',
-    review: '复盘台'
+    review: '复盘台',
+    knowledge50: '常识50天'
   };
   var toolNames = {};
   var PLAN_STORAGE_KEY = 'gk-study-plan-v2';
