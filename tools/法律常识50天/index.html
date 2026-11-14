@@ -19,7 +19,7 @@
 <div class="toolbar"><div class="progress"><div class="progress-top"><span id="progressText">已完成 0 / 50 天</span><span id="progressPct">0%</span></div><div class="bar"><div class="fill" id="progressFill"></div></div></div><input class="date" type="date" id="startDate" title="设置第1天日期"><button class="btn" id="todayBtn">回到今天</button><button class="btn" id="resetBtn">重置</button></div>
 <section class="panel"><h2>五十天总览</h2><p>点击日期直接进入当天。图片可点击放大，适合手机逐图复习。</p><div class="calendar" id="calendar"></div></section>
 <section id="days"></section><div class="footer">长安题途 · 法律常识图片复习</div></main>
-<script src="../公考工具箱/assets/js/sync.js?v=20260922-storage-fix"></script>
+<script src="../公考工具箱/assets/js/sync.js?v=20261115-remove-modules"></script>
 <script>
 const TOTAL=50,IMG_COUNT=43,KEY='law50:';const store={get(k,d){try{const v=localStorage.getItem(KEY+k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){localStorage.setItem(KEY+k,JSON.stringify(v));if(window.SyncStore&&window.SyncStore.writeData)window.SyncStore.writeData(KEY+k,v)}};let checks=store.get('checks',{});
 function dayType(d){return d<=IMG_COUNT?'学习':'复习'}function title(d){if(d<=IMG_COUNT)return '法律常识导图 · 第 '+d+' 张';return ['法律基础与宪法','民法与刑法','行政法与程序法','经济法与社会法','诉讼与救济','高频易错回看','全套导图收尾'][d-44]||'总复习'}

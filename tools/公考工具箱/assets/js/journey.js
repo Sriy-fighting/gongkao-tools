@@ -1,4 +1,4 @@
-/* Unified focus + journey + AI plan experience. No credentials are stored here. */
+/* Independent focus timer and journey records. No credentials are stored here. */
 (function () {
   'use strict';
 
@@ -11,7 +11,6 @@
     { name: '金榜台', minutes: 3000, story: '登台之前，每一步都算数。' }
   ];
   var state = freshState();
-  var taskOptions = [];
   var tickId = null;
 
   function freshState() {
@@ -88,32 +87,6 @@
     state.streak = count;
   }
 
-  function renderTasks() {
-    var select = document.getElementById('journey-task');
-    if (!select) return;
-    taskOptions = window.PortalPlan ? window.PortalPlan.getTodayTasks() : [];
-    var previous = select.value;
-    select.textContent = '';
-    var none = document.createElement('option'); none.value = ''; none.textContent = '不关联任务，自由专注'; select.appendChild(none);
-    var overdue = taskOptions.filter(function (task) { return task.overdue; });
-    var today = taskOptions.filter(function (task) { return !task.overdue; });
-    function appendGroup(label, tasks) {
-      if (!tasks.length) return;
-      var group = document.createElement('optgroup');
-      group.label = label;
-      tasks.forEach(function (task) {
-        var option = document.createElement('option');
-        option.value = String(task.ref && task.ref.taskId || '');
-        option.textContent = (task.done ? '✓ ' : '') + task.text + (task.subject ? ' · ' + task.subject : '') + (task.overdue && task.date ? ' · 原计划 ' + task.date.slice(5).replace('-', '/') : '');
-        group.appendChild(option);
-      });
-      select.appendChild(group);
-    }
-    appendGroup('逾期未完成', overdue);
-    appendGroup('今天', today);
-    if (previous && select.querySelector('option[value="' + previous + '"]')) select.value = previous;
-  }
-
   function renderMap() {
     var container = document.getElementById('journey-stops');
     if (!container) return;
@@ -176,23 +149,13 @@
 
   function startOrPause() {
     if (!state.active) {
-      state.active = { id: id(), startedAt: Date.now(), elapsedBeforeMs: 0, running: true, targetMinutes: selectedMinutes(), taskRef: selectedTaskRef(), createdAt: new Date().toISOString() };
+      state.active = { id: id(), startedAt: Date.now(), elapsedBeforeMs: 0, running: true, targetMinutes: selectedMinutes(), createdAt: new Date().toISOString() };
     } else if (state.active.running) {
       state.active.elapsedBeforeMs = elapsed(state.active); state.active.running = false; state.active.startedAt = 0;
     } else if (elapsed(state.active) < state.active.targetMinutes * 60000) {
       state.active.running = true; state.active.startedAt = Date.now();
     }
     save(); refreshTick(); render();
-  }
-
-  function selectedTaskRef() {
-    var select = document.getElementById('journey-task');
-    var taskId = select && select.value !== '' ? select.value : '';
-    if (!taskId) return null;
-    for (var i = 0; i < taskOptions.length; i++) {
-      if (taskOptions[i].ref && String(taskOptions[i].ref.taskId || '') === taskId) return taskOptions[i].ref;
-    }
-    return null;
   }
 
   function enterImmersive() {
@@ -217,7 +180,6 @@
 
   function openCompletion() {
     if (!state.active) return;
-    var active = state.active;
     if (state.active.running) { state.active.elapsedBeforeMs = elapsed(state.active); state.active.running = false; state.active.startedAt = 0; save(); refreshTick(); }
     // The modal is shown over the dashboard, so render the paused state before
     // opening it instead of leaving the underlying controls saying "进行中".
@@ -225,11 +187,6 @@
     var minutes = Math.floor(elapsed(state.active) / 60000);
     var summary = document.getElementById('journey-complete-summary');
     if (summary) summary.textContent = '本次共专注 ' + minutes + ' 分钟。' + (minutes >= 5 ? '一枚行程印记将在保存后入册。' : '满 5 分钟可获得行程印记。');
-    var moveWrap = document.getElementById('journey-move-today-wrap');
-    var moveCheck = document.getElementById('journey-move-today');
-    var linked = active.taskRef && taskOptions.find(function (task) { return task.ref && String(task.ref.taskId) === String(active.taskRef.taskId); });
-    if (moveWrap) moveWrap.hidden = !(linked && linked.overdue);
-    if (moveCheck) moveCheck.checked = false;
     var modal = document.getElementById('journey-complete-modal'); if (modal) modal.classList.add('open');
   }
 
@@ -240,35 +197,19 @@
     if (!active || state.settledIds.indexOf(active.id) !== -1) { closeCompletion(); return; }
     var minutes = Math.floor(elapsed(active) / 60000);
     var note = document.getElementById('journey-reflection');
-    var mark = document.getElementById('journey-mark-done');
-    var move = document.getElementById('journey-move-today');
     var reflection = note ? note.value.trim().slice(0, 300) : '';
-    if (active.taskRef && window.PortalPlan) window.PortalPlan.addFocus(active.taskRef, minutes, !!(mark && mark.checked), !!(move && !move.closest('[hidden]') && move.checked));
-    state.sessions.unshift({ id: active.id, date: today(), startedAt: active.createdAt, minutes: minutes, targetMinutes: active.targetMinutes, taskRef: active.taskRef || null, reflection: reflection });
+    state.sessions.unshift({ id: active.id, date: today(), startedAt: active.createdAt, minutes: minutes, targetMinutes: active.targetMinutes, reflection: reflection });
     state.sessions = state.sessions.slice(0, 300);
     state.settledIds.push(active.id); state.settledIds = state.settledIds.slice(-500);
     state.totalMinutes += minutes;
     if (minutes >= 5) state.stamps++;
     state.active = null; updateUnlocked(); calculateStreak(); save();
-    if (note) note.value = ''; if (mark) mark.checked = false;
-    if (move) move.checked = false;
-    closeCompletion(); exitImmersive(); renderTasks(); render();
-  }
-
-  function startForTask(taskId) {
-    if (state.active) return;
-    renderTasks();
-    var select = document.getElementById('journey-task');
-    if (!select) return;
-    var value = String(taskId || '');
-    if (!value || !Array.prototype.some.call(select.options, function (option) { return option.value === value; })) return;
-    select.value = value;
-    startOrPause();
-    if (state.active && state.active.running) enterImmersive();
+    if (note) note.value = '';
+    closeCompletion(); exitImmersive(); render();
   }
 
   function init() {
-    load(); renderTasks(); render(); refreshTick();
+    load(); render(); refreshTick();
     document.getElementById('journey-start').addEventListener('click', function () { startOrPause(); if (state.active && state.active.running) enterImmersive(); });
     document.getElementById('journey-finish').addEventListener('click', openCompletion);
     document.querySelectorAll('.journey-duration button').forEach(function (button) { button.addEventListener('click', function () { if (state.active) return; document.getElementById('journey-custom-minutes').value = button.dataset.minutes; render(); }); });
@@ -279,6 +220,6 @@
     window.addEventListener('beforeunload', save);
   }
 
-  window.Journey = { closeCompletion: closeCompletion, confirmCompletion: confirmCompletion, enterImmersive: enterImmersive, exitImmersive: exitImmersive, startForTask: startForTask, refresh: function () { renderTasks(); render(); } };
+  window.Journey = { closeCompletion: closeCompletion, confirmCompletion: confirmCompletion, enterImmersive: enterImmersive, exitImmersive: exitImmersive, refresh: function () { load(); render(); refreshTick(); } };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

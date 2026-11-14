@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>长安题途 · 公考备考助手</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23175cd3'/%3E%3Cpath d='M21 44V20h12c6 0 10 3 10 8 0 4-2 6-5 7l7 9H34l-6-8h-1v8H21zm6-13h5c3 0 5-1 5-4s-2-4-5-4h-5v8z' fill='white'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/recitation.css?v=20260923-wusi-five-day-align">
-<link rel="stylesheet" href="assets/css/review.css?v=20260831-ui-final1">
-<link rel="stylesheet" href="assets/css/portal.css?v=20260923-wusi-five-day-align">
+<link rel="stylesheet" href="assets/css/portal.css?v=20261115-remove-modules">
 </head>
 <body>
 <div class="loading-overlay" id="loading-overlay" role="status" aria-live="polite" aria-label="正在加载长安题途">
@@ -37,8 +35,8 @@
       <i class="loading-spark loading-spark-a"></i><i class="loading-spark loading-spark-b"></i><i class="loading-spark loading-spark-c"></i>
     </div>
     <p class="loading-kicker">长安题途 · 备考控制台</p>
-    <h1>正在整理你的学习计划</h1>
-    <p class="loading-status" id="loading-status">整理学习计划 <span aria-hidden="true">·</span> 准备出发</p>
+    <h1>正在准备学习工具</h1>
+    <p class="loading-status" id="loading-status">准备学习工具 <span aria-hidden="true">·</span> 准备出发</p>
     <div class="loading-progress" aria-hidden="true"><span id="loading-progress-bar"></span></div>
     <button class="loading-skip" id="loading-skip" type="button">进入网站</button>
   </div>
@@ -63,18 +61,7 @@
       <button class="nav-item" data-view="speed">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>速算练习
       </button>
-      <button class="nav-item" data-view="curve">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/><line x1="12" y1="18" x2="16" y2="18"/></svg>复习安排
-      </button>
-      <button class="nav-item" data-view="wusi">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>讲话背诵
-      </button>
-      <button class="nav-item" data-view="review">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17"/><path d="M9 6h7M9 10h7M9 14h5"/></svg>政治常识复盘
-      </button>
-      <button class="nav-item" data-view="plan">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/><line x1="12" y1="18" x2="16" y2="18"/></svg>学习计划
-      </button>
+
       <button class="nav-item" data-view="knowledge50">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17"/><path d="M9 7h7M9 11h6M9 15h4"/><path d="M15.5 16.5 18 19l3-4"/></svg>常识30天
       </button>
@@ -130,30 +117,19 @@
           <span class="greeting-date" id="greeting-date"></span>
         </div>
 
-        <section class="today-priority-section" id="today-priority" aria-labelledby="today-priority-title">
-          <div class="today-priority-head">
-            <div>
-              <p class="today-priority-kicker">今日先行</p>
-              <h3 id="today-priority-title">今天先做什么</h3>
-            </div>
-            <span class="today-priority-meta" id="today-priority-meta"></span>
-          </div>
-          <div id="today-priority-content"></div>
-        </section>
-
         <!-- Today Journey: focus timer and map are one flow -->
         <section class="journey-section" aria-labelledby="journey-title">
           <div class="journey-content">
             <div class="journey-layout">
               <div class="journey-narrative">
                 <div class="journey-head"><div><p class="journey-kicker">长安题途 · 学习助手</p><h3 id="journey-title">今日学习</h3></div><span id="journey-stage" class="journey-stage" aria-live="polite">晨读驿</span></div>
-                <p class="journey-hint" id="journey-hint">选择今日任务，启程前往下一站。</p>
+                <p class="journey-hint" id="journey-hint">开始一段专注，启程前往下一站。</p>
                 <div class="journey-map" role="img" aria-label="长安题途进度地图"><div class="journey-route"></div><div class="journey-stops" id="journey-stops"></div></div>
                 <div class="journey-summary" aria-label="行程累计数据"><span id="journey-total">已行 0 分钟</span><span id="journey-streak">连续 0 天</span><span id="journey-stamps">0 枚行程印记</span></div>
               </div>
               <div class="journey-focus-panel">
                 <p class="journey-panel-label">下一段专注</p>
-                <label class="journey-field" for="journey-task">关联学习任务<select id="journey-task" aria-label="关联学习任务"></select></label>
+
                 <div class="journey-duration" role="group" aria-label="专注时长"><button type="button" data-minutes="25">25 分</button><button type="button" data-minutes="45">45 分</button><button type="button" data-minutes="60">60 分</button><label>自定义<input id="journey-custom-minutes" type="number" min="5" max="180" value="25" inputmode="numeric">分</label></div>
                 <div class="journey-clock" id="journey-clock" role="timer" aria-live="off">25:00</div>
                 <div class="journey-controls"><button type="button" class="journey-primary" id="journey-start" data-loading>开始专注</button><button type="button" class="journey-secondary" id="journey-finish" disabled data-loading>结束并记录</button></div>
@@ -173,13 +149,8 @@
         </div>
 
         <div class="tool-cards">
-          
-          <div class="tool-card" data-view="plan">
-            <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/><line x1="12" y1="18" x2="16" y2="18"/></svg></div>
-            <div class="tool-card-title">学习计划</div>
-            <div class="tool-card-desc">拆解任务，专注计时，按天推进</div>
-            <div class="tool-card-hint">点击进入 →</div>
-          </div><div class="tool-card" data-view="exam">
+
+          <div class="tool-card" data-view="exam">
             <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
             <div class="tool-card-title">套卷分数计算</div>
             <div class="tool-card-desc">录入各科得分，快速算总分</div>
@@ -203,114 +174,10 @@
             <div class="tool-card-desc">百化分训练，错题再练</div>
             <div class="tool-card-hint">点击进入 →</div>
           </div>
-          <div class="tool-card" data-view="curve">
-            <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/><line x1="12" y1="18" x2="16" y2="18"/></svg></div>
-            <div class="tool-card-title">复习安排</div>
-            <div class="tool-card-desc">按记忆节点安排复习</div>
-            <div class="tool-card-hint">点击进入 →</div>
-          </div>
-          <div class="tool-card" data-view="wusi">
-            <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
-            <div class="tool-card-title">五四讲话背诵</div>
-            <div class="tool-card-desc">五天重点训练，挖空自测，音频跟读</div>
-            <div class="tool-card-hint">点击进入 →</div>
-          </div>
-          <div class="tool-card" data-view="review">
-            <div class="tool-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17"/><path d="M9 6h7M9 10h7M9 14h5"/></svg></div>
-            <div class="tool-card-title">政治常识复盘</div>
-            <div class="tool-card-desc">错题归档，逐题复习，间隔提醒</div>
-            <div class="tool-card-hint">点击进入 →</div>
-          </div>
+
         </div>
       </div>
-      
-      <div class="plan-view" id="plan-view" style="display:none;">
-        <div id="plan-app"></div>
-      </div>
-      <div class="recitation-view" id="recitation-view" style="display:none;"></div>
-      <section class="review-view" id="review-view" style="display:none;" aria-labelledby="reviewPageTitle">
-        <a class="review-skip-link" href="#questionPane">跳到当前题目</a>
-        <div class="review-toolbar-actions" aria-label="复盘资料操作">
-          <span class="review-backup-status" id="backupStatus" role="status">尚未备份</span>
-          <button class="review-btn review-compact" id="importBtn" title="导入 JSON 资料库" aria-label="导入 JSON 资料库">导入</button>
-          <button class="review-btn review-compact" id="exportBtn" title="导出 JSON 备份" aria-label="导出 JSON 备份">备份</button>
-          <button class="review-btn review-ghost review-compact" id="resetBtn" title="恢复原始资料并清除本机进度" aria-label="恢复原始资料并清除本机进度">恢复原始资料</button>
-        </div>
-        <section class="review-overview" aria-labelledby="reviewPageTitle">
-          <div class="review-overview-head">
-            <div>
-              <button class="review-btn review-mobile-menu" id="menuBtn" type="button" aria-label="打开题目导航">☰ <span>题目导航</span></button>
-              <p class="review-eyebrow">TODAY'S REVIEW</p>
-              <h1 id="reviewPageTitle">把旧知识，留在今天。</h1>
-              <p id="libraryMeta">正在读取本地资料库…</p>
-            </div>
-            <div class="review-progress"><span id="progressText">资料库已复习 0%</span><div class="review-progress-track"><div class="review-progress-fill" id="progressFill"></div></div></div>
-          </div>
-          <div class="review-stats" aria-label="复习概况">
-            <button class="review-stat" data-stat="due"><span>今日到期</span><strong id="dueCount">0</strong>题</button>
-            <button class="review-stat" data-stat="new"><span>待开始新题</span><strong id="newCount">0</strong>题</button>
-            <button class="review-stat" data-stat="pending"><span>等待核验</span><strong id="pendingCount">0</strong>题</button>
-            <button class="review-stat" data-stat="weak"><span>模糊 / 不会</span><strong id="weakCount">0</strong>题</button>
-            <button class="review-stat" data-stat="done"><span>已经复习</span><strong id="doneCount">0</strong>题</button>
-          </div>
-          <section class="review-insights" aria-labelledby="insightsTitle">
-            <div class="review-insights-head"><h2 id="insightsTitle">答题表现</h2><span id="insightsMeta">完成作答后会在这里形成统计</span></div>
-            <div class="review-insights-grid"><div id="subjectStats"></div><div id="tagStats"></div></div>
-          </section>
-        </section>
 
-        <div class="review-workspace">
-          <aside class="review-sidebar" id="reviewSidebar" aria-label="题目导航">
-            <div class="review-filter-box">
-              <div class="review-search"><span class="review-icon" aria-hidden="true">⌕</span><label class="sr-only" for="searchInput">搜索题干或知识点</label><input id="searchInput" name="review-search" type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-1p-ignore="true" data-lpignore="true" placeholder="搜索题干、标签、知识点"></div>
-              <div class="review-filter-grid">
-                <select id="seasonFilter" aria-label="按季度筛选"></select>
-                <select id="subjectFilter" aria-label="按科目筛选"><option value="all">全部科目</option><option>政治理论</option><option>常识</option><option>公基</option></select>
-                <select id="masteryFilter" aria-label="按掌握度筛选"><option value="all">全部掌握度</option><option value="new">未复习</option><option value="again">不会</option><option value="fuzzy">模糊</option><option value="know">会</option></select>
-                <select id="statusFilter" aria-label="按匹配状态筛选"><option value="all">全部匹配状态</option><option value="verified">已确认</option><option value="pending">待核验</option><option value="unmatched">未匹配</option><option value="due">今日到期</option></select>
-              </div>
-            </div>
-            <div class="review-list-head"><span id="resultCount">0 道题</span><button class="review-btn review-ghost review-clear-filter" id="clearFilterBtn">清除筛选</button></div>
-            <ol class="review-question-list" id="questionList"></ol>
-          </aside>
-          <div class="review-backdrop" id="backdrop"></div>
-          <main class="review-main" id="mainContent">
-            <div class="review-question-toolbar">
-              <div class="review-crumbs"><span id="crumbText">未选择题目</span></div>
-              <div class="review-pager"><button class="review-mini-btn" id="prevBtn" aria-label="上一题">‹</button><button class="review-mini-btn" id="nextBtn" aria-label="下一题">›</button></div>
-            </div>
-            <div class="review-study-grid" id="studyGrid">
-              <section class="review-question-pane" id="questionPane" tabindex="-1"></section>
-              <section class="review-review-pane" id="reviewPane" aria-live="polite"></section>
-            </div>
-          </main>
-        </div>
-
-        <dialog id="editDialog" aria-labelledby="editTitle">
-          <form id="editForm" method="dialog">
-            <div class="review-dialog-head"><h2 id="editTitle">编辑题目复盘</h2><button class="review-mini-btn" value="cancel" aria-label="关闭">×</button></div>
-            <div class="review-dialog-body"><div class="review-form-grid">
-              <div class="review-field"><label for="editAnswer">答案</label><input id="editAnswer" maxlength="8"></div>
-              <div class="review-field"><label for="editAnswerStatus">答案状态</label><select id="editAnswerStatus"><option value="verified">已确认</option><option value="inferred">由知识点推断</option><option value="pending">待核验</option></select></div>
-              <div class="review-field full"><label for="editSummary">核心考点</label><textarea id="editSummary"></textarea></div>
-              <div class="review-field full"><label for="editAnalysis">详细复盘</label><textarea id="editAnalysis"></textarea></div>
-              <div class="review-field full"><label for="editTags">标签（用逗号分隔）</label><input id="editTags"></div>
-              <div class="review-field full"><label for="editNote">个人笔记</label><textarea id="editNote"></textarea></div>
-            </div></div>
-            <div class="review-dialog-actions"><button class="review-btn" value="cancel">取消</button><button class="review-btn review-primary" id="saveEditBtn" value="default">保存修改</button></div>
-          </form>
-        </dialog>
-
-        <dialog id="importDialog" aria-labelledby="importTitle">
-          <div class="review-dialog-head"><h2 id="importTitle">导入前预览</h2><button class="review-mini-btn" id="cancelImportBtn" aria-label="取消导入">×</button></div>
-          <div class="review-dialog-body"><p id="importSummary" class="review-import-summary"></p><div id="importConflictBox" class="review-conflict-box" hidden><h3>需要注意的内容冲突</h3><ul id="importConflicts"></ul></div><p class="review-hint">确认后会保留现有掌握度、复习历史和个人笔记；新资料会覆盖同 ID 的题干、答案与复盘内容。合并后可撤销。</p></div>
-          <div class="review-dialog-actions"><button class="review-btn" id="cancelImportBtnBottom">取消</button><button class="review-btn review-primary" id="confirmImportBtn">确认合并</button></div>
-        </dialog>
-
-        <div class="review-undo-bar" id="undoBar" role="status" aria-live="polite" hidden><span id="undoText">导入已完成</span><button class="review-btn" id="undoImportBtn">撤销</button></div>
-        <div class="review-toast" id="toast" role="status" aria-live="polite"></div>
-        <input class="sr-only" id="fileInput" type="file" accept="application/json,.json">
-      </section>
       <div class="tool-container" id="tool-container">
         <div class="tool-frame-toolbar" id="tool-frame-toolbar" hidden></div>
         <iframe class="tool-frame" id="tool-frame" sandbox="allow-scripts allow-same-origin allow-forms allow-modals" loading="lazy"></iframe>
@@ -446,68 +313,7 @@
 
 <!-- Toast -->
 
-<!-- Plan Task Edit Modal -->
-<div class="plan-modal-overlay" id="plan-task-modal">
-  <div class="plan-modal" onclick="event.stopPropagation()">
-    <div class="plan-modal-header">
-      <h3>编辑任务</h3>
-      <button class="plan-modal-close" onclick="closePlanTaskModal()">&times;</button>
-    </div>
-    <div class="plan-modal-body">
-      <div class="plan-modal-field">
-        <label>任务内容</label>
-        <input type="text" id="plan-task-title-input" placeholder="要做什么？">
-      </div>
-      <div class="plan-modal-grid">
-        <div class="plan-modal-field">
-          <label>日期</label>
-          <input type="date" id="plan-task-date-input">
-        </div>
-        <div class="plan-modal-field">
-          <label>时段</label>
-          <div id="plan-task-period-input"></div>
-        </div>
-        <div class="plan-modal-field">
-          <label>开始时间</label>
-          <input type="time" id="plan-task-start-input">
-        </div>
-        <div class="plan-modal-field">
-          <label>结束时间</label>
-          <input type="time" id="plan-task-end-input">
-        </div>
-        <div class="plan-modal-field">
-          <label>科目</label>
-          <select id="plan-task-subject-input"></select>
-        </div>
-        <div class="plan-modal-field">
-          <label>预计时长（分钟）</label>
-          <input type="number" id="plan-task-minutes-input" min="0" step="5" placeholder="60">
-        </div>
-      </div>
-    </div>
-    <div class="plan-modal-footer">
-      <button class="plan-modal-btn-secondary" onclick="closePlanTaskModal()">取消</button>
-      <button class="plan-modal-btn-primary" onclick="savePlanTaskModal()">保存</button>
-    </div>
-  </div>
-</div>
-
 <!-- Confirm Delete Modal -->
-<div class="plan-modal-overlay" id="plan-confirm-modal">
-  <div class="plan-modal" onclick="event.stopPropagation()">
-    <div class="plan-modal-header">
-      <h3>确认删除</h3>
-      <button class="plan-modal-close" onclick="closePlanConfirmModal()">&times;</button>
-    </div>
-    <div class="plan-modal-body">
-      <p class="plan-confirm-text" id="plan-confirm-text">确定要删除吗？此操作不可撤销。</p>
-    </div>
-    <div class="plan-modal-footer">
-      <button class="plan-modal-btn-secondary" onclick="closePlanConfirmModal()">取消</button>
-      <button class="plan-modal-btn-danger" id="plan-confirm-btn" onclick="">删除</button>
-    </div>
-  </div>
-</div>
 
 <div class="sync-toast" id="sync-toast"></div>
 
@@ -526,13 +332,11 @@
     <div class="tool-names-dialog-body">
       <div class="tool-names-grid">
         <label class="tool-name-field" for="tool-name-dashboard"><span>首页</span><input id="tool-name-dashboard" data-tool-name="dashboard" maxlength="18"></label>
-        <label class="tool-name-field" for="tool-name-plan"><span>学习计划</span><input id="tool-name-plan" data-tool-name="plan" maxlength="18"></label>
+
         <label class="tool-name-field" for="tool-name-exam"><span>模考记分</span><input id="tool-name-exam" data-tool-name="exam" maxlength="18"></label>
         <label class="tool-name-field" for="tool-name-essay"><span>申论写作</span><input id="tool-name-essay" data-tool-name="essay" maxlength="18"></label>
         <label class="tool-name-field" for="tool-name-speed"><span>速算练习</span><input id="tool-name-speed" data-tool-name="speed" maxlength="18"></label>
-        <label class="tool-name-field" for="tool-name-curve"><span>复习安排</span><input id="tool-name-curve" data-tool-name="curve" maxlength="18"></label>
-        <label class="tool-name-field" for="tool-name-wusi"><span>五四讲话背诵</span><input id="tool-name-wusi" data-tool-name="wusi" maxlength="18"></label>
-        <label class="tool-name-field" for="tool-name-review"><span>政治常识复盘</span><input id="tool-name-review" data-tool-name="review" maxlength="18"></label>
+
         <label class="tool-name-field" for="tool-name-knowledge50"><span>常识30天</span><input id="tool-name-knowledge50" data-tool-name="knowledge50" maxlength="18"></label>
       </div>
     </div>
@@ -546,18 +350,15 @@
 </dialog>
 
 <!-- Focus completion -->
-<div class="plan-modal-overlay" id="journey-complete-modal" role="dialog" aria-modal="true" aria-labelledby="journey-complete-title">
-  <div class="plan-modal" onclick="event.stopPropagation()"><div class="plan-modal-header"><h3 id="journey-complete-title">记录这段行程</h3><button class="plan-modal-close" onclick="Journey.closeCompletion()" aria-label="关闭">&times;</button></div>
-    <div class="plan-modal-body"><p id="journey-complete-summary"></p><div class="plan-modal-field"><label>复盘（可选）</label><textarea id="journey-reflection" maxlength="300" rows="3" placeholder="这段专注有什么收获？"></textarea></div><label class="journey-done-check"><input id="journey-mark-done" type="checkbox"> 同时标记关联任务完成</label><label class="journey-done-check" id="journey-move-today-wrap" hidden><input id="journey-move-today" type="checkbox"> 将逾期任务纳入今天</label></div>
-    <div class="plan-modal-footer"><button class="plan-modal-btn-secondary" onclick="Journey.closeCompletion()">取消</button><button class="plan-modal-btn-primary" onclick="Journey.confirmCompletion()">保存行程</button></div>
+<div class="focus-modal-overlay" id="journey-complete-modal" role="dialog" aria-modal="true" aria-labelledby="journey-complete-title">
+  <div class="focus-modal" onclick="event.stopPropagation()"><div class="focus-modal-header"><h3 id="journey-complete-title">记录这段行程</h3><button class="focus-modal-close" onclick="Journey.closeCompletion()" aria-label="关闭">&times;</button></div>
+    <div class="focus-modal-body"><p id="journey-complete-summary"></p><div class="focus-modal-field"><label>复盘（可选）</label><textarea id="journey-reflection" maxlength="300" rows="3" placeholder="这段专注有什么收获？"></textarea></div></div>
+    <div class="focus-modal-footer"><button class="focus-modal-btn-secondary" onclick="Journey.closeCompletion()">取消</button><button class="focus-modal-btn-primary" onclick="Journey.confirmCompletion()">保存行程</button></div>
   </div>
 </div>
 
-<script src="assets/js/sync.js?v=20260922-storage-fix"></script>
-<script src="assets/js/portal.js?v=20261115-30-day-plan"></script>
-<script src="assets/js/journey.js?v=20260831-task-ref"></script>
-<script src="assets/js/recitation.js?v=20260922-wusi-five-day"></script>
-<script src="reviews/review-data.js?v=20260819-season28-text-v2"></script>
-<script src="assets/js/review-app.js?v=20260831-ui-final1"></script>
+<script src="assets/js/sync.js?v=20261115-remove-modules"></script>
+<script src="assets/js/portal.js?v=20261115-remove-modules"></script>
+<script src="assets/js/journey.js?v=20261115-remove-modules"></script>
 </body>
 </html>
