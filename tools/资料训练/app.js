@@ -10,13 +10,15 @@
   const makeId = () => `q_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
   const numericValue = (value) => {
     const normalized = String(value ?? '').trim().replace(/[%，,\s]/g, '');
-    const result = Number.parseFloat(normalized);
+    const expression = normalized.replace(/[%％]$/, '');
+    if (!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?(?:[×xX*][+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?)*$/.test(expression)) return null;
+    const result = expression.split(/[×xX*]/).reduce((product, factor) => product * Number(factor), 1);
     return Number.isFinite(result) ? result : null;
   };
   const answerKey = (value) => {
     const raw = String(value ?? '').trim().replace(/\s+/g, ' ');
     const numeric = numericValue(raw);
-    return numeric === null ? `text:${raw.toLowerCase()}` : `number:${numeric}`;
+    return numeric === null ? `text:${raw.toLowerCase()}` : `number:${numeric}${/[%％]$/.test(raw) ? '%' : ''}`;
   };
   const shuffle = (items) => {
     const result = items.slice();
@@ -51,11 +53,11 @@
   }
 
   function normalizeQuestion(question) {
-    if (!question || question.prompt == null || question.answer == null) return null;
+    if (!question || question.prompt == null || question.answer == null || !String(question.prompt).trim() || !String(question.answer).trim()) return null;
     const type = MODES[question.type] ? question.type : 'std';
     let group = question.group == null ? '' : String(question.group);
     if (!group && type === 'std') {
-      const match = String(question.prompt).match(/^\s*(\d+)/);
+      const match = String(question.prompt).match(/^\s*(1[2-9])\s*[×xX*]/);
       group = match ? match[1] : '';
     }
     return {
@@ -71,6 +73,10 @@
   let current = null;
   let locked = false;
   let timerId = null;
+  let transitionId = null;
+  let pendingNext = false;
+  let remainingMs = 0;
+  let deadline = 0;
   let seconds = 2;
   let selectedNumbers = [12, 13, 14, 15, 16, 17, 18, 19];
   let hadLocalSnapshot = false;
@@ -198,15 +204,19 @@
         add(`${Number((correct * factor).toFixed(1))}${suffix}`);
       });
     }
+    for (let fallback = 1; values.length < 4 && fallback <= 12 && correct !== null; fallback += 1) {
+      const candidate = correct + Math.max(1, Math.abs(correct) * .1) * fallback;
+      if (Number.isFinite(candidate)) add(`${Number(candidate.toFixed(1))}${/[%％]$/.test(question.answer) ? '%' : ''}`);
+    }
     let fallback = 1;
-    while (values.length < 4) add(`${question.answer}（选项${fallback++}）`);
+    while (values.length < 4) add(`备用答案 ${fallback++}`);
     return shuffle(values.slice(0, 4));
   }
 
   function start() {
     const pool = available();
     if (!pool.length) { toast('当前模式没有可用题目，请先添加或恢复题库'); return; }
-    const count = Math.max(1, Math.min(120, Number($('#question-count').value) || 20));
+    const count = Math.max(1, Math.min(120, Math.floor(Number($('#question-count').value)) || 20));
     seconds = Math.max(.5, Math.min(60, Number($('#limit-input').value) || 2));
     deck = shuffle(pool).slice(0, Math.min(count, pool.length));
     $('#setup-view').hidden = true;
@@ -218,6 +228,9 @@
   function renderQuestion() {
     if (!deck.length) {
       clearInterval(timerId);
+      locked = true;
+      current = null;
+      $('#play-view').classList.remove('is-running');
       $('#play-view').innerHTML = '<div class="speed-config" style="text-align:center"><p class="panel-eyebrow">本轮完成</p><h1>训练已完成</h1><p class="setup-hint">本轮题目已全部完成，可以继续下一轮。</p><button class="btn-start" id="again" type="button">再来一轮</button></div>';
       $('#again').onclick = () => location.reload();
       return;
@@ -239,24 +252,42 @@
     });
     $('#feedback').textContent = '';
     $('#feedback').className = 'feedback';
+    $('#play-view').classList.add('is-running');
+    ['#q-text', '#choice-grid'].forEach((selector) => {
+      const element = $(selector);
+      element.classList.remove('question-in');
+      void element.offsetWidth;
+      element.classList.add('question-in');
+    });
     startTimer();
   }
 
   function next() { renderQuestion(); }
 
-  function startTimer() {
+  function startTimer(duration = seconds * 1000) {
     clearInterval(timerId);
     const bar = $('#timer-bar');
-    const deadline = performance.now() + seconds * 1000;
-    bar.style.width = '100%';
-    bar.classList.remove('danger');
+    remainingMs = duration;
+    deadline = performance.now() + duration;
+    bar.style.width = `${duration / (seconds * 1000) * 100}%`;
+    bar.classList.toggle('danger', duration < seconds * 200);
     timerId = setInterval(() => {
       const left = deadline - performance.now();
+      remainingMs = Math.max(0, left);
       const percentage = Math.max(0, left / (seconds * 1000) * 100);
       bar.style.width = `${percentage}%`;
       if (percentage < 20) bar.classList.add('danger');
       if (left <= 0) { clearInterval(timerId); if (!locked) wrong(null, '时间到'); }
     }, 40);
+  }
+
+  function scheduleNext(delay) {
+    clearTimeout(transitionId);
+    transitionId = setTimeout(() => {
+      if ($('#bank-modal').classList.contains('open')) { pendingNext = true; return; }
+      $('#play-view').classList.remove('shake');
+      next();
+    }, delay);
   }
 
   function check(value, button) {
@@ -273,7 +304,7 @@
       $('#feedback').textContent = '答对了';
       $('#feedback').className = 'feedback ok';
       deck.shift();
-      setTimeout(next, 520);
+      scheduleNext(520);
     } else wrong(button, `答案是 ${current.answer}`);
   }
 
@@ -286,12 +317,23 @@
     $('#feedback').className = 'feedback bad';
     $('#play-view').classList.add('shake');
     deck.push(deck.shift());
-    setTimeout(() => { $('#play-view').classList.remove('shake'); next(); }, 1000);
+    scheduleNext(1000);
   }
 
-  function reset() { clearInterval(timerId); location.reload(); }
-  function openBank() { renderBank(); $('#bank-modal').classList.add('open'); $('#close-bank').focus(); }
-  function closeBank() { $('#bank-modal').classList.remove('open'); }
+  function reset() { clearInterval(timerId); clearTimeout(transitionId); location.reload(); }
+  function openBank() {
+    if (!$('#play-view').hidden && current && !locked) {
+      remainingMs = Math.max(0, deadline - performance.now());
+      clearInterval(timerId);
+    }
+    renderBank(); $('#bank-modal').classList.add('open'); $('#close-bank').focus();
+  }
+  function closeBank() {
+    $('#bank-modal').classList.remove('open');
+    if (pendingNext) { pendingNext = false; $('#play-view').classList.remove('shake'); next(); }
+    else if (!$('#play-view').hidden && current && !locked) startTimer(remainingMs);
+    $('#open-bank').focus();
+  }
 
   function renderBank() {
     const filter = $('#bank-filter').value;
@@ -308,7 +350,7 @@
       const [type, prompt, answer, distractors] = row.querySelectorAll('select,input');
       type.value = item.type;
       row.querySelector('[data-save]').onclick = () => {
-        const next = normalizeQuestion({ ...item, type: type.value, prompt: prompt.value, answer: answer.value, distractors: distractors.value.split('|') });
+        const next = normalizeQuestion({ ...item, group: '', type: type.value, prompt: prompt.value, answer: answer.value, distractors: distractors.value.split('|') });
         if (!next) { toast('题干和正确答案不能为空'); return; }
         Object.assign(item, next); persist(); renderBank(); renderSetup(); toast('题目已保存');
       };
@@ -336,8 +378,8 @@
 
   function importBank(file) {
     file.text().then((text) => {
-      const incoming = JSON.parse(text);
-      const rows = Array.isArray(incoming) ? incoming : incoming.questions;
+      const incoming = JSON.parse(text.replace(/^\uFEFF/, ''));
+      const rows = Array.isArray(incoming) ? incoming : incoming?.questions;
       if (!Array.isArray(rows)) throw new Error('格式不正确');
       const normalized = rows.map(normalizeQuestion).filter(Boolean);
       if (!normalized.length) throw new Error('没有可导入的题目');
@@ -352,6 +394,7 @@
       $('#num-selector').hidden = mode !== 'std'; renderSetup();
     });
     $('#start-btn').onclick = start;
+    $('#question-count').oninput = renderSetup;
     $('#quit-btn').onclick = reset;
     $('#open-bank').onclick = openBank;
     $('#close-bank').onclick = closeBank;
@@ -364,8 +407,9 @@
     $('#bank-search').oninput = renderBank;
     $('#restore-bank').onclick = () => { if (confirm('恢复内置题库会覆盖当前题库，确定吗？')) { bank = defaultQuestions(); persist(); renderBank(); renderSetup(); toast('已恢复内置题库'); } };
     document.addEventListener('keydown', (event) => {
-      if ($('#bank-modal').classList.contains('open') && event.key === 'Escape') closeBank();
-      if (!$('#play-view').hidden && !locked) { const index = KEYS.indexOf(event.key.toUpperCase()); if (index >= 0) document.querySelectorAll('.choice')[index]?.click(); }
+      if ($('#bank-modal').classList.contains('open')) { if (event.key === 'Escape') closeBank(); return; }
+      if (event.repeat || event.ctrlKey || event.altKey || event.metaKey || event.target.closest('input,select,textarea,[contenteditable="true"]')) return;
+      if (!$('#play-view').hidden && current && !locked) { const index = KEYS.indexOf(event.key.toUpperCase()); if (index >= 0) { event.preventDefault(); document.querySelectorAll('.choice')[index]?.click(); } }
     });
   }
 
